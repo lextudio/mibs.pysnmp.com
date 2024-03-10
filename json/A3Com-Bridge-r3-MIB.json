@@ -5,25 +5,25 @@
       "MacAddress"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "iso",
-      "Integer32",
+      "Counter64",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "TimeTicks",
-      "OBJECT-TYPE",
+      "Integer32",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "Unsigned32",
+      "MibIdentifier",
       "Counter32",
-      "Counter64",
-      "OBJECT-IDENTITY",
       "enterprises",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "MibIdentifier"
+      "iso",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -356,12 +356,12 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "A3Com-Bridge-r3-MIB",
+        "module": "A3COM-BRIDGE-R3-MIB",
         "object": "a3ComBrgStExtAdd",
         "implied": 0
       },
       {
-        "module": "A3Com-Bridge-r3-MIB",
+        "module": "A3COM-BRIDGE-R3-MIB",
         "object": "a3ComBrgStExtRcvPort",
         "implied": 0
       }
@@ -429,7 +429,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "A3Com-Bridge-r3-MIB",
+        "module": "A3COM-BRIDGE-R3-MIB",
         "object": "a3ComBrgFdbExtAdd",
         "implied": 0
       }
@@ -482,7 +482,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "A3Com-Bridge-r3-MIB",
+        "module": "A3COM-BRIDGE-R3-MIB",
         "object": "a3ComBrgPortIndex",
         "implied": 0
       }
@@ -774,12 +774,12 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "A3Com-Bridge-r3-MIB",
+        "module": "A3COM-BRIDGE-R3-MIB",
         "object": "a3ComBrgX25NbrPort",
         "implied": 0
       },
       {
-        "module": "A3Com-Bridge-r3-MIB",
+        "module": "A3COM-BRIDGE-R3-MIB",
         "object": "a3ComBrgX25NbrDTE",
         "implied": 0
       }
@@ -935,7 +935,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "A3Com-Bridge-r3-MIB",
+        "module": "A3COM-BRIDGE-R3-MIB",
         "object": "a3ComBrgSrPort",
         "implied": 0
       }
@@ -1055,17 +1055,17 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "A3Com-Bridge-r3-MIB",
+        "module": "A3COM-BRIDGE-R3-MIB",
         "object": "a3ComBrgSrWAportIndex",
         "implied": 0
       },
       {
-        "module": "A3Com-Bridge-r3-MIB",
+        "module": "A3COM-BRIDGE-R3-MIB",
         "object": "a3ComBrgSrWAringNum",
         "implied": 0
       },
       {
-        "module": "A3Com-Bridge-r3-MIB",
+        "module": "A3COM-BRIDGE-R3-MIB",
         "object": "a3ComBrgSrWAbrgNum",
         "implied": 0
       }
@@ -1163,7 +1163,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "A3Com-Bridge-r3-MIB",
+        "module": "A3COM-BRIDGE-R3-MIB",
         "object": "a3ComBrgSrGwContPort",
         "implied": 0
       }
@@ -1279,7 +1279,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "A3Com-Bridge-r3-MIB",
+        "module": "A3COM-BRIDGE-R3-MIB",
         "object": "a3ComBrgSrRDPort",
         "implied": 0
       }
@@ -1536,11 +1536,11 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///Users/neermitt/kusanagi/mibs.snmplabs.com/asn1/A3COM-BRIDGE-R3-MIB",
-      "Produced by pysmi-0.3.4 at Fri May 24 14:46:18 2019",
-      "On host NEERMITT-M-J0NV platform Darwin version 18.6.0 by user neermitt",
-      "Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) "
+      "ASN.1 source file:///home/tin/Dev/mibs.snmplabs.com/asn1/A3COM-BRIDGE-R3-MIB",
+      "Produced by pysmi-0.3.4 at Fri Jan 31 21:32:11 2020",
+      "On host bier platform Linux version 5.4.0-3-amd64 by user tin",
+      "Using Python version 3.7.6 (default, Jan 19 2020, 22:34:52) "
     ],
-    "module": "A3Com-Bridge-r3-MIB"
+    "module": "A3COM-BRIDGE-R3-MIB"
   }
 }

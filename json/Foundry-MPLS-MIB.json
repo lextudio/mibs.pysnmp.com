@@ -19,27 +19,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "IpAddress",
-      "Counter64",
-      "Bits",
-      "Gauge32",
-      "MODULE-IDENTITY",
       "Counter32",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Unsigned32",
-      "iso",
+      "Bits",
       "NOTIFICATION-TYPE",
+      "iso",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Counter64",
       "Integer32",
-      "OBJECT-TYPE"
+      "Unsigned32",
+      "TimeTicks",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TimeStamp",
-      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "RowStatus",
+      "DisplayString",
+      "TimeStamp"
     ]
   },
   "mpls": {
@@ -47,6 +47,10 @@
     "oid": "1.3.6.1.4.1.1991.1.2.15.1",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2013-05-29 00:00",
+        "description": "Changed mplsLspName and mplsLspPathName size to 64 from 32 and 16 respectively."
+      },
       {
         "revision": "2010-06-02 00:00",
         "description": "Changed the ORGANIZATION, CONTACT-INFO and DESCRIPTION fields."
@@ -116,7 +120,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "Foundry-MPLS-MIB",
+        "module": "FOUNDRY-MPLS-MIB",
         "object": "brcdMplsAdminGroupId",
         "implied": 0
       }
@@ -196,7 +200,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "Foundry-MPLS-MIB",
+        "module": "FOUNDRY-MPLS-MIB",
         "object": "brcdMplsInterfaceIndex",
         "implied": 0
       }
@@ -286,12 +290,12 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "Foundry-MPLS-MIB",
+        "module": "FOUNDRY-MPLS-MIB",
         "object": "mplsLspSignalingProto",
         "implied": 0
       },
       {
-        "module": "Foundry-MPLS-MIB",
+        "module": "FOUNDRY-MPLS-MIB",
         "object": "mplsLspIndex",
         "implied": 0
       }
@@ -343,7 +347,7 @@
         "size": [
           {
             "min": 0,
-            "max": 32
+            "max": 64
           }
         ]
       }
@@ -488,7 +492,7 @@
         "size": [
           {
             "min": 0,
-            "max": 16
+            "max": 64
           }
         ]
       }
@@ -954,11 +958,11 @@
     "class": "notificationtype",
     "objects": [
       {
-        "module": "Foundry-MPLS-MIB",
+        "module": "FOUNDRY-MPLS-MIB",
         "object": "mplsLspName"
       },
       {
-        "module": "Foundry-MPLS-MIB",
+        "module": "FOUNDRY-MPLS-MIB",
         "object": "mplsLspPathName"
       }
     ],
@@ -971,11 +975,11 @@
     "class": "notificationtype",
     "objects": [
       {
-        "module": "Foundry-MPLS-MIB",
+        "module": "FOUNDRY-MPLS-MIB",
         "object": "mplsLspName"
       },
       {
-        "module": "Foundry-MPLS-MIB",
+        "module": "FOUNDRY-MPLS-MIB",
         "object": "mplsLspPathName"
       }
     ],
@@ -988,11 +992,11 @@
     "class": "notificationtype",
     "objects": [
       {
-        "module": "Foundry-MPLS-MIB",
+        "module": "FOUNDRY-MPLS-MIB",
         "object": "mplsLspName"
       },
       {
-        "module": "Foundry-MPLS-MIB",
+        "module": "FOUNDRY-MPLS-MIB",
         "object": "mplsLspPathName"
       }
     ],
@@ -1001,11 +1005,11 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///Users/neermitt/kusanagi/mibs.snmplabs.com/asn1/FOUNDRY-MPLS-MIB",
-      "Produced by pysmi-0.3.4 at Fri May 24 18:47:43 2019",
-      "On host NEERMITT-M-J0NV platform Darwin version 18.6.0 by user neermitt",
-      "Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) "
+      "ASN.1 source file:///home/tin/Dev/mibs.snmplabs.com/asn1/FOUNDRY-MPLS-MIB",
+      "Produced by pysmi-0.3.4 at Fri Jan 31 21:33:35 2020",
+      "On host bier platform Linux version 5.4.0-3-amd64 by user tin",
+      "Using Python version 3.7.6 (default, Jan 19 2020, 22:34:52) "
     ],
-    "module": "Foundry-MPLS-MIB"
+    "module": "FOUNDRY-MPLS-MIB"
   }
 }

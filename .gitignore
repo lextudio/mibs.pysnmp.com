@@ -1,0 +1,8 @@
+
+# sphinx output
+docs/_build/
+
+# generated MIB pages
+docs/mibs/
+pysnmp/__pycache__/
+pysnmp-with-texts/__pycache__/

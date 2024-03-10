@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "iso",
+      "Integer32",
+      "enterprises",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "Counter64",
+      "Gauge32",
       "OBJECT-IDENTITY",
+      "Unsigned32",
       "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "Counter32",
-      "Gauge32",
-      "TimeTicks",
+      "MibIdentifier",
       "mib-2",
-      "IpAddress",
-      "iso",
-      "Bits",
-      "Unsigned32",
-      "Counter64",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "enterprises",
-      "MibIdentifier"
+      "Counter32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "PhysAddress",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -165,6 +165,21 @@
     "oid": "1.3.6.1.4.1.171.10.75.3.24",
     "class": "objectidentity"
   },
+  "companyQoSGroup": {
+    "name": "companyQoSGroup",
+    "oid": "1.3.6.1.4.1.171.10.75.3.26",
+    "class": "objectidentity"
+  },
+  "companyTrafficMgmt": {
+    "name": "companyTrafficMgmt",
+    "oid": "1.3.6.1.4.1.171.10.75.3.27",
+    "class": "objectidentity"
+  },
+  "companySecurity": {
+    "name": "companySecurity",
+    "oid": "1.3.6.1.4.1.171.10.75.3.28",
+    "class": "objectidentity"
+  },
   "commSetTable": {
     "name": "commSetTable",
     "oid": "1.3.6.1.4.1.171.10.75.3.1.1",
@@ -182,7 +197,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "DES-1228p-MIB",
+        "module": "DES-1228P-MIB",
         "object": "commSetIndex",
         "implied": 0
       }
@@ -262,7 +277,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "DES-1228p-MIB",
+        "module": "DES-1228P-MIB",
         "object": "commGetIndex",
         "implied": 0
       }
@@ -342,7 +357,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "DES-1228p-MIB",
+        "module": "DES-1228P-MIB",
         "object": "commTrapIndex",
         "implied": 0
       }
@@ -777,7 +792,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "DES-1228p-MIB",
+        "module": "DES-1228P-MIB",
         "object": "configPort",
         "implied": 0
       }
@@ -845,27 +860,6 @@
     "status": "mandatory",
     "description": "The port's operating speed state."
   },
-  "configPortPriority": {
-    "name": "configPortPriority",
-    "oid": "1.3.6.1.4.1.171.10.75.3.11.6.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "low": 1,
-          "middle": 2,
-          "high": 3,
-          "highest": 4
-        }
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "mandatory",
-    "description": "For ingress untagged packets, the per port 'Default Priority' setting will be applied to packets of each port to provide port-based traffic prioritization. For ingress tagged packets, D-Link Smart Switches will refer to their 802.1p information and prioritize them with 4 different priority queues."
-  },
   "configVLANMode": {
     "name": "configVLANMode",
     "oid": "1.3.6.1.4.1.171.10.75.3.11.7",
@@ -901,7 +895,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "DES-1228p-MIB",
+        "module": "DES-1228P-MIB",
         "object": "configMirrorId",
         "implied": 0
       }
@@ -1185,6 +1179,25 @@
     "status": "mandatory",
     "description": "The tftp operation to perform either downloading the configuration file to the unit or uploading the current configuration file to the tftp server. This object is used in conjunction with configTftpServerIpAddress and configTftpServerFileName."
   },
+  "configSafeguardEnable": {
+    "name": "configSafeguardEnable",
+    "oid": "1.3.6.1.4.1.171.10.75.3.11.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory",
+    "description": "Enable/Disable Safeguard Engine. D-Link Safeguard Engine is a robust and innovative technology developed by D-Link, which will automatically throttle the impact of packet flooding into the switch's CPU. It will keep D-Link Switches better protected from being too frequently interrupted by malicious viruses or worm attacks."
+  },
   "tvlanTable": {
     "name": "tvlanTable",
     "oid": "1.3.6.1.4.1.171.10.75.3.13.1",
@@ -1202,7 +1215,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "DES-1228p-MIB",
+        "module": "DES-1228P-MIB",
         "object": "tvlanId",
         "implied": 0
       }
@@ -1332,7 +1345,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "DES-1228p-MIB",
+        "module": "DES-1228P-MIB",
         "object": "tvlanPortPortId",
         "implied": 0
       }
@@ -1402,12 +1415,12 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "DES-1228p-MIB",
+        "module": "DES-1228P-MIB",
         "object": "portTrunkId",
         "implied": 0
       },
       {
-        "module": "DES-1228p-MIB",
+        "module": "DES-1228P-MIB",
         "object": "portTrunkMember",
         "implied": 0
       }
@@ -1471,12 +1484,12 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "DES-1228p-MIB",
+        "module": "DES-1228P-MIB",
         "object": "poeportgroup",
         "implied": 0
       },
       {
-        "module": "DES-1228p-MIB",
+        "module": "DES-1228P-MIB",
         "object": "poeportid",
         "implied": 0
       }
@@ -1580,7 +1593,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "DES-1228p-MIB",
+        "module": "DES-1228P-MIB",
         "object": "staticId",
         "implied": 0
       }
@@ -2041,6 +2054,25 @@
     "status": "mandatory",
     "description": "The Last Member Query Interval is the Max Response Time inserted into Group-Specific Queries sent in response to Leave Group messages, and is also the amount of time between Group-Specific Query messages. This value may be tuned to modify the leave latency of the network. A reduced value results in reduced time to detect the loss of the last member of a group. The value of this object is irrelevant if igmpInterfaceVersion is 1."
   },
+  "igsQuerierStateOnOff": {
+    "name": "igsQuerierStateOnOff",
+    "oid": "1.3.6.1.4.1.171.10.75.3.22.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory",
+    "description": "To enable transmitting IGMP Query packets or to disable."
+  },
   "igsVlanMcastFwdTable": {
     "name": "igsVlanMcastFwdTable",
     "oid": "1.3.6.1.4.1.171.10.75.3.22.3.1",
@@ -2058,12 +2090,12 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "DES-1228p-MIB",
+        "module": "DES-1228P-MIB",
         "object": "igsVlanMcastFwdVlanIdMac",
         "implied": 0
       },
       {
-        "module": "DES-1228p-MIB",
+        "module": "DES-1228P-MIB",
         "object": "igsVlanMcastFwdGroupAddress",
         "implied": 0
       }
@@ -2135,7 +2167,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "DES-1228p-MIB",
+        "module": "DES-1228P-MIB",
         "object": "igsVlanRouterPortListVlanId",
         "implied": 0
       }
@@ -2194,7 +2226,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "DES-1228p-MIB",
+        "module": "DES-1228P-MIB",
         "object": "igsVlanId",
         "implied": 0
       }
@@ -2523,7 +2555,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "DES-1228p-MIB",
+        "module": "DES-1228P-MIB",
         "object": "dot1xAuthConfigPortNumber",
         "implied": 0
       }
@@ -2609,7 +2641,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "reference": "9.4.4, Session User Nam.",
+    "reference": "9.4.4, Session User Name.",
     "status": "mandatory",
     "description": "The User-Name representing the identity of the Supplicant PAE."
   },
@@ -2717,7 +2749,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "DES-1228p-MIB",
+        "module": "DES-1228P-MIB",
         "object": "lldpAntiRoguePortIndex",
         "implied": 0
       }
@@ -2780,6 +2812,331 @@
     "status": "mandatory",
     "description": "The Organizationally Unique Identifier (OUI), as defined in IEEE std 802-2001, is a 24 bit (three octets) globally unique assigned number referenced by various standards, of the information received from the remote system."
   },
+  "qosMode": {
+    "name": "qosMode",
+    "oid": "1.3.6.1.4.1.171.10.75.3.26.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1p": 1,
+          "dscp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory",
+    "description": "Settings of Qos mode: IEEE 802.1p QoS or DSCP QoS."
+  },
+  "queuingMechanism": {
+    "name": "queuingMechanism",
+    "oid": "1.3.6.1.4.1.171.10.75.3.26.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "strictPriority": 1,
+          "wrr": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory",
+    "description": "Queuing mechanism. strictPriority(1) : Strict Priority wrr(2) : Weighted Round Robin "
+  },
+  "dot1pPortTable": {
+    "name": "dot1pPortTable",
+    "oid": "1.3.6.1.4.1.171.10.75.3.26.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory",
+    "description": "A list of 802.1p port default priority Entries."
+  },
+  "dot1pPortEntry": {
+    "name": "dot1pPortEntry",
+    "oid": "1.3.6.1.4.1.171.10.75.3.26.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DES-1228P-MIB",
+        "object": "dot1pPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory",
+    "description": "A list of 802.1p port default priority priorities."
+  },
+  "dot1pPortIndex": {
+    "name": "dot1pPortIndex",
+    "oid": "1.3.6.1.4.1.171.10.75.3.26.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory",
+    "description": "A port identifier that is in the range of 1 to ifNumber."
+  },
+  "dot1pPortPriority": {
+    "name": "dot1pPortPriority",
+    "oid": "1.3.6.1.4.1.171.10.75.3.26.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "middle": 2,
+          "high": 3,
+          "highest": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory",
+    "description": "For ingress untagged packets, the per port 'Default Priority' setting will be applied to packets of each port to provide port-based traffic prioritization. For ingress tagged packets, D-Link Smart Switches will refer to their 802.1p information and prioritize them with 4 different priority queues. "
+  },
+  "dscpTable": {
+    "name": "dscpTable",
+    "oid": "1.3.6.1.4.1.171.10.75.3.26.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory",
+    "description": "A list of DSCP Entries."
+  },
+  "dscpEntry": {
+    "name": "dscpEntry",
+    "oid": "1.3.6.1.4.1.171.10.75.3.26.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DES-1228P-MIB",
+        "object": "dscpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory",
+    "description": "A list of DSCP properties."
+  },
+  "dscpIndex": {
+    "name": "dscpIndex",
+    "oid": "1.3.6.1.4.1.171.10.75.3.26.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory",
+    "description": "DSCP value. For ingress IP packets, the DiffServ field of IP packets provide DSCP-based traffic prioritization information to switches. D-Link Smart Switches will refer to the value of DiffServ filed information and prioritize them with 4 different priority queues."
+  },
+  "dscpPriority": {
+    "name": "dscpPriority",
+    "oid": "1.3.6.1.4.1.171.10.75.3.26.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "middle": 2,
+          "high": 3,
+          "highest": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory",
+    "description": "The queuing priority mapping to DSCP value."
+  },
+  "broadcastStormCtrlSettings": {
+    "name": "broadcastStormCtrlSettings",
+    "oid": "1.3.6.1.4.1.171.10.75.3.27.3",
+    "class": "objectidentity"
+  },
+  "broadcastStormCtrlGlobalOnOff": {
+    "name": "broadcastStormCtrlGlobalOnOff",
+    "oid": "1.3.6.1.4.1.171.10.75.3.27.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory",
+    "description": "This object indicates storm control function is enabled or disabled for device. When you enable broadcast storm control function, D-Link Smart Switches will allowed you to limit the number of broadcast packets per second going through device."
+  },
+  "broadcastStormGlobalThreshold": {
+    "name": "broadcastStormGlobalThreshold",
+    "oid": "1.3.6.1.4.1.171.10.75.3.27.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "kBps-8": 2,
+          "kBps-16": 3,
+          "kBps-32": 4,
+          "kBps-64": 5,
+          "kBps-128": 6,
+          "kBps-256": 7,
+          "kBps-512": 8,
+          "kBps-1024": 9,
+          "kBps-2048": 10,
+          "kBps-4096": 11
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory",
+    "description": "The threshold value in unit of thousand bytes per second for broadcast traffic of the specific port."
+  },
+  "trustedHostSettings": {
+    "name": "trustedHostSettings",
+    "oid": "1.3.6.1.4.1.171.10.75.3.28.1",
+    "class": "objectidentity"
+  },
+  "trustedHostOnOff": {
+    "name": "trustedHostOnOff",
+    "oid": "1.3.6.1.4.1.171.10.75.3.28.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory",
+    "description": "This object indicates trusted host function is enabled or disabled. When trusted host function is enabled, D-Link Smart Switches will only allow hosts which you trust to access and control the switch. Your local host IP Addresses must be one of the IP Addresses to avoid disconnection."
+  },
+  "trustedHostTable": {
+    "name": "trustedHostTable",
+    "oid": "1.3.6.1.4.1.171.10.75.3.28.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory",
+    "description": "A list of Trusted Host Entries."
+  },
+  "trustedHostEntry": {
+    "name": "trustedHostEntry",
+    "oid": "1.3.6.1.4.1.171.10.75.3.28.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DES-1228P-MIB",
+        "object": "trustedHostID",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory",
+    "description": "A list of Trusted Host properties."
+  },
+  "trustedHostID": {
+    "name": "trustedHostID",
+    "oid": "1.3.6.1.4.1.171.10.75.3.28.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory",
+    "description": "An index that uniquely identifies an entry in the Trusted Host Table. Three entries are currently supported."
+  },
+  "trustedHostIpAddress": {
+    "name": "trustedHostIpAddress",
+    "oid": "1.3.6.1.4.1.171.10.75.3.28.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory",
+    "description": "The IP address of host you allow to access to D-Link Smart Switch. Your local host IP Addresses must be one of the IP Addresses to avoid disconnection."
+  },
+  "trustedHostIpMask": {
+    "name": "trustedHostIpMask",
+    "oid": "1.3.6.1.4.1.171.10.75.3.28.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory",
+    "description": "Used to mask with IP address, it allow you set a subnet as a trusted host entry."
+  },
+  "trustedHostStatus": {
+    "name": "trustedHostStatus",
+    "oid": "1.3.6.1.4.1.171.10.75.3.28.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "notready": 3,
+          "createAndwait": 5,
+          "destroy": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory",
+    "description": "The status of an entry in the Trusted Host Table. Only a subset of the rowstatus variables (active, createAndGo, destroy) are available."
+  },
   "swFiberInsert": {
     "name": "swFiberInsert",
     "oid": "1.3.6.1.4.1.171.10.75.30.1",
@@ -2818,11 +3175,11 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///Users/neermitt/kusanagi/mibs.snmplabs.com/asn1/DES-1228P-MIB",
-      "Produced by pysmi-0.3.4 at Fri May 24 17:49:03 2019",
-      "On host NEERMITT-M-J0NV platform Darwin version 18.6.0 by user neermitt",
-      "Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) "
+      "ASN.1 source file:///home/tin/Dev/mibs.snmplabs.com/asn1/DES-1228P-MIB",
+      "Produced by pysmi-0.3.4 at Fri Jan 31 21:33:28 2020",
+      "On host bier platform Linux version 5.4.0-3-amd64 by user tin",
+      "Using Python version 3.7.6 (default, Jan 19 2020, 22:34:52) "
     ],
-    "module": "DES-1228p-MIB"
+    "module": "DES-1228P-MIB"
   }
 }

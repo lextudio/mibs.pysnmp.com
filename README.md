@@ -15,20 +15,20 @@ The new site is now at https://mibs.pysnmp.com/asn1/
 # Instructions
 
 ```
-# Create the Python enviroment
+# Create the Python environment
 pipenv shell
 pipenv install
 
 # Fetching all mibs
 make fetch
 
-# Comiling all mibs
+# Compiling all mibs
 make compile
 make compile-json
 make compile-with-texts
 
 # Compiling mibs only updated and just added
-make complie-changed
+make compile-changed
 make compile-json-changed
 make compile-with-texts-changed
 ```

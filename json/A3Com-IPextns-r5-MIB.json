@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "iso",
+      "Bits",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Counter64",
+      "TimeTicks",
       "Gauge32",
-      "Integer32",
-      "IpAddress",
+      "iso",
+      "MibIdentifier",
       "enterprises",
-      "Bits"
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -238,12 +238,12 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "A3Com-IPextns-r5-MIB",
+        "module": "A3COM-IPEXTNS-R5-MIB",
         "object": "a3IPntmIfIndex",
         "implied": 0
       },
       {
-        "module": "A3Com-IPextns-r5-MIB",
+        "module": "A3COM-IPEXTNS-R5-MIB",
         "object": "a3IPntmNetAddress",
         "implied": 0
       }
@@ -342,12 +342,12 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "A3Com-IPextns-r5-MIB",
+        "module": "A3COM-IPEXTNS-R5-MIB",
         "object": "a3IPaddrConfigPort",
         "implied": 0
       },
       {
-        "module": "A3Com-IPextns-r5-MIB",
+        "module": "A3COM-IPEXTNS-R5-MIB",
         "object": "a3IPaddrConfigAddr",
         "implied": 0
       }
@@ -490,22 +490,22 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "A3Com-IPextns-r5-MIB",
+        "module": "A3COM-IPEXTNS-R5-MIB",
         "object": "a3IPforwardExtDest",
         "implied": 0
       },
       {
-        "module": "A3Com-IPextns-r5-MIB",
+        "module": "A3COM-IPEXTNS-R5-MIB",
         "object": "a3IPforwardExtProto",
         "implied": 0
       },
       {
-        "module": "A3Com-IPextns-r5-MIB",
+        "module": "A3COM-IPEXTNS-R5-MIB",
         "object": "a3IPforwardExtPolicy",
         "implied": 0
       },
       {
-        "module": "A3Com-IPextns-r5-MIB",
+        "module": "A3COM-IPEXTNS-R5-MIB",
         "object": "a3IPforwardExtNextHop",
         "implied": 0
       }
@@ -697,7 +697,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "A3Com-IPextns-r5-MIB",
+        "module": "A3COM-IPEXTNS-R5-MIB",
         "object": "a3IParpPortIndex",
         "implied": 0
       }
@@ -856,7 +856,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "A3Com-IPextns-r5-MIB",
+        "module": "A3COM-IPEXTNS-R5-MIB",
         "object": "a3IPsmdsGaIpNet",
         "implied": 0
       }
@@ -920,7 +920,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "A3Com-IPextns-r5-MIB",
+        "module": "A3COM-IPEXTNS-R5-MIB",
         "object": "a3IPx25configPort",
         "implied": 0
       }
@@ -1139,7 +1139,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "A3Com-IPextns-r5-MIB",
+        "module": "A3COM-IPEXTNS-R5-MIB",
         "object": "a3IPicmpGenIfIndex",
         "implied": 0
       }
@@ -1222,11 +1222,11 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///Users/neermitt/kusanagi/mibs.snmplabs.com/asn1/A3COM-IPEXTNS-R5-MIB",
-      "Produced by pysmi-0.3.4 at Fri May 24 14:50:10 2019",
-      "On host NEERMITT-M-J0NV platform Darwin version 18.6.0 by user neermitt",
-      "Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) "
+      "ASN.1 source file:///home/tin/Dev/mibs.snmplabs.com/asn1/A3COM-IPEXTNS-R5-MIB",
+      "Produced by pysmi-0.3.4 at Fri Jan 31 21:32:14 2020",
+      "On host bier platform Linux version 5.4.0-3-amd64 by user tin",
+      "Using Python version 3.7.6 (default, Jan 19 2020, 22:34:52) "
     ],
-    "module": "A3Com-IPextns-r5-MIB"
+    "module": "A3COM-IPEXTNS-R5-MIB"
   }
 }

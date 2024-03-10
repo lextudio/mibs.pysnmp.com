@@ -5,30 +5,30 @@
       "MacAddress"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "Integer32",
+      "MibIdentifier",
+      "iso",
+      "IpAddress",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "enterprises",
       "Unsigned32",
       "TimeTicks",
-      "enterprises",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "iso",
       "Gauge32",
-      "IpAddress",
       "Bits",
-      "Counter64"
+      "NOTIFICATION-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "PhysAddress",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "a3Com": {
@@ -255,7 +255,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "A3Com-IPX-r5-MIB",
+        "module": "A3COM-IPX-R5-MIB",
         "object": "a3ipxControlPort",
         "implied": 0
       }
@@ -393,7 +393,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "A3Com-IPX-r5-MIB",
+        "module": "A3COM-IPX-R5-MIB",
         "object": "a3ipxRipControlPort",
         "implied": 0
       }
@@ -748,7 +748,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "A3Com-IPX-r5-MIB",
+        "module": "A3COM-IPX-R5-MIB",
         "object": "a3ipxWaAddrEthAddress",
         "implied": 0
       }
@@ -845,7 +845,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "A3Com-IPX-r5-MIB",
+        "module": "A3COM-IPX-R5-MIB",
         "object": "a3ipxAttachedNetNumber",
         "implied": 0
       }
@@ -972,12 +972,12 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "A3Com-IPX-r5-MIB",
+        "module": "A3COM-IPX-R5-MIB",
         "object": "a3ipxRouteDestNet",
         "implied": 0
       },
       {
-        "module": "A3Com-IPX-r5-MIB",
+        "module": "A3COM-IPX-R5-MIB",
         "object": "a3ipxRouteType",
         "implied": 0
       }
@@ -1148,12 +1148,12 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "A3Com-IPX-r5-MIB",
+        "module": "A3COM-IPX-R5-MIB",
         "object": "a3ipxServerName",
         "implied": 0
       },
       {
-        "module": "A3Com-IPX-r5-MIB",
+        "module": "A3COM-IPX-R5-MIB",
         "object": "a3ipxServerType",
         "implied": 0
       }
@@ -1300,7 +1300,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "A3Com-IPX-r5-MIB",
+        "module": "A3COM-IPX-R5-MIB",
         "object": "a3ipxX25configPort",
         "implied": 0
       }
@@ -1467,7 +1467,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "A3Com-IPX-r5-MIB",
+        "module": "A3COM-IPX-R5-MIB",
         "object": "a3ipxSmdsGaIpxPort",
         "implied": 0
       }
@@ -1518,12 +1518,12 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "A3Com-IPX-r5-MIB",
+        "module": "A3COM-IPX-R5-MIB",
         "object": "a3ipxPrefSvrPort",
         "implied": 0
       },
       {
-        "module": "A3Com-IPX-r5-MIB",
+        "module": "A3COM-IPX-R5-MIB",
         "object": "a3ipxPrefSvrName",
         "implied": 0
       }
@@ -1595,7 +1595,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "A3Com-IPX-r5-MIB",
+        "module": "A3COM-IPX-R5-MIB",
         "object": "a3ipxPortconfigPort",
         "implied": 0
       }
@@ -1735,7 +1735,7 @@
     "maxaccess": "not-accessible",
     "indices": [
       {
-        "module": "A3Com-IPX-r5-MIB",
+        "module": "A3COM-IPX-R5-MIB",
         "object": "a3ipxSpoofCtlPort",
         "implied": 0
       }
@@ -1837,11 +1837,11 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///Users/neermitt/kusanagi/mibs.snmplabs.com/asn1/A3COM-IPX-R5-MIB",
-      "Produced by pysmi-0.3.4 at Fri May 24 14:50:12 2019",
-      "On host NEERMITT-M-J0NV platform Darwin version 18.6.0 by user neermitt",
-      "Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) "
+      "ASN.1 source file:///home/tin/Dev/mibs.snmplabs.com/asn1/A3COM-IPX-R5-MIB",
+      "Produced by pysmi-0.3.4 at Fri Jan 31 21:32:15 2020",
+      "On host bier platform Linux version 5.4.0-3-amd64 by user tin",
+      "Using Python version 3.7.6 (default, Jan 19 2020, 22:34:52) "
     ],
-    "module": "A3Com-IPX-r5-MIB"
+    "module": "A3COM-IPX-R5-MIB"
   }
 }

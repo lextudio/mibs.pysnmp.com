@@ -6,21 +6,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "IpAddress",
       "TimeTicks",
-      "iso",
-      "Counter32",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Bits",
       "NOTIFICATION-TYPE",
+      "iso",
+      "Counter64",
+      "Gauge32",
+      "Counter32",
       "MODULE-IDENTITY",
-      "enterprises",
+      "MibIdentifier",
       "Integer32",
-      "Gauge32"
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "Bits",
+      "OBJECT-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -175,20 +175,20 @@
       "class": "type",
       "constraints": {
         "enumeration": {
-          "log-EMERG": 1,
-          "log-ALERT": 2,
-          "log-CRITICAL": 3,
-          "log-ERROR": 4,
-          "log-WARNING": 5,
-          "log-NOTICE": 6,
-          "log-INFO": 7,
-          "log-DEBUG": 8
+          "log_EMERG": 1,
+          "log_ALERT": 2,
+          "log_CRITICAL": 3,
+          "log_ERROR": 4,
+          "log_WARNING": 5,
+          "log_NOTICE": 6,
+          "log_INFO": 7,
+          "log_DEBUG": 8
         }
       }
     },
     "default": {
       "default": {
-        "value": "log-INFO",
+        "value": "log_INFO",
         "format": "enum"
       }
     },
@@ -252,11 +252,11 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///Users/neermitt/kusanagi/mibs.snmplabs.com/asn1/A3COM-AUDL-R1-MIB",
-      "Produced by pysmi-0.3.4 at Fri May 24 14:46:17 2019",
-      "On host NEERMITT-M-J0NV platform Darwin version 18.6.0 by user neermitt",
-      "Using Python version 3.7.3 (default, Mar 27 2019, 09:23:15) "
+      "ASN.1 source file:///home/tin/Dev/mibs.snmplabs.com/asn1/A3COM-AUDL-R1-MIB",
+      "Produced by pysmi-0.3.4 at Fri Jan 31 21:32:09 2020",
+      "On host bier platform Linux version 5.4.0-3-amd64 by user tin",
+      "Using Python version 3.7.6 (default, Jan 19 2020, 22:34:52) "
     ],
-    "module": "A3COM-AUDL-r1-MIB"
+    "module": "A3COM-AUDL-R1-MIB"
   }
 }
