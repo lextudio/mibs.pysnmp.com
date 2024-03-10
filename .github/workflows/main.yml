@@ -1,0 +1,30 @@
+on: [push]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    name: Publish to Cloudflare Pages
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.11
+      - name: Build
+        run: |
+          pipenv install
+          cd docs
+          pipenv run python prepare.py
+          pipenv run make html
+
+      # Run a build step here if your project requires
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: aa51efe21ac05b72c5241fdf3f2db6ba
+          projectName: mibs-pysnmp-com
+          directory: ./docs/_build/html
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
