@@ -1,0 +1,482 @@
+{
+  "AclAction": {
+    "class": "textualconvention",
+    "description": "Description.",
+    "name": "AclAction",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aclDeny": 2,
+          "aclPermit": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "AclType": {
+    "class": "textualconvention",
+    "description": "Description.",
+    "name": "AclType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aclTypeName": 2,
+          "aclTypeNum": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPFLT": {
+    "class": "objectidentity",
+    "name": "hwPFLT",
+    "oid": "1.3.6.1.4.1.2011.5.25.12"
+  },
+  "hwPFLTEudm": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": " V1.00 The HUAWEI-SLOG-EUDM-MIB contains objects to manage the security log for firewall product. ",
+    "lastupdated": "200304110900Z",
+    "name": "hwPFLTEudm",
+    "oid": "1.3.6.1.4.1.2011.5.25.12.2",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwPFltEudmCfgMibObjects": {
+    "class": "objectidentity",
+    "name": "hwPFltEudmCfgMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.12.2.1"
+  },
+  "hwPFltEudmCompliance": {
+    "class": "objectidentity",
+    "name": "hwPFltEudmCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.12.2.2.1"
+  },
+  "hwPFltEudmConformance": {
+    "class": "objectidentity",
+    "name": "hwPFltEudmConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.12.2.2"
+  },
+  "hwPFltEudmDeaultActInbound": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "aclDeny"
+      }
+    },
+    "description": "The default action for inbound direction of interzone.",
+    "maxaccess": "read-write",
+    "name": "hwPFltEudmDeaultActInbound",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.12.2.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "AclAction"
+    }
+  },
+  "hwPFltEudmDeaultActOutbound": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "aclPermit"
+      }
+    },
+    "description": "The default action for outbound direction of interzone.",
+    "maxaccess": "read-write",
+    "name": "hwPFltEudmDeaultActOutbound",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.12.2.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "AclAction"
+    }
+  },
+  "hwPFltEudmDefaultActZoneID1": {
+    "class": "objecttype",
+    "description": "The ID of first zone.",
+    "maxaccess": "not-accessible",
+    "name": "hwPFltEudmDefaultActZoneID1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.12.2.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPFltEudmDefaultActZoneID2": {
+    "class": "objecttype",
+    "description": "The ID of second zone.",
+    "maxaccess": "not-accessible",
+    "name": "hwPFltEudmDefaultActZoneID2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.12.2.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPFltEudmDefaultActionEntry": {
+    "class": "objecttype",
+    "description": "Define the default action when no match acl.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PFLT-EUDM-MIB",
+        "object": "hwPFltEudmDefaultActZoneID1"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-PFLT-EUDM-MIB",
+        "object": "hwPFltEudmDefaultActZoneID2"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPFltEudmDefaultActionEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.12.2.1.1.1",
+    "status": "current"
+  },
+  "hwPFltEudmDefaultActionGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwPFltEudmDefaultActionGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PFLT-EUDM-MIB",
+        "object": "hwPFltEudmDeaultActInbound"
+      },
+      {
+        "module": "HUAWEI-PFLT-EUDM-MIB",
+        "object": "hwPFltEudmDeaultActOutbound"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.12.2.2.2.1",
+    "status": "current"
+  },
+  "hwPFltEudmDefaultActionTable": {
+    "class": "objecttype",
+    "description": "This table define the default action in the interzone.",
+    "maxaccess": "not-accessible",
+    "name": "hwPFltEudmDefaultActionTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.12.2.1.1",
+    "status": "current"
+  },
+  "hwPFltEudmMibGroups": {
+    "class": "objectidentity",
+    "name": "hwPFltEudmMibGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.12.2.2.2"
+  },
+  "hwPFltEudmPolicyApplyEntry": {
+    "class": "objecttype",
+    "description": "Define the packet filter policy.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-PFLT-EUDM-MIB",
+        "object": "hwPFltEudmPolicyZoneID1"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-PFLT-EUDM-MIB",
+        "object": "hwPFltEudmPolicyZoneID2"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPFltEudmPolicyApplyEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.12.2.1.2.1",
+    "status": "current"
+  },
+  "hwPFltEudmPolicyApplyGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwPFltEudmPolicyApplyGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PFLT-EUDM-MIB",
+        "object": "hwPFltEudmPolicyInAclType"
+      },
+      {
+        "module": "HUAWEI-PFLT-EUDM-MIB",
+        "object": "hwPFltEudmPolicyInAclNum"
+      },
+      {
+        "module": "HUAWEI-PFLT-EUDM-MIB",
+        "object": "hwPFltEudmPolicyInAclName"
+      },
+      {
+        "module": "HUAWEI-PFLT-EUDM-MIB",
+        "object": "hwPFltEudmPolicyOutAclType"
+      },
+      {
+        "module": "HUAWEI-PFLT-EUDM-MIB",
+        "object": "hwPFltEudmPolicyOutAclNum"
+      },
+      {
+        "module": "HUAWEI-PFLT-EUDM-MIB",
+        "object": "hwPFltEudmPolicyOutAclName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.12.2.2.2.2",
+    "status": "current"
+  },
+  "hwPFltEudmPolicyApplyTable": {
+    "class": "objecttype",
+    "description": "This table define the packet filter policy applied to the interzone.",
+    "maxaccess": "not-accessible",
+    "name": "hwPFltEudmPolicyApplyTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.12.2.1.2",
+    "status": "current"
+  },
+  "hwPFltEudmPolicyInAclName": {
+    "class": "objecttype",
+    "description": " IThe name of acl for inbound direction, This value is valid when hwPFltPolicyInAclType is aclTypeName only. When do SET action, the hwPFltEudmPolicyInAclNum and hwPFltEudmPolicyInAclName can only specify one. ",
+    "maxaccess": "read-write",
+    "name": "hwPFltEudmPolicyInAclName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.12.2.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPFltEudmPolicyInAclNum": {
+    "class": "objecttype",
+    "description": " The number of acl for inbound direction, This value is valid when hwPFltPolicyInAclType is aclTypeNum only. When do SET action, the hwPFltEudmPolicyInAclNum and hwPFltEudmPolicyInAclName can only specify one. ",
+    "maxaccess": "read-write",
+    "name": "hwPFltEudmPolicyInAclNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.12.2.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 3999,
+            "min": 1000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPFltEudmPolicyInAclType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "aclTypeNum"
+      }
+    },
+    "description": "The type of acl applied to the interzone on the inbound direction. ",
+    "maxaccess": "read-only",
+    "name": "hwPFltEudmPolicyInAclType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.12.2.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "AclType"
+    }
+  },
+  "hwPFltEudmPolicyOutAclName": {
+    "class": "objecttype",
+    "description": " IThe name of acl for outbound direction, This value is valid when hwPFltPolicyOutAclType is aclTypeName only. When do SET action, the hwPFltEudmPolicyOutAclNum and hwPFltEudmPolicyOutAclName can only specify one. ",
+    "maxaccess": "read-write",
+    "name": "hwPFltEudmPolicyOutAclName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.12.2.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPFltEudmPolicyOutAclNum": {
+    "class": "objecttype",
+    "description": " The number of acl for outbound direction, This value is valid when hwPFltPolicyOutAclType is aclTypeNum only. When do SET action, the hwPFltEudmPolicyOutAclNum and hwPFltEudmPolicyOutAclName can only specify one. ",
+    "maxaccess": "read-write",
+    "name": "hwPFltEudmPolicyOutAclNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.12.2.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 3999,
+            "min": 1000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPFltEudmPolicyOutAclType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "aclTypeNum"
+      }
+    },
+    "description": "The type of acl applied to the interzone on the outbound direction.",
+    "maxaccess": "read-only",
+    "name": "hwPFltEudmPolicyOutAclType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.12.2.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "AclType"
+    }
+  },
+  "hwPFltEudmPolicyZoneID1": {
+    "class": "objecttype",
+    "description": "The ID of first security zone.",
+    "maxaccess": "not-accessible",
+    "name": "hwPFltEudmPolicyZoneID1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.12.2.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPFltEudmPolicyZoneID2": {
+    "class": "objecttype",
+    "description": "The ID of second security zone.",
+    "maxaccess": "not-accessible",
+    "name": "hwPFltEudmPolicyZoneID2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.12.2.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "MPLS-VPN-MIB": [
+      "mplsVpnVrfName"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Unsigned32",
+      "MibIdentifier"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-PFLT-EUDM-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:38 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-PFLT-EUDM-MIB"
+  }
+}

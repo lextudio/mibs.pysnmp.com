@@ -1,0 +1,2005 @@
+{
+  "hwAdminVrrpCfgEntry": {
+    "class": "objecttype",
+    "description": "The admin-vrrp\u0027s configure entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwAdminVrrpCfgIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwAdminVrrpCfgVRID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAdminVrrpCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.3.1",
+    "status": "current"
+  },
+  "hwAdminVrrpCfgGroup": {
+    "class": "objectgroup",
+    "description": "The AdminVrrpCfg attributes.",
+    "name": "hwAdminVrrpCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwAdminVrrpCfgOperRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1.1.4",
+    "status": "current"
+  },
+  "hwAdminVrrpCfgIfIndex": {
+    "class": "objecttype",
+    "description": "The admin-vrrp\u0027s configure interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwAdminVrrpCfgIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwAdminVrrpCfgIgnoreIfDownMode": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disabled"
+      }
+    },
+    "description": "The mode of ignore interface down. ",
+    "maxaccess": "read-create",
+    "name": "hwAdminVrrpCfgIgnoreIfDownMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwAdminVrrpCfgOperRowStatus": {
+    "class": "objecttype",
+    "description": "The row status variable. ",
+    "maxaccess": "read-create",
+    "name": "hwAdminVrrpCfgOperRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAdminVrrpCfgTable": {
+    "class": "objecttype",
+    "description": "The admin-vrrp\u0027s configure table.",
+    "maxaccess": "not-accessible",
+    "name": "hwAdminVrrpCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.3",
+    "status": "current"
+  },
+  "hwAdminVrrpCfgVRID": {
+    "class": "objecttype",
+    "description": "The admin-vrrp\u0027s configure VRID.",
+    "maxaccess": "not-accessible",
+    "name": "hwAdminVrrpCfgVRID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VrId"
+    }
+  },
+  "hwAdminVrrpIfIndex": {
+    "class": "objecttype",
+    "description": "The administrator VRRP\u0027s configure interface index.",
+    "maxaccess": "read-create",
+    "name": "hwAdminVrrpIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwAdminVrrpMemberDiscardPkts": {
+    "class": "objecttype",
+    "description": "The admin-vrrp\u0027s member discarded packets.",
+    "maxaccess": "read-only",
+    "name": "hwAdminVrrpMemberDiscardPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwAdminVrrpMemberEntry": {
+    "class": "objecttype",
+    "description": "The admin-vrrp\u0027s configure entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwAdminVrrpCfgIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwAdminVrrpCfgVRID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwAdminVrrpMemberIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwAdminVrrpMemberVRID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAdminVrrpMemberEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.4.1",
+    "status": "current"
+  },
+  "hwAdminVrrpMemberFlowdownMode": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "enabled"
+      }
+    },
+    "description": "The mode of flowdown interface. ",
+    "maxaccess": "read-create",
+    "name": "hwAdminVrrpMemberFlowdownMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwAdminVrrpMemberGroup": {
+    "class": "objectgroup",
+    "description": "The AdminVrrpMember attributes.",
+    "name": "hwAdminVrrpMemberGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwAdminVrrpMemberDiscardPkts"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwAdminVrrpMemberOperRowStatus"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwAdminVrrpMemberFlowdownMode"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1.1.5",
+    "status": "current"
+  },
+  "hwAdminVrrpMemberIfIndex": {
+    "class": "objecttype",
+    "description": "The admin-vrrp\u0027s member interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwAdminVrrpMemberIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwAdminVrrpMemberOperRowStatus": {
+    "class": "objecttype",
+    "description": "The row status variable. ",
+    "maxaccess": "read-create",
+    "name": "hwAdminVrrpMemberOperRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAdminVrrpMemberTable": {
+    "class": "objecttype",
+    "description": "The member-vrrp\u0027s configure table.",
+    "maxaccess": "not-accessible",
+    "name": "hwAdminVrrpMemberTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.4",
+    "status": "current"
+  },
+  "hwAdminVrrpMemberVRID": {
+    "class": "objecttype",
+    "description": "The admin-vrrp\u0027s member VRID.",
+    "maxaccess": "not-accessible",
+    "name": "hwAdminVrrpMemberVRID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VrId"
+    }
+  },
+  "hwAdminVrrpTrackIfEntry": {
+    "class": "objecttype",
+    "description": "Entries of the interface bound to VRRP table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwAdminVrrpTrackIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAdminVrrpTrackIfEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.6.1",
+    "status": "current"
+  },
+  "hwAdminVrrpTrackIfGroup": {
+    "class": "objectgroup",
+    "description": "The AdminVrrpTrackIf attributes.",
+    "name": "hwAdminVrrpTrackIfGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwAdminVrrpIfIndex"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwAdminVrrpVrid"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwAdminVrrpTrackIfRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1.1.7",
+    "status": "current"
+  },
+  "hwAdminVrrpTrackIfIndex": {
+    "class": "objecttype",
+    "description": "The number of the interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwAdminVrrpTrackIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwAdminVrrpTrackIfRowStatus": {
+    "class": "objecttype",
+    "description": "Current operation status of the row.",
+    "maxaccess": "read-create",
+    "name": "hwAdminVrrpTrackIfRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAdminVrrpTrackIfTable": {
+    "class": "objecttype",
+    "description": "The interface bound to VRRP table.",
+    "maxaccess": "not-accessible",
+    "name": "hwAdminVrrpTrackIfTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.6",
+    "status": "current"
+  },
+  "hwAdminVrrpVrid": {
+    "class": "objecttype",
+    "description": "The administrator VRRP vrid.",
+    "maxaccess": "read-create",
+    "name": "hwAdminVrrpVrid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VrId"
+    }
+  },
+  "hwVrrpCfgEntry": {
+    "class": "objecttype",
+    "description": "An entry in the VRRP configure route table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpCfgIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpCfgVrId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.9.1",
+    "status": "current"
+  },
+  "hwVrrpCfgFastResumeFlag": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disabled"
+      }
+    },
+    "description": "A switch indicates whether the VRRP fast-resume function is enabled. ",
+    "maxaccess": "read-create",
+    "name": "hwVrrpCfgFastResumeFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.9.1.50",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVrrpCfgGroup": {
+    "class": "objectgroup",
+    "description": "The VrrpCfg attributes.",
+    "name": "hwVrrpCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpCfgIfIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1.1.10",
+    "status": "current"
+  },
+  "hwVrrpCfgIfIndex": {
+    "class": "objecttype",
+    "description": "The index of the table, it identifies vrrp\u0027s interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpCfgIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.9.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwVrrpCfgLinkBfdDownNumber": {
+    "class": "objecttype",
+    "description": "The state of link BFD will really down when reach the configured down number. Enter \u00270\u0027 to delete this configuration.",
+    "maxaccess": "read-create",
+    "name": "hwVrrpCfgLinkBfdDownNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.9.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwVrrpCfgMsecAdvInterval": {
+    "class": "objecttype",
+    "description": "The value of VRRP advertise interval in milliseconds, when the interval is less than 1 second, otherwise it should be set or got in VRRP-MIB. when the advertise interval is equal to or larger than 1 second, this value will be 0.",
+    "maxaccess": "read-create",
+    "name": "hwVrrpCfgMsecAdvInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.9.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 999,
+            "min": 100
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwVrrpCfgOperRowStatus": {
+    "class": "objecttype",
+    "description": "The row status variable. ",
+    "maxaccess": "read-create",
+    "name": "hwVrrpCfgOperRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.9.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwVrrpCfgTable": {
+    "class": "objecttype",
+    "description": "The VRRP configure table.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.9",
+    "status": "current"
+  },
+  "hwVrrpCfgVrId": {
+    "class": "objecttype",
+    "description": "The vrrp vrid.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpCfgVrId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.9.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VrId"
+    }
+  },
+  "hwVrrpExt": {
+    "class": "moduleidentity",
+    "contactinfo": "R\u0026D Beijing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com",
+    "description": "It supplies for VRRP tracking function.",
+    "lastupdated": "201105100000Z",
+    "name": "hwVrrpExt",
+    "oid": "1.3.6.1.4.1.2011.5.25.127",
+    "organization": "Huawei Technologies Co., Ltd."
+  },
+  "hwVrrpExtFreeArpInterval": {
+    "class": "objecttype",
+    "description": "This object indicates the interval at which gratuitous ARP packets are sent. Zero means the gratuitous-arp sending function is disable.",
+    "maxaccess": "read-write",
+    "name": "hwVrrpExtFreeArpInterval",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 1200,
+            "min": 30
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "seconds"
+  },
+  "hwVrrpExtGlobal": {
+    "class": "objectidentity",
+    "name": "hwVrrpExtGlobal",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.1"
+  },
+  "hwVrrpExtLearnAdvIntervalFlag": {
+    "class": "objecttype",
+    "description": "A switch decides whether the system learn VRRP packet advertisement interval or not, which is sended from the master router in one virtual router standby. The default value is enable.",
+    "maxaccess": "read-write",
+    "name": "hwVrrpExtLearnAdvIntervalFlag",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwVrrpExtNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "The VRRP MIB Notification Group.",
+    "name": "hwVrrpExtNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpExtTrapMasterDown"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1.1.12",
+    "status": "current"
+  },
+  "hwVrrpExtNotifications": {
+    "class": "objectidentity",
+    "name": "hwVrrpExtNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.30"
+  },
+  "hwVrrpExtProtocolVersion": {
+    "class": "objecttype",
+    "description": "Current protocol verison for VRRP on the specified device.The default value is v2(2) , and the other value for this element is v3(3).",
+    "maxaccess": "read-write",
+    "name": "hwVrrpExtProtocolVersion",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v2": 2,
+          "v3": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVrrpExtSendV3AdverPktMode": {
+    "class": "objecttype",
+    "description": "This value specifies the mode of sending advertisement packet for VRRP v3.It has three configurable value: VRRP_PROTO_V3_SEND_V2_ONLY(1), VRRP_PROTO_V3_SEND_V3_ONLY(2) and VRRP_PROTO_V3_SEND_V3V2_BOTH(3).",
+    "maxaccess": "read-write",
+    "name": "hwVrrpExtSendV3AdverPktMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v2only": 1,
+          "v2v3both": 3,
+          "v3only": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVrrpExtSsTimer": {
+    "class": "objecttype",
+    "description": "A switch decides whether the system enable VRRP SS function and set the size of VRRP SS timer or not, which decide the VRRP packet advertisement interval during slave switchover. The default value is 100s. But for the VRRP v3 version,this time value is truncated to 40950 milliseconds which is the maximum value according to the RFC 5798.",
+    "maxaccess": "read-write",
+    "name": "hwVrrpExtSsTimer",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "seconds"
+  },
+  "hwVrrpExtStateChangeReasonString": {
+    "class": "objecttype",
+    "description": "Reasons of VRRP state transition. Used by hwVrrpExtTrapMasterDown trap and vrrpTrapNewMaster trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwVrrpExtStateChangeReasonString",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwVrrpExtTrapMasterDown": {
+    "class": "notificationtype",
+    "description": "The MasterDown trap indicates that the state of vrrp has transitioned from \u0027Master\u0027 to other state. The other state can be noactive(0), initialize(1) and backup(2).",
+    "name": "hwVrrpExtTrapMasterDown",
+    "objects": [
+      {
+        "module": "VRRP-MIB",
+        "object": "vrrpOperMasterIpAddr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "VRRP-MIB",
+        "object": "vrrpOperState"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpExtStateChangeReasonString"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.30.1",
+    "status": "current"
+  },
+  "hwVrrpExtVIPPingCtr": {
+    "class": "objecttype",
+    "description": "A switch decides whether the system responds to a request message or not, which is sent to virtual ip address. The default value is enable.",
+    "maxaccess": "read-write",
+    "name": "hwVrrpExtVIPPingCtr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVrrpStatExtBecomeBackup": {
+    "class": "objecttype",
+    "description": "The total number of times that this virtual router\u0027s state has transitioned to BACKUP.",
+    "maxaccess": "read-only",
+    "name": "hwVrrpStatExtBecomeBackup",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.10.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwVrrpStatExtBecomeInit": {
+    "class": "objecttype",
+    "description": "The total number of times that this virtual router\u0027s state has transitioned to INITIALIZE.",
+    "maxaccess": "read-only",
+    "name": "hwVrrpStatExtBecomeInit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.10.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwVrrpStatExtCreateTime": {
+    "class": "objecttype",
+    "description": "The create time of vrrp.",
+    "maxaccess": "read-only",
+    "name": "hwVrrpStatExtCreateTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.10.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 40,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwVrrpStatExtEntry": {
+    "class": "objecttype",
+    "description": "An entry in The VRRP statistics extend table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpStatExtIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpStatExtVRID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpStatExtEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.10.1",
+    "status": "current"
+  },
+  "hwVrrpStatExtGroup": {
+    "class": "objectgroup",
+    "description": "The VrrpStatExt attributes.",
+    "name": "hwVrrpStatExtGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpStatExtIfIndex"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpStatExtVRID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1.1.11",
+    "status": "current"
+  },
+  "hwVrrpStatExtIfIndex": {
+    "class": "objecttype",
+    "description": "The index of the table, it identifies vrrp\u0027s interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpStatExtIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.10.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwVrrpStatExtLastChangeTime": {
+    "class": "objecttype",
+    "description": "The last change time of vrrp.",
+    "maxaccess": "read-only",
+    "name": "hwVrrpStatExtLastChangeTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.10.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 40,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwVrrpStatExtTable": {
+    "class": "objecttype",
+    "description": "The VRRP statistics extend table.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpStatExtTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.10",
+    "status": "current"
+  },
+  "hwVrrpStatExtVRID": {
+    "class": "objecttype",
+    "description": "The vrrp vrid.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpStatExtVRID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.10.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VrId"
+    }
+  },
+  "hwVrrpStatResetEntry": {
+    "class": "objecttype",
+    "description": "The vrrp statistics reset entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpStatResetIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpStatResetVRID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpStatResetEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.5.1",
+    "status": "current"
+  },
+  "hwVrrpStatResetFlag": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "A reset signal of vrrp statistics. ",
+    "maxaccess": "read-write",
+    "name": "hwVrrpStatResetFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVrrpStatResetGroup": {
+    "class": "objectgroup",
+    "description": "The VrrpStatReset attributes.",
+    "name": "hwVrrpStatResetGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpStatResetFlag"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1.1.6",
+    "status": "current"
+  },
+  "hwVrrpStatResetIfIndex": {
+    "class": "objecttype",
+    "description": "The vrrp\u0027s configure interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpStatResetIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwVrrpStatResetTable": {
+    "class": "objecttype",
+    "description": "The vrrp statistics reset Table.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpStatResetTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.5",
+    "status": "current"
+  },
+  "hwVrrpStatResetVRID": {
+    "class": "objecttype",
+    "description": "The vrrp vrid.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpStatResetVRID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VrId"
+    }
+  },
+  "hwVrrpTrackBfdEntry": {
+    "class": "objecttype",
+    "description": "An entry in the VRRP tracking BFD table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackInterVRID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackInterStandByIfnet"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackBfdId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackBfdEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.2.1",
+    "status": "current"
+  },
+  "hwVrrpTrackBfdId": {
+    "class": "objecttype",
+    "description": "The index of the table, it only identifies BFD link.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackBfdId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16383,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwVrrpTrackBfdName": {
+    "class": "objecttype",
+    "description": "The bfd name that vrrp tracks. The attribute cannot be modified after created.",
+    "maxaccess": "read-only",
+    "name": "hwVrrpTrackBfdName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 15,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwVrrpTrackBfdOperRowStatus": {
+    "class": "objecttype",
+    "description": "The row status variable. ",
+    "maxaccess": "read-create",
+    "name": "hwVrrpTrackBfdOperRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwVrrpTrackBfdPriIncrease": {
+    "class": "objecttype",
+    "description": "If the tracked BFD is down, this value will be added to the priority of standby. \u00270\u0027 specifies this attribute hasn\u0027t been configured. The minimum availability value is \u00271\u0027.",
+    "maxaccess": "read-create",
+    "name": "hwVrrpTrackBfdPriIncrease",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwVrrpTrackBfdPriReduce": {
+    "class": "objecttype",
+    "description": "If the tracked BFD is down, the priority of standby will reduce this value. \u00270\u0027 specifies this attribute hasn\u0027t been configured. The minimum availability value is \u00271\u0027.",
+    "maxaccess": "read-create",
+    "name": "hwVrrpTrackBfdPriReduce",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwVrrpTrackBfdTable": {
+    "class": "objecttype",
+    "description": "The VRRP tracking BFD table, it can append eight rows at most.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackBfdTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.2",
+    "status": "current"
+  },
+  "hwVrrpTrackBfdType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "normal"
+      }
+    },
+    "description": "The bfd type that vrrp tracks,including Normal, Link, Peer. The attribute cannot be modified after created. ",
+    "maxaccess": "read-create",
+    "name": "hwVrrpTrackBfdType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "link": 1,
+          "normal": 3,
+          "peer": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVrrpTrackEfmEntry": {
+    "class": "objecttype",
+    "description": "An entry in the VRRP tracking EFM table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackEfmIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackEfmVRID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackEfmIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackEfmEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.7.1",
+    "status": "current"
+  },
+  "hwVrrpTrackEfmGroup": {
+    "class": "objectgroup",
+    "description": "The VrrpTrackEfm attributes.",
+    "name": "hwVrrpTrackEfmGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackEfmIfName"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackEfmName"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackEfmOperRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1.1.8",
+    "status": "current"
+  },
+  "hwVrrpTrackEfmIfIndex": {
+    "class": "objecttype",
+    "description": "The index of the table, it identifies vrrp\u0027s interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackEfmIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwVrrpTrackEfmIfName": {
+    "class": "objecttype",
+    "description": "A textual string containing information about the interface of vrrp.",
+    "maxaccess": "read-only",
+    "name": "hwVrrpTrackEfmIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwVrrpTrackEfmIndex": {
+    "class": "objecttype",
+    "description": "The index of the table, it identifies EFM\u0027s interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackEfmIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.7.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwVrrpTrackEfmName": {
+    "class": "objecttype",
+    "description": "A textual string containing information about the interface of efm.",
+    "maxaccess": "read-only",
+    "name": "hwVrrpTrackEfmName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.7.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwVrrpTrackEfmOperRowStatus": {
+    "class": "objecttype",
+    "description": "The row status variable. ",
+    "maxaccess": "read-create",
+    "name": "hwVrrpTrackEfmOperRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.7.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwVrrpTrackEfmTable": {
+    "class": "objecttype",
+    "description": "The VRRP tracking EFM table.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackEfmTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.7",
+    "status": "current"
+  },
+  "hwVrrpTrackEfmVRID": {
+    "class": "objecttype",
+    "description": "The index of the table, it identifies vrrp\u0027s vrid.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackEfmVRID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VrId"
+    }
+  },
+  "hwVrrpTrackInterEntry": {
+    "class": "objecttype",
+    "description": "An entry in the VRRP tracking interface table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackInterVRID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackInterStandByIfnet"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackInterIfnet"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackInterEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.1.1",
+    "status": "current"
+  },
+  "hwVrrpTrackInterIfnet": {
+    "class": "objecttype",
+    "description": "The index of the VRRP tracking interface table, it identifies the tracked interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackInterIfnet",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwVrrpTrackInterOperRowStatus": {
+    "class": "objecttype",
+    "description": "The row status variable. ",
+    "maxaccess": "read-create",
+    "name": "hwVrrpTrackInterOperRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwVrrpTrackInterPriIncrease": {
+    "class": "objecttype",
+    "description": "If the tracked interface is down, this value will be added to the priority of standby. \u00270\u0027 specifies this attribute hasn\u0027t been configured. The minimum availability value is \u00271\u0027.",
+    "maxaccess": "read-create",
+    "name": "hwVrrpTrackInterPriIncrease",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwVrrpTrackInterPriReduce": {
+    "class": "objecttype",
+    "description": "If the tracked interface is down, priority of standby will reduce this value. \u00270\u0027 specifies this attribute hasn\u0027t been configured. The minimum availability value is \u00271\u0027.",
+    "maxaccess": "read-create",
+    "name": "hwVrrpTrackInterPriReduce",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwVrrpTrackInterStandByIfnet": {
+    "class": "objecttype",
+    "description": "The index of the VRRP tracking interface table, it identifies the standby\u0027s interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackInterStandByIfnet",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwVrrpTrackInterTable": {
+    "class": "objecttype",
+    "description": "The VRRP tracking interface table, it can accomodate eight rows at most.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackInterTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.1",
+    "status": "current"
+  },
+  "hwVrrpTrackInterVRID": {
+    "class": "objecttype",
+    "description": "The index of the VRRP tracking interface table, it identifies the standby\u0027s ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackInterVRID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VrId"
+    }
+  },
+  "hwVrrpTrackIpsecInstanceEntry": {
+    "class": "objecttype",
+    "description": "This object indicates an entry in the VRRP tracking Ipsec-instance table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackIpsecInstanceVRID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackIpsecInstanceStandByIfnet"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackIpsecInstanceID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackIpsecInstanceEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.11.1",
+    "status": "current"
+  },
+  "hwVrrpTrackIpsecInstanceID": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the ID of a tracked Ipsec-instance in the VRRP tracking Ipsec-instance table.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackIpsecInstanceID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.11.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwVrrpTrackIpsecInstanceOperRowStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the row status variable.",
+    "maxaccess": "read-create",
+    "name": "hwVrrpTrackIpsecInstanceOperRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.11.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwVrrpTrackIpsecInstancePriReduce": {
+    "class": "objecttype",
+    "description": "If the tracked Ipsec-instance is Down, priorities of backup devices decrease by the specified value. The value 0 indicates that the attribute is not configured. The minimum value is 1.",
+    "maxaccess": "read-create",
+    "name": "hwVrrpTrackIpsecInstancePriReduce",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.11.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwVrrpTrackIpsecInstanceStandByIfnet": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the interface index of a backup device in the VRRP tracking Ipsec-instance table.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackIpsecInstanceStandByIfnet",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.11.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwVrrpTrackIpsecInstanceTable": {
+    "class": "objecttype",
+    "description": "This object indicates the VRRP tracking Ipsec-instance table, which can accommodate a maximum of eight rows.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackIpsecInstanceTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.11",
+    "status": "current"
+  },
+  "hwVrrpTrackIpsecInstanceVRID": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the ID of a backup device in the VRRP tracking Ipsec-instance table.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackIpsecInstanceVRID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.11.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VrId"
+    }
+  },
+  "hwVrrpTrackNQAAdminName": {
+    "class": "objecttype",
+    "description": "The NQA administer name that vrrp tracks. The attribute cannot be modified after created.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackNQAAdminName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.12.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwVrrpTrackNQAEntry": {
+    "class": "objecttype",
+    "description": "An entry in the VRRP tracking NQA table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackNQAVRID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackNQAStandbyIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackNQAAdminName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackNQATestName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackNQAEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.12.1",
+    "status": "current"
+  },
+  "hwVrrpTrackNQAOperRowStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the row status variable.",
+    "maxaccess": "read-create",
+    "name": "hwVrrpTrackNQAOperRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.12.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwVrrpTrackNQAPriReduce": {
+    "class": "objecttype",
+    "description": "If the tracked NQA is down, the priority of standby will reduce this value. \u00270\u0027 specifies this attribute hasn\u0027t been configured. The minimum availability value is \u00271\u0027.",
+    "maxaccess": "read-create",
+    "name": "hwVrrpTrackNQAPriReduce",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.12.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwVrrpTrackNQAStandbyIfIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the interface index of a backup device in the VRRP tracking NQA table.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackNQAStandbyIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.12.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwVrrpTrackNQATable": {
+    "class": "objecttype",
+    "description": "The VRRP tracking NQA table.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackNQATable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.12",
+    "status": "current"
+  },
+  "hwVrrpTrackNQATestName": {
+    "class": "objecttype",
+    "description": "The NQA test name that vrrp tracks. The attribute cannot be modified after created.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackNQATestName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.12.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwVrrpTrackNQAVRID": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the ID of a backup device in the VRRP tracking NQA table.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackNQAVRID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.12.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VrId"
+    }
+  },
+  "hwVrrpTrackRouteEntry": {
+    "class": "objecttype",
+    "description": "An entry in the VRRP tracking Route table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackRouteIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackRouteVRID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackRoutePrefix"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackRouteMask"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackRouteVrf"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackRouteEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.13.1",
+    "status": "current"
+  },
+  "hwVrrpTrackRouteIndex": {
+    "class": "objecttype",
+    "description": "The index of the VRRP tracking Route table, it identifies the standby\u0027s interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackRouteIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.13.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwVrrpTrackRouteMask": {
+    "class": "objecttype",
+    "description": "The index of the VRRP tracking Route table, it identifies the tracked ip address\u0027s mask.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackRouteMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.13.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwVrrpTrackRouteOperRowStatus": {
+    "class": "objecttype",
+    "description": "The row status variable. ",
+    "maxaccess": "read-create",
+    "name": "hwVrrpTrackRouteOperRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.13.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwVrrpTrackRoutePrefix": {
+    "class": "objecttype",
+    "description": "The index of the VRRP tracking Route table, it identifies the tracked ip address.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackRoutePrefix",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.13.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwVrrpTrackRoutePriReduce": {
+    "class": "objecttype",
+    "description": "If the tracked route is unreachable, the priority of standby will reduce this value. \u00270\u0027 specifies this attribute hasn\u0027t been configured. The minimum availability value is \u00271\u0027.",
+    "maxaccess": "read-create",
+    "name": "hwVrrpTrackRoutePriReduce",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.13.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwVrrpTrackRouteTable": {
+    "class": "objecttype",
+    "description": "The VRRP tracking Route table.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackRouteTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.13",
+    "status": "current"
+  },
+  "hwVrrpTrackRouteVRID": {
+    "class": "objecttype",
+    "description": "The index of the VRRP tracking Route table, it identifies the standby\u0027s ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackRouteVRID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.13.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VrId"
+    }
+  },
+  "hwVrrpTrackRouteVrf": {
+    "class": "objecttype",
+    "description": "The index of the VRRP tracking Route table, it identifies the tracked VPN instance name ",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTrackRouteVrf",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.13.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwVrrpTriggerRouteEntry": {
+    "class": "objecttype",
+    "description": "An entry in the VRRP trigger route table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTriggerRouteIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTriggerRouteEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.8.1",
+    "status": "current"
+  },
+  "hwVrrpTriggerRouteGroup": {
+    "class": "objectgroup",
+    "description": "The VrrpTriggerRoute attributes.",
+    "name": "hwVrrpTriggerRouteGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTriggerRouteIfIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1.1.9",
+    "status": "current"
+  },
+  "hwVrrpTriggerRouteIfIndex": {
+    "class": "objecttype",
+    "description": "The index of the table, it identifies vrrp\u0027s interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTriggerRouteIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwVrrpTriggerRouteMode": {
+    "class": "objecttype",
+    "description": "A switch decides whether the system responds to a request message or not, which is sent to virtual ip address. ",
+    "maxaccess": "read-create",
+    "name": "hwVrrpTriggerRouteMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.8.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVrrpTriggerRouteOperRowStatus": {
+    "class": "objecttype",
+    "description": "The row status variable. ",
+    "maxaccess": "read-create",
+    "name": "hwVrrpTriggerRouteOperRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.8.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwVrrpTriggerRouteTable": {
+    "class": "objecttype",
+    "description": "The VRRP trigger route table.",
+    "maxaccess": "not-accessible",
+    "name": "hwVrrpTriggerRouteTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2.8",
+    "status": "current"
+  },
+  "hwvrrpExtCompliances": {
+    "class": "objectidentity",
+    "name": "hwvrrpExtCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1"
+  },
+  "hwvrrpExtGlobalGroup": {
+    "class": "objectgroup",
+    "description": "The VRRP global attributes.",
+    "name": "hwvrrpExtGlobalGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpExtFreeArpInterval"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpExtVIPPingCtr"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpExtSsTimer"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpExtLearnAdvIntervalFlag"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpExtStateChangeReasonString"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1.1.1",
+    "status": "current"
+  },
+  "hwvrrpExtGroups": {
+    "class": "objectidentity",
+    "name": "hwvrrpExtGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1.1"
+  },
+  "hwvrrpExtTrackBFDGroup": {
+    "class": "objectgroup",
+    "description": "The VRRP tracking BFD attributes.",
+    "name": "hwvrrpExtTrackBFDGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackBfdPriReduce"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackBfdOperRowStatus"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackBfdPriIncrease"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackBfdType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1.1.3",
+    "status": "current"
+  },
+  "hwvrrpExtTrackInterGroup": {
+    "class": "objectgroup",
+    "description": "The VRRP tracking inter attributes.",
+    "name": "hwvrrpExtTrackInterGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackInterPriReduce"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackInterOperRowStatus"
+      },
+      {
+        "module": "HUAWEI-VRRP-EXT-MIB",
+        "object": "hwVrrpTrackInterPriIncrease"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3.1.1.2",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifName",
+      "InterfaceIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Bits",
+      "TimeTicks",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Integer32",
+      "Counter64",
+      "OBJECT-GROUP",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ],
+    "VRRP-MIB": [
+      "VrId",
+      "vrrpOperMasterIpAddr",
+      "vrrpOperState"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-VRRP-EXT-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:28 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-VRRP-EXT-MIB"
+  },
+  "vrrpExtConformance": {
+    "class": "objectidentity",
+    "name": "vrrpExtConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.3"
+  },
+  "vrrpExtOperations": {
+    "class": "objectidentity",
+    "name": "vrrpExtOperations",
+    "oid": "1.3.6.1.4.1.2011.5.25.127.2"
+  }
+}

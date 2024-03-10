@@ -1,0 +1,172 @@
+{
+  "huaweiClockMIBConformance": {
+    "class": "objectidentity",
+    "name": "huaweiClockMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.205.3"
+  },
+  "huaweiClockMIBGroups": {
+    "class": "objectidentity",
+    "name": "huaweiClockMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.205.3.2"
+  },
+  "huaweiClockNotifications": {
+    "class": "objectidentity",
+    "name": "huaweiClockNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.205.2"
+  },
+  "huaweiClockObjects": {
+    "class": "objectidentity",
+    "name": "huaweiClockObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.205.1"
+  },
+  "hwClockChanged": {
+    "class": "notificationtype",
+    "description": "This object indicates the alarm reported when the system time changes. In addition, the new system time is recorded.",
+    "name": "hwClockChanged",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-CLOCK-MIB",
+        "object": "hwUTCClock"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.205.2.1",
+    "status": "current"
+  },
+  "hwClockMIBCompliance": {
+    "class": "modulecompliance",
+    "description": " The compliance statement for entities that support the huawei Clock MIB. ",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-SYS-CLOCK-MIB",
+        "object": "hwClockSetGroup"
+      },
+      {
+        "module": "HUAWEI-SYS-CLOCK-MIB",
+        "object": "hwClockNotificationGroup"
+      }
+    ],
+    "name": "hwClockMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.205.3.1.1",
+    "status": "current"
+  },
+  "hwClockMIBCompliances": {
+    "class": "objectidentity",
+    "name": "hwClockMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.205.3.1"
+  },
+  "hwClockNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "The collection of notifications in the module",
+    "name": "hwClockNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-CLOCK-MIB",
+        "object": "hwClockChanged"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.205.3.2.2",
+    "status": "current"
+  },
+  "hwClockSetGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects on Clock setting level information. ",
+    "name": "hwClockSetGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-CLOCK-MIB",
+        "object": "hwLocalClock"
+      },
+      {
+        "module": "HUAWEI-SYS-CLOCK-MIB",
+        "object": "hwUTCClock"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.205.3.2.1",
+    "status": "current"
+  },
+  "hwLocalClock": {
+    "class": "objecttype",
+    "description": "This object is used to set and query the local time that is in the format of \u0027YYYY-MM-DD,HH:MM:SS\u0027. ",
+    "maxaccess": "read-create",
+    "name": "hwLocalClock",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.205.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSysClockMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "HUAWEI-SYS-CLOCK-MIB is used to configure and query time information, such as the system time, time zone, and daylight saving time. Root object: iso(1).org(3).dod(6).internet(1).private(4).enterprises(1). huawei(2011).huaweiMgmt(5).hwDatacomm(25).hwSysClockMIB(205) ",
+    "lastupdated": "200907250000Z",
+    "name": "hwSysClockMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.205",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "The initial revision of this MIB module .",
+        "revision": "2009-07-25 00:00"
+      }
+    ]
+  },
+  "hwUTCClock": {
+    "class": "objecttype",
+    "description": "This object is used to configure and query the system UTC time that is in the format of \u0027YYYY-MM-DD,HH:MM:SS\u0027. ",
+    "maxaccess": "read-create",
+    "name": "hwUTCClock",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.205.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "iso",
+      "OBJECT-TYPE",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "RowStatus",
+      "DateAndTime",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-SYS-CLOCK-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:04 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-SYS-CLOCK-MIB"
+  }
+}

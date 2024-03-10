@@ -1,0 +1,211 @@
+{
+  "hwSUBINT": {
+    "class": "moduleidentity",
+    "contactinfo": "Floor 5, Block 4, R\u0026D Building, Huawei Longgang Production Base, Shenzhen, P.R.C. http://www.huawei.com Zip:518057 ",
+    "description": "V1.00 The IFNET mib is for all datacomm product. ",
+    "lastupdated": "200508101200Z",
+    "name": "hwSUBINT",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.11",
+    "organization": "HAUWEI MIB Standard community "
+  },
+  "hwSubIfDescr": {
+    "class": "objecttype",
+    "description": "The description of the sub-interface.",
+    "maxaccess": "read-only",
+    "name": "hwSubIfDescr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.11.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwSubIfIndex": {
+    "class": "objecttype",
+    "description": "The ifindex of the sub-interface.",
+    "maxaccess": "read-only",
+    "name": "hwSubIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.11.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwSubIntCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for sub-interface supporting this module.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-BRAS-IFNET-MIB",
+        "object": "hwSubIntTableGroup"
+      }
+    ],
+    "name": "hwSubIntCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.11.2.1.1",
+    "status": "current"
+  },
+  "hwSubIntCompliances": {
+    "class": "objectidentity",
+    "name": "hwSubIntCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.11.2.1"
+  },
+  "hwSubIntConformance": {
+    "class": "objectidentity",
+    "name": "hwSubIntConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.11.2"
+  },
+  "hwSubIntEntry": {
+    "class": "objecttype",
+    "description": "An entry of hwSubIntTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-IFNET-MIB",
+        "object": "hwSubInterfaceNo"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSubIntEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.11.1.1.1",
+    "status": "current"
+  },
+  "hwSubIntRowStatus": {
+    "class": "objecttype",
+    "description": "Row status: 1: active 2: notInService 3: notReady 4: createAndGo 5: createAndWait 6: destroy",
+    "maxaccess": "read-create",
+    "name": "hwSubIntRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.11.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwSubIntTable": {
+    "class": "objecttype",
+    "description": "Sub-interface configuration table.",
+    "maxaccess": "not-accessible",
+    "name": "hwSubIntTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.11.1.1",
+    "status": "current"
+  },
+  "hwSubIntTableGroup": {
+    "class": "objectgroup",
+    "description": "The sub-interface group.",
+    "name": "hwSubIntTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-IFNET-MIB",
+        "object": "hwSubInterfaceNo"
+      },
+      {
+        "module": "HUAWEI-BRAS-IFNET-MIB",
+        "object": "hwSubIntRowStatus"
+      },
+      {
+        "module": "HUAWEI-BRAS-IFNET-MIB",
+        "object": "hwSubIfIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-IFNET-MIB",
+        "object": "hwSubIfDescr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.11.2.2.1",
+    "status": "current"
+  },
+  "hwSubIntTableGroups": {
+    "class": "objectidentity",
+    "name": "hwSubIntTableGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.11.2.2"
+  },
+  "hwSubInterfaceNo": {
+    "class": "objecttype",
+    "description": "The sub-interface number.",
+    "maxaccess": "read-write",
+    "name": "hwSubInterfaceNo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.11.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4096,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwhwSUBINTMibObjects": {
+    "class": "objectidentity",
+    "name": "hwhwSUBINTMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.11.1"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwBRASMib"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-BRAS-IFNET-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:46:47 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-BRAS-IFNET-MIB"
+  }
+}

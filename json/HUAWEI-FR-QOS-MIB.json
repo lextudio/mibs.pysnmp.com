@@ -1,0 +1,766 @@
+{
+  "DirectionType": {
+    "class": "textualconvention",
+    "description": "The Direction Policy apply on.",
+    "name": "DirectionType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "outbound": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCirAllowCfgInfoEntry": {
+    "class": "objecttype",
+    "description": "DCE allowed ratee Configuration Information Entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-QOS-MIB",
+        "object": "hwCirAllowFrClassIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-QOS-MIB",
+        "object": "hwCirAllowDirection"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwCirAllowCfgInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.3.1",
+    "status": "current"
+  },
+  "hwCirAllowCfgInfoTable": {
+    "class": "objecttype",
+    "description": "A table of DCE allowed rate Configuration information.",
+    "maxaccess": "not-accessible",
+    "name": "hwCirAllowCfgInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.3",
+    "status": "current"
+  },
+  "hwCirAllowDirection": {
+    "class": "objecttype",
+    "description": "Packet Direction. value 1,2,3 Used by hwCirAllowValue. inbound (1) outbound (2) inbound and outbound (3) ",
+    "maxaccess": "read-only",
+    "name": "hwCirAllowDirection",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwCirAllowFrClassIndex": {
+    "class": "objecttype",
+    "description": "Index of Fr Class. Begin with 0.Equal to hwFrClassIndex",
+    "maxaccess": "read-only",
+    "name": "hwCirAllowFrClassIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwCirAllowRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus. Three actions are used: active, createAndGo, destroy",
+    "maxaccess": "read-create",
+    "name": "hwCirAllowRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwCirAllowValue": {
+    "class": "objecttype",
+    "description": "DCE allowed rate (value greater than CIR) Unit : Bits per second. Value : \u003c1-45000000\u003e .",
+    "maxaccess": "read-create",
+    "name": "hwCirAllowValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 45000000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCirCfgInfoEntry": {
+    "class": "objecttype",
+    "description": "Committed Information Rate Configuration Information Entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-QOS-MIB",
+        "object": "hwCirFrClassIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwCirCfgInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.4.1",
+    "status": "current"
+  },
+  "hwCirCfgInfoTable": {
+    "class": "objecttype",
+    "description": "A table of Committed Information Rate Configuration information.",
+    "maxaccess": "not-accessible",
+    "name": "hwCirCfgInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.4",
+    "status": "current"
+  },
+  "hwCirFrClassIndex": {
+    "class": "objecttype",
+    "description": "Index of Fr Class. Begin with 0.Equal to hwFrClassIndex",
+    "maxaccess": "read-only",
+    "name": "hwCirFrClassIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwCirRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus. Three actions are used: active, createAndGo, destroy",
+    "maxaccess": "read-create",
+    "name": "hwCirRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwCirValue": {
+    "class": "objecttype",
+    "description": " CIR in packet output direction ,bps. Value : \u003c1000-45000000\u003e.",
+    "maxaccess": "read-create",
+    "name": "hwCirValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 45000000,
+            "min": 1000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFrClassCfgInfoEntry": {
+    "class": "objecttype",
+    "description": "Fr Class Configuration Information Entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-QOS-MIB",
+        "object": "hwFrClassIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwFrClassCfgInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.2.1",
+    "status": "current"
+  },
+  "hwFrClassCfgInfoTable": {
+    "class": "objecttype",
+    "description": "A table of Fr Class configuration information.",
+    "maxaccess": "not-accessible",
+    "name": "hwFrClassCfgInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.2",
+    "status": "current"
+  },
+  "hwFrClassIndex": {
+    "class": "objecttype",
+    "description": "Index of Fr Class. Begin with 0.",
+    "maxaccess": "read-only",
+    "name": "hwFrClassIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwFrClassIndexNext": {
+    "class": "objecttype",
+    "description": "This object contains an appropriate value to be used for hwFrClassIndex when creating rows in the hwFrClassCfgInfoTable. Begin with 0. ",
+    "maxaccess": "read-only",
+    "name": "hwFrClassIndexNext",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwFrClassName": {
+    "class": "objecttype",
+    "description": "Name of Fr Class.",
+    "maxaccess": "read-create",
+    "name": "hwFrClassName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwFrClassObjects": {
+    "class": "objectidentity",
+    "name": "hwFrClassObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1"
+  },
+  "hwFrClassRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus. Three actions are used: active, createAndGo, destroy",
+    "maxaccess": "read-create",
+    "name": "hwFrClassRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwFrPvcBandwidthAvailable": {
+    "class": "objecttype",
+    "description": "Available bandWidth. Unit : Kbps",
+    "maxaccess": "read-only",
+    "name": "hwFrPvcBandwidthAvailable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwFrPvcBandwidthEntry": {
+    "class": "objecttype",
+    "description": "Bandwidth Running statistics",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-QOS-MIB",
+        "object": "hwPvcApplyFrClassIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-QOS-MIB",
+        "object": "hwPvcApplyFrClassDlciNum"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwFrPvcBandwidthEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.7.1",
+    "status": "current"
+  },
+  "hwFrPvcBandwidthMaxReservedBW": {
+    "class": "objecttype",
+    "description": "Max reserved bandWidth. Unit : Kbps",
+    "maxaccess": "read-only",
+    "name": "hwFrPvcBandwidthMaxReservedBW",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwFrPvcBandwidthTable": {
+    "class": "objecttype",
+    "description": "A table of Running statistics for bandwidth. ",
+    "maxaccess": "not-accessible",
+    "name": "hwFrPvcBandwidthTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.7",
+    "status": "current"
+  },
+  "hwFrQoSMib": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": "The HUAWEI-FR-QOS-MIB contains objects to Manage configuration and Monitor running state for Class Based FR QoS feature. ********************************* MIB Tables ********************************** This MIB consists of the following tables: 1 : hwFrClassCfgInfoTable 2 : hwCirAllowCfgInfoTable 3 : hwCirCfgInfoTable 4 : hwIfApplyFrClassTable 5 : hwPvcApplyFrClassTable 6 : hwFrPvcBandwidthTable 7 : hwRTPFrClassApplyTable 8 : hwRTPFrPvcQueueRunInfoTable ",
+    "lastupdated": "200407120000Z",
+    "name": "hwFrQoSMib",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwFrQoSObjects": {
+    "class": "objectidentity",
+    "name": "hwFrQoSObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1"
+  },
+  "hwIfApplyFrClassEntry": {
+    "class": "objecttype",
+    "description": "FrClass applied on interface Configuration Information Entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-QOS-MIB",
+        "object": "hwIfApplyFrClassIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIfApplyFrClassEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.5.1",
+    "status": "current"
+  },
+  "hwIfApplyFrClassIfIndex": {
+    "class": "objecttype",
+    "description": "Interface Index, equal to ifIndex.",
+    "maxaccess": "read-only",
+    "name": "hwIfApplyFrClassIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIfApplyFrClassIndex": {
+    "class": "objecttype",
+    "description": "Index of Fr Class, equal to hwFrClassIndex",
+    "maxaccess": "read-create",
+    "name": "hwIfApplyFrClassIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIfApplyFrClassRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus. Three actions are used: active, createAndGo, destroy",
+    "maxaccess": "read-create",
+    "name": "hwIfApplyFrClassRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIfApplyFrClassTable": {
+    "class": "objecttype",
+    "description": "A table of QoS Fr Class instance.",
+    "maxaccess": "not-accessible",
+    "name": "hwIfApplyFrClassTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.5",
+    "status": "current"
+  },
+  "hwPvcApplyFrClassDlciNum": {
+    "class": "objecttype",
+    "description": "Fr DLCI number.",
+    "maxaccess": "read-only",
+    "name": "hwPvcApplyFrClassDlciNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1007,
+            "min": 16
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPvcApplyFrClassEntry": {
+    "class": "objecttype",
+    "description": "Fr Class applied on FR Pvc Configuration Information Entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-QOS-MIB",
+        "object": "hwPvcApplyFrClassIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-QOS-MIB",
+        "object": "hwPvcApplyFrClassDlciNum"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPvcApplyFrClassEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.6.1",
+    "status": "current"
+  },
+  "hwPvcApplyFrClassIfIndex": {
+    "class": "objecttype",
+    "description": "Fr Interface Index, equal to ifIndex.",
+    "maxaccess": "read-only",
+    "name": "hwPvcApplyFrClassIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPvcApplyFrClassIndex": {
+    "class": "objecttype",
+    "description": "Index of Fr Class, equal to hwFrClassIndex",
+    "maxaccess": "read-create",
+    "name": "hwPvcApplyFrClassIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPvcApplyFrClassRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus. Three actions are used: active, createAndGo, destroy",
+    "maxaccess": "read-create",
+    "name": "hwPvcApplyFrClassRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwPvcApplyFrClassTable": {
+    "class": "objecttype",
+    "description": "A table of QoS Fr Class instance.",
+    "maxaccess": "not-accessible",
+    "name": "hwPvcApplyFrClassTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.1.6",
+    "status": "current"
+  },
+  "hwQoS": {
+    "class": "objectidentity",
+    "name": "hwQoS",
+    "oid": "1.3.6.1.4.1.2011.5.25.32"
+  },
+  "hwRTPFrClassApplyBandWidth": {
+    "class": "objecttype",
+    "description": "Max bandWidth Value: Absolute value: 8~1000000. Unit: Kbps ",
+    "maxaccess": "read-create",
+    "name": "hwRTPFrClassApplyBandWidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000000,
+            "min": 8
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRTPFrClassApplyCbs": {
+    "class": "objecttype",
+    "description": " Committed Burst Size: 1500~2000000. Unit: byte ",
+    "maxaccess": "read-create",
+    "name": "hwRTPFrClassApplyCbs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2000000,
+            "min": 1500
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRTPFrClassApplyEndPort": {
+    "class": "objecttype",
+    "description": " RTP-PORT(3): end-port: 2000~65535 ",
+    "maxaccess": "read-create",
+    "name": "hwRTPFrClassApplyEndPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 2000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRTPFrClassApplyEntry": {
+    "class": "objecttype",
+    "description": "Rtpq Configuration Information Entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-QOS-MIB",
+        "object": "hwRTPFrClassApplyFrClassIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRTPFrClassApplyEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2.1.1",
+    "status": "current"
+  },
+  "hwRTPFrClassApplyFrClassIndex": {
+    "class": "objecttype",
+    "description": "Fr Class Index, equal to HwFrClassIndex.",
+    "maxaccess": "read-only",
+    "name": "hwRTPFrClassApplyFrClassIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRTPFrClassApplyRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus for RTPFrClassApply Table. Three actions are used: active, createAndGo, destroy",
+    "maxaccess": "read-create",
+    "name": "hwRTPFrClassApplyRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwRTPFrClassApplyStartPort": {
+    "class": "objecttype",
+    "description": " RTP-PORT(3): start-port: 2000~65535 ",
+    "maxaccess": "read-create",
+    "name": "hwRTPFrClassApplyStartPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 2000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRTPFrClassApplyTable": {
+    "class": "objecttype",
+    "description": "A table of QoS rtpq instance.",
+    "maxaccess": "not-accessible",
+    "name": "hwRTPFrClassApplyTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2.1",
+    "status": "current"
+  },
+  "hwRTPFrPvcQueueDiscards": {
+    "class": "objecttype",
+    "description": "Discards of Rtpq Queue.",
+    "maxaccess": "read-only",
+    "name": "hwRTPFrPvcQueueDiscards",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwRTPFrPvcQueueMaxSize": {
+    "class": "objecttype",
+    "description": "Max size of Rtpq Queue.",
+    "maxaccess": "read-only",
+    "name": "hwRTPFrPvcQueueMaxSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRTPFrPvcQueueOutputs": {
+    "class": "objecttype",
+    "description": "Outputs of Rtpq Queue.",
+    "maxaccess": "read-only",
+    "name": "hwRTPFrPvcQueueOutputs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwRTPFrPvcQueueRunInfoEntry": {
+    "class": "objecttype",
+    "description": "Queue statistics entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-QOS-MIB",
+        "object": "hwPvcApplyFrClassIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-QOS-MIB",
+        "object": "hwPvcApplyFrClassDlciNum"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRTPFrPvcQueueRunInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2.2.1",
+    "status": "current"
+  },
+  "hwRTPFrPvcQueueRunInfoTable": {
+    "class": "objecttype",
+    "description": "A table of Running statistics for RTPQ Queue applied on the FR PVC",
+    "maxaccess": "not-accessible",
+    "name": "hwRTPFrPvcQueueRunInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2.2",
+    "status": "current"
+  },
+  "hwRTPFrPvcQueueSize": {
+    "class": "objecttype",
+    "description": "Size of Rtpq Queue.",
+    "maxaccess": "read-only",
+    "name": "hwRTPFrPvcQueueSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRTPQoSObjects": {
+    "class": "objectidentity",
+    "name": "hwRTPQoSObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.3.1.2"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Bits",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "iso",
+      "Integer32",
+      "Gauge32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "MacAddress"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-FR-QOS-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:25 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-FR-QOS-MIB"
+  }
+}

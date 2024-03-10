@@ -1,0 +1,1667 @@
+{
+  "EnabledStatus": {
+    "class": "textualconvention",
+    "description": "A simple status value for the object.",
+    "name": "EnabledStatus",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRrpp": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "The RRPP (Rapid Ring Protection protocol) provides fast protection switching to layer 2 switches interconnected in an Ethernet ring topology. When a link in the ring breaks, the RRPP can recover the data path quickly. Its protection switching is similar to what can be achieved with the Spanning Tree Protocol (STP), but the converging time is less than a second after link failure. This MIB defines management information used on products which support RRPP.",
+    "lastupdated": "201503230000Z",
+    "name": "hwRrpp",
+    "oid": "1.3.6.1.4.1.2011.5.25.113",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "Add new node hwRrppRingSingleDirectionFail",
+        "revision": "2015-03-23 00:00"
+      },
+      {
+        "description": "Fix the errors checked by a tool.",
+        "revision": "2013-09-07 00:00"
+      },
+      {
+        "description": "Add new node hwRrppDomainDescription",
+        "revision": "2013-06-17 00:10"
+      }
+    ]
+  },
+  "hwRrppCompliance": {
+    "class": "modulecompliance",
+    "description": "The core compliance statement for all implementations.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppGlobalGroup"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppDomainGroup"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppRingGroup"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppPortGroup"
+      }
+    ],
+    "name": "hwRrppCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.6.1.1",
+    "status": "current"
+  },
+  "hwRrppCompliances": {
+    "class": "objectidentity",
+    "name": "hwRrppCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.6.1"
+  },
+  "hwRrppConformance": {
+    "class": "objectidentity",
+    "name": "hwRrppConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.6"
+  },
+  "hwRrppDomainControlVlanID": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 65535
+      }
+    },
+    "description": "Index of the control VLAN specified to a domain. The value 65535 indicates the control VLAN has not been configured. The VLAN assigned to a RRPP Domain must not have been created. This value can\u0027t be modified after created.",
+    "maxaccess": "read-create",
+    "name": "hwRrppDomainControlVlanID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4093,
+            "min": 1
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRrppDomainDescription": {
+    "class": "objecttype",
+    "description": "A textual description of the RRPP domain. It is mandatory that this only contain no more than 255 printable ASCII characters.",
+    "maxaccess": "read-create",
+    "name": "hwRrppDomainDescription",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRrppDomainEntry": {
+    "class": "objecttype",
+    "description": "Detailed information of a specified RRPP domain.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppDomainID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRrppDomainEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.1.1",
+    "status": "current"
+  },
+  "hwRrppDomainFailTime": {
+    "class": "objecttype",
+    "description": "The expiration value of the fail-period timer and its unit is second. If not receiving hello packets before this expires, the master-node considers the ring is broken. The value of this node ranges with products, which must not be less than triple hwRrppDomainHelloTime\u0027s value.",
+    "maxaccess": "read-create",
+    "name": "hwRrppDomainFailTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRrppDomainGroup": {
+    "class": "objectgroup",
+    "description": "The RRPP domain group.",
+    "name": "hwRrppDomainGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppDomainControlVlanID"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppDomainHelloTime"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppDomainFailTime"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppDomainRowStatus"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppDomainResetStatistics"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppMulSubRingProtection"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppDomainProtectedVlan"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppDomainDescription"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.113.5.2",
+    "status": "current"
+  },
+  "hwRrppDomainHelloTime": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "The value indicates the interval between two hello packets sent by master-node, and its unit is second. The value ranges from 1s~10s.",
+    "maxaccess": "read-create",
+    "name": "hwRrppDomainHelloTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRrppDomainID": {
+    "class": "objecttype",
+    "description": "An index uniquely identifies a RRPP domain. This value can\u0027t be modified after created.",
+    "maxaccess": "not-accessible",
+    "name": "hwRrppDomainID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRrppDomainProtectedVlan": {
+    "class": "objecttype",
+    "description": "Information of instance index protected by a domain. The instance index ranging from 0 to 48 is listed in a character string in order. The value of each character can be either 0 or 1. Character 0 indicates that the corresponding instance is not proteced while character 1 indicates that the corresponding instance is proteced. For example, set character string 00101 to protect instance 2 and instance 4, and not to protect the rest of instances.",
+    "maxaccess": "read-create",
+    "name": "hwRrppDomainProtectedVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 49,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRrppDomainResetStatistics": {
+    "class": "objecttype",
+    "description": "Clears the statistics of packets received and sent on the current domain.",
+    "maxaccess": "read-create",
+    "name": "hwRrppDomainResetStatistics",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleared": 1,
+          "unused": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRrppDomainRowStatus": {
+    "class": "objecttype",
+    "description": "This object is responsible for managing the creation, deletion and modification of rows, which support active status and CreatAndGo, destroy operation.",
+    "maxaccess": "read-create",
+    "name": "hwRrppDomainRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwRrppDomainTable": {
+    "class": "objecttype",
+    "description": "A table containing information about configurations and status of a RRPP domain.",
+    "maxaccess": "not-accessible",
+    "name": "hwRrppDomainTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.1",
+    "status": "current"
+  },
+  "hwRrppEnableStatus": {
+    "class": "objecttype",
+    "description": "Indicating whether the RRPP is enabled on this switch.",
+    "maxaccess": "read-write",
+    "name": "hwRrppEnableStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwRrppGlobalGroup": {
+    "class": "objectgroup",
+    "description": "The RRPP global group.",
+    "name": "hwRrppGlobalGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppEnableStatus"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppLinkupDelayTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.113.5.1",
+    "status": "current"
+  },
+  "hwRrppLinkupDelayTime": {
+    "class": "objecttype",
+    "description": "This value indicates the delay when ports change to Up. The value of this node ranges with products. The default value is 0.",
+    "maxaccess": "read-write",
+    "name": "hwRrppLinkupDelayTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRrppMibGroup": {
+    "class": "objectidentity",
+    "name": "hwRrppMibGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.5"
+  },
+  "hwRrppMulSubRingProtection": {
+    "class": "objecttype",
+    "description": "Indicating whether the rrpp mul-sub-ring protection is enabled on this switch.",
+    "maxaccess": "read-create",
+    "name": "hwRrppMulSubRingProtection",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwRrppMultiMaster": {
+    "class": "notificationtype",
+    "description": "Trap message is generated by master-node when it detects there are more than one master-node on the ring.",
+    "name": "hwRrppMultiMaster",
+    "objects": [
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppRingNodeMode"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.113.4.3",
+    "status": "current"
+  },
+  "hwRrppNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "The notification group.",
+    "name": "hwRrppNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppRingRecover"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppRingFail"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppMultiMaster"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppTrackInterfaceDown"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppTrackInterfaceUp"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppRingSingleDirectionFail"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.113.5.10",
+    "status": "current"
+  },
+  "hwRrppNotifications": {
+    "class": "objectidentity",
+    "name": "hwRrppNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.4"
+  },
+  "hwRrppPortEntry": {
+    "class": "objecttype",
+    "description": "Detailed information of a specified RRPP port.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppDomainID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppRingID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppPortID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRrppPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.3.1",
+    "status": "current"
+  },
+  "hwRrppPortGroup": {
+    "class": "objectgroup",
+    "description": "The RRPP port group.",
+    "name": "hwRrppPortGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppPortType"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppPortRole"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppPortState"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppPortRXError"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppPortRXHello"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppPortRXLinkUp"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppPortRXLinkDown"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppPortRXCommonFlush"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppPortRXCompleteFlush"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppPortRXEdgeHello"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppPortRXMajorFault"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppPortTXError"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppPortTXHello"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppPortTXLinkUp"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppPortTXLinkDown"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppPortTXCommonFlush"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppPortTXCompleteFlush"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppPortTXEdgeHello"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppPortTXMajorFault"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.113.5.4",
+    "status": "current"
+  },
+  "hwRrppPortID": {
+    "class": "objecttype",
+    "description": "Logical index of the interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwRrppPortID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwRrppPortRXCommonFlush": {
+    "class": "objecttype",
+    "description": "The statistics of common-flush packets received from this port on specified ring. Instruction When master-node receives valid link-down packets or link-up packets, it will send common-flush packets, instructing the other nodes on the ring to flush their forwarding database. When the nodes except master-node receive common-flush, they will flush forwarding database. If there is any port blocked on that node, it won\u0027t be unblocked.",
+    "maxaccess": "read-only",
+    "name": "hwRrppPortRXCommonFlush",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwRrppPortRXCompleteFlush": {
+    "class": "objecttype",
+    "description": "The statistics of complete-flush packets received from this port on specified ring. Instruction When the ring recovers, master-node will receive its own hello packets. It will send complete-flush packets, instructing the other nodes on the ring to flush their forwarding database. When the nodes except master-node receive complete-flush, they will flush forwarding database. If there is any port blocked on that node, it will be unblocked.",
+    "maxaccess": "read-only",
+    "name": "hwRrppPortRXCompleteFlush",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwRrppPortRXEdgeHello": {
+    "class": "objecttype",
+    "description": "The statistics of edge-hello packets received from this port on specified ring. Instruction When edge-node sends edge-hello packets, assistantEdge-node will receive its own edge-hello packets from the common link and the master ring.",
+    "maxaccess": "read-only",
+    "name": "hwRrppPortRXEdgeHello",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwRrppPortRXError": {
+    "class": "objecttype",
+    "description": "The statistics of illegal RRPP packets received from this port.",
+    "maxaccess": "read-only",
+    "name": "hwRrppPortRXError",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwRrppPortRXHello": {
+    "class": "objecttype",
+    "description": "The statistics of hello packets received from this port on specified ring.",
+    "maxaccess": "read-only",
+    "name": "hwRrppPortRXHello",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwRrppPortRXLinkDown": {
+    "class": "objecttype",
+    "description": "The statistics of link-down packets received from this port on specified ring.",
+    "maxaccess": "read-only",
+    "name": "hwRrppPortRXLinkDown",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwRrppPortRXLinkUp": {
+    "class": "objecttype",
+    "description": "The statistics of link-up packets received from this port on specified ring.",
+    "maxaccess": "read-only",
+    "name": "hwRrppPortRXLinkUp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwRrppPortRXMajorFault": {
+    "class": "objecttype",
+    "description": "The statistics of major-fault packets received from this port on specified ring. Instruction When assistantEdge can\u0027t receive edge-hello packets in the specified fault-time, assistantEdge-node will send its own major-fault packets from the edge port around the sub ring. Edge-node will receive the major-fault packets from its edge port. Then Edge-node will block its edge port.",
+    "maxaccess": "read-only",
+    "name": "hwRrppPortRXMajorFault",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.3.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwRrppPortRole": {
+    "class": "objecttype",
+    "description": "The RRPP role of the port. (i.e. primary, secondary, common or edge port).",
+    "maxaccess": "read-only",
+    "name": "hwRrppPortRole",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "common": 3,
+          "edge": 4,
+          "primary": 1,
+          "secondary": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRrppPortState": {
+    "class": "objecttype",
+    "description": "State of RRPP port, including unknown, unblocked, blocked and down.",
+    "maxaccess": "read-only",
+    "name": "hwRrppPortState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blocked": 3,
+          "down": 4,
+          "unblocked": 2,
+          "unknown": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRrppPortTXCommonFlush": {
+    "class": "objecttype",
+    "description": "The statistics of common-flush packets sent from this port on specified ring.",
+    "maxaccess": "read-only",
+    "name": "hwRrppPortTXCommonFlush",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.3.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwRrppPortTXCompleteFlush": {
+    "class": "objecttype",
+    "description": "The statistics of complete-flush packets sent from this port on specified ring.",
+    "maxaccess": "read-only",
+    "name": "hwRrppPortTXCompleteFlush",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.3.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwRrppPortTXEdgeHello": {
+    "class": "objecttype",
+    "description": "The statistics of edge-hello packets sent from this port on specified ring.",
+    "maxaccess": "read-only",
+    "name": "hwRrppPortTXEdgeHello",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.3.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwRrppPortTXError": {
+    "class": "objecttype",
+    "description": "The statistics of RRPP packets failed to send out of this port.",
+    "maxaccess": "read-only",
+    "name": "hwRrppPortTXError",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.3.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwRrppPortTXHello": {
+    "class": "objecttype",
+    "description": "The statistics of hello packets sent from this port on specified ring.",
+    "maxaccess": "read-only",
+    "name": "hwRrppPortTXHello",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.3.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwRrppPortTXLinkDown": {
+    "class": "objecttype",
+    "description": "The statistics of link-down packets sent from this port on specified ring.",
+    "maxaccess": "read-only",
+    "name": "hwRrppPortTXLinkDown",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.3.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwRrppPortTXLinkUp": {
+    "class": "objecttype",
+    "description": "The statistics of link-up packets sent from this port on specified ring.",
+    "maxaccess": "read-only",
+    "name": "hwRrppPortTXLinkUp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.3.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwRrppPortTXMajorFault": {
+    "class": "objecttype",
+    "description": "The statistics of major-fault packets sent from this port on specified ring.",
+    "maxaccess": "read-only",
+    "name": "hwRrppPortTXMajorFault",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.3.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwRrppPortTable": {
+    "class": "objecttype",
+    "description": "A table containing information about configurations and status of a RRPP port.",
+    "maxaccess": "not-accessible",
+    "name": "hwRrppPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.3",
+    "status": "current"
+  },
+  "hwRrppPortType": {
+    "class": "objecttype",
+    "description": "The interface type of the RRPP port. (i.e. FE, GE, VE, Eth-Trunk, XGE and etc).",
+    "maxaccess": "read-only",
+    "name": "hwRrppPortType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethtrunk": 4,
+          "fe": 1,
+          "ge": 2,
+          "ve": 3,
+          "x100ge": 7,
+          "x40ge": 6,
+          "xge": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRrppRingActive": {
+    "class": "objecttype",
+    "description": "As both hwRrppEnableStatus and hwRrppRingEnableStatus are enabled, the ring is activated. Whereas either of the two items is disabled, the ring is inactive.",
+    "maxaccess": "read-only",
+    "name": "hwRrppRingActive",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRrppRingEnableStatus": {
+    "class": "objecttype",
+    "description": "Indicating whether the RRPP is enabled on this Ring. NOTE: If major-ring and sub-ring(s) of a domain coexist on a switch, major-ring must be enabled before sub-ring is enabled. And sub-ring must be disabled before major-ring is disabled.",
+    "maxaccess": "read-create",
+    "name": "hwRrppRingEnableStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwRrppRingEntry": {
+    "class": "objecttype",
+    "description": "Detailed information of a specified RRPP Ring.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppDomainID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppRingID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRrppRingEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.2.1",
+    "status": "current"
+  },
+  "hwRrppRingFail": {
+    "class": "notificationtype",
+    "description": "Trap message is generated by master-node on the ring when the ring fails.",
+    "name": "hwRrppRingFail",
+    "objects": [
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppRingState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.113.4.2",
+    "status": "current"
+  },
+  "hwRrppRingGroup": {
+    "class": "objectgroup",
+    "description": "The RRPP ring group.",
+    "name": "hwRrppRingGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppRingEnableStatus"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppRingActive"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppRingState"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppRingNodeMode"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppRingPrimaryPort"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppRingSecondaryPort"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppRingLevel"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppRingRowStatus"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppRingResetStatistics"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.113.5.3",
+    "status": "current"
+  },
+  "hwRrppRingGroupEntry": {
+    "class": "objecttype",
+    "description": "Detailed information about a specified RRPP ring group.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppRingGroupID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRrppRingGroupEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.5.1",
+    "status": "current"
+  },
+  "hwRrppRingGroupGroup": {
+    "class": "objectgroup",
+    "description": "The RRPP RingGroup group.",
+    "name": "hwRrppRingGroupGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppRingGroupRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.113.5.6",
+    "status": "current"
+  },
+  "hwRrppRingGroupID": {
+    "class": "objecttype",
+    "description": "index of the RRPP ring group. This value can\u0027t be modified after created.",
+    "maxaccess": "not-accessible",
+    "name": "hwRrppRingGroupID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRrppRingGroupIsEdgeHelloProcess": {
+    "class": "objecttype",
+    "description": "Flag carried in the sent edge-Hello Packet.",
+    "maxaccess": "read-only",
+    "name": "hwRrppRingGroupIsEdgeHelloProcess",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwRrppRingGroupMemberDomainID": {
+    "class": "objecttype",
+    "description": "Index, namely, domain ID of the members of a ring group. This value cannot be modified after created.",
+    "maxaccess": "not-accessible",
+    "name": "hwRrppRingGroupMemberDomainID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRrppRingGroupMemberEntry": {
+    "class": "objecttype",
+    "description": "Detailed information about a specified RRPP ring group.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppRingGroupID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppRingGroupMemberDomainID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppRingGroupMemberRingID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRrppRingGroupMemberEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.6.1",
+    "status": "current"
+  },
+  "hwRrppRingGroupMemberGroup": {
+    "class": "objectgroup",
+    "description": "The RRPP RingGroupMember group.",
+    "name": "hwRrppRingGroupMemberGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppRingGroupIsEdgeHelloProcess"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppRingGroupMemberRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.113.5.7",
+    "status": "current"
+  },
+  "hwRrppRingGroupMemberRingID": {
+    "class": "objecttype",
+    "description": "Index, namely, ring ID of the members of a ring group. This value cannot be modified after created.",
+    "maxaccess": "not-accessible",
+    "name": "hwRrppRingGroupMemberRingID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRrppRingGroupMemberRowStatus": {
+    "class": "objecttype",
+    "description": "Row status in the ring group configuration table. hwRrppRingGroupMemberDomainID, hwRrppRingGroupMemberRingID, and hwRrppRingGroupIsEdgeHelloSender must be specified to create a row.",
+    "maxaccess": "read-create",
+    "name": "hwRrppRingGroupMemberRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwRrppRingGroupMemberTable": {
+    "class": "objecttype",
+    "description": "A table containing information about the configurations and status of an RRPP ring.",
+    "maxaccess": "not-accessible",
+    "name": "hwRrppRingGroupMemberTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.6",
+    "status": "current"
+  },
+  "hwRrppRingGroupRowStatus": {
+    "class": "objecttype",
+    "description": "Row status in the ring group configuration table. hwRrppRingGroupID must be specified to create a row.",
+    "maxaccess": "read-create",
+    "name": "hwRrppRingGroupRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwRrppRingGroupTable": {
+    "class": "objecttype",
+    "description": "A table containing information about an RRPP ring group and created without the domain or ring.",
+    "maxaccess": "not-accessible",
+    "name": "hwRrppRingGroupTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.5",
+    "status": "current"
+  },
+  "hwRrppRingID": {
+    "class": "objecttype",
+    "description": "An index uniquely identifies a RRPP Ring. This value can\u0027t be modified after created.",
+    "maxaccess": "not-accessible",
+    "name": "hwRrppRingID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRrppRingLevel": {
+    "class": "objecttype",
+    "description": "Level of a ring. This field should be set 0 on major-ring and 1 on the sub-ring. This value can\u0027t be modified after created.",
+    "maxaccess": "read-create",
+    "name": "hwRrppRingLevel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "majorRing": 0,
+          "subRing": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRrppRingNodeMode": {
+    "class": "objecttype",
+    "description": "There are four RRPP node modes for the switch on a RRPP ring, such as master, transit, edge and assistant-edge. Each RRPP ring has a single designated master-node. All other nodes except edge-node and assistant-edge-node on that ring are referred to as transit-nodes. The node mode of edge and assistant-edge should be configured only on sub-ring. When there is a common link between a sub-ring and its major-ring, the node mode of the sub-ring must be edge or assistant-edge, and they must be configured in pairs. If node mode is designated as edge or assistant-edge, several points should be noticed: Major-ring must be created before a sub-ring is created; Major-ring can\u0027t be deleted unless all its sub-rings are deleted; The node mode of the switch on major-ring must be transit; Major-ring and sub-ring must have only a common port. This value can\u0027t be modified after created.",
+    "maxaccess": "read-create",
+    "name": "hwRrppRingNodeMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "assistantEdge": 4,
+          "edge": 3,
+          "master": 1,
+          "transit": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRrppRingPrimaryPort": {
+    "class": "objecttype",
+    "description": "If the switch is a master-node or transit-node, this value is ifIndex of the primary port; otherwise, if the switch is an edge-node or assistant-edge-node, this value is ifIndex of the common port. This value is 0, if the port doesn\u0027t exist. This value can\u0027t be modified after created.",
+    "maxaccess": "read-create",
+    "name": "hwRrppRingPrimaryPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwRrppRingRecover": {
+    "class": "notificationtype",
+    "description": "Trap message is generated by master-node on the ring when the ring recovers from fault.",
+    "name": "hwRrppRingRecover",
+    "objects": [
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppRingState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.113.4.1",
+    "status": "current"
+  },
+  "hwRrppRingResetStatistics": {
+    "class": "objecttype",
+    "description": "Clears the statistics of packets received and sent on the current ring.",
+    "maxaccess": "read-create",
+    "name": "hwRrppRingResetStatistics",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleared": 1,
+          "unused": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRrppRingRowStatus": {
+    "class": "objecttype",
+    "description": "This object is responsible for managing the creation, deletion and modification of rows, which support active status and CreatAndGo, destroy operation. To create a new row, hwRrppRingNodeMode, hwRrppRingPrimaryPort, hwRrppRingSecondaryPort and hwRrppRingLevel must be specified.",
+    "maxaccess": "read-create",
+    "name": "hwRrppRingRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwRrppRingSecondaryPort": {
+    "class": "objecttype",
+    "description": "If the switch is a master-node or transit-node, this value is ifIndex of the secondary port; otherwise, if the switch is an edge-node or assistant-edge-node, this value is ifIndex of the edge port. This value is 0, if the port doesn\u0027t exist. This value can\u0027t be modified after created.",
+    "maxaccess": "read-create",
+    "name": "hwRrppRingSecondaryPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwRrppRingSingleDirectionFail": {
+    "class": "notificationtype",
+    "description": "Trap message is generated by master-node on the ring when the ring fails from the primary port to the secondary port.",
+    "name": "hwRrppRingSingleDirectionFail",
+    "objects": [
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppRingState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.113.4.6",
+    "status": "current"
+  },
+  "hwRrppRingState": {
+    "class": "objecttype",
+    "description": "The status (i.e. unknown, health or fault) of the Ethernet ring.",
+    "maxaccess": "read-only",
+    "name": "hwRrppRingState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "complete": 4,
+          "failed": 5,
+          "fault": 3,
+          "health": 2,
+          "linkdown": 7,
+          "linkdownnotify": 10,
+          "linkup": 6,
+          "linkupnotify": 9,
+          "preforwarding": 8,
+          "preforwardnotify": 11,
+          "unknown": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRrppRingTable": {
+    "class": "objecttype",
+    "description": "A table containing information about configurations and status of a RRPP Ring.",
+    "maxaccess": "not-accessible",
+    "name": "hwRrppRingTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.2",
+    "status": "current"
+  },
+  "hwRrppScalarGroup": {
+    "class": "objectidentity",
+    "name": "hwRrppScalarGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.1"
+  },
+  "hwRrppSnoopingAllVsiStatus": {
+    "class": "objecttype",
+    "description": "Indicating whether the RRPP snooping is associating all vsi on this switch. Options: 1. enabled(1) -indicates that the RRPP snooping is associated with all vsi under the same main interface 2. disabled(2)-indicates that the RRPP snooping doesn\u0027t perform the command to associated with all vsi under the same main interface Default: disabled ",
+    "maxaccess": "read-create",
+    "name": "hwRrppSnoopingAllVsiStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.3.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwRrppSnoopingEnableStatus": {
+    "class": "objecttype",
+    "description": "Indicating whether the RRPP snooping is enabled on this switch.",
+    "maxaccess": "read-create",
+    "name": "hwRrppSnoopingEnableStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.3.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwRrppSnoopingInterfaceEntry": {
+    "class": "objecttype",
+    "description": "Detailed information of a specified RRPP snooping enable interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppSnoopingInterfaceId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRrppSnoopingInterfaceEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.3.1.1",
+    "status": "current"
+  },
+  "hwRrppSnoopingInterfaceGroup": {
+    "class": "objectgroup",
+    "description": "The RRPP Snooping enable Interface group.",
+    "name": "hwRrppSnoopingInterfaceGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppSnoopingVsiName"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppSnoopingVlanId"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppSnoopingEnableStatus"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppSnoopingRowStatus"
+      },
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppSnoopingAllVsiStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.113.5.8",
+    "status": "current"
+  },
+  "hwRrppSnoopingInterfaceId": {
+    "class": "objecttype",
+    "description": "Logical index of the interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwRrppSnoopingInterfaceId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.3.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwRrppSnoopingInterfaceTable": {
+    "class": "objecttype",
+    "description": "A table containing information about RRPP snooping enable interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwRrppSnoopingInterfaceTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.3.1",
+    "status": "current"
+  },
+  "hwRrppSnoopingRowStatus": {
+    "class": "objecttype",
+    "description": "This object is responsible for managing the creation, deletion and modification of rows, which support active status and CreatAndGo, destroy operation.",
+    "maxaccess": "read-create",
+    "name": "hwRrppSnoopingRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.3.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwRrppSnoopingTable": {
+    "class": "objectidentity",
+    "name": "hwRrppSnoopingTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.3"
+  },
+  "hwRrppSnoopingVlanId": {
+    "class": "objecttype",
+    "description": "The VLAN which the intertace added to.",
+    "maxaccess": "read-only",
+    "name": "hwRrppSnoopingVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.3.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwRrppSnoopingVsiEntry": {
+    "class": "objecttype",
+    "description": "Detailed information of a specified RRPP snooping relating interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppSnoopingVsiInterfaceId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwVsiName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRrppSnoopingVsiEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.3.2.1",
+    "status": "current"
+  },
+  "hwRrppSnoopingVsiGroup": {
+    "class": "objectgroup",
+    "description": "The RRPP Snooping associate vsi group.",
+    "name": "hwRrppSnoopingVsiGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppSnoopingVsiRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.113.5.9",
+    "status": "current"
+  },
+  "hwRrppSnoopingVsiInterfaceId": {
+    "class": "objecttype",
+    "description": "Logical index of the interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwRrppSnoopingVsiInterfaceId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.3.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwRrppSnoopingVsiName": {
+    "class": "objecttype",
+    "description": "The name of VSI which the interface was binding to.",
+    "maxaccess": "read-only",
+    "name": "hwRrppSnoopingVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.3.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRrppSnoopingVsiRowStatus": {
+    "class": "objecttype",
+    "description": "This object is responsible for managing the creation, deletion and modification of rows, which support active status and CreatAndGo, destroy operation.",
+    "maxaccess": "read-create",
+    "name": "hwRrppSnoopingVsiRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.3.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwRrppSnoopingVsiTable": {
+    "class": "objecttype",
+    "description": "A table containing information about RRPP snooping relating interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwRrppSnoopingVsiTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.3.2",
+    "status": "current"
+  },
+  "hwRrppTable": {
+    "class": "objectidentity",
+    "name": "hwRrppTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2"
+  },
+  "hwRrppTrackInterfaceDown": {
+    "class": "notificationtype",
+    "description": "Trap message is generated by RRPP node when the track interface tracked BFD down.",
+    "name": "hwRrppTrackInterfaceDown",
+    "objects": [
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppTrackRowStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.113.4.4",
+    "status": "current"
+  },
+  "hwRrppTrackInterfaceEntry": {
+    "class": "objecttype",
+    "description": "Detailed information of a specified RRPP track interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppDomainID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppRingID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppTrackInterfaceID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRrppTrackInterfaceEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.4.1",
+    "status": "current"
+  },
+  "hwRrppTrackInterfaceGroup": {
+    "class": "objectgroup",
+    "description": "The RRPP Track Interface group.",
+    "name": "hwRrppTrackInterfaceGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppTrackRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.113.5.5",
+    "status": "current"
+  },
+  "hwRrppTrackInterfaceID": {
+    "class": "objecttype",
+    "description": "Logical index of track interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwRrppTrackInterfaceID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwRrppTrackInterfaceTable": {
+    "class": "objecttype",
+    "description": "A table containing information about tracking port.",
+    "maxaccess": "not-accessible",
+    "name": "hwRrppTrackInterfaceTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.4",
+    "status": "current"
+  },
+  "hwRrppTrackInterfaceUp": {
+    "class": "notificationtype",
+    "description": "Trap message is generated by RRPP node when the track interface tracked BFD up.",
+    "name": "hwRrppTrackInterfaceUp",
+    "objects": [
+      {
+        "module": "HUAWEI-RRPP-MIB",
+        "object": "hwRrppTrackRowStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.113.4.5",
+    "status": "current"
+  },
+  "hwRrppTrackRowStatus": {
+    "class": "objecttype",
+    "description": "This object is responsible for managing the creation, deletion and modification of rows, which support active status and CreatAndGo, destroy operation.",
+    "maxaccess": "read-create",
+    "name": "hwRrppTrackRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.2.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwVsiName": {
+    "class": "objecttype",
+    "description": "The name of VSI.",
+    "maxaccess": "not-accessible",
+    "name": "hwVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.113.3.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifName"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "Bits",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-RRPP-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:51 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-RRPP-MIB"
+  }
+}

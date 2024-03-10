@@ -1,0 +1,144 @@
+{
+  "hwNtpV3": {
+    "class": "moduleidentity",
+    "contactinfo": "VRP Team Huawei Technologies Co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China http://www.huawei.com Zip:100085 ",
+    "description": "The private mib file includes the general extent information of the device.hwDatacomm(25).hwNtpV3(234)",
+    "lastupdated": "201009092100Z",
+    "name": "hwNtpV3",
+    "oid": "1.3.6.1.4.1.2011.5.25.234",
+    "organization": "Huawei Technologies Co.,Ltd."
+  },
+  "hwNtpV3Compliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-NtpV3-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-NTPV3-MIB",
+        "object": "hwNtpV3ObjectGroup"
+      }
+    ],
+    "name": "hwNtpV3Compliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.234.2.1.1",
+    "status": "current"
+  },
+  "hwNtpV3Compliances": {
+    "class": "objectidentity",
+    "name": "hwNtpV3Compliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.234.2.1"
+  },
+  "hwNtpV3Conformance": {
+    "class": "objectidentity",
+    "name": "hwNtpV3Conformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.234.2"
+  },
+  "hwNtpV3Groups": {
+    "class": "objectidentity",
+    "name": "hwNtpV3Groups",
+    "oid": "1.3.6.1.4.1.2011.5.25.234.2.2"
+  },
+  "hwNtpV3MibObjects": {
+    "class": "objectidentity",
+    "name": "hwNtpV3MibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.234.1"
+  },
+  "hwNtpV3ObjectGroup": {
+    "class": "objectgroup",
+    "description": "The NTPV3 attribute group.",
+    "name": "hwNtpV3ObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-NTPV3-MIB",
+        "object": "hwNtpV3ServerIPAdd"
+      },
+      {
+        "module": "HUAWEI-NTPV3-MIB",
+        "object": "hwNtpV3TimeSyncPeriod"
+      },
+      {
+        "module": "HUAWEI-NTPV3-MIB",
+        "object": "hwNtpV3TimeAfterNTPCal"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.234.2.2.1",
+    "status": "current"
+  },
+  "hwNtpV3ServerIPAdd": {
+    "class": "objecttype",
+    "description": "IP address or domain name of the NTP server",
+    "maxaccess": "read-write",
+    "name": "hwNtpV3ServerIPAdd",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.234.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwNtpV3TimeAfterNTPCal": {
+    "class": "objecttype",
+    "description": "This node gives the current local time of the system. The unit of it is DateAndTime.",
+    "maxaccess": "read-only",
+    "name": "hwNtpV3TimeAfterNTPCal",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.234.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwNtpV3TimeSyncPeriod": {
+    "class": "objecttype",
+    "description": "NTP poll interval.",
+    "maxaccess": "read-write",
+    "name": "hwNtpV3TimeSyncPeriod",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.234.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "Gauge32",
+      "IpAddress",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "TimeTicks",
+      "Integer32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-NTPV3-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:34 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-NTPV3-MIB"
+  }
+}

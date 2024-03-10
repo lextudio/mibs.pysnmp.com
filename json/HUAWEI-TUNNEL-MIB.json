@@ -1,0 +1,488 @@
+{
+  "hwIPv6Tunnel4Over6CfgUndoFlag": {
+    "class": "objecttype",
+    "description": "This object specifies undo operation for specified hwIpv6Tunnel4Over6CfgTable parameter.",
+    "maxaccess": "read-write",
+    "name": "hwIPv6Tunnel4Over6CfgUndoFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.201.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 5,
+          "undoTunnelEncapLimit": 1,
+          "undoTunnelFlowLabel": 2,
+          "undoTunnelHopLimit": 3,
+          "undoTunnelTrafficClass": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIpv6Tunnel4Over6CfgEntry": {
+    "class": "objecttype",
+    "description": "Describes IPv6 tunnel 4Over6 parameters.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IPV6-MIB",
+        "object": "ipv6IfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpv6Tunnel4Over6CfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.201.1.2.1",
+    "status": "current"
+  },
+  "hwIpv6Tunnel4Over6CfgTable": {
+    "class": "objecttype",
+    "description": "MIB table for 4Over6 tunnel configuration information.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpv6Tunnel4Over6CfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.201.1.2",
+    "status": "current"
+  },
+  "hwIpv6TunnelEncapLimit": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 4
+      }
+    },
+    "description": "This object specifies Tunnel ipv4-ipv6 encapsulation limit.",
+    "maxaccess": "read-write",
+    "name": "hwIpv6TunnelEncapLimit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.201.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpv6TunnelEncapLimitDisable": {
+    "class": "objecttype",
+    "description": "This object specifies Tunnel encapsulation is disabled or not. Default value is false.",
+    "maxaccess": "read-only",
+    "name": "hwIpv6TunnelEncapLimitDisable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.201.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIpv6TunnelFlowLabel": {
+    "class": "objecttype",
+    "description": "This object specifies Tunnel ipv4-ipv6 flow label.",
+    "maxaccess": "read-write",
+    "name": "hwIpv6TunnelFlowLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.201.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1048575,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpv6TunnelHopLimit": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 64
+      }
+    },
+    "description": "This object specifies Tunnel ipv4-ipv6 hop limit.",
+    "maxaccess": "read-write",
+    "name": "hwIpv6TunnelHopLimit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.201.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpv6TunnelTrafficClass": {
+    "class": "objecttype",
+    "description": "This object specifies Tunnel ipv4-ipv6 traffic-class.",
+    "maxaccess": "read-write",
+    "name": "hwIpv6TunnelTrafficClass",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.201.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpv6TunnelTrafficOriginal": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "Specifies Tunnel ipv4-ipv6 traffic-class original is enabled or not.",
+    "maxaccess": "read-write",
+    "name": "hwIpv6TunnelTrafficOriginal",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.201.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwTunnelAddrType": {
+    "class": "objecttype",
+    "description": "This object specifies the address type for Tunnel source and destination address.",
+    "maxaccess": "read-write",
+    "name": "hwTunnelAddrType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.201.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwTunnelCfgEntry": {
+    "class": "objecttype",
+    "description": "Describes tunnel interface configuration information.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IPV6-MIB",
+        "object": "ipv6IfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.201.1.1.1",
+    "status": "current"
+  },
+  "hwTunnelCfgTable": {
+    "class": "objecttype",
+    "description": "MIB table for the tunnel configuration information.",
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.201.1.1",
+    "status": "current"
+  },
+  "hwTunnelCfgUndoFlag": {
+    "class": "objecttype",
+    "description": "This object specifies undo operation for specified hwTunnelCfgTable parameter.",
+    "maxaccess": "read-write",
+    "name": "hwTunnelCfgUndoFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.201.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 4,
+          "undoTunnelDestination": 3,
+          "undoTunnelProtocol": 1,
+          "undoTunnelSource": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwTunnelCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-TUNNEL-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-TUNNEL-MIB",
+        "object": "hwTunnelGroup"
+      }
+    ],
+    "name": "hwTunnelCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.201.2.1.1",
+    "status": "current"
+  },
+  "hwTunnelCompliances": {
+    "class": "objectidentity",
+    "name": "hwTunnelCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.201.2.1"
+  },
+  "hwTunnelDestinationAddr": {
+    "class": "objecttype",
+    "description": "This object specifies destination address of the tunnel interface.",
+    "maxaccess": "read-write",
+    "name": "hwTunnelDestinationAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.201.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwTunnelGroup": {
+    "class": "objectgroup",
+    "description": "The Tunnel table member.",
+    "name": "hwTunnelGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TUNNEL-MIB",
+        "object": "hwTunnelProtocol"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-MIB",
+        "object": "hwTunnelSourceType"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-MIB",
+        "object": "hwTunnelSrcIfName"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-MIB",
+        "object": "hwTunnelAddrType"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-MIB",
+        "object": "hwTunnelSourceAddr"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-MIB",
+        "object": "hwTunnelDestinationAddr"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-MIB",
+        "object": "hwTunnelCfgUndoFlag"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-MIB",
+        "object": "hwIpv6TunnelEncapLimit"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-MIB",
+        "object": "hwIpv6TunnelEncapLimitDisable"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-MIB",
+        "object": "hwIpv6TunnelFlowLabel"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-MIB",
+        "object": "hwIpv6TunnelHopLimit"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-MIB",
+        "object": "hwIpv6TunnelTrafficClass"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-MIB",
+        "object": "hwIpv6TunnelTrafficOriginal"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-MIB",
+        "object": "hwIPv6Tunnel4Over6CfgUndoFlag"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.201.2.2.1",
+    "status": "current"
+  },
+  "hwTunnelGroups": {
+    "class": "objectidentity",
+    "name": "hwTunnelGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.201.2.2"
+  },
+  "hwTunnelMib": {
+    "class": "moduleidentity",
+    "contactinfo": "R\u0026D BeiJing, Huawei Technologies co.,Ltd. Showchuang Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 ",
+    "description": "The MIB module for entities implementing the Tunnel protocol configuration.",
+    "lastupdated": "200906201610Z",
+    "name": "hwTunnelMib",
+    "oid": "1.3.6.1.4.1.2011.5.25.201",
+    "organization": "IPv6-Team of Huawei Technologies"
+  },
+  "hwTunnelMibConformance": {
+    "class": "objectidentity",
+    "name": "hwTunnelMibConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.201.2"
+  },
+  "hwTunnelMibObjects": {
+    "class": "objectidentity",
+    "name": "hwTunnelMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.201.1"
+  },
+  "hwTunnelProtocol": {
+    "class": "objecttype",
+    "description": "This object specifies the Tunnel protocol type.",
+    "maxaccess": "read-write",
+    "name": "hwTunnelProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.201.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gre": 1,
+          "ipv4Ipv6": 7,
+          "ipv6Ipv4": 3,
+          "ipv6Ipv46to4": 5,
+          "ipv6Ipv4Auto": 4,
+          "ipv6Ipv4Isatap": 6,
+          "mplsTe": 2,
+          "none": 8
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwTunnelSourceAddr": {
+    "class": "objecttype",
+    "description": "This object specifies source address of the tunnel interface.",
+    "maxaccess": "read-write",
+    "name": "hwTunnelSourceAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.201.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwTunnelSourceType": {
+    "class": "objecttype",
+    "description": "This object specifies the Tunnel source type.",
+    "maxaccess": "read-write",
+    "name": "hwTunnelSourceType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.201.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interfaceName": 1,
+          "sourceAddress": 2,
+          "unknown": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwTunnelSrcIfName": {
+    "class": "objecttype",
+    "description": "This object specifies the tunnel source interface name.",
+    "maxaccess": "read-write",
+    "name": "hwTunnelSrcIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.201.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "IPV6-MIB": [
+      "ipv6IfIndex"
+    ],
+    "IPV6-TC": [
+      "Ipv6Address"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "iso",
+      "IpAddress",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-TUNNEL-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:14 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-TUNNEL-MIB"
+  }
+}

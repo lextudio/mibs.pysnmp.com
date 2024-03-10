@@ -1,0 +1,4216 @@
+{
+  "DisplayString": {
+    "class": "type",
+    "name": "DisplayString",
+    "type": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMa5100EndOfMib": {
+    "class": "objecttype",
+    "description": "End of HW MA5100 mib",
+    "maxaccess": "read-only",
+    "name": "hwMa5100EndOfMib",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.100.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMa5100Mib": {
+    "class": "objectidentity",
+    "name": "hwMa5100Mib",
+    "oid": "1.3.6.1.4.1.2011.2.6.5"
+  },
+  "hwMuasSrcSlotId": {
+    "class": "objecttype",
+    "description": "The slot id of source board.",
+    "maxaccess": "read-write",
+    "name": "hwMuasSrcSlotId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaAdlFrameId": {
+    "class": "objecttype",
+    "description": "Musa campus ADL frame ID.",
+    "maxaccess": "read-write",
+    "name": "hwMusaAdlFrameId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.15.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaAdlPortCount": {
+    "class": "objecttype",
+    "description": "Musa campus adsl port counter.",
+    "maxaccess": "read-only",
+    "name": "hwMusaAdlPortCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.15.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaAdlPortId": {
+    "class": "objecttype",
+    "description": "Musa campus ADL port ID.",
+    "maxaccess": "read-write",
+    "name": "hwMusaAdlPortId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.15.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaAdlPortOperat": {
+    "class": "objecttype",
+    "description": "Musa campus pvc Operat",
+    "maxaccess": "read-write",
+    "name": "hwMusaAdlPortOperat",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.15.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 0,
+          "del": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaAdlSlotId": {
+    "class": "objecttype",
+    "description": "Musa campus ADL slot ID.",
+    "maxaccess": "read-write",
+    "name": "hwMusaAdlSlotId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.15.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaAdlVci": {
+    "class": "objecttype",
+    "description": "Musa campus VCI.",
+    "maxaccess": "read-only",
+    "name": "hwMusaAdlVci",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.15.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 127,
+            "min": 32
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaAdlVpi": {
+    "class": "objecttype",
+    "description": "Musa campus VPI.",
+    "maxaccess": "read-only",
+    "name": "hwMusaAdlVpi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.15.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 127,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaAllPvcConfEntry": {
+    "class": "objecttype",
+    "description": "This lists config variables of all kinds of PVC.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaTypeOfPvcPvp"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaCidIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAllPvcConfEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1",
+    "status": "mandatory"
+  },
+  "hwMusaAllPvcConfTable": {
+    "class": "objecttype",
+    "description": "The config talbe of all kinds of PVC.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAllPvcConfTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22",
+    "status": "mandatory"
+  },
+  "hwMusaAllPvcOperater": {
+    "class": "objecttype",
+    "description": "Add or delete PVC.",
+    "maxaccess": "read-write",
+    "name": "hwMusaAllPvcOperater",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.40",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 0,
+          "del": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaAtmIpAddr": {
+    "class": "objecttype",
+    "description": "The Musa device\u0027s IP address.",
+    "maxaccess": "read-write",
+    "name": "hwMusaAtmIpAddr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.20",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMusaAtmIpMask": {
+    "class": "objecttype",
+    "description": "The Musa IP SubNet Mask.",
+    "maxaccess": "read-write",
+    "name": "hwMusaAtmIpMask",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.21",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMusaBiosVersion": {
+    "class": "objecttype",
+    "description": "MMX Bios Version.",
+    "maxaccess": "read-only",
+    "name": "hwMusaBiosVersion",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.26",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaBoardCellLossPriority": {
+    "class": "objecttype",
+    "description": "The board service priority.",
+    "maxaccess": "read-write",
+    "name": "hwMusaBoardCellLossPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.2.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "high": 1,
+          "low": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaBoardMaxBandwidth": {
+    "class": "objecttype",
+    "description": "The board Max outburst cell rate.",
+    "maxaccess": "read-write",
+    "name": "hwMusaBoardMaxBandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.2.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "b-155M": 0,
+          "b-20M": 2,
+          "b-4M": 3,
+          "b-80M": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaCDVT": {
+    "class": "objecttype",
+    "description": "Musa Traffic table parameter CDVT",
+    "maxaccess": "read-write",
+    "name": "hwMusaCDVT",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.13.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaCampusPvcConfEntry": {
+    "class": "objecttype",
+    "description": "This list contains Musa campus pvc Configuration parameters and variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaVlanId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaVlanIciIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaCampusPvcConfEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.15.1",
+    "status": "mandatory"
+  },
+  "hwMusaCampusPvcConfTable": {
+    "class": "objecttype",
+    "description": "Musa campus pvc configuration table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaCampusPvcConfTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.15",
+    "status": "mandatory"
+  },
+  "hwMusaCbrPcrIndex": {
+    "class": "objecttype",
+    "description": "The index of CBR traffic PCR parameter table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaCbrPcrIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.18.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaCbrPcrRefCount": {
+    "class": "objecttype",
+    "description": "The CBR traffic PCR parameter reference count.",
+    "maxaccess": "read-only",
+    "name": "hwMusaCbrPcrRefCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.18.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaCbrPcrValue": {
+    "class": "objecttype",
+    "description": "The CBR traffic PCR parameter value.",
+    "maxaccess": "read-write",
+    "name": "hwMusaCbrPcrValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.18.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaCellbusID": {
+    "class": "objecttype",
+    "description": "The Cellbus ID.",
+    "maxaccess": "read-only",
+    "name": "hwMusaCellbusID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.24",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ma5100": 1,
+          "ma5103": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaCidIndex": {
+    "class": "objecttype",
+    "description": "The CID index.",
+    "maxaccess": "read-only",
+    "name": "hwMusaCidIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaClearAllAlarmStat": {
+    "class": "objecttype",
+    "description": "Clear port cell statistics.",
+    "maxaccess": "write-only",
+    "name": "hwMusaClearAllAlarmStat",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.2.1.13",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaClearOIMErrEventStat": {
+    "class": "objecttype",
+    "description": "Clear all OIM alarm statistics.",
+    "maxaccess": "write-only",
+    "name": "hwMusaClearOIMErrEventStat",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.2.1.14",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaClp01pcr": {
+    "class": "objecttype",
+    "description": "Musa Traffic table parameter Clp01pcr.",
+    "maxaccess": "read-write",
+    "name": "hwMusaClp01pcr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.13.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaClp01scr": {
+    "class": "objecttype",
+    "description": "Musa Traffic table parameter Clp01scr.",
+    "maxaccess": "read-write",
+    "name": "hwMusaClp01scr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.13.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaClp0pcr": {
+    "class": "objecttype",
+    "description": "Musa Traffic table parameter Clp0pcr.",
+    "maxaccess": "read-write",
+    "name": "hwMusaClp0pcr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.13.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaClp0scr": {
+    "class": "objecttype",
+    "description": "Musa Traffic table parameter Clp0scr.",
+    "maxaccess": "read-write",
+    "name": "hwMusaClp0scr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.13.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaCpuOccupyRate": {
+    "class": "objecttype",
+    "description": "The board cpu occupy rate.",
+    "maxaccess": "read-only",
+    "name": "hwMusaCpuOccupyRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.2.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaCurUsedDownBandWidth": {
+    "class": "objecttype",
+    "description": "The current used down bandwidth(kpbs) of the optic port.",
+    "maxaccess": "read-only",
+    "name": "hwMusaCurUsedDownBandWidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.17.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaCurUsedUpBandWidth": {
+    "class": "objecttype",
+    "description": "The current used up bandwidth(kpbs) of the optic port.",
+    "maxaccess": "read-only",
+    "name": "hwMusaCurUsedUpBandWidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.17.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaDestApcConnectAttribute": {
+    "class": "objecttype",
+    "description": "connect attribut of AIU to source board.",
+    "maxaccess": "read-write",
+    "name": "hwMusaDestApcConnectAttribute",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.34",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaDestBoardVci": {
+    "class": "objecttype",
+    "description": "Destination VCI Index.",
+    "maxaccess": "read-write",
+    "name": "hwMusaDestBoardVci",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.25",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaDestBoardVpi": {
+    "class": "objecttype",
+    "description": "Destination Port vpi Index.",
+    "maxaccess": "read-write",
+    "name": "hwMusaDestBoardVpi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.24",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaDestCescChannelBitmap": {
+    "class": "objecttype",
+    "description": "Cesc channelbitmap",
+    "maxaccess": "read-write",
+    "name": "hwMusaDestCescChannelBitmap",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.28",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaDestCescChannelId": {
+    "class": "objecttype",
+    "description": "Cesc channelId",
+    "maxaccess": "read-write",
+    "name": "hwMusaDestCescChannelId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.27",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaDestCescFillDegree": {
+    "class": "objecttype",
+    "description": "Cesc fill degree(20-47)",
+    "maxaccess": "read-write",
+    "name": "hwMusaDestCescFillDegree",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.29",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 47,
+            "min": 20
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaDestCescV35N": {
+    "class": "objecttype",
+    "description": "The N value of V35 subboard of CESC.",
+    "maxaccess": "read-write",
+    "name": "hwMusaDestCescV35N",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.35",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaDestFrameId": {
+    "class": "objecttype",
+    "description": "Destination frame Index.",
+    "maxaccess": "read-write",
+    "name": "hwMusaDestFrameId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.20",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaDestFrcActiveStatus": {
+    "class": "objecttype",
+    "description": "The FRC ATM logical port BLOCK/UNBLOCK.",
+    "maxaccess": "read-write",
+    "name": "hwMusaDestFrcActiveStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.32",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "block": 0,
+          "unblock": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaDestFrcDlciType": {
+    "class": "objecttype",
+    "description": "The ATM Logical Port DLCI.",
+    "maxaccess": "read-write",
+    "name": "hwMusaDestFrcDlciType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.30",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 5,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaDestFrcFreeBandwidth": {
+    "class": "objecttype",
+    "description": "The ATM logical port free bandwidth.",
+    "maxaccess": "read-write",
+    "name": "hwMusaDestFrcFreeBandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.33",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaDestFrcIwfType": {
+    "class": "objecttype",
+    "description": "The ATM Logical Port have service.",
+    "maxaccess": "read-write",
+    "name": "hwMusaDestFrcIwfType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.31",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hdlc": 2,
+          "network11": 0,
+          "networkN1": 3,
+          "service": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaDestOnuId": {
+    "class": "objecttype",
+    "description": "Destination ONU Index.",
+    "maxaccess": "read-write",
+    "name": "hwMusaDestOnuId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.23",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaDestPortType": {
+    "class": "objecttype",
+    "description": "The type of CESC port.",
+    "maxaccess": "read-write",
+    "name": "hwMusaDestPortType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.26",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sdt": 1,
+          "udt": 2,
+          "uni": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaDestPortVlanVccId": {
+    "class": "objecttype",
+    "description": "Destination port Index.",
+    "maxaccess": "read-write",
+    "name": "hwMusaDestPortVlanVccId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.22",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaDestSlotId": {
+    "class": "objecttype",
+    "description": "Destination slot Index.",
+    "maxaccess": "read-write",
+    "name": "hwMusaDestSlotId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.21",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaDestToSrcTraffic": {
+    "class": "objecttype",
+    "description": "The destination to source board traffic.",
+    "maxaccess": "read-write",
+    "name": "hwMusaDestToSrcTraffic",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.39",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaDevice": {
+    "class": "objectidentity",
+    "name": "hwMusaDevice",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1"
+  },
+  "hwMusaDnOpticMainBandWidth": {
+    "class": "objecttype",
+    "description": "The main bandwidth(kpbs) of Down optic port.",
+    "maxaccess": "read-write",
+    "name": "hwMusaDnOpticMainBandWidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.17.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaDownPracticalBandWidth": {
+    "class": "objecttype",
+    "description": "The down practical bandwidth of the optic port.",
+    "maxaccess": "read-write",
+    "name": "hwMusaDownPracticalBandWidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.17.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaDownReservedBandWidth": {
+    "class": "objecttype",
+    "description": "The down reserved bandwidth of the optic port.",
+    "maxaccess": "read-write",
+    "name": "hwMusaDownReservedBandWidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.17.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaDownStreamTrafficRx": {
+    "class": "objecttype",
+    "description": "Down stream traffic Rx(cells).",
+    "maxaccess": "read-only",
+    "name": "hwMusaDownStreamTrafficRx",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.21.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaDownStreamTrafficTx": {
+    "class": "objecttype",
+    "description": "Down stream traffic Tx(cells).",
+    "maxaccess": "read-only",
+    "name": "hwMusaDownStreamTrafficTx",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.21.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaDstIp": {
+    "class": "objecttype",
+    "description": "Destination IP address.",
+    "maxaccess": "read-write",
+    "name": "hwMusaDstIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.10.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMusaDstIpMask": {
+    "class": "objecttype",
+    "description": "Destination IP address Mask.",
+    "maxaccess": "read-write",
+    "name": "hwMusaDstIpMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.10.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMusaEndOfMib": {
+    "class": "objectidentity",
+    "name": "hwMusaEndOfMib",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.100"
+  },
+  "hwMusaEthernetFirewall": {
+    "class": "objecttype",
+    "description": "MMX ethernet firewall switch.",
+    "maxaccess": "read-write",
+    "name": "hwMusaEthernetFirewall",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.27",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrame": {
+    "class": "objectidentity",
+    "name": "hwMusaFrame",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.2"
+  },
+  "hwMusaFrameBandWidth": {
+    "class": "objecttype",
+    "description": "The bandwidth(kpbs) of frame\u0027s backplane.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrameBandWidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.2.2.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrameConfEntry": {
+    "class": "objecttype",
+    "description": "This list contains Musa Frame configuration parameters and status variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaShelfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaFrameIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrameConfEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.2.2.1",
+    "status": "mandatory"
+  },
+  "hwMusaFrameConfTable": {
+    "class": "objecttype",
+    "description": "This table contains Musa Frame configuration parameters.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrameConfTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.2.2",
+    "status": "mandatory"
+  },
+  "hwMusaFrameIndex": {
+    "class": "objecttype",
+    "description": "The Musa Frame number.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrameIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.2.2.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrameName": {
+    "class": "objecttype",
+    "description": "The Musa Frame name.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrameName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.2.2.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 20,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwMusaFrameNumber": {
+    "class": "objecttype",
+    "description": "Musa frame numbers.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrameNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.2.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrameNumbers": {
+    "class": "objecttype",
+    "description": "The frame numbers belong to this shelf.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrameNumbers",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.1.2.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrameType": {
+    "class": "objecttype",
+    "description": "The Musa Frame type.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrameType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.2.2.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "empty": 2,
+          "other": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrameUsedBandWidth": {
+    "class": "objecttype",
+    "description": "The current used bandwidth(kpbs) of frame\u0027s backplane.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrameUsedBandWidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.2.2.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFromLanTrafficId": {
+    "class": "objecttype",
+    "description": "Musa campus from lan board traffic index.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFromLanTrafficId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.15.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaGateIp": {
+    "class": "objecttype",
+    "description": "Gateway ipaddree.",
+    "maxaccess": "read-write",
+    "name": "hwMusaGateIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.10.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMusaGatewayIpAddr": {
+    "class": "objecttype",
+    "description": "The Musa gateway\u0027s IP address.",
+    "maxaccess": "read-write",
+    "name": "hwMusaGatewayIpAddr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.16",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMusaGetCommunity": {
+    "class": "objecttype",
+    "description": "Snmp get community name.",
+    "maxaccess": "read-write",
+    "name": "hwMusaGetCommunity",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.5.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMusaGetSetPort": {
+    "class": "objecttype",
+    "description": "Snmp get/set port.",
+    "maxaccess": "read-write",
+    "name": "hwMusaGetSetPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.5.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaHostVersion": {
+    "class": "objecttype",
+    "description": "the musa system host software version.",
+    "maxaccess": "read-only",
+    "name": "hwMusaHostVersion",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMusaInsertBIP1": {
+    "class": "objecttype",
+    "description": "Insert BIP1(SBIP) errorcode at the optic port.",
+    "maxaccess": "write-only",
+    "name": "hwMusaInsertBIP1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.1.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaInsertBIP2": {
+    "class": "objecttype",
+    "description": "Insert BIP2(LBIP) errorcode at the optic port.",
+    "maxaccess": "write-only",
+    "name": "hwMusaInsertBIP2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.1.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaInsertBIP3": {
+    "class": "objecttype",
+    "description": "Insert BIP3(PBIP) errorcode at the optic port.",
+    "maxaccess": "write-only",
+    "name": "hwMusaInsertBIP3",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.1.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaInsertLAIS": {
+    "class": "objecttype",
+    "description": "Insert LAIS warning at the optic port.",
+    "maxaccess": "read-write",
+    "name": "hwMusaInsertLAIS",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.1.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "insert": 1,
+          "notinsert": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaInsertLOF": {
+    "class": "objecttype",
+    "description": "insert LOF warning at the optic port.",
+    "maxaccess": "read-write",
+    "name": "hwMusaInsertLOF",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.1.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "insert": 1,
+          "notinsert": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaInsertLOS": {
+    "class": "objecttype",
+    "description": "insert LOS warning at the optic port.",
+    "maxaccess": "read-write",
+    "name": "hwMusaInsertLOS",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.1.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "insert": 1,
+          "notinsert": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaInsertLRDI": {
+    "class": "objecttype",
+    "description": "Insert LRDI warning at the optic port.",
+    "maxaccess": "read-write",
+    "name": "hwMusaInsertLRDI",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.1.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "insert": 1,
+          "notinsert": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaInsertPAIS": {
+    "class": "objecttype",
+    "description": "Insert PAIS warning at the optic port.",
+    "maxaccess": "read-write",
+    "name": "hwMusaInsertPAIS",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.1.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "insert": 1,
+          "notinsert": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaIpAddr": {
+    "class": "objecttype",
+    "description": "The Musa device\u0027s Ethernet IP address.",
+    "maxaccess": "read-write",
+    "name": "hwMusaIpAddr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.14",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMusaIpAddrPermitEntry": {
+    "class": "objecttype",
+    "description": "This list contains IP addr scope.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaIpPermitTableId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaIpAddrPermitEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.18.1",
+    "status": "mandatory"
+  },
+  "hwMusaIpAddrPermitOper": {
+    "class": "objecttype",
+    "description": "The operation that permit access the Musa device.",
+    "maxaccess": "read-write",
+    "name": "hwMusaIpAddrPermitOper",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.18.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 0,
+          "del": 1,
+          "modify": 2,
+          "query": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaIpAddrPermitTable": {
+    "class": "objecttype",
+    "description": "This table contains IP Addr scope that Musa device permit access.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaIpAddrPermitTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.18",
+    "status": "mandatory"
+  },
+  "hwMusaIpAddrRejectEntry": {
+    "class": "objecttype",
+    "description": "This list contains IP addr scope.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaIpRejectTableId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaIpAddrRejectEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.19.1",
+    "status": "mandatory"
+  },
+  "hwMusaIpAddrRejectOper": {
+    "class": "objecttype",
+    "description": "The operation that reject access the Musa device.",
+    "maxaccess": "read-write",
+    "name": "hwMusaIpAddrRejectOper",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.19.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 0,
+          "del": 1,
+          "modify": 2,
+          "query": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaIpAddrRejectTable": {
+    "class": "objecttype",
+    "description": "This table contains IP Addr scope that Musa device reject access.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaIpAddrRejectTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.19",
+    "status": "mandatory"
+  },
+  "hwMusaIpMask": {
+    "class": "objecttype",
+    "description": "The Musa IP SubNet Mask.",
+    "maxaccess": "read-write",
+    "name": "hwMusaIpMask",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.15",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMusaIpPermitTableId": {
+    "class": "objecttype",
+    "description": "The IP Address table ID that permit access the Musa device.",
+    "maxaccess": "read-only",
+    "name": "hwMusaIpPermitTableId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.18.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaIpRejectTableId": {
+    "class": "objecttype",
+    "description": "The IP Address table ID that reject access the Musa device.",
+    "maxaccess": "read-only",
+    "name": "hwMusaIpRejectTableId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.19.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaLoadContent": {
+    "class": "objecttype",
+    "description": "The type of load file:program or data.",
+    "maxaccess": "write-only",
+    "name": "hwMusaLoadContent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.2.1.14",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "data": 8,
+          "fpga": 7,
+          "program": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaLoadFileName": {
+    "class": "objecttype",
+    "description": "The load file name.",
+    "maxaccess": "write-only",
+    "name": "hwMusaLoadFileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.2.1.16",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMusaLoadOperType": {
+    "class": "objecttype",
+    "description": "The type of back data.",
+    "maxaccess": "write-only",
+    "name": "hwMusaLoadOperType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.2.1.17",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clearflash": 4,
+          "downback": 2,
+          "load": 0,
+          "rollback": 3,
+          "upback": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaLoadProtocol": {
+    "class": "objecttype",
+    "description": "The protocal of load file:tftp.",
+    "maxaccess": "write-only",
+    "name": "hwMusaLoadProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.2.1.13",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tftp": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaLoadRate": {
+    "class": "objecttype",
+    "description": "Load progress.",
+    "maxaccess": "read-only",
+    "name": "hwMusaLoadRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.11.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaLoadRateEntry": {
+    "class": "objecttype",
+    "description": "This list contains Musa slot Load rate variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaSlotIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaLoadRateEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.11.1",
+    "status": "mandatory"
+  },
+  "hwMusaLoadRateTable": {
+    "class": "objecttype",
+    "description": "This table contains Musa slot load rate.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaLoadRateTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.11",
+    "status": "mandatory"
+  },
+  "hwMusaLoadTftpServerIp": {
+    "class": "objecttype",
+    "description": "The NMS IP address.",
+    "maxaccess": "write-only",
+    "name": "hwMusaLoadTftpServerIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.2.1.15",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMusaLoadType": {
+    "class": "objecttype",
+    "description": "Load type.",
+    "maxaccess": "read-only",
+    "name": "hwMusaLoadType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.11.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backData": 1,
+          "data": 8,
+          "dumpData": 2,
+          "fpga": 7,
+          "loadData": 3,
+          "loadFpga": 5,
+          "loadProc": 4,
+          "noOper": 0,
+          "program": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaMacAddr": {
+    "class": "objecttype",
+    "description": "The Musa Mac address.",
+    "maxaccess": "read-only",
+    "name": "hwMusaMacAddr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.17",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMusaMbs": {
+    "class": "objecttype",
+    "description": "Musa Traffic table parameter Mbs.",
+    "maxaccess": "read-write",
+    "name": "hwMusaMbs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.13.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaMcr": {
+    "class": "objecttype",
+    "description": "Musa Traffic table parameter Mcr.",
+    "maxaccess": "read-write",
+    "name": "hwMusaMcr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.13.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaMtu": {
+    "class": "objecttype",
+    "description": "The Musa Mtu value.",
+    "maxaccess": "read-write",
+    "name": "hwMusaMtu",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.22",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaNextTrafficIndex": {
+    "class": "objecttype",
+    "description": "Musa Traffic table next traffic index",
+    "maxaccess": "read-only",
+    "name": "hwMusaNextTrafficIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.13.1.14",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaNmsENCAP": {
+    "class": "objecttype",
+    "description": "Nms encapsulation type,include:ipoa/1483B.",
+    "maxaccess": "read-write",
+    "name": "hwMusaNmsENCAP",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.3.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "e1483B": 1,
+          "eipoa": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaNmsFrameId": {
+    "class": "objecttype",
+    "description": "Nms PVC\u0027s DstFrameId.",
+    "maxaccess": "read-write",
+    "name": "hwMusaNmsFrameId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.3.1.14",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaNmsID": {
+    "class": "objecttype",
+    "description": "Nms ID,from 0 to 7.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaNmsID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.5.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaNmsIp": {
+    "class": "objecttype",
+    "description": "Nms IP address.",
+    "maxaccess": "read-write",
+    "name": "hwMusaNmsIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.3.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMusaNmsIpAddr": {
+    "class": "objecttype",
+    "description": "Nms IP address.",
+    "maxaccess": "read-write",
+    "name": "hwMusaNmsIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.5.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMusaNmsLLCVC": {
+    "class": "objecttype",
+    "description": "1483B encapsulation state,include:llc/vc.",
+    "maxaccess": "read-write",
+    "name": "hwMusaNmsLLCVC",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.3.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "llc": 1,
+          "vc": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaNmsName": {
+    "class": "objecttype",
+    "description": "Nms name.",
+    "maxaccess": "read-write",
+    "name": "hwMusaNmsName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.5.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMusaNmsOperState": {
+    "class": "objecttype",
+    "description": "Nms operate state,include:add/del/modify/act/deact.",
+    "maxaccess": "read-write",
+    "name": "hwMusaNmsOperState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.5.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 4,
+          "add": 0,
+          "deactive": 5,
+          "del": 1,
+          "modify": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaNmsParaConfEntry": {
+    "class": "objecttype",
+    "description": "This list contains Musa Nms Para Configuration parameters and variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaNmsID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaNmsParaConfEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.5.1",
+    "status": "mandatory"
+  },
+  "hwMusaNmsParaConfTable": {
+    "class": "objecttype",
+    "description": "Musa Nms PVC configuration table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaNmsParaConfTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.5",
+    "status": "mandatory"
+  },
+  "hwMusaNmsPortVlanId": {
+    "class": "objecttype",
+    "description": "Nms PVC\u0027s DstPortVlanId.",
+    "maxaccess": "read-write",
+    "name": "hwMusaNmsPortVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.3.1.16",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaNmsPvcConfEntry": {
+    "class": "objecttype",
+    "description": "This list contains Musa Nms Pvc Configuration parameters and variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaNmsPvcIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaNmsPvcConfEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.3.1",
+    "status": "mandatory"
+  },
+  "hwMusaNmsPvcConfTable": {
+    "class": "objecttype",
+    "description": "Musa Nms PVC configuration table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaNmsPvcConfTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.3",
+    "status": "mandatory"
+  },
+  "hwMusaNmsPvcIndex": {
+    "class": "objecttype",
+    "description": "Nms Pvc index.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaNmsPvcIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.3.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaNmsPvcOper": {
+    "class": "objecttype",
+    "description": "Nms operate state,include:add/del.",
+    "maxaccess": "read-write",
+    "name": "hwMusaNmsPvcOper",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.3.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 0,
+          "del": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaNmsRelayVci": {
+    "class": "objecttype",
+    "description": "Nms Relay Pvc Vci index.",
+    "maxaccess": "read-write",
+    "name": "hwMusaNmsRelayVci",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.3.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaNmsRelayVpi": {
+    "class": "objecttype",
+    "description": "Nms Relay Pvc Vpi index.",
+    "maxaccess": "read-write",
+    "name": "hwMusaNmsRelayVpi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.3.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaNmsRxTraffic": {
+    "class": "objecttype",
+    "description": "Nms PVC\u0027s receive traffic index.",
+    "maxaccess": "read-write",
+    "name": "hwMusaNmsRxTraffic",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.3.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaNmsSarVci": {
+    "class": "objecttype",
+    "description": "Nms PVC\u0027s SAR VCI",
+    "maxaccess": "read-write",
+    "name": "hwMusaNmsSarVci",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.3.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaNmsSlotId": {
+    "class": "objecttype",
+    "description": "Nms PVC\u0027s DstSlotId.",
+    "maxaccess": "read-write",
+    "name": "hwMusaNmsSlotId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.3.1.15",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaNmsStatus": {
+    "class": "objecttype",
+    "description": "Nms status.",
+    "maxaccess": "read-only",
+    "name": "hwMusaNmsStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.5.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "commfail": 3,
+          "deactive": 2,
+          "uninstall": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaNmsStyle": {
+    "class": "objecttype",
+    "description": "Nms admin style in-band or out-band.",
+    "maxaccess": "read-write",
+    "name": "hwMusaNmsStyle",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.5.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bandin": 0,
+          "bandout": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaNmsTxTraffic": {
+    "class": "objecttype",
+    "description": "Nms PVC\u0027s transmit traffic index.",
+    "maxaccess": "read-write",
+    "name": "hwMusaNmsTxTraffic",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.3.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaOamGroup": {
+    "class": "objectidentity",
+    "name": "hwMusaOamGroup",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7"
+  },
+  "hwMusaOimOpticEntry": {
+    "class": "objecttype",
+    "description": "This list contains Musa OIM optical performance variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwOIMPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaOimOpticEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.2.1",
+    "status": "mandatory"
+  },
+  "hwMusaOimOpticTable": {
+    "class": "objecttype",
+    "description": "Musa OIM optical performance table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaOimOpticTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.2",
+    "status": "mandatory"
+  },
+  "hwMusaOimPhyEntry": {
+    "class": "objecttype",
+    "description": "This list contains Musa OIM physical variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwOIMPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaOimPhyEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.1.1",
+    "status": "mandatory"
+  },
+  "hwMusaOimPhyTable": {
+    "class": "objecttype",
+    "description": "Musa OIM physical table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaOimPhyTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.1",
+    "status": "mandatory"
+  },
+  "hwMusaOperat": {
+    "class": "objecttype",
+    "description": "Musa Traffic table operat.(0:add,1:del)",
+    "maxaccess": "read-write",
+    "name": "hwMusaOperat",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.13.1.13",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 0,
+          "del": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaOpticBandwidthEntry": {
+    "class": "objecttype",
+    "description": "This list contains Musa optic port bandwidth Configuration.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwOIMPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaOpticBandwidthEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.17.1",
+    "status": "mandatory"
+  },
+  "hwMusaOpticBandwidthTable": {
+    "class": "objecttype",
+    "description": "Musa Optic port bandwidth configuration table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaOpticBandwidthTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.17",
+    "status": "mandatory"
+  },
+  "hwMusaOpticConvergentRate": {
+    "class": "objecttype",
+    "description": "The bandwidth convergentrate.",
+    "maxaccess": "read-write",
+    "name": "hwMusaOpticConvergentRate",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.23",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaPatchCRC": {
+    "class": "objecttype",
+    "description": "The Patch CRC.",
+    "maxaccess": "read-only",
+    "name": "hwMusaPatchCRC",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.25.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaPatchCodeAddress": {
+    "class": "objecttype",
+    "description": "The Patch code address.",
+    "maxaccess": "read-only",
+    "name": "hwMusaPatchCodeAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.25.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaPatchCodeLength": {
+    "class": "objecttype",
+    "description": "The Patch code length.",
+    "maxaccess": "read-only",
+    "name": "hwMusaPatchCodeLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.25.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaPatchDataAddress": {
+    "class": "objecttype",
+    "description": "The Patch data address.",
+    "maxaccess": "read-only",
+    "name": "hwMusaPatchDataAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.25.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaPatchDataLength": {
+    "class": "objecttype",
+    "description": "The Patch data length.",
+    "maxaccess": "read-only",
+    "name": "hwMusaPatchDataLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.25.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaPatchEntry": {
+    "class": "objecttype",
+    "description": "This list contains Musa patch description variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaPatchIdIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaPatchEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.25.1",
+    "status": "mandatory"
+  },
+  "hwMusaPatchFunctionNumber": {
+    "class": "objecttype",
+    "description": "The Patch function number.",
+    "maxaccess": "read-only",
+    "name": "hwMusaPatchFunctionNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.25.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaPatchIdIndex": {
+    "class": "objecttype",
+    "description": "The PatchId index.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaPatchIdIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.24.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaPatchLoadFilename": {
+    "class": "objecttype",
+    "description": "The patch load filename.",
+    "maxaccess": "write-only",
+    "name": "hwMusaPatchLoadFilename",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.24.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMusaPatchLoadProtocol": {
+    "class": "objecttype",
+    "description": "The patch load protocol.",
+    "maxaccess": "write-only",
+    "name": "hwMusaPatchLoadProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.24.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tftp": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaPatchLoadSerIp": {
+    "class": "objecttype",
+    "description": "The patch load server IP.",
+    "maxaccess": "write-only",
+    "name": "hwMusaPatchLoadSerIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.24.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMusaPatchOper": {
+    "class": "objecttype",
+    "description": "The patch load operate type.",
+    "maxaccess": "write-only",
+    "name": "hwMusaPatchOper",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.24.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "activate": 1,
+          "deactivate": 2,
+          "load": 3,
+          "remove": 4,
+          "run": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaPatchOperateEntry": {
+    "class": "objecttype",
+    "description": "This list contains Musa patch description variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaPatchIdIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaPatchOperateEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.24.1",
+    "status": "mandatory"
+  },
+  "hwMusaPatchOperateTable": {
+    "class": "objecttype",
+    "description": "Musa Mmx patch table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaPatchOperateTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.24",
+    "status": "mandatory"
+  },
+  "hwMusaPatchShowIdIndex": {
+    "class": "objecttype",
+    "description": "The PatchId index.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaPatchShowIdIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.25.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaPatchState": {
+    "class": "objecttype",
+    "description": "The Patch state.",
+    "maxaccess": "read-only",
+    "name": "hwMusaPatchState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.25.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "activate": 2,
+          "deactivate": 3,
+          "run": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaPatchTable": {
+    "class": "objecttype",
+    "description": "Musa Mmx patch table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaPatchTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.25",
+    "status": "mandatory"
+  },
+  "hwMusaPatchType": {
+    "class": "objecttype",
+    "description": "The Patch type.",
+    "maxaccess": "read-only",
+    "name": "hwMusaPatchType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.25.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "c-Commonpatch": 1,
+          "t-Temporarypatch": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaPermitBeginIp": {
+    "class": "objecttype",
+    "description": "The begin IP Address that permit access the Musa device.",
+    "maxaccess": "read-write",
+    "name": "hwMusaPermitBeginIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.18.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMusaPermitEndIp": {
+    "class": "objecttype",
+    "description": "The end Ip address that permit access the Musa device.",
+    "maxaccess": "read-write",
+    "name": "hwMusaPermitEndIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.18.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMusaPermitIpMask": {
+    "class": "objecttype",
+    "description": "The Ip address subnet mask that permit access the Musa device.",
+    "maxaccess": "read-write",
+    "name": "hwMusaPermitIpMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.18.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMusaPvcCid": {
+    "class": "objecttype",
+    "description": "The CID corresponding to the PVC.",
+    "maxaccess": "read-write",
+    "name": "hwMusaPvcCid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.23.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaPvcCidEntry": {
+    "class": "objecttype",
+    "description": "This lists CID corresponding to the PVC.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaSrcPortVlanVccId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaSrcOnuId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaSrcBoardVpi"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaSrcBoardVci"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaPvcCidEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.23.1",
+    "status": "mandatory"
+  },
+  "hwMusaPvcCidTable": {
+    "class": "objecttype",
+    "description": "The CID talbe of all kinds of PVC.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaPvcCidTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.23",
+    "status": "mandatory"
+  },
+  "hwMusaPvcPvpState": {
+    "class": "objecttype",
+    "description": "Pvc or Pvp state ",
+    "maxaccess": "read-only",
+    "name": "hwMusaPvcPvpState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.42",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delete": 3,
+          "invalid": 2,
+          "normal": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaPvcTrafficStatisEntry": {
+    "class": "objecttype",
+    "description": "PVC traffic statistics table entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaSPvcIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaPvcTrafficStatisEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.21.1",
+    "status": "mandatory"
+  },
+  "hwMusaPvcTrafficStatisTable": {
+    "class": "objecttype",
+    "description": "PVC traffic statistics table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaPvcTrafficStatisTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.21",
+    "status": "mandatory"
+  },
+  "hwMusaQueryCurBIP1": {
+    "class": "objecttype",
+    "description": "Query current BIP1 errorcode since last query.",
+    "maxaccess": "read-only",
+    "name": "hwMusaQueryCurBIP1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.2.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaQueryCurBIP2": {
+    "class": "objecttype",
+    "description": "Query current BIP2 errorcode since last query.",
+    "maxaccess": "read-only",
+    "name": "hwMusaQueryCurBIP2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.2.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaQueryCurBIP3": {
+    "class": "objecttype",
+    "description": "Query current BIP3 errorcode since last query.",
+    "maxaccess": "read-only",
+    "name": "hwMusaQueryCurBIP3",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.2.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaQueryCurCorrectHECNum": {
+    "class": "objecttype",
+    "description": "Query current can correct HEC numbers since last query.",
+    "maxaccess": "read-only",
+    "name": "hwMusaQueryCurCorrectHECNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.2.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaQueryCurLFEBE": {
+    "class": "objecttype",
+    "description": "Query current LFEBE errorcode since last query.",
+    "maxaccess": "read-only",
+    "name": "hwMusaQueryCurLFEBE",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.2.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaQueryCurLOCDNum": {
+    "class": "objecttype",
+    "description": "Query current LOCD numbers since last query.",
+    "maxaccess": "read-only",
+    "name": "hwMusaQueryCurLOCDNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.2.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaQueryCurNonCorrectHECNum": {
+    "class": "objecttype",
+    "description": "Query current cannot correct HEC numbers since last query.",
+    "maxaccess": "read-only",
+    "name": "hwMusaQueryCurNonCorrectHECNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.2.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaQueryCurOOFNum": {
+    "class": "objecttype",
+    "description": "Query current OOF numbers since last query.",
+    "maxaccess": "read-only",
+    "name": "hwMusaQueryCurOOFNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.2.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaQueryCurPFEBE": {
+    "class": "objecttype",
+    "description": "Query current PFEBE errorcode since last query.",
+    "maxaccess": "read-only",
+    "name": "hwMusaQueryCurPFEBE",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.2.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaQueryCurReceiveCellNum": {
+    "class": "objecttype",
+    "description": "Query current receive cell numbers since last query.",
+    "maxaccess": "read-only",
+    "name": "hwMusaQueryCurReceiveCellNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.2.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaQueryCurSendCellNum": {
+    "class": "objecttype",
+    "description": "Query current send cell numbers since last query.",
+    "maxaccess": "read-only",
+    "name": "hwMusaQueryCurSendCellNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.2.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaQueryCurUnmatchCellNum": {
+    "class": "objecttype",
+    "description": "Query current Unmatch cell numbers since last query.",
+    "maxaccess": "read-only",
+    "name": "hwMusaQueryCurUnmatchCellNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.2.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaQueryMemory": {
+    "class": "objecttype",
+    "description": "Query the board memory.",
+    "maxaccess": "write-only",
+    "name": "hwMusaQueryMemory",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.2.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMusaRecordState": {
+    "class": "objecttype",
+    "description": "Musa Traffic table record state. disable(0),enable(1),module(2).",
+    "maxaccess": "read-write",
+    "name": "hwMusaRecordState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.13.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1,
+          "module": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaRefCount": {
+    "class": "objecttype",
+    "description": "Musa Traffic Traffic Record reference count.",
+    "maxaccess": "read-only",
+    "name": "hwMusaRefCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.13.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaRejectBeginIp": {
+    "class": "objecttype",
+    "description": "The begin IP Address that reject access the Musa device.",
+    "maxaccess": "read-write",
+    "name": "hwMusaRejectBeginIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.19.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMusaRejectEndIp": {
+    "class": "objecttype",
+    "description": "The end Ip address that reject access the Musa device.",
+    "maxaccess": "read-write",
+    "name": "hwMusaRejectEndIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.19.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMusaRejectIpMask": {
+    "class": "objecttype",
+    "description": "The Ip address subnet mask that reject access the Musa device.",
+    "maxaccess": "read-write",
+    "name": "hwMusaRejectIpMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.19.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMusaResetSlaveMMX": {
+    "class": "objecttype",
+    "description": "Reset SLAVE MMX.",
+    "maxaccess": "write-only",
+    "name": "hwMusaResetSlaveMMX",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.25",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loaddata": 1,
+          "noloaddata": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaResetSys": {
+    "class": "objecttype",
+    "description": "Reset Musa device.",
+    "maxaccess": "write-only",
+    "name": "hwMusaResetSys",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.13",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaRtvbrScrIndex": {
+    "class": "objecttype",
+    "description": "The index of rtVbr traffic SCR parameter table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaRtvbrScrIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.19.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaRtvbrScrRefCount": {
+    "class": "objecttype",
+    "description": "The rtVbr traffic SCR parameter reference count.",
+    "maxaccess": "read-only",
+    "name": "hwMusaRtvbrScrRefCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.19.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaRtvbrScrValue": {
+    "class": "objecttype",
+    "description": "The rtVbr traffic SCR parameter value.",
+    "maxaccess": "read-write",
+    "name": "hwMusaRtvbrScrValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.19.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaServiceClass": {
+    "class": "objecttype",
+    "description": "Musa Traffic service class.(1:other,2:CBR,3:rtVBR,4:nrtVBR,5:ABR:6:UBR)",
+    "maxaccess": "read-write",
+    "name": "hwMusaServiceClass",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.13.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cbr": 2,
+          "nrtVBR": 4,
+          "rtVBR": 3,
+          "ubr": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSetCommunity": {
+    "class": "objecttype",
+    "description": "Snmp set community name.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSetCommunity",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.5.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMusaSetLineLoop": {
+    "class": "objecttype",
+    "description": "set line loop.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSetLineLoop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loop": 1,
+          "notloop": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSetSrcLoop": {
+    "class": "objecttype",
+    "description": "set source loop.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSetSrcLoop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.1.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loop": 1,
+          "notloop": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSetUtopiaLoop": {
+    "class": "objecttype",
+    "description": "set Utopia loop.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSetUtopiaLoop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.1.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loop": 1,
+          "notloop": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaShelf": {
+    "class": "objectidentity",
+    "name": "hwMusaShelf",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.1"
+  },
+  "hwMusaShelfConfEntry": {
+    "class": "objecttype",
+    "description": "This list contains Musa shelf configuration parameters and status variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaShelfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaShelfConfEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.1.2.1",
+    "status": "mandatory"
+  },
+  "hwMusaShelfConfTable": {
+    "class": "objecttype",
+    "description": "This table contains Musa slot configuration parameters, one entry per Musa slot.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaShelfConfTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.1.2",
+    "status": "mandatory"
+  },
+  "hwMusaShelfIndex": {
+    "class": "objecttype",
+    "description": "the Musa shelf number. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaShelfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.1.2.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaShelfName": {
+    "class": "objecttype",
+    "description": "The Musa shelf name.",
+    "maxaccess": "read-only",
+    "name": "hwMusaShelfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.1.2.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMusaShelfNumber": {
+    "class": "objecttype",
+    "description": "Musa shelf numbers.",
+    "maxaccess": "read-only",
+    "name": "hwMusaShelfNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaShelfType": {
+    "class": "objecttype",
+    "description": "The Musa shelf type.",
+    "maxaccess": "read-only",
+    "name": "hwMusaShelfType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.1.2.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "empty": 2,
+          "other": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSlot": {
+    "class": "objectidentity",
+    "name": "hwMusaSlot",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3"
+  },
+  "hwMusaSlotCardAdminStatus": {
+    "class": "objecttype",
+    "description": "The Musa slot card State.",
+    "maxaccess": "read-only",
+    "name": "hwMusaSlotCardAdminStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.2.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bakfault": 6,
+          "baknormal": 5,
+          "commfail": 13,
+          "commok": 12,
+          "config": 8,
+          "fault": 2,
+          "forbid": 7,
+          "mainfault": 4,
+          "mainnormal": 3,
+          "noinstall": 0,
+          "none": 11,
+          "normal": 1,
+          "online": 10
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSlotCardOperStatus": {
+    "class": "objecttype",
+    "description": "The slot card operate status.",
+    "maxaccess": "write-only",
+    "name": "hwMusaSlotCardOperStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.2.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 1,
+          "addaiusubboard": 8,
+          "del": 0,
+          "delaiusubboard": 9,
+          "delmmxsubboard": 7,
+          "inverse": 5,
+          "mmxswitchover": 6,
+          "nouse": 4,
+          "reset": 2,
+          "use": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSlotCardSerial": {
+    "class": "objecttype",
+    "description": "The Musa slot card serial.",
+    "maxaccess": "read-only",
+    "name": "hwMusaSlotCardSerial",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.2.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSlotCardType": {
+    "class": "objecttype",
+    "description": "the Musa slot card type. The whole 16 bits is distributed to two parts. The whole low 8 bits is the type of board. In the high 8 bits, the whole high 4 bits is the type of the first subboard, the whole low 4 bits is the type of the second subboard. The subboard types of all kinds of board are listed below: To mmx: 0x00MMX_NO_SUBBOARD 0x01MMX_OIM_S155SM: 0x02MMX_OIM_S155MM: 0x03MMX_OIM_D155SM: 0x04MMX_OIM_D155MM: 0x05MMX_APON_R: 0x06MMX_APON_C: 0x07: MMX_IMA_TYPE 0x08: MMX_IMA_TYPE_120 To frc: 0x00FRC_NON_SUBBOARD 0x01FRC_E1 0x02FRC_T1 0x03FRC_V35 0x04: FRC_E1_120 To cesc: 0x00CESC_NON_SUBBOARD 0x01CESC_E1 0x02CESC_T1 0x03CESC_V35 0x04: CESC_E1_120 To aiua: 0x00AIU_NO_SUBBOARD 0x01AIU_155M_SINGLE_PATH 0x02AIU_155M_SINGLE_PATH_M 0x03AIU_155M_DOUBLE_PATH 0x04AIU_155M_DOUBLE_PATH_M 0x05AIU_622M 0x06AIU_APON_C 0x07AIU_APON_R 0x08AIU_E3 0x09: AIU_IMA 0x0a: AIU_IMA_120",
+    "maxaccess": "read-only",
+    "name": "hwMusaSlotCardType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.2.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "adl": 3,
+          "adlb": 10,
+          "adlc": 21,
+          "adld": 25,
+          "cesa": 6,
+          "cesb": 7,
+          "fra": 9,
+          "lan": 19,
+          "lana": 5,
+          "lanb": 4,
+          "mmx": 1,
+          "null": 0,
+          "pots": 16,
+          "sep": 13,
+          "smx": 2,
+          "smxa": 14,
+          "smxb": 15,
+          "spl": 8,
+          "splb": 12,
+          "splc": 18,
+          "unknown": 11
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSlotCardVersion": {
+    "class": "objecttype",
+    "description": "The Musa slot card version.",
+    "maxaccess": "read-only",
+    "name": "hwMusaSlotCardVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.2.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMusaSlotConfEntry": {
+    "class": "objecttype",
+    "description": "This list contains Musa slot configuration parameters and status variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaSlotIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaSlotConfEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.2.1",
+    "status": "mandatory"
+  },
+  "hwMusaSlotConfTable": {
+    "class": "objecttype",
+    "description": "This table contains Musa slot configuration parameters, one entry per Musa slot.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaSlotConfTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.2",
+    "status": "mandatory"
+  },
+  "hwMusaSlotDescript": {
+    "class": "objecttype",
+    "description": "The sl1ot card description.",
+    "maxaccess": "read-only",
+    "name": "hwMusaSlotDescript",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.2.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMusaSlotDownBandWidth": {
+    "class": "objecttype",
+    "description": "The main bandwidth(kpbs) of Down slot.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSlotDownBandWidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.2.1.19",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSlotDownPracticalBandWidth": {
+    "class": "objecttype",
+    "description": "The practical down bandwidth(kpbs) of slot.",
+    "maxaccess": "read-only",
+    "name": "hwMusaSlotDownPracticalBandWidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.2.1.23",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSlotGroup": {
+    "class": "objectidentity",
+    "name": "hwMusaSlotGroup",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6"
+  },
+  "hwMusaSlotIndex": {
+    "class": "objecttype",
+    "description": "the Musa slot number.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaSlotIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.2.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSlotIpAddress": {
+    "class": "objecttype",
+    "description": "The Musa slot card Ip address.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSlotIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.2.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMusaSlotNumber": {
+    "class": "objecttype",
+    "description": "Musa slot numbers.",
+    "maxaccess": "read-only",
+    "name": "hwMusaSlotNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSlotNumbers": {
+    "class": "objecttype",
+    "description": "The Slot numbers belong to this frame.",
+    "maxaccess": "read-only",
+    "name": "hwMusaSlotNumbers",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.2.2.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSlotUpBandWidth": {
+    "class": "objecttype",
+    "description": "The bandwidth(kpbs) of Up slot.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSlotUpBandWidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.2.1.18",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSlotUpPracticalBandWidth": {
+    "class": "objecttype",
+    "description": "The practical up bandwidth(kpbs) of slot.",
+    "maxaccess": "read-only",
+    "name": "hwMusaSlotUpPracticalBandWidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.2.1.22",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSlotUsedDownBandWidth": {
+    "class": "objecttype",
+    "description": "The current used down bandwidth(kpbs) of slot.",
+    "maxaccess": "read-only",
+    "name": "hwMusaSlotUsedDownBandWidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.2.1.21",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSlotUsedUpBandWidth": {
+    "class": "objecttype",
+    "description": "The current used up bandwidth(kpbs) of slot.",
+    "maxaccess": "read-only",
+    "name": "hwMusaSlotUsedUpBandWidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.2.1.20",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSrcApcConnectAttribute": {
+    "class": "objecttype",
+    "description": "The APC connection attribute of MMX(source) board.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSrcApcConnectAttribute",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.16",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSrcBoardVci": {
+    "class": "objecttype",
+    "description": "Src board VCI Index.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSrcBoardVci",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSrcBoardVpi": {
+    "class": "objecttype",
+    "description": "Src board Port vpi Index.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSrcBoardVpi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSrcCescChannelBitmap": {
+    "class": "objecttype",
+    "description": "Cesc channel Bitmap",
+    "maxaccess": "read-write",
+    "name": "hwMusaSrcCescChannelBitmap",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSrcCescChannelId": {
+    "class": "objecttype",
+    "description": "Cesc channel Id",
+    "maxaccess": "read-write",
+    "name": "hwMusaSrcCescChannelId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSrcCescFillDegree": {
+    "class": "objecttype",
+    "description": "Cesc fill degree(20-47)",
+    "maxaccess": "read-write",
+    "name": "hwMusaSrcCescFillDegree",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 47,
+            "min": 20
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSrcCescV35N": {
+    "class": "objecttype",
+    "description": "The N value of V35 subboard of CESC.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSrcCescV35N",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.17",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSrcFrameId": {
+    "class": "objecttype",
+    "description": "The Frame id of source board.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSrcFrameId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSrcFrcActiveStatus": {
+    "class": "objecttype",
+    "description": "The FRC ATM logical port BLOCK/UNBLOCK.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSrcFrcActiveStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.14",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "block": 0,
+          "unblock": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSrcFrcDlciType": {
+    "class": "objecttype",
+    "description": "The ATM Logical Port DLCI.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSrcFrcDlciType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 5,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSrcFrcFreeBandwidth": {
+    "class": "objecttype",
+    "description": "The ATM logical port free bandwidth.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSrcFrcFreeBandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.15",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSrcFrcIwfType": {
+    "class": "objecttype",
+    "description": "The ATM Logical Port have service.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSrcFrcIwfType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.13",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hdlc": 2,
+          "network11": 0,
+          "networkN1": 3,
+          "service": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSrcOnuId": {
+    "class": "objecttype",
+    "description": "The ONUID of source board.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSrcOnuId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSrcPortType": {
+    "class": "objecttype",
+    "description": "The type of CESC port.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSrcPortType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sdt": 1,
+          "udt": 2,
+          "uni": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSrcPortVlanVccId": {
+    "class": "objecttype",
+    "description": "The Port/VlanID/VCC Index of source board.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSrcPortVlanVccId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSrcToDestTraffic": {
+    "class": "objecttype",
+    "description": "The source board to destination traffic.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSrcToDestTraffic",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.38",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSysCpuRatio": {
+    "class": "objecttype",
+    "description": "the musa system cpu ratio.",
+    "maxaccess": "read-only",
+    "name": "hwMusaSysCpuRatio",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSysDate": {
+    "class": "objecttype",
+    "description": "the system date,include year,month,day.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSysDate",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMusaSysMib": {
+    "class": "objectidentity",
+    "name": "hwMusaSysMib",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1"
+  },
+  "hwMusaSysRouteEntry": {
+    "class": "objecttype",
+    "description": "This list contains Musa Sys Route Configuration parameters and variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaSysRouteIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaSysRouteEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.10.1",
+    "status": "mandatory"
+  },
+  "hwMusaSysRouteIndex": {
+    "class": "objecttype",
+    "description": "Sys Route index.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaSysRouteIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.10.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSysRouteOper": {
+    "class": "objecttype",
+    "description": "Sys route operate state,include:add/del.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSysRouteOper",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.10.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 0,
+          "del": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSysRouteTable": {
+    "class": "objecttype",
+    "description": "Musa sys route table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaSysRouteTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.10",
+    "status": "mandatory"
+  },
+  "hwMusaSysTime": {
+    "class": "objecttype",
+    "description": "the system time,include hours,minutes,seconds.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSysTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMusaToLanTrafficId": {
+    "class": "objecttype",
+    "description": "Musa campus to lan board traffic index.",
+    "maxaccess": "read-write",
+    "name": "hwMusaToLanTrafficId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.15.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaTrafficCbrPcrEntry": {
+    "class": "objecttype",
+    "description": "This list contains CBR traffic\u0027s PCR parameter.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaCbrPcrIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaTrafficCbrPcrEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.18.1",
+    "status": "mandatory"
+  },
+  "hwMusaTrafficCbrPcrTable": {
+    "class": "objecttype",
+    "description": "CBR traffic PCR parameter table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaTrafficCbrPcrTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.18",
+    "status": "mandatory"
+  },
+  "hwMusaTrafficEntry": {
+    "class": "objecttype",
+    "description": "This list contains Musa Pvc Traffic Configuration parameters and variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaTrafficIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaTrafficEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.13.1",
+    "status": "mandatory"
+  },
+  "hwMusaTrafficIndex": {
+    "class": "objecttype",
+    "description": "Musa Traffic Table Index.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaTrafficIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.13.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 5000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaTrafficRtvbrScrEntry": {
+    "class": "objecttype",
+    "description": "This list contains rtVbr traffic\u0027s SCR parameter.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaRtvbrScrIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaTrafficRtvbrScrEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.19.1",
+    "status": "mandatory"
+  },
+  "hwMusaTrafficRtvbrScrTable": {
+    "class": "objecttype",
+    "description": "rtVbr traffic SCR parameter table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaTrafficRtvbrScrTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.19",
+    "status": "mandatory"
+  },
+  "hwMusaTrafficTable": {
+    "class": "objecttype",
+    "description": "Musa Pvc Traffic table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaTrafficTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.13",
+    "status": "mandatory"
+  },
+  "hwMusaTrafficType": {
+    "class": "objecttype",
+    "description": "Musa Traffic table type.(0:NOCLPNOSCR,1:CLPNOTAGGINGNOSCR, 2:CLPTAGGINGNOSCR,3:NOCLPSCR,4:CLPNOTAGGINGSCR,5:CLPTAGGINGSCR, 6:CLPNOTAGGINGMCR,7:CLPTRANSPARENTNOSCR,8:CLPTRANSPARENTSCR, 9:NOCLPTAGGINGNOSCR,10:NOCLPNOSCRCDVT,11;NOCLPSCRCDVT,12;CLPNOTAGGINGSCRCDVT, 13:CLPTAGGINGSCRCDVT)",
+    "maxaccess": "read-write",
+    "name": "hwMusaTrafficType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.13.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clpnotaggingmcr": 7,
+          "clpnotaggingnoscr": 2,
+          "clpnotaggingscr": 5,
+          "clpnotaggingscrcdvt": 13,
+          "clptaggingnoscr": 3,
+          "clptaggingscr": 6,
+          "clptaggingscrcdvt": 14,
+          "clptransparentnoscr": 8,
+          "clptransparentscr": 9,
+          "noclpnoscr": 1,
+          "noclpnoscrcdvt": 11,
+          "noclpscr": 4,
+          "noclpscrcdvt": 12,
+          "noclptaggingnoscr": 10
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaTrapPort": {
+    "class": "objecttype",
+    "description": "Snmp trap port.",
+    "maxaccess": "read-write",
+    "name": "hwMusaTrapPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.5.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaTypeOfPvcPvp": {
+    "class": "objecttype",
+    "description": "Identified type of Pvc or Pvp",
+    "maxaccess": "read-write",
+    "name": "hwMusaTypeOfPvcPvp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.41",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pvc": 0,
+          "pvp": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaUpOpticMainBandWidth": {
+    "class": "objecttype",
+    "description": "The main bandwidth(kpbs) of Up optic port.",
+    "maxaccess": "read-write",
+    "name": "hwMusaUpOpticMainBandWidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.17.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaUpPracticalBandWidth": {
+    "class": "objecttype",
+    "description": "The up practical bandwidth of the optic port.",
+    "maxaccess": "read-write",
+    "name": "hwMusaUpPracticalBandWidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.17.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaUpReservedBandWidth": {
+    "class": "objecttype",
+    "description": "The up reserved bandwidth of the optic port.",
+    "maxaccess": "read-write",
+    "name": "hwMusaUpReservedBandWidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.17.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaUpStreamTrafficRx": {
+    "class": "objecttype",
+    "description": "Up stream traffic Rx(cells).",
+    "maxaccess": "read-only",
+    "name": "hwMusaUpStreamTrafficRx",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.21.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaUpStreamTrafficTx": {
+    "class": "objecttype",
+    "description": "Up stream traffic Tx(cells).",
+    "maxaccess": "read-only",
+    "name": "hwMusaUpStreamTrafficTx",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.21.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaVlanIciIndex": {
+    "class": "objecttype",
+    "description": "Musa campus VLanIciIndex.",
+    "maxaccess": "read-only",
+    "name": "hwMusaVlanIciIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.15.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaVlanId": {
+    "class": "objecttype",
+    "description": "Musa campus VLan Id.",
+    "maxaccess": "read-only",
+    "name": "hwMusaVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.15.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 63,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaWarn15MinThreshold": {
+    "class": "objecttype",
+    "description": "The Warning 15 Minute threshold.",
+    "maxaccess": "read-write",
+    "name": "hwMusaWarn15MinThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.9.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaWarn24HourThreshold": {
+    "class": "objecttype",
+    "description": "The Warning 24 Hour threshold.",
+    "maxaccess": "read-write",
+    "name": "hwMusaWarn24HourThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.9.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaWarningCtrlEntry": {
+    "class": "objecttype",
+    "description": "This list contains Musa warning Control parameters.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaWarningID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaWarningCtrlEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.9.1",
+    "status": "mandatory"
+  },
+  "hwMusaWarningCtrlTable": {
+    "class": "objecttype",
+    "description": "Musa warning control table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaWarningCtrlTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.9",
+    "status": "mandatory"
+  },
+  "hwMusaWarningDesc": {
+    "class": "objecttype",
+    "description": "The MUSA Warning Chinese description.",
+    "maxaccess": "read-only",
+    "name": "hwMusaWarningDesc",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.9.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwMusaWarningEngDesc": {
+    "class": "objecttype",
+    "description": "The MUSA Warning English description.",
+    "maxaccess": "read-only",
+    "name": "hwMusaWarningEngDesc",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.9.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwMusaWarningID": {
+    "class": "objecttype",
+    "description": "The MUSA Warning ID.",
+    "maxaccess": "read-only",
+    "name": "hwMusaWarningID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.9.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaWarningIsCount": {
+    "class": "objecttype",
+    "description": "The Warning is statics or not.",
+    "maxaccess": "read-write",
+    "name": "hwMusaWarningIsCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.9.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaWarningLevel": {
+    "class": "objecttype",
+    "description": "The MUSA Warning level.",
+    "maxaccess": "read-write",
+    "name": "hwMusaWarningLevel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.9.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 4,
+          "fatal": 3,
+          "normal": 1,
+          "notify": 0,
+          "serious": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaWarningNmsCtrl": {
+    "class": "objecttype",
+    "description": "The MUSA Warning NMS filter.",
+    "maxaccess": "read-write",
+    "name": "hwMusaWarningNmsCtrl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.9.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaWarningTerminalCtrl": {
+    "class": "objecttype",
+    "description": "The MUSA Warning NMS filter.",
+    "maxaccess": "read-write",
+    "name": "hwMusaWarningTerminalCtrl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.9.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOIMPortIndex": {
+    "class": "objecttype",
+    "description": "the Musa OIM number.(0--1) ",
+    "maxaccess": "not-accessible",
+    "name": "hwOIMPortIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.7.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "musa"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Bits",
+      "iso",
+      "TimeTicks",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-MUSA-MA5100-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:25 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-MUSA-MA5100-MIB"
+  }
+}

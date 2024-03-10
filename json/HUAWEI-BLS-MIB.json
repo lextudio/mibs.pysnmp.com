@@ -1,0 +1,288 @@
+{
+  "BlsAddReason": {
+    "class": "textualconvention",
+    "description": " Descript the blacklist item added by manual or by system. ",
+    "name": "BlsAddReason",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reasonIPSweep": 3,
+          "reasonManual": 2,
+          "reasonPortScan": 4,
+          "reasonUnknow": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwBLS": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": " V1.00 The blacklist mib is for all datacomm product. ",
+    "lastupdated": "200304111150Z",
+    "name": "hwBLS",
+    "oid": "1.3.6.1.4.1.2011.5.25.8",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwBlsBlackListEntry": {
+    "class": "objecttype",
+    "description": " The blacklist entry. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BLS-MIB",
+        "object": "hwBlsItemIPAddress"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBlsBlackListEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.8.1.2.1",
+    "status": "current"
+  },
+  "hwBlsBlackListTable": {
+    "class": "objecttype",
+    "description": " The blacklist table. ",
+    "maxaccess": "not-accessible",
+    "name": "hwBlsBlackListTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.8.1.2",
+    "status": "current"
+  },
+  "hwBlsBlackListTableGroup": {
+    "class": "objectgroup",
+    "description": "Blacklist table struct group.",
+    "name": "hwBlsBlackListTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BLS-MIB",
+        "object": "hwBlsItemIPAddress"
+      },
+      {
+        "module": "HUAWEI-BLS-MIB",
+        "object": "hwBlsItemAge"
+      },
+      {
+        "module": "HUAWEI-BLS-MIB",
+        "object": "hwBlsItemAddReason"
+      },
+      {
+        "module": "HUAWEI-BLS-MIB",
+        "object": "hwBlsItemAddTime"
+      },
+      {
+        "module": "HUAWEI-BLS-MIB",
+        "object": "hwBlsRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.8.2.1.2",
+    "status": "current"
+  },
+  "hwBlsEnableFlag": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": " The blacklist function switch. 1: true(on) 2: false(off) ",
+    "maxaccess": "read-write",
+    "name": "hwBlsEnableFlag",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwBlsEnableGroup": {
+    "class": "objectgroup",
+    "description": "Blacklist function switch.",
+    "name": "hwBlsEnableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BLS-MIB",
+        "object": "hwBlsEnableFlag"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.8.2.1.1",
+    "status": "current"
+  },
+  "hwBlsFilterType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 15
+      }
+    },
+    "description": " The blacklist filter type. none(0x00) icmp(0x01) tcp(0x02) udp(0x04) others(0x08) all(0x0F) ",
+    "maxaccess": "read-write",
+    "name": "hwBlsFilterType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.8.1.3.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBlsFilterTypeSet": {
+    "class": "objectidentity",
+    "name": "hwBlsFilterTypeSet",
+    "oid": "1.3.6.1.4.1.2011.5.25.8.1.3"
+  },
+  "hwBlsItemAddReason": {
+    "class": "objecttype",
+    "description": " The blacklist item is added by manual or by system. 1: manual 2: dynamic(system) ",
+    "maxaccess": "read-only",
+    "name": "hwBlsItemAddReason",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.8.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "BlsAddReason"
+    }
+  },
+  "hwBlsItemAddTime": {
+    "class": "objecttype",
+    "description": " The system time when add this blacklist item. It\u0027s automatically appended by system when create the item. (the seconds since 1970.)",
+    "maxaccess": "read-only",
+    "name": "hwBlsItemAddTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.8.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwBlsItemAge": {
+    "class": "objecttype",
+    "description": " The blacklist item aging time. This item will be deleted when overtime. The default value is 0, no aging. (unit:minutes)",
+    "maxaccess": "read-create",
+    "name": "hwBlsItemAge",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.8.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBlsItemIPAddress": {
+    "class": "objecttype",
+    "description": " The packet source IP address. If match, drop the packet. ",
+    "maxaccess": "read-only",
+    "name": "hwBlsItemIPAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.8.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwBlsMibConformance": {
+    "class": "objectidentity",
+    "name": "hwBlsMibConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.8.2"
+  },
+  "hwBlsMibGroup": {
+    "class": "objectidentity",
+    "name": "hwBlsMibGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.8.2.1"
+  },
+  "hwBlsMibObjects": {
+    "class": "objectidentity",
+    "name": "hwBlsMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.8.1"
+  },
+  "hwBlsRowStatus": {
+    "class": "objecttype",
+    "description": " Only support CreateAndGo and Destroy. ",
+    "maxaccess": "read-create",
+    "name": "hwBlsRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.8.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "MPLS-VPN-MIB": [
+      "mplsVpnVrfName"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "TimeTicks",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Counter64",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Integer32",
+      "Counter32",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TruthValue",
+      "DateAndTime",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-BLS-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:46:45 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-BLS-MIB"
+  }
+}

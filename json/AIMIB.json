@@ -1,0 +1,763 @@
+{
+  "ai192": {
+    "class": "objectidentity",
+    "name": "ai192",
+    "oid": "1.3.6.1.4.1.539.2.192"
+  },
+  "ai192Ver7": {
+    "class": "objectidentity",
+    "name": "ai192Ver7",
+    "oid": "1.3.6.1.4.1.539.2.192.7"
+  },
+  "ai192Ver70": {
+    "class": "objectidentity",
+    "name": "ai192Ver70",
+    "oid": "1.3.6.1.4.1.539.2.192.7.0"
+  },
+  "ai192Ver708": {
+    "class": "objectidentity",
+    "name": "ai192Ver708",
+    "oid": "1.3.6.1.4.1.539.2.192.7.0.8"
+  },
+  "ai192Ver709": {
+    "class": "objectidentity",
+    "name": "ai192Ver709",
+    "oid": "1.3.6.1.4.1.539.2.192.7.0.9"
+  },
+  "ai192Ver71": {
+    "class": "objectidentity",
+    "name": "ai192Ver71",
+    "oid": "1.3.6.1.4.1.539.2.192.7.1"
+  },
+  "ai192Ver710": {
+    "class": "objectidentity",
+    "name": "ai192Ver710",
+    "oid": "1.3.6.1.4.1.539.2.192.7.1.0"
+  },
+  "ai192Ver72": {
+    "class": "objectidentity",
+    "name": "ai192Ver72",
+    "oid": "1.3.6.1.4.1.539.2.192.7.2"
+  },
+  "ai192Ver720": {
+    "class": "objectidentity",
+    "name": "ai192Ver720",
+    "oid": "1.3.6.1.4.1.539.2.192.7.2.0"
+  },
+  "ai192Ver77": {
+    "class": "objectidentity",
+    "name": "ai192Ver77",
+    "oid": "1.3.6.1.4.1.539.2.192.7.7"
+  },
+  "ai193": {
+    "class": "objectidentity",
+    "name": "ai193",
+    "oid": "1.3.6.1.4.1.539.2.193"
+  },
+  "ai193ES": {
+    "class": "objectidentity",
+    "name": "ai193ES",
+    "oid": "1.3.6.1.4.1.539.2.193.2"
+  },
+  "ai193ESVer7": {
+    "class": "objectidentity",
+    "name": "ai193ESVer7",
+    "oid": "1.3.6.1.4.1.539.2.193.2.7"
+  },
+  "ai193ESVer70": {
+    "class": "objectidentity",
+    "name": "ai193ESVer70",
+    "oid": "1.3.6.1.4.1.539.2.193.2.7.0"
+  },
+  "ai193ESVer702": {
+    "class": "objectidentity",
+    "name": "ai193ESVer702",
+    "oid": "1.3.6.1.4.1.539.2.193.2.7.0.2"
+  },
+  "ai193ESVer703": {
+    "class": "objectidentity",
+    "name": "ai193ESVer703",
+    "oid": "1.3.6.1.4.1.539.2.193.2.7.0.3"
+  },
+  "ai193FT": {
+    "class": "objectidentity",
+    "name": "ai193FT",
+    "oid": "1.3.6.1.4.1.539.2.6"
+  },
+  "ai193Ver7": {
+    "class": "objectidentity",
+    "name": "ai193Ver7",
+    "oid": "1.3.6.1.4.1.539.2.193.7"
+  },
+  "ai193Ver71": {
+    "class": "objectidentity",
+    "name": "ai193Ver71",
+    "oid": "1.3.6.1.4.1.539.2.193.7.1"
+  },
+  "ai193Ver72": {
+    "class": "objectidentity",
+    "name": "ai193Ver72",
+    "oid": "1.3.6.1.4.1.539.2.193.7.2"
+  },
+  "ai193Ver73": {
+    "class": "objectidentity",
+    "name": "ai193Ver73",
+    "oid": "1.3.6.1.4.1.539.2.193.7.3"
+  },
+  "ai193Ver74": {
+    "class": "objectidentity",
+    "name": "ai193Ver74",
+    "oid": "1.3.6.1.4.1.539.2.193.7.4"
+  },
+  "ai193Ver75": {
+    "class": "objectidentity",
+    "name": "ai193Ver75",
+    "oid": "1.3.6.1.4.1.539.2.193.7.5"
+  },
+  "ai193Ver76": {
+    "class": "objectidentity",
+    "name": "ai193Ver76",
+    "oid": "1.3.6.1.4.1.539.2.193.7.6"
+  },
+  "ai193Ver77": {
+    "class": "objectidentity",
+    "name": "ai193Ver77",
+    "oid": "1.3.6.1.4.1.539.2.193.7.7"
+  },
+  "ai194": {
+    "class": "objectidentity",
+    "name": "ai194",
+    "oid": "1.3.6.1.4.1.539.2.194"
+  },
+  "ai194Ver7": {
+    "class": "objectidentity",
+    "name": "ai194Ver7",
+    "oid": "1.3.6.1.4.1.539.2.194.7"
+  },
+  "ai194Ver71": {
+    "class": "objectidentity",
+    "name": "ai194Ver71",
+    "oid": "1.3.6.1.4.1.539.2.194.7.1"
+  },
+  "ai194Ver72": {
+    "class": "objectidentity",
+    "name": "ai194Ver72",
+    "oid": "1.3.6.1.4.1.539.2.194.7.2"
+  },
+  "ai194Ver73": {
+    "class": "objectidentity",
+    "name": "ai194Ver73",
+    "oid": "1.3.6.1.4.1.539.2.194.7.3"
+  },
+  "ai194Ver74": {
+    "class": "objectidentity",
+    "name": "ai194Ver74",
+    "oid": "1.3.6.1.4.1.539.2.194.7.4"
+  },
+  "ai195": {
+    "class": "objectidentity",
+    "name": "ai195",
+    "oid": "1.3.6.1.4.1.539.2.195"
+  },
+  "ai196": {
+    "class": "objectidentity",
+    "name": "ai196",
+    "oid": "1.3.6.1.4.1.539.2.196"
+  },
+  "ai196E2A": {
+    "class": "objectidentity",
+    "name": "ai196E2A",
+    "oid": "1.3.6.1.4.1.539.2.4"
+  },
+  "ai196E2AVer1": {
+    "class": "objectidentity",
+    "name": "ai196E2AVer1",
+    "oid": "1.3.6.1.4.1.539.2.4.1"
+  },
+  "ai196E2AVer10": {
+    "class": "objectidentity",
+    "name": "ai196E2AVer10",
+    "oid": "1.3.6.1.4.1.539.2.4.1.0"
+  },
+  "ai196E2AVer100": {
+    "class": "objectidentity",
+    "name": "ai196E2AVer100",
+    "oid": "1.3.6.1.4.1.539.2.4.1.0.0"
+  },
+  "ai196E2AVer101": {
+    "class": "objectidentity",
+    "name": "ai196E2AVer101",
+    "oid": "1.3.6.1.4.1.539.2.4.1.0.1"
+  },
+  "ai196IEGB": {
+    "class": "objectidentity",
+    "name": "ai196IEGB",
+    "oid": "1.3.6.1.4.1.539.2.3"
+  },
+  "ai196IEGBVer1": {
+    "class": "objectidentity",
+    "name": "ai196IEGBVer1",
+    "oid": "1.3.6.1.4.1.539.2.3.1"
+  },
+  "ai196IEGBVer10": {
+    "class": "objectidentity",
+    "name": "ai196IEGBVer10",
+    "oid": "1.3.6.1.4.1.539.2.3.1.0"
+  },
+  "ai196IEGBVer100": {
+    "class": "objectidentity",
+    "name": "ai196IEGBVer100",
+    "oid": "1.3.6.1.4.1.539.2.3.1.0.0"
+  },
+  "ai196IEGBVer101": {
+    "class": "objectidentity",
+    "name": "ai196IEGBVer101",
+    "oid": "1.3.6.1.4.1.539.2.3.1.0.1"
+  },
+  "ai196IEGBVer102": {
+    "class": "objectidentity",
+    "name": "ai196IEGBVer102",
+    "oid": "1.3.6.1.4.1.539.2.3.1.0.2"
+  },
+  "ai196ILEG": {
+    "class": "objectidentity",
+    "name": "ai196ILEG",
+    "oid": "1.3.6.1.4.1.539.2.5"
+  },
+  "ai196IVer8": {
+    "class": "objectidentity",
+    "name": "ai196IVer8",
+    "oid": "1.3.6.1.4.1.539.2.196.8"
+  },
+  "ai196IVer80": {
+    "class": "objectidentity",
+    "name": "ai196IVer80",
+    "oid": "1.3.6.1.4.1.539.2.196.8.0"
+  },
+  "ai196IVer800": {
+    "class": "objectidentity",
+    "name": "ai196IVer800",
+    "oid": "1.3.6.1.4.1.539.2.196.8.0.0"
+  },
+  "ai196IVer801": {
+    "class": "objectidentity",
+    "name": "ai196IVer801",
+    "oid": "1.3.6.1.4.1.539.2.196.8.0.1"
+  },
+  "ai196IVer802": {
+    "class": "objectidentity",
+    "name": "ai196IVer802",
+    "oid": "1.3.6.1.4.1.539.2.196.8.0.2"
+  },
+  "ai196IVer81": {
+    "class": "objectidentity",
+    "name": "ai196IVer81",
+    "oid": "1.3.6.1.4.1.539.2.196.8.1"
+  },
+  "ai196IVer810": {
+    "class": "objectidentity",
+    "name": "ai196IVer810",
+    "oid": "1.3.6.1.4.1.539.2.196.8.1.0"
+  },
+  "ai196IVer82": {
+    "class": "objectidentity",
+    "name": "ai196IVer82",
+    "oid": "1.3.6.1.4.1.539.2.196.8.2"
+  },
+  "ai196IVer820": {
+    "class": "objectidentity",
+    "name": "ai196IVer820",
+    "oid": "1.3.6.1.4.1.539.2.196.8.2.0"
+  },
+  "ai196IVer83": {
+    "class": "objectidentity",
+    "name": "ai196IVer83",
+    "oid": "1.3.6.1.4.1.539.2.196.8.3"
+  },
+  "ai196IVer830": {
+    "class": "objectidentity",
+    "name": "ai196IVer830",
+    "oid": "1.3.6.1.4.1.539.2.196.8.3.0"
+  },
+  "ai196IVer831": {
+    "class": "objectidentity",
+    "name": "ai196IVer831",
+    "oid": "1.3.6.1.4.1.539.2.196.8.3.1"
+  },
+  "ai196Ver7": {
+    "class": "objectidentity",
+    "name": "ai196Ver7",
+    "oid": "1.3.6.1.4.1.539.2.196.7"
+  },
+  "ai196Ver70": {
+    "class": "objectidentity",
+    "name": "ai196Ver70",
+    "oid": "1.3.6.1.4.1.539.2.196.7.0"
+  },
+  "ai196Ver708": {
+    "class": "objectidentity",
+    "name": "ai196Ver708",
+    "oid": "1.3.6.1.4.1.539.2.196.7.0.8"
+  },
+  "ai196Ver709": {
+    "class": "objectidentity",
+    "name": "ai196Ver709",
+    "oid": "1.3.6.1.4.1.539.2.196.7.0.9"
+  },
+  "ai196Ver71": {
+    "class": "objectidentity",
+    "name": "ai196Ver71",
+    "oid": "1.3.6.1.4.1.539.2.196.7.1"
+  },
+  "ai196Ver710": {
+    "class": "objectidentity",
+    "name": "ai196Ver710",
+    "oid": "1.3.6.1.4.1.539.2.196.7.1.0"
+  },
+  "ai196Ver72": {
+    "class": "objectidentity",
+    "name": "ai196Ver72",
+    "oid": "1.3.6.1.4.1.539.2.196.7.2"
+  },
+  "ai196Ver720": {
+    "class": "objectidentity",
+    "name": "ai196Ver720",
+    "oid": "1.3.6.1.4.1.539.2.196.7.2.0"
+  },
+  "ai196Ver77": {
+    "class": "objectidentity",
+    "name": "ai196Ver77",
+    "oid": "1.3.6.1.4.1.539.2.196.7.7"
+  },
+  "ai198": {
+    "class": "objectidentity",
+    "name": "ai198",
+    "oid": "1.3.6.1.4.1.539.2.198"
+  },
+  "ai198Ver1": {
+    "class": "objectidentity",
+    "name": "ai198Ver1",
+    "oid": "1.3.6.1.4.1.539.2.198.1"
+  },
+  "ai198Ver10": {
+    "class": "objectidentity",
+    "name": "ai198Ver10",
+    "oid": "1.3.6.1.4.1.539.2.198.1.0"
+  },
+  "ai198Ver101": {
+    "class": "objectidentity",
+    "name": "ai198Ver101",
+    "oid": "1.3.6.1.4.1.539.2.198.1.0.1"
+  },
+  "ai198Ver102": {
+    "class": "objectidentity",
+    "name": "ai198Ver102",
+    "oid": "1.3.6.1.4.1.539.2.198.1.0.2"
+  },
+  "ai198Ver103": {
+    "class": "objectidentity",
+    "name": "ai198Ver103",
+    "oid": "1.3.6.1.4.1.539.2.198.1.0.3"
+  },
+  "ai198Ver104": {
+    "class": "objectidentity",
+    "name": "ai198Ver104",
+    "oid": "1.3.6.1.4.1.539.2.198.1.0.4"
+  },
+  "ai198Ver11": {
+    "class": "objectidentity",
+    "name": "ai198Ver11",
+    "oid": "1.3.6.1.4.1.539.2.198.1.1"
+  },
+  "ai198Ver12": {
+    "class": "objectidentity",
+    "name": "ai198Ver12",
+    "oid": "1.3.6.1.4.1.539.2.198.1.2"
+  },
+  "ai198Ver120": {
+    "class": "objectidentity",
+    "name": "ai198Ver120",
+    "oid": "1.3.6.1.4.1.539.2.198.1.2.0"
+  },
+  "ai198Ver122": {
+    "class": "objectidentity",
+    "name": "ai198Ver122",
+    "oid": "1.3.6.1.4.1.539.2.198.1.2.2"
+  },
+  "ai285": {
+    "class": "objectidentity",
+    "name": "ai285",
+    "oid": "1.3.6.1.4.1.539.2.9"
+  },
+  "ai296": {
+    "class": "objectidentity",
+    "name": "ai296",
+    "oid": "1.3.6.1.4.1.539.2.7"
+  },
+  "aiCLC": {
+    "class": "moduleidentity",
+    "contactinfo": " Engineering MIB Administrator Postal: Applied Innovation Inc. 5800 Innovation Drive Dublin, OH 43016-3271 Tel: 614/798-2000 Fax: 614/798-1770 E-mail: snmp@aiinet.com",
+    "description": "The MIB Module for the Common Logic Controller (CLC)",
+    "lastupdated": "9505081700Z",
+    "name": "aiCLC",
+    "oid": "1.3.6.1.4.1.539.9",
+    "organization": "Applied Innovation Incorporated"
+  },
+  "aiEts": {
+    "class": "moduleidentity",
+    "contactinfo": " Engineering MIB Administrator Postal: Applied Innovation Inc. 5800 Innovation Drive Dublin, OH 43016-3271 Tel: 614/798-2000 Fax: 614/798-1770 E-mail: snmp@aiinet.com",
+    "description": "The MIB Module for E2A cards",
+    "lastupdated": "9702211700Z",
+    "name": "aiEts",
+    "oid": "1.3.6.1.4.1.539.17",
+    "organization": "Applied Innovation Incorporated"
+  },
+  "aiGroup": {
+    "class": "objectidentity",
+    "name": "aiGroup",
+    "oid": "1.3.6.1.4.1.539.4"
+  },
+  "aiGroup194": {
+    "class": "objectidentity",
+    "name": "aiGroup194",
+    "oid": "1.3.6.1.4.1.539.4.194"
+  },
+  "aiGroup194Ver7": {
+    "class": "objectidentity",
+    "name": "aiGroup194Ver7",
+    "oid": "1.3.6.1.4.1.539.4.194.7"
+  },
+  "aiGroup194Ver71": {
+    "class": "objectidentity",
+    "name": "aiGroup194Ver71",
+    "oid": "1.3.6.1.4.1.539.4.194.7.1"
+  },
+  "aiGroup194Ver72": {
+    "class": "objectidentity",
+    "name": "aiGroup194Ver72",
+    "oid": "1.3.6.1.4.1.539.4.194.7.2"
+  },
+  "aiGroup194Ver73": {
+    "class": "objectidentity",
+    "name": "aiGroup194Ver73",
+    "oid": "1.3.6.1.4.1.539.4.194.7.3"
+  },
+  "aiGroup194Ver74": {
+    "class": "objectidentity",
+    "name": "aiGroup194Ver74",
+    "oid": "1.3.6.1.4.1.539.4.194.7.4"
+  },
+  "aiHub": {
+    "class": "moduleidentity",
+    "contactinfo": " Engineering MIB Administrator Postal: Applied Innovation Inc. 5800 Innovation Drive Dublin, OH 43016-3271 Tel: 614/798-2000 Fax: 614/798-1770 E-mail: snmp@aiinet.com",
+    "description": "The MIB Module for Ethernet hubs",
+    "lastupdated": "9505081700Z",
+    "name": "aiHub",
+    "oid": "1.3.6.1.4.1.539.3",
+    "organization": "Applied Innovation Incorporated"
+  },
+  "aiISISGre": {
+    "class": "objectidentity",
+    "name": "aiISISGre",
+    "oid": "1.3.6.1.4.1.539.5"
+  },
+  "aiLink": {
+    "class": "objectidentity",
+    "name": "aiLink",
+    "oid": "1.3.6.1.4.1.539.16.2"
+  },
+  "aiLpt": {
+    "class": "moduleidentity",
+    "contactinfo": " Engineering MIB Administrator Postal: Applied Innovation Inc. 5800 Innovation Drive Dublin, OH 43016-3271 Tel: 614/798-2000 Fax: 614/798-1770 E-mail: snmp@aiinet.com",
+    "description": "The MIB Module for ILEG cards",
+    "lastupdated": "9804081700Z",
+    "name": "aiLpt",
+    "oid": "1.3.6.1.4.1.539.18",
+    "organization": "Applied Innovation Incorporated"
+  },
+  "aiMPR": {
+    "class": "objectidentity",
+    "name": "aiMPR",
+    "oid": "1.3.6.1.4.1.539.2.195.2"
+  },
+  "aiMPRVer1": {
+    "class": "objectidentity",
+    "name": "aiMPRVer1",
+    "oid": "1.3.6.1.4.1.539.2.195.2.1"
+  },
+  "aiManager": {
+    "class": "objectidentity",
+    "name": "aiManager",
+    "oid": "1.3.6.1.4.1.539.6"
+  },
+  "aiManagerCommunity": {
+    "class": "objecttype",
+    "description": "The agent\u0027s community string.",
+    "maxaccess": "read-only",
+    "name": "aiManagerCommunity",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.539.6.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "aiManagerEnterprise": {
+    "class": "objecttype",
+    "description": "The agent\u0027s system object ID.",
+    "maxaccess": "read-only",
+    "name": "aiManagerEnterprise",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.539.6.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "OBJECT IDENTIFIER"
+    }
+  },
+  "aiManagerTrapString": {
+    "class": "objecttype",
+    "description": "The string that is sent to xnmevents by aidaemon",
+    "maxaccess": "read-only",
+    "name": "aiManagerTrapString",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.539.6.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "aiMgrSysOID": {
+    "class": "objectidentity",
+    "name": "aiMgrSysOID",
+    "oid": "1.3.6.1.4.1.539.2.1"
+  },
+  "aiMgrSysOIDVer1": {
+    "class": "objectidentity",
+    "name": "aiMgrSysOIDVer1",
+    "oid": "1.3.6.1.4.1.539.2.1.1"
+  },
+  "aiMgrSysOIDVer2": {
+    "class": "objectidentity",
+    "name": "aiMgrSysOIDVer2",
+    "oid": "1.3.6.1.4.1.539.2.1.2"
+  },
+  "aiPVC": {
+    "class": "objectidentity",
+    "name": "aiPVC",
+    "oid": "1.3.6.1.4.1.539.16.1"
+  },
+  "aiProxy": {
+    "class": "objectidentity",
+    "name": "aiProxy",
+    "oid": "1.3.6.1.4.1.539.1"
+  },
+  "aiRTR": {
+    "class": "objectidentity",
+    "name": "aiRTR",
+    "oid": "1.3.6.1.4.1.539.2.195.1"
+  },
+  "aiSLC": {
+    "class": "moduleidentity",
+    "contactinfo": " Engineering MIB Administrator Postal: Applied Innovation Inc. 5800 Innovation Drive Dublin, OH 43016-3271 Tel: 614/798-2000 Fax: 614/798-1770 E-mail: snmp@aiinet.com",
+    "description": "The MIB Module for Smart Line Cards (SLC)",
+    "lastupdated": "9505081700Z",
+    "name": "aiSLC",
+    "oid": "1.3.6.1.4.1.539.10",
+    "organization": "Applied Innovation Incorporated"
+  },
+  "aiSLC1": {
+    "class": "moduleidentity",
+    "contactinfo": " Engineering MIB Administrator Postal: Applied Innovation Inc. 5800 Innovation Drive Dublin, OH 43016-3271 Tel: 614/798-2000 Fax: 614/798-1770 E-mail: snmp@aiinet.com",
+    "description": "The MIB Module for Series One Smart Line Cards (SLC)",
+    "lastupdated": "9505081700Z",
+    "name": "aiSLC1",
+    "oid": "1.3.6.1.4.1.539.11",
+    "organization": "Applied Innovation Incorporated"
+  },
+  "aiSLC1System": {
+    "class": "objectidentity",
+    "name": "aiSLC1System",
+    "oid": "1.3.6.1.4.1.539.11.1"
+  },
+  "aiSLC2": {
+    "class": "moduleidentity",
+    "contactinfo": " Engineering MIB Administrator Postal: Applied Innovation Inc. 5800 Innovation Drive Dublin, OH 43016-3271 Tel: 614/798-2000 Fax: 614/798-1770 E-mail: snmp@aiinet.com",
+    "description": "The MIB Module for Series Two Smart Line Cards (SLC)",
+    "lastupdated": "9702211700Z",
+    "name": "aiSLC2",
+    "oid": "1.3.6.1.4.1.539.16",
+    "organization": "Applied Innovation Incorporated"
+  },
+  "aiSLCSystem": {
+    "class": "objectidentity",
+    "name": "aiSLCSystem",
+    "oid": "1.3.6.1.4.1.539.10.1"
+  },
+  "aiScout": {
+    "class": "objectidentity",
+    "name": "aiScout",
+    "oid": "1.3.6.1.4.1.539.2.10"
+  },
+  "aiSoftware": {
+    "class": "objectidentity",
+    "name": "aiSoftware",
+    "oid": "1.3.6.1.4.1.539.7"
+  },
+  "aiSpy": {
+    "class": "moduleidentity",
+    "contactinfo": " Engineering MIB Administrator Postal: Applied Innovation Inc. 5800 Innovation Drive Dublin, OH 43016-3271 Tel: 614/798-2000 Fax: 614/798-1770 E-mail: snmp@aiinet.com",
+    "description": "The MIB Module for the AISpy",
+    "lastupdated": "9905101700Z",
+    "name": "aiSpy",
+    "oid": "1.3.6.1.4.1.539.20",
+    "organization": "Applied Innovation Incorporated"
+  },
+  "aiSpyOid": {
+    "class": "objectidentity",
+    "name": "aiSpyOid",
+    "oid": "1.3.6.1.4.1.539.2.11"
+  },
+  "aiSystem": {
+    "class": "objectidentity",
+    "name": "aiSystem",
+    "oid": "1.3.6.1.4.1.539.8"
+  },
+  "aiSystemOID": {
+    "class": "objectidentity",
+    "name": "aiSystemOID",
+    "oid": "1.3.6.1.4.1.539.2"
+  },
+  "aiTTL1": {
+    "class": "moduleidentity",
+    "contactinfo": " Engineering MIB Administrator Postal: Applied Innovation Inc. 5800 Innovation Drive Dublin, OH 43016-3271 Tel: 614/798-2000 Fax: 614/798-1770 E-mail: snmp@aiinet.com",
+    "description": "The MIB Module for TTL1-196",
+    "lastupdated": "9505081700Z",
+    "name": "aiTTL1",
+    "oid": "1.3.6.1.4.1.539.15",
+    "organization": "Applied Innovation Incorporated"
+  },
+  "aiTX1": {
+    "class": "moduleidentity",
+    "contactinfo": " Engineering MIB Administrator Postal: Applied Innovation Inc. 5800 Innovation Drive Dublin, OH 43016-3271 Tel: 614/798-2000 Fax: 614/798-1770 E-mail: snmp@aiinet.com",
+    "description": "The MIB Module for Series One TCP/IP Smart Line Cards (SLC)",
+    "lastupdated": "9505081700Z",
+    "name": "aiTX1",
+    "oid": "1.3.6.1.4.1.539.14",
+    "organization": "Applied Innovation Incorporated"
+  },
+  "aiTX1Calls": {
+    "class": "objectidentity",
+    "name": "aiTX1Calls",
+    "oid": "1.3.6.1.4.1.539.14.2"
+  },
+  "aiTX1System": {
+    "class": "objectidentity",
+    "name": "aiTX1System",
+    "oid": "1.3.6.1.4.1.539.14.1"
+  },
+  "aiUProxy": {
+    "class": "objectidentity",
+    "name": "aiUProxy",
+    "oid": "1.3.6.1.4.1.539.2.2"
+  },
+  "aiUProxyVer1": {
+    "class": "objectidentity",
+    "name": "aiUProxyVer1",
+    "oid": "1.3.6.1.4.1.539.2.2.1"
+  },
+  "aiX1": {
+    "class": "moduleidentity",
+    "contactinfo": " Engineering MIB Administrator Postal: Applied Innovation Inc. 5800 Innovation Drive Dublin, OH 43016-3271 Tel: 614/798-2000 Fax: 614/798-1770 E-mail: snmp@aiinet.com",
+    "description": "The MIB Module for Series One X.25 Smart Line Cards (SLC)",
+    "lastupdated": "9505081700Z",
+    "name": "aiX1",
+    "oid": "1.3.6.1.4.1.539.12",
+    "organization": "Applied Innovation Incorporated"
+  },
+  "aiX1Appl": {
+    "class": "objectidentity",
+    "name": "aiX1Appl",
+    "oid": "1.3.6.1.4.1.539.12.2"
+  },
+  "aiX1Frm": {
+    "class": "objectidentity",
+    "name": "aiX1Frm",
+    "oid": "1.3.6.1.4.1.539.12.4"
+  },
+  "aiX1Phys": {
+    "class": "objectidentity",
+    "name": "aiX1Phys",
+    "oid": "1.3.6.1.4.1.539.12.5"
+  },
+  "aiX1Pkt": {
+    "class": "objectidentity",
+    "name": "aiX1Pkt",
+    "oid": "1.3.6.1.4.1.539.12.3"
+  },
+  "aiX1System": {
+    "class": "objectidentity",
+    "name": "aiX1System",
+    "oid": "1.3.6.1.4.1.539.12.1"
+  },
+  "aiX1VC": {
+    "class": "objectidentity",
+    "name": "aiX1VC",
+    "oid": "1.3.6.1.4.1.539.12.6"
+  },
+  "aii": {
+    "class": "objectidentity",
+    "name": "aii",
+    "oid": "1.3.6.1.4.1.539"
+  },
+  "aiiSubnet": {
+    "class": "objectidentity",
+    "name": "aiiSubnet",
+    "oid": "1.3.6.1.4.1.539.16.3"
+  },
+  "imports": {
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Bits",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Gauge32",
+      "IpAddress",
+      "enterprises",
+      "iso",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/AIMIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 13:45:35 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "AIMIB"
+  },
+  "streams": {
+    "class": "objectidentity",
+    "name": "streams",
+    "oid": "1.3.6.1.4.1.539.16.4"
+  }
+}

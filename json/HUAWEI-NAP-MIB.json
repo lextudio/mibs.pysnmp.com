@@ -1,0 +1,233 @@
+{
+  "DateAndTime": {
+    "class": "textualconvention",
+    "description": "A date-time specification. field octets contents range ----- ------ -------- ----- 1 1-2 year* 0..65536 2 3 month 1..12 3 4 day 1..31 4 5 hour 0..23 5 6 minutes 0..59 6 7 seconds 0..60 (use 60 for leap-second) 7 8 deci-seconds 0..9 8 9 direction from UTC \u0027+\u0027 / \u0027-\u0027 9 10 hours from UTC* 0..13 10 11 minutes from UTC 0..59 * Notes: - the value of year is in network-byte order - daylight saving time in New Zealand is +13 For example, Tuesday May 26, 1992 at 1:30:15 PM EDT would be displayed as: 1992-5-26,13:30:15.0,-4:0 Note that if only local time is known, then timezone information (fields 8-10) is not present.",
+    "displayhint": "2d-1d-1d,1d:1d:1d.1d,1a1d:1d",
+    "name": "DateAndTime",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 8,
+            "min": 8
+          },
+          {
+            "max": 11,
+            "min": 11
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwNap": {
+    "class": "moduleidentity",
+    "contactinfo": "VRP Team Huawei Technologies Co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China http://www.huawei.com Zip:100085 ",
+    "description": "The MIB module for nap between host and netmanager.",
+    "lastupdated": "200903171027Z",
+    "name": "hwNap",
+    "oid": "1.3.6.1.4.1.2011.5.25.206",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "The initial revision of this MIB module .",
+        "revision": "2009-03-17 10:27"
+      }
+    ]
+  },
+  "hwNapLocalPortName": {
+    "class": "objecttype",
+    "description": "The local port name of nap neighbor.",
+    "maxaccess": "read-only",
+    "name": "hwNapLocalPortName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.206.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwNapNeighborAbnormalReason": {
+    "class": "objecttype",
+    "description": "The abnormal reason for nap neighbor.",
+    "maxaccess": "read-only",
+    "name": "hwNapNeighborAbnormalReason",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.206.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "masterIpAssignError": 3,
+          "normal": 0,
+          "portNotSupport": 1,
+          "slaveDisable": 2,
+          "slaveIpAssignError": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwNapNeighborEntry": {
+    "class": "objecttype",
+    "description": "Entry of hwNapNeighborTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-NAP-MIB",
+        "object": "hwNapNeighborIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwNapNeighborEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.206.2.1.1",
+    "status": "current"
+  },
+  "hwNapNeighborIndex": {
+    "class": "objecttype",
+    "description": "Index of nap neighbor table.",
+    "maxaccess": "read-only",
+    "name": "hwNapNeighborIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.206.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwNapNeighborNum": {
+    "class": "objecttype",
+    "description": "current configed nap neighbor num.",
+    "maxaccess": "read-only",
+    "name": "hwNapNeighborNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.206.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwNapNeighborStatus": {
+    "class": "objecttype",
+    "description": "The status of nap neighbor.",
+    "maxaccess": "read-only",
+    "name": "hwNapNeighborStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.206.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "abnormal": 4,
+          "detecting": 1,
+          "established": 2,
+          "ipAssigned": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwNapNeighborTable": {
+    "class": "objecttype",
+    "description": "This table contains the records of configed nap neighbor.",
+    "maxaccess": "not-accessible",
+    "name": "hwNapNeighborTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.206.2.1",
+    "status": "current"
+  },
+  "hwNapNotifications": {
+    "class": "objectidentity",
+    "name": "hwNapNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.206.3"
+  },
+  "hwNapScalarObjects": {
+    "class": "objectidentity",
+    "name": "hwNapScalarObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.206.1"
+  },
+  "hwNapStatusNotify": {
+    "class": "notificationtype",
+    "description": "If the system configuration is changed in given time, a notification will be generated.",
+    "name": "hwNapStatusNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-NAP-MIB",
+        "object": "hwNapLocalPortName"
+      },
+      {
+        "module": "HUAWEI-NAP-MIB",
+        "object": "hwNapNeighborStatus"
+      },
+      {
+        "module": "HUAWEI-NAP-MIB",
+        "object": "hwNapNeighborAbnormalReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.206.3.1",
+    "status": "current"
+  },
+  "hwNapTableObjects": {
+    "class": "objectidentity",
+    "name": "hwNapTableObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.206.2"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "IpAddress",
+      "Gauge32",
+      "TEXTUAL-CONVENTION",
+      "TimeTicks",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-NAP-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:31 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-NAP-MIB"
+  }
+}

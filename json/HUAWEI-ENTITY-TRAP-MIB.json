@@ -1,0 +1,3176 @@
+{
+  "hwBoardBecomeMaster": {
+    "class": "notificationtype",
+    "description": "MPU become master role.",
+    "name": "hwBoardBecomeMaster",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.2.8",
+    "status": "current"
+  },
+  "hwBoardFail": {
+    "class": "notificationtype",
+    "description": "Board become failure for some reason.",
+    "name": "hwBoardFail",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.2.3",
+    "status": "current"
+  },
+  "hwBoardFailResume": {
+    "class": "notificationtype",
+    "description": "Board resume from failure.",
+    "name": "hwBoardFailResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.2.4",
+    "status": "current"
+  },
+  "hwBoardInsert": {
+    "class": "notificationtype",
+    "description": "Board has been inserted.",
+    "name": "hwBoardInsert",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.2.2",
+    "status": "current"
+  },
+  "hwBoardInvalid": {
+    "class": "notificationtype",
+    "description": "Board is invalid for some reason.",
+    "name": "hwBoardInvalid",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.2.5",
+    "status": "current"
+  },
+  "hwBoardInvalidResume": {
+    "class": "notificationtype",
+    "description": "Board resume from invalid situation.",
+    "name": "hwBoardInvalidResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.2.6",
+    "status": "current"
+  },
+  "hwBoardLeaveMaster": {
+    "class": "notificationtype",
+    "description": "MPU leave master role.",
+    "name": "hwBoardLeaveMaster",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.2.7",
+    "status": "current"
+  },
+  "hwBoardRemove": {
+    "class": "notificationtype",
+    "description": "Board has been removed.",
+    "name": "hwBoardRemove",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.2.1",
+    "status": "current"
+  },
+  "hwBoardTrap": {
+    "class": "objectidentity",
+    "name": "hwBoardTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.2"
+  },
+  "hwBrdTempAlarm": {
+    "class": "notificationtype",
+    "description": "Temperature rise over or fall below the warning alarm threshold. Only indicate the temperature of board,card or optical module.",
+    "name": "hwBrdTempAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdWarning"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdCurrent"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.10.13",
+    "status": "current"
+  },
+  "hwBrdTempFatalAlarm": {
+    "class": "notificationtype",
+    "description": "Temperature rise over or fall below the critical alarm threshold. Only indicate the temperature of board,card or optical module.",
+    "name": "hwBrdTempFatalAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdCritical"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdCurrent"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.10.15",
+    "status": "current"
+  },
+  "hwBrdTempFatalResume": {
+    "class": "notificationtype",
+    "description": "Temperature back to normal level. Only indicate the temperature of board,card or optical module.",
+    "name": "hwBrdTempFatalResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdCritical"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdCurrent"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.10.16",
+    "status": "current"
+  },
+  "hwBrdTempResume": {
+    "class": "notificationtype",
+    "description": "Temperature back to normal level. Only indicate the temperature of board,card or optical module.",
+    "name": "hwBrdTempResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdWarning"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdCurrent"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.10.14",
+    "status": "current"
+  },
+  "hwCPUTrap": {
+    "class": "objectidentity",
+    "name": "hwCPUTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.14"
+  },
+  "hwCPUUtilizationResume": {
+    "class": "notificationtype",
+    "description": "CPU utilization back to normal level",
+    "name": "hwCPUUtilizationResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdWarning"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdCurrent"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.14.2",
+    "status": "current"
+  },
+  "hwCPUUtilizationRising": {
+    "class": "notificationtype",
+    "description": "CPU utilization overrun.",
+    "name": "hwCPUUtilizationRising",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdWarning"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdCurrent"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.14.1",
+    "status": "current"
+  },
+  "hwCardFail": {
+    "class": "notificationtype",
+    "description": "Card become failure for some reason.",
+    "name": "hwCardFail",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.3.3",
+    "status": "current"
+  },
+  "hwCardFailResume": {
+    "class": "notificationtype",
+    "description": "Card resume from failure.",
+    "name": "hwCardFailResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.3.4",
+    "status": "current"
+  },
+  "hwCardInsert": {
+    "class": "notificationtype",
+    "description": "Card has been inserted.",
+    "name": "hwCardInsert",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.3.2",
+    "status": "current"
+  },
+  "hwCardInvalid": {
+    "class": "notificationtype",
+    "description": "Card is invalid for some reason.",
+    "name": "hwCardInvalid",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.3.5",
+    "status": "current"
+  },
+  "hwCardInvalidResume": {
+    "class": "notificationtype",
+    "description": "Card resume from invalid situation.",
+    "name": "hwCardInvalidResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.3.6",
+    "status": "current"
+  },
+  "hwCardRemove": {
+    "class": "notificationtype",
+    "description": "Card has been removed.",
+    "name": "hwCardRemove",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.3.1",
+    "status": "current"
+  },
+  "hwCardTrap": {
+    "class": "objectidentity",
+    "name": "hwCardTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.3"
+  },
+  "hwChassisFail": {
+    "class": "notificationtype",
+    "description": "Chassis become failure for some reason.",
+    "name": "hwChassisFail",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.1.3",
+    "status": "current"
+  },
+  "hwChassisFailResume": {
+    "class": "notificationtype",
+    "description": "Board resume from failure.",
+    "name": "hwChassisFailResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.1.4",
+    "status": "current"
+  },
+  "hwChassisInsert": {
+    "class": "notificationtype",
+    "description": "Chassis has been inserted.",
+    "name": "hwChassisInsert",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.1.2",
+    "status": "current"
+  },
+  "hwChassisInvalid": {
+    "class": "notificationtype",
+    "description": "Chassis is invalid for some reason.",
+    "name": "hwChassisInvalid",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.1.5",
+    "status": "current"
+  },
+  "hwChassisInvalidResume": {
+    "class": "notificationtype",
+    "description": "Chassis resume from invalid situation.",
+    "name": "hwChassisInvalidResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.1.6",
+    "status": "current"
+  },
+  "hwChassisRemove": {
+    "class": "notificationtype",
+    "description": "Chassis has been removed.",
+    "name": "hwChassisRemove",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.1.1",
+    "status": "current"
+  },
+  "hwChassisTrap": {
+    "class": "objectidentity",
+    "name": "hwChassisTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.1"
+  },
+  "hwCmuInsert": {
+    "class": "notificationtype",
+    "description": "Cmu has been inserted.",
+    "name": "hwCmuInsert",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.8.2",
+    "status": "current"
+  },
+  "hwCmuInvalid": {
+    "class": "notificationtype",
+    "description": "Cmu is invalid for some reason.",
+    "name": "hwCmuInvalid",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.8.3",
+    "status": "current"
+  },
+  "hwCmuInvalidResume": {
+    "class": "notificationtype",
+    "description": "Cmu reusme from invalid situation.",
+    "name": "hwCmuInvalidResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.8.4",
+    "status": "current"
+  },
+  "hwCmuRemove": {
+    "class": "notificationtype",
+    "description": "Cmu has been removed.",
+    "name": "hwCmuRemove",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.8.1",
+    "status": "current"
+  },
+  "hwCmuTrap": {
+    "class": "objectidentity",
+    "name": "hwCmuTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.8"
+  },
+  "hwCmuUnusable": {
+    "class": "notificationtype",
+    "description": "Cmu change to unusable status.",
+    "name": "hwCmuUnusable",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.8.5",
+    "status": "current"
+  },
+  "hwCmuUnusableResume": {
+    "class": "notificationtype",
+    "description": "Cmu change to usable status.",
+    "name": "hwCmuUnusableResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.8.6",
+    "status": "current"
+  },
+  "hwCommunicateError": {
+    "class": "notificationtype",
+    "description": "Communication error has been detected.",
+    "name": "hwCommunicateError",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityCommunicateType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.9.1",
+    "status": "current"
+  },
+  "hwCommunicateResume": {
+    "class": "notificationtype",
+    "description": "Resume from communication error situation.",
+    "name": "hwCommunicateResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityCommunicateType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.9.2",
+    "status": "current"
+  },
+  "hwCommunicateTrap": {
+    "class": "objectidentity",
+    "name": "hwCommunicateTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.9"
+  },
+  "hwDownMicroSwitchClose": {
+    "class": "notificationtype",
+    "description": "Down micro switch close.",
+    "name": "hwDownMicroSwitchClose",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.2.12",
+    "status": "current"
+  },
+  "hwDownMicroSwitchOpen": {
+    "class": "notificationtype",
+    "description": "Down micro switch open.",
+    "name": "hwDownMicroSwitchOpen",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.2.11",
+    "status": "current"
+  },
+  "hwEntityCommunicateType": {
+    "class": "objecttype",
+    "description": "The communicate type.",
+    "maxaccess": "read-write",
+    "name": "hwEntityCommunicateType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clockChannel": 3,
+          "controlChannel": 1,
+          "dataChannel": 4,
+          "monitorChannel": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEntityObjectGroup": {
+    "class": "objectgroup",
+    "description": "Group for base trap objects.",
+    "name": "hwEntityObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityCommunicateType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdValue"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdCurrent"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdCritical"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdWarning"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwUserDefAlarmName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwUserDefChannel"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwSoftwareVersion"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwStartupSoftwareFileName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwStorageDevName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.3.2.1",
+    "status": "current"
+  },
+  "hwEntityPhysicalIndex": {
+    "class": "objecttype",
+    "description": "The index of physical.",
+    "maxaccess": "read-write",
+    "name": "hwEntityPhysicalIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityThresholdCritical": {
+    "class": "objecttype",
+    "description": "The critical alarm threshold for critical alarm. It could be used for a more dangerous instance than hwEntityThresholdCritical.",
+    "maxaccess": "read-write",
+    "name": "hwEntityThresholdCritical",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.1.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityThresholdCurrent": {
+    "class": "objecttype",
+    "description": "The current value that been measured.",
+    "maxaccess": "read-only",
+    "name": "hwEntityThresholdCurrent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.1.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityThresholdEntry": {
+    "class": "objecttype",
+    "description": "The entry of threshold table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEntityThresholdEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.1.5.1",
+    "status": "current"
+  },
+  "hwEntityThresholdTable": {
+    "class": "objecttype",
+    "description": "A table to config the threshold of each sensor.",
+    "maxaccess": "not-accessible",
+    "name": "hwEntityThresholdTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.1.5",
+    "status": "current"
+  },
+  "hwEntityThresholdType": {
+    "class": "objecttype",
+    "description": "The abnormal type for temperature, voltage, humidity......",
+    "maxaccess": "read-only",
+    "name": "hwEntityThresholdType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fallBelow": 2,
+          "riseOver": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEntityThresholdValue": {
+    "class": "objecttype",
+    "description": "The threshold value of temperature, humidity ,fog ......",
+    "maxaccess": "read-write",
+    "name": "hwEntityThresholdValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.1.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityThresholdWarning": {
+    "class": "objecttype",
+    "description": "The warning alarm threshold for warning alarm. It could be used for a more dangerous instance than hwEntityThresholdWarning.",
+    "maxaccess": "read-write",
+    "name": "hwEntityThresholdWarning",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.1.5.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityTrapCompliance": {
+    "class": "modulecompliance",
+    "description": "Compliance statement for agents that provide full support for hwBaseTrapMIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityObjectGroup"
+      }
+    ],
+    "name": "hwEntityTrapCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.3.1.1",
+    "status": "current"
+  },
+  "hwEntityTrapCompliances": {
+    "class": "objectidentity",
+    "name": "hwEntityTrapCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.3.1"
+  },
+  "hwEntityTrapConformance": {
+    "class": "objectidentity",
+    "name": "hwEntityTrapConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.3"
+  },
+  "hwEntityTrapEntType": {
+    "class": "objecttype",
+    "description": "The entity type.",
+    "maxaccess": "read-write",
+    "name": "hwEntityTrapEntType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cfcard": 5,
+          "lpu": 2,
+          "mpu": 1,
+          "ofc": 6,
+          "pic": 4,
+          "sfu": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEntityTrapFaultID": {
+    "class": "objecttype",
+    "description": "To describe the fault id of trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEntityTrapFaultID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IANAItuProbableCause"
+    }
+  },
+  "hwEntityTrapGroup": {
+    "class": "notificationgroup",
+    "description": "Group for all base traps.",
+    "name": "hwEntityTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwChassisRemove"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwChassisInsert"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwChassisFail"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwChassisFailResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwChassisInvalid"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwChassisInvalidResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwBoardRemove"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwBoardInsert"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwBoardFail"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwBoardFailResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwBoardInvalid"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwBoardInvalidResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwBoardLeaveMaster"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwBoardBecomeMaster"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwCardRemove"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwCardInsert"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwCardFail"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwCardFailResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwCardInvalid"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwCardInvalidResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwOpticalRemove"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwOpticalInsert"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwOpticalFail"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwOpticalFailResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwOpticalInvalid"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwOpticalInvalidResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwPowerRemove"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwPowerInsert"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwPowerFail"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwPowerFailResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwPowerInvalid"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwPowerInvalidResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwPowerUnusable"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwPowerUnusableResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwFanRemove"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwFanInsert"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwFanFail"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwFanFailResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwFanInvalid"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwFanInvalidResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwFanUnusable"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwFanUnusableResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwLcdRemove"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwLcdInsert"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwLcdInvalid"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwLcdInvalidResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwLcdUnusable"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwLcdUnusableResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwCmuRemove"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwCmuInsert"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwCmuInvalid"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwCmuInvalidResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwCmuUnusable"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwCmuUnusableResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwCommunicateError"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwCommunicateResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwTempAlarm"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwTempResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwHumidityAlarm"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwHumidityResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwVoltAlarm"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwVoltResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwGateAlarm"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwGateResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwFogAlarm"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwFogResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwUnstableAlarm"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwUnstableResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwBrdTempAlarm"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwBrdTempResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwBrdTempFatalAlarm"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwBrdTempFatalResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwPowerFailureAlarm"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwPowerFailureResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwSystemConfigError"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwSystemConfigResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwPortDown"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwPortUp"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwUserDefAlarm"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwUserDefResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwCPUUtilizationRising"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwCPUUtilizationResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwMemUtilizationRising"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwMemUtilizationResume"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwStorageDevRemove"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwStorageDevInsert"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwSystemRollback"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwUpMicroSwitchOpen"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwUpMicroSwitchClose"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwDownMicroSwitchOpen"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwDownMicroSwitchClose"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwOpticalPowerAlarm"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwOpticalPowerAlarmResume"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.3.2.2",
+    "status": "current"
+  },
+  "hwEntityTrapGroups": {
+    "class": "objectidentity",
+    "name": "hwEntityTrapGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.3.2"
+  },
+  "hwEntityTrapMIB": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": "This is the base trap definition for DataCom.",
+    "lastupdated": "200701170000Z",
+    "name": "hwEntityTrapMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.219",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwEntityTrapObject": {
+    "class": "objectidentity",
+    "name": "hwEntityTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.1"
+  },
+  "hwEntityTraps": {
+    "class": "objectidentity",
+    "name": "hwEntityTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2"
+  },
+  "hwEnvironmentTrap": {
+    "class": "objectidentity",
+    "name": "hwEnvironmentTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.10"
+  },
+  "hwFanFail": {
+    "class": "notificationtype",
+    "description": "Fan become failure for some reason.",
+    "name": "hwFanFail",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.6.3",
+    "status": "current"
+  },
+  "hwFanFailResume": {
+    "class": "notificationtype",
+    "description": "Fan resume from failure.",
+    "name": "hwFanFailResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.6.4",
+    "status": "current"
+  },
+  "hwFanInsert": {
+    "class": "notificationtype",
+    "description": "Fan has been inserted.",
+    "name": "hwFanInsert",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.6.2",
+    "status": "current"
+  },
+  "hwFanInvalid": {
+    "class": "notificationtype",
+    "description": "Fan is invalid for some reason.",
+    "name": "hwFanInvalid",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.6.5",
+    "status": "current"
+  },
+  "hwFanInvalidResume": {
+    "class": "notificationtype",
+    "description": "Fan resume from invalid situation.",
+    "name": "hwFanInvalidResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.6.6",
+    "status": "current"
+  },
+  "hwFanRemove": {
+    "class": "notificationtype",
+    "description": "Fan has been removed.",
+    "name": "hwFanRemove",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.6.1",
+    "status": "current"
+  },
+  "hwFanTrap": {
+    "class": "objectidentity",
+    "name": "hwFanTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.6"
+  },
+  "hwFanUnusable": {
+    "class": "notificationtype",
+    "description": "Fan change to unusable status.",
+    "name": "hwFanUnusable",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.6.7",
+    "status": "current"
+  },
+  "hwFanUnusableResume": {
+    "class": "notificationtype",
+    "description": "Fan change to usable status.",
+    "name": "hwFanUnusableResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.6.8",
+    "status": "current"
+  },
+  "hwFileError": {
+    "class": "notificationtype",
+    "description": "Memory utilization overrun.",
+    "name": "hwFileError",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwStorageDevName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.18.1",
+    "status": "current"
+  },
+  "hwFileErrorResume": {
+    "class": "notificationtype",
+    "description": "Memory utilization back to normal level",
+    "name": "hwFileErrorResume",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwStorageDevName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.18.2",
+    "status": "current"
+  },
+  "hwFileStatusTrap": {
+    "class": "objectidentity",
+    "name": "hwFileStatusTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.18"
+  },
+  "hwFogAlarm": {
+    "class": "notificationtype",
+    "description": "Fog rise over alarm threshold.",
+    "name": "hwFogAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdValue"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdCurrent"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.10.9",
+    "status": "current"
+  },
+  "hwFogResume": {
+    "class": "notificationtype",
+    "description": "Fog back to normal level.",
+    "name": "hwFogResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdValue"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdCurrent"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.10.10",
+    "status": "current"
+  },
+  "hwGateAlarm": {
+    "class": "notificationtype",
+    "description": "Gate switch to the alarm status.",
+    "name": "hwGateAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdValue"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdCurrent"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.10.7",
+    "status": "current"
+  },
+  "hwGateResume": {
+    "class": "notificationtype",
+    "description": "Gate switch to normal status.",
+    "name": "hwGateResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdValue"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdCurrent"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.10.8",
+    "status": "current"
+  },
+  "hwHumidityAlarm": {
+    "class": "notificationtype",
+    "description": "Humidity rise over or fall below the alarm threshold.",
+    "name": "hwHumidityAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdValue"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdCurrent"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.10.3",
+    "status": "current"
+  },
+  "hwHumidityResume": {
+    "class": "notificationtype",
+    "description": "Humidity back to normal level.",
+    "name": "hwHumidityResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdValue"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdCurrent"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.10.4",
+    "status": "current"
+  },
+  "hwLcdInsert": {
+    "class": "notificationtype",
+    "description": "Lcd has been inserted.",
+    "name": "hwLcdInsert",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.7.2",
+    "status": "current"
+  },
+  "hwLcdInvalid": {
+    "class": "notificationtype",
+    "description": "Lcd is invalid for some reason.",
+    "name": "hwLcdInvalid",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.7.3",
+    "status": "current"
+  },
+  "hwLcdInvalidResume": {
+    "class": "notificationtype",
+    "description": "Lcd resume from invalid situation.",
+    "name": "hwLcdInvalidResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.7.4",
+    "status": "current"
+  },
+  "hwLcdRemove": {
+    "class": "notificationtype",
+    "description": "Lcd has been removed.",
+    "name": "hwLcdRemove",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.7.1",
+    "status": "current"
+  },
+  "hwLcdTrap": {
+    "class": "objectidentity",
+    "name": "hwLcdTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.7"
+  },
+  "hwLcdUnusable": {
+    "class": "notificationtype",
+    "description": "Lcd change to unusable status.",
+    "name": "hwLcdUnusable",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.7.5",
+    "status": "current"
+  },
+  "hwLcdUnusableResume": {
+    "class": "notificationtype",
+    "description": "Lcd change to usable status.",
+    "name": "hwLcdUnusableResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.7.6",
+    "status": "current"
+  },
+  "hwMemUtilizationResume": {
+    "class": "notificationtype",
+    "description": "Memory utilization back to normal level",
+    "name": "hwMemUtilizationResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdWarning"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdCurrent"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.15.2",
+    "status": "current"
+  },
+  "hwMemUtilizationRising": {
+    "class": "notificationtype",
+    "description": "Memory utilization overrun.",
+    "name": "hwMemUtilizationRising",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdWarning"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdCurrent"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.15.1",
+    "status": "current"
+  },
+  "hwMemoryTrap": {
+    "class": "objectidentity",
+    "name": "hwMemoryTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.15"
+  },
+  "hwOpticalFail": {
+    "class": "notificationtype",
+    "description": "Optical Module become failure for some reason.",
+    "name": "hwOpticalFail",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.4.3",
+    "status": "current"
+  },
+  "hwOpticalFailResume": {
+    "class": "notificationtype",
+    "description": "Optical Module resume from failure.",
+    "name": "hwOpticalFailResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.4.4",
+    "status": "current"
+  },
+  "hwOpticalInsert": {
+    "class": "notificationtype",
+    "description": "Optical Module has been inserted.",
+    "name": "hwOpticalInsert",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.4.2",
+    "status": "current"
+  },
+  "hwOpticalInvalid": {
+    "class": "notificationtype",
+    "description": "Optical Module is invalid for some reason.",
+    "name": "hwOpticalInvalid",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.4.5",
+    "status": "current"
+  },
+  "hwOpticalInvalidResume": {
+    "class": "notificationtype",
+    "description": "Optical Module resume from invalid situation.",
+    "name": "hwOpticalInvalidResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.4.6",
+    "status": "current"
+  },
+  "hwOpticalPowerAlarm": {
+    "class": "notificationtype",
+    "description": "Temperature rise over or fall below the warning alarm threshold. Only indicate the temperature of board,card or optical module.",
+    "name": "hwOpticalPowerAlarm",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwUserDefAlarmName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.4.7",
+    "status": "current"
+  },
+  "hwOpticalPowerAlarmResume": {
+    "class": "notificationtype",
+    "description": "Temperature rise over or fall below the warning alarm threshold. Only indicate the temperature of board,card or optical module.",
+    "name": "hwOpticalPowerAlarmResume",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwUserDefAlarmName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.4.8",
+    "status": "current"
+  },
+  "hwOpticalRemove": {
+    "class": "notificationtype",
+    "description": "Optical Module has been removed.",
+    "name": "hwOpticalRemove",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.4.1",
+    "status": "current"
+  },
+  "hwOpticalTrap": {
+    "class": "objectidentity",
+    "name": "hwOpticalTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.4"
+  },
+  "hwPortDown": {
+    "class": "notificationtype",
+    "description": "One of the port physical connect down.",
+    "name": "hwPortDown",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.12.1",
+    "status": "current"
+  },
+  "hwPortTrap": {
+    "class": "objectidentity",
+    "name": "hwPortTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.12"
+  },
+  "hwPortUp": {
+    "class": "notificationtype",
+    "description": "One of the port physical connect up.",
+    "name": "hwPortUp",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.12.2",
+    "status": "current"
+  },
+  "hwPowerFail": {
+    "class": "notificationtype",
+    "description": "Power become failure for some reason.",
+    "name": "hwPowerFail",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.5.3",
+    "status": "current"
+  },
+  "hwPowerFailResume": {
+    "class": "notificationtype",
+    "description": "Power resume from failure.",
+    "name": "hwPowerFailResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.5.4",
+    "status": "current"
+  },
+  "hwPowerFailureAlarm": {
+    "class": "notificationtype",
+    "description": "Power supply failed.",
+    "name": "hwPowerFailureAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.10.17",
+    "status": "current"
+  },
+  "hwPowerFailureResume": {
+    "class": "notificationtype",
+    "description": "Power supply resumed.",
+    "name": "hwPowerFailureResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.10.18",
+    "status": "current"
+  },
+  "hwPowerInsert": {
+    "class": "notificationtype",
+    "description": "Power has been inserted.",
+    "name": "hwPowerInsert",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.5.2",
+    "status": "current"
+  },
+  "hwPowerInvalid": {
+    "class": "notificationtype",
+    "description": "Power is invalid for some reason.",
+    "name": "hwPowerInvalid",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.5.5",
+    "status": "current"
+  },
+  "hwPowerInvalidResume": {
+    "class": "notificationtype",
+    "description": "Power resume from invalid situation.",
+    "name": "hwPowerInvalidResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.5.6",
+    "status": "current"
+  },
+  "hwPowerRemove": {
+    "class": "notificationtype",
+    "description": "Power has been removed.",
+    "name": "hwPowerRemove",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.5.1",
+    "status": "current"
+  },
+  "hwPowerTrap": {
+    "class": "objectidentity",
+    "name": "hwPowerTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.5"
+  },
+  "hwPowerUnusable": {
+    "class": "notificationtype",
+    "description": "Power change to unusable status.",
+    "name": "hwPowerUnusable",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.5.7",
+    "status": "current"
+  },
+  "hwPowerUnusableResume": {
+    "class": "notificationtype",
+    "description": "Power change to usable status.",
+    "name": "hwPowerUnusableResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.5.8",
+    "status": "current"
+  },
+  "hwPppLoopbackDetResume": {
+    "class": "notificationtype",
+    "description": "The interface is recovered from Loopback.",
+    "name": "hwPppLoopbackDetResume",
+    "objects": [
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapSeverity"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapProbableCause"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapEventType"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.17.2",
+    "status": "current"
+  },
+  "hwPppLoopbackDetect": {
+    "class": "notificationtype",
+    "description": "The interface Loopback is detected.",
+    "name": "hwPppLoopbackDetect",
+    "objects": [
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapSeverity"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapProbableCause"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapEventType"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.17.1",
+    "status": "current"
+  },
+  "hwPppTrap": {
+    "class": "objectidentity",
+    "name": "hwPppTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.17"
+  },
+  "hwSoftwareVersion": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwSoftwareVersion",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStartupSoftwareFileName": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStartupSoftwareFileName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStorageDevInsert": {
+    "class": "notificationtype",
+    "description": "Memory utilization back to normal level",
+    "name": "hwStorageDevInsert",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwStorageDevName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.16.2",
+    "status": "current"
+  },
+  "hwStorageDevName": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStorageDevName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStorageDevRemove": {
+    "class": "notificationtype",
+    "description": "Memory utilization overrun.",
+    "name": "hwStorageDevRemove",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwStorageDevName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.16.1",
+    "status": "current"
+  },
+  "hwStorageDevTrap": {
+    "class": "objectidentity",
+    "name": "hwStorageDevTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.16"
+  },
+  "hwSystemConfigError": {
+    "class": "notificationtype",
+    "description": "System configuration error has been detected.",
+    "name": "hwSystemConfigError",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.11.1",
+    "status": "current"
+  },
+  "hwSystemConfigResume": {
+    "class": "notificationtype",
+    "description": "Resume from system configuration error situation.",
+    "name": "hwSystemConfigResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.11.2",
+    "status": "current"
+  },
+  "hwSystemConfigTrap": {
+    "class": "objectidentity",
+    "name": "hwSystemConfigTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.11"
+  },
+  "hwSystemRollback": {
+    "class": "notificationtype",
+    "description": "System configuration error has been detected.",
+    "name": "hwSystemRollback",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwSoftwareVersion"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwStartupSoftwareFileName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.11.3",
+    "status": "current"
+  },
+  "hwTempAlarm": {
+    "class": "notificationtype",
+    "description": "Temperature rise over or fall below the alarm threshold.",
+    "name": "hwTempAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdValue"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdCurrent"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.10.1",
+    "status": "current"
+  },
+  "hwTempResume": {
+    "class": "notificationtype",
+    "description": "Temperature back to normal level.",
+    "name": "hwTempResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdValue"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdCurrent"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.10.2",
+    "status": "current"
+  },
+  "hwUSBInsert": {
+    "class": "notificationtype",
+    "description": "The USB device has been inserted.",
+    "name": "hwUSBInsert",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.19.1",
+    "status": "current"
+  },
+  "hwUSBRemove": {
+    "class": "notificationtype",
+    "description": "The USB device has been removed.",
+    "name": "hwUSBRemove",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.19.2",
+    "status": "current"
+  },
+  "hwUSBTrap": {
+    "class": "objectidentity",
+    "name": "hwUSBTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.19"
+  },
+  "hwUnstableAlarm": {
+    "class": "notificationtype",
+    "description": "Entity has been inserted but position unstable.",
+    "name": "hwUnstableAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.10.11",
+    "status": "current"
+  },
+  "hwUnstableResume": {
+    "class": "notificationtype",
+    "description": "Resume from entity position unstable situation.",
+    "name": "hwUnstableResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.10.12",
+    "status": "current"
+  },
+  "hwUpMicroSwitchClose": {
+    "class": "notificationtype",
+    "description": "Up micro switch close.",
+    "name": "hwUpMicroSwitchClose",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.2.10",
+    "status": "current"
+  },
+  "hwUpMicroSwitchOpen": {
+    "class": "notificationtype",
+    "description": "Up micro switch open.",
+    "name": "hwUpMicroSwitchOpen",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.2.9",
+    "status": "current"
+  },
+  "hwUserDefAlarm": {
+    "class": "notificationtype",
+    "description": "User defined alarm has been detected.",
+    "name": "hwUserDefAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwUserDefAlarmName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwUserDefChannel"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.13.1",
+    "status": "current"
+  },
+  "hwUserDefAlarmName": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwUserDefAlarmName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwUserDefChannel": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwUserDefChannel",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUserDefResume": {
+    "class": "notificationtype",
+    "description": "Resume from User defined alarm.",
+    "name": "hwUserDefResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwUserDefAlarmName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwUserDefChannel"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.13.2",
+    "status": "current"
+  },
+  "hwUserDefTrap": {
+    "class": "objectidentity",
+    "name": "hwUserDefTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.13"
+  },
+  "hwVoltAlarm": {
+    "class": "notificationtype",
+    "description": "Voltage of power rise over or fall below the alarm threshold.",
+    "name": "hwVoltAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdValue"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdCurrent"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.10.5",
+    "status": "current"
+  },
+  "hwVoltResume": {
+    "class": "notificationtype",
+    "description": "Voltage back to normal level.",
+    "name": "hwVoltResume",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdValue"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityThresholdCurrent"
+      },
+      {
+        "module": "HUAWEI-ENTITY-TRAP-MIB",
+        "object": "hwEntityTrapFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.219.2.10.6",
+    "status": "current"
+  },
+  "imports": {
+    "ENTITY-MIB": [
+      "entPhysicalIndex",
+      "entPhysicalName"
+    ],
+    "HUAWEI-BASE-TRAP-MIB": [
+      "hwBaseTrapProbableCause",
+      "hwBaseTrapEventType",
+      "hwBaseTrapSeverity"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IANA-ITU-ALARM-TC-MIB": [
+      "IANAItuProbableCause"
+    ],
+    "IF-MIB": [
+      "ifName",
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Gauge32",
+      "iso",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "IpAddress",
+      "Bits",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-ENTITY-TRAP-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:18 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-ENTITY-TRAP-MIB"
+  }
+}

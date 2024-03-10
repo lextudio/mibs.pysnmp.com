@@ -1,0 +1,197 @@
+{
+  "hwMVLAN": {
+    "class": "moduleidentity",
+    "contactinfo": "R\u0026D NanJing, Huawei Technologies co.,Ltd. Huihong Bld.,NO.91 Baixia Rd., Bai-Xia District Nanjing P.R. China Zip:210001 Http://www.huawei.com E-mail:support@huawei.com.",
+    "description": "The HUAWEI-BRAS-MVLAN-MIB contains objects to manage BRAS.",
+    "lastupdated": "200708271200Z",
+    "name": "hwMVLAN",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.14",
+    "organization": "Huawei Technologies Co., Ltd."
+  },
+  "hwMVlanGroup": {
+    "class": "objectgroup",
+    "description": "The hwMVLAN group.",
+    "name": "hwMVlanGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-MVLAN-MIB",
+        "object": "hwMulticastVlanIfIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-MVLAN-MIB",
+        "object": "hwMulticastInnerVlan"
+      },
+      {
+        "module": "HUAWEI-BRAS-MVLAN-MIB",
+        "object": "hwMulticastOuterVlan"
+      },
+      {
+        "module": "HUAWEI-BRAS-MVLAN-MIB",
+        "object": "hwMulticastOpType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.14.2.2.1",
+    "status": "current"
+  },
+  "hwMVlanMIBCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-DATACOMM-OID-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-BRAS-MVLAN-MIB",
+        "object": "hwMVlanGroup"
+      }
+    ],
+    "name": "hwMVlanMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.14.2.1.1",
+    "status": "current"
+  },
+  "hwMVlanMIBCompliances": {
+    "class": "objectidentity",
+    "name": "hwMVlanMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.14.2.1"
+  },
+  "hwMVlanMIBConformance": {
+    "class": "objectidentity",
+    "name": "hwMVlanMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.14.2"
+  },
+  "hwMVlanMIBGroups": {
+    "class": "objectidentity",
+    "name": "hwMVlanMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.14.2.2"
+  },
+  "hwMulticastInnerVlan": {
+    "class": "objecttype",
+    "description": "The hwMulticastInnerVlan that uniquely identifies a VLAN. This is the 12-bit VLAN-ID used in the VLAN Tag header. The range is defined by the REFERENCEd specification.",
+    "maxaccess": "read-write",
+    "name": "hwMulticastInnerVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.14.1.1.1.2",
+    "reference": "IEEE Std 802.1Q 2003 Edition, Virtual Bridged Local Area Networks.",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwMulticastOpType": {
+    "class": "objecttype",
+    "description": "0 : set multicast-vlan. 1 : undo multicast-vlan.",
+    "maxaccess": "read-write",
+    "name": "hwMulticastOpType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.14.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "set": 0,
+          "undo": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMulticastOuterVlan": {
+    "class": "objecttype",
+    "description": "The hwMulticastOuterVlan that uniquely identifies a VLAN. This is the 12-bit VLAN-ID used in the VLAN Tag header. The range is defined by the REFERENCEd specification.",
+    "maxaccess": "read-write",
+    "name": "hwMulticastOuterVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.14.1.1.1.3",
+    "reference": "IEEE Std 802.1Q 2003 Edition, Virtual Bridged Local Area Networks.",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwMulticastVlanEntry": {
+    "class": "objecttype",
+    "description": "An entry of hwMulticastVlanEntry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-MVLAN-MIB",
+        "object": "hwMulticastVlanIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMulticastVlanEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.14.1.1.1",
+    "status": "current"
+  },
+  "hwMulticastVlanIfIndex": {
+    "class": "objecttype",
+    "description": "A value used to index per-VLAN tables: values of 0 and 4095 are not permitted. If the value is between 1 and 4094 inclusive, it represents an IEEE 802.1Q VLAN-ID with global scope within a given bridged domain (see VlanId textual convention). If the value is greater than 4095, then it represents a VLAN with scope local to the particular agent, i.e., one without a global VLAN-ID assigned to it. Such VLANs are outside the scope of IEEE 802.1Q, but it is convenient to be able to manage them in the same way using this MIB.",
+    "maxaccess": "read-only",
+    "name": "hwMulticastVlanIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.14.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIndex"
+    }
+  },
+  "hwMulticastVlanTable": {
+    "class": "objecttype",
+    "description": "A table of setting multicast program VlanTable.",
+    "maxaccess": "not-accessible",
+    "name": "hwMulticastVlanTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.14.1.1",
+    "status": "current"
+  },
+  "hwhwMVLANMibObjects": {
+    "class": "objectidentity",
+    "name": "hwhwMVLANMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.14.1"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwBRASMib"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId",
+      "VlanIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Gauge32",
+      "IpAddress",
+      "Counter64",
+      "MibIdentifier",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Unsigned32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-BRAS-MVLAN-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:46:49 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-BRAS-MVLAN-MIB"
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "hwL2TPExt": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Technologies co.,Ltd. Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China http://www.huawei.com Zip:100085 ",
+    "description": " L2TP extended property used by Huawei Technologies Co., Ltd.",
+    "lastupdated": "200610301046Z",
+    "name": "hwL2TPExt",
+    "oid": "1.3.6.1.4.1.2011.5.25.137",
+    "organization": "Huawei Technologies Co., Ltd."
+  },
+  "hwL2TPSessionIndex": {
+    "class": "objecttype",
+    "description": " User\u0027s Session number ",
+    "maxaccess": "not-accessible",
+    "name": "hwL2TPSessionIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.137.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2TPSessionStatDownBytes": {
+    "class": "objecttype",
+    "description": " Downstream bytes of a L2TP session ",
+    "maxaccess": "read-only",
+    "name": "hwL2TPSessionStatDownBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.137.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL2TPSessionStatDownPkts": {
+    "class": "objecttype",
+    "description": " Downstream packtes of a L2TP session ",
+    "maxaccess": "read-only",
+    "name": "hwL2TPSessionStatDownPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.137.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL2TPSessionStatEntry": {
+    "class": "objecttype",
+    "description": " L2TP Session Statistic Information Entry ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2TP-EXT-MIB",
+        "object": "hwL2TPSessionIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL2TPSessionStatEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.137.1.1.1",
+    "status": "current"
+  },
+  "hwL2TPSessionStatTable": {
+    "class": "objecttype",
+    "description": "Table of L2TP session statistic information.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2TPSessionStatTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.137.1.1",
+    "status": "current"
+  },
+  "hwL2TPSessionStatUpBytes": {
+    "class": "objecttype",
+    "description": " Upstream bytes of a L2TP session ",
+    "maxaccess": "read-only",
+    "name": "hwL2TPSessionStatUpBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.137.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL2TPSessionStatUpPkts": {
+    "class": "objecttype",
+    "description": " Upstream packets of a L2TP session ",
+    "maxaccess": "read-only",
+    "name": "hwL2TPSessionStatUpPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.137.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL2TPStatistic": {
+    "class": "objectidentity",
+    "name": "hwL2TPStatistic",
+    "oid": "1.3.6.1.4.1.2011.5.25.137.1"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Counter64",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-L2TP-EXT-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:49 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-L2TP-EXT-MIB"
+  }
+}

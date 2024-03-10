@@ -1,0 +1,379 @@
+{
+  "HwTaskStatusType": {
+    "class": "textualconvention",
+    "description": "The status of the specified task. The parameter have seventeen different value. Normally a task may be status of the following: Normalready(0): task is ready, Block(1): task is blocked, Slept(2): task is slept, Suspend(4): task is suspended blocked, BlockAndSuspend(5): task is suspended blocked, SleptAndSuspend(6): task is slept and suspended, running(8): task is running, Queueblock(17): task is blocked on receiving queue messages, QueueblockAndSuspend(21): task is blocked on receiving queue messages and suspended, Semaphoreblock(33): task is blocked on taking a semaphore, SemaphoreblockAandSuspend(37): task is blocked on taking a semaphore and suspended, Eventblock(65): task is blocked on receiving events, EventblockAndSuspend(69): task is blocked on receiving events and suspended, prioblock(128): task is priblock, Preemptready(256): task is preempt ready, Writequeueblock(513): task is blocked on sending queue messages, WritequeueblockAndSuspend(517): task is blocked on sending queue messages and suspended.",
+    "name": "HwTaskStatusType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "block": 1,
+          "blockAndSuspend": 5,
+          "eventblock": 65,
+          "eventblockAndSuspend": 69,
+          "normalready": 0,
+          "preemptready": 256,
+          "prioblock": 128,
+          "queueblock": 17,
+          "queueblockAndSuspend": 21,
+          "running": 8,
+          "semaphoreblock": 33,
+          "semaphoreblockAandSuspend": 37,
+          "sleep": 2,
+          "sleptAndSuspend": 6,
+          "suspend": 4,
+          "writequeueblock": 513,
+          "writequeueblockAndSuspend": 517
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwKeyTaskCpuUsage": {
+    "class": "objecttype",
+    "description": "Cpu usage information of this task(0%-100%).If a task\u0027s cpu usage is more than 90, it means that the task is very busy.",
+    "maxaccess": "read-only",
+    "name": "hwKeyTaskCpuUsage",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwKeyTaskEntry": {
+    "class": "objecttype",
+    "description": "Generic information about active tasks on this device. Entries in this table will change when tasks are created and destroyed on the device.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-TASK-MIB",
+        "object": "hwKeyTaskIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-TASK-MIB",
+        "object": "hwKeyTaskID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwKeyTaskEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1.2.1",
+    "status": "current"
+  },
+  "hwKeyTaskGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing common task monitoring information. This group is mandatory for all huawei devices.",
+    "name": "hwKeyTaskGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TASK-MIB",
+        "object": "hwKeyTaskName"
+      },
+      {
+        "module": "HUAWEI-TASK-MIB",
+        "object": "hwKeyTaskCpuUsage"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.27.3.2.2",
+    "status": "current"
+  },
+  "hwKeyTaskID": {
+    "class": "objecttype",
+    "description": "This object contains the task ID. ",
+    "maxaccess": "not-accessible",
+    "name": "hwKeyTaskID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwKeyTaskIndex": {
+    "class": "objecttype",
+    "description": "The object indicates some physical information, such as slot number of VIU or RSU board plugged in. ",
+    "maxaccess": "not-accessible",
+    "name": "hwKeyTaskIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwKeyTaskName": {
+    "class": "objecttype",
+    "description": "The name associated with this task. If the name is longer than 255 characters, it will be truncated to the first 255 characters.",
+    "maxaccess": "read-only",
+    "name": "hwKeyTaskName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwKeyTaskTable": {
+    "class": "objecttype",
+    "description": "A table of generic information on all active tasks on this device.",
+    "maxaccess": "not-accessible",
+    "name": "hwKeyTaskTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1.2",
+    "status": "current"
+  },
+  "hwTask": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "The MIB module describes active system tasks, including the status and the general information of a task.",
+    "lastupdated": "201409250000Z",
+    "name": "hwTask",
+    "oid": "1.3.6.1.4.1.2011.5.25.27",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "V2.01, modify hwKeyTaskIndex, hwKeyTaskID and hwKeyTaskName.",
+        "revision": "2014-09-25 00:00"
+      },
+      {
+        "description": "Initial version of this MIB module.",
+        "revision": "2003-07-31 00:00"
+      }
+    ]
+  },
+  "hwTaskCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for entities which implement the huawei Task MIB,Write access is not required.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-TASK-MIB",
+        "object": "hwTaskGroup"
+      }
+    ],
+    "name": "hwTaskCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.3.1.1",
+    "status": "current"
+  },
+  "hwTaskCompliances": {
+    "class": "objectidentity",
+    "name": "hwTaskCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.3.1"
+  },
+  "hwTaskConformance": {
+    "class": "objectidentity",
+    "name": "hwTaskConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.3"
+  },
+  "hwTaskCpuUsage": {
+    "class": "objecttype",
+    "description": "Cpu usage information of this task(0%-100%).If a task\u0027s cpu usage is more than 90, it means that the task is very busy.",
+    "maxaccess": "read-only",
+    "name": "hwTaskCpuUsage",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwTaskEntry": {
+    "class": "objecttype",
+    "description": "Generic information about active tasks on this device. Entries in this table will change when tasks are created and destroyed on the device.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-TASK-MIB",
+        "object": "hwTaskIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-TASK-MIB",
+        "object": "hwTaskID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTaskEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1.1.1",
+    "status": "current"
+  },
+  "hwTaskGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing common task monitoring information. This group is mandatory for all huawei devices.",
+    "name": "hwTaskGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TASK-MIB",
+        "object": "hwTaskName"
+      },
+      {
+        "module": "HUAWEI-TASK-MIB",
+        "object": "hwTaskStatus"
+      },
+      {
+        "module": "HUAWEI-TASK-MIB",
+        "object": "hwTaskCpuUsage"
+      },
+      {
+        "module": "HUAWEI-TASK-MIB",
+        "object": "hwTaskuSecs"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.27.3.2.1",
+    "status": "current"
+  },
+  "hwTaskGroups": {
+    "class": "objectidentity",
+    "name": "hwTaskGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.3.2"
+  },
+  "hwTaskID": {
+    "class": "objecttype",
+    "description": "This object contains the task ID. ",
+    "maxaccess": "not-accessible",
+    "name": "hwTaskID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwTaskIndex": {
+    "class": "objecttype",
+    "description": "The object indicates some physical information, such as slot number of VIU or RSU board plugged in. ",
+    "maxaccess": "not-accessible",
+    "name": "hwTaskIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwTaskName": {
+    "class": "objecttype",
+    "description": "The name associated with this task. If the name is longer than 255 characters, it will be truncated to the first 255 characters.",
+    "maxaccess": "read-only",
+    "name": "hwTaskName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwTaskNotifications": {
+    "class": "objectidentity",
+    "name": "hwTaskNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.2"
+  },
+  "hwTaskObjects": {
+    "class": "objectidentity",
+    "name": "hwTaskObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1"
+  },
+  "hwTaskStatus": {
+    "class": "objecttype",
+    "description": "The status of the specified task. The parameter have seventeen different value. Normally a task may be status of the following: normalready(0): task is ready, block(1): task is blocked, slept(2): task is slept, suspend(4): task is suspended blocked, blockAndSuspend(5): task is suspended blocked, sleepAndSuspend(6): task is slept and suspended, running(8): task is running, queueblock(17): task is blocked on receiving queue messages, queueblockAndSuspend(21): task is blocked on receiving queue messages and suspended, semaphoreblock(33): task is blocked on taking a semaphore, semaphoreblockAandSuspend(37): task is blocked on taking a semaphore and suspended, eventblock(65): task is blocked on receiving events, eventblockAndSuspend(69): task is blocked on receiving events and suspended, prioblock(128): task is priblock, preemptready(256): task is preempt ready, writequeueblock(513): task is blocked on sending queue messages, writequeueblockAndSuspend(517): task is blocked on sending queue messages and suspended.",
+    "maxaccess": "read-only",
+    "name": "hwTaskStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HwTaskStatusType"
+    }
+  },
+  "hwTaskTable": {
+    "class": "objecttype",
+    "description": "A table of generic information on all active tasks on this device.",
+    "maxaccess": "not-accessible",
+    "name": "hwTaskTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1.1",
+    "status": "current"
+  },
+  "hwTaskuSecs": {
+    "class": "objecttype",
+    "description": "Average elapsed CPU time in millseconds when the task was active.",
+    "maxaccess": "read-only",
+    "name": "hwTaskuSecs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.27.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    },
+    "units": "millseconds"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "IpAddress",
+      "Integer32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "MibIdentifier",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-TASK-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:08 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-TASK-MIB"
+  }
+}

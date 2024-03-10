@@ -1,0 +1,3472 @@
+{
+  "hwIfQoSMib": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": "The HUAWEI-IF-QOS-MIB contains objects to apply on interface for congestion management. ",
+    "lastupdated": "200409150000Z",
+    "name": "hwIfQoSMib",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwQoS": {
+    "class": "objectidentity",
+    "name": "hwQoS",
+    "oid": "1.3.6.1.4.1.2011.5.25.32"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "iso",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Bits",
+      "TimeTicks",
+      "Gauge32",
+      "IpAddress",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "MibIdentifier",
+      "Unsigned32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-IF-QOS-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:33 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-IF-QOS-MIB"
+  },
+  "qosCARBurstSize": {
+    "class": "objecttype",
+    "description": "One of the index of the CAR table. Burst traffic size. Unit: bit. This is the amount of traffic in excess of the committed information rate that will be permitted by the CAR policy.",
+    "maxaccess": "read-only",
+    "name": "qosCARBurstSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.17.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 155000000,
+            "min": 15000
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosCARCIR": {
+    "class": "objecttype",
+    "description": "One of the index of the CAR table. The Committed Information Rate. Unit: bps. This is the target rate which the CAR policy limits. ",
+    "maxaccess": "read-only",
+    "name": "qosCARCIR",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.17.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 155000000,
+            "min": 8000
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosCARConformAction": {
+    "class": "objecttype",
+    "description": "Action to be taken by the traffic, when the traffic conforms CIR. There are the following actions: Continue(1) -- Continue to be processed by the following CAR policy which applied on the interface. Discard(2) -- Discard the packet. remark-prec-continue(3) -- Remark the IP precedence of IP packet, and then continue to be processed by the following CAR policy. remark-prec-pass(4) -- Remark the IP precedence of IP packet, and then send the packet. pass(5) -- Send the packet directly. remark-mplsexp-continue(6) -- Remark the mpls exp field of mpls packet, and then continue to be processed by the following CAR policy. remark-mplsexp-pass(7) -- Remark the mpls exp field of mpls packet, and then send the packet. ",
+    "maxaccess": "read-write",
+    "name": "qosCARConformAction",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.17.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "continue": 1,
+          "discard": 2,
+          "pass": 5,
+          "remark-mplsexp-continue": 6,
+          "remark-mplsexp-pass": 7,
+          "remark-prec-continue": 3,
+          "remark-prec-pass": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosCARConformByte": {
+    "class": "objecttype",
+    "description": "The bytes of packets which conformed CIR.",
+    "maxaccess": "read-only",
+    "name": "qosCARConformByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.17.1.14",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "qosCARConformNewPrec": {
+    "class": "objecttype",
+    "description": "Rewrite the precedence value on packets when traffic is within the CIR",
+    "maxaccess": "read-write",
+    "name": "qosCARConformNewPrec",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.17.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosCARConformPkt": {
+    "class": "objecttype",
+    "description": "The number of packets which conformed CIR.",
+    "maxaccess": "read-only",
+    "name": "qosCARConformPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.17.1.13",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "qosCAREntry": {
+    "class": "objecttype",
+    "description": "CAR configuration and running infomation. Command:qos car { inbound | outbound } { any | acl acl-index | carl carl-index } cir committed-rate cbs burst-size ebs excess-burst-size conform action exceed action display qos car interface",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosCARIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosCARPktDirection"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosCARType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosCARListNum"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosCARCIR"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosCARBurstSize"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosCARExcessBurstSize"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "qosCAREntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.17.1",
+    "status": "mandatory"
+  },
+  "qosCARExceedAction": {
+    "class": "objecttype",
+    "description": "Action to be taken by the traffic, when the traffic is exceeds the CIR. There are the following actions: Continue(1) -- Continue to be processed by the following CAR policy which applied on the interface. Discard(2) -- Discard the packet. remark-prec-continue(3) -- Remark the IP precedence of IP packet, and then continue to be processed by the following CAR policy. remark-prec-pass(4) -- Remark the IP precedence of IP packet, and then send the packet. pass(5) -- Send the packet directly. remark-mplsexp-continue(6) -- Remark the mpls exp field of mpls packet, and then continue to be processed by the following CAR policy. remark-mplsexp-pass(7) -- Remark the mpls exp field of mpls packet, and then send the packet. ",
+    "maxaccess": "read-write",
+    "name": "qosCARExceedAction",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.17.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "continue": 1,
+          "discard": 2,
+          "pass": 5,
+          "remark-mplsexp-continue": 6,
+          "remark-mplsexp-pass": 7,
+          "remark-prec-continue": 3,
+          "remark-prec-pass": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosCARExceedByte": {
+    "class": "objecttype",
+    "description": "the bytes of packets which exceeded CIR.",
+    "maxaccess": "read-only",
+    "name": "qosCARExceedByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.17.1.16",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "qosCARExceedNewPrec": {
+    "class": "objecttype",
+    "description": "Rewrite the precedence value on packets when traffic is out of CIR",
+    "maxaccess": "read-write",
+    "name": "qosCARExceedNewPrec",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.17.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosCARExceedPkt": {
+    "class": "objecttype",
+    "description": "The number of packets which exceeded CIR.",
+    "maxaccess": "read-only",
+    "name": "qosCARExceedPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.17.1.15",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "qosCARExcessBurstSize": {
+    "class": "objecttype",
+    "description": "One of the index of the CAR table. Excess Burst Size. Unit: bit. This is the amount of traffic in excess of the burst size, which may be conditionally permitted by the CAR policy.",
+    "maxaccess": "read-only",
+    "name": "qosCARExcessBurstSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.17.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 155000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosCARIfIndex": {
+    "class": "objecttype",
+    "description": "One of the index of the CAR table. This is the index of the interface on which CAR policy applied.",
+    "maxaccess": "read-only",
+    "name": "qosCARIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.17.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "qosCARIfName": {
+    "class": "objecttype",
+    "description": "The description of the interface.",
+    "maxaccess": "read-only",
+    "name": "qosCARIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.17.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "qosCARListNum": {
+    "class": "objecttype",
+    "description": "One of the index of the CAR table. This is the ACL number or CARL number. When CARType=1,this number is ACL number, the range is 2000..3999; When CARType=2,this number is CARL number, the range is 1..199; When CARType=3,this parameter is invalid",
+    "maxaccess": "read-only",
+    "name": "qosCARListNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.17.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 199,
+            "min": 0
+          },
+          {
+            "max": 3999,
+            "min": 2000
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosCARPktDirection": {
+    "class": "objecttype",
+    "description": "One of the index of the CAR table. This is the direction of traffic. There are two directions: inbound(1) and outbound(2) ",
+    "maxaccess": "read-only",
+    "name": "qosCARPktDirection",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.17.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "outbound": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosCARTable": {
+    "class": "objecttype",
+    "description": "CAR(Committed Access Rate) table",
+    "maxaccess": "not-accessible",
+    "name": "qosCARTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.17",
+    "status": "mandatory"
+  },
+  "qosCARType": {
+    "class": "objecttype",
+    "description": "One of the index of the CAR table. This is the matching type for the traffic. The value acl(1) means that the traffic matching the configured ACL is applicable to the CAR policy. The value carl(2) means that the traffic matching the configured CARL is applicable to the CAR policy. The value all(3) means that all the traffic passing the interface is applicable to the CAR policy.",
+    "maxaccess": "read-only",
+    "name": "qosCARType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.17.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acl": 1,
+          "all": 3,
+          "carl": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosCQEntry": {
+    "class": "objecttype",
+    "description": "CQ configuration infomation Command:qos cq cql",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosCQIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "qosCQEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.11.1",
+    "status": "mandatory"
+  },
+  "qosCQIfIndex": {
+    "class": "objecttype",
+    "description": "The index of table, which is the index of interface applying Custom Queuing strategy. The interface identified by the value of this index is the same interface as identified by the same value of ifIndex.",
+    "maxaccess": "read-only",
+    "name": "qosCQIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.11.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "qosCQIfName": {
+    "class": "objecttype",
+    "description": "The description of the interface by the value of qosCQIfIndex. It\u0027s a textual string containing information about the interface type and the interface number.",
+    "maxaccess": "read-only",
+    "name": "qosCQIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.11.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "qosCQListNum": {
+    "class": "objecttype",
+    "description": "The number of CQL applied to an interface identified by the value of qosCQIfIndex.",
+    "maxaccess": "read-write",
+    "name": "qosCQListNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.11.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosCQRunInfoEntry": {
+    "class": "objecttype",
+    "description": "CQ running infomation Command:display qos cq interface",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosCQRunInfoIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosCQRunInfoQueNum"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "qosCQRunInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.12.1",
+    "status": "mandatory"
+  },
+  "qosCQRunInfoIfIndex": {
+    "class": "objecttype",
+    "description": "The index of the table, which is the index of interface applying Custom Queuing strategy. The interface identified by the value of this index is the same interface as identified by the same value of ifIndex.",
+    "maxaccess": "read-only",
+    "name": "qosCQRunInfoIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.12.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "qosCQRunInfoIfName": {
+    "class": "objecttype",
+    "description": "The description of the interface by the value of qosCQRunInfoIfIndex. It\u0027s a textual string containing information about the interface type and the interface number.",
+    "maxaccess": "read-only",
+    "name": "qosCQRunInfoIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.12.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "qosCQRunInfoMaxQueLen": {
+    "class": "objecttype",
+    "description": "The maximum length of the specified queue. The default value of maximum queue length is 20.",
+    "maxaccess": "read-only",
+    "name": "qosCQRunInfoMaxQueLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.12.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1024,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosCQRunInfoQueDiscard": {
+    "class": "objecttype",
+    "description": "The count of discarded packets which can\u0027t be enqueued the specified custom queue because the custom queue is full.",
+    "maxaccess": "read-only",
+    "name": "qosCQRunInfoQueDiscard",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.12.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "qosCQRunInfoQueNum": {
+    "class": "objecttype",
+    "description": "The index of the table, which is the custom queue number",
+    "maxaccess": "read-only",
+    "name": "qosCQRunInfoQueNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.12.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosCQRunInfoQuePkt": {
+    "class": "objecttype",
+    "description": "The count of packets enqueued the spceified custom queue when congestion occoured in the interface.",
+    "maxaccess": "read-only",
+    "name": "qosCQRunInfoQuePkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.12.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32767,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosCQRunInfoTable": {
+    "class": "objecttype",
+    "description": "CQ(Custom Queuing) statistics table This table is about the running infomation of CQ applied on interface for congestion management.",
+    "maxaccess": "not-accessible",
+    "name": "qosCQRunInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.12",
+    "status": "mandatory"
+  },
+  "qosCQTable": {
+    "class": "objecttype",
+    "description": "CQ(Custom Queuing) table CQ is a kind of queuing strategy applied on interface for congestion management. CQ allows a fairness not provided with PQ. Associated with each custom queue is a configurable serving, which specifies how many bytes of data should be delivered from the current queue by the system before the system moves on to the next queue. When a particular queue is being processed, packets are sent until the number of bytes sent exceeds the queue serving or until the queue is empty. If the specified custom list is applied to an interface the Custom Queuing strategy is applied on this interface. Only one list can be assigned per interface. This table is about the CQ configuration infomation.",
+    "maxaccess": "not-accessible",
+    "name": "qosCQTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.11",
+    "status": "mandatory"
+  },
+  "qosCarlEntry": {
+    "class": "objecttype",
+    "description": "CARL configuration infomation Command:qos carl carl-index { precedence precedence-value | mac mac-address }",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosCarlListNum"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "qosCarlEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.16.1",
+    "status": "mandatory"
+  },
+  "qosCarlListNum": {
+    "class": "objecttype",
+    "description": "The index of the CARL table, which is the CARL number",
+    "maxaccess": "read-only",
+    "name": "qosCarlListNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.16.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "qosCarlParaType": {
+    "class": "objecttype",
+    "description": "The matching type of the CARL. The types are as follows: Mac-address(1) -- matching the MAC address of the ethernet frame. prec-mask(2) -- matching the IP precedence of the IP packet. dscp-mask(3) -- matching the IP DSCP of the IP packet. ",
+    "maxaccess": "read-write",
+    "name": "qosCarlParaType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.16.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dscp-mask": 3,
+          "mac-address": 1,
+          "prec-mask": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosCarlParaValue": {
+    "class": "objecttype",
+    "description": "The parameter value of CARL. When CarlParaType=mac-address(1), this value is the MAC address with the format HHHHHH(hex). When CarlParaType=prec-mask(2), this value is the IP precedence mask. The value range is 0x00000000 ~ 0x11111111. The bit is corresponding to IP precedence. For example, in value 0x00100010, the bit 0 and bit 5 is set, that means IP precedenc 1 and 5.",
+    "maxaccess": "read-write",
+    "name": "qosCarlParaValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.16.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "qosCarlTable": {
+    "class": "objecttype",
+    "description": "CARL(Committed Access Rate List) table",
+    "maxaccess": "not-accessible",
+    "name": "qosCarlTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.16",
+    "status": "mandatory"
+  },
+  "qosCqlDefaultEntry": {
+    "class": "objecttype",
+    "description": "CQL default-queue configuration information. Command:qos cql group-number default-queue queue-number",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosCqlListNum"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "qosCqlDefaultEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.7.1",
+    "status": "mandatory"
+  },
+  "qosCqlDefaultTable": {
+    "class": "objecttype",
+    "description": "CQL(Custom Queue List) default-queue table. There are sixteen custom queues whose queue number is from 1 to 16. A custom queue is assigned for those packets that do not match any other rule in each CQL whose number is from 1 to 16. Such queue is the default queue. For each CQL the default queue may be different. The default queue is queue number 1 if other queue is not configured.",
+    "maxaccess": "not-accessible",
+    "name": "qosCqlDefaultTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.7",
+    "status": "mandatory"
+  },
+  "qosCqlIfEntry": {
+    "class": "objecttype",
+    "description": "CQL inbound-interface configuration information. Command:qos cql cql-index inbound-interface interface-type interface-number queue queue-number",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosCqlIfListNum"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosCqlIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "qosCqlIfEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.8.1",
+    "status": "mandatory"
+  },
+  "qosCqlIfIndex": {
+    "class": "objecttype",
+    "description": "The index of table, which is the index of interface that the enqueuing packets are received from. The interface identified by the value of this index is the same interface as identified by the same value of ifIndex.",
+    "maxaccess": "read-only",
+    "name": "qosCqlIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.8.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "qosCqlIfListNum": {
+    "class": "objecttype",
+    "description": "The index of table, which is the CQL number. Any number from 1 to 16 identifies the custom queue list.",
+    "maxaccess": "read-only",
+    "name": "qosCqlIfListNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.8.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "qosCqlIfName": {
+    "class": "objecttype",
+    "description": "The description of interface identified by the value of qosCqlIfIndex. It\u0027s a textual string containing information about the interface type and the interface number.",
+    "maxaccess": "read-only",
+    "name": "qosCqlIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.8.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "qosCqlIfQueueNum": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "The number of custom queue which the packets received from the specified interface will be put in.",
+    "maxaccess": "read-write",
+    "name": "qosCqlIfQueueNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.8.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosCqlIfTable": {
+    "class": "objecttype",
+    "description": "CQL(Custom Queue List) inbound-interface table There are sixteen custom queues whose queue number is from 1 to 16. The packets received from the specified interface can be configured to enqueue specified custom queue in each CQL whose number is from 1 to 16.",
+    "maxaccess": "not-accessible",
+    "name": "qosCqlIfTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.8",
+    "status": "mandatory"
+  },
+  "qosCqlListNum": {
+    "class": "objecttype",
+    "description": "The index of table, which is the CQL number. Any number from 1 to 16 identifies the custom queue list.",
+    "maxaccess": "read-only",
+    "name": "qosCqlListNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.7.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosCqlProListNum": {
+    "class": "objecttype",
+    "description": "The index of table, which is the CQL number. Any number from 1 to 16 identifies the custom queue list.",
+    "maxaccess": "read-only",
+    "name": "qosCqlProListNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.9.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "qosCqlProName": {
+    "class": "objecttype",
+    "description": "The index of table, which is the protocol type the enqueuing packets having.",
+    "maxaccess": "read-only",
+    "name": "qosCqlProName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.9.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "mpls": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosCqlProQueKey": {
+    "class": "objecttype",
+    "description": "The index of table, which is the key words of traffic-classify rule.",
+    "maxaccess": "read-only",
+    "name": "qosCqlProQueKey",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.9.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acl": 3,
+          "exp-mask": 8,
+          "fragment": 2,
+          "greater-than": 5,
+          "less-than": 4,
+          "null": 1,
+          "tcp": 6,
+          "udp": 7
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosCqlProQueKeyValue": {
+    "class": "objecttype",
+    "description": "The index of table, which is the value of key words. for greater-than,less-than,tcp,udp:0~65535 for acl:2000~3999 for NULL and fragment: null for exp-mask: 0~255 ",
+    "maxaccess": "read-only",
+    "name": "qosCqlProQueKeyValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.9.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosCqlProQueNum": {
+    "class": "objecttype",
+    "description": "The number of custom queue which the packets belong to the specified protocol type and match the specified traffic-classifying rule will be put in.",
+    "maxaccess": "read-write",
+    "name": "qosCqlProQueNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.9.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosCqlProtocolEntry": {
+    "class": "objecttype",
+    "description": "CQL protocol configuration information. Command:qos cql cql-index protocol protocol-name queue-key key-value queue queue-number.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosCqlProListNum"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosCqlProName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosCqlProQueKey"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosCqlProQueKeyValue"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "qosCqlProtocolEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.9.1",
+    "status": "mandatory"
+  },
+  "qosCqlProtocolTable": {
+    "class": "objecttype",
+    "description": "CQL(Custom Queue List) protocol table. There are sixteen custom queues whose queue number is from 1 to 16. The packets which belong to the specified protocol type and match the specified traffic-classifying rule can be configured to enqueue specified custom queue in each CQL whose number is from 1 to 16.",
+    "maxaccess": "not-accessible",
+    "name": "qosCqlProtocolTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.9",
+    "status": "mandatory"
+  },
+  "qosCqlQueParaEntry": {
+    "class": "objecttype",
+    "description": "CQL serving/queue-length configuration information. Command:qos cql cql-index queue queue-number serving byte-number qos cql cql-index queue queue-number queue-length queue-length",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosCqlQueParaListNum"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosCqlQueParaQueNum"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "qosCqlQueParaEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.10.1",
+    "status": "mandatory"
+  },
+  "qosCqlQueParaListNum": {
+    "class": "objecttype",
+    "description": "The index of table, which is the CQL number. Any number from 1 to 16 identifies the custom queue list.",
+    "maxaccess": "read-only",
+    "name": "qosCqlQueParaListNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.10.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "qosCqlQueParaMaxQueLen": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 20
+      }
+    },
+    "description": "The maximum length of the specified queue.",
+    "maxaccess": "read-write",
+    "name": "qosCqlQueParaMaxQueLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.10.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1024,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosCqlQueParaQueNum": {
+    "class": "objecttype",
+    "description": "The index of table, which is the queue number.",
+    "maxaccess": "read-only",
+    "name": "qosCqlQueParaQueNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.10.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosCqlQueParaServing": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1500
+      }
+    },
+    "description": "The maximum bytes that the specified queue can transmit in each turn. The default value is 1500.",
+    "maxaccess": "read-write",
+    "name": "qosCqlQueParaServing",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.10.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16777215,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosCqlQueParaTable": {
+    "class": "objecttype",
+    "description": "CQL(Custom Queue List) serving/queue-length table There are sixteen custom queues whose queue number is from 1 to 16. The maximum queue length of each queue and serving can be configured in each CQL whose number is from 1 to 16. Each custom queue has individual default maximum queue length and serving.",
+    "maxaccess": "not-accessible",
+    "name": "qosCqlQueParaTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.10",
+    "status": "mandatory"
+  },
+  "qosCqlQueueNum": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "The number of default custom queue,the default value is queue number 1.",
+    "maxaccess": "read-write",
+    "name": "qosCqlQueueNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.7.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosFIFOCurQueueLen": {
+    "class": "objecttype",
+    "description": "The current length of queue which means the count of packets cached in the fifo queue when the interface is congesting.",
+    "maxaccess": "read-only",
+    "name": "qosFIFOCurQueueLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.1.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "qosFIFODiscardPkt": {
+    "class": "objecttype",
+    "description": "The count of discarded packets which can\u0027t be enqueued fifo queue because the fifo queue is full.",
+    "maxaccess": "read-only",
+    "name": "qosFIFODiscardPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.1.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "qosFIFOEntry": {
+    "class": "objecttype",
+    "description": "FIFO configuration and running information Command:qos fifo queue-length",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosFIFOIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "qosFIFOEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.1.1",
+    "status": "mandatory"
+  },
+  "qosFIFOIfIndex": {
+    "class": "objecttype",
+    "description": "The index of interface applying FIFO queuing strategy. The interface identified by the value of this index is the same interface as identified by the same value of ifIndex.",
+    "maxaccess": "read-only",
+    "name": "qosFIFOIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "qosFIFOIfName": {
+    "class": "objecttype",
+    "description": "The description of interface identified by the value of qosFIFOIfIndex. It\u0027s a textual string containing information about the interface type and the interface number.",
+    "maxaccess": "read-only",
+    "name": "qosFIFOIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.1.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "qosFIFOMaxQueueLen": {
+    "class": "objecttype",
+    "description": "The maximum length of fifo queue which means the maximum count of packets that can be cached in the fifo queue.",
+    "maxaccess": "read-write",
+    "name": "qosFIFOMaxQueueLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1024,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosFIFOTable": {
+    "class": "objecttype",
+    "description": "FIFO(First In First Out) queuing table. FIFO is a kind of queuing strategy applied on interface for congestion management. And It\u0027s the default queuing strategy when other queuing strategy not configured on interface. This table is about the FIFO configuration and running infomation.",
+    "maxaccess": "not-accessible",
+    "name": "qosFIFOTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.1",
+    "status": "mandatory"
+  },
+  "qosGTSACLNum": {
+    "class": "objecttype",
+    "description": "One of the index of the GTS table. This is the ACL number for the shaping traffic to match. ",
+    "maxaccess": "read-only",
+    "name": "qosGTSACLNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.18.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 3999,
+            "min": 2000
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosGTSBurstSize": {
+    "class": "objecttype",
+    "description": "Burst traffic size. Unit: bit. This is the amount of traffic in excess of the committed information rate that will be permitted by the GTS policy.",
+    "maxaccess": "read-write",
+    "name": "qosGTSBurstSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.18.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 155000000,
+            "min": 15000
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosGTSCIR": {
+    "class": "objecttype",
+    "description": "The Committed Information Rate. This is the target sustained rate which the GTS policy will shape. Unit: bps.",
+    "maxaccess": "read-write",
+    "name": "qosGTSCIR",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.18.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 155000000,
+            "min": 8000
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosGTSCurQueLen": {
+    "class": "objecttype",
+    "description": "The current queue length for the GTS buffer, i.e. the number of packets queuing in the GTS buffer.",
+    "maxaccess": "read-only",
+    "name": "qosGTSCurQueLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.18.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "qosGTSDelayByte": {
+    "class": "objecttype",
+    "description": "The bytes of packets which delayed by the GTS policy.",
+    "maxaccess": "read-only",
+    "name": "qosGTSDelayByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.18.1.13",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "qosGTSDelayPkt": {
+    "class": "objecttype",
+    "description": "The number of packets which delayed by the GTS policy.",
+    "maxaccess": "read-only",
+    "name": "qosGTSDelayPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.18.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "qosGTSDiscardByte": {
+    "class": "objecttype",
+    "description": "The bytes of packets which discarded by the GTS policy.",
+    "maxaccess": "read-only",
+    "name": "qosGTSDiscardByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.18.1.15",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "qosGTSDiscardPkt": {
+    "class": "objecttype",
+    "description": "The number of packets which discarded by the GTS policy.",
+    "maxaccess": "read-only",
+    "name": "qosGTSDiscardPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.18.1.14",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "qosGTSEntry": {
+    "class": "objecttype",
+    "description": "GTS configuration and running information Command:qos gts { any | acl acl-index } cir committed-rate [ cbs burst-size [ ebs excess-burst-size [ queue-length queue-length ] ] ] display qos gts interface",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosGTSIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosGTSType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosGTSACLNum"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "qosGTSEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.18.1",
+    "status": "mandatory"
+  },
+  "qosGTSExcessBurstSize": {
+    "class": "objecttype",
+    "description": "Excess Burst Size. Unit: bit. This is the amount of traffic in excess of the burst size, which may be conditionally permitted by the GTS policy.",
+    "maxaccess": "read-write",
+    "name": "qosGTSExcessBurstSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.18.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 155000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosGTSIfIndex": {
+    "class": "objecttype",
+    "description": "One of the index of the GTS table. This is the index of the interface on which GTS policy applied.",
+    "maxaccess": "read-only",
+    "name": "qosGTSIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.18.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "qosGTSIfName": {
+    "class": "objecttype",
+    "description": "The description of the interface on which GTS policy applied.",
+    "maxaccess": "read-only",
+    "name": "qosGTSIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.18.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "qosGTSMaxQueLen": {
+    "class": "objecttype",
+    "description": "The maximum queue length for the GTS buffer.",
+    "maxaccess": "read-write",
+    "name": "qosGTSMaxQueLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.18.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1024,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosGTSPassByte": {
+    "class": "objecttype",
+    "description": "The bytes of packets which passed by the GTS policy.",
+    "maxaccess": "read-only",
+    "name": "qosGTSPassByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.18.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "qosGTSPassPkt": {
+    "class": "objecttype",
+    "description": "The number of packets which passed by the GTS policy.",
+    "maxaccess": "read-only",
+    "name": "qosGTSPassPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.18.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "qosGTSTable": {
+    "class": "objecttype",
+    "description": "GTS(Generic Traffic Shaping) table",
+    "maxaccess": "not-accessible",
+    "name": "qosGTSTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.18",
+    "status": "mandatory"
+  },
+  "qosGTSType": {
+    "class": "objecttype",
+    "description": "One of the index of the GTS table. This is the matching type for the traffic. The value acl(1) means that the traffic matching the configured ACL is applicable to the GTS policy. The value all(2) means that all the traffic passing the interface is applicable to the GTS policy.",
+    "maxaccess": "read-only",
+    "name": "qosGTSType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.18.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acl": 1,
+          "all": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosIFBandwidthAvailable": {
+    "class": "objecttype",
+    "description": "Available bandwidth. Unit : Kbps",
+    "maxaccess": "read-only",
+    "name": "qosIFBandwidthAvailable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.20.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "qosIFBandwidthMaxBW": {
+    "class": "objecttype",
+    "description": "Max bandwidth Value (Unit: Kbps) applied on the interface.",
+    "maxaccess": "read-write",
+    "name": "qosIFBandwidthMaxBW",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.20.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "qosIFBandwidthMaxReservedBW": {
+    "class": "objecttype",
+    "description": "Max reserved bandwidth. Unit : Kbps",
+    "maxaccess": "read-only",
+    "name": "qosIFBandwidthMaxReservedBW",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.20.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "qosIFBandwidthMaxReservedBWPct": {
+    "class": "objecttype",
+    "description": "Max reserved bandwidth as percent of the interface bandwidth (Unit: percent).",
+    "maxaccess": "read-write",
+    "name": "qosIFBandwidthMaxReservedBWPct",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.20.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "qosIFBandwidthRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus for qosIfBandwidthTable Table. Three actions are used: active, createAndGo, destroy",
+    "maxaccess": "read-create",
+    "name": "qosIFBandwidthRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.20.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "qosIfBandwidthEntry": {
+    "class": "objecttype",
+    "description": "Bandwidth parameter applied on Interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosIfBandwidthIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "qosIfBandwidthEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.20.1",
+    "status": "current"
+  },
+  "qosIfBandwidthIfIndex": {
+    "class": "objecttype",
+    "description": "Interface Index, equal to ifIndex.",
+    "maxaccess": "read-only",
+    "name": "qosIfBandwidthIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.20.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "qosIfBandwidthTable": {
+    "class": "objecttype",
+    "description": "A table of bandwidth parameter on interface. ",
+    "maxaccess": "not-accessible",
+    "name": "qosIfBandwidthTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.20",
+    "status": "current"
+  },
+  "qosLRBurstSize": {
+    "class": "objecttype",
+    "description": "Burst traffic size. Unit: bit. This is the amount of traffic in excess of the committed information rate that will be permitted by the LR policy.",
+    "maxaccess": "read-write",
+    "name": "qosLRBurstSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.19.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 155000000,
+            "min": 15000
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosLRCIR": {
+    "class": "objecttype",
+    "description": "The Committed Information Rate on the physical port. This is the target sustained rate which the LR policy limits. Unit: bps.",
+    "maxaccess": "read-write",
+    "name": "qosLRCIR",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.19.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 155000000,
+            "min": 8000
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosLRDelayByte": {
+    "class": "objecttype",
+    "description": "The bytes of packets which delayed by LR policy.",
+    "maxaccess": "read-only",
+    "name": "qosLRDelayByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.19.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "qosLRDelayPkt": {
+    "class": "objecttype",
+    "description": "The number of packets which delayed by LR policy.",
+    "maxaccess": "read-only",
+    "name": "qosLRDelayPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.19.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "qosLREntry": {
+    "class": "objecttype",
+    "description": "LR configuration and running information. Command:qos lr display qos lr interface",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosLRIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "qosLREntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.19.1",
+    "status": "mandatory"
+  },
+  "qosLRExcessBurstSize": {
+    "class": "objecttype",
+    "description": "Excess Burst Size. Unit: bit. This is the amount of traffic in excess of the burst size, which may be conditionally permitted by the LR policy.",
+    "maxaccess": "read-write",
+    "name": "qosLRExcessBurstSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.19.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 155000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosLRIfIndex": {
+    "class": "objecttype",
+    "description": "The index of the LR table, which is the index of the interface on which LR policy is applied.",
+    "maxaccess": "read-only",
+    "name": "qosLRIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.19.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "qosLRIfName": {
+    "class": "objecttype",
+    "description": "The description of the interface on which LR policy is applied.",
+    "maxaccess": "read-only",
+    "name": "qosLRIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.19.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "qosLRPassByte": {
+    "class": "objecttype",
+    "description": "The bytes of packets which passed by LR policy.",
+    "maxaccess": "read-only",
+    "name": "qosLRPassByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.19.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "qosLRPassPkt": {
+    "class": "objecttype",
+    "description": "The Number of packets which passed by LR policy.",
+    "maxaccess": "read-only",
+    "name": "qosLRPassPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.19.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "qosLRTable": {
+    "class": "objecttype",
+    "description": "LR(Line Rate) table.",
+    "maxaccess": "not-accessible",
+    "name": "qosLRTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.19",
+    "status": "mandatory"
+  },
+  "qosPQBottomDiscard": {
+    "class": "objecttype",
+    "description": "The count of discarded packets which can\u0027t be enqueued bottom priority queue because the bottom priority queue is full.",
+    "maxaccess": "read-only",
+    "name": "qosPQBottomDiscard",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.6.1.14",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "qosPQBottomMaxQueLen": {
+    "class": "objecttype",
+    "description": "The maximum length of bottom priority queue. The default value of maximum queue length is 80.",
+    "maxaccess": "read-only",
+    "name": "qosPQBottomMaxQueLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.6.1.15",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1024,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosPQBottomPkt": {
+    "class": "objecttype",
+    "description": "The count of packets enqueued the bottom priority queue when congestion occoured in the interface.",
+    "maxaccess": "read-only",
+    "name": "qosPQBottomPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.6.1.13",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32767,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosPQEntry": {
+    "class": "objecttype",
+    "description": "PQ configuration and running infomation Command:qos pq pql display qos pq interface",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosPQIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "qosPQEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.6.1",
+    "status": "mandatory"
+  },
+  "qosPQIfIndex": {
+    "class": "objecttype",
+    "description": "The index of table, which is the index of interface applying Priority Queuing strategy. The interface identified by the value of this index is the same interface as identified by the same value of ifIndex.",
+    "maxaccess": "read-only",
+    "name": "qosPQIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.6.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "qosPQIfName": {
+    "class": "objecttype",
+    "description": "The description of the interface by the value of qosPQIfIndex. It\u0027s a textual string containing information about the interface type and the interface number.",
+    "maxaccess": "read-only",
+    "name": "qosPQIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.6.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "qosPQListNum": {
+    "class": "objecttype",
+    "description": "The number of PQL applied to an interface identified by the value of qosPQIfIndex.",
+    "maxaccess": "read-write",
+    "name": "qosPQListNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.6.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosPQMiddleDiscard": {
+    "class": "objecttype",
+    "description": "The count of discarded packets which can\u0027t be enqueued middle priority queue because the middle priority queue is full.",
+    "maxaccess": "read-only",
+    "name": "qosPQMiddleDiscard",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.6.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "qosPQMiddleMaxQueLen": {
+    "class": "objecttype",
+    "description": "The maximum length of middle priority queue. The default value of maximum queue length is 40.",
+    "maxaccess": "read-only",
+    "name": "qosPQMiddleMaxQueLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.6.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1024,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosPQMiddlePkt": {
+    "class": "objecttype",
+    "description": "The count of packets enqueued the middle priority queue when congestion occoured in the interface.",
+    "maxaccess": "read-only",
+    "name": "qosPQMiddlePkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.6.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32767,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosPQNormalDiscard": {
+    "class": "objecttype",
+    "description": "The count of discarded packets which can\u0027t be enqueued normal priority queue because the normal priority queue is full.",
+    "maxaccess": "read-only",
+    "name": "qosPQNormalDiscard",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.6.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "qosPQNormalMaxQueLen": {
+    "class": "objecttype",
+    "description": "The maximum length of normal priority queue. The default value of maximum queue length is 60.",
+    "maxaccess": "read-only",
+    "name": "qosPQNormalMaxQueLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.6.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1024,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosPQNormalPkt": {
+    "class": "objecttype",
+    "description": "The count of packets enqueued the normal priority queue when congestion occoured in the interface.",
+    "maxaccess": "read-only",
+    "name": "qosPQNormalPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.6.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32767,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosPQTable": {
+    "class": "objecttype",
+    "description": "PQ(Priority Queuing) table PQ is a kind of queuing strategy applied on interface for congestion management. PQ provides a mechanism to prioritize packets sent on an interface. If the specified priority list is applied to an interface the Priority Queuing strategy is applied on this interface. Only one list can be assigned per interface. This table is about the PQ configuration and running infomation.",
+    "maxaccess": "not-accessible",
+    "name": "qosPQTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.6",
+    "status": "mandatory"
+  },
+  "qosPQTopDiscard": {
+    "class": "objecttype",
+    "description": "The count of discarded packets which can\u0027t be enqueued top priority queue because the top priority queue is full.",
+    "maxaccess": "read-only",
+    "name": "qosPQTopDiscard",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.6.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "qosPQTopMaxQueLen": {
+    "class": "objecttype",
+    "description": "The maximum length of top priority queue. The default value of maximum queue length is 20.",
+    "maxaccess": "read-only",
+    "name": "qosPQTopMaxQueLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.6.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1024,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosPQTopPkt": {
+    "class": "objecttype",
+    "description": "The count of packets enqueued the top priority queue when congestion occoured in the interface.",
+    "maxaccess": "read-only",
+    "name": "qosPQTopPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.6.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32767,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosPqlDefaultEntry": {
+    "class": "objecttype",
+    "description": "PQL default-queue configuration information. Command:qos pql group-number default-queue { top | middle | normal | bottom }",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosPqlDefaultListNum"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "qosPqlDefaultEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.2.1",
+    "status": "mandatory"
+  },
+  "qosPqlDefaultListNum": {
+    "class": "objecttype",
+    "description": "The index of table, which is the PQL number. Any number from 1 to 16 identifies the priority queue list.",
+    "maxaccess": "read-only",
+    "name": "qosPqlDefaultListNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.2.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosPqlDefaultQueueType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "The type of default priority queue,the default value is normal.",
+    "maxaccess": "read-write",
+    "name": "qosPqlDefaultQueueType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.2.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bottom": 3,
+          "middle": 1,
+          "normal": 2,
+          "top": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosPqlDefaultTable": {
+    "class": "objecttype",
+    "description": "PQL(Priority Queue List) default-queue table. There are four priority queues:top,middle,normal,bottom. The priority level of these queues is from high to low. A type of priority queue is assigned for those packets that do not match any other rule in each PQL whose number is from 1 to 16. Such queue is the default queue. For each PQL the default queue may be different. The default queue is normal if other type of queue is not configured.",
+    "maxaccess": "not-accessible",
+    "name": "qosPqlDefaultTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.2",
+    "status": "mandatory"
+  },
+  "qosPqlIfEntry": {
+    "class": "objecttype",
+    "description": "PQL inbound-interface configuration information. Command:qos pql pql-index inbound-interface interface-type interface-number queue { top | middle | normal | bottom }",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosPqlIfListNum"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosPqlIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "qosPqlIfEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.4.1",
+    "status": "mandatory"
+  },
+  "qosPqlIfIndex": {
+    "class": "objecttype",
+    "description": "The index of table, which is the index of interface that the enqueuing packets are received from. The interface identified by the value of this index is the same interface as identified by the same value of ifIndex.",
+    "maxaccess": "read-only",
+    "name": "qosPqlIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.4.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "qosPqlIfListNum": {
+    "class": "objecttype",
+    "description": "The index of table, which is the PQL number. Any number from 1 to 16 identifies the priority queue list.",
+    "maxaccess": "read-only",
+    "name": "qosPqlIfListNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.4.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "qosPqlIfName": {
+    "class": "objecttype",
+    "description": "The description of interface identified by the value of qosPqlIfIndex. It\u0027s a textual string containing information about the interface type and the interface number.",
+    "maxaccess": "read-only",
+    "name": "qosPqlIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.4.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "qosPqlIfQueueType": {
+    "class": "objecttype",
+    "description": "The type of priority queue which the packets received from the specified interface will be put in.",
+    "maxaccess": "read-write",
+    "name": "qosPqlIfQueueType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.4.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bottom": 3,
+          "middle": 1,
+          "normal": 2,
+          "top": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosPqlIfTable": {
+    "class": "objecttype",
+    "description": "PQL(Priority Queue List) inbound-interface table There are four priority queues:top,middle,normal,bottom. The priority level of these queues is from high to low. The packets received from the specified interface can be configured to enqueue specified priority queue in each PQL whose number is from 1 to 16.",
+    "maxaccess": "not-accessible",
+    "name": "qosPqlIfTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.4",
+    "status": "mandatory"
+  },
+  "qosPqlProListNum": {
+    "class": "objecttype",
+    "description": "The index of table, which is the PQL number. Any number from 1 to 16 identifies the priority queue list.",
+    "maxaccess": "read-only",
+    "name": "qosPqlProListNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.5.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "qosPqlProName": {
+    "class": "objecttype",
+    "description": "The index of table, which is the protocol type the enqueuing packets having.",
+    "maxaccess": "read-only",
+    "name": "qosPqlProName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.5.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "mpls": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosPqlProQueKey": {
+    "class": "objecttype",
+    "description": "The index of table, which is the key words of traffic-classify rule.",
+    "maxaccess": "read-only",
+    "name": "qosPqlProQueKey",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.5.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acl": 3,
+          "exp-mask": 8,
+          "fragment": 2,
+          "greater-than": 5,
+          "less-than": 4,
+          "null": 1,
+          "tcp": 6,
+          "udp": 7
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosPqlProQueKeyValue": {
+    "class": "objecttype",
+    "description": "The index of table, which is the value of key words. for greater-than,less-than,tcp,udp:0~65535 for acl:2000~3999 for NULL and fragment: 0 for exp-mask: 0~255",
+    "maxaccess": "read-only",
+    "name": "qosPqlProQueKeyValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.5.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosPqlProQueType": {
+    "class": "objecttype",
+    "description": "The type of priority queue which the packets belong to the specified protocol type and match the specified traffic-classifying rule will be put in.",
+    "maxaccess": "read-write",
+    "name": "qosPqlProQueType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.5.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bottom": 3,
+          "middle": 1,
+          "normal": 2,
+          "top": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosPqlProtocolEntry": {
+    "class": "objecttype",
+    "description": "PQL protocol configuration information. Command:qos pql pql-index protocol protocol-name queue-key key-value queue { top | middle | normal | bottom }",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosPqlProListNum"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosPqlProName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosPqlProQueKey"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosPqlProQueKeyValue"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "qosPqlProtocolEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.5.1",
+    "status": "mandatory"
+  },
+  "qosPqlProtocolTable": {
+    "class": "objecttype",
+    "description": "PQL(Priority Queue List) protocol table There are four priority queues:top,middle,normal,bottom. The priority level of these queues is from high to low. The packets which belong to the specified protocol type and match the specified traffic-classifying rule can be configured to enqueue specified priority queue in each PQL whose number is from 1 to 16.",
+    "maxaccess": "not-accessible",
+    "name": "qosPqlProtocolTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.5",
+    "status": "mandatory"
+  },
+  "qosPqlQueLenListNum": {
+    "class": "objecttype",
+    "description": "The index of table, which is the PQL number. Any number from 1 to 16 identifies the priority queue list.",
+    "maxaccess": "read-only",
+    "name": "qosPqlQueLenListNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.3.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosPqlQueLenQueueType": {
+    "class": "objecttype",
+    "description": "The index of table, which is the type of priority queue.",
+    "maxaccess": "read-only",
+    "name": "qosPqlQueLenQueueType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.3.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bottom": 3,
+          "middle": 1,
+          "normal": 2,
+          "top": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosPqlQueLenValue": {
+    "class": "objecttype",
+    "description": "The maximum length of specified queue. Each priority queue has individual default maximum queue length: Top : 20 Middle: 40 Normal: 60 Bottom: 80",
+    "maxaccess": "read-write",
+    "name": "qosPqlQueLenValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.3.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1024,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosPqlQueueLenEntry": {
+    "class": "objecttype",
+    "description": "PQL queue-length configuration information. Command:qos pql pql-index queue { top | middle | normal | bottom } queue-length queue-length",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosPqlQueLenListNum"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosPqlQueLenQueueType"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "qosPqlQueueLenEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.3.1",
+    "status": "mandatory"
+  },
+  "qosPqlQueueLenTable": {
+    "class": "objecttype",
+    "description": "PQL(Priority Queue List) queue-length table There are four priority queues:top,middle,normal,bottom. The priority level of these queues is from high to low. The maximum queue length of each queue can be configured in each PQL whose number is from 1 to 16. Each priority queue has individual default maximum queue length.",
+    "maxaccess": "not-accessible",
+    "name": "qosPqlQueueLenTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.3",
+    "status": "mandatory"
+  },
+  "qosRTPIfApplyBandWidth": {
+    "class": "objecttype",
+    "description": "Max bandwidth Value: Absolute value: 8..1000000. Unit: Kbps ",
+    "maxaccess": "read-create",
+    "name": "qosRTPIfApplyBandWidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.21.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000000,
+            "min": 8
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "qosRTPIfApplyCbs": {
+    "class": "objecttype",
+    "description": " Committed Burst Size: 1500..2000000. Unit: bytes ",
+    "maxaccess": "read-create",
+    "name": "qosRTPIfApplyCbs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.21.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2000000,
+            "min": 1500
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "qosRTPIfApplyEndPort": {
+    "class": "objecttype",
+    "description": " RTP-PORT(3): end-port: 2000~65535 ",
+    "maxaccess": "read-create",
+    "name": "qosRTPIfApplyEndPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.21.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 2000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "qosRTPIfApplyEntry": {
+    "class": "objecttype",
+    "description": "Rtpq Configuration Information Entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosRTPIfApplyIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "qosRTPIfApplyEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.21.1",
+    "status": "current"
+  },
+  "qosRTPIfApplyIfIndex": {
+    "class": "objecttype",
+    "description": "Interface Index, equal to ifIndex.",
+    "maxaccess": "read-only",
+    "name": "qosRTPIfApplyIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.21.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "qosRTPIfApplyRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus for RTPQoSIfApply Table. Three actions are used: active, createAndGo, destroy",
+    "maxaccess": "read-create",
+    "name": "qosRTPIfApplyRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.21.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "qosRTPIfApplyStartPort": {
+    "class": "objecttype",
+    "description": " RTP-PORT(3): start-port: 2000~65535 ",
+    "maxaccess": "read-create",
+    "name": "qosRTPIfApplyStartPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.21.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 2000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "qosRTPIfApplyTable": {
+    "class": "objecttype",
+    "description": "A table of QoS rtpq instance.",
+    "maxaccess": "not-accessible",
+    "name": "qosRTPIfApplyTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.21",
+    "status": "current"
+  },
+  "qosRTPIfQueueDiscards": {
+    "class": "objecttype",
+    "description": "Discarded packet number of RTP(Realtime Transport Protocol) Queue.",
+    "maxaccess": "read-only",
+    "name": "qosRTPIfQueueDiscards",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.22.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "qosRTPIfQueueMaxSize": {
+    "class": "objecttype",
+    "description": " Max packet number of RTP(Realtime Transport Protocol) Queue.",
+    "maxaccess": "read-only",
+    "name": "qosRTPIfQueueMaxSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.22.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "qosRTPIfQueueOutputs": {
+    "class": "objecttype",
+    "description": "Output packet number of RTP(Realtime Transport Protocol) Queue.",
+    "maxaccess": "read-only",
+    "name": "qosRTPIfQueueOutputs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.22.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "qosRTPIfQueueRunInfoEntry": {
+    "class": "objecttype",
+    "description": "RTP(Realtime Transport Protocol) Queue statistics entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosRTPIfApplyIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "qosRTPIfQueueRunInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.22.1",
+    "status": "current"
+  },
+  "qosRTPIfQueueRunInfoTable": {
+    "class": "objecttype",
+    "description": "A table of Running statistics for RTP(Realtime Transport Protocol) Queue applied on the interface.",
+    "maxaccess": "not-accessible",
+    "name": "qosRTPIfQueueRunInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.22",
+    "status": "current"
+  },
+  "qosRTPIfQueueSize": {
+    "class": "objecttype",
+    "description": "Size of Rtpq Queue.",
+    "maxaccess": "read-only",
+    "name": "qosRTPIfQueueSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.22.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "qosUndoCAR": {
+    "class": "objecttype",
+    "description": "0:Only for get. 1:Cancel the CAR policy applied on the interface.",
+    "maxaccess": "read-write",
+    "name": "qosUndoCAR",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.17.1.17",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qosCAR": 0,
+          "qosNoCAR": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosUndoCQ": {
+    "class": "objecttype",
+    "description": "0:Only for get. 1:Set the default queuing on interface: FIFO",
+    "maxaccess": "read-write",
+    "name": "qosUndoCQ",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.11.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qosCQ": 0,
+          "qosNoCQ": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosUndoCarl": {
+    "class": "objecttype",
+    "description": "0:Only for get. 1:Delete the specified CARL",
+    "maxaccess": "read-write",
+    "name": "qosUndoCarl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.16.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qosCARL": 0,
+          "qosNoCARL": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosUndoCqlDefault": {
+    "class": "objecttype",
+    "description": "0: Only for get. 1: Set default value of the defualt custom queue.",
+    "maxaccess": "read-write",
+    "name": "qosUndoCqlDefault",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.7.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qosCqlDefault": 0,
+          "qosNoCqlDefault": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosUndoCqlIf": {
+    "class": "objecttype",
+    "description": "0: Only for get. 1: delete the corresponding inbound-interface rule of the specified CQL number",
+    "maxaccess": "read-write",
+    "name": "qosUndoCqlIf",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.8.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qosCqlIf": 0,
+          "qosNoCqlIf": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosUndoCqlProtocol": {
+    "class": "objecttype",
+    "description": "0: Only for get. 1: delete the corresponding protocol rule of the specified CQL number",
+    "maxaccess": "read-write",
+    "name": "qosUndoCqlProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.9.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qosCqlProtocol": 0,
+          "qosNoCqlProtocol": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosUndoCqlQueParaMaxQueLen": {
+    "class": "objecttype",
+    "description": "0: Only for get. 1: Set the defualt value of the maximum length of the specified queue.",
+    "maxaccess": "read-write",
+    "name": "qosUndoCqlQueParaMaxQueLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.10.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qosCqlQueParaMaxQueLen": 0,
+          "qosNoCqlQueParaMaxQueLen": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosUndoCqlQueParaServing": {
+    "class": "objecttype",
+    "description": "0: Only for get. 1: Set the defualt value of the maximum bytes that the specified queue can transmit in each turn.",
+    "maxaccess": "read-write",
+    "name": "qosUndoCqlQueParaServing",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.10.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qosCqlQueParaServing": 0,
+          "qosNoCqlQueParaServing": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosUndoFIFO": {
+    "class": "objecttype",
+    "description": "0: Only for get. 1: Set default value of the maximum length of fifo queue.",
+    "maxaccess": "read-write",
+    "name": "qosUndoFIFO",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.1.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qosFIFO": 0,
+          "qosNoFIFO": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosUndoGTS": {
+    "class": "objecttype",
+    "description": "0:Only for get. 1:Cancel the GTS policy applied on the interface.",
+    "maxaccess": "read-write",
+    "name": "qosUndoGTS",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.18.1.16",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qosGTS": 0,
+          "qosNoGTS": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosUndoLR": {
+    "class": "objecttype",
+    "description": "0:Only for get. 1:Cancel the LR policy applied on the interface.",
+    "maxaccess": "read-write",
+    "name": "qosUndoLR",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.19.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qosLR": 0,
+          "qosNoLR": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosUndoPQ": {
+    "class": "objecttype",
+    "description": "0:Only for get. 1:Set the default queuing on interface: FIFO.",
+    "maxaccess": "read-write",
+    "name": "qosUndoPQ",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.6.1.16",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qosNoPQ": 1,
+          "qosPQ": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosUndoPqlDefault": {
+    "class": "objecttype",
+    "description": "0: Only for get. 1: Set default value of the defualt priority queue.",
+    "maxaccess": "read-write",
+    "name": "qosUndoPqlDefault",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.2.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qosNoPqlDefault": 1,
+          "qosPqlDefault": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosUndoPqlIf": {
+    "class": "objecttype",
+    "description": "0: Only for get. 1: delete the corresponding inbound-interface rule of the specified PQL number",
+    "maxaccess": "read-write",
+    "name": "qosUndoPqlIf",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.4.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qosNoPqlIF": 1,
+          "qosPqlIF": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosUndoPqlProtocol": {
+    "class": "objecttype",
+    "description": "0: Only for get. 1: delete the corresponding protocol rule of the specified PQL number",
+    "maxaccess": "read-write",
+    "name": "qosUndoPqlProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.5.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qosNoPqlProtocol": 1,
+          "qosPqlProtocol": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosUndoPqlQueLen": {
+    "class": "objecttype",
+    "description": "0: Only for get. 1: Set default value of the maximum length of specified queue.",
+    "maxaccess": "read-write",
+    "name": "qosUndoPqlQueLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.3.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qosNoPqlQueLen": 1,
+          "qosPqlQueLen": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosUndoWFQ": {
+    "class": "objecttype",
+    "description": "0:Only for get. 1:Set the default queuing on interface: FIFO",
+    "maxaccess": "read-write",
+    "name": "qosUndoWFQ",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.13.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qosNoWFQ": 1,
+          "qosWFQ": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosUndoWREDPre": {
+    "class": "objecttype",
+    "description": "0:Only for get. 1:Recover the default value of low-limit,high-limit and discard-probability on relevant precedence.",
+    "maxaccess": "read-write",
+    "name": "qosUndoWREDPre",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.15.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qosNoWREDPre": 1,
+          "qosWREDPre": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosUndoWREDWeightConstant": {
+    "class": "objecttype",
+    "description": "0:Only for get. 1:Recover the default value of weighted factor: 9",
+    "maxaccess": "read-write",
+    "name": "qosUndoWREDWeightConstant",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.14.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qosNoWREDExponent": 1,
+          "qosWREDExponent": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosWFQActiveQueNum": {
+    "class": "objecttype",
+    "description": "A queue becomes active when the queue is not empty. The count of current active queues when WFQ was enabled in the interface.",
+    "maxaccess": "read-only",
+    "name": "qosWFQActiveQueNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.13.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32767,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosWFQCurQueLen": {
+    "class": "objecttype",
+    "description": "The count of packets enqueued all the queues when congestion occoured in the interface.",
+    "maxaccess": "read-only",
+    "name": "qosWFQCurQueLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.13.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "qosWFQEntry": {
+    "class": "objecttype",
+    "description": "WFQ configuration and running infomation Command:qos wfq [ queue-length max-queue-length [ queue-number total-queue-number ] ] display qos wfq interface",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosWFQIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "qosWFQEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.13.1",
+    "status": "mandatory"
+  },
+  "qosWFQIfIndex": {
+    "class": "objecttype",
+    "description": "The index of the table, which is the index of interface applying Weighted Fair Queuing strategy. The interface identified by the value of this index is the same interface as identified by the same value of ifIndex.",
+    "maxaccess": "read-only",
+    "name": "qosWFQIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.13.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "qosWFQIfName": {
+    "class": "objecttype",
+    "description": "The description of the interface by the value of qosWFQIfIndex. It\u0027s a textual string containing information about the interface type and the interface number.",
+    "maxaccess": "read-only",
+    "name": "qosWFQIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.13.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "qosWFQMaxActiveQueNum": {
+    "class": "objecttype",
+    "description": "The maximum count of active queues. It is the count of active queues that have occurred since WFQ was enabled in the interface.",
+    "maxaccess": "read-only",
+    "name": "qosWFQMaxActiveQueNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.13.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32767,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosWFQMaxQueLen": {
+    "class": "objecttype",
+    "description": "The maximum length of the queue.",
+    "maxaccess": "read-write",
+    "name": "qosWFQMaxQueLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.13.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1024,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosWFQTable": {
+    "class": "objecttype",
+    "description": "WFQ(Weighted Fair Queuing) table WFQ is a kind of queuing strategy applied on interface for congestion management. With WFQ, packets are classified by flow. For example, packets with the same source IP address, destination IP address, source TCP or UDP port, destination TCP or UDP port, and protocol belong to the same flow. When enabled for an interface, WFQ provides traffic priority management that automatically sorts among individual traffic flows without requiring first defined match rule lists. This table is about the WFQ configuration and running infomation.",
+    "maxaccess": "not-accessible",
+    "name": "qosWFQTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.13",
+    "status": "mandatory"
+  },
+  "qosWFQTotalDiscard": {
+    "class": "objecttype",
+    "description": "The count of discarded packets which can\u0027t be enqueued all the queues because the queue is full.",
+    "maxaccess": "read-only",
+    "name": "qosWFQTotalDiscard",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.13.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "qosWFQTotalQueNum": {
+    "class": "objecttype",
+    "description": "The total number of queues. The default value is a256(256).",
+    "maxaccess": "read-write",
+    "name": "qosWFQTotalQueNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.13.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "a1024": 1024,
+          "a128": 128,
+          "a16": 16,
+          "a2048": 2048,
+          "a256": 256,
+          "a32": 32,
+          "a4096": 4096,
+          "a512": 512,
+          "a64": 64
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosWREDEnable": {
+    "class": "objecttype",
+    "description": "0: Disable WRED feature. Recover to tail-drop. 1: Enable WRED feature for the specified interface.",
+    "maxaccess": "read-write",
+    "name": "qosWREDEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.14.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosWREDEntry": {
+    "class": "objecttype",
+    "description": "WRED configuration infomation Command:qos wred qos wred weighting-constant exponent",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosWREDIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "qosWREDEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.14.1",
+    "status": "mandatory"
+  },
+  "qosWREDIfIndex": {
+    "class": "objecttype",
+    "description": "The index of the table, which is the index of interface applying Weighted Random Early Detection. The interface identified by the value of this index is the same interface as identified by the same value of qosWFQIfIndex.",
+    "maxaccess": "read-only",
+    "name": "qosWREDIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.14.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "qosWREDIfName": {
+    "class": "objecttype",
+    "description": "The description of the interface by the value of qosWREDIfIndex. It\u0027s a textual string containing information about the interface type and the interface number.",
+    "maxaccess": "read-only",
+    "name": "qosWREDIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.14.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "qosWREDPreDiscardProbability": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 10
+      }
+    },
+    "description": "Discard probability denominator. It is for the fraction of packets dropped when the average queue depth is at the high limit. For example, if the denominator is 128, 1 out of every 128 packets is dropped when the average queue is at the high limit. For all precedences, the default value is 10.",
+    "maxaccess": "read-write",
+    "name": "qosWREDPreDiscardProbability",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.15.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosWREDPreEntry": {
+    "class": "objecttype",
+    "description": "WRED precedence configuration infomation Command:qos wred ip-precedence ip-precedence low-limit low-limit high-limit high-limit discard-probability discard-prob",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosWREDPreIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IF-QOS-MIB",
+        "object": "qosWREDPrecedence"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "qosWREDPreEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.15.1",
+    "status": "mandatory"
+  },
+  "qosWREDPreHighLimit": {
+    "class": "objecttype",
+    "description": "High limit in number of packets. When the average queue length exceeds the high limit, WRED drops all packets with the specified IP Precedence. For all precedences, the default value is 30.",
+    "maxaccess": "read-write",
+    "name": "qosWREDPreHighLimit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.15.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1024,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosWREDPreIfIndex": {
+    "class": "objecttype",
+    "description": "The index of the table, which is the index of interface applying Weighted Random Early Detection. The interface identified by the value of this index is the same interface as identified by the same value of qosWREDIfIndex.",
+    "maxaccess": "read-only",
+    "name": "qosWREDPreIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.15.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "qosWREDPreIfName": {
+    "class": "objecttype",
+    "description": "The description of the interface by the value of qosWREDPreIfIndex. It\u0027s a textual string containing information about the interface type and the interface number.",
+    "maxaccess": "read-only",
+    "name": "qosWREDPreIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.15.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "qosWREDPreLowLimit": {
+    "class": "objecttype",
+    "description": "Low Limit in number of packets. When the average queue length reaches the low limit, WRED randomly drops some packets with the specified IP Precedence. For all precedences, the default value is 10.",
+    "maxaccess": "read-write",
+    "name": "qosWREDPreLowLimit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.15.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1024,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosWREDPreRandomDropNum": {
+    "class": "objecttype",
+    "description": "Number of packets random-dropped for WRED",
+    "maxaccess": "read-only",
+    "name": "qosWREDPreRandomDropNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.15.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "qosWREDPreTable": {
+    "class": "objecttype",
+    "description": "WRED(Weighted Random Early Detect) precedence table. Weighted Random Early Detection(WRED) parameters for a particular IP Precedence can be configured. This table is about the WRED precedence configuration and running infomation.",
+    "maxaccess": "not-accessible",
+    "name": "qosWREDPreTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.15",
+    "status": "mandatory"
+  },
+  "qosWREDPreTailDropNum": {
+    "class": "objecttype",
+    "description": "Number of packets tail-dropped for WRED",
+    "maxaccess": "read-only",
+    "name": "qosWREDPreTailDropNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.15.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "qosWREDPrecedence": {
+    "class": "objecttype",
+    "description": "IP precedence, from 0 to 7",
+    "maxaccess": "read-only",
+    "name": "qosWREDPrecedence",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.15.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "qosWREDTable": {
+    "class": "objecttype",
+    "description": "WRED(Weighted Random Early Detect) table. WRED is a congestion avoidance mechanism that slows traffic by randomly dropping packets when congestion exists. WRED can be enabled only when Weighted Fair Queuing strategy was enable on the interface. This table is about the WRED configuration infomation.",
+    "maxaccess": "not-accessible",
+    "name": "qosWREDTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.14",
+    "status": "mandatory"
+  },
+  "qosWREDWeightConstant": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 9
+      }
+    },
+    "description": "Weighted factor in formula for calculating the mean length of queue. From 1 to 16, the default value is 9",
+    "maxaccess": "read-write",
+    "name": "qosWREDWeightConstant",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.32.2.14.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  }
+}

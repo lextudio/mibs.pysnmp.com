@@ -1,785 +1,785 @@
 {
+  "enterprises": {
+    "class": "objectidentity",
+    "name": "enterprises",
+    "oid": "1.3.6.1.4.1"
+  },
+  "eventTrap": {
+    "class": "objecttype",
+    "description": "Octet string used to send events to NMS. String description: 1\u0027st octet : severity code (ASCII decimal) 2\u0027nd octet : space 3\u0027rd - 5\u0027th octet : diu number (ASCII decimal) 6\u0027th octet : space 7\u0027th - 12\u0027th octet : message code (ASCII decimal) e.g: BR0345 13\u0027th octet : space 14\u0027th and up : extra message string (ASCII)",
+    "maxaccess": "not-accessible",
+    "name": "eventTrap",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.3.3.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "fibronics": {
+    "class": "objectidentity",
+    "name": "fibronics",
+    "oid": "1.3.6.1.4.1.22"
+  },
+  "finexsystem": {
+    "class": "objectidentity",
+    "name": "finexsystem",
+    "oid": "1.3.6.1.4.1.22.10.1"
+  },
+  "fxm8000": {
+    "class": "objectidentity",
+    "name": "fxm8000",
+    "oid": "1.3.6.1.4.1.22.10"
+  },
+  "fxmSystemBootGenName": {
+    "class": "objecttype",
+    "description": "Path and file name that is sent as a TFTP request",
+    "maxaccess": "read-only",
+    "name": "fxmSystemBootGenName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.10.1.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "fxmSystemBootMode": {
+    "class": "objecttype",
+    "description": "Method for booting",
+    "maxaccess": "read-only",
+    "name": "fxmSystemBootMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.10.1.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bootp": 2,
+          "internal-memory": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "fxmSystemBootServer": {
+    "class": "objecttype",
+    "description": "IP address to which a TFTP for boot is sent.",
+    "maxaccess": "read-only",
+    "name": "fxmSystemBootServer",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.10.1.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "fxmSystemBroadcastOpt": {
+    "class": "objecttype",
+    "description": "Default Broadcast option: all zeros or all ones",
+    "maxaccess": "read-only",
+    "name": "fxmSystemBroadcastOpt",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.10.1.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "fxmSystemIPDefGway": {
+    "class": "objecttype",
+    "description": "Default Gateway Address",
+    "maxaccess": "read-only",
+    "name": "fxmSystemIPDefGway",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.10.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "fxmSystemIPNetMask": {
+    "class": "objecttype",
+    "description": "IP Network Mask",
+    "maxaccess": "read-only",
+    "name": "fxmSystemIPNetMask",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.10.1.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "fxmSystemIpAddr": {
+    "class": "objecttype",
+    "description": "IP address of the agent",
+    "maxaccess": "read-only",
+    "name": "fxmSystemIpAddr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.10.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "fxmSystemReset": {
+    "class": "objecttype",
+    "description": "Resetting the target station. When reading the instance of this object the value has no meaning.",
+    "maxaccess": "read-write",
+    "name": "fxmSystemReset",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.10.1.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cold-reset": 2,
+          "warm-reset": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "fxmSystemSelfTestLevel": {
+    "class": "objecttype",
+    "description": "Type of self test to be executed upon cold-reset",
+    "maxaccess": "read-only",
+    "name": "fxmSystemSelfTestLevel",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.10.1.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "extended": 4,
+          "full": 2,
+          "none": 1,
+          "partial": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "fxmsystemperm": {
+    "class": "objectidentity",
+    "name": "fxmsystemperm",
+    "oid": "1.3.6.1.4.1.22.10.1.2"
+  },
+  "fxmsystemrun": {
+    "class": "objectidentity",
+    "name": "fxmsystemrun",
+    "oid": "1.3.6.1.4.1.22.10.1.1"
+  },
   "imports": {
-    "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "IpAddress",
+      "Integer32",
+      "Unsigned32",
+      "Counter64",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "mgmt",
-      "TRAP-TYPE",
-      "Counter32",
-      "IpAddress",
-      "internet",
       "Bits",
+      "internet",
+      "Counter32",
       "OBJECT-TYPE",
-      "Integer32",
+      "TRAP-TYPE",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Gauge32",
-      "Unsigned32",
       "iso",
-      "MibIdentifier"
+      "TimeTicks",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
       "DisplayString"
-    ]
-  },
-  "private": {
-    "name": "private",
-    "oid": "1.3.6.1.4",
-    "class": "objectidentity"
-  },
-  "enterprises": {
-    "name": "enterprises",
-    "oid": "1.3.6.1.4.1",
-    "class": "objectidentity"
-  },
-  "fibronics": {
-    "name": "fibronics",
-    "oid": "1.3.6.1.4.1.22",
-    "class": "objectidentity"
-  },
-  "trap": {
-    "name": "trap",
-    "oid": "1.3.6.1.4.1.22.3",
-    "class": "objectidentity"
-  },
-  "traprun": {
-    "name": "traprun",
-    "oid": "1.3.6.1.4.1.22.3.1",
-    "class": "objectidentity"
-  },
-  "traperm": {
-    "name": "traperm",
-    "oid": "1.3.6.1.4.1.22.3.2",
-    "class": "objectidentity"
-  },
-  "trapvar": {
-    "name": "trapvar",
-    "oid": "1.3.6.1.4.1.22.3.3",
-    "class": "objectidentity"
-  },
-  "fxm8000": {
-    "name": "fxm8000",
-    "oid": "1.3.6.1.4.1.22.10",
-    "class": "objectidentity"
-  },
-  "finexsystem": {
-    "name": "finexsystem",
-    "oid": "1.3.6.1.4.1.22.10.1",
-    "class": "objectidentity"
-  },
-  "fxmsystemrun": {
-    "name": "fxmsystemrun",
-    "oid": "1.3.6.1.4.1.22.10.1.1",
-    "class": "objectidentity"
-  },
-  "fxmsystemperm": {
-    "name": "fxmsystemperm",
-    "oid": "1.3.6.1.4.1.22.10.1.2",
-    "class": "objectidentity"
-  },
-  "rTrapAddrTbl": {
-    "name": "rTrapAddrTbl",
-    "oid": "1.3.6.1.4.1.22.3.1.1",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "mandatory",
-    "description": "Table of managers to which traps must be sent. Up to 10 entries in table. Some (up to 5) entries in table are copied from the permanent trap table at reset time. The other entries are learned from SNMP requests coming to the target station."
-  },
-  "rTrapAddrEntry": {
-    "name": "rTrapAddrEntry",
-    "oid": "1.3.6.1.4.1.22.3.1.1.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "Fx8210-private",
-        "object": "rTrapAddrAddr",
-        "implied": 0
-      }
     ],
-    "status": "mandatory"
+    "class": "imports"
   },
-  "rTrapAddrAddr": {
-    "name": "rTrapAddrAddr",
-    "oid": "1.3.6.1.4.1.22.3.1.1.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "IP address of entity requesting event notification"
-  },
-  "rTrapAddrComm": {
-    "name": "rTrapAddrComm",
-    "oid": "1.3.6.1.4.1.22.3.1.1.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "OCTET STRING",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "Community name the receiving entity will expect"
-  },
-  "rTrapAddrVer": {
-    "name": "rTrapAddrVer",
-    "oid": "1.3.6.1.4.1.22.3.1.1.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "Version number supported by destination node"
-  },
-  "rTrapAddrType": {
-    "name": "rTrapAddrType",
-    "oid": "1.3.6.1.4.1.22.3.1.1.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "OCTET STRING",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "Type of event that should be reported to this address, bit 0 - authentication trap bit 1 - other SNMP traps bit 2 - Error Traps bit 3 - Diagnostic Traps bit 4 - Debug Traps"
-  },
-  "rTrapAddrState": {
-    "name": "rTrapAddrState",
-    "oid": "1.3.6.1.4.1.22.3.1.1.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "active": 1,
-          "inactive": 2
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "Determines status of this entry"
-  },
-  "rTrapAddrFlag": {
-    "name": "rTrapAddrFlag",
-    "oid": "1.3.6.1.4.1.22.3.1.1.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "removable": 1,
-          "fixed": 2
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "If the entry is fixed, it can not be deleted because of aging, which means it was copied from the permanent trap table."
-  },
-  "rTrapAddrAge": {
-    "name": "rTrapAddrAge",
-    "oid": "1.3.6.1.4.1.22.3.1.1.1.7",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "A time stamp of the last time the Manager sent SNMP request to the target agent ( in 50 msec units )."
-  },
-  "rTrapLearning": {
-    "name": "rTrapLearning",
-    "oid": "1.3.6.1.4.1.22.3.1.2",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "Learn the addresses of the managers automatically."
-  },
-  "rTrapAging": {
-    "name": "rTrapAging",
-    "oid": "1.3.6.1.4.1.22.3.1.3",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "Time in sec. until a trap entry is erased from the table."
-  },
-  "pTrapAddrTbl": {
-    "name": "pTrapAddrTbl",
-    "oid": "1.3.6.1.4.1.22.3.2.1",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "mandatory",
-    "description": "Table of managers to which traps must be sent. Up to 5 entries in table"
-  },
-  "pTrapAddrEntry": {
-    "name": "pTrapAddrEntry",
-    "oid": "1.3.6.1.4.1.22.3.2.1.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "Fx8210-private",
-        "object": "pTrapAddrAddr",
-        "implied": 0
-      }
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/Fx8210-private",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:35:57 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
     ],
-    "status": "mandatory"
+    "module": "Fx8210-private"
   },
   "pTrapAddrAddr": {
-    "name": "pTrapAddrAddr",
-    "oid": "1.3.6.1.4.1.22.3.2.1.1.1",
-    "nodetype": "column",
     "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
+    "description": "IP address of entity requesting event notification",
     "maxaccess": "read-write",
+    "name": "pTrapAddrAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.3.2.1.1.1",
     "status": "mandatory",
-    "description": "IP address of entity requesting event notification"
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
   },
   "pTrapAddrComm": {
+    "class": "objecttype",
+    "description": "Community name the receiving entity will expect",
+    "maxaccess": "read-write",
     "name": "pTrapAddrComm",
+    "nodetype": "column",
     "oid": "1.3.6.1.4.1.22.3.2.1.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "OCTET STRING",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
     "status": "mandatory",
-    "description": "Community name the receiving entity will expect"
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
   },
-  "pTrapAddrVer": {
-    "name": "pTrapAddrVer",
-    "oid": "1.3.6.1.4.1.22.3.2.1.1.3",
-    "nodetype": "column",
+  "pTrapAddrEntry": {
     "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "mandatory",
-    "description": "Version number supported by destination node"
-  },
-  "pTrapAddrType": {
-    "name": "pTrapAddrType",
-    "oid": "1.3.6.1.4.1.22.3.2.1.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "OCTET STRING",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "mandatory",
-    "description": "Type of event that should be reported to this address, bit 0 - authentication trap bit 1 - other SNMP traps bit 2 - Error Traps bit 3 - Diagnostic Traps bit 4 - Debug Traps"
+    "indices": [
+      {
+        "implied": 0,
+        "module": "Fx8210-private",
+        "object": "pTrapAddrAddr"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "pTrapAddrEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.22.3.2.1.1",
+    "status": "mandatory"
   },
   "pTrapAddrState": {
-    "name": "pTrapAddrState",
-    "oid": "1.3.6.1.4.1.22.3.2.1.1.5",
-    "nodetype": "column",
     "class": "objecttype",
+    "description": "Determines status of this entry",
+    "maxaccess": "read-write",
+    "name": "pTrapAddrState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.3.2.1.1.5",
+    "status": "mandatory",
     "syntax": {
-      "type": "INTEGER",
       "class": "type",
       "constraints": {
         "enumeration": {
           "active": 1,
           "inactive": 2
         }
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "mandatory",
-    "description": "Determines status of this entry"
+      },
+      "type": "INTEGER"
+    }
   },
-  "pTrapLearning": {
-    "name": "pTrapLearning",
-    "oid": "1.3.6.1.4.1.22.3.2.2",
-    "nodetype": "scalar",
+  "pTrapAddrTbl": {
     "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
+    "description": "Table of managers to which traps must be sent. Up to 5 entries in table",
+    "maxaccess": "not-accessible",
+    "name": "pTrapAddrTbl",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.22.3.2.1",
+    "status": "mandatory"
+  },
+  "pTrapAddrType": {
+    "class": "objecttype",
+    "description": "Type of event that should be reported to this address, bit 0 - authentication trap bit 1 - other SNMP traps bit 2 - Error Traps bit 3 - Diagnostic Traps bit 4 - Debug Traps",
     "maxaccess": "read-write",
+    "name": "pTrapAddrType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.3.2.1.1.4",
     "status": "mandatory",
-    "description": "Learn the addresses of the managers automatically."
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "pTrapAddrVer": {
+    "class": "objecttype",
+    "description": "Version number supported by destination node",
+    "maxaccess": "read-write",
+    "name": "pTrapAddrVer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.3.2.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
   },
   "pTrapAging": {
+    "class": "objecttype",
+    "description": "Time in sec. until a trap entry is erased from the table.",
+    "maxaccess": "read-write",
     "name": "pTrapAging",
+    "nodetype": "scalar",
     "oid": "1.3.6.1.4.1.22.3.2.3",
-    "nodetype": "scalar",
-    "class": "objecttype",
+    "status": "mandatory",
     "syntax": {
-      "type": "INTEGER",
-      "class": "type"
-    },
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "pTrapLearning": {
+    "class": "objecttype",
+    "description": "Learn the addresses of the managers automatically.",
     "maxaccess": "read-write",
-    "status": "mandatory",
-    "description": "Time in sec. until a trap entry is erased from the table."
-  },
-  "fxmSystemIpAddr": {
-    "name": "fxmSystemIpAddr",
-    "oid": "1.3.6.1.4.1.22.10.1.1.1",
+    "name": "pTrapLearning",
     "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
+    "oid": "1.3.6.1.4.1.22.3.2.2",
     "status": "mandatory",
-    "description": "IP address of the agent"
-  },
-  "fxmSystemIPNetMask": {
-    "name": "fxmSystemIPNetMask",
-    "oid": "1.3.6.1.4.1.22.10.1.1.2",
-    "nodetype": "scalar",
-    "class": "objecttype",
     "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "IP Network Mask"
-  },
-  "fxmSystemIPDefGway": {
-    "name": "fxmSystemIPDefGway",
-    "oid": "1.3.6.1.4.1.22.10.1.1.3",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "Default Gateway Address"
-  },
-  "fxmSystemBroadcastOpt": {
-    "name": "fxmSystemBroadcastOpt",
-    "oid": "1.3.6.1.4.1.22.10.1.1.4",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "Default Broadcast option: all zeros or all ones"
-  },
-  "fxmSystemBootServer": {
-    "name": "fxmSystemBootServer",
-    "oid": "1.3.6.1.4.1.22.10.1.1.5",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "IP address to which a TFTP for boot is sent."
-  },
-  "fxmSystemBootGenName": {
-    "name": "fxmSystemBootGenName",
-    "oid": "1.3.6.1.4.1.22.10.1.1.6",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "OCTET STRING",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "Path and file name that is sent as a TFTP request"
-  },
-  "fxmSystemBootMode": {
-    "name": "fxmSystemBootMode",
-    "oid": "1.3.6.1.4.1.22.10.1.1.7",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
       "class": "type",
       "constraints": {
         "enumeration": {
-          "internal-memory": 1,
-          "bootp": 2
+          "disable": 2,
+          "enable": 1
         }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "Method for booting"
-  },
-  "fxmSystemSelfTestLevel": {
-    "name": "fxmSystemSelfTestLevel",
-    "oid": "1.3.6.1.4.1.22.10.1.1.8",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "none": 1,
-          "full": 2,
-          "partial": 3,
-          "extended": 4
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "Type of self test to be executed upon cold-reset"
-  },
-  "fxmSystemReset": {
-    "name": "fxmSystemReset",
-    "oid": "1.3.6.1.4.1.22.10.1.1.9",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "warm-reset": 1,
-          "cold-reset": 2
-        }
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "mandatory",
-    "description": "Resetting the target station. When reading the instance of this object the value has no meaning."
-  },
-  "pfxmSystemIpAddr": {
-    "name": "pfxmSystemIpAddr",
-    "oid": "1.3.6.1.4.1.22.10.1.2.1",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "mandatory",
-    "description": "IP address of the agent"
-  },
-  "pfxmSystemIPNetMask": {
-    "name": "pfxmSystemIPNetMask",
-    "oid": "1.3.6.1.4.1.22.10.1.2.2",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "mandatory",
-    "description": "IP Network Mask"
-  },
-  "pfxmSystemIPDefGway": {
-    "name": "pfxmSystemIPDefGway",
-    "oid": "1.3.6.1.4.1.22.10.1.2.3",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "mandatory",
-    "description": "Default Gateway Address"
-  },
-  "pfxmSystemBroadcastOpt": {
-    "name": "pfxmSystemBroadcastOpt",
-    "oid": "1.3.6.1.4.1.22.10.1.2.4",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "mandatory",
-    "description": "Default Broadcast option: all zeros or all ones"
-  },
-  "pfxmSystemBootServer": {
-    "name": "pfxmSystemBootServer",
-    "oid": "1.3.6.1.4.1.22.10.1.2.5",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "mandatory",
-    "description": "IP address to which a TFTP for boot is sent."
-  },
-  "pfxmSystemBootGenName": {
-    "name": "pfxmSystemBootGenName",
-    "oid": "1.3.6.1.4.1.22.10.1.2.6",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "OCTET STRING",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "mandatory",
-    "description": "Path and file name that is sent as a TFTP request"
-  },
-  "pfxmSystemBootMode": {
-    "name": "pfxmSystemBootMode",
-    "oid": "1.3.6.1.4.1.22.10.1.2.7",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "internal-memory": 1,
-          "bootp": 2
-        }
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "mandatory",
-    "description": "Method for booting"
-  },
-  "pfxmSystemSelfTestLevel": {
-    "name": "pfxmSystemSelfTestLevel",
-    "oid": "1.3.6.1.4.1.22.10.1.2.8",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "none": 1,
-          "full": 2,
-          "partial": 3,
-          "extended": 4
-        }
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "mandatory",
-    "description": "Type of self test to be executed upon cold-reset"
+      },
+      "type": "INTEGER"
+    }
   },
   "pfxmSpanMode": {
-    "name": "pfxmSpanMode",
-    "oid": "1.3.6.1.4.1.22.10.1.2.9",
-    "nodetype": "scalar",
     "class": "objecttype",
+    "description": "Enable/Disable of the spanning tree Algorithm",
+    "maxaccess": "read-write",
+    "name": "pfxmSpanMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.10.1.2.9",
+    "status": "mandatory",
     "syntax": {
-      "type": "INTEGER",
       "class": "type",
       "constraints": {
         "enumeration": {
-          "enable": 1,
-          "disable": 2
+          "disable": 2,
+          "enable": 1
         }
-      }
-    },
+      },
+      "type": "INTEGER"
+    }
+  },
+  "pfxmSystemBootGenName": {
+    "class": "objecttype",
+    "description": "Path and file name that is sent as a TFTP request",
     "maxaccess": "read-write",
+    "name": "pfxmSystemBootGenName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.10.1.2.6",
     "status": "mandatory",
-    "description": "Enable/Disable of the spanning tree Algorithm"
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "pfxmSystemBootMode": {
+    "class": "objecttype",
+    "description": "Method for booting",
+    "maxaccess": "read-write",
+    "name": "pfxmSystemBootMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.10.1.2.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bootp": 2,
+          "internal-memory": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "pfxmSystemBootServer": {
+    "class": "objecttype",
+    "description": "IP address to which a TFTP for boot is sent.",
+    "maxaccess": "read-write",
+    "name": "pfxmSystemBootServer",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.10.1.2.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "pfxmSystemBroadcastOpt": {
+    "class": "objecttype",
+    "description": "Default Broadcast option: all zeros or all ones",
+    "maxaccess": "read-write",
+    "name": "pfxmSystemBroadcastOpt",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.10.1.2.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
   },
   "pfxmSystemCommunity1": {
-    "name": "pfxmSystemCommunity1",
-    "oid": "1.3.6.1.4.1.22.10.1.2.10",
-    "nodetype": "scalar",
     "class": "objecttype",
-    "syntax": {
-      "type": "OCTET STRING",
-      "class": "type"
-    },
+    "description": "Community string number 1",
     "maxaccess": "write-only",
+    "name": "pfxmSystemCommunity1",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.10.1.2.10",
     "status": "mandatory",
-    "description": "Community string number 1"
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
   },
   "pfxmSystemCommunity2": {
-    "name": "pfxmSystemCommunity2",
-    "oid": "1.3.6.1.4.1.22.10.1.2.11",
-    "nodetype": "scalar",
     "class": "objecttype",
-    "syntax": {
-      "type": "OCTET STRING",
-      "class": "type"
-    },
+    "description": "Community string number 2",
     "maxaccess": "write-only",
+    "name": "pfxmSystemCommunity2",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.10.1.2.11",
     "status": "mandatory",
-    "description": "Community string number 2"
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
   },
   "pfxmSystemCommunity3": {
-    "name": "pfxmSystemCommunity3",
-    "oid": "1.3.6.1.4.1.22.10.1.2.12",
-    "nodetype": "scalar",
     "class": "objecttype",
-    "syntax": {
-      "type": "OCTET STRING",
-      "class": "type"
-    },
+    "description": "Community string number 3",
     "maxaccess": "write-only",
+    "name": "pfxmSystemCommunity3",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.10.1.2.12",
     "status": "mandatory",
-    "description": "Community string number 3"
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
   },
   "pfxmSystemCommunity4": {
-    "name": "pfxmSystemCommunity4",
-    "oid": "1.3.6.1.4.1.22.10.1.2.13",
-    "nodetype": "scalar",
     "class": "objecttype",
-    "syntax": {
-      "type": "OCTET STRING",
-      "class": "type"
-    },
+    "description": "Community string number 4",
     "maxaccess": "write-only",
+    "name": "pfxmSystemCommunity4",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.10.1.2.13",
     "status": "mandatory",
-    "description": "Community string number 4"
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
   },
   "pfxmSystemCommunity5": {
-    "name": "pfxmSystemCommunity5",
-    "oid": "1.3.6.1.4.1.22.10.1.2.14",
-    "nodetype": "scalar",
     "class": "objecttype",
-    "syntax": {
-      "type": "OCTET STRING",
-      "class": "type"
-    },
+    "description": "Community string number 5",
     "maxaccess": "write-only",
+    "name": "pfxmSystemCommunity5",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.10.1.2.14",
     "status": "mandatory",
-    "description": "Community string number 5"
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
   },
   "pfxmSystemCommunity6": {
-    "name": "pfxmSystemCommunity6",
-    "oid": "1.3.6.1.4.1.22.10.1.2.15",
-    "nodetype": "scalar",
     "class": "objecttype",
-    "syntax": {
-      "type": "OCTET STRING",
-      "class": "type"
-    },
+    "description": "Community string number 6",
     "maxaccess": "write-only",
+    "name": "pfxmSystemCommunity6",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.10.1.2.15",
     "status": "mandatory",
-    "description": "Community string number 6"
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
   },
   "pfxmSystemCommunity7": {
-    "name": "pfxmSystemCommunity7",
-    "oid": "1.3.6.1.4.1.22.10.1.2.16",
-    "nodetype": "scalar",
     "class": "objecttype",
-    "syntax": {
-      "type": "OCTET STRING",
-      "class": "type"
-    },
+    "description": "Community string number 7",
     "maxaccess": "write-only",
+    "name": "pfxmSystemCommunity7",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.10.1.2.16",
     "status": "mandatory",
-    "description": "Community string number 7"
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
   },
   "pfxmSystemCommunity8": {
-    "name": "pfxmSystemCommunity8",
-    "oid": "1.3.6.1.4.1.22.10.1.2.17",
-    "nodetype": "scalar",
     "class": "objecttype",
-    "syntax": {
-      "type": "OCTET STRING",
-      "class": "type"
-    },
+    "description": "Community string number 8",
     "maxaccess": "write-only",
-    "status": "mandatory",
-    "description": "Community string number 8"
-  },
-  "eventTrap": {
-    "name": "eventTrap",
-    "oid": "1.3.6.1.4.1.22.3.3.1",
+    "name": "pfxmSystemCommunity8",
     "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "OCTET STRING",
-      "class": "type"
-    },
-    "maxaccess": "not-accessible",
+    "oid": "1.3.6.1.4.1.22.10.1.2.17",
     "status": "mandatory",
-    "description": "Octet string used to send events to NMS. String description: 1'st octet : severity code (ASCII decimal) 2'nd octet : space 3'rd - 5'th octet : diu number (ASCII decimal) 6'th octet : space 7'th - 12'th octet : message code (ASCII decimal) e.g: BR0345 13'th octet : space 14'th and up : extra message string (ASCII)"
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "pfxmSystemIPDefGway": {
+    "class": "objecttype",
+    "description": "Default Gateway Address",
+    "maxaccess": "read-write",
+    "name": "pfxmSystemIPDefGway",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.10.1.2.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "pfxmSystemIPNetMask": {
+    "class": "objecttype",
+    "description": "IP Network Mask",
+    "maxaccess": "read-write",
+    "name": "pfxmSystemIPNetMask",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.10.1.2.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "pfxmSystemIpAddr": {
+    "class": "objecttype",
+    "description": "IP address of the agent",
+    "maxaccess": "read-write",
+    "name": "pfxmSystemIpAddr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.10.1.2.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "pfxmSystemSelfTestLevel": {
+    "class": "objecttype",
+    "description": "Type of self test to be executed upon cold-reset",
+    "maxaccess": "read-write",
+    "name": "pfxmSystemSelfTestLevel",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.10.1.2.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "extended": 4,
+          "full": 2,
+          "none": 1,
+          "partial": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "private": {
+    "class": "objectidentity",
+    "name": "private",
+    "oid": "1.3.6.1.4"
+  },
+  "rTrapAddrAddr": {
+    "class": "objecttype",
+    "description": "IP address of entity requesting event notification",
+    "maxaccess": "read-only",
+    "name": "rTrapAddrAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.3.1.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "rTrapAddrAge": {
+    "class": "objecttype",
+    "description": "A time stamp of the last time the Manager sent SNMP request to the target agent ( in 50 msec units ).",
+    "maxaccess": "read-only",
+    "name": "rTrapAddrAge",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.3.1.1.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "rTrapAddrComm": {
+    "class": "objecttype",
+    "description": "Community name the receiving entity will expect",
+    "maxaccess": "read-only",
+    "name": "rTrapAddrComm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.3.1.1.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "rTrapAddrEntry": {
+    "class": "objecttype",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "Fx8210-private",
+        "object": "rTrapAddrAddr"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "rTrapAddrEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.22.3.1.1.1",
+    "status": "mandatory"
+  },
+  "rTrapAddrFlag": {
+    "class": "objecttype",
+    "description": "If the entry is fixed, it can not be deleted because of aging, which means it was copied from the permanent trap table.",
+    "maxaccess": "read-only",
+    "name": "rTrapAddrFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.3.1.1.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixed": 2,
+          "removable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "rTrapAddrState": {
+    "class": "objecttype",
+    "description": "Determines status of this entry",
+    "maxaccess": "read-only",
+    "name": "rTrapAddrState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.3.1.1.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "rTrapAddrTbl": {
+    "class": "objecttype",
+    "description": "Table of managers to which traps must be sent. Up to 10 entries in table. Some (up to 5) entries in table are copied from the permanent trap table at reset time. The other entries are learned from SNMP requests coming to the target station.",
+    "maxaccess": "not-accessible",
+    "name": "rTrapAddrTbl",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.22.3.1.1",
+    "status": "mandatory"
+  },
+  "rTrapAddrType": {
+    "class": "objecttype",
+    "description": "Type of event that should be reported to this address, bit 0 - authentication trap bit 1 - other SNMP traps bit 2 - Error Traps bit 3 - Diagnostic Traps bit 4 - Debug Traps",
+    "maxaccess": "read-only",
+    "name": "rTrapAddrType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.3.1.1.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "rTrapAddrVer": {
+    "class": "objecttype",
+    "description": "Version number supported by destination node",
+    "maxaccess": "read-only",
+    "name": "rTrapAddrVer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.3.1.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "rTrapAging": {
+    "class": "objecttype",
+    "description": "Time in sec. until a trap entry is erased from the table.",
+    "maxaccess": "read-only",
+    "name": "rTrapAging",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.3.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "rTrapLearning": {
+    "class": "objecttype",
+    "description": "Learn the addresses of the managers automatically.",
+    "maxaccess": "read-only",
+    "name": "rTrapLearning",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.3.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
   },
   "sendGenericEvent": {
-    "name": "sendGenericEvent",
-    "oid": "1.3.6.1.4.1.22.10.10.1",
     "class": "notificationtype",
+    "description": "This trap message is generated by any software module in the FINEX software. Any type of event can be sent.",
+    "name": "sendGenericEvent",
     "objects": [
       {
         "module": "Fx8210-private",
         "object": "eventTrap"
       }
     ],
-    "description": "This trap message is generated by any software module in the FINEX software. Any type of event can be sent."
+    "oid": "1.3.6.1.4.1.22.10.1.0.1"
   },
-  "meta": {
-    "comments": [
-      "ASN.1 source file:///home/tin/Dev/mibs.snmplabs.com/asn1/Fx8210-private",
-      "Produced by pysmi-0.3.4 at Fri Jan 31 21:33:57 2020",
-      "On host bier platform Linux version 5.4.0-3-amd64 by user tin",
-      "Using Python version 3.7.6 (default, Jan 19 2020, 22:34:52) "
-    ],
-    "module": "Fx8210-private"
+  "trap": {
+    "class": "objectidentity",
+    "name": "trap",
+    "oid": "1.3.6.1.4.1.22.3"
+  },
+  "traperm": {
+    "class": "objectidentity",
+    "name": "traperm",
+    "oid": "1.3.6.1.4.1.22.3.2"
+  },
+  "traprun": {
+    "class": "objectidentity",
+    "name": "traprun",
+    "oid": "1.3.6.1.4.1.22.3.1"
+  },
+  "trapvar": {
+    "class": "objectidentity",
+    "name": "trapvar",
+    "oid": "1.3.6.1.4.1.22.3.3"
   }
 }

@@ -1,0 +1,3389 @@
+{
+  "agentmon": {
+    "class": "objectidentity",
+    "name": "agentmon",
+    "oid": "1.3.6.1.4.1.2668.1.1.5"
+  },
+  "agents": {
+    "class": "objectidentity",
+    "name": "agents",
+    "oid": "1.3.6.1.4.1.2668.2"
+  },
+  "atmmon": {
+    "class": "objectidentity",
+    "name": "atmmon",
+    "oid": "1.3.6.1.4.1.2668.1.1.10"
+  },
+  "ciscotrap": {
+    "class": "objectidentity",
+    "name": "ciscotrap",
+    "oid": "1.3.6.1.4.1.2668.1.1.3"
+  },
+  "custom": {
+    "class": "objectidentity",
+    "name": "custom",
+    "oid": "1.3.6.1.4.1.2668.1.2"
+  },
+  "eventWatch": {
+    "class": "objectidentity",
+    "name": "eventWatch",
+    "oid": "1.3.6.1.4.1.2668.1.1.1"
+  },
+  "imports": {
+    "RFC1286-MIB": [
+      "MacAddress"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
+      "iso",
+      "Counter32",
+      "enterprises",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/TAVVE-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 15:28:05 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "TAVVE-MIB"
+  },
+  "portmon": {
+    "class": "objectidentity",
+    "name": "portmon",
+    "oid": "1.3.6.1.4.1.2668.1.1.8"
+  },
+  "products": {
+    "class": "objectidentity",
+    "name": "products",
+    "oid": "1.3.6.1.4.1.2668.1.1"
+  },
+  "pysmi_global": {
+    "class": "objectidentity",
+    "name": "global",
+    "oid": "1.3.6.1.4.1.2668.1.1.7"
+  },
+  "remote": {
+    "class": "objectidentity",
+    "name": "remote",
+    "oid": "1.3.6.1.4.1.2668.1.1.6"
+  },
+  "syslogtrap": {
+    "class": "objectidentity",
+    "name": "syslogtrap",
+    "oid": "1.3.6.1.4.1.2668.1.1.9"
+  },
+  "tavve": {
+    "class": "objectidentity",
+    "name": "tavve",
+    "oid": "1.3.6.1.4.1.2668"
+  },
+  "tcpdmon": {
+    "class": "objectidentity",
+    "name": "tcpdmon",
+    "oid": "1.3.6.1.4.1.2668.1.1.2"
+  },
+  "traps": {
+    "class": "objectidentity",
+    "name": "traps",
+    "oid": "1.3.6.1.4.1.2668.1"
+  },
+  "tscAtmIfDown": {
+    "class": "notificationtype",
+    "description": "Interface is not reachable. This trap is sent after atmmon determines that an interface is no longer reachable. The bound variables contain the address of the device.",
+    "name": "tscAtmIfDown",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscAtmmonIfIndex"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscAtmmonSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscAtmmonifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.10.0.101"
+  },
+  "tscAtmIfUnknown": {
+    "class": "notificationtype",
+    "description": "Interface is not reachable. This trap is sent after atmmon determines that an interface is no longer reachable. The bound variables contain the address of the device.",
+    "name": "tscAtmIfUnknown",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscAtmmonIfIndex"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscAtmmonSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscAtmmonifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.10.0.103"
+  },
+  "tscAtmIfUp": {
+    "class": "notificationtype",
+    "description": "Interface is reachable. This trap is sent after atmmon determines that an interface is reachable. The bound variables contain the address of the device.",
+    "name": "tscAtmIfUp",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscAtmmonIfIndex"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscAtmmonSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscAtmmonifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.10.0.102"
+  },
+  "tscAtmmonIfIndex": {
+    "class": "objecttype",
+    "description": "The relevant ifIndex.",
+    "maxaccess": "read-only",
+    "name": "tscAtmmonIfIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.10.2",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "tscAtmmonSourceNode": {
+    "class": "objecttype",
+    "description": "The hostname of the interface being reported.",
+    "maxaccess": "read-only",
+    "name": "tscAtmmonSourceNode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.10.1",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscAtmmonifName": {
+    "class": "objecttype",
+    "description": "The name of the interface being reported down.",
+    "maxaccess": "read-only",
+    "name": "tscAtmmonifName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.10.3",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscCtFacility": {
+    "class": "objecttype",
+    "description": "The Cisco facility from log message, e.g. IP, PIX.",
+    "maxaccess": "read-only",
+    "name": "tscCtFacility",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.3.2",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscCtLogMessage": {
+    "class": "objecttype",
+    "description": "The message from log file suitable for logging. Format is: month day, time : facility-severity-mnemonic: message",
+    "maxaccess": "read-only",
+    "name": "tscCtLogMessage",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.3.1",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscCtMessage": {
+    "class": "objecttype",
+    "description": "The Cisco message from log message (stripped of time stamp, facility, severity, mnemonic",
+    "maxaccess": "read-only",
+    "name": "tscCtMessage",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.3.5",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscCtMnemonic": {
+    "class": "objecttype",
+    "description": "The Cisco Mnemonic from log message, e.g. DUPADDR.",
+    "maxaccess": "read-only",
+    "name": "tscCtMnemonic",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.3.4",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscCtSeverity": {
+    "class": "objecttype",
+    "description": "The Cisco severity from log message, e.g. 0, 1, 2, 3, 4, 5, 6, 7, 8.",
+    "maxaccess": "read-only",
+    "name": "tscCtSeverity",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.3.3",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscCtSeverity0": {
+    "class": "notificationtype",
+    "description": "Cisco device reporting a severity 0 event.",
+    "name": "tscCtSeverity0",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtLogMessage"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtFacility"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtSeverity"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtMnemonic"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtMessage"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.3.0.10"
+  },
+  "tscCtSeverity1": {
+    "class": "notificationtype",
+    "description": "Cisco device reporting a severity 1 event.",
+    "name": "tscCtSeverity1",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtLogMessage"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtFacility"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtSeverity"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtMnemonic"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtMessage"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.3.0.11"
+  },
+  "tscCtSeverity2": {
+    "class": "notificationtype",
+    "description": "Cisco device reporting a severity 2 event.",
+    "name": "tscCtSeverity2",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtLogMessage"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtFacility"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtSeverity"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtMnemonic"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtMessage"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.3.0.12"
+  },
+  "tscCtSeverity3": {
+    "class": "notificationtype",
+    "description": "Cisco device reporting a severity 3 event.",
+    "name": "tscCtSeverity3",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtLogMessage"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtFacility"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtSeverity"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtMnemonic"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtMessage"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.3.0.13"
+  },
+  "tscCtSeverity4": {
+    "class": "notificationtype",
+    "description": "Cisco device reporting a severity 4 event.",
+    "name": "tscCtSeverity4",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtLogMessage"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtFacility"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtSeverity"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtMnemonic"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtMessage"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.3.0.14"
+  },
+  "tscCtSeverity5": {
+    "class": "notificationtype",
+    "description": "Cisco device reporting a severity 5 event.",
+    "name": "tscCtSeverity5",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtLogMessage"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtFacility"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtSeverity"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtMnemonic"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtMessage"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.3.0.15"
+  },
+  "tscCtSeverity6": {
+    "class": "notificationtype",
+    "description": "Cisco device reporting a severity 6 event.",
+    "name": "tscCtSeverity6",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtLogMessage"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtFacility"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtSeverity"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtMnemonic"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtMessage"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.3.0.16"
+  },
+  "tscCtSeverity7": {
+    "class": "notificationtype",
+    "description": "Cisco device reporting a severity 7 event.",
+    "name": "tscCtSeverity7",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtLogMessage"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtFacility"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtSeverity"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtMnemonic"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtMessage"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.3.0.17"
+  },
+  "tscCtSeverity8": {
+    "class": "notificationtype",
+    "description": "Cisco device reporting a severity 8 event.",
+    "name": "tscCtSeverity8",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtLogMessage"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtFacility"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtSeverity"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtMnemonic"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscCtMessage"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.3.0.18"
+  },
+  "tscEwDescr": {
+    "class": "objecttype",
+    "description": "The textual description of the entity.",
+    "maxaccess": "read-only",
+    "name": "tscEwDescr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.1.17",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscEwDownTime": {
+    "class": "objecttype",
+    "description": "The amount of time (in seconds) the device in question was down.",
+    "maxaccess": "read-only",
+    "name": "tscEwDownTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.1.15",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "tscEwEventTime": {
+    "class": "objecttype",
+    "description": "The time (Unix time) when this event occurred.",
+    "maxaccess": "read-only",
+    "name": "tscEwEventTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.1.16",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "tscEwFaultAddr": {
+    "class": "objecttype",
+    "description": "The IP address of the node that was is the root cause.",
+    "maxaccess": "read-only",
+    "name": "tscEwFaultAddr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.1.2",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscEwFaultName": {
+    "class": "objecttype",
+    "description": "The name of the fault being reported.",
+    "maxaccess": "read-only",
+    "name": "tscEwFaultName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.1.10",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscEwFaultProtocol": {
+    "class": "objecttype",
+    "description": "The protocol of the fault being reported, e.g. IP.",
+    "maxaccess": "read-only",
+    "name": "tscEwFaultProtocol",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.1.11",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscEwFaultTimes": {
+    "class": "objecttype",
+    "description": "A string with two time stamps in it: 1) the current time 2) the time the original failure was reported The time is printed in Unix time (seconds since Jan 1, 1970).",
+    "maxaccess": "read-only",
+    "name": "tscEwFaultTimes",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.1.3",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscEwGroupName": {
+    "class": "objecttype",
+    "description": "The group name (as defined to EventWatch to which this node belongs.",
+    "maxaccess": "read-only",
+    "name": "tscEwGroupName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.1.7",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscEwInferredDown": {
+    "class": "notificationtype",
+    "description": "Device is verified down. This trap is sent after EventWatch verifies a device is down and it is not correlated to a problem in the network. This trap configured with behind-down-trap.",
+    "name": "tscEwInferredDown",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultAddr"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultProtocol"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceProtocol"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwGroupName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwReportHost"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwEventTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.1.0.2"
+  },
+  "tscEwInferredUp": {
+    "class": "notificationtype",
+    "description": "Device is verified up. This trap complements trap 2 to report that the root cause node is back up. This trap configured with behind-up-trap.",
+    "name": "tscEwInferredUp",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultAddr"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultProtocol"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceProtocol"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwGroupName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwReportHost"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwEventTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.1.0.4"
+  },
+  "tscEwNodeDown": {
+    "class": "notificationtype",
+    "description": "Device is verified down. This trap is issued when EventWatch is reporting the node down. Note this is the root cause node. This trap configured with level/trap.",
+    "name": "tscEwNodeDown",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceAddr"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwGroupName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceProtocol"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwReportHost"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwEventTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.1.0.5"
+  },
+  "tscEwNodeUp": {
+    "class": "notificationtype",
+    "description": "Device is back up after being verified down. This trap configured with level/trap.",
+    "name": "tscEwNodeUp",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceAddr"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwGroupName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceProtocol"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwReportHost"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwEventTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.1.0.6"
+  },
+  "tscEwRemoteInferredDown": {
+    "class": "notificationtype",
+    "description": "Device is verified down by Remote. This trap is sent after EventWatch on Remote verifies a device is down and it is not correlated to a problem in the network. This trap configured with behind-down-trap.",
+    "name": "tscEwRemoteInferredDown",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultAddr"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultProtocol"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceProtocol"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwGroupName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwReportHost"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwEventTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.1.0.12"
+  },
+  "tscEwRemoteInferredUp": {
+    "class": "notificationtype",
+    "description": "Device is verified up by Remote. This trap complements trap 2 to report that the root cause node is back up on Remote. This trap configured with behind-up-trap.",
+    "name": "tscEwRemoteInferredUp",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultAddr"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultProtocol"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceProtocol"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwGroupName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwReportHost"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwDownTime"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwEventTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.1.0.14"
+  },
+  "tscEwRemoteNodeDown": {
+    "class": "notificationtype",
+    "description": "Device is verified down by Remote. This trap is issued when EventWatch is reporting the node down. Note this is the root cause node. This trap configured with level/trap.",
+    "name": "tscEwRemoteNodeDown",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceAddr"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwGroupName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceProtocol"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwReportHost"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwEventTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.1.0.15"
+  },
+  "tscEwRemoteNodeUp": {
+    "class": "notificationtype",
+    "description": "Device is back up after being verified down by Remote. This trap configured with level/trap.",
+    "name": "tscEwRemoteNodeUp",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceAddr"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwGroupName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceProtocol"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwReportHost"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwEventTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.1.0.16"
+  },
+  "tscEwRemoteSourceDown": {
+    "class": "notificationtype",
+    "description": "Device is verified down by Remote. This trap is sent after EventWatch on Remote verifies a device is down and it is not correlated to a problem in the network. This trap configured with source-down-trap. The bound variables contain the address of the fault, its name, and its protocol.",
+    "name": "tscEwRemoteSourceDown",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultAddr"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultProtocol"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwGroupName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwReportHost"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwEventTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.1.0.11"
+  },
+  "tscEwRemoteSourceUp": {
+    "class": "notificationtype",
+    "description": "Device is back up, reported by Remote. This trap complements trap 1 to report that the source node is back up on Remote. This trap configured with source-up-trap.",
+    "name": "tscEwRemoteSourceUp",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultAddr"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultProtocol"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwGroupName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwReportHost"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwDownTime"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwEventTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.1.0.13"
+  },
+  "tscEwReportHost": {
+    "class": "objecttype",
+    "description": "The name of the EventWatch host reporting the problem. Make sure all the Remote box names are resolvable.",
+    "maxaccess": "read-only",
+    "name": "tscEwReportHost",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.1.14",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscEwSlaThres": {
+    "class": "notificationtype",
+    "description": "The availability of this group or host fell below the user configured threshold. This trap configured with level/trap.",
+    "name": "tscEwSlaThres",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwGroupName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwUserThreshold"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSlaValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.1.0.7"
+  },
+  "tscEwSlaValue": {
+    "class": "objecttype",
+    "description": "The value of the group availability.",
+    "maxaccess": "read-only",
+    "name": "tscEwSlaValue",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.1.13",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "tscEwSourceAddr": {
+    "class": "objecttype",
+    "description": "The address of the node being reported.",
+    "maxaccess": "read-only",
+    "name": "tscEwSourceAddr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.1.6",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscEwSourceDown": {
+    "class": "notificationtype",
+    "description": "Device is verified down. This trap is sent after EventWatch verifies a device is down and it is not correlated to a problem in the network. This trap configured with source-down-trap. The bound variables contain the address of the fault, its name, and its protocol.",
+    "name": "tscEwSourceDown",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultAddr"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultProtocol"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwGroupName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwReportHost"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwEventTime"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwDescr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.1.0.1"
+  },
+  "tscEwSourceName": {
+    "class": "objecttype",
+    "description": "The name of the node being reported.",
+    "maxaccess": "read-only",
+    "name": "tscEwSourceName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.1.8",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscEwSourceNode": {
+    "class": "objecttype",
+    "description": "The address of the node that was originally reported down.",
+    "maxaccess": "read-only",
+    "name": "tscEwSourceNode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.1.1",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscEwSourceProtocol": {
+    "class": "objecttype",
+    "description": "The protocol of the node being reported, e.g. IP.",
+    "maxaccess": "read-only",
+    "name": "tscEwSourceProtocol",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.1.9",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscEwSourceUp": {
+    "class": "notificationtype",
+    "description": "Device is back up. This trap complements trap 1 to report that the source node is back up. This trap configured with source-up-trap.",
+    "name": "tscEwSourceUp",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultAddr"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultProtocol"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwGroupName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwReportHost"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwEventTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.1.0.3"
+  },
+  "tscEwTestTrap": {
+    "class": "notificationtype",
+    "description": "EventWatch Test Notification. This trap is sent to EventWatch. It is used to verify that EventWatch can receive and send traps. This trap configured with test-trap. The bound variables contain the address of the device, its name, and its protocol.",
+    "name": "tscEwTestTrap",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwEventTime"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwGroupName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceProtocol"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceAddr"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwDescr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.1.0.91"
+  },
+  "tscEwTestTrapRecv": {
+    "class": "notificationtype",
+    "description": "EventWatch Test Notification. This trap is sent after EventWatch receives it. The status of the device reported is not actually verified. This trap configured with test-trap. The bound variables contain the address of the device, its name, and its protocol.",
+    "name": "tscEwTestTrapRecv",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwGroupName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceProtocol"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwSourceAddr"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwEventTime"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwDescr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.1.0.92"
+  },
+  "tscEwUserThreshold": {
+    "class": "objecttype",
+    "description": "The value of the user defined threshold.",
+    "maxaccess": "read-only",
+    "name": "tscEwUserThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.1.12",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "tscFsFull": {
+    "class": "notificationtype",
+    "description": "A file system is getting full. It has reached a particular level of capacity (%).",
+    "name": "tscFsFull",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteFsDevice"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteFsName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.24"
+  },
+  "tscFwdTrap": {
+    "class": "notificationtype",
+    "description": "Ensapsulate a trap within this trap. This trap is sent by ePROBE when forwarding traps with ensapsulation mode on. In particular, this makes sure forwarded traps do not have source agent IP address which messes up the NMS in duplicate IP environments. The bound variables contain the details of the oringal trap: agent IP address, agent hostname, enterprise OID, generic, specific, timestamp, community, log message, and variables.",
+    "name": "tscFwdTrap",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceAddr"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteTrapOID"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteTrapGeneric"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteTrapSpecific"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteTrapTimestamp"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteTrapCommunity"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteDescription"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.60"
+  },
+  "tscHostnameChanged": {
+    "class": "notificationtype",
+    "description": "A hostname change has been detected. This trap is sent when scannode determines that a new hostname is being used for a formerly different named node.",
+    "name": "tscHostnameChanged",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteOldValue"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteValue"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteRecno"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.17"
+  },
+  "tscIfDelete": {
+    "class": "notificationtype",
+    "description": "Interface is deleted This trap is sent after tpingd determines that an interface has been deleted. The bound variables contain the address of the device.",
+    "name": "tscIfDelete",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceAddr"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceProtocol"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.12"
+  },
+  "tscIfDown": {
+    "class": "notificationtype",
+    "description": "Interface is not reachable. This trap is sent after tpingd determines that an interface is no longer reachable. The bound variables contain the address of the device.",
+    "name": "tscIfDown",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceAddr"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceProtocol"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteIfIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.1"
+  },
+  "tscIfLatRearm": {
+    "class": "notificationtype",
+    "description": "A user-defined interface latency threshold was rearmed. This trap is sent after tpingd determines that a user-defined interface latency threshold was rearmed for this device. The bound variables contain the address of the device, the value of the interface latency, the value of the user-defined rearm.",
+    "name": "tscIfLatRearm",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteValue"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteRearm"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.4"
+  },
+  "tscIfLatThreshold": {
+    "class": "notificationtype",
+    "description": "A user-defined interface latency threshold was exceeded. This trap is sent after tpingd determines that a user-defined interface latency threshold was exceeded for this device. The bound variables contain the address of the device, the value of the interface latency, the value of the user-defined threshold.",
+    "name": "tscIfLatThreshold",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteValue"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteThreshold"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.3"
+  },
+  "tscIfManage": {
+    "class": "notificationtype",
+    "description": "An interface is now managed. This trap is sent after tmanage switches the status of the interface to managed. The bound variables contain the ifIndex, ifDescr.",
+    "name": "tscIfManage",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteIfIndex"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteDescription"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.52"
+  },
+  "tscIfUnknown": {
+    "class": "notificationtype",
+    "description": "Interface status is unknown. This trap is sent after tpingd determines that an interface is no longer known. The bound variables contain the address of the device.",
+    "name": "tscIfUnknown",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceAddr"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceProtocol"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteIfIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.5"
+  },
+  "tscIfUnmanage": {
+    "class": "notificationtype",
+    "description": "An interface is now unmanaged. This trap is sent after tunmanage switches the status of the interface to unmanaged. The bound variables contain the ifIndex, ifDescr.",
+    "name": "tscIfUnmanage",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteIfIndex"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteDescription"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.53"
+  },
+  "tscIfUp": {
+    "class": "notificationtype",
+    "description": "Interface is reachable. This trap is sent after tpingd determines that an interface is now reachable. The bound variables contain the address of the device.",
+    "name": "tscIfUp",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceAddr"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceProtocol"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteIfIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.2"
+  },
+  "tscInterfaceAdded": {
+    "class": "notificationtype",
+    "description": "An interface on a node is added. This trap is sent when scannode determines that an interface is new in the ifdb.",
+    "name": "tscInterfaceAdded",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteIfIndex"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.14"
+  },
+  "tscInterfaceDeleted": {
+    "class": "notificationtype",
+    "description": "An interface on a node is removed. This trap is sent when scannode determines that an interface is removed from the ifdb.",
+    "name": "tscInterfaceDeleted",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteIfIndex"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.16"
+  },
+  "tscManage": {
+    "class": "notificationtype",
+    "description": "A node is now managed. This trap is sent after tmanage switches the status of the node to managed. The bound variable contain the name of the device.",
+    "name": "tscManage",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceNode"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.50"
+  },
+  "tscNameChange": {
+    "class": "notificationtype",
+    "description": "A node name has changed",
+    "name": "tscNameChange",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceNode2"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceAddr"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.11"
+  },
+  "tscNetManage": {
+    "class": "notificationtype",
+    "description": "A subnet is now managed. This trap is sent after tmanage switches the status of the subnet to managed.",
+    "name": "tscNetManage",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteIfIndex"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteDescription"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.54"
+  },
+  "tscNetUnmanage": {
+    "class": "notificationtype",
+    "description": "A subnet is now unmanaged. This trap is sent after tunmanage switches the status of the subnet to unmanaged.",
+    "name": "tscNetUnmanage",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteIfIndex"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteDescription"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.55"
+  },
+  "tscNewNode": {
+    "class": "notificationtype",
+    "description": "A new node has been discovered by this system.",
+    "name": "tscNewNode",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceAddr"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.10"
+  },
+  "tscNodeAdded": {
+    "class": "notificationtype",
+    "description": "Node is added. This trap is sent when scannode determines that a node is new in the nodedb.",
+    "name": "tscNodeAdded",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteRecno"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.13"
+  },
+  "tscNodeDeleted": {
+    "class": "notificationtype",
+    "description": "Node is deleted. This trap is sent when scannode determines that a node is removed from the nodedb.",
+    "name": "tscNodeDeleted",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.15"
+  },
+  "tscNodeDown": {
+    "class": "notificationtype",
+    "description": "Node is down. This trap is sent after ipmon determines that all interfaces on a node are down. The bound variables contain the address of the device.",
+    "name": "tscNodeDown",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteValue"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.6"
+  },
+  "tscNodeMarginal": {
+    "class": "notificationtype",
+    "description": "Node is marginal. This trap is sent after ipmon determines that some interfaces on the node are down and some interfaces on the node are up. The bound variables contain the address of the device.",
+    "name": "tscNodeMarginal",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteValue"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.7"
+  },
+  "tscNodeUnknown": {
+    "class": "notificationtype",
+    "description": "Node is unknown. This trap is sent after ipmon determines that all interfaces on a node are unknown. The bound variables contain the address of the device.",
+    "name": "tscNodeUnknown",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteValue"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.9"
+  },
+  "tscNodeUp": {
+    "class": "notificationtype",
+    "description": "Node is up. This trap is sent after ipmon determines that all interfaces on a node are up. The bound variables contain the address of the device.",
+    "name": "tscNodeUp",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteValue"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.8"
+  },
+  "tscPmChassis": {
+    "class": "objecttype",
+    "description": "The chassis # for the port being reported.",
+    "maxaccess": "read-only",
+    "name": "tscPmChassis",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.8.4",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "tscPmDuplexChange": {
+    "class": "notificationtype",
+    "description": "The port duplex has changed. This trap is sent after a port configuration check determined that the port duplex has changed.",
+    "name": "tscPmDuplexChange",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmOldValue"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmValue"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmIndex"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmChassis"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmSlot"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmPos"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.8.0.4"
+  },
+  "tscPmIndex": {
+    "class": "objecttype",
+    "description": "The ifIndex for the port being reported.",
+    "maxaccess": "read-only",
+    "name": "tscPmIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.8.3",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "tscPmName": {
+    "class": "objecttype",
+    "description": "The user defined name of the port.",
+    "maxaccess": "read-only",
+    "name": "tscPmName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.8.8",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscPmNameChange": {
+    "class": "notificationtype",
+    "description": "The port name has changed. This trap is sent after a port configuration check determined that the port name has changed.",
+    "name": "tscPmNameChange",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmOldValue"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmValue"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmIndex"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmChassis"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmSlot"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmPos"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.8.0.1"
+  },
+  "tscPmNewPort": {
+    "class": "notificationtype",
+    "description": "A new port has been discovered. This trap is sent after a port configuration check determined that a new port is present",
+    "name": "tscPmNewPort",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmIndex"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmChassis"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmSlot"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmPos"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.8.0.100"
+  },
+  "tscPmOldValue": {
+    "class": "objecttype",
+    "description": "The old value (before the change).",
+    "maxaccess": "read-only",
+    "name": "tscPmOldValue",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.8.1",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscPmPortDeleted": {
+    "class": "notificationtype",
+    "description": "A port has been deleted from portdb. This trap is sent after a port status check determined that the port no longer exists.",
+    "name": "tscPmPortDeleted",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmIndex"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmChassis"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmSlot"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmPos"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.8.0.104"
+  },
+  "tscPmPortFault": {
+    "class": "notificationtype",
+    "description": "The status of a port has gone critical. This trap is sent after a port status check determined that the port is not functioning.",
+    "name": "tscPmPortFault",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmIndex"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmChassis"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmSlot"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmPos"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmStatus"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.8.0.101"
+  },
+  "tscPmPortRestored": {
+    "class": "notificationtype",
+    "description": "The status of a port returned to normal. This trap is sent after a port status check determined that the port is functioning again.",
+    "name": "tscPmPortRestored",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmIndex"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmChassis"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmSlot"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmPos"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmStatus"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.8.0.102"
+  },
+  "tscPmPortUnknown": {
+    "class": "notificationtype",
+    "description": "The status of a port is now unknown. This trap is sent after a port status check determined that the port has entered an unknown state.",
+    "name": "tscPmPortUnknown",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmChassis"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmSlot"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmPos"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmIndex"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmStatus"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.8.0.103"
+  },
+  "tscPmPos": {
+    "class": "objecttype",
+    "description": "The port # or port position in slot for the port being reported.",
+    "maxaccess": "read-only",
+    "name": "tscPmPos",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.8.6",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "tscPmSlot": {
+    "class": "objecttype",
+    "description": "The slot number inside chassis for the port being reported.",
+    "maxaccess": "read-only",
+    "name": "tscPmSlot",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.8.5",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "tscPmSpeedChange": {
+    "class": "notificationtype",
+    "description": "The port speed has changed. This trap is sent after a port configuration check determined that the port speed has changed.",
+    "name": "tscPmSpeedChange",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmOldValue"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmValue"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmIndex"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmChassis"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmSlot"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmPos"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.8.0.3"
+  },
+  "tscPmStatus": {
+    "class": "objecttype",
+    "description": "The (new) status of the port.",
+    "maxaccess": "read-only",
+    "name": "tscPmStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.8.7",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscPmTime": {
+    "class": "objecttype",
+    "description": "The (Unix) time of the status change.",
+    "maxaccess": "read-only",
+    "name": "tscPmTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.8.9",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscPmTypeChange": {
+    "class": "notificationtype",
+    "description": "The port type has changed. This trap is sent after a port configuration check determined that the port type has changed.",
+    "name": "tscPmTypeChange",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmOldValue"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmValue"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmIndex"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmChassis"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmSlot"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmPos"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.8.0.2"
+  },
+  "tscPmValue": {
+    "class": "objecttype",
+    "description": "The (new) value (after the change).",
+    "maxaccess": "read-only",
+    "name": "tscPmValue",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.8.2",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscPmVlanChange": {
+    "class": "notificationtype",
+    "description": "The port VLAN has changed. This trap is sent after a port configuration check determined that the port VLAN has changed.",
+    "name": "tscPmVlanChange",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmOldValue"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmValue"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmIndex"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmChassis"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmSlot"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscPmPos"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.8.0.5"
+  },
+  "tscPortManage": {
+    "class": "notificationtype",
+    "description": "An interface is now managed. This trap is sent after tmanage switches the status of the interface to managed. The bound variables contain the ifIndex, chassis, slot, and positon.",
+    "name": "tscPortManage",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteIfIndex"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteChassis"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSlot"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemotePosition"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.56"
+  },
+  "tscPortUnmanage": {
+    "class": "notificationtype",
+    "description": "An interface is now unmanaged. This trap is sent after tunmanage switches the status of the interface to unmanaged. The bound variables contain the ifIndex, chassis, slot, and positon.",
+    "name": "tscPortUnmanage",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteIfIndex"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteChassis"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSlot"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemotePosition"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.57"
+  },
+  "tscProcFail": {
+    "class": "notificationtype",
+    "description": "A key eProbe process has failed.",
+    "name": "tscProcFail",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteProcName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.21"
+  },
+  "tscProcStart": {
+    "class": "notificationtype",
+    "description": "A key eProbe process has started.",
+    "name": "tscProcStart",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteProcName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.23"
+  },
+  "tscProcStop": {
+    "class": "notificationtype",
+    "description": "A key eProbe process has stopped (deliberate).",
+    "name": "tscProcStop",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteProcName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.22"
+  },
+  "tscRedPeerAdd": {
+    "class": "notificationtype",
+    "description": "Report a redundant peer has been added.",
+    "name": "tscRedPeerAdd",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteDomain"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteTimestamp"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.61"
+  },
+  "tscRedPeerDown": {
+    "class": "notificationtype",
+    "description": "Report a redundant peer is now down.",
+    "name": "tscRedPeerDown",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteDomain"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteTimestamp"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.65"
+  },
+  "tscRedPeerRm": {
+    "class": "notificationtype",
+    "description": "Report a redundant peer has been removed.",
+    "name": "tscRedPeerRm",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteDomain"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteTimestamp"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.62"
+  },
+  "tscRedPeerUnavail": {
+    "class": "notificationtype",
+    "description": "Report a redundant peer is now unavailable.",
+    "name": "tscRedPeerUnavail",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteDomain"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteTimestamp"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.64"
+  },
+  "tscRedPeerUp": {
+    "class": "notificationtype",
+    "description": "Report a redundant peer is now up.",
+    "name": "tscRedPeerUp",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteDomain"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteTimestamp"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.63"
+  },
+  "tscRemoteAlive": {
+    "class": "notificationtype",
+    "description": "ePROBE is inferred up because it has again reported in to NMS. This trap is sent by ePdaemon. This trap has bindings in alignment with remote source up trap",
+    "name": "tscRemoteAlive",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultAddr"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultProtocol"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwGroupName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwReportHost"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwEventTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.69"
+  },
+  "tscRemoteChassis": {
+    "class": "objecttype",
+    "description": "The relevant chassis #.",
+    "maxaccess": "read-only",
+    "name": "tscRemoteChassis",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.6.13",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscRemoteDescription": {
+    "class": "objecttype",
+    "description": "The relevant description.",
+    "maxaccess": "read-only",
+    "name": "tscRemoteDescription",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.6.16",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscRemoteDomain": {
+    "class": "objecttype",
+    "description": "An ePROBE domain for this event.",
+    "maxaccess": "read-only",
+    "name": "tscRemoteDomain",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.6.25",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscRemoteFsDevice": {
+    "class": "objecttype",
+    "description": "The file system logical device.",
+    "maxaccess": "read-only",
+    "name": "tscRemoteFsDevice",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.6.10",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscRemoteFsName": {
+    "class": "objecttype",
+    "description": "The file system name (mount point).",
+    "maxaccess": "read-only",
+    "name": "tscRemoteFsName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.6.11",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscRemoteIfIndex": {
+    "class": "objecttype",
+    "description": "The relevant ifIndex.",
+    "maxaccess": "read-only",
+    "name": "tscRemoteIfIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.6.12",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscRemoteName": {
+    "class": "objecttype",
+    "description": "The hostname of this reporting system.",
+    "maxaccess": "read-only",
+    "name": "tscRemoteName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.6.6",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscRemoteNoStatus": {
+    "class": "notificationtype",
+    "description": "ePROBE is inferred down because it has not reported in to NMS. This trap is sent by ePdaemon. This trap has bindings in alignment with remote source down trap",
+    "name": "tscRemoteNoStatus",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultAddr"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwFaultProtocol"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwGroupName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwReportHost"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscEwEventTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.68"
+  },
+  "tscRemoteOldValue": {
+    "class": "objecttype",
+    "description": "The old value of a variable a thresold was set against.",
+    "maxaccess": "read-only",
+    "name": "tscRemoteOldValue",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.6.18",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "tscRemotePosition": {
+    "class": "objecttype",
+    "description": "The relevant port position #.",
+    "maxaccess": "read-only",
+    "name": "tscRemotePosition",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.6.15",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscRemoteProcName": {
+    "class": "objecttype",
+    "description": "The eProbe process name being reported.",
+    "maxaccess": "read-only",
+    "name": "tscRemoteProcName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.6.9",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscRemoteRearm": {
+    "class": "objecttype",
+    "description": "The value of a user-defined rearm.",
+    "maxaccess": "read-only",
+    "name": "tscRemoteRearm",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.6.4",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "tscRemoteRecno": {
+    "class": "objecttype",
+    "description": "The relevant database record number.",
+    "maxaccess": "read-only",
+    "name": "tscRemoteRecno",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.6.17",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscRemoteSlot": {
+    "class": "objecttype",
+    "description": "The relevant slot #.",
+    "maxaccess": "read-only",
+    "name": "tscRemoteSlot",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.6.14",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscRemoteSourceAddr": {
+    "class": "objecttype",
+    "description": "The address of the node being reported.",
+    "maxaccess": "read-only",
+    "name": "tscRemoteSourceAddr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.6.5",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscRemoteSourceNode": {
+    "class": "objecttype",
+    "description": "The hostname of the node being reported.",
+    "maxaccess": "read-only",
+    "name": "tscRemoteSourceNode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.6.1",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscRemoteSourceNode2": {
+    "class": "objecttype",
+    "description": "Another hostname being reported.",
+    "maxaccess": "read-only",
+    "name": "tscRemoteSourceNode2",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.6.7",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscRemoteSourceProtocol": {
+    "class": "objecttype",
+    "description": "The network protocol of the node being reported.",
+    "maxaccess": "read-only",
+    "name": "tscRemoteSourceProtocol",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.6.8",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscRemoteThreshold": {
+    "class": "objecttype",
+    "description": "The value of a user-defined thresold.",
+    "maxaccess": "read-only",
+    "name": "tscRemoteThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.6.3",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "tscRemoteTimestamp": {
+    "class": "objecttype",
+    "description": "A timestamp for this event.",
+    "maxaccess": "read-only",
+    "name": "tscRemoteTimestamp",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.6.24",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscRemoteTrapCommunity": {
+    "class": "objecttype",
+    "description": "The community of trap being encapsulated.",
+    "maxaccess": "read-only",
+    "name": "tscRemoteTrapCommunity",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.6.23",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscRemoteTrapGeneric": {
+    "class": "objecttype",
+    "description": "The generic of trap being encapsulated.",
+    "maxaccess": "read-only",
+    "name": "tscRemoteTrapGeneric",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.6.20",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscRemoteTrapOID": {
+    "class": "objecttype",
+    "description": "The enterprise OID of trap being encapsulated.",
+    "maxaccess": "read-only",
+    "name": "tscRemoteTrapOID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.6.19",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscRemoteTrapSpecific": {
+    "class": "objecttype",
+    "description": "The specific of trap being encapsulated.",
+    "maxaccess": "read-only",
+    "name": "tscRemoteTrapSpecific",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.6.21",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscRemoteTrapTimestamp": {
+    "class": "objecttype",
+    "description": "The timestamp of trap being encapsulated.",
+    "maxaccess": "read-only",
+    "name": "tscRemoteTrapTimestamp",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.6.22",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscRemoteValue": {
+    "class": "objecttype",
+    "description": "The value of a variable a thresold was set against.",
+    "maxaccess": "read-only",
+    "name": "tscRemoteValue",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.6.2",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "tscSltFacility": {
+    "class": "objecttype",
+    "description": "The facility from log message, e.g. snmpd, kernel.",
+    "maxaccess": "read-only",
+    "name": "tscSltFacility",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.9.2",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscSltHostname": {
+    "class": "objecttype",
+    "description": "The hostname of the device reporting the message.",
+    "maxaccess": "read-only",
+    "name": "tscSltHostname",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.9.4",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscSltLogMessage": {
+    "class": "objecttype",
+    "description": "The message from log file suitable for logging. Format is: month day time host facility[pid]: message",
+    "maxaccess": "read-only",
+    "name": "tscSltLogMessage",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.9.1",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscSltMessage": {
+    "class": "objecttype",
+    "description": "The message from log message (stripped of time stamp, facility, and hostname",
+    "maxaccess": "read-only",
+    "name": "tscSltMessage",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.9.5",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscSltPid": {
+    "class": "objecttype",
+    "description": "The process id of the facility or 0.",
+    "maxaccess": "read-only",
+    "name": "tscSltPid",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.9.3",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "tscSltTrap": {
+    "class": "notificationtype",
+    "description": "Reporting a syslog event.",
+    "name": "tscSltTrap",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscSltLogMessage"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscSltFacility"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscSltPid"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscSltHostname"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscSltMessage"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.9.0.1"
+  },
+  "tscSysContactChanged": {
+    "class": "notificationtype",
+    "description": "The sysContact on the device changed. This trap is sent when scannode determines that a new sysContact was detected for a host.",
+    "name": "tscSysContactChanged",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteOldValue"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteValue"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteRecno"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.29"
+  },
+  "tscSysDescrChanged": {
+    "class": "notificationtype",
+    "description": "The sysDescr on the device changed. This trap is sent when scannode determines that a new sysDescr was detected for a host.",
+    "name": "tscSysDescrChanged",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteOldValue"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteValue"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteRecno"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.27"
+  },
+  "tscSysLocationChanged": {
+    "class": "notificationtype",
+    "description": "The sysLocation on the device changed. This trap is sent when scannode determines that a new sysLocation was detected for a host.",
+    "name": "tscSysLocationChanged",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteOldValue"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteValue"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteRecno"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.28"
+  },
+  "tscSysNameChanged": {
+    "class": "notificationtype",
+    "description": "The sysName on the device changed. This trap is sent when scannode determines that a new sysName was detected for a host.",
+    "name": "tscSysNameChanged",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteOldValue"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteValue"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteRecno"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.26"
+  },
+  "tscSysObjectIDChanged": {
+    "class": "notificationtype",
+    "description": "The sysObjectID on the device changed. This trap is sent when scannode determines that a new sysObjectID was detected for a host.",
+    "name": "tscSysObjectIDChanged",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceNode"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteValue"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteRecno"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.18"
+  },
+  "tscTCPPortName": {
+    "class": "objecttype",
+    "description": "The Service Name of this particular port.",
+    "maxaccess": "read-only",
+    "name": "tscTCPPortName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.2.2",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscTCPPortNumber": {
+    "class": "objecttype",
+    "description": "The Service Number of this particular port.",
+    "maxaccess": "read-only",
+    "name": "tscTCPPortNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.2.3",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscTCPTime": {
+    "class": "objecttype",
+    "description": "The time at which the event occurred.",
+    "maxaccess": "read-only",
+    "name": "tscTCPTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.2.4",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscTcpSourceNode": {
+    "class": "objecttype",
+    "description": "The address of the node on which the TCP reported.",
+    "maxaccess": "read-only",
+    "name": "tscTcpSourceNode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.2.1",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tscUnmanage": {
+    "class": "notificationtype",
+    "description": "A node is now unmanaged. This trap is sent after tunmanage switches the status of the node to unmanaged. The bound variable contain the name of the device.",
+    "name": "tscUnmanage",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteSourceNode"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.51"
+  },
+  "tscVoidWarranty": {
+    "class": "notificationtype",
+    "description": "The eProbe admin has elected for root access to the device and understands this voids the warranty.",
+    "name": "tscVoidWarranty",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "tscRemoteName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.6.0.25"
+  },
+  "wwwmon": {
+    "class": "objectidentity",
+    "name": "wwwmon",
+    "oid": "1.3.6.1.4.1.2668.1.1.4"
+  },
+  "wwwmonBusy": {
+    "class": "notificationtype",
+    "description": "Wwwmon reporting the status change to Busy from a web page query.",
+    "name": "wwwmonBusy",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerPort"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerURL"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.4.0.105"
+  },
+  "wwwmonClient": {
+    "class": "notificationtype",
+    "description": "Wwwmon reporting the status change to HTTP-Client-Err from a web page query.",
+    "name": "wwwmonClient",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerPort"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerURL"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.4.0.108"
+  },
+  "wwwmonInfo": {
+    "class": "notificationtype",
+    "description": "Wwwmon reporting the status change to HTTP-Info from a web page query.",
+    "name": "wwwmonInfo",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerPort"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerURL"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.4.0.106"
+  },
+  "wwwmonRedirect": {
+    "class": "notificationtype",
+    "description": "Wwwmon reporting the status change to HTTP-Redirect from a web page query.",
+    "name": "wwwmonRedirect",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerPort"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerURL"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.4.0.107"
+  },
+  "wwwmonRefd": {
+    "class": "notificationtype",
+    "description": "Wwwmon reporting the status change to Refused from a web page query.",
+    "name": "wwwmonRefd",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerPort"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerURL"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.4.0.103"
+  },
+  "wwwmonServer": {
+    "class": "notificationtype",
+    "description": "Wwwmon reporting the status change to HTTP-Server-Err from a web page query.",
+    "name": "wwwmonServer",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerPort"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerURL"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.4.0.109"
+  },
+  "wwwmonServerName": {
+    "class": "objecttype",
+    "description": "This is the web server\u0027s hostname",
+    "maxaccess": "read-only",
+    "name": "wwwmonServerName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.4.1",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "wwwmonServerPort": {
+    "class": "objecttype",
+    "description": "This is the web server port number.",
+    "maxaccess": "read-only",
+    "name": "wwwmonServerPort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.4.2",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "wwwmonServerStatus": {
+    "class": "objecttype",
+    "description": "This is the web server\u0027s status for the HEAD request.",
+    "maxaccess": "read-only",
+    "name": "wwwmonServerStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.4.4",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "wwwmonServerURL": {
+    "class": "objecttype",
+    "description": "This is the URL passed to the web server",
+    "maxaccess": "read-only",
+    "name": "wwwmonServerURL",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2668.1.1.4.3",
+    "status": "optional",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "wwwmonTimeout": {
+    "class": "notificationtype",
+    "description": "Wwwmon reporting the status change to Timeout from a web page query.",
+    "name": "wwwmonTimeout",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerPort"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerURL"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.4.0.102"
+  },
+  "wwwmonUnknown": {
+    "class": "notificationtype",
+    "description": "Wwwmon reporting the status change to Unknown from a web page query.",
+    "name": "wwwmonUnknown",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerPort"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerURL"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.4.0.104"
+  },
+  "wwwmonUp": {
+    "class": "notificationtype",
+    "description": "Wwwmon reporting the status change to Up from a web page query.",
+    "name": "wwwmonUp",
+    "objects": [
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerName"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerPort"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerURL"
+      },
+      {
+        "module": "TAVVE-MIB",
+        "object": "wwwmonServerStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2668.1.1.4.0.101"
+  },
+  "xmon": {
+    "class": "objectidentity",
+    "name": "xmon",
+    "oid": "1.3.6.1.4.1.2668.1.1.12"
+  }
+}

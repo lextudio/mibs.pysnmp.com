@@ -1,0 +1,95 @@
+{
+  "hwMA5200G_16": {
+    "class": "objectidentity",
+    "name": "hwMA5200G_16",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.29"
+  },
+  "hwMA5200G_2": {
+    "class": "objectidentity",
+    "name": "hwMA5200G_2",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.32"
+  },
+  "hwMA5200G_4": {
+    "class": "objectidentity",
+    "name": "hwMA5200G_4",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.31"
+  },
+  "hwMA5200G_8": {
+    "class": "objectidentity",
+    "name": "hwMA5200G_8",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.30"
+  },
+  "hwMA5200Ifcfg": {
+    "class": "objectidentity",
+    "name": "hwMA5200Ifcfg",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.100"
+  },
+  "hwMA5200L2tp": {
+    "class": "objectidentity",
+    "name": "hwMA5200L2tp",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.101"
+  },
+  "hwMA5200Mib": {
+    "class": "objectidentity",
+    "name": "hwMA5200Mib",
+    "oid": "1.3.6.1.4.1.2011.2.6.2"
+  },
+  "hwMA5200PPPoX": {
+    "class": "objectidentity",
+    "name": "hwMA5200PPPoX",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.102"
+  },
+  "hwMA5200Srvcfg": {
+    "class": "objectidentity",
+    "name": "hwMA5200Srvcfg",
+    "oid": "1.3.6.1.4.1.2011.2.6.2.103"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwProducts"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Counter64",
+      "MibIdentifier",
+      "Unsigned32",
+      "iso",
+      "Integer32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-MA5200-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:09 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-MA5200-MIB"
+  },
+  "musa": {
+    "class": "moduleidentity",
+    "contactinfo": " NanJing Institute,Huawei Technologies Co.,Ltd. HuiHong Mansion,No.91 BaiXia Rd. NanJing, P.R. of China Zipcode:210001 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": "The HUAWEI-MA5200-MIB contains objects of MA5200",
+    "lastupdated": "200303110900Z",
+    "name": "musa",
+    "oid": "1.3.6.1.4.1.2011.2.6",
+    "organization": "Huawei Technologies Co., Ltd."
+  }
+}

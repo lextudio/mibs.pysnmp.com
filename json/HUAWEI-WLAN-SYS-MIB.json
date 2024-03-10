@@ -1,0 +1,2290 @@
+{
+  "hwAcCountryCode": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwAcCountryCode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.2.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwConnectMasterControllerIPv4Address": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwConnectMasterControllerIPv4Address",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.13.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwConnectMasterControllerIPv6Address": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwConnectMasterControllerIPv6Address",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.13.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwConnectMasterControllerSwitch": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwConnectMasterControllerSwitch",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.13.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connect": 2,
+          "disconnect": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwInterAcManagement": {
+    "class": "objectidentity",
+    "name": "hwInterAcManagement",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.13"
+  },
+  "hwInterAcManagementGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwInterAcManagementGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwMasterControllerSwitch"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwConnectMasterControllerSwitch"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwConnectMasterControllerIPv4Address"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwConnectMasterControllerIPv6Address"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.1.14.2.13",
+    "status": "current"
+  },
+  "hwMasterControllerSwitch": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwMasterControllerSwitch",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.13.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwUndoWlanAcProtectIpAddress": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwUndoWlanAcProtectIpAddress",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.6.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUndoWlanAcProtectPriority": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwUndoWlanAcProtectPriority",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.6.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlan24G20MconfigChannel": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlan24G20MconfigChannel",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.7.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlan24G40MMinusConfigChannel": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlan24G40MMinusConfigChannel",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.7.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlan24G40MPlusConfigChannel": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlan24G40MPlusConfigChannel",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.7.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlan24G80MConfigChannel": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlan24G80MConfigChannel",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.7.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlan5G20MConfigChannel": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlan5G20MConfigChannel",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.7.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlan5G40MMinusConfigChannel": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlan5G40MMinusConfigChannel",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.7.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlan5G40MPlusConfigChannel": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlan5G40MPlusConfigChannel",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.7.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlan5G80MConfigChannel": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlan5G80MConfigChannel",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.7.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlanAcAccessMaxApNumber": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlanAcAccessMaxApNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.2.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanAcAccessMaxStaNumber": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlanAcAccessMaxStaNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.2.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanAcDtlsDefaultPskSwitch": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanAcDtlsDefaultPskSwitch",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.2.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWlanAcDtlsPsk": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanAcDtlsPsk",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.2.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlanAcDtlsSwitch": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanAcDtlsSwitch",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.2.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWlanAcId": {
+    "class": "objecttype",
+    "description": "The ac identification. The carrier must set ac id and carrier id before use. In this case, APs can check each other whether blong to a same AC. ",
+    "maxaccess": "read-write",
+    "name": "hwWlanAcId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.2.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanAcNEnumber": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanAcNEnumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.2.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlanAcProtect": {
+    "class": "objectidentity",
+    "name": "hwWlanAcProtect",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.6"
+  },
+  "hwWlanAcProtectGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWlanAcProtectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanAcProtectIpAddress"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanAcProtectPriority"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanAcProtectSwitch"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanAcProtectRestoreSwitch"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwUndoWlanAcProtectIpAddress"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwUndoWlanAcProtectPriority"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanAcProtectIpv6Address"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.1.14.2.6",
+    "status": "current"
+  },
+  "hwWlanAcProtectIpAddress": {
+    "class": "objecttype",
+    "description": "IP address of the backup AC.",
+    "maxaccess": "read-write",
+    "name": "hwWlanAcProtectIpAddress",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.6.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwWlanAcProtectIpv6Address": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanAcProtectIpv6Address",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.6.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 46,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlanAcProtectPriority": {
+    "class": "objecttype",
+    "description": "Dual-link hot backup priorities.",
+    "maxaccess": "read-write",
+    "name": "hwWlanAcProtectPriority",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.6.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwWlanAcProtectRestoreSwitch": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanAcProtectRestoreSwitch",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.6.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWlanAcProtectSwitch": {
+    "class": "objecttype",
+    "description": "Dual-link hot backup switch.",
+    "maxaccess": "read-write",
+    "name": "hwWlanAcProtectSwitch",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.6.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWlanAcSourceIPv4Address": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanAcSourceIPv4Address",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.3.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwWlanAcSourceInterface": {
+    "class": "objectidentity",
+    "name": "hwWlanAcSourceInterface",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.3"
+  },
+  "hwWlanAcSourceInterfaceGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWlanAcSourceInterfaceGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanAcSourceInterfaceValue"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanAcSourceInterfaceMethod"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanAcSourceIPv4Address"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.1.14.2.3",
+    "status": "current"
+  },
+  "hwWlanAcSourceInterfaceMethod": {
+    "class": "objecttype",
+    "description": "operation method of wlan ac source interface.It can be set default(1): use default setting vlanif(2): use vlanif interface loopback(3): use loopback interface ipaddress(4):user ip address ",
+    "maxaccess": "read-write",
+    "name": "hwWlanAcSourceInterfaceMethod",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.3.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "ipaddress": 4,
+          "loopback": 3,
+          "vlanif": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWlanAcSourceInterfaceValue": {
+    "class": "objecttype",
+    "description": "the value of wlan ac source interface. ",
+    "maxaccess": "read-write",
+    "name": "hwWlanAcSourceInterfaceValue",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.3.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanApLldpSwitch": {
+    "class": "objecttype",
+    "description": "Description: Global AP LLDP switch.",
+    "maxaccess": "read-write",
+    "name": "hwWlanApLldpSwitch",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.2.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWlanApLogManualBackupApId": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanApLogManualBackupApId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.2.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanApPassword": {
+    "class": "objecttype",
+    "description": "Description: When set, need to together with username, and the password length is 8 to 32 characters which must contain at least one capital letter, one lowcase letter and one number.",
+    "maxaccess": "read-write",
+    "name": "hwWlanApPassword",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.2.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 8
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlanApRegionTrapRestrain": {
+    "class": "objectidentity",
+    "name": "hwWlanApRegionTrapRestrain",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.1.3"
+  },
+  "hwWlanApRegionTrapRestrainRegionIndexMask": {
+    "class": "objecttype",
+    "description": "Wlan trap restrain by ap region. Every bit is used to describe the region\u0027s trap will be restrained or not. 0 means not restrain, and 1 means restrain. Each Byte describes 8 regions are restrained or not. The value of this node is hexadecimal integer block. For example, the first Byte describes region 0~7 is restrained or not, and the second Byte describes region 8~15 is restrained or not. Such as, if only region 0,4,5,6,7,9 is restrain, the binary number is 11110001 and 00000010, the hexadecimal number is 0xF1 and 0x2, so the first Byte of this node is 0xF1, and the second Byte is 0x2.",
+    "maxaccess": "read-write",
+    "name": "hwWlanApRegionTrapRestrainRegionIndexMask",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.1.3.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlanApTrapRestrain": {
+    "class": "objectidentity",
+    "name": "hwWlanApTrapRestrain",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.1.4"
+  },
+  "hwWlanApTrapRestrainApIndexMask": {
+    "class": "objecttype",
+    "description": "Wlan trap restrain by ap. Every bit is used to describe the ap\u0027s trap will be restrained or not. 0 means not restrain, and 1 means restrain. Each Byte describes 8 aps are restrained or not. The value of this node is hexadecimal integer block. For example, the first Byte describes ap 0~7 is restrained or not, and the second Byte describes ap 8~15 is restrained or not. Such as, if only ap 0,4,5,6,7,9 is restrain, the binary number is 11110001 and 00000010, the hexadecimal number is 0xF1 and 0x2, so the first Byte of this node is 0xF1, and the second Byte is 0x2.",
+    "maxaccess": "read-write",
+    "name": "hwWlanApTrapRestrainApIndexMask",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.1.4.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlanApUsername": {
+    "class": "objecttype",
+    "description": "Description: When set, need to together with password, and the username length is 4 to 31 characters.",
+    "maxaccess": "read-write",
+    "name": "hwWlanApUsername",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.2.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 4
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlanBatchQuery": {
+    "class": "objectidentity",
+    "name": "hwWlanBatchQuery",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.4"
+  },
+  "hwWlanBatchQueryGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWlanBatchQueryGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanBatchQueryType"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanBatchRequestNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanBatchStartCount"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanBatchRequestIdList"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanBatchRequestIdSize"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanBatchRequestIdNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanBatchValueList"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanBatchReturnNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanBatchTotalNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.1.14.2.4",
+    "status": "current"
+  },
+  "hwWlanBatchQueryType": {
+    "class": "objecttype",
+    "description": "Data type of Batch query. For example, apProfName(1) can be used to get ap-profile-name list. The batch query support two modes, the number mode and the ID list mode, binding the node hwWlanBatchRequestNum and hwWlanBatchStartCount means use the number mode, binding the node hwWlanBatchRequestIdList, hwWlanBatchRequestIdSize hwWlanBatchRequestIdNum means use the ID list mode. ",
+    "maxaccess": "read-write",
+    "name": "hwWlanBatchQueryType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.4.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apBlackListMac": 4,
+          "apBlackListSn": 5,
+          "apId": 8,
+          "apIdState": 9,
+          "apIdStateRegionName": 10,
+          "apProfName": 1,
+          "apRegionId": 6,
+          "apRegionIdModeName": 7,
+          "apWhiteListMac": 2,
+          "apWhiteListSn": 3,
+          "authMacStateType": 19,
+          "clear": 65535,
+          "essNameSsid": 15,
+          "radioBalanceGroupName": 13,
+          "radioProfName": 12,
+          "secProfName": 18,
+          "trafficProfName": 17,
+          "unauthApIdMac": 11,
+          "uncontrolApIdBssidAuthApId": 14,
+          "wmmProfName": 16
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWlanBatchRequestIdList": {
+    "class": "objecttype",
+    "description": "The ID list of the data type, It used in ID list mode. This node must be set in company with the node hwWlanBatchRequestIdSize and hwWlanBatchRequestIdNum. For example, Ther are 6 apid(0 1 3 4 5 6) int the AC, set hwWlanBatchQuery to apIdStateRegionName(10), set hwWlanBatchRequestIdList to #0x00 0x01 0x00 0x02 0x00 0x03 (ap1 ap2 ap3), set hwWlanBatchRequestIdSize to 2(bytes), and set hwWlanBatchRequestIdNum to 3, then get the node hwWlanBatchValueList and hwWlanBatchReturnNum. The result in hwWlanBatchValueList are apids(1 2 3)",
+    "maxaccess": "read-write",
+    "name": "hwWlanBatchRequestIdList",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.4.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 2048,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlanBatchRequestIdNum": {
+    "class": "objecttype",
+    "description": "The number of batch query by id, it used in ID list mode. This node must be set in company with the node hwWlanBatchRequestIdList and hwWlanBatchRequestIdSize. For example, Ther are 6 apid(0 1 3 4 5 6) int the AC, set hwWlanBatchQuery to apIdStateRegionName(10), set hwWlanBatchRequestIdList to #0x00 0x01 0x00 0x02 0x00 0x03 (ap1 ap2 ap3), set hwWlanBatchRequestIdSize to 2(bytes), and set hwWlanBatchRequestIdNum to 3, then get the node hwWlanBatchValueList and hwWlanBatchReturnNum. The result in hwWlanBatchValueList are apids(1 2 3)",
+    "maxaccess": "read-write",
+    "name": "hwWlanBatchRequestIdNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.4.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanBatchRequestIdSize": {
+    "class": "objecttype",
+    "description": "The length of a batch query ID element, it used in ID list mode. This node must be set in company with the node hwWlanBatchRequestIdList and hwWlanBatchRequestIdNum. For example, Ther are 6 apid(0 1 3 4 5 6) int the AC, set hwWlanBatchQuery to apIdStateRegionName(10), set hwWlanBatchRequestIdList to #0x00 0x01 0x00 0x02 0x00 0x03 (ap1 ap2 ap3), set hwWlanBatchRequestIdSize to 2(bytes), and set hwWlanBatchRequestIdNum to 3, then get the node hwWlanBatchValueList and hwWlanBatchReturnNum. The result in hwWlanBatchValueList are apids(1 2 3)",
+    "maxaccess": "read-write",
+    "name": "hwWlanBatchRequestIdSize",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.4.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanBatchRequestNum": {
+    "class": "objecttype",
+    "description": "The request number of the batch query, it used in number mode. This node must be set in company with the node hwWlanBatchStartCount. For example, there are 6 ap-profiles(0 1 3 5 6 9) in the AC, Set hwWlanBatchQuery to apProfName(1), set hwWlanBatchRequestNum to 3, and set hwWlanBatchStartCount to 2, then get the node hwWlanBatchValueList and hwWlanBatchReturnNum, that means start from the 2nd ap-profile, get 3 ap-profile-names, the result in hwWlanBatchValueList are ap-profile(3 5 6 9). ",
+    "maxaccess": "read-write",
+    "name": "hwWlanBatchRequestNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.4.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanBatchReturnNum": {
+    "class": "objecttype",
+    "description": "The number of successful query. This node must be get in company with the node hwWlanBatchValueList.",
+    "maxaccess": "read-only",
+    "name": "hwWlanBatchReturnNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.4.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanBatchStartCount": {
+    "class": "objecttype",
+    "description": "The start count of the batch query, it used in number mode. This node must be set in company with the node hwWlanBatchRequestNum. For example, there are 6 ap-profiles(0 1 3 5 6 9) in the AC, Set hwWlanBatchQuery to apProfName(1), set hwWlanBatchRequestNum to 3, and set hwWlanBatchStartCount to 2, then get the node hwWlanBatchValueList and hwWlanBatchReturnNum, that means start from the 2nd ap-profile, get 3 ap-profile-names, the result in hwWlanBatchValueList are ap-profile(3 5 6 9).",
+    "maxaccess": "read-write",
+    "name": "hwWlanBatchStartCount",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.4.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanBatchTotalNum": {
+    "class": "objecttype",
+    "description": "Total number of current batch query. For example, There are 10 ap-Profiles in the AC, the value of this node will be 10.",
+    "maxaccess": "read-only",
+    "name": "hwWlanBatchTotalNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.4.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanBatchValueList": {
+    "class": "objecttype",
+    "description": "The returned value list. If the value ended by a string, each value is divided by \u0027?\u0027, otherwise , each value will have a fixed length. This node must be get in company with the node hwWlanBatchReturnNum.",
+    "maxaccess": "read-only",
+    "name": "hwWlanBatchValueList",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.4.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 6144,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlanCapwapConfig": {
+    "class": "objectidentity",
+    "name": "hwWlanCapwapConfig",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.5"
+  },
+  "hwWlanCapwapConfigGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWlanCapwapConfigGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanCapwapKeepAliveInterval"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanCapwapKeepAliveTimes"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanCapwapControlPriorityACToAP"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanCapwapControlPriorityAPToAC"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.1.14.2.5",
+    "status": "current"
+  },
+  "hwWlanCapwapControlPriorityACToAP": {
+    "class": "objecttype",
+    "description": " the ac\u0027s priority value of CAPWAP control packet,includ cos and tos, ranging between 0 and 7. ",
+    "maxaccess": "read-write",
+    "name": "hwWlanCapwapControlPriorityACToAP",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.5.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanCapwapControlPriorityAPToAC": {
+    "class": "objecttype",
+    "description": " the ap\u0027s priority value of CAPWAP control packet,includ tos, ranging between 0 and 7. ",
+    "maxaccess": "read-write",
+    "name": "hwWlanCapwapControlPriorityAPToAC",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.5.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanCapwapKeepAliveInterval": {
+    "class": "objecttype",
+    "description": " The interval of maintain freshness of the CAPWAP channel, in seconds. ",
+    "maxaccess": "read-write",
+    "name": "hwWlanCapwapKeepAliveInterval",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.5.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanCapwapKeepAliveTimes": {
+    "class": "objecttype",
+    "description": " The times of maintain freshness of the CAPWAP channel before it timeout. ",
+    "maxaccess": "read-write",
+    "name": "hwWlanCapwapKeepAliveTimes",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.5.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanCarrierId": {
+    "class": "objecttype",
+    "description": "The carrier identification. cmcc means \u0027China mobile communications corporation\u0027 , ctc means \u0027China telecom company\u0027 , cuc means \u0027China unicom company\u0027, other means \u0027Other company\u0027, ",
+    "maxaccess": "read-write",
+    "name": "hwWlanCarrierId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.2.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cmcc": 1,
+          "ctc": 2,
+          "cuc": 3,
+          "other": 65535
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWlanConfigChannel": {
+    "class": "objectidentity",
+    "name": "hwWlanConfigChannel",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.7"
+  },
+  "hwWlanConfigChannelApId": {
+    "class": "objecttype",
+    "description": "Ap index, is used to identify AP uniquely.Query the configurable channel of the ap must contain apid otherwise query are global configurable channel.",
+    "maxaccess": "read-write",
+    "name": "hwWlanConfigChannelApId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.7.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanConfigChannelGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWlanConfigChannelGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlan24G20MconfigChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlan24G40MPlusConfigChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlan24G40MMinusConfigChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlan5G20MConfigChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlan5G40MPlusConfigChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlan5G40MMinusConfigChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanConfigChannelApId"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlan24G80MConfigChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlan5G80MConfigChannel"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.1.14.2.7",
+    "status": "current"
+  },
+  "hwWlanForwardMode": {
+    "class": "objecttype",
+    "description": "AC forward mode.It can be set ess(1): ess mode ap(2): ap mode ",
+    "maxaccess": "read-write",
+    "name": "hwWlanForwardMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.2.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ap": 2,
+          "ess": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWlanHsbConfig": {
+    "class": "objectidentity",
+    "name": "hwWlanHsbConfig",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.9"
+  },
+  "hwWlanHsbConfigGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWlanHsbConfigGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanHsbServiceType"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanHsbGroupId"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanHsbTunnelId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.1.14.2.9",
+    "status": "current"
+  },
+  "hwWlanHsbGroupId": {
+    "class": "objecttype",
+    "description": "The id of the hsb group used. When hsb service type is disabled, the value of this node is 0xFFFFFFFF.",
+    "maxaccess": "read-write",
+    "name": "hwWlanHsbGroupId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.9.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWlanHsbServiceType": {
+    "class": "objecttype",
+    "description": "The hsb service type can be one of the three values: 1, 2, 3 (1: disable(1) 2: hsbGroup(2) 3: hsbService(3)). The default value of this node is 1.",
+    "maxaccess": "read-write",
+    "name": "hwWlanHsbServiceType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.9.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "hsbGroup": 2,
+          "hsbService": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWlanHsbTunnelId": {
+    "class": "objecttype",
+    "description": "The id of the hsb tunnel used. When hsb service type is disabled, the value of this node is 0xFFFFFFFF.",
+    "maxaccess": "read-write",
+    "name": "hwWlanHsbTunnelId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.9.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWlanInterAcDtlsEncrpyt": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanInterAcDtlsEncrpyt",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.2.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWlanInterAcDtlsPsk": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanInterAcDtlsPsk",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.2.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlanIpv6Enable": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanIpv6Enable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.2.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWlanLBSAeApReportMode": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanLBSAeApReportMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.12.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "toAc": 2,
+          "toServer": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWlanLBSAeApReportPort": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanLBSAeApReportPort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.12.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanLBSAeCompoundTime": {
+    "class": "objecttype",
+    "description": "Compound Time of AeroScout Tag Message",
+    "maxaccess": "read-write",
+    "name": "hwWlanLBSAeCompoundTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.12.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanLBSAeServerPort": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanLBSAeServerPort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.12.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanLBSConfig": {
+    "class": "objectidentity",
+    "name": "hwWlanLBSConfig",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.12.1"
+  },
+  "hwWlanLBSConfigGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWlanLBSConfigGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanLBSAeServerPort"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanLBSAeApReportMode"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanLBSAeApReportPort"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanLBSEkServerIp"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanLBSEkServerPort"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanLBSEkApReportMode"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanLBSEkApReportIp"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanLBSEkApReportPort"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanLBSSourceIp"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanLBSAeCompoundTime"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanLBSEkServerIpv6Addr"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanLBSEkApReportIpv6Addr"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanLBSSourceIpv6Addr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.1.14.2.12",
+    "status": "current"
+  },
+  "hwWlanLBSEkApReportIp": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanLBSEkApReportIp",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.12.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwWlanLBSEkApReportIpv6Addr": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanLBSEkApReportIpv6Addr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.12.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 46,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlanLBSEkApReportMode": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanLBSEkApReportMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.12.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "toAc": 2,
+          "toServer": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWlanLBSEkApReportPort": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanLBSEkApReportPort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.12.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanLBSEkServerIp": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanLBSEkServerIp",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.12.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwWlanLBSEkServerIpv6Addr": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanLBSEkServerIpv6Addr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.12.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 46,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlanLBSEkServerPort": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanLBSEkServerPort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.12.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanLBSSourceIp": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanLBSSourceIp",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.12.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwWlanLBSSourceIpv6Addr": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanLBSSourceIpv6Addr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.12.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 46,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlanLocation": {
+    "class": "objectidentity",
+    "name": "hwWlanLocation",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.10"
+  },
+  "hwWlanLocationAcReportToIpv6Addr": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanLocationAcReportToIpv6Addr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.10.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 46,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlanLocationApReportToAC": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanLocationApReportToAC",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.10.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanLocationApReportToIpv6Addr": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanLocationApReportToIpv6Addr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.10.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 46,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlanLocationApReportToServerIp": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanLocationApReportToServerIp",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.10.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwWlanLocationApReportToUdpPort": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanLocationApReportToUdpPort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.10.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanLocationGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWlanLocationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanLocationServerIP"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanLocationServerPort"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanLocationSourceIP"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanLocationApReportToAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanLocationApReportToServerIp"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanLocationApReportToUdpPort"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanLocationApReportToIpv6Addr"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanLocationAcReportToIpv6Addr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.1.14.2.10",
+    "status": "current"
+  },
+  "hwWlanLocationServerIP": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanLocationServerIP",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.10.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwWlanLocationServerPort": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanLocationServerPort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.10.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanLocationSourceIP": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanLocationSourceIP",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.10.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwWlanNonWifiDeviceAgeTime": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanNonWifiDeviceAgeTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.11.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanSpectrogramServerIP": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanSpectrogramServerIP",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.11.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwWlanSpectrogramServerIPv6Addr": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanSpectrogramServerIPv6Addr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.11.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 46,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlanSpectrogramServerPort": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanSpectrogramServerPort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.11.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanSpectrumAnalysis": {
+    "class": "objectidentity",
+    "name": "hwWlanSpectrumAnalysis",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.11"
+  },
+  "hwWlanSpectrumAnalysisGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWlanSpectrumAnalysisGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanSpectrumAnalysisServerIP"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanSpectrumAnalysisServerPort"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanNonWifiDeviceAgeTime"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanSpectrogramServerIP"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanSpectrogramServerPort"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanSpectrumAnalysisServerIPv6Addr"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanSpectrogramServerIPv6Addr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.1.14.2.11",
+    "status": "current"
+  },
+  "hwWlanSpectrumAnalysisServerIP": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanSpectrumAnalysisServerIP",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.11.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwWlanSpectrumAnalysisServerIPv6Addr": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanSpectrumAnalysisServerIPv6Addr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.11.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 46,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlanSpectrumAnalysisServerPort": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanSpectrumAnalysisServerPort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.11.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanStaIpv6Switch": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "Whether to process IPv6 services of STAs.",
+    "maxaccess": "read-write",
+    "name": "hwWlanStaIpv6Switch",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.2.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWlanStaLoadbalance": {
+    "class": "objectidentity",
+    "name": "hwWlanStaLoadbalance",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.8"
+  },
+  "hwWlanStaLoadbalanceAssociateThreshold": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanStaLoadbalanceAssociateThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.8.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanStaLoadbalanceEnable": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanStaLoadbalanceEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.8.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanStaLoadbalanceGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWlanStaLoadbalanceGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanStaLoadbalanceEnable"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanStaLoadbalanceMode"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanStaLoadbalanceSessionGap"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanStaLoadbalanceTrafficGap"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanStaLoadbalanceAssociateThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.1.14.2.8",
+    "status": "current"
+  },
+  "hwWlanStaLoadbalanceMode": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanStaLoadbalanceMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.8.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanStaLoadbalanceSessionGap": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanStaLoadbalanceSessionGap",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.8.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanStaLoadbalanceTrafficGap": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanStaLoadbalanceTrafficGap",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.8.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanSysManagement": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "add table of hwWlanStaIpv6Switch,and notes for sta ipv6 service.",
+    "lastupdated": "201410231600Z",
+    "name": "hwWlanSysManagement",
+    "oid": "1.3.6.1.4.1.2011.6.139.1",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "add table of hwWlanInterAcManagement,and notes for inter-ac dtls.",
+        "revision": "2014-10-23 16:00"
+      },
+      {
+        "description": "add node of hwWlanAcSourceIPv4Address for table hwWlanAcSourceInterface.",
+        "revision": "2014-03-21 16:00"
+      },
+      {
+        "description": "The MIB module defines the ap update operation.",
+        "revision": "2013-12-20 09:58"
+      },
+      {
+        "description": "add node of 80M for table hwWlanConfigChannel",
+        "revision": "2013-11-12 10:16"
+      },
+      {
+        "description": "add node of 80M for table hwWlanConfigChannel",
+        "revision": "2013-11-12 10:16"
+      },
+      {
+        "description": " V1.07, Add for v2r5. ",
+        "revision": "2013-10-23 17:22"
+      },
+      {
+        "description": " V1.06, Add for wifi location and spectrum analysis. ",
+        "revision": "2013-05-23 00:00"
+      },
+      {
+        "description": " V1.05, Add hwWlanAcProtectIpAddress for IP address of the backup AC, Add hwWlanAcProtectPriority for Dual-link hot backup priorities, Add hwWlanAcProtectSwitch for Dual-link hot backup switch. ",
+        "revision": "2010-11-01 00:00"
+      },
+      {
+        "description": " V1.04, Add hwWlanCapwapConfig for supportting configuration of CAPWAP parameter. Add hwWlanCapwapKeepAliveInterval for supportting configuration of CAPWAP keep-alive interval, in seconds. Add hwWlanCapwapKeepAliveTimes for supportting configuration of CAPWAP keep-alive times. hwWlanCarrierId add a enum \u0027other\u0027. Add batch query function. Add hwWlanAcCapwapControlPacketPriority for ac\u0027s priority value of CAPWAP control packet. Add hwWlanApCapwapControlPacketPriority for ap\u0027s priority value of CAPWAP control packet. ",
+        "revision": "2010-09-27 00:00"
+      },
+      {
+        "description": " V1.03, Add hwWlanBatchQuery for the supporting batch query. ",
+        "revision": "2010-09-15 00:00"
+      },
+      {
+        "description": " V1.02, Add hwWlanAcSourceInterface for the supporting configuration of wlan ac source interface. ",
+        "revision": "2010-09-10 00:00"
+      },
+      {
+        "description": " V1.01, Add trap restrain. ",
+        "revision": "2010-07-06 00:00"
+      },
+      {
+        "description": " V1.00, Inital version. ",
+        "revision": "2010-06-08 00:00"
+      }
+    ]
+  },
+  "hwWlanSysManagementCompliance": {
+    "class": "modulecompliance",
+    "description": "Description.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanTrapRestrainGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanSysParaGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanAcSourceInterfaceGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanBatchQueryGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanCapwapConfigGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanAcProtectGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanConfigChannelGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanStaLoadbalanceGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanHsbConfigGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanLocationGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanSpectrumAnalysisGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanLBSConfigGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwInterAcManagementGroup"
+      }
+    ],
+    "name": "hwWlanSysManagementCompliance",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.14.1.1",
+    "status": "current"
+  },
+  "hwWlanSysManagementCompliances": {
+    "class": "objectidentity",
+    "name": "hwWlanSysManagementCompliances",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.14.1"
+  },
+  "hwWlanSysManagementConformance": {
+    "class": "objectidentity",
+    "name": "hwWlanSysManagementConformance",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.14"
+  },
+  "hwWlanSysManagementObjectGroups": {
+    "class": "objectidentity",
+    "name": "hwWlanSysManagementObjectGroups",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.14.2"
+  },
+  "hwWlanSysManagementObjects": {
+    "class": "objectidentity",
+    "name": "hwWlanSysManagementObjects",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.12"
+  },
+  "hwWlanSysPara": {
+    "class": "objectidentity",
+    "name": "hwWlanSysPara",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.2"
+  },
+  "hwWlanSysParaGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWlanSysParaGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanCarrierId"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanAcId"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanForwardMode"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanAcNEnumber"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanAcAccessMaxApNumber"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwAcCountryCode"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanApUsername"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanApPassword"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanUsernamePasswordApId"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanApLldpSwitch"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanAcAccessMaxStaNumber"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanAcDtlsSwitch"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanAcDtlsPsk"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanApLogManualBackupApId"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanAcDtlsDefaultPskSwitch"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanWorkMode"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanIpv6Enable"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanInterAcDtlsEncrpyt"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanInterAcDtlsPsk"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanStaIpv6Switch"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.1.14.2.2",
+    "status": "current"
+  },
+  "hwWlanTrapRestrain": {
+    "class": "objectidentity",
+    "name": "hwWlanTrapRestrain",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.1"
+  },
+  "hwWlanTrapRestrainAll": {
+    "class": "objecttype",
+    "description": "All wlan trap restrain switch. If this switch is enabled, all the traps on ac will not be sent.",
+    "maxaccess": "read-write",
+    "name": "hwWlanTrapRestrainAll",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWlanTrapRestrainGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWlanTrapRestrainGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanTrapRestrainAll"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanTrapSeverityRestrainSeverity"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanApRegionTrapRestrainRegionIndexMask"
+      },
+      {
+        "module": "HUAWEI-WLAN-SYS-MIB",
+        "object": "hwWlanApTrapRestrainApIndexMask"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.1.14.2.1",
+    "status": "current"
+  },
+  "hwWlanTrapSeverityRestrain": {
+    "class": "objectidentity",
+    "name": "hwWlanTrapSeverityRestrain",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.1.2"
+  },
+  "hwWlanTrapSeverityRestrainSeverity": {
+    "class": "objecttype",
+    "description": "Wlan trap restrain by severity. critical: means the trap whose severity is not higner than critical will not be sent. major: means the trap whose severity is not higner than major will not be sent. minor: means the trap whose severity is not higner than minor will not be sent. warning: means the trap whose severity is not higner than warning will not be sent. none: means all the severities of traps can be sent.",
+    "maxaccess": "read-write",
+    "name": "hwWlanTrapSeverityRestrainSeverity",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.1.2.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "major": 2,
+          "minor": 3,
+          "none": 5,
+          "warning": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWlanUsernamePasswordApId": {
+    "class": "objecttype",
+    "description": "Description: The node is useful only when get the username or password and must be set first and read with username or password. When get the username or password without the node ,it means get the gloable configuration from AC, otherwise, it means get the specified AP\u0027 username or password from AP. For when change the username or password,and not commit, the AC\u0027s configuration is diffrent with AP\u0027 real configuration. When specified the AP ID , and the AP is not in the normal state, return the username or password from AC\u0027s gloable configuration.",
+    "maxaccess": "read-write",
+    "name": "hwWlanUsernamePasswordApId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.2.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanWorkMode": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlanWorkMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.1.2.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ac": 1,
+          "ap": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "imports": {
+    "HUAWEI-WLAN-MIB": [
+      "hwWlan"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Integer32",
+      "Unsigned32",
+      "Counter64",
+      "MibIdentifier",
+      "Gauge32",
+      "IpAddress",
+      "Bits",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-WLAN-SYS-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:32 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-WLAN-SYS-MIB"
+  }
+}

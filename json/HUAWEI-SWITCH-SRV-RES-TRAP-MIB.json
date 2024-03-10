@@ -1,0 +1,242 @@
+{
+  "hwSrvRecommendThreshold": {
+    "class": "objecttype",
+    "description": "The recommended threshold.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwSrvRecommendThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.334.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwSrvResObjectGroup": {
+    "class": "objectgroup",
+    "description": "Group for base trap objects.",
+    "name": "hwSrvResObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SWITCH-SRV-RES-TRAP-MIB",
+        "object": "hwSrvServiceId"
+      },
+      {
+        "module": "HUAWEI-SWITCH-SRV-RES-TRAP-MIB",
+        "object": "hwSrvServiceDescr"
+      },
+      {
+        "module": "HUAWEI-SWITCH-SRV-RES-TRAP-MIB",
+        "object": "hwSrvRecommendThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.334.100.2.1",
+    "status": "current"
+  },
+  "hwSrvResTrapCompliance": {
+    "class": "modulecompliance",
+    "description": "Compliance statement for agents that provide full support for hwSrvResTrapMIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-SWITCH-SRV-RES-TRAP-MIB",
+        "object": "hwSrvResObjectGroup"
+      },
+      {
+        "module": "HUAWEI-SWITCH-SRV-RES-TRAP-MIB",
+        "object": "hwSrvResTrapGroup"
+      }
+    ],
+    "name": "hwSrvResTrapCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.334.100.1.1",
+    "status": "current"
+  },
+  "hwSrvResTrapCompliances": {
+    "class": "objectidentity",
+    "name": "hwSrvResTrapCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.334.100.1"
+  },
+  "hwSrvResTrapConformance": {
+    "class": "objectidentity",
+    "name": "hwSrvResTrapConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.334.100"
+  },
+  "hwSrvResTrapGroup": {
+    "class": "notificationgroup",
+    "description": "Group for all traps.",
+    "name": "hwSrvResTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SWITCH-SRV-RES-TRAP-MIB",
+        "object": "hwSrvServiceExceedThreshould"
+      },
+      {
+        "module": "HUAWEI-SWITCH-SRV-RES-TRAP-MIB",
+        "object": "hwSrvServiceExceedThreshouldResume"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.334.100.2.2",
+    "status": "current"
+  },
+  "hwSrvResTrapGroups": {
+    "class": "objectidentity",
+    "name": "hwSrvResTrapGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.334.100.2"
+  },
+  "hwSrvResTrapObject": {
+    "class": "objectidentity",
+    "name": "hwSrvResTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.334.1"
+  },
+  "hwSrvResTraps": {
+    "class": "objectidentity",
+    "name": "hwSrvResTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.334.2"
+  },
+  "hwSrvServiceDescr": {
+    "class": "objecttype",
+    "description": "The description of service.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwSrvServiceDescr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.334.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 256,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSrvServiceExceedThreshould": {
+    "class": "notificationtype",
+    "description": "The service exceed the recommended threshold.",
+    "name": "hwSrvServiceExceedThreshould",
+    "objects": [
+      {
+        "module": "HUAWEI-SWITCH-SRV-RES-TRAP-MIB",
+        "object": "hwSrvServiceId"
+      },
+      {
+        "module": "HUAWEI-SWITCH-SRV-RES-TRAP-MIB",
+        "object": "hwSrvServiceDescr"
+      },
+      {
+        "module": "HUAWEI-SWITCH-SRV-RES-TRAP-MIB",
+        "object": "hwSrvRecommendThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.334.2.1.1",
+    "status": "current"
+  },
+  "hwSrvServiceExceedThreshouldResume": {
+    "class": "notificationtype",
+    "description": "The service fall below the recommended threshold.",
+    "name": "hwSrvServiceExceedThreshouldResume",
+    "objects": [
+      {
+        "module": "HUAWEI-SWITCH-SRV-RES-TRAP-MIB",
+        "object": "hwSrvServiceId"
+      },
+      {
+        "module": "HUAWEI-SWITCH-SRV-RES-TRAP-MIB",
+        "object": "hwSrvServiceDescr"
+      },
+      {
+        "module": "HUAWEI-SWITCH-SRV-RES-TRAP-MIB",
+        "object": "hwSrvRecommendThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.334.2.1.2",
+    "status": "current"
+  },
+  "hwSrvServiceId": {
+    "class": "objecttype",
+    "description": "The ID of service.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwSrvServiceId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.334.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dldpInterface": 2,
+          "gvrpInterface": 1,
+          "igmpSnoopingQuerier": 3,
+          "multicastUserVlan": 4,
+          "portSecMac": 5,
+          "sflowInterface": 7,
+          "stormControlInterface": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSrvSeviceResTrap": {
+    "class": "objectidentity",
+    "name": "hwSrvSeviceResTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.334.2.1"
+  },
+  "hwSwitchSrvResTrapMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "The private mib file includes the alarm information of fowarding engine resouce overload.",
+    "lastupdated": "201408060858Z",
+    "name": "hwSwitchSrvResTrapMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.334",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": " Version 1.00.",
+        "revision": "2014-08-06 08:58"
+      }
+    ]
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "Unsigned32",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-SWITCH-SRV-RES-TRAP-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:04 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-SWITCH-SRV-RES-TRAP-MIB"
+  }
+}

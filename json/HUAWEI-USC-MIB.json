@@ -1,0 +1,237 @@
+{
+  "hwAuthenControlPoint": {
+    "class": "objecttype",
+    "description": "Control-point status on this interface",
+    "maxaccess": "read-write",
+    "name": "hwAuthenControlPoint",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwUSC": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com",
+    "description": "Please provide the descritpion.",
+    "lastupdated": "201407111600Z",
+    "name": "hwUSC",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "V1.01, initial version.",
+        "revision": "2014-07-11 16:00"
+      },
+      {
+        "description": "V1.00, initial version.",
+        "revision": "2010-08-11 16:00"
+      }
+    ]
+  },
+  "hwUSCConfigEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-USC-MIB",
+        "object": "hwUSCPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwUSCConfigEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.1.1",
+    "status": "current"
+  },
+  "hwUSCConfigTable": {
+    "class": "objecttype",
+    "description": "The table describes USC configuration.",
+    "maxaccess": "not-accessible",
+    "name": "hwUSCConfigTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.1",
+    "status": "current"
+  },
+  "hwUSCControlDownOffline": {
+    "class": "objecttype",
+    "description": "The port ControlDownOffline\u003c0 60\u003e, unlimited:65535",
+    "maxaccess": "read-write",
+    "name": "hwUSCControlDownOffline",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwUSCInterfaceName": {
+    "class": "objecttype",
+    "description": "The name of USC interface.",
+    "maxaccess": "read-write",
+    "name": "hwUSCInterfaceName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwUSCLinkDownOffline": {
+    "class": "objecttype",
+    "description": "The port LinkDownOffline\u003c0 60\u003e, unlimited:65535",
+    "maxaccess": "read-write",
+    "name": "hwUSCLinkDownOffline",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwUSCObjects": {
+    "class": "objectidentity",
+    "name": "hwUSCObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1"
+  },
+  "hwUSCPortIndex": {
+    "class": "objecttype",
+    "description": "USC Portindex.",
+    "maxaccess": "read-only",
+    "name": "hwUSCPortIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwUSCUserSyncInterval": {
+    "class": "objecttype",
+    "description": "user-sync interval.seconds:60",
+    "maxaccess": "read-write",
+    "name": "hwUSCUserSyncInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 3600,
+            "min": 60
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwUSCUserSyncRetry": {
+    "class": "objecttype",
+    "description": "user-sync retry.times:5",
+    "maxaccess": "read-write",
+    "name": "hwUSCUserSyncRetry",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 300,
+            "min": 5
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwBRASMib"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "TimeTicks",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Bits",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "iso",
+      "IpAddress",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-USC-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:16 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-USC-MIB"
+  }
+}

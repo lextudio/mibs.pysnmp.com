@@ -1,0 +1,629 @@
+{
+  "hwMpBundleName": {
+    "class": "objecttype",
+    "description": "The bundle name of the multilink. when authentication is configured, the bundle name is the authenticated user name; when authentication not configured, the bundle name is multilink. ",
+    "maxaccess": "read-only",
+    "name": "hwMpBundleName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMpBundleThreshold": {
+    "class": "objecttype",
+    "description": "The minimum number of the bundled son channel of the MP link; if the number of the bundled son channel is less than the minimum number, the MP link can not be used. ",
+    "maxaccess": "read-write",
+    "name": "hwMpBundleThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMpBundledMemberCnt": {
+    "class": "objecttype",
+    "description": "The number of the bundled son channel of the MP link. ",
+    "maxaccess": "read-only",
+    "name": "hwMpBundledMemberCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMpBundledSlot": {
+    "class": "objecttype",
+    "description": "The slot on which MP bundled. ",
+    "maxaccess": "read-only",
+    "name": "hwMpBundledSlot",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMpCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for entities which implement the Huawei Multilink PPP mib.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpMandatoryGroup"
+      }
+    ],
+    "name": "hwMpCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.3.1.1",
+    "status": "current"
+  },
+  "hwMpCompliances": {
+    "class": "objectidentity",
+    "name": "hwMpCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.3.1"
+  },
+  "hwMpConformance": {
+    "class": "objectidentity",
+    "name": "hwMpConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.3"
+  },
+  "hwMpDampingTime": {
+    "class": "objecttype",
+    "description": "The time of damping the son channel of the MP link. ",
+    "maxaccess": "read-write",
+    "name": "hwMpDampingTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 86400,
+            "min": 60
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMpDetectTime": {
+    "class": "objecttype",
+    "description": "The time of detecting the flapping of the son channel of the MP link to determine whether the son channel should be damped. ",
+    "maxaccess": "read-write",
+    "name": "hwMpDetectTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 3600,
+            "min": 30
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMpFlappingCnt": {
+    "class": "objecttype",
+    "description": "The maximum number of the flapping in the detect-time; if the flapping number is more than the maximum number, the son channel will be damped. ",
+    "maxaccess": "read-write",
+    "name": "hwMpFlappingCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMpGroups": {
+    "class": "objectidentity",
+    "name": "hwMpGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.3.2"
+  },
+  "hwMpInfoGroup": {
+    "class": "objectgroup",
+    "description": "All running information of MP feature.",
+    "name": "hwMpInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpMultilinkDescr"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpBundleName"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpBundledSlot"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpBundledMemberCnt"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpLostFragments"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpReorderedPkts"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpUnassignedPkts"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpInterleavedPkts"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpRcvdSequence"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpSentSequence"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpDetectTime"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpFlappingCnt"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpDampingTime"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpBundleThreshold"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpSequenceReorder"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpMemberlinkDescr"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpMemberlinkMpStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.33.3.2.2",
+    "status": "current"
+  },
+  "hwMpInterleavedPkts": {
+    "class": "objecttype",
+    "description": "The number of received packets of the MP link interleaved by the packets queued in RTPQ(Real-time Transport Protocol Queue) or LLQ(Low Latency Queue). ",
+    "maxaccess": "read-only",
+    "name": "hwMpInterleavedPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwMpLostFragments": {
+    "class": "objecttype",
+    "description": "The number of fragments of the MP link discarded because bad fragments received, or assembling packet failed, etc.",
+    "maxaccess": "read-only",
+    "name": "hwMpLostFragments",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwMpMandatoryGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing mandatory MP information.",
+    "name": "hwMpMandatoryGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpBundledMemberCnt"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpMemberlinkSeqNumber"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpMemberlinkIfIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.33.3.2.1",
+    "status": "current"
+  },
+  "hwMpMemberlinkDescr": {
+    "class": "objecttype",
+    "description": "The interface name of the son channels of the MP link. ",
+    "maxaccess": "read-only",
+    "name": "hwMpMemberlinkDescr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMpMemberlinkEntry": {
+    "class": "objecttype",
+    "description": "Each entry in this table describes the information of the bundled son channels of MP link. The available information includes: the interface index of the son channel, the interface name of the son channel. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpMemberlinkSeqNumber"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMpMemberlinkEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.2.1",
+    "status": "current"
+  },
+  "hwMpMemberlinkIfIndex": {
+    "class": "objecttype",
+    "description": "The interface index of the son channels of the MP link. ",
+    "maxaccess": "read-only",
+    "name": "hwMpMemberlinkIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMpMemberlinkMpStatus": {
+    "class": "objecttype",
+    "description": "The MP status of the son channels of the MP link. 0 shows failed bind; 1 shows successful bind. ",
+    "maxaccess": "read-only",
+    "name": "hwMpMemberlinkMpStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMpMemberlinkSeqNumber": {
+    "class": "objecttype",
+    "description": "The bundled sequence number of the son channels of the MP link. This object is one of the index of the table. ",
+    "maxaccess": "read-only",
+    "name": "hwMpMemberlinkSeqNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMpMemberlinkTable": {
+    "class": "objecttype",
+    "description": "This table describes the information of son channels of the MP link. The index of this table is the interface index of MP group or VT(Virtual Template). ",
+    "maxaccess": "not-accessible",
+    "name": "hwMpMemberlinkTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.2",
+    "status": "current"
+  },
+  "hwMpMultilinkDescr": {
+    "class": "objecttype",
+    "description": "The interface name of the father interface on which MP bundled. It is the name of a Virtual Template or a MP group.",
+    "maxaccess": "read-only",
+    "name": "hwMpMultilinkDescr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMpMultilinkEntry": {
+    "class": "objecttype",
+    "description": "Each entry in this table describes the information of MP link. The available information includes: the father channel, the slot on which MP bundled, the number of bundled son channels, the statistics of lost fragments, reordered packets, unassigned packets, interleaved packets, and received/sent sequence. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMpMultilinkEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1",
+    "status": "current"
+  },
+  "hwMpMultilinkTable": {
+    "class": "objecttype",
+    "description": "This table describes the information of MP link. The index of this table is the interface index of MP group or VT(Virtual Template).",
+    "maxaccess": "not-accessible",
+    "name": "hwMpMultilinkTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1",
+    "status": "current"
+  },
+  "hwMpNotifications": {
+    "class": "objectidentity",
+    "name": "hwMpNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.2"
+  },
+  "hwMpObjects": {
+    "class": "objectidentity",
+    "name": "hwMpObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1"
+  },
+  "hwMpRcvdSequence": {
+    "class": "objecttype",
+    "description": "The current sequence number of the MP link for receiving. ",
+    "maxaccess": "read-only",
+    "name": "hwMpRcvdSequence",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMpReorderedPkts": {
+    "class": "objecttype",
+    "description": "The number of received packets of the MP link reordered. ",
+    "maxaccess": "read-only",
+    "name": "hwMpReorderedPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwMpSentSequence": {
+    "class": "objecttype",
+    "description": "The current sequence number of the MP link for sending. ",
+    "maxaccess": "read-only",
+    "name": "hwMpSentSequence",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMpSequenceReorder": {
+    "class": "objecttype",
+    "description": "It shows the reorder feature on MP interface. 1 shows enable ; 2 shows disable. ",
+    "maxaccess": "read-write",
+    "name": "hwMpSequenceReorder",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMpSonChannelDampingDetect": {
+    "class": "notificationtype",
+    "description": "The son channel of the MP link is damped.",
+    "name": "hwMpSonChannelDampingDetect",
+    "objects": [
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpMemberlinkIfIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.33.2.1.1",
+    "status": "current"
+  },
+  "hwMpSonChannelDampingResume": {
+    "class": "notificationtype",
+    "description": "The son channel of the MP link is recovered from damping.",
+    "name": "hwMpSonChannelDampingResume",
+    "objects": [
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpMemberlinkIfIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.33.2.1.2",
+    "status": "current"
+  },
+  "hwMpThresholdControlDetect": {
+    "class": "notificationtype",
+    "description": "The MP link is controlled for threshold.",
+    "name": "hwMpThresholdControlDetect",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.33.2.1.3",
+    "status": "current"
+  },
+  "hwMpThresholdControlDetectClear": {
+    "class": "notificationtype",
+    "description": "The MP link is recovered from controlling for threshold.",
+    "name": "hwMpThresholdControlDetectClear",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.33.2.1.4",
+    "status": "current"
+  },
+  "hwMpTrapGroup": {
+    "class": "notificationgroup",
+    "description": "Group for all MP traps.",
+    "name": "hwMpTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpSonChannelDampingDetect"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpSonChannelDampingResume"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpThresholdControlDetect"
+      },
+      {
+        "module": "HUAWEI-MP-MIB",
+        "object": "hwMpThresholdControlDetectClear"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.33.3.2.3",
+    "status": "current"
+  },
+  "hwMpTraps": {
+    "class": "objectidentity",
+    "name": "hwMpTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.2.1"
+  },
+  "hwMpUnassignedPkts": {
+    "class": "objecttype",
+    "description": "The number of received packets of the MP link waiting for reordering. ",
+    "maxaccess": "read-only",
+    "name": "hwMpUnassignedPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.33.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwMultilinkPPP": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": "The HUAWEI-MP-MIB provides read access to MP(Multilink PPP) link status information. The information available through this MIB includes: the father channel, the bundled son channel, the slot on which MP bundled, the number of son channels, the bundle name, the statistic of lost fragments, reordered packets, unassigned packets, interleaved packets, and the received/sent sequence, etc. ",
+    "lastupdated": "200405180000Z",
+    "name": "hwMultilinkPPP",
+    "oid": "1.3.6.1.4.1.2011.5.25.33",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifName"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "Unsigned32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "iso",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-MP-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:20 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-MP-MIB"
+  }
+}

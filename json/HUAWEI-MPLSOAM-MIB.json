@@ -1,0 +1,2187 @@
+{
+  "hwMplsOam": {
+    "class": "moduleidentity",
+    "contactinfo": "R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com",
+    "description": "The HUAWEI-MPLSOAM-MIB contains objects to configure OAM module. The Operation, Administration and Maintenance (OAM) is an effective means for decreasing the cost of network maintenance. The MPLS OAM is used to administrate and maintain MPLS. ",
+    "lastupdated": "200504271724Z",
+    "name": "hwMplsOam",
+    "oid": "1.3.6.1.4.1.2011.5.12.7",
+    "organization": "Huawei Technologies Co., Ltd."
+  },
+  "hwMplsOamBidirectionalTunnelAutoOvertime": {
+    "class": "objecttype",
+    "description": "If the oam receives CV/FFD, it records the parameters included in the packet, such as OAM type and frequency. If the oam does not receive any CV/FFD packet before the timer expires, It will send BDI with dLOCV defect.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamBidirectionalTunnelAutoOvertime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.7.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMplsOamBidirectionalTunnelAutoProtocolEnable": {
+    "class": "objecttype",
+    "description": "0: disable; 1: enable;",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamBidirectionalTunnelAutoProtocolEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.7.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamBidirectionalTunnelAva": {
+    "class": "notificationtype",
+    "description": "This notification is generated when the CO-ROUTE is found in the unavailable state.",
+    "name": "hwMplsOamBidirectionalTunnelAva",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamBidirectionalTunnelIndex"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamBidirectionalTunnelAvaState"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamBidirectionalTunnelDefectType"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamBidirectionalTunnelBdiDefectType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.2.18",
+    "status": "current"
+  },
+  "hwMplsOamBidirectionalTunnelAvaState": {
+    "class": "objecttype",
+    "description": "0: available state; 1: unavailable state.",
+    "maxaccess": "read-only",
+    "name": "hwMplsOamBidirectionalTunnelAvaState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.7.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "available": 0,
+          "unavailable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamBidirectionalTunnelBDIFreq": {
+    "class": "objecttype",
+    "description": "BDI is generated at the trail termination source point of a return path in response to a defect detected at the trail termination sink point of an LSP in the forwarding direction. The frequency of BDI can be set by user. 1: per-second; 2: same as detect frequency.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamBidirectionalTunnelBDIFreq",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.7.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "detectFrequency": 2,
+          "perSecond": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamBidirectionalTunnelBdiDefectType": {
+    "class": "objecttype",
+    "description": "0: no defect; 1: dServer, 2: dPeerMe, 3: dLOCV, Loss of Connectivity Verification defect; 4: dTTSI-Mismatch, Trail Termination Source Identifier Mismatch defect; 5: dTTSI-Mismerge, Trail Termination Source Identifier Mismerge defect.; 6: dExcess, Receiving excess rate of CV/FFD; 7: dUnknown, Unknown defect in the MPLS network. 8: dOamFail, AutoProtocal timer expires.",
+    "maxaccess": "read-only",
+    "name": "hwMplsOamBidirectionalTunnelBdiDefectType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.7.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dExcess": 6,
+          "dLOCV": 3,
+          "dOamFail": 8,
+          "dPeerMe": 2,
+          "dServer": 1,
+          "dTTSI-Mismatch": 4,
+          "dTTSI-Mismerge": 5,
+          "dUnknown": 7,
+          "nondefect": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamBidirectionalTunnelCompatibilityMode": {
+    "class": "objecttype",
+    "description": " 1: Ptn-Mode; 2: RouterMode; Valid only for the bidirectional tunnel configuration.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamBidirectionalTunnelCompatibilityMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.7.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ptnMode": 1,
+          "routerMode": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamBidirectionalTunnelDefectType": {
+    "class": "objecttype",
+    "description": "0: no defect; 1: dServer, 2: dPeerMe, 3: dLOCV, Loss of Connectivity Verification defect; 4: dTTSI-Mismatch, Trail Termination Source Identifier Mismatch defect; 5: dTTSI-Mismerge, Trail Termination Source Identifier Mismerge defect.; 6: dExcess, Receiving excess rate of CV/FFD; 7: dUnknown, Unknown defect in the MPLS network. 8: dOamFail, AutoProtocal timer expires. 9: corouteDown, coroute down.",
+    "maxaccess": "read-only",
+    "name": "hwMplsOamBidirectionalTunnelDefectType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.7.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "corouteDown": 9,
+          "dExcess": 6,
+          "dLOCV": 3,
+          "dOamFail": 8,
+          "dPeerMe": 2,
+          "dServer": 1,
+          "dTTSI-Mismatch": 4,
+          "dTTSI-Mismerge": 5,
+          "dUnknown": 7,
+          "nondefect": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamBidirectionalTunnelDetFreq": {
+    "class": "objecttype",
+    "description": "For CV: the frequency is static, per second. For FFD: the frequency is set by user. The value can be 10ms, 20ms, 50ms,100ms,200ms,500ms,3ms. Any other frequency is wrong. 0: 1000ms(only for cv); 1: 10ms; 2: 20ms; 3: 50ms; 4: 100ms; 5: 200ms; 6: 500ms; 7: 3ms.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamBidirectionalTunnelDetFreq",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.7.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cv1000ms": 0,
+          "ffd100ms5": 4,
+          "ffd10ms2": 1,
+          "ffd200ms6": 5,
+          "ffd20ms3": 2,
+          "ffd3ms8": 7,
+          "ffd500ms7": 6,
+          "ffd50ms4": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamBidirectionalTunnelDetType": {
+    "class": "objecttype",
+    "description": "There are two types of OAM packets, CV and FFD. 1: CV; 2: FFD.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamBidirectionalTunnelDetType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cv": 1,
+          "ffd": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamBidirectionalTunnelEntry": {
+    "class": "objecttype",
+    "description": "An entry in this table is created by binding the tunnel ifindex.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamBidirectionalTunnelIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMplsOamBidirectionalTunnelEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.7.1",
+    "status": "current"
+  },
+  "hwMplsOamBidirectionalTunnelInDefect": {
+    "class": "notificationtype",
+    "description": "This notification is generated when the CO-ROUTE is found not in the defect state.",
+    "name": "hwMplsOamBidirectionalTunnelInDefect",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamBidirectionalTunnelIndex"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamBidirectionalTunnelAvaState"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamBidirectionalTunnelDefectType"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamBidirectionalTunnelBdiDefectType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.2.17",
+    "status": "current"
+  },
+  "hwMplsOamBidirectionalTunnelIndex": {
+    "class": "objecttype",
+    "description": "This is a unique index for an OAM entry in the OAM table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsOamBidirectionalTunnelIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsOamBidirectionalTunnelOutDefect": {
+    "class": "notificationtype",
+    "description": "This notification is generated when the CO-ROUTE is found not in the defect state.",
+    "name": "hwMplsOamBidirectionalTunnelOutDefect",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamBidirectionalTunnelIndex"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamBidirectionalTunnelAvaState"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamBidirectionalTunnelDefectType"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamBidirectionalTunnelBdiDefectType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.2.16",
+    "status": "current"
+  },
+  "hwMplsOamBidirectionalTunnelReceiveEnable": {
+    "class": "objecttype",
+    "description": "0: The OAM Receive function is Disabled; 1: The OAM Receive function is Eabled;",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamBidirectionalTunnelReceiveEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.7.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamBidirectionalTunnelRevDetFreq": {
+    "class": "objecttype",
+    "description": "For CV: the frequency is static, per second. For FFD: the frequency is set by user. The value can be 10ms, 20ms, 50ms,100ms,200ms,500ms,3ms. Any other frequency is wrong. 0: 1000ms(only for cv); 1: 10ms; 2: 20ms; 3: 50ms; 4: 100ms; 5: 200ms; 6: 500ms; 7: invalid; 8: 3ms.",
+    "maxaccess": "read-only",
+    "name": "hwMplsOamBidirectionalTunnelRevDetFreq",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.7.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cv1000ms": 0,
+          "ffd100ms5": 4,
+          "ffd10ms2": 1,
+          "ffd200ms6": 5,
+          "ffd20ms3": 2,
+          "ffd3ms9": 8,
+          "ffd500ms7": 6,
+          "ffd50ms4": 3,
+          "invalid8": 7
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamBidirectionalTunnelRevDetType": {
+    "class": "objecttype",
+    "description": "0: invalid; 1: CV; 2: FFD.",
+    "maxaccess": "read-only",
+    "name": "hwMplsOamBidirectionalTunnelRevDetType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.7.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cv": 1,
+          "ffd": 2,
+          "invalid": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamBidirectionalTunnelRowStatus": {
+    "class": "objecttype",
+    "description": "This variable is used to create, modify, and delete a row in this table. ",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamBidirectionalTunnelRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.7.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMplsOamBidirectionalTunnelSendEnable": {
+    "class": "objecttype",
+    "description": "0: The OAM Send function is Disabled; 1: The OAM Send function is Eabled;",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamBidirectionalTunnelSendEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.7.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamBidirectionalTunnelTable": {
+    "class": "objecttype",
+    "description": "This table specifies Static Co-Route MPLS OAM capability and associated information, such as DetType and DetFrequence.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsOamBidirectionalTunnelTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.7",
+    "status": "current"
+  },
+  "hwMplsOamBidirectionalTunnelTunnName": {
+    "class": "objecttype",
+    "description": "The name of a tunnel.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamBidirectionalTunnelTunnName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMplsOamBidirectionalTunnelUnAva": {
+    "class": "notificationtype",
+    "description": "This notification is generated when the CO-ROUTE is found in the unavailable state.",
+    "name": "hwMplsOamBidirectionalTunnelUnAva",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamBidirectionalTunnelIndex"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamBidirectionalTunnelAvaState"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamBidirectionalTunnelDefectType"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamBidirectionalTunnelBdiDefectType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.2.19",
+    "status": "current"
+  },
+  "hwMplsOamBidirectionalTunnelValid": {
+    "class": "objecttype",
+    "description": "1: stop detect; 2: start detect; 3: ready.",
+    "maxaccess": "read-only",
+    "name": "hwMplsOamBidirectionalTunnelValid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.7.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 3,
+          "start": 2,
+          "stop": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamCapability": {
+    "class": "objecttype",
+    "description": "Whether OAM is globally capable. 0: incapable; 1: capable; 2: capable(based-itu); The default value is incapable.",
+    "maxaccess": "read-write",
+    "name": "hwMplsOamCapability",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsOamEgrAutoEn": {
+    "class": "objecttype",
+    "description": "If autoprotocol, then the egress can process extended FDI sent by ingress. 0: disable; 1: enable; Valid only for the egress configuration.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamEgrAutoEn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamEgrAutoOvertime": {
+    "class": "objecttype",
+    "description": "This time is set at the egress. If the egress receives CV/FFD, it records the parameters included in the packet, such as OAM type and frequency. If the egress does not receive any OAM packet before the timer expires, the sink LSR will send BDI with dLOCV defect. Valid only for the egress configuration.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamEgrAutoOvertime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMplsOamEgrAutoProFDI": {
+    "class": "notificationtype",
+    "description": "The FDI packet is used by the upstream node in an LSP to inform the egress of the defect information. It is also generated when the auto protocol is enabled, with which the LSP ingress notifies the egress to stop the OAM detection.",
+    "name": "hwMplsOamEgrAutoProFDI",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrLspName"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrSessTunnId"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.2.10",
+    "status": "current"
+  },
+  "hwMplsOamEgrAvaState": {
+    "class": "objecttype",
+    "description": "If the LSP Timer (T1) expires, then the LSP enters the Unavailable state. The start point of the Unavailable state is deemed to be at the entry into the LSP defect state. An LSP re-enters the Available state after the LSP Defect State. first exists. T1 defines the length of time the LSP is in the Defect state before declaring an LSP Unavailable or returning to defect free state 0: available state; 1: unavailable state.",
+    "maxaccess": "read-only",
+    "name": "hwMplsOamEgrAvaState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.3.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "available": 0,
+          "unavailable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamEgrBDIFreq": {
+    "class": "objecttype",
+    "description": "BDI is generated at the trail termination source point of a return path in response to a defect detected at the trail termination sink point of an LSP in the forwarding direction. The frequency of BDI can be set by user. Only valid for egress configuration. The default value is detect frequency and it is valid only when a backward-LSP exists. 0: per-second; 1: same as detect frequency.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamEgrBDIFreq",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "detectFrequency": 1,
+          "perSecond": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamEgrDefectType": {
+    "class": "objecttype",
+    "description": "0: no defect; 1: dServer, 2: dPeerMe, 3: dLOCV, Loss of Connectivity Verification defect; 4: dTTSI-Mismatch, Trail Termination Source Identifier Mismatch defect; 5: dTTSI-Mismerge, Trail Termination Source Identifier Mismerge defect.; 6: dExcess, Receiving excess rate of CV/FFD; 7: dUnknown, Unknown defect in the MPLS network. 8: dOamFail, AutoProtocal timer expires. 9: dEgressDown.",
+    "maxaccess": "read-only",
+    "name": "hwMplsOamEgrDefectType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.3.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dEgressDown": 9,
+          "dExcess": 6,
+          "dLOCV": 3,
+          "dOamFail": 8,
+          "dPeerMe": 2,
+          "dServer": 1,
+          "dTTSI-Mismatch": 4,
+          "dTTSI-Mismerge": 5,
+          "dUnknown": 7,
+          "nondefect": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamEgrDetFreq": {
+    "class": "objecttype",
+    "description": "0: 1000ms(only for cv); 1: 10ms; 2: 20ms; 3: 50ms; 4: 100ms; 5: 200ms; 6: 500ms; 7: invalid; 8: 3ms.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamEgrDetFreq",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cv1000ms": 0,
+          "ffd100ms5": 4,
+          "ffd10ms2": 1,
+          "ffd200ms6": 5,
+          "ffd20ms3": 2,
+          "ffd3ms9": 8,
+          "ffd500ms7": 6,
+          "ffd50ms4": 3,
+          "invalid8": 7
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamEgrDetType": {
+    "class": "objecttype",
+    "description": "0: invalid, if auto-protocol, this detect type is invalid; 1: CV; 2: FFD.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamEgrDetType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cv": 1,
+          "ffd": 2,
+          "invalid": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamEgrEnable": {
+    "class": "objecttype",
+    "description": "Whether one LSP is enabled with OAM. If disable, LSP is not monitored; If enable, CV/FFD is generated at the source LSR of the LSP and checked at the sink LSR of the LSP, and user can set other configuration. 0: The OAM function is disabled on the egress; 1: The OAM function is enabled on the egress.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamEgrEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamEgrEntry": {
+    "class": "objecttype",
+    "description": "An entry in this table is created by an LSR for every LSP capable of supporting MPLS OAM at egress.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrLspName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrLsrId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrSessTunnId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMplsOamEgrEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.3.1",
+    "status": "current"
+  },
+  "hwMplsOamEgrFirstPkt": {
+    "class": "notificationtype",
+    "description": "If autoprotocol is enabled, this notification is generated when egress receives the first CV/FFD packet.",
+    "name": "hwMplsOamEgrFirstPkt",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrLspName"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrSessTunnId"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrDetType"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrDetFreq"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.2.9",
+    "status": "current"
+  },
+  "hwMplsOamEgrLSPAva": {
+    "class": "notificationtype",
+    "description": "This notification is generated when the LSP is found in the available state at the LSP egress.",
+    "name": "hwMplsOamEgrLSPAva",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrLspName"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrSessTunnId"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrAvaState"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrDefectType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.2.7",
+    "status": "current"
+  },
+  "hwMplsOamEgrLSPInDefect": {
+    "class": "notificationtype",
+    "description": "This notification is generated when the LSP is found in the defect state at the LSP egress.",
+    "name": "hwMplsOamEgrLSPInDefect",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrLspName"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrSessTunnId"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrAvaState"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrDefectType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.2.6",
+    "status": "current"
+  },
+  "hwMplsOamEgrLSPOutDefect": {
+    "class": "notificationtype",
+    "description": "This notification is generated when the LSP is found not in the defect state at the LSP egress.",
+    "name": "hwMplsOamEgrLSPOutDefect",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrLspName"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrSessTunnId"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrAvaState"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrDefectType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.2.5",
+    "status": "current"
+  },
+  "hwMplsOamEgrLSPUnAva": {
+    "class": "notificationtype",
+    "description": "This notification is generated when the LSP is found in the unavailable state at the LSP egress.",
+    "name": "hwMplsOamEgrLSPUnAva",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrLspName"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrSessTunnId"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrAvaState"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamEgrDefectType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.2.8",
+    "status": "current"
+  },
+  "hwMplsOamEgrLspName": {
+    "class": "objecttype",
+    "description": "The object indicates the name of static LSP at egress.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsOamEgrLspName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMplsOamEgrLsrId": {
+    "class": "objecttype",
+    "description": "The object indicates the Ingress LSR ID of the LSP.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsOamEgrLsrId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMplsOamEgrRevTunnName": {
+    "class": "objecttype",
+    "description": "The object indicates the name of a reverse tunnel.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamEgrRevTunnName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMplsOamEgrRevType": {
+    "class": "objecttype",
+    "description": "When an LSP is found to be in defect, the sink LSR of the LSP should send BDI to inform the source LSR of the LSP,the BDI is transferred through the reverse LSP. The type of reverse LSP can be private or shared. If private, then the reverse LSP can be used only when the only LSP in defect; If shared, the reverse LSP, which is shared between many forward LSPs that have the same source LSRs and sink LSRs. 0: invalid, when the reverse LSR does not exist; 1: private; 2: share.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamEgrRevType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "private": 1,
+          "share": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamEgrRlsnDown": {
+    "class": "notificationtype",
+    "description": "This notification is generated when the Rlsn is down.",
+    "name": "hwMplsOamEgrRlsnDown",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamRlsnLspName"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamRlsnLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamRlsnIsDown"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamRlsnIfName"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamRlsnSessTunnId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.2.11",
+    "status": "current"
+  },
+  "hwMplsOamEgrRowStatus": {
+    "class": "objecttype",
+    "description": "This variable is used to create, modify, and delete a row in this table.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamEgrRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.3.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMplsOamEgrSessTunnId": {
+    "class": "objecttype",
+    "description": "The object indicates the the Ingress session tunnel ID of the LSP..",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsOamEgrSessTunnId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMplsOamEgrTable": {
+    "class": "objecttype",
+    "description": "This table specifies per-LSP MPLS OAM capability and associated information, such as DetectType, DetectFrequency.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsOamEgrTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.3",
+    "status": "current"
+  },
+  "hwMplsOamEgrValid": {
+    "class": "objecttype",
+    "description": "1: stop detect; 2: start detect.",
+    "maxaccess": "read-only",
+    "name": "hwMplsOamEgrValid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.3.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "start": 2,
+          "stop": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamIgrAvaState": {
+    "class": "objecttype",
+    "description": "If the LSP Timer (T1) expires, then the LSP enters the Unavailable state. The start point of the Unavailable state is deemed to be at the entry into the LSP defect state. An LSP re-enters the Available state after the LSP Defect state exists first. T1 defines the length of time the LSP is in the Defect state before declaring an LSP Unavailable or returning to defect free state. 0: available state; 1: unavailable state.",
+    "maxaccess": "read-only",
+    "name": "hwMplsOamIgrAvaState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "available": 0,
+          "unavailable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamIgrBDIFreq": {
+    "class": "objecttype",
+    "description": "BDI is generated at the trail termination source point of a return path in response to a defect detected at the trail termination sink point of an LSP in the forwarding direction. The frequency of BDI can be set by user. 1: per-second; 2: same as detect frequency.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamIgrBDIFreq",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.2.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "detectFrequency": 2,
+          "perSecond": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamIgrCompatibilityMode": {
+    "class": "objecttype",
+    "description": " 1: Ptn-Mode; 2: Router-Mode; Valid only for the ingress configuration.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamIgrCompatibilityMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.2.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ptnMode": 1,
+          "routerMode": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamIgrDefectType": {
+    "class": "objecttype",
+    "description": "Defect is defined as interruption of the capability of a transport entity (e.g., network connection) to transfer user or OAM information. There are six types of defect: 0: no defect; 1: dServer; 2: dPeerMe; 3: dLOCV, Loss of Connectivity Verification defect; 4: dTTSI-Mismatch, Trail Termination Source Identifier Mismatch defect; 5: dTTSI-Mismerge, Trail Termination Source Identifier Mismerge defect; 6: dExcess, Receiving excess rate of CV/FFD; 7: dUnknown, Unknown defect in the MPLS network.. 8: dOamFail, AutoProtocal timer expires. 9: dIngressDown.",
+    "maxaccess": "read-only",
+    "name": "hwMplsOamIgrDefectType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dExcess": 6,
+          "dIngressDown": 9,
+          "dLOCV": 3,
+          "dOamFail": 8,
+          "dPeerMe": 2,
+          "dServer": 1,
+          "dTTSI-Mismatch": 4,
+          "dTTSI-Mismerge": 5,
+          "dUnknown": 7,
+          "nondefect": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamIgrDetFreq": {
+    "class": "objecttype",
+    "description": "For CV: the frequency is static, per second. For FFD: the frequency is set by user. The value can be 10ms, 20ms, 50ms,100ms,200ms,500ms,3ms. Any other frequency is wrong. 0: 1000ms(only for cv); 1: 10ms; 2: 20ms; 3: 50ms; 4: 100ms; 5: 200ms; 6: 500ms; 7: 3ms.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamIgrDetFreq",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cv1000ms": 0,
+          "ffd100ms5": 4,
+          "ffd10ms2": 1,
+          "ffd200ms6": 5,
+          "ffd20ms3": 2,
+          "ffd3ms8": 7,
+          "ffd500ms7": 6,
+          "ffd50ms4": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamIgrDetType": {
+    "class": "objecttype",
+    "description": "There are two types of OAM packets, CV and FFD. The CV flow is generated at the source LSR of the LSP with a nominal frequency of 1/s and terminated at the sink LSR of the LSP. FFD provides failure detection option for an LSP independent of the CV based availability model and is not tied to the CV insertion rate. Insertion rates at 1/s or faster may also be used. The CV/FFD packet contains a network-unique identifier (TTSI) so that all types of defects can be detected. 1: CV; 2: FFD.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamIgrDetType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cv": 1,
+          "ffd": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamIgrEnable": {
+    "class": "objecttype",
+    "description": "Whether one LSP is OAM enable. If disable, LSP is not monitored; If enable, CV/FFD is generated at the source LSR of the LSP and checked at the sink LSR of the LSP,and user can set other configuration. 0: The OAM function is disabled on the ingress; 1: The OAM function is enabled on the ingress.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamIgrEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamIgrEntry": {
+    "class": "objecttype",
+    "description": "An entry in this table is created by an LSR for every LSP capable of supporting MPLS OAM at ingress.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamIgrIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMplsOamIgrEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.2.1",
+    "status": "current"
+  },
+  "hwMplsOamIgrIndex": {
+    "class": "objecttype",
+    "description": "The interface index of the detected tunnel.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsOamIgrIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsOamIgrLSPAva": {
+    "class": "notificationtype",
+    "description": "This notification is generated when the LSP is found in the available state at the LSP ingress.",
+    "name": "hwMplsOamIgrLSPAva",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamIgrIndex"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamIgrTunnName"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamIgrAvaState"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamIgrDefectType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.2.3",
+    "status": "current"
+  },
+  "hwMplsOamIgrLSPInDefect": {
+    "class": "notificationtype",
+    "description": "This notification is generated when the LSP is found in the defect state at the LSP ingress.",
+    "name": "hwMplsOamIgrLSPInDefect",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamIgrIndex"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamIgrTunnName"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamIgrAvaState"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamIgrDefectType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.2.2",
+    "status": "current"
+  },
+  "hwMplsOamIgrLSPOutDefect": {
+    "class": "notificationtype",
+    "description": "This notification is generated when the LSP is found not in the defect state at the LSP ingress.",
+    "name": "hwMplsOamIgrLSPOutDefect",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamIgrIndex"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamIgrTunnName"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamIgrAvaState"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamIgrDefectType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.2.1",
+    "status": "current"
+  },
+  "hwMplsOamIgrLSPUnAva": {
+    "class": "notificationtype",
+    "description": "This notification is generated when the LSP is found in the unavailable state at the LSP ingress.",
+    "name": "hwMplsOamIgrLSPUnAva",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamIgrIndex"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamIgrTunnName"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamIgrAvaState"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamIgrDefectType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.2.4",
+    "status": "current"
+  },
+  "hwMplsOamIgrRevLspName": {
+    "class": "objecttype",
+    "description": "The object indicates name of the reverse LSP.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamIgrRevLspName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMplsOamIgrRevLsrId": {
+    "class": "objecttype",
+    "description": "Only for ingress, the object indicates the ingress LSR ID of the reverse LSP,, expressed in IP address.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamIgrRevLsrId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMplsOamIgrRevSessTunnId": {
+    "class": "objecttype",
+    "description": "Only for ingress, the object indicates the session tunnel ID of the reverse LSP.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamIgrRevSessTunnId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMplsOamIgrRevType": {
+    "class": "objecttype",
+    "description": "When an LSP is found to be in defect, the sink LSR if the LSP should send BDI to inform the source LSR of the LSP, the BDI is transferred through the reverse LSP. The type of reverse LSP can be private or shared. If private, then the reverse LSP can be used only when the only LSP is in defect; If shared, the reverse LSP which is shared between many forward LSPs, whose source LSRs are the same and sink LSRs are the same. 1: private; 2: share.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamIgrRevType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "private": 1,
+          "share": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamIgrRowStatus": {
+    "class": "objecttype",
+    "description": "This variable is used to create, modify, and delete a row in this table.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamIgrRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.2.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMplsOamIgrTable": {
+    "class": "objecttype",
+    "description": "This table specifies per-LSP MPLS OAM capability and associated information, such as IgrTunnName and IgrDetType.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsOamIgrTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.2",
+    "status": "current"
+  },
+  "hwMplsOamIgrTunnName": {
+    "class": "objecttype",
+    "description": "The name of a tunnel. For ingress, it means the tunnel name of the detected LSP. For egress, it means the tunnel name of the reverse LSP.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamIgrTunnName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMplsOamIgrValid": {
+    "class": "objecttype",
+    "description": "0: stop detect; 1: start detect.",
+    "maxaccess": "read-only",
+    "name": "hwMplsOamIgrValid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "start": 1,
+          "stop": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamL2vcAutoOvertime": {
+    "class": "objecttype",
+    "description": "If the oam receives CV/FFD, it records the parameters included in the packet, such as OAM type and frequency. If the oam does not receive any CV/FFD packet before the timer expires, It will send BDI with dLOCV defect.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamL2vcAutoOvertime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.6.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMplsOamL2vcAutoProlEn": {
+    "class": "objecttype",
+    "description": "0: disable; 1: enable;",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamL2vcAutoProlEn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.6.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamL2vcAva": {
+    "class": "notificationtype",
+    "description": "This notification is generated when the PW is found in the unavailable state.",
+    "name": "hwMplsOamL2vcAva",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamL2vcPeerIp"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamL2vcVcType"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamL2vcVcId"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamL2vcAvaState"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamL2vcDefectType"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamL2vcBdiDefectType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.2.14",
+    "status": "current"
+  },
+  "hwMplsOamL2vcAvaState": {
+    "class": "objecttype",
+    "description": "0: available state; 1: unavailable state.",
+    "maxaccess": "read-only",
+    "name": "hwMplsOamL2vcAvaState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.6.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "available": 0,
+          "unavailable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamL2vcBDIFreq": {
+    "class": "objecttype",
+    "description": "BDI is generated at the trail termination source point of a return path in response to a defect detected at the trail termination sink point of an LSP in the forwarding direction. The frequency of BDI can be set by user. 1: per-second; 2: same as detect frequency.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamL2vcBDIFreq",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.6.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "detectFrequency": 2,
+          "perSecond": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamL2vcBdiDefectType": {
+    "class": "objecttype",
+    "description": "0: no defect; 1: dServer, 2: dPeerMe, 3: dLOCV, Loss of Connectivity Verification defect; 4: dTTSI-Mismatch, Trail Termination Source Identifier Mismatch defect; 5: dTTSI-Mismerge, Trail Termination Source Identifier Mismerge defect.; 6: dExcess, Receiving excess rate of CV/FFD; 7: dUnknown, Unknown defect in the MPLS network. 8: dOamFail, AutoProtocal timer expires.",
+    "maxaccess": "read-only",
+    "name": "hwMplsOamL2vcBdiDefectType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.6.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dExcess": 6,
+          "dLOCV": 3,
+          "dOamFail": 8,
+          "dPeerMe": 2,
+          "dServer": 1,
+          "dTTSI-Mismatch": 4,
+          "dTTSI-Mismerge": 5,
+          "dUnknown": 7,
+          "nondefect": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamL2vcCompatibilityMode": {
+    "class": "objecttype",
+    "description": " 1: Ptn-Mode; 2: RouterMode; Valid only for the l2vc configuration.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamL2vcCompatibilityMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.6.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ptnMode": 1,
+          "routerMode": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamL2vcDefectType": {
+    "class": "objecttype",
+    "description": "0: no defect; 1: dServer, 2: dPeerMe, 3: dLOCV, Loss of Connectivity Verification defect; 4: dTTSI-Mismatch, Trail Termination Source Identifier Mismatch defect; 5: dTTSI-Mismerge, Trail Termination Source Identifier Mismerge defect.; 6: dExcess, Receiving excess rate of CV/FFD; 7: dUnknown, Unknown defect in the MPLS network. 8: dOamFail, AutoProtocal timer expires. 9: PW-down, PW down.",
+    "maxaccess": "read-only",
+    "name": "hwMplsOamL2vcDefectType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.6.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dExcess": 6,
+          "dLOCV": 3,
+          "dOamFail": 8,
+          "dPeerMe": 2,
+          "dServer": 1,
+          "dTTSI-Mismatch": 4,
+          "dTTSI-Mismerge": 5,
+          "dUnknown": 7,
+          "nondefect": 0,
+          "pw-down": 9
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamL2vcDetFreq": {
+    "class": "objecttype",
+    "description": "For CV: the frequency is static, per second. For FFD: the frequency is set by user. The value can be 10ms, 20ms, 50ms,100ms,200ms,500ms,3ms. Any other frequency is wrong. 0: 1000ms(only for cv); 1: 10ms; 2: 20ms; 3: 50ms; 4: 100ms; 5: 200ms; 6: 500ms; 7: 3ms.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamL2vcDetFreq",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.6.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cv1000ms": 0,
+          "ffd100ms5": 4,
+          "ffd10ms2": 1,
+          "ffd200ms6": 5,
+          "ffd20ms3": 2,
+          "ffd3ms8": 7,
+          "ffd500ms7": 6,
+          "ffd50ms4": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamL2vcDetType": {
+    "class": "objecttype",
+    "description": "There are two types of OAM packets, CV and FFD. 1: CV; 2: FFD.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamL2vcDetType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.6.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cv": 1,
+          "ffd": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamL2vcEntry": {
+    "class": "objecttype",
+    "description": "An entry in this table is created by binding the peer-ip, vc-type and vc-id.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamL2vcPeerIp"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamL2vcVcType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamL2vcVcId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMplsOamL2vcEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.6.1",
+    "status": "current"
+  },
+  "hwMplsOamL2vcInDefect": {
+    "class": "notificationtype",
+    "description": "This notification is generated when the PW is found not in the defect state.",
+    "name": "hwMplsOamL2vcInDefect",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamL2vcPeerIp"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamL2vcVcType"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamL2vcVcId"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamL2vcAvaState"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamL2vcDefectType"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamL2vcBdiDefectType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.2.13",
+    "status": "current"
+  },
+  "hwMplsOamL2vcOutDefect": {
+    "class": "notificationtype",
+    "description": "This notification is generated when the PW is found not in the defect state.",
+    "name": "hwMplsOamL2vcOutDefect",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamL2vcPeerIp"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamL2vcVcType"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamL2vcVcId"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamL2vcAvaState"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamL2vcDefectType"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamL2vcBdiDefectType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.2.12",
+    "status": "current"
+  },
+  "hwMplsOamL2vcPeerIp": {
+    "class": "objecttype",
+    "description": "This object indicates the peer ip address.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsOamL2vcPeerIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMplsOamL2vcReceiveEnable": {
+    "class": "objecttype",
+    "description": "0: The OAM Receive function is Disabled; 1: The OAM Receive function is Eabled;",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamL2vcReceiveEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.6.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamL2vcRevDetFreq": {
+    "class": "objecttype",
+    "description": "For CV: the frequency is static, per second. For FFD: the frequency is set by user. The value can be 10ms, 20ms, 50ms,100ms,200ms,500ms,3ms. Any other frequency is wrong. 0: 1000ms(only for cv); 1: 10ms; 2: 20ms; 3: 50ms; 4: 100ms; 5: 200ms; 6: 500ms; 7: invalid; 8: 3ms.",
+    "maxaccess": "read-only",
+    "name": "hwMplsOamL2vcRevDetFreq",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.6.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cv1000ms": 0,
+          "ffd100ms5": 4,
+          "ffd10ms2": 1,
+          "ffd200ms6": 5,
+          "ffd20ms3": 2,
+          "ffd3ms9": 8,
+          "ffd500ms7": 6,
+          "ffd50ms4": 3,
+          "invalid8": 7
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamL2vcRevDetType": {
+    "class": "objecttype",
+    "description": "0: invalid; 1: CV; 2: FFD.",
+    "maxaccess": "read-only",
+    "name": "hwMplsOamL2vcRevDetType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.6.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cv": 1,
+          "ffd": 2,
+          "invalid": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamL2vcRowStatus": {
+    "class": "objecttype",
+    "description": "This variable is used to create, modify, and delete a row in this table. ",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamL2vcRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.6.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMplsOamL2vcSendEnable": {
+    "class": "objecttype",
+    "description": "0: The OAM Send function is Disabled; 1: The OAM Send function is Eabled;",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamL2vcSendEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.6.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamL2vcTable": {
+    "class": "objecttype",
+    "description": "This table specifies PW MPLS OAM capability and associated information, such as DetType and DetFrequence.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsOamL2vcTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.6",
+    "status": "current"
+  },
+  "hwMplsOamL2vcUnAva": {
+    "class": "notificationtype",
+    "description": "This notification is generated when the PW is found in the unavailable state.",
+    "name": "hwMplsOamL2vcUnAva",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamL2vcPeerIp"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamL2vcVcType"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamL2vcVcId"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamL2vcAvaState"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamL2vcDefectType"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamL2vcBdiDefectType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.2.15",
+    "status": "current"
+  },
+  "hwMplsOamL2vcValid": {
+    "class": "objecttype",
+    "description": "1: stop detect; 2: start detect; 3: ready.",
+    "maxaccess": "read-only",
+    "name": "hwMplsOamL2vcValid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.6.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 3,
+          "start": 2,
+          "stop": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamL2vcVcId": {
+    "class": "objecttype",
+    "description": "This object indicates the vc id of pw type.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsOamL2vcVcId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsOamL2vcVcType": {
+    "class": "objecttype",
+    "description": "There are seventeen types of vc. 1: fr; 2: atm-aal5-sdu; 3: atm-trans-cell; 4: vlan; 5: ethernet; 6: hdlc; 7: ppp; 9: atm-nto1-vcc; 10:atm-nto1-vpc; 11:ip-layer2; 12:atm-1to1-vcc; 13:atm-1to1-vpc; 14:atm-aal5-pdu; 17:satop-e1; 18:satop-t1; 21:cesopsn-basic; 64:ip-interworking; 0:unknown.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsOamL2vcVcType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "atm-1to1-vcc": 12,
+          "atm-1to1-vpc": 13,
+          "atm-aal5-pdu": 14,
+          "atm-aal5-sdu": 2,
+          "atm-nto1-vcc": 9,
+          "atm-nto1-vpc": 10,
+          "atm-trans-cell": 3,
+          "cesopsn-basic": 21,
+          "ethernet": 5,
+          "fr": 1,
+          "hdlc": 6,
+          "ip-interworking": 64,
+          "ip-layer2": 11,
+          "ppp": 7,
+          "satop-e1": 17,
+          "satop-t1": 18,
+          "unknown": 0,
+          "vlan": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamNotifications": {
+    "class": "objectidentity",
+    "name": "hwMplsOamNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.2"
+  },
+  "hwMplsOamObjects": {
+    "class": "objectidentity",
+    "name": "hwMplsOamObjects",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1"
+  },
+  "hwMplsOamPs": {
+    "class": "objectidentity",
+    "name": "hwMplsOamPs",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1"
+  },
+  "hwMplsOamRlsnEntry": {
+    "class": "objecttype",
+    "description": "An entry in this table is created by an LSR to binding the name, lsr-id and tunnel-id of the LSP at egress.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamRlsnLspName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamRlsnLsrId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamRlsnSessTunnId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSOAM-MIB",
+        "object": "hwMplsOamRlsnIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMplsOamRlsnEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.4.1",
+    "status": "current"
+  },
+  "hwMplsOamRlsnIfIndex": {
+    "class": "objecttype",
+    "description": "The object indicates the index of outbound interface.",
+    "maxaccess": "read-only",
+    "name": "hwMplsOamRlsnIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMplsOamRlsnIfName": {
+    "class": "objecttype",
+    "description": "The object indicates the name of outbound interface.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamRlsnIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMplsOamRlsnIsDown": {
+    "class": "objecttype",
+    "description": "1: up 2: down",
+    "maxaccess": "read-only",
+    "name": "hwMplsOamRlsnIsDown",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsOamRlsnLspName": {
+    "class": "objecttype",
+    "description": "For egress, the object indicates name of the LSP.",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamRlsnLspName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMplsOamRlsnLsrId": {
+    "class": "objecttype",
+    "description": "For egress, the object indicates the Ingress LSR ID of the LSP",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamRlsnLsrId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMplsOamRlsnRowStatus": {
+    "class": "objecttype",
+    "description": "This variable is used to create, modify, and delete a row in this table. ",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamRlsnRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMplsOamRlsnSessTunnId": {
+    "class": "objecttype",
+    "description": "For egress, the object indicates the Ingress session tunnel ID of the LSP",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamRlsnSessTunnId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMplsOamRlsnTable": {
+    "class": "objecttype",
+    "description": "This table specifies RLSN capability and associated information, such as RlsnLsrId and RlsnLsrId.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsOamRlsnTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.4",
+    "status": "current"
+  },
+  "hwMplsOamTrapOpen": {
+    "class": "objecttype",
+    "description": "0: disable 1: enable",
+    "maxaccess": "read-write",
+    "name": "hwMplsOamTrapOpen",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsOamView": {
+    "class": "objecttype",
+    "description": "Create or delete the MPLS OAM view. 1: create mpls-oam; 0: delete mpls-oam;",
+    "maxaccess": "read-create",
+    "name": "hwMplsOamView",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mpls-oam": 1,
+          "null": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwMpls"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "iso",
+      "IpAddress",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
+      "Integer32",
+      "Counter64",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "TimeStamp",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-MPLSOAM-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:25 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-MPLSOAM-MIB"
+  }
+}

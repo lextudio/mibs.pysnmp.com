@@ -1,0 +1,1123 @@
+{
+  "hwAveragePower": {
+    "class": "objecttype",
+    "description": "NE average power consumtion during a period: milliwatt",
+    "maxaccess": "read-only",
+    "name": "hwAveragePower",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.157.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBoardCurrentPower": {
+    "class": "objecttype",
+    "description": "current power of board(slot): milliwatt",
+    "maxaccess": "read-only",
+    "name": "hwBoardCurrentPower",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.157.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBoardIndex": {
+    "class": "objecttype",
+    "description": "Index: reserved/shelf/frame/slot. The index is format by 4 bytes(8bit for 1 byte): reservedByte(0xFF), shelfID, frameID, slotID. e.g. shlef=1, frame=2, slot=17, the index is 0xFF010211(66065). If no shelfID or frameID, the corresponding byte is set to be 0xFF. e.g. no shlefID, no frameID, slot=17, the index is 0xFFFFFF11(4294967057). ",
+    "maxaccess": "read-only",
+    "name": "hwBoardIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.157.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBoardName": {
+    "class": "objecttype",
+    "description": "hwBoardName describes full name of board: CR52LPUA/CR57SFU40A/H805ADGG, etc. ",
+    "maxaccess": "read-only",
+    "name": "hwBoardName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.157.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwBoardPowerMngt": {
+    "class": "objectidentity",
+    "name": "hwBoardPowerMngt",
+    "oid": "1.3.6.1.4.1.2011.6.157.2"
+  },
+  "hwBoardPowerMngtEntry": {
+    "class": "objecttype",
+    "description": "The entry of hwBoardPowerMngtTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwBoardIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBoardPowerMngtEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.157.2.1.1",
+    "status": "current"
+  },
+  "hwBoardPowerMngtTable": {
+    "class": "objecttype",
+    "description": "This table describes current power and rated power of boards. The index is hwBoardIndex.",
+    "maxaccess": "not-accessible",
+    "name": "hwBoardPowerMngtTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.157.2.1",
+    "status": "current"
+  },
+  "hwBoardRatedPower": {
+    "class": "objecttype",
+    "description": "rated power of board(slot): milliwatt",
+    "maxaccess": "read-only",
+    "name": "hwBoardRatedPower",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.157.2.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBoardThresholdOfPower": {
+    "class": "objecttype",
+    "description": "Threshold power of board(slot): milliwatt",
+    "maxaccess": "read-write",
+    "name": "hwBoardThresholdOfPower",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.157.2.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBoardType": {
+    "class": "objecttype",
+    "description": "hwBoardType describes main type of board: LPU/SFU/ADSL/PSTN, etc. ",
+    "maxaccess": "read-only",
+    "name": "hwBoardType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.157.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwCurrentPower": {
+    "class": "objecttype",
+    "description": "NE current power: milliwatt",
+    "maxaccess": "read-only",
+    "name": "hwCurrentPower",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.157.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEnergyCompliance": {
+    "class": "modulecompliance",
+    "description": "Description.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyFtpcGroup"
+      }
+    ],
+    "name": "hwEnergyCompliance",
+    "oid": "1.3.6.1.4.1.2011.6.157.6.1.1",
+    "status": "current"
+  },
+  "hwEnergyCompliances": {
+    "class": "objectidentity",
+    "name": "hwEnergyCompliances",
+    "oid": "1.3.6.1.4.1.2011.6.157.6.1"
+  },
+  "hwEnergyConformance": {
+    "class": "objectidentity",
+    "name": "hwEnergyConformance",
+    "oid": "1.3.6.1.4.1.2011.6.157.6"
+  },
+  "hwEnergyDevChangeToSleep": {
+    "class": "notificationtype",
+    "description": "This notification indicates device entering in the sleeping status.",
+    "name": "hwEnergyDevChangeToSleep",
+    "objects": [
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyDevId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.157.11.1",
+    "status": "current"
+  },
+  "hwEnergyDevId": {
+    "class": "objecttype",
+    "description": "This object identifies the device ID.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEnergyDevId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.157.10.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEnergyFtpOperStatus": {
+    "class": "objecttype",
+    "description": "The OperStatus: opInProgress(1): the operation is in process. opSuccess(2): the operation has been completed successfully. opInvalid(3): the command is invalid or command-protocol-device combination is unsupported by the system. opInvalidProtocol(4): invalid protocol is specified opInvalidSourceName(5) :invalid source file name is specified. opInvalidDestName(6): invalid target name is specified. opInvalidServerAddress(7): invalid server address is specified opDeviceBusy(8): the device is in use and locked by another process opDeviceError(9): device read, write or erase error opFileOpenError(10) :invalid file name; file not found in partition opFileTransferError(11) :file transfer was unsuccessfull opFileChecksumError(12) :file checksum in Flash is invalid opAuthFail(13) :authentication failure opUnknownFailure(14) :failure which is unknown opAbort(15) : transfer operation has been aborted opInvalidSourceAddress(16): invalid source IP is specified. opInvalidSourceInterface(17): invalid source interface is specified. ",
+    "maxaccess": "read-only",
+    "name": "hwEnergyFtpOperStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "opAbort": 15,
+          "opAuthFail": 13,
+          "opDeviceBusy": 8,
+          "opDeviceError": 9,
+          "opFileChecksumError": 12,
+          "opFileOpenError": 10,
+          "opFileTransferError": 11,
+          "opInProgress": 1,
+          "opInvalid": 3,
+          "opInvalidDestName": 6,
+          "opInvalidProtocol": 4,
+          "opInvalidServerAddress": 7,
+          "opInvalidSourceAddress": 16,
+          "opInvalidSourceInterface": 17,
+          "opInvalidSourceName": 5,
+          "opSuccess": 2,
+          "opUnknownFailure": 14
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEnergyFtpcAction": {
+    "class": "objecttype",
+    "description": "The type of request. get(1): To request a file from the FTP server. put(2): To send a file to the FTP server.",
+    "maxaccess": "read-write",
+    "name": "hwEnergyFtpcAction",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "get": 1,
+          "put": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEnergyFtpcDirectory": {
+    "class": "objecttype",
+    "description": "Local working directory",
+    "maxaccess": "read-create",
+    "name": "hwEnergyFtpcDirectory",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 256,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEnergyFtpcGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwEnergyFtpcGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyFtpcSrcAddrType"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyFtpcSrcAddr"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyFtpcVpnName"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyFtpcHostAddrType"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyFtpcHostAddr"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyFtpcServerPort"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyFtpcUserName"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyFtpcPassword"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyFtpcDirectory"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyFtpcSrcIfName"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyFtpcTransCfgRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.157.6.2.1",
+    "status": "current"
+  },
+  "hwEnergyFtpcHostAddr": {
+    "class": "objecttype",
+    "description": "Server IP address",
+    "maxaccess": "read-create",
+    "name": "hwEnergyFtpcHostAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwEnergyFtpcHostAddrType": {
+    "class": "objecttype",
+    "description": "Server address type: ipv4(1) ipv6(2)",
+    "maxaccess": "read-create",
+    "name": "hwEnergyFtpcHostAddrType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwEnergyFtpcObjects": {
+    "class": "objectidentity",
+    "name": "hwEnergyFtpcObjects",
+    "oid": "1.3.6.1.4.1.2011.6.157.4"
+  },
+  "hwEnergyFtpcPassword": {
+    "class": "objecttype",
+    "description": "Password used for user validation. Password Length while setting should not be more than 16 characters, while querying password will be cipher text",
+    "maxaccess": "read-create",
+    "name": "hwEnergyFtpcPassword",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 25,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEnergyFtpcServerPort": {
+    "class": "objecttype",
+    "description": "Server port used for connection",
+    "maxaccess": "read-create",
+    "name": "hwEnergyFtpcServerPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 21,
+            "min": 21
+          },
+          {
+            "max": 55535,
+            "min": 1025
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEnergyFtpcSetName": {
+    "class": "objecttype",
+    "description": "Name identifying FTPC Transfer configuration",
+    "maxaccess": "not-accessible",
+    "name": "hwEnergyFtpcSetName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEnergyFtpcSrcAddr": {
+    "class": "objecttype",
+    "description": "Source IP address",
+    "maxaccess": "read-create",
+    "name": "hwEnergyFtpcSrcAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwEnergyFtpcSrcAddrType": {
+    "class": "objecttype",
+    "description": "Source IP address Type: ipv4(1) ipv6(2)",
+    "maxaccess": "read-create",
+    "name": "hwEnergyFtpcSrcAddrType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwEnergyFtpcSrcIfName": {
+    "class": "objecttype",
+    "description": "Interface Name",
+    "maxaccess": "read-create",
+    "name": "hwEnergyFtpcSrcIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 48,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEnergyFtpcTransCfgRowStatus": {
+    "class": "objecttype",
+    "description": "The object specifies the status of this table entry. When the status is createAndGo, it allows to create and when value is destroy it allows to delete the record in the table",
+    "maxaccess": "read-create",
+    "name": "hwEnergyFtpcTransCfgRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwEnergyFtpcTransFileEntry": {
+    "class": "objecttype",
+    "description": "Name identifying Transfer configuration",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyFtpcSetName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEnergyFtpcTransFileEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1",
+    "status": "current"
+  },
+  "hwEnergyFtpcTransFileTable": {
+    "class": "objecttype",
+    "description": "This table is used to configure transfer file feature related parameters.",
+    "maxaccess": "not-accessible",
+    "name": "hwEnergyFtpcTransFileTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1",
+    "status": "current"
+  },
+  "hwEnergyFtpcTransMode": {
+    "class": "objecttype",
+    "description": "The file transfer protocol. Default: FTP.",
+    "maxaccess": "read-write",
+    "name": "hwEnergyFtpcTransMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftp": 1,
+          "sftp": 2,
+          "tftp": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEnergyFtpcUserName": {
+    "class": "objecttype",
+    "description": "User Name used for user validation",
+    "maxaccess": "read-create",
+    "name": "hwEnergyFtpcUserName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 85,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEnergyFtpcVpnName": {
+    "class": "objecttype",
+    "description": "VPN name used for the corresponding connection",
+    "maxaccess": "read-create",
+    "name": "hwEnergyFtpcVpnName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.157.4.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEnergyGroups": {
+    "class": "objectidentity",
+    "name": "hwEnergyGroups",
+    "oid": "1.3.6.1.4.1.2011.6.157.6.2"
+  },
+  "hwEnergyMngt": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "huawei energy management MIB.",
+    "lastupdated": "201505300000Z",
+    "name": "hwEnergyMngt",
+    "oid": "1.3.6.1.4.1.2011.6.157",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "V2.03. Add enum of hwEnergySavingMode:optimal. This is a draft version.",
+        "revision": "2015-05-30 00:00"
+      },
+      {
+        "description": "V2.02. Add hwEnergyDevId, hwEnergyDevChangeToSleep. This is a draft version.",
+        "revision": "2014-01-23 00:00"
+      },
+      {
+        "description": "V0.114. Add hwPoEType, hwPSEPower. Modify FTPC table. This is a draft version.",
+        "revision": "2011-07-01 00:00"
+      },
+      {
+        "description": "V0.113, add hwEnergyFtpcIpv4TransMode and hwEnergyFtpcTransMode. This is a draft version.",
+        "revision": "2011-03-14 15:30"
+      },
+      {
+        "description": "V0.112, modify hwEnergyFtpcTransFileIpv4Table and hwEnergyFtpcTransFileTable. This is a draft version.",
+        "revision": "2011-03-14 00:00"
+      },
+      {
+        "description": "V0.111, add hwEnergyFtpcObjects, including hwEnergyFtpcTransFileIpv4Table and hwEnergyFtpcTransFileTable. This is a draft version.",
+        "revision": "2011-03-10 00:00"
+      },
+      {
+        "description": "V0.11, add hwEnergySavingDescReqMode.",
+        "revision": "2011-02-10 00:00"
+      },
+      {
+        "description": "V0.10, modify hwBoardIndex.",
+        "revision": "2010-08-06 00:00"
+      },
+      {
+        "description": "V0.09, modify hwBoardType.",
+        "revision": "2010-08-05 00:00"
+      },
+      {
+        "description": "V0.08, modify watt to milliwatt. Modify enumeration of hwEnergySavingMode. Add boardType and boardDescription.",
+        "revision": "2010-08-03 00:00"
+      },
+      {
+        "description": "V0.08, modify hwPowerStatPeriod.",
+        "revision": "2010-07-12 00:00"
+      },
+      {
+        "description": "V0.06, modify hwPowerStatPeriod.",
+        "revision": "2010-07-07 00:00"
+      },
+      {
+        "description": "V0.05, modify hwEnergySavingMethodEnable value list. Delete hwEnergySavingParameterTable first index \u0027hwEnergySavingMethodIndex\u0027",
+        "revision": "2010-06-29 00:00"
+      },
+      {
+        "description": "V0.05, modify hwEnergySavingCapabilityMngtEntry, modify hwEnergySavingMethodTable",
+        "revision": "2010-06-23 00:00"
+      },
+      {
+        "description": "V0.04, modify hwEnergySavingCapabilityMngtEntry",
+        "revision": "2010-06-18 00:00"
+      },
+      {
+        "description": "V0.03, modify description for all MIB table",
+        "revision": "2010-06-17 00:00"
+      },
+      {
+        "description": "V0.02, add hwEnergySavingMethodEntry, add hwEnergySavingCapabilityMngt",
+        "revision": "2010-06-08 00:00"
+      },
+      {
+        "description": "V0.01 mib initial",
+        "revision": "2010-05-24 00:00"
+      }
+    ]
+  },
+  "hwEnergyNotification": {
+    "class": "objectidentity",
+    "name": "hwEnergyNotification",
+    "oid": "1.3.6.1.4.1.2011.6.157.11"
+  },
+  "hwEnergyNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "Description.",
+    "name": "hwEnergyNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergyDevChangeToSleep"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.157.6.2.4",
+    "status": "current"
+  },
+  "hwEnergySavingCapabilityDesc": {
+    "class": "objecttype",
+    "description": "User can get the description string from hwEnergySavingCapabilityDesc. An XML file which is compressed by ZIP to less than 10240 bytes, describes the energy-saving capability, including all energy-saving methods and parameters. ",
+    "maxaccess": "read-only",
+    "name": "hwEnergySavingCapabilityDesc",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 10240,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEnergySavingCapabilityDescIndex": {
+    "class": "objecttype",
+    "description": "The index of hwEnergySavingCapabilityMngtTable. ",
+    "maxaccess": "read-only",
+    "name": "hwEnergySavingCapabilityDescIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEnergySavingCapabilityDescLanguage": {
+    "class": "objecttype",
+    "description": "The language of EnergySavingCapabilityDescription file. \u0027en-gb\u0027(English-GreatBraitain) \u0027zh-cn\u0027(Chinese) ",
+    "maxaccess": "read-only",
+    "name": "hwEnergySavingCapabilityDescLanguage",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEnergySavingCapabilityMngtEntry": {
+    "class": "objecttype",
+    "description": "The entry of hwBoardPowerMngtTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergySavingCapabilityDescIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEnergySavingCapabilityMngtEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.4.1",
+    "status": "current"
+  },
+  "hwEnergySavingCapabilityMngtTable": {
+    "class": "objecttype",
+    "description": "This table describes the energy-saving capability, including energy-saving methods and parameters. The index is hwEnergySavingCapabilityDescIndex. ",
+    "maxaccess": "not-accessible",
+    "name": "hwEnergySavingCapabilityMngtTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.4",
+    "status": "current"
+  },
+  "hwEnergySavingDescReqMode": {
+    "class": "objecttype",
+    "description": "The mode describes how to get energy saving capability description file : snmp(1): Get the file using hwEnergySavingCapabilityDesc. ftp(2): Get the file using FTP, which described by hwEnergyFtpclientReqTable. ",
+    "maxaccess": "read-only",
+    "name": "hwEnergySavingDescReqMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftp": 2,
+          "snmp": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEnergySavingMethodEnable": {
+    "class": "objecttype",
+    "description": "hwEnergySaveingMethodEnable describes the status of energy-saving method: enableed or disabled. ",
+    "maxaccess": "read-write",
+    "name": "hwEnergySavingMethodEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEnergySavingMethodEntry": {
+    "class": "objecttype",
+    "description": "Entry of energy-saveing method table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergySavingMethodIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEnergySavingMethodEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.2.1",
+    "status": "current"
+  },
+  "hwEnergySavingMethodIndex": {
+    "class": "objecttype",
+    "description": "The index of method in use. ",
+    "maxaccess": "read-only",
+    "name": "hwEnergySavingMethodIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEnergySavingMethodTable": {
+    "class": "objecttype",
+    "description": "hwEnergySavingMethodTable defines energy-saving Method for all mode. User can set a method with its parameter. The index of this table is hwEnergySavingMethodIndex. ",
+    "maxaccess": "not-accessible",
+    "name": "hwEnergySavingMethodTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.2",
+    "status": "current"
+  },
+  "hwEnergySavingMngt": {
+    "class": "objectidentity",
+    "name": "hwEnergySavingMngt",
+    "oid": "1.3.6.1.4.1.2011.6.157.3"
+  },
+  "hwEnergySavingMngtGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwEnergySavingMngtGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergySavingMode"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergySavingMethodIndex"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergySavingParameterIndex"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergySavingCapabilityDescIndex"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergySavingDescReqMode"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.157.6.2.3",
+    "status": "current"
+  },
+  "hwEnergySavingMode": {
+    "class": "objecttype",
+    "description": "Power saving mode: UserDefined(1): UserDined energy-saving mode, user can define energy-saving strategy. Standard(2): standard energy-saving mode Basic(3): basic energy-saving mode, many basic energy-saving strategy included. Deep(4): Deep energy-saving mode, many complex energy-saving strategy included, which may effect service. Optimal(5): Optimal energy-saving mode, many complex energy-saving strategy included, which may effect service. ",
+    "maxaccess": "read-write",
+    "name": "hwEnergySavingMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "basic": 3,
+          "deep": 4,
+          "optimal": 5,
+          "standard": 2,
+          "userDefined": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEnergySavingParameterEntry": {
+    "class": "objecttype",
+    "description": "Entry of energy-saveing parameter table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergySavingMethodIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwEnergySavingParameterIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEnergySavingParameterEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.3.1",
+    "status": "current"
+  },
+  "hwEnergySavingParameterIndex": {
+    "class": "objecttype",
+    "description": "The second index of hwEnergySavingParameterTable. An energy-saving method might have more than one parameter. This index is used to identify the parameter for a method.",
+    "maxaccess": "read-only",
+    "name": "hwEnergySavingParameterIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEnergySavingParameterTable": {
+    "class": "objecttype",
+    "description": "hwEnergySavingParameterTable defines parameters for all energy-saving methods. User can set parameter for a method. The index of this table: hwEnergySavingMethodIndex, hwEnergySavingParameterIndex.",
+    "maxaccess": "not-accessible",
+    "name": "hwEnergySavingParameterTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.3",
+    "status": "current"
+  },
+  "hwEnergySavingParameterValue": {
+    "class": "objecttype",
+    "description": "The value of an energy-saveing method\u0027s parameter. The parameter is a format string. When NMS sets integer 12 as a parameter for a energy-saving method, the value is a string \u002712\u0027. ",
+    "maxaccess": "read-write",
+    "name": "hwEnergySavingParameterValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.157.3.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEnergyTrapObjects": {
+    "class": "objectidentity",
+    "name": "hwEnergyTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.6.157.10"
+  },
+  "hwPSEPower": {
+    "class": "objecttype",
+    "description": "The output power(milliwatt) by a PSE. For a non-PSE device, the value is zero.",
+    "maxaccess": "read-only",
+    "name": "hwPSEPower",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.157.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPoEType": {
+    "class": "objecttype",
+    "description": "powered type: PSE(1): power supplier. PD(2): powered deivce. noPoe(255): not PSE or PD",
+    "maxaccess": "read-only",
+    "name": "hwPoEType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.157.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noPoe": 255,
+          "pd": 2,
+          "pse": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPowerConsumption": {
+    "class": "objecttype",
+    "description": "NE total power consumption, counted from equipment first used. Joule(Watt * second). Note: If the device is a power supplier(PSE), the power consumption includes the outputs.",
+    "maxaccess": "read-only",
+    "name": "hwPowerConsumption",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.157.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPowerStatPeriod": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "oneHour"
+      }
+    },
+    "description": "NE power statistics period: fifteenMinutes(1): The power statistics generated every 15 minutes. thirtyMinutes(2): The power statistics generated every 30 minutes. oneHour(3): The power statistics generated every hour. oneDay(4): The power statistics generated every day. oneWeek(5): The power statistics generated every week. oneMonth(6): The power statistics generated every month. The defaut statistics intervalue is one hour.",
+    "maxaccess": "read-write",
+    "name": "hwPowerStatPeriod",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.157.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fifteenMinutes": 1,
+          "oneDay": 4,
+          "oneHour": 3,
+          "oneMonth": 6,
+          "oneWeek": 5,
+          "thirtyMinutes": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRatedPower": {
+    "class": "objecttype",
+    "description": "NE rated power: milliwatt",
+    "maxaccess": "read-only",
+    "name": "hwRatedPower",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.157.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSysPowerMgnt": {
+    "class": "objectidentity",
+    "name": "hwSysPowerMgnt",
+    "oid": "1.3.6.1.4.1.2011.6.157.1"
+  },
+  "hwSysPowerMgntGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwSysPowerMgntGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwThresholdOfPower"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwPowerConsumption"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwPowerStatPeriod"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwAveragePower"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwRatedPower"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwCurrentPower"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwPSEPower"
+      },
+      {
+        "module": "HUAWEI-ENERGYMNGT-MIB",
+        "object": "hwPoEType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.157.6.2.2",
+    "status": "current"
+  },
+  "hwThresholdOfPower": {
+    "class": "objecttype",
+    "description": "NE threshold power: milliwatt",
+    "maxaccess": "read-write",
+    "name": "hwThresholdOfPower",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.157.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "huaweiUtility"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "Integer32",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DateAndTime"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-ENERGYMNGT-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:16 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-ENERGYMNGT-MIB"
+  }
+}

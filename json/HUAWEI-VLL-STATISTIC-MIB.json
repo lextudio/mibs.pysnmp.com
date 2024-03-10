@@ -1,0 +1,537 @@
+{
+  "hwL2Vpn": {
+    "class": "objectidentity",
+    "name": "hwL2Vpn",
+    "oid": "1.3.6.1.4.1.2011.5.25.119"
+  },
+  "hwL2VpnVllStatistic": {
+    "class": "moduleidentity",
+    "contactinfo": "R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com",
+    "description": "The HUAWEI-VLL-STATISTIC-MIB contains objects to manage VLL\u0027s statistic.",
+    "lastupdated": "200902132100Z",
+    "name": "hwL2VpnVllStatistic",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7",
+    "organization": "Huawei Technologies Co., Ltd."
+  },
+  "hwVllMIBCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-VLL-STATISTIC-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllStatisticGroup"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllQosStatisticGroup"
+      }
+    ],
+    "name": "hwVllMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.3.1.1",
+    "status": "current"
+  },
+  "hwVllMIBCompliances": {
+    "class": "objectidentity",
+    "name": "hwVllMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.3.1"
+  },
+  "hwVllMIBConformance": {
+    "class": "objectidentity",
+    "name": "hwVllMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.3"
+  },
+  "hwVllMIBGroups": {
+    "class": "objectidentity",
+    "name": "hwVllMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.3.2"
+  },
+  "hwVllMIBObjects": {
+    "class": "objectidentity",
+    "name": "hwVllMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1"
+  },
+  "hwVllMIBTraps": {
+    "class": "objectidentity",
+    "name": "hwVllMIBTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.2"
+  },
+  "hwVllQosStatisticDiscardByte": {
+    "class": "objecttype",
+    "description": "Number of discarded bytes, based on the interface.",
+    "maxaccess": "read-only",
+    "name": "hwVllQosStatisticDiscardByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVllQosStatisticDiscardByteRate": {
+    "class": "objecttype",
+    "description": "Rate of discarded bytes for the past 30 seconds, based on the interface. Unit: bps",
+    "maxaccess": "read-only",
+    "name": "hwVllQosStatisticDiscardByteRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVllQosStatisticDiscardPacket": {
+    "class": "objecttype",
+    "description": "Number of discarded packets, based on the interface.",
+    "maxaccess": "read-only",
+    "name": "hwVllQosStatisticDiscardPacket",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVllQosStatisticDiscardPacketRate": {
+    "class": "objecttype",
+    "description": "Rate of discarded packets for the past 30 seconds, based on the interface. Unit: pps",
+    "maxaccess": "read-only",
+    "name": "hwVllQosStatisticDiscardPacketRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVllQosStatisticEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of the VLL\u0027s traffic statistic.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllQosStatisticIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllQosStatisticPwType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllQosStatisticQueueId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVllQosStatisticEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.2.1",
+    "status": "current"
+  },
+  "hwVllQosStatisticGroup": {
+    "class": "objectgroup",
+    "description": "The VLL\u0027s QoS statistic group.",
+    "name": "hwVllQosStatisticGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllQosStatisticPassPacket"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllQosStatisticPassByte"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllQosStatisticDiscardPacket"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllQosStatisticDiscardByte"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllQosStatisticPassPacketRate"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllQosStatisticPassByteRate"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllQosStatisticDiscardPacketRate"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllQosStatisticDiscardByteRate"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.3.2.2",
+    "status": "current"
+  },
+  "hwVllQosStatisticIfIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwVllQosStatisticIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwVllQosStatisticPassByte": {
+    "class": "objecttype",
+    "description": "Number of passed bytes, based on the interface.",
+    "maxaccess": "read-only",
+    "name": "hwVllQosStatisticPassByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVllQosStatisticPassByteRate": {
+    "class": "objecttype",
+    "description": "Rate of passed bytes for the past 30 seconds, based on the interface. Unit: bps",
+    "maxaccess": "read-only",
+    "name": "hwVllQosStatisticPassByteRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVllQosStatisticPassPacket": {
+    "class": "objecttype",
+    "description": "Number of passed packets, based on the interface.",
+    "maxaccess": "read-only",
+    "name": "hwVllQosStatisticPassPacket",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVllQosStatisticPassPacketRate": {
+    "class": "objecttype",
+    "description": "Rate of passed packets for the past 30 seconds, based on the interface. Unit: pps",
+    "maxaccess": "read-only",
+    "name": "hwVllQosStatisticPassPacketRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVllQosStatisticPwType": {
+    "class": "objecttype",
+    "description": "This object indicates the type of PW.",
+    "maxaccess": "not-accessible",
+    "name": "hwVllQosStatisticPwType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVllQosStatisticQueueId": {
+    "class": "objecttype",
+    "description": "This object indicates the queue\u0027s ID. The value must be be,af1,af2,af3,af4,ef,cs6,cs7.",
+    "maxaccess": "not-accessible",
+    "name": "hwVllQosStatisticQueueId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "af1": 2,
+          "af2": 3,
+          "af3": 4,
+          "af4": 5,
+          "be": 1,
+          "cs6": 7,
+          "cs7": 8,
+          "ef": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVllQosStatisticTable": {
+    "class": "objecttype",
+    "description": "This table contains the VLL\u0027s traffic statistic, based on the interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwVllQosStatisticTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.2",
+    "status": "current"
+  },
+  "hwVllStatisticBytes": {
+    "class": "objecttype",
+    "description": "The bytes sent on the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVllStatisticBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVllStatisticBytesRate": {
+    "class": "objecttype",
+    "description": "The byte rate sent on the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVllStatisticBytesRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVllStatisticEnable": {
+    "class": "objecttype",
+    "description": "This object indicates the enable sign of VSI\u0027s traffic statistics, based on the interface.",
+    "maxaccess": "read-write",
+    "name": "hwVllStatisticEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwVllStatisticEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of the VLL\u0027s traffic statistic.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllStatisticIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllStatisticPwType"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVllStatisticEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.1.1",
+    "status": "current"
+  },
+  "hwVllStatisticGroup": {
+    "class": "objectgroup",
+    "description": "The VLL\u0027s statistic group.",
+    "name": "hwVllStatisticGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllStatisticEnable"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllStatisticResetTraffic"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllStatisticResetTime"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllStatisticPackets"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllStatisticBytes"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllStatisticPacketsRate"
+      },
+      {
+        "module": "HUAWEI-VLL-STATISTIC-MIB",
+        "object": "hwVllStatisticBytesRate"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.3.2.1",
+    "status": "current"
+  },
+  "hwVllStatisticIfIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwVllStatisticIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwVllStatisticPackets": {
+    "class": "objecttype",
+    "description": "The packets sent on the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVllStatisticPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVllStatisticPacketsRate": {
+    "class": "objecttype",
+    "description": "The packet rate sent on the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVllStatisticPacketsRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVllStatisticPwType": {
+    "class": "objecttype",
+    "description": "This object indicates the type of PW.",
+    "maxaccess": "not-accessible",
+    "name": "hwVllStatisticPwType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVllStatisticResetTime": {
+    "class": "objecttype",
+    "description": "Last time of clean out.",
+    "maxaccess": "read-only",
+    "name": "hwVllStatisticResetTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwVllStatisticResetTraffic": {
+    "class": "objecttype",
+    "description": "reset the traffic statistic.",
+    "maxaccess": "read-write",
+    "name": "hwVllStatisticResetTraffic",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "unknownStatus": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVllStatisticTable": {
+    "class": "objecttype",
+    "description": "This table contains the VLL\u0027s traffic statistic, based on the interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwVllStatisticTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1.1",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "MibIdentifier",
+      "IpAddress",
+      "iso",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-VLL-STATISTIC-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:19 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-VLL-STATISTIC-MIB"
+  }
+}

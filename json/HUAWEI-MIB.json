@@ -1,0 +1,3008 @@
+{
+  "ac6605_ac": {
+    "class": "objectidentity",
+    "name": "ac6605_ac",
+    "oid": "1.3.6.1.4.1.2011.2.240.3"
+  },
+  "ac6605_lsw": {
+    "class": "objectidentity",
+    "name": "ac6605_lsw",
+    "oid": "1.3.6.1.4.1.2011.2.240.2"
+  },
+  "access_server": {
+    "class": "objectidentity",
+    "name": "access_server",
+    "oid": "1.3.6.1.4.1.2011.2.3"
+  },
+  "acdIn": {
+    "class": "objectidentity",
+    "name": "acdIn",
+    "oid": "1.3.6.1.4.1.2011.2.21"
+  },
+  "acu": {
+    "class": "objectidentity",
+    "name": "acu",
+    "oid": "1.3.6.1.4.1.2011.2.240.1"
+  },
+  "adsl": {
+    "class": "objectidentity",
+    "name": "adsl",
+    "oid": "1.3.6.1.4.1.2011.2.5.1"
+  },
+  "amg5000": {
+    "class": "objectidentity",
+    "name": "amg5000",
+    "oid": "1.3.6.1.4.1.2011.2.27"
+  },
+  "apon": {
+    "class": "objectidentity",
+    "name": "apon",
+    "oid": "1.3.6.1.4.1.2011.2.24"
+  },
+  "ar": {
+    "class": "objectidentity",
+    "name": "ar",
+    "oid": "1.3.6.1.4.1.2011.2.224"
+  },
+  "ar1220": {
+    "class": "objectidentity",
+    "name": "ar1220",
+    "oid": "1.3.6.1.4.1.2011.2.224.1"
+  },
+  "ar1220s": {
+    "class": "objectidentity",
+    "name": "ar1220s",
+    "oid": "1.3.6.1.4.1.2011.2.224.15"
+  },
+  "ar1220v": {
+    "class": "objectidentity",
+    "name": "ar1220v",
+    "oid": "1.3.6.1.4.1.2011.2.224.8"
+  },
+  "ar1220vw": {
+    "class": "objectidentity",
+    "name": "ar1220vw",
+    "oid": "1.3.6.1.4.1.2011.2.224.14"
+  },
+  "ar1220w": {
+    "class": "objectidentity",
+    "name": "ar1220w",
+    "oid": "1.3.6.1.4.1.2011.2.224.2"
+  },
+  "ar1220ws": {
+    "class": "objectidentity",
+    "name": "ar1220ws",
+    "oid": "1.3.6.1.4.1.2011.2.224.16"
+  },
+  "ar1240": {
+    "class": "objectidentity",
+    "name": "ar1240",
+    "oid": "1.3.6.1.4.1.2011.2.224.3"
+  },
+  "ar1240w": {
+    "class": "objectidentity",
+    "name": "ar1240w",
+    "oid": "1.3.6.1.4.1.2011.2.224.4"
+  },
+  "ar18_18": {
+    "class": "objectidentity",
+    "name": "ar18_18",
+    "oid": "1.3.6.1.4.1.2011.2.55"
+  },
+  "ar18_20": {
+    "class": "objectidentity",
+    "name": "ar18_20",
+    "oid": "1.3.6.1.4.1.2011.2.56"
+  },
+  "ar18_30": {
+    "class": "objectidentity",
+    "name": "ar18_30",
+    "oid": "1.3.6.1.4.1.2011.2.57"
+  },
+  "ar18_31": {
+    "class": "objectidentity",
+    "name": "ar18_31",
+    "oid": "1.3.6.1.4.1.2011.2.58"
+  },
+  "ar18_32": {
+    "class": "objectidentity",
+    "name": "ar18_32",
+    "oid": "1.3.6.1.4.1.2011.2.59"
+  },
+  "ar18_33": {
+    "class": "objectidentity",
+    "name": "ar18_33",
+    "oid": "1.3.6.1.4.1.2011.2.60"
+  },
+  "ar18_34": {
+    "class": "objectidentity",
+    "name": "ar18_34",
+    "oid": "1.3.6.1.4.1.2011.2.61"
+  },
+  "ar201": {
+    "class": "objectidentity",
+    "name": "ar201",
+    "oid": "1.3.6.1.4.1.2011.2.224.9"
+  },
+  "ar206": {
+    "class": "objectidentity",
+    "name": "ar206",
+    "oid": "1.3.6.1.4.1.2011.2.224.10"
+  },
+  "ar207": {
+    "class": "objectidentity",
+    "name": "ar207",
+    "oid": "1.3.6.1.4.1.2011.2.224.11"
+  },
+  "ar207v": {
+    "class": "objectidentity",
+    "name": "ar207v",
+    "oid": "1.3.6.1.4.1.2011.2.224.12"
+  },
+  "ar208": {
+    "class": "objectidentity",
+    "name": "ar208",
+    "oid": "1.3.6.1.4.1.2011.2.224.13"
+  },
+  "ar2220": {
+    "class": "objectidentity",
+    "name": "ar2220",
+    "oid": "1.3.6.1.4.1.2011.2.224.5"
+  },
+  "ar2240": {
+    "class": "objectidentity",
+    "name": "ar2240",
+    "oid": "1.3.6.1.4.1.2011.2.224.6"
+  },
+  "ar3260": {
+    "class": "objectidentity",
+    "name": "ar3260",
+    "oid": "1.3.6.1.4.1.2011.2.224.7"
+  },
+  "ar46_20": {
+    "class": "objectidentity",
+    "name": "ar46_20",
+    "oid": "1.3.6.1.4.1.2011.2.44"
+  },
+  "ar46_40": {
+    "class": "objectidentity",
+    "name": "ar46_40",
+    "oid": "1.3.6.1.4.1.2011.2.45"
+  },
+  "ar46_80": {
+    "class": "objectidentity",
+    "name": "ar46_80",
+    "oid": "1.3.6.1.4.1.2011.2.46"
+  },
+  "as8010": {
+    "class": "objectidentity",
+    "name": "as8010",
+    "oid": "1.3.6.1.4.1.2011.2.3.1"
+  },
+  "atm": {
+    "class": "objectidentity",
+    "name": "atm",
+    "oid": "1.3.6.1.4.1.2011.2.1"
+  },
+  "atmAccess": {
+    "class": "objectidentity",
+    "name": "atmAccess",
+    "oid": "1.3.6.1.4.1.2011.2.1.1"
+  },
+  "atmBone": {
+    "class": "objectidentity",
+    "name": "atmBone",
+    "oid": "1.3.6.1.4.1.2011.2.1.2"
+  },
+  "atn": {
+    "class": "objectidentity",
+    "name": "atn",
+    "oid": "1.3.6.1.4.1.2011.2.220"
+  },
+  "atn910": {
+    "class": "objectidentity",
+    "name": "atn910",
+    "oid": "1.3.6.1.4.1.2011.2.220.3"
+  },
+  "atn950": {
+    "class": "objectidentity",
+    "name": "atn950",
+    "oid": "1.3.6.1.4.1.2011.2.220.4"
+  },
+  "atn950B": {
+    "class": "objectidentity",
+    "name": "atn950B",
+    "oid": "1.3.6.1.4.1.2011.2.220.5"
+  },
+  "atn980": {
+    "class": "objectidentity",
+    "name": "atn980",
+    "oid": "1.3.6.1.4.1.2011.2.220.1"
+  },
+  "atn990": {
+    "class": "objectidentity",
+    "name": "atn990",
+    "oid": "1.3.6.1.4.1.2011.2.220.2"
+  },
+  "attr": {
+    "class": "objectidentity",
+    "name": "attr",
+    "oid": "1.3.6.1.4.1.2011.2.2.1.1"
+  },
+  "cX200A": {
+    "class": "objectidentity",
+    "name": "cX200A",
+    "oid": "1.3.6.1.4.1.2011.2.87.1"
+  },
+  "cX200B": {
+    "class": "objectidentity",
+    "name": "cX200B",
+    "oid": "1.3.6.1.4.1.2011.2.87.2"
+  },
+  "cX200C": {
+    "class": "objectidentity",
+    "name": "cX200C",
+    "oid": "1.3.6.1.4.1.2011.2.87.9"
+  },
+  "cX200D": {
+    "class": "objectidentity",
+    "name": "cX200D",
+    "oid": "1.3.6.1.4.1.2011.2.87.10"
+  },
+  "cX200D_EA": {
+    "class": "objectidentity",
+    "name": "cX200D_EA",
+    "oid": "1.3.6.1.4.1.2011.2.87.11"
+  },
+  "cX200D_EA_MC": {
+    "class": "objectidentity",
+    "name": "cX200D_EA_MC",
+    "oid": "1.3.6.1.4.1.2011.2.87.16"
+  },
+  "cX200D_MC": {
+    "class": "objectidentity",
+    "name": "cX200D_MC",
+    "oid": "1.3.6.1.4.1.2011.2.87.12"
+  },
+  "cX300A": {
+    "class": "objectidentity",
+    "name": "cX300A",
+    "oid": "1.3.6.1.4.1.2011.2.87.3"
+  },
+  "cX300B": {
+    "class": "objectidentity",
+    "name": "cX300B",
+    "oid": "1.3.6.1.4.1.2011.2.87.4"
+  },
+  "cX380": {
+    "class": "objectidentity",
+    "name": "cX380",
+    "oid": "1.3.6.1.4.1.2011.2.87.6"
+  },
+  "cX380_ME": {
+    "class": "objectidentity",
+    "name": "cX380_ME",
+    "oid": "1.3.6.1.4.1.2011.2.87.15"
+  },
+  "cX380_PBT": {
+    "class": "objectidentity",
+    "name": "cX380_PBT",
+    "oid": "1.3.6.1.4.1.2011.2.87.14"
+  },
+  "cX500A": {
+    "class": "objectidentity",
+    "name": "cX500A",
+    "oid": "1.3.6.1.4.1.2011.2.87.5"
+  },
+  "cX600_16": {
+    "class": "objectidentity",
+    "name": "cX600_16",
+    "oid": "1.3.6.1.4.1.2011.2.87.8"
+  },
+  "cX600_4": {
+    "class": "objectidentity",
+    "name": "cX600_4",
+    "oid": "1.3.6.1.4.1.2011.2.87.13"
+  },
+  "cX600_8": {
+    "class": "objectidentity",
+    "name": "cX600_8",
+    "oid": "1.3.6.1.4.1.2011.2.87.7"
+  },
+  "cX600_X1": {
+    "class": "objectidentity",
+    "name": "cX600_X1",
+    "oid": "1.3.6.1.4.1.2011.2.87.20"
+  },
+  "cX600_X16": {
+    "class": "objectidentity",
+    "name": "cX600_X16",
+    "oid": "1.3.6.1.4.1.2011.2.87.19"
+  },
+  "cX600_X16DO": {
+    "class": "objectidentity",
+    "name": "cX600_X16DO",
+    "oid": "1.3.6.1.4.1.2011.2.87.26"
+  },
+  "cX600_X1DO": {
+    "class": "objectidentity",
+    "name": "cX600_X1DO",
+    "oid": "1.3.6.1.4.1.2011.2.87.22"
+  },
+  "cX600_X1_M4": {
+    "class": "objectidentity",
+    "name": "cX600_X1_M4",
+    "oid": "1.3.6.1.4.1.2011.2.87.27"
+  },
+  "cX600_X2": {
+    "class": "objectidentity",
+    "name": "cX600_X2",
+    "oid": "1.3.6.1.4.1.2011.2.87.21"
+  },
+  "cX600_X2DO": {
+    "class": "objectidentity",
+    "name": "cX600_X2DO",
+    "oid": "1.3.6.1.4.1.2011.2.87.23"
+  },
+  "cX600_X2_M16": {
+    "class": "objectidentity",
+    "name": "cX600_X2_M16",
+    "oid": "1.3.6.1.4.1.2011.2.87.29"
+  },
+  "cX600_X2_M8": {
+    "class": "objectidentity",
+    "name": "cX600_X2_M8",
+    "oid": "1.3.6.1.4.1.2011.2.87.28"
+  },
+  "cX600_X3": {
+    "class": "objectidentity",
+    "name": "cX600_X3",
+    "oid": "1.3.6.1.4.1.2011.2.87.17"
+  },
+  "cX600_X3DO": {
+    "class": "objectidentity",
+    "name": "cX600_X3DO",
+    "oid": "1.3.6.1.4.1.2011.2.87.24"
+  },
+  "cX600_X8": {
+    "class": "objectidentity",
+    "name": "cX600_X8",
+    "oid": "1.3.6.1.4.1.2011.2.87.18"
+  },
+  "cX600_X8DO": {
+    "class": "objectidentity",
+    "name": "cX600_X8DO",
+    "oid": "1.3.6.1.4.1.2011.2.87.25"
+  },
+  "cc08": {
+    "class": "objectidentity",
+    "name": "cc08",
+    "oid": "1.3.6.1.4.1.2011.2.10"
+  },
+  "cdmaIn": {
+    "class": "objectidentity",
+    "name": "cdmaIn",
+    "oid": "1.3.6.1.4.1.2011.2.20"
+  },
+  "cdmaInIP": {
+    "class": "objectidentity",
+    "name": "cdmaInIP",
+    "oid": "1.3.6.1.4.1.2011.2.20.5"
+  },
+  "cdmaInScp": {
+    "class": "objectidentity",
+    "name": "cdmaInScp",
+    "oid": "1.3.6.1.4.1.2011.2.20.1"
+  },
+  "cdmaInSdp": {
+    "class": "objectidentity",
+    "name": "cdmaInSdp",
+    "oid": "1.3.6.1.4.1.2011.2.20.2"
+  },
+  "cdmaInSmp": {
+    "class": "objectidentity",
+    "name": "cdmaInSmp",
+    "oid": "1.3.6.1.4.1.2011.2.20.3"
+  },
+  "cdmaInSsp": {
+    "class": "objectidentity",
+    "name": "cdmaInSsp",
+    "oid": "1.3.6.1.4.1.2011.2.20.4"
+  },
+  "ce12804": {
+    "class": "objectidentity",
+    "name": "ce12804",
+    "oid": "1.3.6.1.4.1.2011.2.239.1"
+  },
+  "ce12808": {
+    "class": "objectidentity",
+    "name": "ce12808",
+    "oid": "1.3.6.1.4.1.2011.2.239.2"
+  },
+  "ce12812": {
+    "class": "objectidentity",
+    "name": "ce12812",
+    "oid": "1.3.6.1.4.1.2011.2.239.3"
+  },
+  "ce5850_54Q_EI_48T": {
+    "class": "objectidentity",
+    "name": "ce5850_54Q_EI_48T",
+    "oid": "1.3.6.1.4.1.2011.2.239.4"
+  },
+  "ce6850_52Q_EI_48S": {
+    "class": "objectidentity",
+    "name": "ce6850_52Q_EI_48S",
+    "oid": "1.3.6.1.4.1.2011.2.239.5"
+  },
+  "ce6850_52Q_EI_48T": {
+    "class": "objectidentity",
+    "name": "ce6850_52Q_EI_48T",
+    "oid": "1.3.6.1.4.1.2011.2.239.6"
+  },
+  "configFile": {
+    "class": "objectidentity",
+    "name": "configFile",
+    "oid": "1.3.6.1.4.1.2011.2.2.6"
+  },
+  "dcswitch": {
+    "class": "objectidentity",
+    "name": "dcswitch",
+    "oid": "1.3.6.1.4.1.2011.2.239"
+  },
+  "dlswCircuit": {
+    "class": "objectidentity",
+    "name": "dlswCircuit",
+    "oid": "1.3.6.1.4.1.2011.2.34.5"
+  },
+  "dlswDirectory": {
+    "class": "objectidentity",
+    "name": "dlswDirectory",
+    "oid": "1.3.6.1.4.1.2011.2.34.4"
+  },
+  "dlswInterface": {
+    "class": "objectidentity",
+    "name": "dlswInterface",
+    "oid": "1.3.6.1.4.1.2011.2.34.3"
+  },
+  "dlswLlc2": {
+    "class": "objectidentity",
+    "name": "dlswLlc2",
+    "oid": "1.3.6.1.4.1.2011.2.34.7"
+  },
+  "dlswNode": {
+    "class": "objectidentity",
+    "name": "dlswNode",
+    "oid": "1.3.6.1.4.1.2011.2.34.1"
+  },
+  "dlswSdlc": {
+    "class": "objectidentity",
+    "name": "dlswSdlc",
+    "oid": "1.3.6.1.4.1.2011.2.34.6"
+  },
+  "dlswTConn": {
+    "class": "objectidentity",
+    "name": "dlswTConn",
+    "oid": "1.3.6.1.4.1.2011.2.34.2"
+  },
+  "dslw": {
+    "class": "objectidentity",
+    "name": "dslw",
+    "oid": "1.3.6.1.4.1.2011.2.34"
+  },
+  "e026": {
+    "class": "objectidentity",
+    "name": "e026",
+    "oid": "1.3.6.1.4.1.2011.2.23.69"
+  },
+  "e026_SI": {
+    "class": "objectidentity",
+    "name": "e026_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.70"
+  },
+  "e050": {
+    "class": "objectidentity",
+    "name": "e050",
+    "oid": "1.3.6.1.4.1.2011.2.23.71"
+  },
+  "e6000": {
+    "class": "objectidentity",
+    "name": "e6000",
+    "oid": "1.3.6.1.4.1.2011.2.23.193"
+  },
+  "esr": {
+    "class": "objectidentity",
+    "name": "esr",
+    "oid": "1.3.6.1.4.1.2011.2.22"
+  },
+  "esr8825": {
+    "class": "objectidentity",
+    "name": "esr8825",
+    "oid": "1.3.6.1.4.1.2011.2.22.5"
+  },
+  "esrV5R3": {
+    "class": "objectidentity",
+    "name": "esrV5R3",
+    "oid": "1.3.6.1.4.1.2011.2.22.6"
+  },
+  "esrV5R58825": {
+    "class": "objectidentity",
+    "name": "esrV5R58825",
+    "oid": "1.3.6.1.4.1.2011.2.22.8"
+  },
+  "esrV5R58850": {
+    "class": "objectidentity",
+    "name": "esrV5R58850",
+    "oid": "1.3.6.1.4.1.2011.2.22.7"
+  },
+  "eudemon1000": {
+    "class": "objectidentity",
+    "name": "eudemon1000",
+    "oid": "1.3.6.1.4.1.2011.2.51"
+  },
+  "eudemon100E": {
+    "class": "objectidentity",
+    "name": "eudemon100E",
+    "oid": "1.3.6.1.4.1.2011.2.116"
+  },
+  "eudemon200": {
+    "class": "objectidentity",
+    "name": "eudemon200",
+    "oid": "1.3.6.1.4.1.2011.2.50"
+  },
+  "eudemon200E": {
+    "class": "objectidentity",
+    "name": "eudemon200E",
+    "oid": "1.3.6.1.4.1.2011.2.117"
+  },
+  "eudemon200S": {
+    "class": "objectidentity",
+    "name": "eudemon200S",
+    "oid": "1.3.6.1.4.1.2011.2.118"
+  },
+  "eudemon200s": {
+    "class": "objectidentity",
+    "name": "eudemon200s",
+    "oid": "1.3.6.1.4.1.2011.2.127"
+  },
+  "eudemon2100": {
+    "class": "objectidentity",
+    "name": "eudemon2100",
+    "oid": "1.3.6.1.4.1.2011.2.65"
+  },
+  "eudemon2200": {
+    "class": "objectidentity",
+    "name": "eudemon2200",
+    "oid": "1.3.6.1.4.1.2011.2.66"
+  },
+  "eudemon2300": {
+    "class": "objectidentity",
+    "name": "eudemon2300",
+    "oid": "1.3.6.1.4.1.2011.2.84"
+  },
+  "eudemon300": {
+    "class": "objectidentity",
+    "name": "eudemon300",
+    "oid": "1.3.6.1.4.1.2011.2.113"
+  },
+  "eudemon500": {
+    "class": "objectidentity",
+    "name": "eudemon500",
+    "oid": "1.3.6.1.4.1.2011.2.77"
+  },
+  "eudemonEVPN5900": {
+    "class": "objectidentity",
+    "name": "eudemonEVPN5900",
+    "oid": "1.3.6.1.4.1.2011.2.115"
+  },
+  "eudemonVPN3900": {
+    "class": "objectidentity",
+    "name": "eudemonVPN3900",
+    "oid": "1.3.6.1.4.1.2011.2.114"
+  },
+  "flash": {
+    "class": "objectidentity",
+    "name": "flash",
+    "oid": "1.3.6.1.4.1.2011.2.2.3"
+  },
+  "ggsn9811": {
+    "class": "objectidentity",
+    "name": "ggsn9811",
+    "oid": "1.3.6.1.4.1.2011.2.63"
+  },
+  "gprs": {
+    "class": "objectidentity",
+    "name": "gprs",
+    "oid": "1.3.6.1.4.1.2011.2.8"
+  },
+  "honet": {
+    "class": "objectidentity",
+    "name": "honet",
+    "oid": "1.3.6.1.4.1.2011.2.9"
+  },
+  "hsr": {
+    "class": "objectidentity",
+    "name": "hsr",
+    "oid": "1.3.6.1.4.1.2011.2.26"
+  },
+  "huawei": {
+    "class": "moduleidentity",
+    "contactinfo": "Floor 5, Block 4, R\u0026D Building, Huawei Longgang Production Base, Shenzhen, P.R.C. http://www.huawei.com Zip: 518129 ",
+    "description": "huawei common oid mib defintion. ",
+    "lastupdated": "200601250000Z",
+    "name": "huawei",
+    "oid": "1.3.6.1.4.1.2011",
+    "organization": "Fix-Net Dept, Huawei Technologies Co.,Ltd."
+  },
+  "huaweiExperimental": {
+    "class": "objectidentity",
+    "name": "huaweiExperimental",
+    "oid": "1.3.6.1.4.1.2011.4"
+  },
+  "huaweiMemoryPool": {
+    "class": "objectidentity",
+    "name": "huaweiMemoryPool",
+    "oid": "1.3.6.1.4.1.2011.2.2.5"
+  },
+  "huaweiMgmt": {
+    "class": "objectidentity",
+    "name": "huaweiMgmt",
+    "oid": "1.3.6.1.4.1.2011.5"
+  },
+  "huaweiUtility": {
+    "class": "objectidentity",
+    "name": "huaweiUtility",
+    "oid": "1.3.6.1.4.1.2011.6"
+  },
+  "hwAaa": {
+    "class": "objectidentity",
+    "name": "hwAaa",
+    "oid": "1.3.6.1.4.1.2011.5.2"
+  },
+  "hwAcl": {
+    "class": "objectidentity",
+    "name": "hwAcl",
+    "oid": "1.3.6.1.4.1.2011.5.1"
+  },
+  "hwAdsl": {
+    "class": "objectidentity",
+    "name": "hwAdsl",
+    "oid": "1.3.6.1.4.1.2011.6.31"
+  },
+  "hwArpProxy": {
+    "class": "objectidentity",
+    "name": "hwArpProxy",
+    "oid": "1.3.6.1.4.1.2011.5.17"
+  },
+  "hwAti": {
+    "class": "objectidentity",
+    "name": "hwAti",
+    "oid": "1.3.6.1.4.1.2011.6.27"
+  },
+  "hwAtmCmRm": {
+    "class": "objectidentity",
+    "name": "hwAtmCmRm",
+    "oid": "1.3.6.1.4.1.2011.5.10"
+  },
+  "hwAtmOam": {
+    "class": "objectidentity",
+    "name": "hwAtmOam",
+    "oid": "1.3.6.1.4.1.2011.6.11"
+  },
+  "hwAtmPos": {
+    "class": "objectidentity",
+    "name": "hwAtmPos",
+    "oid": "1.3.6.1.4.1.2011.6.12"
+  },
+  "hwAtmSvc": {
+    "class": "objectidentity",
+    "name": "hwAtmSvc",
+    "oid": "1.3.6.1.4.1.2011.6.19"
+  },
+  "hwBITS": {
+    "class": "objectidentity",
+    "name": "hwBITS",
+    "oid": "1.3.6.1.4.1.2011.2.75"
+  },
+  "hwBRASMib": {
+    "class": "objectidentity",
+    "name": "hwBRASMib",
+    "oid": "1.3.6.1.4.1.2011.5.25.40"
+  },
+  "hwBtest": {
+    "class": "objectidentity",
+    "name": "hwBtest",
+    "oid": "1.3.6.1.4.1.2011.6.21.3"
+  },
+  "hwCdi": {
+    "class": "objectidentity",
+    "name": "hwCdi",
+    "oid": "1.3.6.1.4.1.2011.6.26"
+  },
+  "hwCes": {
+    "class": "objectidentity",
+    "name": "hwCes",
+    "oid": "1.3.6.1.4.1.2011.5.11"
+  },
+  "hwClk": {
+    "class": "objectidentity",
+    "name": "hwClk",
+    "oid": "1.3.6.1.4.1.2011.6.25"
+  },
+  "hwConfig": {
+    "class": "objectidentity",
+    "name": "hwConfig",
+    "oid": "1.3.6.1.4.1.2011.6.10"
+  },
+  "hwDHCPRelayMib": {
+    "class": "objectidentity",
+    "name": "hwDHCPRelayMib",
+    "oid": "1.3.6.1.4.1.2011.5.7.1"
+  },
+  "hwDHCPServerMib": {
+    "class": "objectidentity",
+    "name": "hwDHCPServerMib",
+    "oid": "1.3.6.1.4.1.2011.5.7.2"
+  },
+  "hwDatacomm": {
+    "class": "objectidentity",
+    "name": "hwDatacomm",
+    "oid": "1.3.6.1.4.1.2011.5.25"
+  },
+  "hwDeha": {
+    "class": "objectidentity",
+    "name": "hwDeha",
+    "oid": "1.3.6.1.4.1.2011.6.34"
+  },
+  "hwDev": {
+    "class": "objectidentity",
+    "name": "hwDev",
+    "oid": "1.3.6.1.4.1.2011.6.3"
+  },
+  "hwDhcp": {
+    "class": "objectidentity",
+    "name": "hwDhcp",
+    "oid": "1.3.6.1.4.1.2011.5.7"
+  },
+  "hwDhcpProxy": {
+    "class": "objectidentity",
+    "name": "hwDhcpProxy",
+    "oid": "1.3.6.1.4.1.2011.5.18"
+  },
+  "hwDns": {
+    "class": "objectidentity",
+    "name": "hwDns",
+    "oid": "1.3.6.1.4.1.2011.6.39"
+  },
+  "hwDslamIpoa": {
+    "class": "objectidentity",
+    "name": "hwDslamIpoa",
+    "oid": "1.3.6.1.4.1.2011.6.46"
+  },
+  "hwDslamMacPool": {
+    "class": "objectidentity",
+    "name": "hwDslamMacPool",
+    "oid": "1.3.6.1.4.1.2011.6.43"
+  },
+  "hwDslamNtv": {
+    "class": "objectidentity",
+    "name": "hwDslamNtv",
+    "oid": "1.3.6.1.4.1.2011.6.28"
+  },
+  "hwDslamPPPoA": {
+    "class": "objectidentity",
+    "name": "hwDslamPPPoA",
+    "oid": "1.3.6.1.4.1.2011.6.44"
+  },
+  "hwDslamPvcProtocol": {
+    "class": "objectidentity",
+    "name": "hwDslamPvcProtocol",
+    "oid": "1.3.6.1.4.1.2011.6.45"
+  },
+  "hwEnvironment": {
+    "class": "objectidentity",
+    "name": "hwEnvironment",
+    "oid": "1.3.6.1.4.1.2011.6.1"
+  },
+  "hwEthernetPort": {
+    "class": "objectidentity",
+    "name": "hwEthernetPort",
+    "oid": "1.3.6.1.4.1.2011.5.14"
+  },
+  "hwFlash": {
+    "class": "objectidentity",
+    "name": "hwFlash",
+    "oid": "1.3.6.1.4.1.2011.6.9"
+  },
+  "hwFr": {
+    "class": "objectidentity",
+    "name": "hwFr",
+    "oid": "1.3.6.1.4.1.2011.5.9"
+  },
+  "hwGarpExt": {
+    "class": "objectidentity",
+    "name": "hwGarpExt",
+    "oid": "1.3.6.1.4.1.2011.5.20"
+  },
+  "hwHSL": {
+    "class": "objectidentity",
+    "name": "hwHSL",
+    "oid": "1.3.6.1.4.1.2011.6.13"
+  },
+  "hwHdsl": {
+    "class": "objectidentity",
+    "name": "hwHdsl",
+    "oid": "1.3.6.1.4.1.2011.6.33"
+  },
+  "hwHgmp": {
+    "class": "objectidentity",
+    "name": "hwHgmp",
+    "oid": "1.3.6.1.4.1.2011.6.7"
+  },
+  "hwIMAPNorthbound": {
+    "class": "objectidentity",
+    "name": "hwIMAPNorthbound",
+    "oid": "1.3.6.1.4.1.2011.2.74"
+  },
+  "hwIgspSnooping": {
+    "class": "objectidentity",
+    "name": "hwIgspSnooping",
+    "oid": "1.3.6.1.4.1.2011.5.19"
+  },
+  "hwIma": {
+    "class": "objectidentity",
+    "name": "hwIma",
+    "oid": "1.3.6.1.4.1.2011.6.17"
+  },
+  "hwImps": {
+    "class": "objectidentity",
+    "name": "hwImps",
+    "oid": "1.3.6.1.4.1.2011.5.26"
+  },
+  "hwInternetProtocol": {
+    "class": "objectidentity",
+    "name": "hwInternetProtocol",
+    "oid": "1.3.6.1.4.1.2011.1.3"
+  },
+  "hwIppool": {
+    "class": "objectidentity",
+    "name": "hwIppool",
+    "oid": "1.3.6.1.4.1.2011.6.8"
+  },
+  "hwLam": {
+    "class": "objectidentity",
+    "name": "hwLam",
+    "oid": "1.3.6.1.4.1.2011.5.3"
+  },
+  "hwLicense": {
+    "class": "objectidentity",
+    "name": "hwLicense",
+    "oid": "1.3.6.1.4.1.2011.6.47"
+  },
+  "hwLoadBackup": {
+    "class": "objectidentity",
+    "name": "hwLoadBackup",
+    "oid": "1.3.6.1.4.1.2011.6.6"
+  },
+  "hwLocal": {
+    "class": "objectidentity",
+    "name": "hwLocal",
+    "oid": "1.3.6.1.4.1.2011.1"
+  },
+  "hwMA5200Mib": {
+    "class": "objectidentity",
+    "name": "hwMA5200Mib",
+    "oid": "1.3.6.1.4.1.2011.2.6.2"
+  },
+  "hwMTA": {
+    "class": "objectidentity",
+    "name": "hwMTA",
+    "oid": "1.3.6.1.4.1.2011.6.14"
+  },
+  "hwMa5100Mib": {
+    "class": "objectidentity",
+    "name": "hwMa5100Mib",
+    "oid": "1.3.6.1.4.1.2011.2.6.5"
+  },
+  "hwMa5300Mib": {
+    "class": "objectidentity",
+    "name": "hwMa5300Mib",
+    "oid": "1.3.6.1.4.1.2011.2.6.6"
+  },
+  "hwMam": {
+    "class": "objectidentity",
+    "name": "hwMam",
+    "oid": "1.3.6.1.4.1.2011.5.16"
+  },
+  "hwMd5500Mib": {
+    "class": "objectidentity",
+    "name": "hwMd5500Mib",
+    "oid": "1.3.6.1.4.1.2011.2.6.4"
+  },
+  "hwMem": {
+    "class": "objectidentity",
+    "name": "hwMem",
+    "oid": "1.3.6.1.4.1.2011.6.5"
+  },
+  "hwMpls": {
+    "class": "objectidentity",
+    "name": "hwMpls",
+    "oid": "1.3.6.1.4.1.2011.5.12"
+  },
+  "hwMplsFtn": {
+    "class": "objectidentity",
+    "name": "hwMplsFtn",
+    "oid": "1.3.6.1.4.1.2011.5.12.4"
+  },
+  "hwMplsLdp": {
+    "class": "objectidentity",
+    "name": "hwMplsLdp",
+    "oid": "1.3.6.1.4.1.2011.5.12.2"
+  },
+  "hwMplsLsp": {
+    "class": "objectidentity",
+    "name": "hwMplsLsp",
+    "oid": "1.3.6.1.4.1.2011.5.12.6"
+  },
+  "hwMplsLsr": {
+    "class": "objectidentity",
+    "name": "hwMplsLsr",
+    "oid": "1.3.6.1.4.1.2011.5.12.1"
+  },
+  "hwMplsOam": {
+    "class": "objectidentity",
+    "name": "hwMplsOam",
+    "oid": "1.3.6.1.4.1.2011.5.12.7"
+  },
+  "hwMplsVpls": {
+    "class": "objectidentity",
+    "name": "hwMplsVpls",
+    "oid": "1.3.6.1.4.1.2011.5.12.5"
+  },
+  "hwMplsVpn": {
+    "class": "objectidentity",
+    "name": "hwMplsVpn",
+    "oid": "1.3.6.1.4.1.2011.5.12.3"
+  },
+  "hwMs": {
+    "class": "objectidentity",
+    "name": "hwMs",
+    "oid": "1.3.6.1.4.1.2011.6.41"
+  },
+  "hwMus": {
+    "class": "objectidentity",
+    "name": "hwMus",
+    "oid": "1.3.6.1.4.1.2011.6.38"
+  },
+  "hwMusaV100R001Mib": {
+    "class": "objectidentity",
+    "name": "hwMusaV100R001Mib",
+    "oid": "1.3.6.1.4.1.2011.2.6.1"
+  },
+  "hwMusaV100R002Mib": {
+    "class": "objectidentity",
+    "name": "hwMusaV100R002Mib",
+    "oid": "1.3.6.1.4.1.2011.2.6.3"
+  },
+  "hwNTest": {
+    "class": "objectidentity",
+    "name": "hwNTest",
+    "oid": "1.3.6.1.4.1.2011.6.21.2"
+  },
+  "hwNat": {
+    "class": "objectidentity",
+    "name": "hwNat",
+    "oid": "1.3.6.1.4.1.2011.5.23"
+  },
+  "hwNetTest": {
+    "class": "objectidentity",
+    "name": "hwNetTest",
+    "oid": "1.3.6.1.4.1.2011.6.40"
+  },
+  "hwNovellProtocol": {
+    "class": "objectidentity",
+    "name": "hwNovellProtocol",
+    "oid": "1.3.6.1.4.1.2011.1.4"
+  },
+  "hwNtp": {
+    "class": "objectidentity",
+    "name": "hwNtp",
+    "oid": "1.3.6.1.4.1.2011.6.4"
+  },
+  "hwOSTA": {
+    "class": "objectidentity",
+    "name": "hwOSTA",
+    "oid": "1.3.6.1.4.1.2011.2.82"
+  },
+  "hwPITP": {
+    "class": "objectidentity",
+    "name": "hwPITP",
+    "oid": "1.3.6.1.4.1.2011.6.42"
+  },
+  "hwPae8021xExt": {
+    "class": "objectidentity",
+    "name": "hwPae8021xExt",
+    "oid": "1.3.6.1.4.1.2011.5.22"
+  },
+  "hwPortal": {
+    "class": "objectidentity",
+    "name": "hwPortal",
+    "oid": "1.3.6.1.4.1.2011.5.4"
+  },
+  "hwPower": {
+    "class": "objectidentity",
+    "name": "hwPower",
+    "oid": "1.3.6.1.4.1.2011.6.2"
+  },
+  "hwProducts": {
+    "class": "objectidentity",
+    "name": "hwProducts",
+    "oid": "1.3.6.1.4.1.2011.2"
+  },
+  "hwPv8": {
+    "class": "objectidentity",
+    "name": "hwPv8",
+    "oid": "1.3.6.1.4.1.2011.2.76"
+  },
+  "hwPw": {
+    "class": "objectidentity",
+    "name": "hwPw",
+    "oid": "1.3.6.1.4.1.2011.5.12.8"
+  },
+  "hwRadius": {
+    "class": "objectidentity",
+    "name": "hwRadius",
+    "oid": "1.3.6.1.4.1.2011.5.5"
+  },
+  "hwRouteManagement": {
+    "class": "objectidentity",
+    "name": "hwRouteManagement",
+    "oid": "1.3.6.1.4.1.2011.5.13"
+  },
+  "hwRouteManagementMrm": {
+    "class": "objectidentity",
+    "name": "hwRouteManagementMrm",
+    "oid": "1.3.6.1.4.1.2011.5.13.2"
+  },
+  "hwRouteManagementRpm": {
+    "class": "objectidentity",
+    "name": "hwRouteManagementRpm",
+    "oid": "1.3.6.1.4.1.2011.5.13.3"
+  },
+  "hwRouteManagementUrm": {
+    "class": "objectidentity",
+    "name": "hwRouteManagementUrm",
+    "oid": "1.3.6.1.4.1.2011.5.13.1"
+  },
+  "hwRstpExt": {
+    "class": "objectidentity",
+    "name": "hwRstpExt",
+    "oid": "1.3.6.1.4.1.2011.5.21"
+  },
+  "hwSPC": {
+    "class": "objectidentity",
+    "name": "hwSPC",
+    "oid": "1.3.6.1.4.1.2011.6.15"
+  },
+  "hwServerMon": {
+    "class": "objectidentity",
+    "name": "hwServerMon",
+    "oid": "1.3.6.1.4.1.2011.6.29"
+  },
+  "hwSps": {
+    "class": "objectidentity",
+    "name": "hwSps",
+    "oid": "1.3.6.1.4.1.2011.2.54"
+  },
+  "hwSwitchOver": {
+    "class": "objectidentity",
+    "name": "hwSwitchOver",
+    "oid": "1.3.6.1.4.1.2011.6.22"
+  },
+  "hwSyntrap": {
+    "class": "objectidentity",
+    "name": "hwSyntrap",
+    "oid": "1.3.6.1.4.1.2011.6.30"
+  },
+  "hwSyslog": {
+    "class": "objectidentity",
+    "name": "hwSyslog",
+    "oid": "1.3.6.1.4.1.2011.6.35"
+  },
+  "hwTest": {
+    "class": "objectidentity",
+    "name": "hwTest",
+    "oid": "1.3.6.1.4.1.2011.6.21"
+  },
+  "hwTestCommon": {
+    "class": "objectidentity",
+    "name": "hwTestCommon",
+    "oid": "1.3.6.1.4.1.2011.6.21.1"
+  },
+  "hwTrans": {
+    "class": "objectidentity",
+    "name": "hwTrans",
+    "oid": "1.3.6.1.4.1.2011.1.2"
+  },
+  "hwUcl": {
+    "class": "objectidentity",
+    "name": "hwUcl",
+    "oid": "1.3.6.1.4.1.2011.6.18"
+  },
+  "hwV5": {
+    "class": "objectidentity",
+    "name": "hwV5",
+    "oid": "1.3.6.1.4.1.2011.6.16"
+  },
+  "hwVPRing": {
+    "class": "objectidentity",
+    "name": "hwVPRing",
+    "oid": "1.3.6.1.4.1.2011.6.20"
+  },
+  "hwVTP": {
+    "class": "objectidentity",
+    "name": "hwVTP",
+    "oid": "1.3.6.1.4.1.2011.5.15"
+  },
+  "hwVdsl": {
+    "class": "objectidentity",
+    "name": "hwVdsl",
+    "oid": "1.3.6.1.4.1.2011.6.32"
+  },
+  "hwVfb": {
+    "class": "objectidentity",
+    "name": "hwVfb",
+    "oid": "1.3.6.1.4.1.2011.6.23"
+  },
+  "hwVlan": {
+    "class": "objectidentity",
+    "name": "hwVlan",
+    "oid": "1.3.6.1.4.1.2011.5.6"
+  },
+  "hwVlanProtocol": {
+    "class": "objectidentity",
+    "name": "hwVlanProtocol",
+    "oid": "1.3.6.1.4.1.2011.5.24"
+  },
+  "hwVoip": {
+    "class": "objectidentity",
+    "name": "hwVoip",
+    "oid": "1.3.6.1.4.1.2011.6.36"
+  },
+  "hwVprn": {
+    "class": "objectidentity",
+    "name": "hwVprn",
+    "oid": "1.3.6.1.4.1.2011.5.8"
+  },
+  "hwVrp": {
+    "class": "objectidentity",
+    "name": "hwVrp",
+    "oid": "1.3.6.1.4.1.2011.6.37"
+  },
+  "hwinfoX": {
+    "class": "objectidentity",
+    "name": "hwinfoX",
+    "oid": "1.3.6.1.4.1.2011.2.40"
+  },
+  "iNet": {
+    "class": "objectidentity",
+    "name": "iNet",
+    "oid": "1.3.6.1.4.1.2011.2.16"
+  },
+  "iad": {
+    "class": "objectidentity",
+    "name": "iad",
+    "oid": "1.3.6.1.4.1.2011.2.38"
+  },
+  "iad132": {
+    "class": "objectidentity",
+    "name": "iad132",
+    "oid": "1.3.6.1.4.1.2011.2.38.1"
+  },
+  "ias": {
+    "class": "objectidentity",
+    "name": "ias",
+    "oid": "1.3.6.1.4.1.2011.2.6.7"
+  },
+  "imports": {
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "TimeTicks",
+      "Counter32",
+      "Gauge32",
+      "enterprises",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "ip_phone": {
+    "class": "objectidentity",
+    "name": "ip_phone",
+    "oid": "1.3.6.1.4.1.2011.2.12"
+  },
+  "isn8850": {
+    "class": "objectidentity",
+    "name": "isn8850",
+    "oid": "1.3.6.1.4.1.2011.2.22.3"
+  },
+  "lanSw": {
+    "class": "objectidentity",
+    "name": "lanSw",
+    "oid": "1.3.6.1.4.1.2011.2.23"
+  },
+  "lan_switch": {
+    "class": "objectidentity",
+    "name": "lan_switch",
+    "oid": "1.3.6.1.4.1.2011.2.4"
+  },
+  "lswCommon": {
+    "class": "objectidentity",
+    "name": "lswCommon",
+    "oid": "1.3.6.1.4.1.2011.2.23.1"
+  },
+  "ma5100V600": {
+    "class": "objectidentity",
+    "name": "ma5100V600",
+    "oid": "1.3.6.1.4.1.2011.2.85"
+  },
+  "ma5101": {
+    "class": "objectidentity",
+    "name": "ma5101",
+    "oid": "1.3.6.1.4.1.2011.2.24.1"
+  },
+  "ma5102": {
+    "class": "objectidentity",
+    "name": "ma5102",
+    "oid": "1.3.6.1.4.1.2011.2.24.2"
+  },
+  "ma5600": {
+    "class": "objectidentity",
+    "name": "ma5600",
+    "oid": "1.3.6.1.4.1.2011.2.80"
+  },
+  "ma5605": {
+    "class": "objectidentity",
+    "name": "ma5605",
+    "oid": "1.3.6.1.4.1.2011.2.86"
+  },
+  "me60": {
+    "class": "objectidentity",
+    "name": "me60",
+    "oid": "1.3.6.1.4.1.2011.2.89"
+  },
+  "me60_16": {
+    "class": "objectidentity",
+    "name": "me60_16",
+    "oid": "1.3.6.1.4.1.2011.2.89.1"
+  },
+  "me60_4": {
+    "class": "objectidentity",
+    "name": "me60_4",
+    "oid": "1.3.6.1.4.1.2011.2.89.3"
+  },
+  "me60_8": {
+    "class": "objectidentity",
+    "name": "me60_8",
+    "oid": "1.3.6.1.4.1.2011.2.89.2"
+  },
+  "me60_X16": {
+    "class": "objectidentity",
+    "name": "me60_X16",
+    "oid": "1.3.6.1.4.1.2011.2.89.6"
+  },
+  "me60_X3": {
+    "class": "objectidentity",
+    "name": "me60_X3",
+    "oid": "1.3.6.1.4.1.2011.2.89.4"
+  },
+  "me60_X8": {
+    "class": "objectidentity",
+    "name": "me60_X8",
+    "oid": "1.3.6.1.4.1.2011.2.89.5"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:46:34 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-MIB"
+  },
+  "mixinfo": {
+    "class": "objectidentity",
+    "name": "mixinfo",
+    "oid": "1.3.6.1.4.1.2011.2.2.4"
+  },
+  "mlsr": {
+    "class": "objectidentity",
+    "name": "mlsr",
+    "oid": "1.3.6.1.4.1.2011.2.33"
+  },
+  "mmsc": {
+    "class": "objectidentity",
+    "name": "mmsc",
+    "oid": "1.3.6.1.4.1.2011.2.35.1"
+  },
+  "mobileIn": {
+    "class": "objectidentity",
+    "name": "mobileIn",
+    "oid": "1.3.6.1.4.1.2011.2.19"
+  },
+  "mobileInIP": {
+    "class": "objectidentity",
+    "name": "mobileInIP",
+    "oid": "1.3.6.1.4.1.2011.2.19.5"
+  },
+  "mobileInScp": {
+    "class": "objectidentity",
+    "name": "mobileInScp",
+    "oid": "1.3.6.1.4.1.2011.2.19.1"
+  },
+  "mobileInSdp": {
+    "class": "objectidentity",
+    "name": "mobileInSdp",
+    "oid": "1.3.6.1.4.1.2011.2.19.2"
+  },
+  "mobileInSmp": {
+    "class": "objectidentity",
+    "name": "mobileInSmp",
+    "oid": "1.3.6.1.4.1.2011.2.19.3"
+  },
+  "mobileInSsp": {
+    "class": "objectidentity",
+    "name": "mobileInSsp",
+    "oid": "1.3.6.1.4.1.2011.2.19.4"
+  },
+  "module": {
+    "class": "objectidentity",
+    "name": "module",
+    "oid": "1.3.6.1.4.1.2011.2.2.2"
+  },
+  "mpeg_2": {
+    "class": "objectidentity",
+    "name": "mpeg_2",
+    "oid": "1.3.6.1.4.1.2011.2.7"
+  },
+  "msp": {
+    "class": "objectidentity",
+    "name": "msp",
+    "oid": "1.3.6.1.4.1.2011.2.87"
+  },
+  "musa": {
+    "class": "objectidentity",
+    "name": "musa",
+    "oid": "1.3.6.1.4.1.2011.2.6"
+  },
+  "ne05": {
+    "class": "objectidentity",
+    "name": "ne05",
+    "oid": "1.3.6.1.4.1.2011.2.26.3"
+  },
+  "ne08": {
+    "class": "objectidentity",
+    "name": "ne08",
+    "oid": "1.3.6.1.4.1.2011.2.2.1.7508"
+  },
+  "ne08E": {
+    "class": "objectidentity",
+    "name": "ne08E",
+    "oid": "1.3.6.1.4.1.2011.2.26.2"
+  },
+  "ne16": {
+    "class": "objectidentity",
+    "name": "ne16",
+    "oid": "1.3.6.1.4.1.2011.2.2.1.7516"
+  },
+  "ne16E": {
+    "class": "objectidentity",
+    "name": "ne16E",
+    "oid": "1.3.6.1.4.1.2011.2.26.1"
+  },
+  "ne20": {
+    "class": "objectidentity",
+    "name": "ne20",
+    "oid": "1.3.6.1.4.1.2011.2.29"
+  },
+  "ne20E": {
+    "class": "objectidentity",
+    "name": "ne20E",
+    "oid": "1.3.6.1.4.1.2011.2.88"
+  },
+  "ne20E_4": {
+    "class": "objectidentity",
+    "name": "ne20E_4",
+    "oid": "1.3.6.1.4.1.2011.2.88.1"
+  },
+  "ne20E_8": {
+    "class": "objectidentity",
+    "name": "ne20E_8",
+    "oid": "1.3.6.1.4.1.2011.2.88.2"
+  },
+  "ne20E_X6": {
+    "class": "objectidentity",
+    "name": "ne20E_X6",
+    "oid": "1.3.6.1.4.1.2011.2.88.3"
+  },
+  "ne20_2": {
+    "class": "objectidentity",
+    "name": "ne20_2",
+    "oid": "1.3.6.1.4.1.2011.2.47"
+  },
+  "ne20_4": {
+    "class": "objectidentity",
+    "name": "ne20_4",
+    "oid": "1.3.6.1.4.1.2011.2.48"
+  },
+  "ne20_8": {
+    "class": "objectidentity",
+    "name": "ne20_8",
+    "oid": "1.3.6.1.4.1.2011.2.49"
+  },
+  "ne20s": {
+    "class": "objectidentity",
+    "name": "ne20s",
+    "oid": "1.3.6.1.4.1.2011.2.30"
+  },
+  "ne40": {
+    "class": "objectidentity",
+    "name": "ne40",
+    "oid": "1.3.6.1.4.1.2011.2.31"
+  },
+  "ne40E": {
+    "class": "objectidentity",
+    "name": "ne40E",
+    "oid": "1.3.6.1.4.1.2011.2.62.2.5"
+  },
+  "ne40E_4": {
+    "class": "objectidentity",
+    "name": "ne40E_4",
+    "oid": "1.3.6.1.4.1.2011.2.62.2.7"
+  },
+  "ne40E_X1": {
+    "class": "objectidentity",
+    "name": "ne40E_X1",
+    "oid": "1.3.6.1.4.1.2011.2.62.2.12"
+  },
+  "ne40E_X16": {
+    "class": "objectidentity",
+    "name": "ne40E_X16",
+    "oid": "1.3.6.1.4.1.2011.2.62.2.10"
+  },
+  "ne40E_X1_M4": {
+    "class": "objectidentity",
+    "name": "ne40E_X1_M4",
+    "oid": "1.3.6.1.4.1.2011.2.62.2.14"
+  },
+  "ne40E_X2": {
+    "class": "objectidentity",
+    "name": "ne40E_X2",
+    "oid": "1.3.6.1.4.1.2011.2.62.2.13"
+  },
+  "ne40E_X2_M16": {
+    "class": "objectidentity",
+    "name": "ne40E_X2_M16",
+    "oid": "1.3.6.1.4.1.2011.2.62.2.16"
+  },
+  "ne40E_X2_M8": {
+    "class": "objectidentity",
+    "name": "ne40E_X2_M8",
+    "oid": "1.3.6.1.4.1.2011.2.62.2.15"
+  },
+  "ne40E_X3": {
+    "class": "objectidentity",
+    "name": "ne40E_X3",
+    "oid": "1.3.6.1.4.1.2011.2.62.2.8"
+  },
+  "ne40E_X8": {
+    "class": "objectidentity",
+    "name": "ne40E_X8",
+    "oid": "1.3.6.1.4.1.2011.2.62.2.9"
+  },
+  "ne5000": {
+    "class": "objectidentity",
+    "name": "ne5000",
+    "oid": "1.3.6.1.4.1.2011.2.62"
+  },
+  "ne5000E": {
+    "class": "objectidentity",
+    "name": "ne5000E",
+    "oid": "1.3.6.1.4.1.2011.2.62.2.3"
+  },
+  "ne5000EMulti": {
+    "class": "objectidentity",
+    "name": "ne5000EMulti",
+    "oid": "1.3.6.1.4.1.2011.2.62.2.4"
+  },
+  "ne5000E_BTB": {
+    "class": "objectidentity",
+    "name": "ne5000E_BTB",
+    "oid": "1.3.6.1.4.1.2011.2.62.2.6"
+  },
+  "ne5000E_X16": {
+    "class": "objectidentity",
+    "name": "ne5000E_X16",
+    "oid": "1.3.6.1.4.1.2011.2.62.2.11"
+  },
+  "ne5000SysOid": {
+    "class": "objectidentity",
+    "name": "ne5000SysOid",
+    "oid": "1.3.6.1.4.1.2011.2.62.2"
+  },
+  "ne5000oem": {
+    "class": "objectidentity",
+    "name": "ne5000oem",
+    "oid": "1.3.6.1.4.1.2011.2.62.2.1"
+  },
+  "ne80": {
+    "class": "objectidentity",
+    "name": "ne80",
+    "oid": "1.3.6.1.4.1.2011.2.17"
+  },
+  "ne80E": {
+    "class": "objectidentity",
+    "name": "ne80E",
+    "oid": "1.3.6.1.4.1.2011.2.62.2.2"
+  },
+  "netEngine": {
+    "class": "objectidentity",
+    "name": "netEngine",
+    "oid": "1.3.6.1.4.1.2011.2.2.8070"
+  },
+  "netManager": {
+    "class": "objectidentity",
+    "name": "netManager",
+    "oid": "1.3.6.1.4.1.2011.2.15"
+  },
+  "nse": {
+    "class": "objectidentity",
+    "name": "nse",
+    "oid": "1.3.6.1.4.1.2011.2.187"
+  },
+  "nse1000_4": {
+    "class": "objectidentity",
+    "name": "nse1000_4",
+    "oid": "1.3.6.1.4.1.2011.2.187.5"
+  },
+  "nse1000_8": {
+    "class": "objectidentity",
+    "name": "nse1000_8",
+    "oid": "1.3.6.1.4.1.2011.2.187.6"
+  },
+  "nse1000_X3": {
+    "class": "objectidentity",
+    "name": "nse1000_X3",
+    "oid": "1.3.6.1.4.1.2011.2.187.7"
+  },
+  "optix10Gv2": {
+    "class": "objectidentity",
+    "name": "optix10Gv2",
+    "oid": "1.3.6.1.4.1.2011.2.25.2"
+  },
+  "optix155622H": {
+    "class": "objectidentity",
+    "name": "optix155622H",
+    "oid": "1.3.6.1.4.1.2011.2.25.1"
+  },
+  "p3": {
+    "class": "objectidentity",
+    "name": "p3",
+    "oid": "1.3.6.1.4.1.2011.2.37"
+  },
+  "pdsn9660": {
+    "class": "objectidentity",
+    "name": "pdsn9660",
+    "oid": "1.3.6.1.4.1.2011.2.64"
+  },
+  "performance": {
+    "class": "objectidentity",
+    "name": "performance",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4"
+  },
+  "ptn": {
+    "class": "objectidentity",
+    "name": "ptn",
+    "oid": "1.3.6.1.4.1.2011.2.182"
+  },
+  "ptn2900": {
+    "class": "objectidentity",
+    "name": "ptn2900",
+    "oid": "1.3.6.1.4.1.2011.2.182.1"
+  },
+  "ptn6900": {
+    "class": "objectidentity",
+    "name": "ptn6900",
+    "oid": "1.3.6.1.4.1.2011.2.182.2"
+  },
+  "ptn6900_1": {
+    "class": "objectidentity",
+    "name": "ptn6900_1",
+    "oid": "1.3.6.1.4.1.2011.2.182.9"
+  },
+  "ptn6900_16": {
+    "class": "objectidentity",
+    "name": "ptn6900_16",
+    "oid": "1.3.6.1.4.1.2011.2.182.5"
+  },
+  "ptn6900_2": {
+    "class": "objectidentity",
+    "name": "ptn6900_2",
+    "oid": "1.3.6.1.4.1.2011.2.182.8"
+  },
+  "ptn6900_3": {
+    "class": "objectidentity",
+    "name": "ptn6900_3",
+    "oid": "1.3.6.1.4.1.2011.2.182.7"
+  },
+  "ptn6900_8": {
+    "class": "objectidentity",
+    "name": "ptn6900_8",
+    "oid": "1.3.6.1.4.1.2011.2.182.6"
+  },
+  "pysmi_as": {
+    "class": "objectidentity",
+    "name": "as",
+    "oid": "1.3.6.1.4.1.2011.2.36"
+  },
+  "quidway": {
+    "class": "objectidentity",
+    "name": "quidway",
+    "oid": "1.3.6.1.4.1.2011.1.1"
+  },
+  "r8750": {
+    "class": "objectidentity",
+    "name": "r8750",
+    "oid": "1.3.6.1.4.1.2011.2.1.2.1"
+  },
+  "radium8750": {
+    "class": "objectidentity",
+    "name": "radium8750",
+    "oid": "1.3.6.1.4.1.2011.2.22.2"
+  },
+  "rm9000": {
+    "class": "objectidentity",
+    "name": "rm9000",
+    "oid": "1.3.6.1.4.1.2011.2.73"
+  },
+  "rmonExtend": {
+    "class": "objectidentity",
+    "name": "rmonExtend",
+    "oid": "1.3.6.1.4.1.2011.1.3.4"
+  },
+  "router": {
+    "class": "objectidentity",
+    "name": "router",
+    "oid": "1.3.6.1.4.1.2011.2.2"
+  },
+  "routerGeneral": {
+    "class": "objectidentity",
+    "name": "routerGeneral",
+    "oid": "1.3.6.1.4.1.2011.2.2.1"
+  },
+  "s12700": {
+    "class": "objectidentity",
+    "name": "s12700",
+    "oid": "1.3.6.1.4.1.2011.2.225"
+  },
+  "s12708": {
+    "class": "objectidentity",
+    "name": "s12708",
+    "oid": "1.3.6.1.4.1.2011.2.225.1"
+  },
+  "s12716": {
+    "class": "objectidentity",
+    "name": "s12716",
+    "oid": "1.3.6.1.4.1.2011.2.225.2"
+  },
+  "s1700_28FR_2T2P_AC": {
+    "class": "objectidentity",
+    "name": "s1700_28FR_2T2P_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.185"
+  },
+  "s1700_28GFR_4P_AC": {
+    "class": "objectidentity",
+    "name": "s1700_28GFR_4P_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.183"
+  },
+  "s1700_52FR_2T2P_AC": {
+    "class": "objectidentity",
+    "name": "s1700_52FR_2T2P_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.186"
+  },
+  "s1700_52GFR_4P_AC": {
+    "class": "objectidentity",
+    "name": "s1700_52GFR_4P_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.184"
+  },
+  "s1728_GWR_4P": {
+    "class": "objectidentity",
+    "name": "s1728_GWR_4P",
+    "oid": "1.3.6.1.4.1.2011.2.23.162"
+  },
+  "s2008": {
+    "class": "objectidentity",
+    "name": "s2008",
+    "oid": "1.3.6.1.4.1.2011.2.23.15"
+  },
+  "s2016": {
+    "class": "objectidentity",
+    "name": "s2016",
+    "oid": "1.3.6.1.4.1.2011.2.23.16"
+  },
+  "s2026": {
+    "class": "objectidentity",
+    "name": "s2026",
+    "oid": "1.3.6.1.4.1.2011.2.23.22"
+  },
+  "s2026C": {
+    "class": "objectidentity",
+    "name": "s2026C",
+    "oid": "1.3.6.1.4.1.2011.2.23.53"
+  },
+  "s2026Z": {
+    "class": "objectidentity",
+    "name": "s2026Z",
+    "oid": "1.3.6.1.4.1.2011.2.23.52"
+  },
+  "s2309P_EI": {
+    "class": "objectidentity",
+    "name": "s2309P_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.77"
+  },
+  "s2309P_SI": {
+    "class": "objectidentity",
+    "name": "s2309P_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.76"
+  },
+  "s2309TP_EI": {
+    "class": "objectidentity",
+    "name": "s2309TP_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.88"
+  },
+  "s2309TP_PWR_EI": {
+    "class": "objectidentity",
+    "name": "s2309TP_PWR_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.108"
+  },
+  "s2309TP_SI": {
+    "class": "objectidentity",
+    "name": "s2309TP_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.87"
+  },
+  "s2318P_EI": {
+    "class": "objectidentity",
+    "name": "s2318P_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.75"
+  },
+  "s2318P_SI": {
+    "class": "objectidentity",
+    "name": "s2318P_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.74"
+  },
+  "s2318TP_EI": {
+    "class": "objectidentity",
+    "name": "s2318TP_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.90"
+  },
+  "s2318TP_SI": {
+    "class": "objectidentity",
+    "name": "s2318TP_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.89"
+  },
+  "s2326P_EI": {
+    "class": "objectidentity",
+    "name": "s2326P_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.73"
+  },
+  "s2326P_SI": {
+    "class": "objectidentity",
+    "name": "s2326P_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.72"
+  },
+  "s2326TP_EI": {
+    "class": "objectidentity",
+    "name": "s2326TP_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.92"
+  },
+  "s2326TP_PWR_EI": {
+    "class": "objectidentity",
+    "name": "s2326TP_PWR_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.109"
+  },
+  "s2326TP_SI": {
+    "class": "objectidentity",
+    "name": "s2326TP_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.91"
+  },
+  "s2352P_EI": {
+    "class": "objectidentity",
+    "name": "s2352P_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.94"
+  },
+  "s2352P_SI": {
+    "class": "objectidentity",
+    "name": "s2352P_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.93"
+  },
+  "s2403H": {
+    "class": "objectidentity",
+    "name": "s2403H",
+    "oid": "1.3.6.1.4.1.2011.2.23.23"
+  },
+  "s2700_18TP_EI_AC": {
+    "class": "objectidentity",
+    "name": "s2700_18TP_EI_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.116"
+  },
+  "s2700_18TP_SI_AC": {
+    "class": "objectidentity",
+    "name": "s2700_18TP_SI_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.121"
+  },
+  "s2700_26TP_EI_AC": {
+    "class": "objectidentity",
+    "name": "s2700_26TP_EI_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.117"
+  },
+  "s2700_26TP_EI_DC": {
+    "class": "objectidentity",
+    "name": "s2700_26TP_EI_DC",
+    "oid": "1.3.6.1.4.1.2011.2.23.118"
+  },
+  "s2700_26TP_PWR_EI": {
+    "class": "objectidentity",
+    "name": "s2700_26TP_PWR_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.124"
+  },
+  "s2700_26TP_SI_AC": {
+    "class": "objectidentity",
+    "name": "s2700_26TP_SI_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.122"
+  },
+  "s2700_52P_PWR_EI": {
+    "class": "objectidentity",
+    "name": "s2700_52P_PWR_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.199"
+  },
+  "s2700_52TP_EI_AC": {
+    "class": "objectidentity",
+    "name": "s2700_52TP_EI_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.119"
+  },
+  "s2700_9TP_EI_AC": {
+    "class": "objectidentity",
+    "name": "s2700_9TP_EI_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.114"
+  },
+  "s2700_9TP_EI_DC": {
+    "class": "objectidentity",
+    "name": "s2700_9TP_EI_DC",
+    "oid": "1.3.6.1.4.1.2011.2.23.115"
+  },
+  "s2700_9TP_PWR_EI": {
+    "class": "objectidentity",
+    "name": "s2700_9TP_PWR_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.123"
+  },
+  "s2700_9TP_SI_AC": {
+    "class": "objectidentity",
+    "name": "s2700_9TP_SI_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.120"
+  },
+  "s2710_26TP_PWR_SI": {
+    "class": "objectidentity",
+    "name": "s2710_26TP_PWR_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.196"
+  },
+  "s2710_52P_PWR_SI": {
+    "class": "objectidentity",
+    "name": "s2710_52P_PWR_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.198"
+  },
+  "s2710_52P_SI_AC": {
+    "class": "objectidentity",
+    "name": "s2710_52P_SI_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.197"
+  },
+  "s3026": {
+    "class": "objectidentity",
+    "name": "s3026",
+    "oid": "1.3.6.1.4.1.2011.2.23.13"
+  },
+  "s3026C_SI": {
+    "class": "objectidentity",
+    "name": "s3026C_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.55"
+  },
+  "s3026E": {
+    "class": "objectidentity",
+    "name": "s3026E",
+    "oid": "1.3.6.1.4.1.2011.2.23.24"
+  },
+  "s3026F": {
+    "class": "objectidentity",
+    "name": "s3026F",
+    "oid": "1.3.6.1.4.1.2011.2.23.20"
+  },
+  "s3026G_SI": {
+    "class": "objectidentity",
+    "name": "s3026G_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.54"
+  },
+  "s3026S_SI": {
+    "class": "objectidentity",
+    "name": "s3026S_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.56"
+  },
+  "s3026V": {
+    "class": "objectidentity",
+    "name": "s3026V",
+    "oid": "1.3.6.1.4.1.2011.2.23.14"
+  },
+  "s3026c": {
+    "class": "objectidentity",
+    "name": "s3026c",
+    "oid": "1.3.6.1.4.1.2011.2.23.34"
+  },
+  "s3026c_24_12fm": {
+    "class": "objectidentity",
+    "name": "s3026c_24_12fm",
+    "oid": "1.3.6.1.4.1.2011.2.23.43"
+  },
+  "s3026c_24_12fs": {
+    "class": "objectidentity",
+    "name": "s3026c_24_12fs",
+    "oid": "1.3.6.1.4.1.2011.2.23.42"
+  },
+  "s3026g": {
+    "class": "objectidentity",
+    "name": "s3026g",
+    "oid": "1.3.6.1.4.1.2011.2.23.35"
+  },
+  "s3026t": {
+    "class": "objectidentity",
+    "name": "s3026t",
+    "oid": "1.3.6.1.4.1.2011.2.23.36"
+  },
+  "s3050C": {
+    "class": "objectidentity",
+    "name": "s3050C",
+    "oid": "1.3.6.1.4.1.2011.2.23.29"
+  },
+  "s3318TP_EI_MC": {
+    "class": "objectidentity",
+    "name": "s3318TP_EI_MC",
+    "oid": "1.3.6.1.4.1.2011.2.23.113"
+  },
+  "s3326C_HI": {
+    "class": "objectidentity",
+    "name": "s3326C_HI",
+    "oid": "1.3.6.1.4.1.2011.2.23.158"
+  },
+  "s3328TP_EI": {
+    "class": "objectidentity",
+    "name": "s3328TP_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.81"
+  },
+  "s3328TP_EI_24S": {
+    "class": "objectidentity",
+    "name": "s3328TP_EI_24S",
+    "oid": "1.3.6.1.4.1.2011.2.23.82"
+  },
+  "s3328TP_EI_MC": {
+    "class": "objectidentity",
+    "name": "s3328TP_EI_MC",
+    "oid": "1.3.6.1.4.1.2011.2.23.112"
+  },
+  "s3328TP_PWR_EI": {
+    "class": "objectidentity",
+    "name": "s3328TP_PWR_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.110"
+  },
+  "s3328TP_SI": {
+    "class": "objectidentity",
+    "name": "s3328TP_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.80"
+  },
+  "s3328TP_SI_24S": {
+    "class": "objectidentity",
+    "name": "s3328TP_SI_24S",
+    "oid": "1.3.6.1.4.1.2011.2.23.83"
+  },
+  "s3352P_EI": {
+    "class": "objectidentity",
+    "name": "s3352P_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.79"
+  },
+  "s3352P_EI_24S": {
+    "class": "objectidentity",
+    "name": "s3352P_EI_24S",
+    "oid": "1.3.6.1.4.1.2011.2.23.84"
+  },
+  "s3352P_EI_48S": {
+    "class": "objectidentity",
+    "name": "s3352P_EI_48S",
+    "oid": "1.3.6.1.4.1.2011.2.23.85"
+  },
+  "s3352P_PWR_EI": {
+    "class": "objectidentity",
+    "name": "s3352P_PWR_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.111"
+  },
+  "s3352P_SI": {
+    "class": "objectidentity",
+    "name": "s3352P_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.78"
+  },
+  "s3352P_SI_48S": {
+    "class": "objectidentity",
+    "name": "s3352P_SI_48S",
+    "oid": "1.3.6.1.4.1.2011.2.23.86"
+  },
+  "s3526": {
+    "class": "objectidentity",
+    "name": "s3526",
+    "oid": "1.3.6.1.4.1.2011.2.23.12"
+  },
+  "s3526E": {
+    "class": "objectidentity",
+    "name": "s3526E",
+    "oid": "1.3.6.1.4.1.2011.2.23.21"
+  },
+  "s3526F": {
+    "class": "objectidentity",
+    "name": "s3526F",
+    "oid": "1.3.6.1.4.1.2011.2.23.17"
+  },
+  "s3526c": {
+    "class": "objectidentity",
+    "name": "s3526c",
+    "oid": "1.3.6.1.4.1.2011.2.23.41"
+  },
+  "s3526c_24_12fm": {
+    "class": "objectidentity",
+    "name": "s3526c_24_12fm",
+    "oid": "1.3.6.1.4.1.2011.2.23.45"
+  },
+  "s3526c_24_12fs": {
+    "class": "objectidentity",
+    "name": "s3526c_24_12fs",
+    "oid": "1.3.6.1.4.1.2011.2.23.44"
+  },
+  "s3528G": {
+    "class": "objectidentity",
+    "name": "s3528G",
+    "oid": "1.3.6.1.4.1.2011.2.23.39"
+  },
+  "s3528P": {
+    "class": "objectidentity",
+    "name": "s3528P",
+    "oid": "1.3.6.1.4.1.2011.2.23.40"
+  },
+  "s3552F_EI": {
+    "class": "objectidentity",
+    "name": "s3552F_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.68"
+  },
+  "s3552F_SI": {
+    "class": "objectidentity",
+    "name": "s3552F_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.67"
+  },
+  "s3552G": {
+    "class": "objectidentity",
+    "name": "s3552G",
+    "oid": "1.3.6.1.4.1.2011.2.23.37"
+  },
+  "s3552P": {
+    "class": "objectidentity",
+    "name": "s3552P",
+    "oid": "1.3.6.1.4.1.2011.2.23.38"
+  },
+  "s3700_26C_HI": {
+    "class": "objectidentity",
+    "name": "s3700_26C_HI",
+    "oid": "1.3.6.1.4.1.2011.2.23.172"
+  },
+  "s3700_28TP_EI_24S_AC": {
+    "class": "objectidentity",
+    "name": "s3700_28TP_EI_24S_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.127"
+  },
+  "s3700_28TP_EI_AC": {
+    "class": "objectidentity",
+    "name": "s3700_28TP_EI_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.125"
+  },
+  "s3700_28TP_EI_DC": {
+    "class": "objectidentity",
+    "name": "s3700_28TP_EI_DC",
+    "oid": "1.3.6.1.4.1.2011.2.23.126"
+  },
+  "s3700_28TP_EI_MC_AC": {
+    "class": "objectidentity",
+    "name": "s3700_28TP_EI_MC_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.139"
+  },
+  "s3700_28TP_PWR_EI": {
+    "class": "objectidentity",
+    "name": "s3700_28TP_PWR_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.137"
+  },
+  "s3700_28TP_PWR_SI": {
+    "class": "objectidentity",
+    "name": "s3700_28TP_PWR_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.201"
+  },
+  "s3700_28TP_SI_AC": {
+    "class": "objectidentity",
+    "name": "s3700_28TP_SI_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.134"
+  },
+  "s3700_28TP_SI_DC": {
+    "class": "objectidentity",
+    "name": "s3700_28TP_SI_DC",
+    "oid": "1.3.6.1.4.1.2011.2.23.135"
+  },
+  "s3700_52P_PWR_SI": {
+    "class": "objectidentity",
+    "name": "s3700_52P_PWR_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.200"
+  },
+  "s3700_52TP_EI_24S_AC": {
+    "class": "objectidentity",
+    "name": "s3700_52TP_EI_24S_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.130"
+  },
+  "s3700_52TP_EI_24S_DC": {
+    "class": "objectidentity",
+    "name": "s3700_52TP_EI_24S_DC",
+    "oid": "1.3.6.1.4.1.2011.2.23.131"
+  },
+  "s3700_52TP_EI_48S_AC": {
+    "class": "objectidentity",
+    "name": "s3700_52TP_EI_48S_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.132"
+  },
+  "s3700_52TP_EI_48S_DC": {
+    "class": "objectidentity",
+    "name": "s3700_52TP_EI_48S_DC",
+    "oid": "1.3.6.1.4.1.2011.2.23.133"
+  },
+  "s3700_52TP_EI_AC": {
+    "class": "objectidentity",
+    "name": "s3700_52TP_EI_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.128"
+  },
+  "s3700_52TP_EI_DC": {
+    "class": "objectidentity",
+    "name": "s3700_52TP_EI_DC",
+    "oid": "1.3.6.1.4.1.2011.2.23.129"
+  },
+  "s3700_52TP_PWR_EI": {
+    "class": "objectidentity",
+    "name": "s3700_52TP_PWR_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.138"
+  },
+  "s3700_52TP_SI_AC": {
+    "class": "objectidentity",
+    "name": "s3700_52TP_SI_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.136"
+  },
+  "s5012G": {
+    "class": "objectidentity",
+    "name": "s5012G",
+    "oid": "1.3.6.1.4.1.2011.2.23.46"
+  },
+  "s5012G_DC": {
+    "class": "objectidentity",
+    "name": "s5012G_DC",
+    "oid": "1.3.6.1.4.1.2011.2.23.47"
+  },
+  "s5012T_12_10GBC": {
+    "class": "objectidentity",
+    "name": "s5012T_12_10GBC",
+    "oid": "1.3.6.1.4.1.2011.2.23.48"
+  },
+  "s5012T_12_10GBC_DC": {
+    "class": "objectidentity",
+    "name": "s5012T_12_10GBC_DC",
+    "oid": "1.3.6.1.4.1.2011.2.23.49"
+  },
+  "s5024G_24_20TP": {
+    "class": "objectidentity",
+    "name": "s5024G_24_20TP",
+    "oid": "1.3.6.1.4.1.2011.2.23.50"
+  },
+  "s5024G_24_20TP_DC": {
+    "class": "objectidentity",
+    "name": "s5024G_24_20TP_DC",
+    "oid": "1.3.6.1.4.1.2011.2.23.51"
+  },
+  "s5300_28C_PWR_EI": {
+    "class": "objectidentity",
+    "name": "s5300_28C_PWR_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.173"
+  },
+  "s5300_52C_PWR_EI": {
+    "class": "objectidentity",
+    "name": "s5300_52C_PWR_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.174"
+  },
+  "s5306TP_SI": {
+    "class": "objectidentity",
+    "name": "s5306TP_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.157"
+  },
+  "s5310_28P_LI": {
+    "class": "objectidentity",
+    "name": "s5310_28P_LI",
+    "oid": "1.3.6.1.4.1.2011.2.23.175"
+  },
+  "s5310_28P_LI_DC": {
+    "class": "objectidentity",
+    "name": "s5310_28P_LI_DC",
+    "oid": "1.3.6.1.4.1.2011.2.23.179"
+  },
+  "s5310_52P_LI": {
+    "class": "objectidentity",
+    "name": "s5310_52P_LI",
+    "oid": "1.3.6.1.4.1.2011.2.23.176"
+  },
+  "s5310_52P_LI_DC": {
+    "class": "objectidentity",
+    "name": "s5310_52P_LI_DC",
+    "oid": "1.3.6.1.4.1.2011.2.23.180"
+  },
+  "s5324TP_PWR_SI": {
+    "class": "objectidentity",
+    "name": "s5324TP_PWR_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.100"
+  },
+  "s5324TP_SI": {
+    "class": "objectidentity",
+    "name": "s5324TP_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.98"
+  },
+  "s5328C_EI": {
+    "class": "objectidentity",
+    "name": "s5328C_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.95"
+  },
+  "s5328C_EI_24S": {
+    "class": "objectidentity",
+    "name": "s5328C_EI_24S",
+    "oid": "1.3.6.1.4.1.2011.2.23.96"
+  },
+  "s5328C_HI": {
+    "class": "objectidentity",
+    "name": "s5328C_HI",
+    "oid": "1.3.6.1.4.1.2011.2.23.155"
+  },
+  "s5328C_HI_24S": {
+    "class": "objectidentity",
+    "name": "s5328C_HI_24S",
+    "oid": "1.3.6.1.4.1.2011.2.23.156"
+  },
+  "s5328C_HI_24SA": {
+    "class": "objectidentity",
+    "name": "s5328C_HI_24SA",
+    "oid": "1.3.6.1.4.1.2011.2.23.159"
+  },
+  "s5328C_PWR_EI": {
+    "class": "objectidentity",
+    "name": "s5328C_PWR_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.106"
+  },
+  "s5328C_PWR_SI": {
+    "class": "objectidentity",
+    "name": "s5328C_PWR_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.104"
+  },
+  "s5328C_SI": {
+    "class": "objectidentity",
+    "name": "s5328C_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.102"
+  },
+  "s5348TP_PWR_SI": {
+    "class": "objectidentity",
+    "name": "s5348TP_PWR_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.101"
+  },
+  "s5348TP_SI": {
+    "class": "objectidentity",
+    "name": "s5348TP_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.99"
+  },
+  "s5352C_EI": {
+    "class": "objectidentity",
+    "name": "s5352C_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.97"
+  },
+  "s5352C_PWR_EI": {
+    "class": "objectidentity",
+    "name": "s5352C_PWR_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.107"
+  },
+  "s5352C_PWR_SI": {
+    "class": "objectidentity",
+    "name": "s5352C_PWR_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.105"
+  },
+  "s5352C_SI": {
+    "class": "objectidentity",
+    "name": "s5352C_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.103"
+  },
+  "s5516": {
+    "class": "objectidentity",
+    "name": "s5516",
+    "oid": "1.3.6.1.4.1.2011.2.23.18"
+  },
+  "s5700S_28P_LI_AC": {
+    "class": "objectidentity",
+    "name": "s5700S_28P_LI_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.181"
+  },
+  "s5700S_52P_LI_AC": {
+    "class": "objectidentity",
+    "name": "s5700S_52P_LI_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.182"
+  },
+  "s5700_10P_LI_AC": {
+    "class": "objectidentity",
+    "name": "s5700_10P_LI_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.203"
+  },
+  "s5700_10P_PWR_LI_AC": {
+    "class": "objectidentity",
+    "name": "s5700_10P_PWR_LI_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.204"
+  },
+  "s5700_24TP_PWR_SI": {
+    "class": "objectidentity",
+    "name": "s5700_24TP_PWR_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.151"
+  },
+  "s5700_24TP_SI_AC": {
+    "class": "objectidentity",
+    "name": "s5700_24TP_SI_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.145"
+  },
+  "s5700_24TP_SI_DC": {
+    "class": "objectidentity",
+    "name": "s5700_24TP_SI_DC",
+    "oid": "1.3.6.1.4.1.2011.2.23.146"
+  },
+  "s5700_26X_SI_12S_AC": {
+    "class": "objectidentity",
+    "name": "s5700_26X_SI_12S_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.205"
+  },
+  "s5700_28C_EI": {
+    "class": "objectidentity",
+    "name": "s5700_28C_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.140"
+  },
+  "s5700_28C_EI_24S": {
+    "class": "objectidentity",
+    "name": "s5700_28C_EI_24S",
+    "oid": "1.3.6.1.4.1.2011.2.23.142"
+  },
+  "s5700_28C_HI": {
+    "class": "objectidentity",
+    "name": "s5700_28C_HI",
+    "oid": "1.3.6.1.4.1.2011.2.23.169"
+  },
+  "s5700_28C_HI_24S": {
+    "class": "objectidentity",
+    "name": "s5700_28C_HI_24S",
+    "oid": "1.3.6.1.4.1.2011.2.23.170"
+  },
+  "s5700_28C_PWR_EI": {
+    "class": "objectidentity",
+    "name": "s5700_28C_PWR_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.149"
+  },
+  "s5700_28C_PWR_SI": {
+    "class": "objectidentity",
+    "name": "s5700_28C_PWR_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.187"
+  },
+  "s5700_28C_SI": {
+    "class": "objectidentity",
+    "name": "s5700_28C_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.141"
+  },
+  "s5700_28P_LI": {
+    "class": "objectidentity",
+    "name": "s5700_28P_LI",
+    "oid": "1.3.6.1.4.1.2011.2.23.163"
+  },
+  "s5700_28P_LI_DC": {
+    "class": "objectidentity",
+    "name": "s5700_28P_LI_DC",
+    "oid": "1.3.6.1.4.1.2011.2.23.177"
+  },
+  "s5700_28P_PWR_LI_AC": {
+    "class": "objectidentity",
+    "name": "s5700_28P_PWR_LI_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.164"
+  },
+  "s5700_28X_EI": {
+    "class": "objectidentity",
+    "name": "s5700_28X_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.167"
+  },
+  "s5700_28X_LI_AC": {
+    "class": "objectidentity",
+    "name": "s5700_28X_LI_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.206"
+  },
+  "s5700_28X_LI_DC": {
+    "class": "objectidentity",
+    "name": "s5700_28X_LI_DC",
+    "oid": "1.3.6.1.4.1.2011.2.23.207"
+  },
+  "s5700_28X_PWR_LI_AC": {
+    "class": "objectidentity",
+    "name": "s5700_28X_PWR_LI_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.210"
+  },
+  "s5700_48TP_PWR_SI": {
+    "class": "objectidentity",
+    "name": "s5700_48TP_PWR_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.152"
+  },
+  "s5700_48TP_SI_AC": {
+    "class": "objectidentity",
+    "name": "s5700_48TP_SI_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.147"
+  },
+  "s5700_48TP_SI_DC": {
+    "class": "objectidentity",
+    "name": "s5700_48TP_SI_DC",
+    "oid": "1.3.6.1.4.1.2011.2.23.148"
+  },
+  "s5700_52C_EI": {
+    "class": "objectidentity",
+    "name": "s5700_52C_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.143"
+  },
+  "s5700_52C_PWR_EI": {
+    "class": "objectidentity",
+    "name": "s5700_52C_PWR_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.150"
+  },
+  "s5700_52C_PWR_SI": {
+    "class": "objectidentity",
+    "name": "s5700_52C_PWR_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.188"
+  },
+  "s5700_52C_SI": {
+    "class": "objectidentity",
+    "name": "s5700_52C_SI",
+    "oid": "1.3.6.1.4.1.2011.2.23.144"
+  },
+  "s5700_52P_LI": {
+    "class": "objectidentity",
+    "name": "s5700_52P_LI",
+    "oid": "1.3.6.1.4.1.2011.2.23.165"
+  },
+  "s5700_52P_LI_DC": {
+    "class": "objectidentity",
+    "name": "s5700_52P_LI_DC",
+    "oid": "1.3.6.1.4.1.2011.2.23.178"
+  },
+  "s5700_52P_PWR_LI_AC": {
+    "class": "objectidentity",
+    "name": "s5700_52P_PWR_LI_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.166"
+  },
+  "s5700_52X_EI": {
+    "class": "objectidentity",
+    "name": "s5700_52X_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.168"
+  },
+  "s5700_52X_LI_AC": {
+    "class": "objectidentity",
+    "name": "s5700_52X_LI_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.208"
+  },
+  "s5700_52X_LI_DC": {
+    "class": "objectidentity",
+    "name": "s5700_52X_LI_DC",
+    "oid": "1.3.6.1.4.1.2011.2.23.209"
+  },
+  "s5700_52X_PWR_LI_AC": {
+    "class": "objectidentity",
+    "name": "s5700_52X_PWR_LI_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.211"
+  },
+  "s5700_6TP_LI_AC": {
+    "class": "objectidentity",
+    "name": "s5700_6TP_LI_AC",
+    "oid": "1.3.6.1.4.1.2011.2.23.171"
+  },
+  "s5710_108C_PWR_HI": {
+    "class": "objectidentity",
+    "name": "s5710_108C_PWR_HI",
+    "oid": "1.3.6.1.4.1.2011.2.23.202"
+  },
+  "s5710_28C_LI": {
+    "class": "objectidentity",
+    "name": "s5710_28C_LI",
+    "oid": "1.3.6.1.4.1.2011.2.23.191"
+  },
+  "s5710_28C_PWR_EI": {
+    "class": "objectidentity",
+    "name": "s5710_28C_PWR_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.194"
+  },
+  "s5710_28C_PWR_LI": {
+    "class": "objectidentity",
+    "name": "s5710_28C_PWR_LI",
+    "oid": "1.3.6.1.4.1.2011.2.23.189"
+  },
+  "s5710_52C_LI": {
+    "class": "objectidentity",
+    "name": "s5710_52C_LI",
+    "oid": "1.3.6.1.4.1.2011.2.23.192"
+  },
+  "s5710_52C_PWR_EI": {
+    "class": "objectidentity",
+    "name": "s5710_52C_PWR_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.195"
+  },
+  "s5710_52C_PWR_LI": {
+    "class": "objectidentity",
+    "name": "s5710_52C_PWR_LI",
+    "oid": "1.3.6.1.4.1.2011.2.23.190"
+  },
+  "s6324C": {
+    "class": "objectidentity",
+    "name": "s6324C",
+    "oid": "1.3.6.1.4.1.2011.2.23.153"
+  },
+  "s6348C": {
+    "class": "objectidentity",
+    "name": "s6348C",
+    "oid": "1.3.6.1.4.1.2011.2.23.154"
+  },
+  "s6503": {
+    "class": "objectidentity",
+    "name": "s6503",
+    "oid": "1.3.6.1.4.1.2011.2.23.30"
+  },
+  "s6506": {
+    "class": "objectidentity",
+    "name": "s6506",
+    "oid": "1.3.6.1.4.1.2011.2.23.19"
+  },
+  "s6506R": {
+    "class": "objectidentity",
+    "name": "s6506R",
+    "oid": "1.3.6.1.4.1.2011.2.23.33"
+  },
+  "s6700_24_EI": {
+    "class": "objectidentity",
+    "name": "s6700_24_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.160"
+  },
+  "s6700_48_EI": {
+    "class": "objectidentity",
+    "name": "s6700_48_EI",
+    "oid": "1.3.6.1.4.1.2011.2.23.161"
+  },
+  "s7700": {
+    "class": "objectidentity",
+    "name": "s7700",
+    "oid": "1.3.6.1.4.1.2011.2.223"
+  },
+  "s7703": {
+    "class": "objectidentity",
+    "name": "s7703",
+    "oid": "1.3.6.1.4.1.2011.2.223.1"
+  },
+  "s7706": {
+    "class": "objectidentity",
+    "name": "s7706",
+    "oid": "1.3.6.1.4.1.2011.2.223.2"
+  },
+  "s7712": {
+    "class": "objectidentity",
+    "name": "s7712",
+    "oid": "1.3.6.1.4.1.2011.2.223.3"
+  },
+  "s8016": {
+    "class": "objectidentity",
+    "name": "s8016",
+    "oid": "1.3.6.1.4.1.2011.2.23.11"
+  },
+  "s8016A": {
+    "class": "objectidentity",
+    "name": "s8016A",
+    "oid": "1.3.6.1.4.1.2011.2.23.11.2"
+  },
+  "s8016B": {
+    "class": "objectidentity",
+    "name": "s8016B",
+    "oid": "1.3.6.1.4.1.2011.2.23.11.3"
+  },
+  "s8016Common": {
+    "class": "objectidentity",
+    "name": "s8016Common",
+    "oid": "1.3.6.1.4.1.2011.2.23.11.1"
+  },
+  "s8505": {
+    "class": "objectidentity",
+    "name": "s8505",
+    "oid": "1.3.6.1.4.1.2011.2.23.32"
+  },
+  "s8505e": {
+    "class": "objectidentity",
+    "name": "s8505e",
+    "oid": "1.3.6.1.4.1.2011.2.23.57"
+  },
+  "s8512": {
+    "class": "objectidentity",
+    "name": "s8512",
+    "oid": "1.3.6.1.4.1.2011.2.23.31"
+  },
+  "s9300": {
+    "class": "objectidentity",
+    "name": "s9300",
+    "oid": "1.3.6.1.4.1.2011.2.170"
+  },
+  "s9303": {
+    "class": "objectidentity",
+    "name": "s9303",
+    "oid": "1.3.6.1.4.1.2011.2.170.1"
+  },
+  "s9303E": {
+    "class": "objectidentity",
+    "name": "s9303E",
+    "oid": "1.3.6.1.4.1.2011.2.170.5"
+  },
+  "s9306": {
+    "class": "objectidentity",
+    "name": "s9306",
+    "oid": "1.3.6.1.4.1.2011.2.170.2"
+  },
+  "s9306E": {
+    "class": "objectidentity",
+    "name": "s9306E",
+    "oid": "1.3.6.1.4.1.2011.2.170.6"
+  },
+  "s9312": {
+    "class": "objectidentity",
+    "name": "s9312",
+    "oid": "1.3.6.1.4.1.2011.2.170.3"
+  },
+  "s9312E": {
+    "class": "objectidentity",
+    "name": "s9312E",
+    "oid": "1.3.6.1.4.1.2011.2.170.7"
+  },
+  "s9700": {
+    "class": "objectidentity",
+    "name": "s9700",
+    "oid": "1.3.6.1.4.1.2011.2.236"
+  },
+  "s9703": {
+    "class": "objectidentity",
+    "name": "s9703",
+    "oid": "1.3.6.1.4.1.2011.2.236.1"
+  },
+  "s9706": {
+    "class": "objectidentity",
+    "name": "s9706",
+    "oid": "1.3.6.1.4.1.2011.2.236.2"
+  },
+  "s9712": {
+    "class": "objectidentity",
+    "name": "s9712",
+    "oid": "1.3.6.1.4.1.2011.2.236.3"
+  },
+  "sbs": {
+    "class": "objectidentity",
+    "name": "sbs",
+    "oid": "1.3.6.1.4.1.2011.2.11"
+  },
+  "secpath1800F": {
+    "class": "objectidentity",
+    "name": "secpath1800F",
+    "oid": "1.3.6.1.4.1.2011.2.83"
+  },
+  "sgsn": {
+    "class": "objectidentity",
+    "name": "sgsn",
+    "oid": "1.3.6.1.4.1.2011.2.32.1"
+  },
+  "sig1000": {
+    "class": "objectidentity",
+    "name": "sig1000",
+    "oid": "1.3.6.1.4.1.2011.2.129"
+  },
+  "sig2000": {
+    "class": "objectidentity",
+    "name": "sig2000",
+    "oid": "1.3.6.1.4.1.2011.2.131"
+  },
+  "sig9280": {
+    "class": "objectidentity",
+    "name": "sig9280",
+    "oid": "1.3.6.1.4.1.2011.2.130"
+  },
+  "sm": {
+    "class": "objectidentity",
+    "name": "sm",
+    "oid": "1.3.6.1.4.1.2011.2.35"
+  },
+  "softx3000UC": {
+    "class": "objectidentity",
+    "name": "softx3000UC",
+    "oid": "1.3.6.1.4.1.2011.2.81"
+  },
+  "ssp1000": {
+    "class": "objectidentity",
+    "name": "ssp1000",
+    "oid": "1.3.6.1.4.1.2011.2.187.1"
+  },
+  "ssp1000_4": {
+    "class": "objectidentity",
+    "name": "ssp1000_4",
+    "oid": "1.3.6.1.4.1.2011.2.187.4"
+  },
+  "ssp2000": {
+    "class": "objectidentity",
+    "name": "ssp2000",
+    "oid": "1.3.6.1.4.1.2011.2.187.2"
+  },
+  "ssp3000": {
+    "class": "objectidentity",
+    "name": "ssp3000",
+    "oid": "1.3.6.1.4.1.2011.2.187.3"
+  },
+  "ssp5000_X16": {
+    "class": "objectidentity",
+    "name": "ssp5000_X16",
+    "oid": "1.3.6.1.4.1.2011.2.187.10"
+  },
+  "ssp5000_X3": {
+    "class": "objectidentity",
+    "name": "ssp5000_X3",
+    "oid": "1.3.6.1.4.1.2011.2.187.8"
+  },
+  "ssp5000_X8": {
+    "class": "objectidentity",
+    "name": "ssp5000_X8",
+    "oid": "1.3.6.1.4.1.2011.2.187.9"
+  },
+  "svn3000": {
+    "class": "objectidentity",
+    "name": "svn3000",
+    "oid": "1.3.6.1.4.1.2011.2.124"
+  },
+  "switch2024_M": {
+    "class": "objectidentity",
+    "name": "switch2024_M",
+    "oid": "1.3.6.1.4.1.2011.2.4.4"
+  },
+  "switch2403": {
+    "class": "objectidentity",
+    "name": "switch2403",
+    "oid": "1.3.6.1.4.1.2011.2.4.1"
+  },
+  "switch2403F": {
+    "class": "objectidentity",
+    "name": "switch2403F",
+    "oid": "1.3.6.1.4.1.2011.2.4.1.0"
+  },
+  "switch3008": {
+    "class": "objectidentity",
+    "name": "switch3008",
+    "oid": "1.3.6.1.4.1.2011.2.4.2"
+  },
+  "switch3016": {
+    "class": "objectidentity",
+    "name": "switch3016",
+    "oid": "1.3.6.1.4.1.2011.2.4.3"
+  },
+  "switch3025_M": {
+    "class": "objectidentity",
+    "name": "switch3025_M",
+    "oid": "1.3.6.1.4.1.2011.2.4.5"
+  },
+  "transmission": {
+    "class": "objectidentity",
+    "name": "transmission",
+    "oid": "1.3.6.1.4.1.2011.2.25"
+  },
+  "ua5000ApmB": {
+    "class": "objectidentity",
+    "name": "ua5000ApmB",
+    "oid": "1.3.6.1.4.1.2011.2.79"
+  },
+  "ua5000IpmB": {
+    "class": "objectidentity",
+    "name": "ua5000IpmB",
+    "oid": "1.3.6.1.4.1.2011.2.78"
+  },
+  "ua5000ipm": {
+    "class": "objectidentity",
+    "name": "ua5000ipm",
+    "oid": "1.3.6.1.4.1.2011.2.72"
+  },
+  "umg8900": {
+    "class": "objectidentity",
+    "name": "umg8900",
+    "oid": "1.3.6.1.4.1.2011.2.28"
+  },
+  "ups": {
+    "class": "objectidentity",
+    "name": "ups",
+    "oid": "1.3.6.1.4.1.2011.2.13"
+  },
+  "usg5000": {
+    "class": "objectidentity",
+    "name": "usg5000",
+    "oid": "1.3.6.1.4.1.2011.2.125"
+  },
+  "usg9000": {
+    "class": "objectidentity",
+    "name": "usg9000",
+    "oid": "1.3.6.1.4.1.2011.2.126"
+  },
+  "vRGW": {
+    "class": "objectidentity",
+    "name": "vRGW",
+    "oid": "1.3.6.1.4.1.2011.2.227"
+  },
+  "vasp": {
+    "class": "objectidentity",
+    "name": "vasp",
+    "oid": "1.3.6.1.4.1.2011.2.170.4"
+  },
+  "vdg10_40": {
+    "class": "objectidentity",
+    "name": "vdg10_40",
+    "oid": "1.3.6.1.4.1.2011.2.52"
+  },
+  "vdg10_41": {
+    "class": "objectidentity",
+    "name": "vdg10_41",
+    "oid": "1.3.6.1.4.1.2011.2.53"
+  },
+  "viewpoint": {
+    "class": "objectidentity",
+    "name": "viewpoint",
+    "oid": "1.3.6.1.4.1.2011.2.14"
+  },
+  "wa1208E": {
+    "class": "objectidentity",
+    "name": "wa1208E",
+    "oid": "1.3.6.1.4.1.2011.2.39.11"
+  },
+  "wcdma": {
+    "class": "objectidentity",
+    "name": "wcdma",
+    "oid": "1.3.6.1.4.1.2011.2.32"
+  },
+  "wireIn": {
+    "class": "objectidentity",
+    "name": "wireIn",
+    "oid": "1.3.6.1.4.1.2011.2.18"
+  },
+  "wireInIP": {
+    "class": "objectidentity",
+    "name": "wireInIP",
+    "oid": "1.3.6.1.4.1.2011.2.18.5"
+  },
+  "wireInScp": {
+    "class": "objectidentity",
+    "name": "wireInScp",
+    "oid": "1.3.6.1.4.1.2011.2.18.1"
+  },
+  "wireInSdp": {
+    "class": "objectidentity",
+    "name": "wireInSdp",
+    "oid": "1.3.6.1.4.1.2011.2.18.2"
+  },
+  "wireInSmp": {
+    "class": "objectidentity",
+    "name": "wireInSmp",
+    "oid": "1.3.6.1.4.1.2011.2.18.3"
+  },
+  "wireInSsp": {
+    "class": "objectidentity",
+    "name": "wireInSsp",
+    "oid": "1.3.6.1.4.1.2011.2.18.4"
+  },
+  "wlan": {
+    "class": "objectidentity",
+    "name": "wlan",
+    "oid": "1.3.6.1.4.1.2011.2.240"
+  },
+  "wlanAp": {
+    "class": "objectidentity",
+    "name": "wlanAp",
+    "oid": "1.3.6.1.4.1.2011.2.39"
+  },
+  "wlanApCommon": {
+    "class": "objectidentity",
+    "name": "wlanApCommon",
+    "oid": "1.3.6.1.4.1.2011.2.39.1"
+  },
+  "wlanApWA1003": {
+    "class": "objectidentity",
+    "name": "wlanApWA1003",
+    "oid": "1.3.6.1.4.1.2011.2.39.2"
+  },
+  "wlanApWA1003A": {
+    "class": "objectidentity",
+    "name": "wlanApWA1003A",
+    "oid": "1.3.6.1.4.1.2011.2.39.3"
+  },
+  "wlanApWA1005": {
+    "class": "objectidentity",
+    "name": "wlanApWA1005",
+    "oid": "1.3.6.1.4.1.2011.2.39.4"
+  },
+  "wlanApWA1006": {
+    "class": "objectidentity",
+    "name": "wlanApWA1006",
+    "oid": "1.3.6.1.4.1.2011.2.43"
+  },
+  "wlanApWA1006E": {
+    "class": "objectidentity",
+    "name": "wlanApWA1006E",
+    "oid": "1.3.6.1.4.1.2011.2.39.8"
+  },
+  "wlanApWA1008": {
+    "class": "objectidentity",
+    "name": "wlanApWA1008",
+    "oid": "1.3.6.1.4.1.2011.2.39.5"
+  },
+  "wlanApWA1208": {
+    "class": "objectidentity",
+    "name": "wlanApWA1208",
+    "oid": "1.3.6.1.4.1.2011.2.39.6"
+  },
+  "wlanApWA1208H": {
+    "class": "objectidentity",
+    "name": "wlanApWA1208H",
+    "oid": "1.3.6.1.4.1.2011.2.39.7"
+  },
+  "wlanBridgeWB2010": {
+    "class": "objectidentity",
+    "name": "wlanBridgeWB2010",
+    "oid": "1.3.6.1.4.1.2011.2.39.9"
+  },
+  "wlanBridgeWB2011": {
+    "class": "objectidentity",
+    "name": "wlanBridgeWB2011",
+    "oid": "1.3.6.1.4.1.2011.2.39.10"
+  },
+  "xdsl": {
+    "class": "objectidentity",
+    "name": "xdsl",
+    "oid": "1.3.6.1.4.1.2011.2.5"
+  }
+}

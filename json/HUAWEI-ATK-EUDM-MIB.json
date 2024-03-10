@@ -1,0 +1,467 @@
+{
+  "hwATK": {
+    "class": "objectidentity",
+    "name": "hwATK",
+    "oid": "1.3.6.1.4.1.2011.5.25.10"
+  },
+  "hwATKEudm": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": " The HUAWEI-ATCKDF_EUDM-MIB contains objects to manage the ATCKDF(Attack Defence) configuration for firewall. ",
+    "lastupdated": "200303190900Z",
+    "name": "hwATKEudm",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwAtkEudmCompliance": {
+    "class": "objectidentity",
+    "name": "hwAtkEudmCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.2.1"
+  },
+  "hwAtkEudmConformance": {
+    "class": "objectidentity",
+    "name": "hwAtkEudmConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.2"
+  },
+  "hwAtkEudmIcmpFloodGroup": {
+    "class": "objectgroup",
+    "description": " The MIB objects need for ICMP flood defence ",
+    "name": "hwAtkEudmIcmpFloodGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATK-EUDM-MIB",
+        "object": "hwAtkZoneIcmpFloodSpeed"
+      },
+      {
+        "module": "HUAWEI-ATK-EUDM-MIB",
+        "object": "hwAtkZoneIcmpFloodStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.2.2.3",
+    "status": "current"
+  },
+  "hwAtkEudmMibGroups": {
+    "class": "objectidentity",
+    "name": "hwAtkEudmMibGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.2.2"
+  },
+  "hwAtkEudmSynFloodGroup": {
+    "class": "objectgroup",
+    "description": " The MIB objects need for SYN flood defence",
+    "name": "hwAtkEudmSynFloodGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATK-EUDM-MIB",
+        "object": "hwAtkZoneSynFloodSynSpeed"
+      },
+      {
+        "module": "HUAWEI-ATK-EUDM-MIB",
+        "object": "hwAtkZoneSynFloodHalfMax"
+      },
+      {
+        "module": "HUAWEI-ATK-EUDM-MIB",
+        "object": "hwAtkZoneSynFloodHalfAge"
+      },
+      {
+        "module": "HUAWEI-ATK-EUDM-MIB",
+        "object": "hwAtkZoneSynFloodProxy"
+      },
+      {
+        "module": "HUAWEI-ATK-EUDM-MIB",
+        "object": "hwAtkZoneSynFloodStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.2.2.1",
+    "status": "current"
+  },
+  "hwAtkEudmUdpFloodGroup": {
+    "class": "objectgroup",
+    "description": " The MIB objects need for UDP flood defence ",
+    "name": "hwAtkEudmUdpFloodGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATK-EUDM-MIB",
+        "object": "hwAtkZoneUdpFloodSpeed"
+      },
+      {
+        "module": "HUAWEI-ATK-EUDM-MIB",
+        "object": "hwAtkZoneUdpFloodStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.2.2.2",
+    "status": "current"
+  },
+  "hwAtkIcmpFloodZoneEntry": {
+    "class": "objecttype",
+    "description": " An entry in the hwAtckDfIcmpFloodZoneTable containing the parameters of ICMP flood defence for all hosts behind a security zone. this table is for firewall only. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATK-EUDM-MIB",
+        "object": "hwAtkIcmpFloodZoneID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAtkIcmpFloodZoneEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.3.1",
+    "status": "current"
+  },
+  "hwAtkIcmpFloodZoneID": {
+    "class": "objecttype",
+    "description": "The ID of security zone to be protected.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtkIcmpFloodZoneID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtkIcmpFloodZoneTable": {
+    "class": "objecttype",
+    "description": " ICMP Flood configuration table for a security zone. which consists of a sequence of hwAtckDfIcmpFloodZoneEntry items. ",
+    "maxaccess": "not-accessible",
+    "name": "hwAtkIcmpFloodZoneTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.3",
+    "status": "current"
+  },
+  "hwAtkSynFloodZoneEntry": {
+    "class": "objecttype",
+    "description": " An entry in the hwAtckDfSynFloodZoneTable containing the parameters of SYN flood defence for all hosts behind a security zone. this table is for firewall only. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATK-EUDM-MIB",
+        "object": "hwAtkSynFloodZoneID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAtkSynFloodZoneEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.1.1",
+    "status": "current"
+  },
+  "hwAtkSynFloodZoneID": {
+    "class": "objecttype",
+    "description": "The internal ID of security zone to be protected.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtkSynFloodZoneID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtkSynFloodZoneTable": {
+    "class": "objecttype",
+    "description": " SYN Flood configuration table for a security zone. which consists of a sequence of hwAtckDfSynFloodZoneEntry items. ",
+    "maxaccess": "not-accessible",
+    "name": "hwAtkSynFloodZoneTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.1",
+    "status": "current"
+  },
+  "hwAtkUdpFloodZoneEntry": {
+    "class": "objecttype",
+    "description": " An entry in the hwAtckDfUdpFloodZoneTable containing the parameters of UDP flood defence for all hosts behind a security zone. this table is for firewall only. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATK-EUDM-MIB",
+        "object": "hwAtkUdpFloodZoneID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAtkUdpFloodZoneEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.2.1",
+    "status": "current"
+  },
+  "hwAtkUdpFloodZoneID": {
+    "class": "objecttype",
+    "description": "The ID of security zone to be protected.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtkUdpFloodZoneID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtkUdpFloodZoneTable": {
+    "class": "objecttype",
+    "description": " UDP Flood configuration table for a security zone. which consists of a sequence of hwAtckDfUdpFloodZoneEntry items. ",
+    "maxaccess": "not-accessible",
+    "name": "hwAtkUdpFloodZoneTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.2",
+    "status": "current"
+  },
+  "hwAtkZoneIcmpFloodSpeed": {
+    "class": "objecttype",
+    "description": " The threshold value of ICMP packets speed. when the speed of ICMP packets to one host in this zone reach this value, the firewall will drops the subsequence ICMP packets to this host. ",
+    "maxaccess": "read-create",
+    "name": "hwAtkZoneIcmpFloodSpeed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtkZoneIcmpFloodStatus": {
+    "class": "objecttype",
+    "description": " The row status variable, current support CreateAndGo and Destroy. ",
+    "maxaccess": "read-create",
+    "name": "hwAtkZoneIcmpFloodStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAtkZoneMibObjects": {
+    "class": "objectidentity",
+    "name": "hwAtkZoneMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1"
+  },
+  "hwAtkZoneSynFloodHalfAge": {
+    "class": "objecttype",
+    "description": "The age of TCP half connection.",
+    "maxaccess": "read-create",
+    "name": "hwAtkZoneSynFloodHalfAge",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtkZoneSynFloodHalfMax": {
+    "class": "objecttype",
+    "description": "This is the maximum half connection for each host in the zone.",
+    "maxaccess": "read-create",
+    "name": "hwAtkZoneSynFloodHalfMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtkZoneSynFloodProxy": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "auto"
+      }
+    },
+    "description": " The switch of TCP proxy, this switch decides the action of proxy. The switch has three status: auto, on, off. ",
+    "maxaccess": "read-create",
+    "name": "hwAtkZoneSynFloodProxy",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "off": 3,
+          "on": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAtkZoneSynFloodStatus": {
+    "class": "objecttype",
+    "description": " The row status variable, current support CreateAndGo and Destroy. ",
+    "maxaccess": "read-create",
+    "name": "hwAtkZoneSynFloodStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAtkZoneSynFloodSynSpeed": {
+    "class": "objecttype",
+    "description": " The threshold value of SYN packets speed. when the speed of SYN packets to one host in this zone readch this value, the firewall will startup TCP proxy. ",
+    "maxaccess": "read-create",
+    "name": "hwAtkZoneSynFloodSynSpeed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtkZoneUdpFloodSpeed": {
+    "class": "objecttype",
+    "description": " The threshold value of UDP packets speed. when the speed of UDP packets to one host in this zone reach this value, the firewall will drops the subsequence UDP packets to this host. ",
+    "maxaccess": "read-create",
+    "name": "hwAtkZoneUdpFloodSpeed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtkZoneUdpFloodStatus": {
+    "class": "objecttype",
+    "description": " The row status variable, current support CreateAndGo and Destroy. ",
+    "maxaccess": "read-create",
+    "name": "hwAtkZoneUdpFloodStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.2.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "MPLS-VPN-MIB": [
+      "mplsVpnVrfName"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier",
+      "IpAddress",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-ATK-EUDM-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:46:39 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-ATK-EUDM-MIB"
+  }
+}

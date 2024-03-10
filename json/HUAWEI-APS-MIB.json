@@ -1,0 +1,445 @@
+{
+  "hwApsCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for entities that implement extend APS on a router.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectionGroup"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsNotificationsGroup"
+      }
+    ],
+    "name": "hwApsCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.3.1.1",
+    "status": "current"
+  },
+  "hwApsCompliances": {
+    "class": "objectidentity",
+    "name": "hwApsCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.3.1"
+  },
+  "hwApsConformance": {
+    "class": "objectidentity",
+    "name": "hwApsConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.3"
+  },
+  "hwApsGroups": {
+    "class": "objectidentity",
+    "name": "hwApsGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.3.2"
+  },
+  "hwApsIfIndex": {
+    "class": "objecttype",
+    "description": "The table\u0027s index that is a STM-1 or CSTM-1 interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwApsIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwApsIfType": {
+    "class": "objecttype",
+    "description": "The interface type .",
+    "maxaccess": "read-create",
+    "name": "hwApsIfType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "protection": 2,
+          "work": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwApsMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "VRP Team Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China http://www.huawei.com Zip:100085 ",
+    "description": "The HUAWEI-APS-MIB contains objects to Manage configuration and Monitor running state for Class Based APS feature.",
+    "lastupdated": "200712071432Z",
+    "name": "hwApsMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.161",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwApsNotifications": {
+    "class": "objectidentity",
+    "name": "hwApsNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.2"
+  },
+  "hwApsNotificationsGroup": {
+    "class": "notificationgroup",
+    "description": "This is a optional group of information.",
+    "name": "hwApsNotificationsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectSwitchOver"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectSwitchBackOver"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectModeFail"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectChnlFail"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectInvldK1K2Fail"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectRemoteFail"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.161.3.2.2",
+    "status": "current"
+  },
+  "hwApsObjects": {
+    "class": "objectidentity",
+    "name": "hwApsObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.1"
+  },
+  "hwApsProtectChnlFail": {
+    "class": "notificationtype",
+    "description": "The tunnle of APS proctection doesn\u0027t match.",
+    "name": "hwApsProtectChnlFail",
+    "objects": [
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectionGroupNum"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsIfType"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsWorkingIfType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.161.2.4",
+    "status": "current"
+  },
+  "hwApsProtectInvldK1K2Fail": {
+    "class": "notificationtype",
+    "description": "The number K byte is unusable. ",
+    "name": "hwApsProtectInvldK1K2Fail",
+    "objects": [
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectionGroupNum"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsIfType"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsWorkingIfType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.161.2.5",
+    "status": "current"
+  },
+  "hwApsProtectModeFail": {
+    "class": "notificationtype",
+    "description": "The type of APS proctection doesn\u0027t match.",
+    "name": "hwApsProtectModeFail",
+    "objects": [
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectionGroupNum"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsIfType"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsWorkingIfType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.161.2.3",
+    "status": "current"
+  },
+  "hwApsProtectRemoteFail": {
+    "class": "notificationtype",
+    "description": "The remote is inspected failure.",
+    "name": "hwApsProtectRemoteFail",
+    "objects": [
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectionGroupNum"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsIfType"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsWorkingIfType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.161.2.6",
+    "status": "current"
+  },
+  "hwApsProtectSwitch": {
+    "class": "objecttype",
+    "description": "The switch of APS protection.",
+    "maxaccess": "read-create",
+    "name": "hwApsProtectSwitch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 4,
+          "force": 2,
+          "lock": 1,
+          "manual": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwApsProtectSwitchBackOver": {
+    "class": "notificationtype",
+    "description": "APS protection restore successful.",
+    "name": "hwApsProtectSwitchBackOver",
+    "objects": [
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectionGroupNum"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsIfType"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsWorkingIfType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.161.2.2",
+    "status": "current"
+  },
+  "hwApsProtectSwitchOver": {
+    "class": "notificationtype",
+    "description": "APS protection switch successful.",
+    "name": "hwApsProtectSwitchOver",
+    "objects": [
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectionGroupNum"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsIfType"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsWorkingIfType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.161.2.1",
+    "status": "current"
+  },
+  "hwApsProtectionEntry": {
+    "class": "objecttype",
+    "description": "APS protection configuration entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwApsProtectionEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.1.1.1",
+    "status": "current"
+  },
+  "hwApsProtectionGroup": {
+    "class": "objectgroup",
+    "description": "This is a optional group of information.",
+    "name": "hwApsProtectionGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectionGroupNum"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsIfType"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsRestoreWaitTime"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsProtectSwitch"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsWorkingIfType"
+      },
+      {
+        "module": "HUAWEI-APS-MIB",
+        "object": "hwApsRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.161.3.2.1",
+    "status": "current"
+  },
+  "hwApsProtectionGroupNum": {
+    "class": "objecttype",
+    "description": "The table\u0027s index that is APS protection group number from 1 to 8.",
+    "maxaccess": "read-create",
+    "name": "hwApsProtectionGroupNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwApsProtectionTable": {
+    "class": "objecttype",
+    "description": "APS protection configuration.",
+    "maxaccess": "not-accessible",
+    "name": "hwApsProtectionTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.1.1",
+    "status": "current"
+  },
+  "hwApsRestoreWaitTime": {
+    "class": "objecttype",
+    "description": "The latency time of restoration.",
+    "maxaccess": "read-create",
+    "name": "hwApsRestoreWaitTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 12,
+            "min": 5
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwApsRowStatus": {
+    "class": "objecttype",
+    "description": "Current operation status of the row.",
+    "maxaccess": "read-create",
+    "name": "hwApsRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwApsWorkingIfType": {
+    "class": "objecttype",
+    "description": "State of the interface.",
+    "maxaccess": "read-only",
+    "name": "hwApsWorkingIfType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.161.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysUpTime"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Bits",
+      "Counter32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-APS-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:46:36 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-APS-MIB"
+  }
+}

@@ -1,0 +1,445 @@
+{
+  "AFIType": {
+    "class": "textualconvention",
+    "description": "This type is used to show Address Family",
+    "name": "AFIType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 2,
+          "ipv6": 3,
+          "l2vpn": 196,
+          "notspecified": 1,
+          "vpls": 25
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "GRRole": {
+    "class": "textualconvention",
+    "description": "This type is used to show Role of router in the process of GR, \u0027restarter\u0027 means the router pay Restarter role in the process of GR,\u0027helper\u0027means the router pay Helper role in the process of GR,if each peer have conferred with each others on GR,we call the kind of state is \u0027grnormal\u0027,if negotiation is unsuccessful,the kind of state is \u0027grnegotiatefail\u0027.",
+    "name": "GRRole",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "grnegotiatefail": 4,
+          "grnormal": 1,
+          "helper": 3,
+          "restarter": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "SAFIType": {
+    "class": "textualconvention",
+    "description": "This type is used to show Sub Address Family",
+    "name": "SAFIType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mpls": 5,
+          "multicast": 3,
+          "notspecified": 1,
+          "unicast": 2,
+          "unicastandmulticast": 4,
+          "vpls": 65,
+          "vpnv4": 128
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "Status": {
+    "class": "textualconvention",
+    "description": "This type is used to show status of GR,for example \u0027enable\u0027 means capability of GR have enabled, \u0027disable\u0027 means capability of GR have disabled",
+    "name": "Status",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwBgpGRCapability": {
+    "class": "objecttype",
+    "description": "We can see status of GR by this node,the value \u0027enable\u0027 denotes that capability of GR have be actived, \u0027disable\u0027 denotes that capability of GR have be disabled.",
+    "maxaccess": "read-write",
+    "name": "hwBgpGRCapability",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.138.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Status"
+    }
+  },
+  "hwBgpGRCfgGroup": {
+    "class": "objectgroup",
+    "description": "Required objects to provide hwBgpGRMIB objects configuration information. hwBgpGRCfgGroup is optional.",
+    "name": "hwBgpGRCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-GR-MIB",
+        "object": "hwBgpGRRestartTime"
+      },
+      {
+        "module": "HUAWEI-BGP-GR-MIB",
+        "object": "hwBgpGRWaitForRibTime"
+      },
+      {
+        "module": "HUAWEI-BGP-GR-MIB",
+        "object": "hwBgpGRCapability"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.138.3.2.1",
+    "status": "current"
+  },
+  "hwBgpGRHelperGRRestartTimeOut": {
+    "class": "notificationtype",
+    "description": "The Restart Timer of Helper is overtime for special reason in process of GR.",
+    "name": "hwBgpGRHelperGRRestartTimeOut",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-GR-MIB",
+        "object": "hwBgpGRStatLocalGRRole"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.138.2.3",
+    "status": "current"
+  },
+  "hwBgpGRHelperGRWaitForEndofRibTimeOut": {
+    "class": "notificationtype",
+    "description": "The WaitForEndofRib Timer of Helper is overtime for special reason in process of GR.",
+    "name": "hwBgpGRHelperGRWaitForEndofRibTimeOut",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-GR-MIB",
+        "object": "hwBgpGRStatLocalGRRole"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.138.2.4",
+    "status": "current"
+  },
+  "hwBgpGRMIB": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": "The HUAWEI-BGP-GR-MIB contains objects to Manage configuration and Monitor running state for BGP Graceful Restart feature.",
+    "lastupdated": "200611220000Z",
+    "name": "hwBgpGRMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.138",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwBgpGRMIBCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for Border GateWay Protocol Graceful Restart MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-BGP-GR-MIB",
+        "object": "hwBgpGRCfgGroup"
+      },
+      {
+        "module": "HUAWEI-BGP-GR-MIB",
+        "object": "hwBgpGRStatGroup"
+      },
+      {
+        "module": "HUAWEI-BGP-GR-MIB",
+        "object": "hwBgpGRTrapGroup"
+      }
+    ],
+    "name": "hwBgpGRMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.138.3.1.1",
+    "status": "current"
+  },
+  "hwBgpGRMIBCompliances": {
+    "class": "objectidentity",
+    "name": "hwBgpGRMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.138.3.1"
+  },
+  "hwBgpGRMIBConformance": {
+    "class": "objectidentity",
+    "name": "hwBgpGRMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.138.3"
+  },
+  "hwBgpGRMIBGroups": {
+    "class": "objectidentity",
+    "name": "hwBgpGRMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.138.3.2"
+  },
+  "hwBgpGRMIBObjects": {
+    "class": "objectidentity",
+    "name": "hwBgpGRMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.138.1"
+  },
+  "hwBgpGRRestartTime": {
+    "class": "objecttype",
+    "description": "The Value of BGP GR restart timer(second)",
+    "maxaccess": "read-write",
+    "name": "hwBgpGRRestartTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.138.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 600,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBgpGRRestarterEnterGR": {
+    "class": "notificationtype",
+    "description": "We will report alarm when the local Router enters the GR state.",
+    "name": "hwBgpGRRestarterEnterGR",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-GR-MIB",
+        "object": "hwBgpGRStatLocalGRRole"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.138.2.1",
+    "status": "current"
+  },
+  "hwBgpGRRestarterExitGR": {
+    "class": "notificationtype",
+    "description": "We will recover the hwRestarterEnterGR alarm when the local Router exit the GR state.",
+    "name": "hwBgpGRRestarterExitGR",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-GR-MIB",
+        "object": "hwBgpGRStatLocalGRRole"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.138.2.2",
+    "status": "current"
+  },
+  "hwBgpGRStatAddressFamily": {
+    "class": "objecttype",
+    "description": "Address family of BGP( notspecified(1), ipv4(2), ipv6(3), vpls(25), l2vpn(196))",
+    "maxaccess": "not-accessible",
+    "name": "hwBgpGRStatAddressFamily",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.138.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "AFIType"
+    }
+  },
+  "hwBgpGRStatGroup": {
+    "class": "objectgroup",
+    "description": "Required objects to provide hwBgpGRMIB objects configuration information. hwBgpGRStatGroup is optional.",
+    "name": "hwBgpGRStatGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-GR-MIB",
+        "object": "hwBgpGRStatLocalGRRole"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.138.3.2.2",
+    "status": "current"
+  },
+  "hwBgpGRStatInstanceID": {
+    "class": "objecttype",
+    "description": "The instance index of linking peer",
+    "maxaccess": "not-accessible",
+    "name": "hwBgpGRStatInstanceID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.138.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwBgpGRStatLocalGRRole": {
+    "class": "objecttype",
+    "description": "Role of router in the process of GR,\u0027restarter\u0027 means the router pay Restarter role in the process of GR,\u0027helper\u0027 means the router pay Helper role in the process of GR,if each peer have confered with each others on GR,we call the kind of state is \u0027grnormal\u0027,if negotiation is unsuccessful,the kind of state is \u0027grnegotiatefail\u0027",
+    "maxaccess": "read-only",
+    "name": "hwBgpGRStatLocalGRRole",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.138.1.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "GRRole"
+    }
+  },
+  "hwBgpGRStatPeerAddress": {
+    "class": "objecttype",
+    "description": "Ipv4 address family of peer,note:there is only one kind of IP Address at a special address family,for example,there is ipv4 address at public unicast,and there will not be ipv6 address.",
+    "maxaccess": "not-accessible",
+    "name": "hwBgpGRStatPeerAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.138.1.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwBgpGRStatSubAddressFamily": {
+    "class": "objecttype",
+    "description": "Sub address family of BGP( notspecified(1), unicast(2), multicast(3), unicastandmulticast(4), mpls(5), vpls(65), vpnv4(128))",
+    "maxaccess": "not-accessible",
+    "name": "hwBgpGRStatSubAddressFamily",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.138.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SAFIType"
+    }
+  },
+  "hwBgpGRStatusInfoEntry": {
+    "class": "objecttype",
+    "description": "State of local router for a special peer in this entry",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BGP-GR-MIB",
+        "object": "hwBgpGRStatAddressFamily"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BGP-GR-MIB",
+        "object": "hwBgpGRStatSubAddressFamily"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BGP-GR-MIB",
+        "object": "hwBgpGRStatInstanceID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BGP-GR-MIB",
+        "object": "hwBgpGRStatPeerAddress"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBgpGRStatusInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.138.1.4.1",
+    "status": "current"
+  },
+  "hwBgpGRStatusInfoTable": {
+    "class": "objecttype",
+    "description": "This table show state of local router for a special peer.",
+    "maxaccess": "not-accessible",
+    "name": "hwBgpGRStatusInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.138.1.4",
+    "status": "current"
+  },
+  "hwBgpGRTrap": {
+    "class": "objectidentity",
+    "name": "hwBgpGRTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.138.2"
+  },
+  "hwBgpGRTrapGroup": {
+    "class": "notificationgroup",
+    "description": "Objects required for BGP GR Trap.",
+    "name": "hwBgpGRTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-GR-MIB",
+        "object": "hwBgpGRRestarterEnterGR"
+      },
+      {
+        "module": "HUAWEI-BGP-GR-MIB",
+        "object": "hwBgpGRRestarterExitGR"
+      },
+      {
+        "module": "HUAWEI-BGP-GR-MIB",
+        "object": "hwBgpGRHelperGRRestartTimeOut"
+      },
+      {
+        "module": "HUAWEI-BGP-GR-MIB",
+        "object": "hwBgpGRHelperGRWaitForEndofRibTimeOut"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.138.3.2.3",
+    "status": "current"
+  },
+  "hwBgpGRWaitForRibTime": {
+    "class": "objecttype",
+    "description": "The value of BGP GR wait-for-EndofRib timer(second)",
+    "maxaccess": "read-write",
+    "name": "hwBgpGRWaitForRibTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.138.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 3000,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Unsigned32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Integer32",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-BGP-GR-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:46:43 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-BGP-GR-MIB"
+  }
+}

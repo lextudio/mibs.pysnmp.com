@@ -1,0 +1,392 @@
+{
+  "hwPppAuthenticateChapPw": {
+    "class": "objecttype",
+    "description": "This object indicates the password of CHAP authentication.",
+    "maxaccess": "read-write",
+    "name": "hwPppAuthenticateChapPw",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1.2.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 1
+          },
+          {
+            "max": 24,
+            "min": 24
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPppAuthenticateChapPwType": {
+    "class": "objecttype",
+    "description": "This object indicates the encryption type of CHAP.",
+    "maxaccess": "read-write",
+    "name": "hwPppAuthenticateChapPwType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1.2.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cipher": 1,
+          "simple": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPppAuthenticateChapUserName": {
+    "class": "objecttype",
+    "description": "This object indicates the username of CHAP authentication.",
+    "maxaccess": "read-write",
+    "name": "hwPppAuthenticateChapUserName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPppAuthenticateEntry": {
+    "class": "objecttype",
+    "description": "This table is used to configure PAP/CHAP authentication .",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PPP-MIB",
+        "object": "hwPppIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPppAuthenticateEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1.2.1",
+    "status": "current"
+  },
+  "hwPppAuthenticateMode": {
+    "class": "objecttype",
+    "description": "This object indicates the mode of the authentication.",
+    "maxaccess": "read-write",
+    "name": "hwPppAuthenticateMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "chap": 1,
+          "chappap": 3,
+          "pap": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPppAuthenticateObjectGroup": {
+    "class": "objectgroup",
+    "description": "This object indicates the PPP authentcation group.",
+    "name": "hwPppAuthenticateObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PPP-MIB",
+        "object": "hwPppAuthenticateMode"
+      },
+      {
+        "module": "HUAWEI-PPP-MIB",
+        "object": "hwPppAuthenticateChapUserName"
+      },
+      {
+        "module": "HUAWEI-PPP-MIB",
+        "object": "hwPppAuthenticateChapPwType"
+      },
+      {
+        "module": "HUAWEI-PPP-MIB",
+        "object": "hwPppAuthenticateChapPw"
+      },
+      {
+        "module": "HUAWEI-PPP-MIB",
+        "object": "hwPppAuthenticatePapUserName"
+      },
+      {
+        "module": "HUAWEI-PPP-MIB",
+        "object": "hwPppAuthenticatePapPwType"
+      },
+      {
+        "module": "HUAWEI-PPP-MIB",
+        "object": "hwPppAuthenticatePapPw"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.169.11.2.2",
+    "status": "current"
+  },
+  "hwPppAuthenticatePapPw": {
+    "class": "objecttype",
+    "description": "This object indicates the password of PAP authentication.",
+    "maxaccess": "read-write",
+    "name": "hwPppAuthenticatePapPw",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1.2.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 1
+          },
+          {
+            "max": 24,
+            "min": 24
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPppAuthenticatePapPwType": {
+    "class": "objecttype",
+    "description": "This object indicates the encryption type of PAP.",
+    "maxaccess": "read-write",
+    "name": "hwPppAuthenticatePapPwType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1.2.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cipher": 1,
+          "simple": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPppAuthenticatePapUserName": {
+    "class": "objecttype",
+    "description": "This object indicates the username of PAP authentication..",
+    "maxaccess": "read-write",
+    "name": "hwPppAuthenticatePapUserName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1.2.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPppAuthenticateTable": {
+    "class": "objecttype",
+    "description": "This table is used to configure PAP/CHAP authentication .",
+    "maxaccess": "not-accessible",
+    "name": "hwPppAuthenticateTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1.2",
+    "status": "current"
+  },
+  "hwPppCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-PPP-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-PPP-MIB",
+        "object": "hwPppConfigObjectGroup"
+      },
+      {
+        "module": "HUAWEI-PPP-MIB",
+        "object": "hwPppAuthenticateObjectGroup"
+      }
+    ],
+    "name": "hwPppCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.11.1.1",
+    "status": "current"
+  },
+  "hwPppCompliances": {
+    "class": "objectidentity",
+    "name": "hwPppCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.11.1"
+  },
+  "hwPppConfigEntry": {
+    "class": "objecttype",
+    "description": "This table is used to configure PPP , PPP MRU negotiation, and MP binding with MP-Group.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PPP-MIB",
+        "object": "hwPppIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPppConfigEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1.1.1",
+    "status": "current"
+  },
+  "hwPppConfigObjectGroup": {
+    "class": "objectgroup",
+    "description": "This object indicates the PPP attribute group.",
+    "name": "hwPppConfigObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PPP-MIB",
+        "object": "hwPppMruNegType"
+      },
+      {
+        "module": "HUAWEI-PPP-MIB",
+        "object": "hwPppMpIfIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.169.11.2.1",
+    "status": "current"
+  },
+  "hwPppConfigTable": {
+    "class": "objecttype",
+    "description": "This table is used to configure PPP , PPP MRU negotiation, and MP binding with MP-Group.",
+    "maxaccess": "not-accessible",
+    "name": "hwPppConfigTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1.1",
+    "status": "current"
+  },
+  "hwPppConformance": {
+    "class": "objectidentity",
+    "name": "hwPppConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.11"
+  },
+  "hwPppGroups": {
+    "class": "objectidentity",
+    "name": "hwPppGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.11.2"
+  },
+  "hwPppIfIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwPppIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwPppMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "VRP Team Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China http://www.huawei.com Zip:100085 ",
+    "description": "This MIB is mainly used to configure PPP , PPP MRU negotiation, MP binding with Mp-Group, and PAP/Chap authentication .",
+    "lastupdated": "200710172230Z",
+    "name": "hwPppMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.169",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwPppMpIfIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the MP-Group index.",
+    "maxaccess": "read-write",
+    "name": "hwPppMpIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPppMruNegType": {
+    "class": "objecttype",
+    "description": "This object indicates the mode of MRU negotiation.",
+    "maxaccess": "read-write",
+    "name": "hwPppMruNegType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPppObjects": {
+    "class": "objectidentity",
+    "name": "hwPppObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.169.1"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "TimeTicks",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Integer32",
+      "Gauge32",
+      "iso",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-PPP-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:42 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-PPP-MIB"
+  }
+}

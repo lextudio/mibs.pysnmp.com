@@ -1,0 +1,2904 @@
+{
+  "hwEasyOperationActivateDelayTime": {
+    "class": "objecttype",
+    "description": "The delay time of activating file.The unit is second(s).",
+    "maxaccess": "read-write",
+    "name": "hwEasyOperationActivateDelayTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationActivateInTime": {
+    "class": "objecttype",
+    "description": "The specific time of activating file.",
+    "maxaccess": "read-write",
+    "name": "hwEasyOperationActivateInTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationActivateMode": {
+    "class": "objecttype",
+    "description": "The mode of activating file.",
+    "maxaccess": "read-write",
+    "name": "hwEasyOperationActivateMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "reload": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEasyOperationAutoClearEnable": {
+    "class": "objecttype",
+    "description": "Whether client would clear the old software file when the free space is not enough.",
+    "maxaccess": "read-write",
+    "name": "hwEasyOperationAutoClearEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwEasyOperationBackupConfigInterval": {
+    "class": "objecttype",
+    "description": "The interval of configuration backup .The unit is hour(s)",
+    "maxaccess": "read-write",
+    "name": "hwEasyOperationBackupConfigInterval",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationBackupConfigMode": {
+    "class": "objecttype",
+    "description": "The mode of file created on the server.",
+    "maxaccess": "read-write",
+    "name": "hwEasyOperationBackupConfigMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "duplicate": 2,
+          "overwrite": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEasyOperationBuildInGroupNumber": {
+    "class": "objecttype",
+    "description": "The number of build-in group.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationBuildInGroupNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationClient": {
+    "class": "objectidentity",
+    "name": "hwEasyOperationClient",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5"
+  },
+  "hwEasyOperationClientAdded": {
+    "class": "notificationtype",
+    "description": "The notification of client added.",
+    "name": "hwEasyOperationClientAdded",
+    "objects": [
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientHostName"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientIpAddress"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientMacAddress"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientEsn"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.311.6.2.1",
+    "status": "current"
+  },
+  "hwEasyOperationClientAgingTime": {
+    "class": "objecttype",
+    "description": "The aging time of client which is lost. The unit is hour(s).",
+    "maxaccess": "read-write",
+    "name": "hwEasyOperationClientAgingTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationClientAutoJoinEnable": {
+    "class": "objecttype",
+    "description": "Whether commander can receive the information of new clients.",
+    "maxaccess": "read-write",
+    "name": "hwEasyOperationClientAutoJoinEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwEasyOperationClientInfoClientBackupErrorDescr": {
+    "class": "objecttype",
+    "description": "The error description in backup configuration.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationClientInfoClientBackupErrorDescr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientInfoClientBackupErrorReason": {
+    "class": "objecttype",
+    "description": "The error reason in backup configuration.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationClientInfoClientBackupErrorReason",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationClientInfoClientCpuUsage": {
+    "class": "objecttype",
+    "description": "The cpu usage of client.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationClientInfoClientCpuUsage",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationClientInfoClientDeviceType": {
+    "class": "objecttype",
+    "description": "The device type of client.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationClientInfoClientDeviceType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientInfoClientDownloadConfig": {
+    "class": "objecttype",
+    "description": "The configuration file name of client in downloading status.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationClientInfoClientDownloadConfig",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientInfoClientDownloadCustomfile1": {
+    "class": "objecttype",
+    "description": "The custom file name of client in downloading status.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationClientInfoClientDownloadCustomfile1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientInfoClientDownloadCustomfile2": {
+    "class": "objecttype",
+    "description": "The custom file name of client in downloading status.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationClientInfoClientDownloadCustomfile2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientInfoClientDownloadCustomfile3": {
+    "class": "objecttype",
+    "description": "The custom file name of client in downloading status.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationClientInfoClientDownloadCustomfile3",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientInfoClientDownloadLicense": {
+    "class": "objecttype",
+    "description": "The license file name of client in downloading status.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationClientInfoClientDownloadLicense",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientInfoClientDownloadPatch": {
+    "class": "objecttype",
+    "description": "The patch file name of client in downloading status.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationClientInfoClientDownloadPatch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientInfoClientDownloadPercent": {
+    "class": "objecttype",
+    "description": "The percentage of file downloading.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationClientInfoClientDownloadPercent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationClientInfoClientDownloadSoftware": {
+    "class": "objecttype",
+    "description": "The software file name of client in downloading status.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationClientInfoClientDownloadSoftware",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientInfoClientDownloadSoftwareVer": {
+    "class": "objecttype",
+    "description": "The software version of client in downloading status.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationClientInfoClientDownloadSoftwareVer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientInfoClientDownloadWebFile": {
+    "class": "objecttype",
+    "description": "The WEB file name of client in downloading status.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationClientInfoClientDownloadWebFile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientInfoClientErrorDescr": {
+    "class": "objecttype",
+    "description": "The error description in processing.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationClientInfoClientErrorDescr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientInfoClientErrorReason": {
+    "class": "objecttype",
+    "description": "The error reason in processing.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationClientInfoClientErrorReason",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationClientInfoClientEsn": {
+    "class": "objecttype",
+    "description": "The ESN of client.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationClientInfoClientEsn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientInfoClientHostName": {
+    "class": "objecttype",
+    "description": "The host name of client.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationClientInfoClientHostName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientInfoClientIndex": {
+    "class": "objecttype",
+    "description": "The index of client table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationClientInfoClientIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4096,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationClientInfoClientIpAddress": {
+    "class": "objecttype",
+    "description": "The IP address of client.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationClientInfoClientIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwEasyOperationClientInfoClientIpAddressType": {
+    "class": "objecttype",
+    "description": "The IP address type of client.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationClientInfoClientIpAddressType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwEasyOperationClientInfoClientMacAddress": {
+    "class": "objecttype",
+    "description": "The MAC address of client.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationClientInfoClientMacAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwEasyOperationClientInfoClientMemoryUsage": {
+    "class": "objecttype",
+    "description": "The memory usage of client.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationClientInfoClientMemoryUsage",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.34",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationClientInfoClientMethod": {
+    "class": "objecttype",
+    "description": "The method of upgrading.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationClientInfoClientMethod",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "running": 1,
+          "unknown": 255,
+          "upgrade": 2,
+          "usbDownload": 4,
+          "zeroTouch": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEasyOperationClientInfoClientModel": {
+    "class": "objecttype",
+    "description": "The model of client.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationClientInfoClientModel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientInfoClientOperateState": {
+    "class": "objecttype",
+    "description": "The file type in downloading.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationClientInfoClientOperateState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "downloadConfig": 3,
+          "downloadCustomFile1": 7,
+          "downloadCustomFile2": 8,
+          "downloadCustomFile3": 9,
+          "downloadLicense": 6,
+          "downloadPatch": 4,
+          "downloadSoftware": 2,
+          "downloadWebFile": 5,
+          "finished": 1,
+          "unknown": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEasyOperationClientInfoClientPhase": {
+    "class": "objecttype",
+    "description": "The downloading phase of client.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationClientInfoClientPhase",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "activateFile": 5,
+          "downloadFile": 4,
+          "getDownloadInfo": 3,
+          "initial": 1,
+          "normalRunning": 6,
+          "requestIp": 2,
+          "unknown": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEasyOperationClientInfoClientRowStatus": {
+    "class": "objecttype",
+    "description": "The RowStatus of client table.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationClientInfoClientRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.100",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwEasyOperationClientInfoClientRunState": {
+    "class": "objecttype",
+    "description": "The running state of client.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationClientInfoClientRunState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configuring": 5,
+          "initial": 1,
+          "lost": 4,
+          "normalRunning": 2,
+          "unknown": 255,
+          "upgrading": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEasyOperationClientInfoClientSysConfig": {
+    "class": "objecttype",
+    "description": "The startup configuration file name of client.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationClientInfoClientSysConfig",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientInfoClientSysLicense": {
+    "class": "objecttype",
+    "description": "The startup license file name of client.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationClientInfoClientSysLicense",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientInfoClientSysPatch": {
+    "class": "objecttype",
+    "description": "The startup patch file name of client.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationClientInfoClientSysPatch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientInfoClientSysSoftware": {
+    "class": "objecttype",
+    "description": "The startup software file name of client.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationClientInfoClientSysSoftware",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientInfoClientSysSoftwareVer": {
+    "class": "objecttype",
+    "description": "The startup software version of client.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationClientInfoClientSysSoftwareVer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientInfoClientSysWebFile": {
+    "class": "objecttype",
+    "description": "The startup WEB file name of client.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationClientInfoClientSysWebFile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientInfoEntry": {
+    "class": "objecttype",
+    "description": "The entry of client table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationClientInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2.1",
+    "status": "current"
+  },
+  "hwEasyOperationClientInfoGroup": {
+    "class": "objectgroup",
+    "description": "The client table group.",
+    "name": "hwEasyOperationClientInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientMacAddress"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientEsn"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientModel"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientDeviceType"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientSysSoftware"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientSysSoftwareVer"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientSysConfig"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientSysPatch"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientSysWebFile"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientSysLicense"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientDownloadSoftware"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientDownloadSoftwareVer"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientDownloadConfig"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientDownloadPatch"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientDownloadWebFile"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientDownloadLicense"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientDownloadCustomfile1"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientDownloadCustomfile2"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientDownloadCustomfile3"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientErrorDescr"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientIpAddress"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientRowStatus"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientHostName"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientBackupErrorDescr"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientBackupErrorReason"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientErrorReason"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientDownloadPercent"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientIpAddressType"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientMethod"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientPhase"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientOperateState"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientRunState"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientCpuUsage"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientMemoryUsage"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.311.100.6",
+    "status": "current"
+  },
+  "hwEasyOperationClientInfoTable": {
+    "class": "objecttype",
+    "description": "The client table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationClientInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.2",
+    "status": "current"
+  },
+  "hwEasyOperationClientJoinNotPermit": {
+    "class": "notificationtype",
+    "description": "The notification of not permit client to join.",
+    "name": "hwEasyOperationClientJoinNotPermit",
+    "objects": [
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientHostName"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientIpAddress"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientMacAddress"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientEsn"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.311.6.2.3",
+    "status": "current"
+  },
+  "hwEasyOperationClientLost": {
+    "class": "notificationtype",
+    "description": "The notification of client lost.",
+    "name": "hwEasyOperationClientLost",
+    "objects": [
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientHostName"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientIpAddress"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientMacAddress"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoClientEsn"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.311.6.2.2",
+    "status": "current"
+  },
+  "hwEasyOperationClientNumber": {
+    "class": "objecttype",
+    "description": "The number of client.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationClientNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationClientObjectsGroup": {
+    "class": "objectgroup",
+    "description": "The client objects group.",
+    "name": "hwEasyOperationClientObjectsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientNumber"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.311.100.5",
+    "status": "current"
+  },
+  "hwEasyOperationClientReplaceClientIndex": {
+    "class": "objecttype",
+    "description": "The index of replace client table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationClientReplaceClientIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4096,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationClientReplaceDownloadCustomfile1": {
+    "class": "objecttype",
+    "description": "The custom file name needs to be downloaded.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationClientReplaceDownloadCustomfile1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientReplaceDownloadCustomfile2": {
+    "class": "objecttype",
+    "description": "The custom file name needs to be downloaded.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationClientReplaceDownloadCustomfile2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientReplaceDownloadCustomfile3": {
+    "class": "objecttype",
+    "description": "The custom file name needs to be downloaded.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationClientReplaceDownloadCustomfile3",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientReplaceDownloadLicense": {
+    "class": "objecttype",
+    "description": "The license file name needs to be downloaded.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationClientReplaceDownloadLicense",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientReplaceDownloadPatch": {
+    "class": "objecttype",
+    "description": "The patch file name needs to be downloaded.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationClientReplaceDownloadPatch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientReplaceDownloadSoftware": {
+    "class": "objecttype",
+    "description": "The software file name needs to be downloaded.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationClientReplaceDownloadSoftware",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientReplaceDownloadSoftwareVer": {
+    "class": "objecttype",
+    "description": "The software version needs to be downloaded.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationClientReplaceDownloadSoftwareVer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientReplaceDownloadWebFile": {
+    "class": "objecttype",
+    "description": "The WEB file name needs to be downloaded.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationClientReplaceDownloadWebFile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientReplaceEntry": {
+    "class": "objecttype",
+    "description": "The entry of replace client table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientReplaceClientIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationClientReplaceEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.3.1",
+    "status": "current"
+  },
+  "hwEasyOperationClientReplaceGroup": {
+    "class": "objectgroup",
+    "description": "The replace client table group.",
+    "name": "hwEasyOperationClientReplaceGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientReplaceRowStatus"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientReplaceDownloadCustomfile3"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientReplaceDownloadCustomfile2"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientReplaceDownloadCustomfile1"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientReplaceDownloadLicense"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientReplaceDownloadWebFile"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientReplaceDownloadPatch"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientReplaceDownloadSoftwareVer"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientReplaceDownloadSoftware"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientReplaceNewEsn"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientReplaceNewMacAddress"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.311.100.7",
+    "status": "current"
+  },
+  "hwEasyOperationClientReplaceNewEsn": {
+    "class": "objecttype",
+    "description": "The ESN of new device.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationClientReplaceNewEsn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationClientReplaceNewMacAddress": {
+    "class": "objecttype",
+    "description": "The MAC address of new device.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationClientReplaceNewMacAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwEasyOperationClientReplaceRowStatus": {
+    "class": "objecttype",
+    "description": "The RowStatus of table.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationClientReplaceRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.3.1.50",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwEasyOperationClientReplaceTable": {
+    "class": "objecttype",
+    "description": "The replace client table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationClientReplaceTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.5.3",
+    "status": "current"
+  },
+  "hwEasyOperationCommanderEnable": {
+    "class": "objecttype",
+    "description": "This object specifies the Easy Operation Commander operation mode.",
+    "maxaccess": "read-write",
+    "name": "hwEasyOperationCommanderEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwEasyOperationCommanderIpAddress": {
+    "class": "objecttype",
+    "description": "The IP address of commander.",
+    "maxaccess": "read-write",
+    "name": "hwEasyOperationCommanderIpAddress",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwEasyOperationCommanderIpAddressType": {
+    "class": "objecttype",
+    "description": "The IP address type of commander.",
+    "maxaccess": "read-write",
+    "name": "hwEasyOperationCommanderIpAddressType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwEasyOperationCommanderUdpPort": {
+    "class": "objecttype",
+    "description": "The UDP port of commander.",
+    "maxaccess": "read-write",
+    "name": "hwEasyOperationCommanderUdpPort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGlobalObjectsGroup"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupObjectsGroup"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupTableGroup"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupMatchTableGroup"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientObjectsGroup"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientInfoGroup"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationTopologyGroup"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationPortPowerInfoGroup"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationDevicePowerInfoGroup"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationNotificationGroup"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientReplaceGroup"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationSavedTopologyGroup"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationNetPowerHistoryInfoGroup"
+      }
+    ],
+    "name": "hwEasyOperationCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.100",
+    "status": "current"
+  },
+  "hwEasyOperationCustomGroupNumber": {
+    "class": "objecttype",
+    "description": "The number of custom group.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationCustomGroupNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationDefaultConfig": {
+    "class": "objecttype",
+    "description": "The default name of configuration file.",
+    "maxaccess": "read-write",
+    "name": "hwEasyOperationDefaultConfig",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationDefaultCustomfile1": {
+    "class": "objecttype",
+    "description": "The default name of custom file.",
+    "maxaccess": "read-write",
+    "name": "hwEasyOperationDefaultCustomfile1",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationDefaultCustomfile2": {
+    "class": "objecttype",
+    "description": "The default name of custom file.",
+    "maxaccess": "read-write",
+    "name": "hwEasyOperationDefaultCustomfile2",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationDefaultCustomfile3": {
+    "class": "objecttype",
+    "description": "The default name of custom file.",
+    "maxaccess": "read-write",
+    "name": "hwEasyOperationDefaultCustomfile3",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationDefaultLicense": {
+    "class": "objecttype",
+    "description": "The default name of license file.",
+    "maxaccess": "read-write",
+    "name": "hwEasyOperationDefaultLicense",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationDefaultPatch": {
+    "class": "objecttype",
+    "description": "The default name of patch file.",
+    "maxaccess": "read-write",
+    "name": "hwEasyOperationDefaultPatch",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationDefaultSysSoftware": {
+    "class": "objecttype",
+    "description": "The default name of software file.",
+    "maxaccess": "read-write",
+    "name": "hwEasyOperationDefaultSysSoftware",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationDefaultSysSoftwareVer": {
+    "class": "objecttype",
+    "description": "The version of default software file.",
+    "maxaccess": "read-write",
+    "name": "hwEasyOperationDefaultSysSoftwareVer",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationDefaultWebfile": {
+    "class": "objecttype",
+    "description": "The default name of WEB file.",
+    "maxaccess": "read-write",
+    "name": "hwEasyOperationDefaultWebfile",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationDevicePowerInfoCurrentPower": {
+    "class": "objecttype",
+    "description": "The current power of device.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationDevicePowerInfoCurrentPower",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationDevicePowerInfoEntry": {
+    "class": "objecttype",
+    "description": "The entry of device power infomation table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationDevicePowerInfoIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationDevicePowerInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.1.1.1",
+    "status": "current"
+  },
+  "hwEasyOperationDevicePowerInfoGauge": {
+    "class": "objecttype",
+    "description": "The gauge of device power.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationDevicePowerInfoGauge",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "actual": 1,
+          "rated": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEasyOperationDevicePowerInfoGroup": {
+    "class": "objectgroup",
+    "description": "The device power information table group.",
+    "name": "hwEasyOperationDevicePowerInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationDevicePowerInfoCurrentPower"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationDevicePowerInfoGauge"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationDevicePowerInfoRatedPower"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationDevicePowerInfoPowerManageMode"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.311.100.9",
+    "status": "current"
+  },
+  "hwEasyOperationDevicePowerInfoIndex": {
+    "class": "objecttype",
+    "description": "The index of device power table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationDevicePowerInfoIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationDevicePowerInfoPowerManageMode": {
+    "class": "objecttype",
+    "description": "The power manage mode of device.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationDevicePowerInfoPowerManageMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "basic": 3,
+          "deep": 4,
+          "standard": 2,
+          "userDefined": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEasyOperationDevicePowerInfoRatedPower": {
+    "class": "objecttype",
+    "description": "The rated power of device.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationDevicePowerInfoRatedPower",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationDevicePowerInfoTable": {
+    "class": "objecttype",
+    "description": "The device power information table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationDevicePowerInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.1.1",
+    "status": "current"
+  },
+  "hwEasyOperationGlobalObjects": {
+    "class": "objectidentity",
+    "name": "hwEasyOperationGlobalObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.1"
+  },
+  "hwEasyOperationGlobalObjectsGroup": {
+    "class": "objectgroup",
+    "description": "The global objects group.",
+    "name": "hwEasyOperationGlobalObjectsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationCommanderIpAddressType"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationBackupConfigMode"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationActivateInTime"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationActivateDelayTime"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationActivateMode"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationAutoClearEnable"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationServerIpAddressType"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationServerIpAddress"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationServerType"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationDefaultSysSoftwareVer"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationDefaultConfig"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationDefaultPatch"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationDefaultWebfile"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationDefaultLicense"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationDefaultCustomfile1"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationDefaultCustomfile2"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationDefaultCustomfile3"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationDefaultSysSoftware"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationBackupConfigInterval"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationCommanderUdpPort"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationServerPort"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientAgingTime"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationTopologyEnable"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationCommanderIpAddress"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationCommanderEnable"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientAutoJoinEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.311.100.1",
+    "status": "current"
+  },
+  "hwEasyOperationGroup": {
+    "class": "objectidentity",
+    "name": "hwEasyOperationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2"
+  },
+  "hwEasyOperationGroupActivateDelayTime": {
+    "class": "objecttype",
+    "description": "The delay time of activating file of group.The unit is second(s)",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationGroupActivateDelayTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.4.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationGroupActivateInTime": {
+    "class": "objecttype",
+    "description": "The specific time of activating file of group.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationGroupActivateInTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.4.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationGroupActivateMode": {
+    "class": "objecttype",
+    "description": "The mode of activating file of group.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationGroupActivateMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.4.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "reload": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEasyOperationGroupConfig": {
+    "class": "objecttype",
+    "description": "The configuration file name of group.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationGroupConfig",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationGroupCustomfile1": {
+    "class": "objecttype",
+    "description": "The custom file name of group.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationGroupCustomfile1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.4.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationGroupCustomfile2": {
+    "class": "objecttype",
+    "description": "The custom file name of group.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationGroupCustomfile2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.4.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationGroupCustomfile3": {
+    "class": "objecttype",
+    "description": "The custom file name of group.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationGroupCustomfile3",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.4.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationGroupEntry": {
+    "class": "objecttype",
+    "description": "The entry of group table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationGroupEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.4.1",
+    "status": "current"
+  },
+  "hwEasyOperationGroupIndex": {
+    "class": "objecttype",
+    "description": "The index of group table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationGroupIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4096,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationGroupLicense": {
+    "class": "objecttype",
+    "description": "The license file name of group.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationGroupLicense",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.4.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationGroupMatchDeviceType": {
+    "class": "objecttype",
+    "description": "The match rule of type of device.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationGroupMatchDeviceType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.5.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationGroupMatchEntry": {
+    "class": "objecttype",
+    "description": "The entry of match rule of group.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupMatchIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationGroupMatchEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.5.1",
+    "status": "current"
+  },
+  "hwEasyOperationGroupMatchEsn": {
+    "class": "objecttype",
+    "description": "The match rule of ESN.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationGroupMatchEsn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationGroupMatchIndex": {
+    "class": "objecttype",
+    "description": "The index of match rule table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationGroupMatchIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4096,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationGroupMatchIpAddress": {
+    "class": "objecttype",
+    "description": "The match rule of IP address.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationGroupMatchIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.5.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwEasyOperationGroupMatchIpAddressMask": {
+    "class": "objecttype",
+    "description": "The match rule of mask of IP address.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationGroupMatchIpAddressMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.5.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationGroupMatchIpAddressType": {
+    "class": "objecttype",
+    "description": "The match rule of type of IP address.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationGroupMatchIpAddressType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.5.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwEasyOperationGroupMatchMacAddress": {
+    "class": "objecttype",
+    "description": "The match rule of MAC address.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationGroupMatchMacAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwEasyOperationGroupMatchMacMask": {
+    "class": "objecttype",
+    "description": "The match rule of mask of MAC address.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationGroupMatchMacMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationGroupMatchModel": {
+    "class": "objecttype",
+    "description": "The match rule of model of device.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationGroupMatchModel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.5.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationGroupMatchRowStatus": {
+    "class": "objecttype",
+    "description": "The RowStatus of match rule table.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationGroupMatchRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.5.1.50",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwEasyOperationGroupMatchTable": {
+    "class": "objecttype",
+    "description": "The match rule of group.",
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationGroupMatchTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.5",
+    "status": "current"
+  },
+  "hwEasyOperationGroupMatchTableGroup": {
+    "class": "objectgroup",
+    "description": "The match rule table objects group.",
+    "name": "hwEasyOperationGroupMatchTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupMatchMacAddress"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupMatchEsn"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupMatchModel"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupMatchDeviceType"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupMatchRowStatus"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupMatchMacMask"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupMatchIpAddress"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupMatchIpAddressType"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupMatchIpAddressMask"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.311.100.4",
+    "status": "current"
+  },
+  "hwEasyOperationGroupName": {
+    "class": "objecttype",
+    "description": "The name of group.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationGroupObjectsGroup": {
+    "class": "objectgroup",
+    "description": "The group objects group.",
+    "name": "hwEasyOperationGroupObjectsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationTotalGroupNumber"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationBuildInGroupNumber"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationCustomGroupNumber"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.311.100.2",
+    "status": "current"
+  },
+  "hwEasyOperationGroupPatch": {
+    "class": "objecttype",
+    "description": "The patch file name of group.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationGroupPatch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationGroupRowStatus": {
+    "class": "objecttype",
+    "description": "The RowStatus of group table.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationGroupRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.4.1.50",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwEasyOperationGroupSysSoftware": {
+    "class": "objecttype",
+    "description": "The software file name of group.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationGroupSysSoftware",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationGroupSysSoftwareVer": {
+    "class": "objecttype",
+    "description": "The software version of group.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationGroupSysSoftwareVer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationGroupTable": {
+    "class": "objecttype",
+    "description": "Group table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationGroupTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.4",
+    "status": "current"
+  },
+  "hwEasyOperationGroupTableGroup": {
+    "class": "objectgroup",
+    "description": "The group table group.",
+    "name": "hwEasyOperationGroupTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupType"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupName"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupSysSoftware"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupSysSoftwareVer"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupConfig"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupPatch"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupWebfile"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupLicense"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupCustomfile1"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupCustomfile2"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupCustomfile3"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupActivateMode"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupActivateDelayTime"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupActivateInTime"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationGroupRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.311.100.3",
+    "status": "current"
+  },
+  "hwEasyOperationGroupType": {
+    "class": "objecttype",
+    "description": "The type of group.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationGroupType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "buildIn": 1,
+          "deviceType": 5,
+          "esn": 3,
+          "ipAddress": 6,
+          "macAddress": 2,
+          "model": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEasyOperationGroupWebfile": {
+    "class": "objecttype",
+    "description": "The WEB file name of group.",
+    "maxaccess": "read-create",
+    "name": "hwEasyOperationGroupWebfile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.4.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEasyOperationMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "Huawei Easy Opearation MIB.",
+    "lastupdated": "201409090000Z",
+    "name": "hwEasyOperationMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.311",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "Revisions made by HUAWEI.",
+        "revision": "2014-09-09 00:00"
+      },
+      {
+        "description": "Revisions made by HUAWEI.",
+        "revision": "2014-06-04 00:00"
+      },
+      {
+        "description": "Revisions made by HUAWEI.",
+        "revision": "2013-12-30 00:00"
+      },
+      {
+        "description": "Revisions made by HUAWEI.",
+        "revision": "2013-08-05 00:00"
+      },
+      {
+        "description": "Revisions made by HUAWEI.",
+        "revision": "2013-03-18 00:00"
+      }
+    ]
+  },
+  "hwEasyOperationMonitor": {
+    "class": "objectidentity",
+    "name": "hwEasyOperationMonitor",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7"
+  },
+  "hwEasyOperationNetPowerHistoryInfoEntry": {
+    "class": "objecttype",
+    "description": "The entry of net power history table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationNetPowerHistoryInfoIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationNetPowerHistoryInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.1.3.1",
+    "status": "current"
+  },
+  "hwEasyOperationNetPowerHistoryInfoGroup": {
+    "class": "objectgroup",
+    "description": "The power history of whole network table group.",
+    "name": "hwEasyOperationNetPowerHistoryInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationNetPowerHistoryInfoWholePower"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.311.100.13",
+    "status": "current"
+  },
+  "hwEasyOperationNetPowerHistoryInfoIndex": {
+    "class": "objecttype",
+    "description": "The index of the table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationNetPowerHistoryInfoIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationNetPowerHistoryInfoTable": {
+    "class": "objecttype",
+    "description": "The net power history information table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationNetPowerHistoryInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.1.3",
+    "status": "current"
+  },
+  "hwEasyOperationNetPowerHistoryInfoWholePower": {
+    "class": "objecttype",
+    "description": "The total power of the whole network.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationNetPowerHistoryInfoWholePower",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationNotification": {
+    "class": "objectidentity",
+    "name": "hwEasyOperationNotification",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.6"
+  },
+  "hwEasyOperationNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "The notification objects group.",
+    "name": "hwEasyOperationNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientAdded"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationClientLost"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.311.100.8",
+    "status": "current"
+  },
+  "hwEasyOperationPortPowerInfoCurrentPower": {
+    "class": "objecttype",
+    "description": "The current power of port.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationPortPowerInfoCurrentPower",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationPortPowerInfoDeviceIndex": {
+    "class": "objecttype",
+    "description": "The index of device.",
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationPortPowerInfoDeviceIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationPortPowerInfoEntry": {
+    "class": "objecttype",
+    "description": "The entry of port power table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationPortPowerInfoDeviceIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationPortPowerInfoPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationPortPowerInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.1.2.1",
+    "status": "current"
+  },
+  "hwEasyOperationPortPowerInfoGauge": {
+    "class": "objecttype",
+    "description": "The gauge of port power.",
+    "maxaccess": "read-write",
+    "name": "hwEasyOperationPortPowerInfoGauge",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "actual": 1,
+          "presumed": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEasyOperationPortPowerInfoGroup": {
+    "class": "objectgroup",
+    "description": "The port power information table group.",
+    "name": "hwEasyOperationPortPowerInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationPortPowerInfoPortName"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationPortPowerInfoCurrentPower"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationPortPowerInfoGauge"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.311.100.10",
+    "status": "current"
+  },
+  "hwEasyOperationPortPowerInfoPortIndex": {
+    "class": "objecttype",
+    "description": "The index of port.",
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationPortPowerInfoPortIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationPortPowerInfoPortName": {
+    "class": "objecttype",
+    "description": "The port name.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationPortPowerInfoPortName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEasyOperationPortPowerInfoTable": {
+    "class": "objecttype",
+    "description": "The port power information table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationPortPowerInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.1.2",
+    "status": "current"
+  },
+  "hwEasyOperationPowerInfo": {
+    "class": "objectidentity",
+    "name": "hwEasyOperationPowerInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.1"
+  },
+  "hwEasyOperationSavedTopologyDeviceIndex": {
+    "class": "objecttype",
+    "description": "The index of saved topology device.",
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationSavedTopologyDeviceIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationSavedTopologyEntry": {
+    "class": "objecttype",
+    "description": "The entry of saved topology table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationSavedTopologyHopIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationSavedTopologyDeviceIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationSavedTopologyEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.4.1",
+    "status": "current"
+  },
+  "hwEasyOperationSavedTopologyFatherMac": {
+    "class": "objecttype",
+    "description": "The mac address of saved father topology node.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationSavedTopologyFatherMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwEasyOperationSavedTopologyFatherPortName": {
+    "class": "objecttype",
+    "description": "The port name of saved father topology node.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationSavedTopologyFatherPortName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEasyOperationSavedTopologyGroup": {
+    "class": "objectgroup",
+    "description": "The saved topology table group.",
+    "name": "hwEasyOperationSavedTopologyGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationSavedTopologyLocalMac"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationSavedTopologyFatherMac"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationSavedTopologyLocalPortName"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationSavedTopologyFatherPortName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.311.100.12",
+    "status": "current"
+  },
+  "hwEasyOperationSavedTopologyHopIndex": {
+    "class": "objecttype",
+    "description": "The index of saved topology hop.",
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationSavedTopologyHopIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationSavedTopologyLocalMac": {
+    "class": "objecttype",
+    "description": "The mac address of saved local topology node.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationSavedTopologyLocalMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwEasyOperationSavedTopologyLocalPortName": {
+    "class": "objecttype",
+    "description": "The port name of saved local topology node.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationSavedTopologyLocalPortName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEasyOperationSavedTopologyTable": {
+    "class": "objecttype",
+    "description": "The saved topology table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationSavedTopologyTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.4",
+    "status": "current"
+  },
+  "hwEasyOperationServerIpAddress": {
+    "class": "objecttype",
+    "description": "The IP address of file server.",
+    "maxaccess": "read-write",
+    "name": "hwEasyOperationServerIpAddress",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwEasyOperationServerIpAddressType": {
+    "class": "objecttype",
+    "description": "The IP address type of file server.",
+    "maxaccess": "read-write",
+    "name": "hwEasyOperationServerIpAddressType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwEasyOperationServerPort": {
+    "class": "objecttype",
+    "description": "The port number of file server.",
+    "maxaccess": "read-write",
+    "name": "hwEasyOperationServerPort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationServerType": {
+    "class": "objecttype",
+    "description": "The type of file server.",
+    "maxaccess": "read-write",
+    "name": "hwEasyOperationServerType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftp": 2,
+          "sftp": 3,
+          "tftp": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEasyOperationTopologyDeviceIndex": {
+    "class": "objecttype",
+    "description": "The index of topology device.",
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationTopologyDeviceIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationTopologyEnable": {
+    "class": "objecttype",
+    "description": "Whether commander can collect the topology information of new clients.",
+    "maxaccess": "read-write",
+    "name": "hwEasyOperationTopologyEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwEasyOperationTopologyEntry": {
+    "class": "objecttype",
+    "description": "The entry of topology table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationTopologyHopIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationTopologyDeviceIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationTopologyEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.3.1",
+    "status": "current"
+  },
+  "hwEasyOperationTopologyFatherDeviceId": {
+    "class": "objecttype",
+    "description": "The device id of father topology node.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationTopologyFatherDeviceId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationTopologyFatherMac": {
+    "class": "objecttype",
+    "description": "The mac address of father topology node.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationTopologyFatherMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwEasyOperationTopologyFatherPortName": {
+    "class": "objecttype",
+    "description": "The port name of father topology node.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationTopologyFatherPortName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEasyOperationTopologyGroup": {
+    "class": "objectgroup",
+    "description": "The topology table group.",
+    "name": "hwEasyOperationTopologyGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationTopologyLocalMac"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationTopologyFatherMac"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationTopologyLocalPortName"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationTopologyFatherPortName"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationTopologyLocalDeviceId"
+      },
+      {
+        "module": "HUAWEI-EASY-OPERATION-MIB",
+        "object": "hwEasyOperationTopologyFatherDeviceId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.311.100.11",
+    "status": "current"
+  },
+  "hwEasyOperationTopologyHopIndex": {
+    "class": "objecttype",
+    "description": "The topoloy hop.",
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationTopologyHopIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationTopologyLocalDeviceId": {
+    "class": "objecttype",
+    "description": "The device id of local topology node.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationTopologyLocalDeviceId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationTopologyLocalMac": {
+    "class": "objecttype",
+    "description": "The mac address of local topology node.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationTopologyLocalMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwEasyOperationTopologyLocalPortName": {
+    "class": "objecttype",
+    "description": "The port name of local topology node.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationTopologyLocalPortName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEasyOperationTopologyTable": {
+    "class": "objecttype",
+    "description": "The topology table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEasyOperationTopologyTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.7.3",
+    "status": "current"
+  },
+  "hwEasyOperationTotalGroupNumber": {
+    "class": "objecttype",
+    "description": "The total number of group.",
+    "maxaccess": "read-only",
+    "name": "hwEasyOperationTotalGroupNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.2.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEasyOperationTrap": {
+    "class": "objectidentity",
+    "name": "hwEasyOperationTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.6.2"
+  },
+  "hwEasyOperationTrapVar": {
+    "class": "objectidentity",
+    "name": "hwEasyOperationTrapVar",
+    "oid": "1.3.6.1.4.1.2011.5.25.311.6.1"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "Bits",
+      "Integer32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-EASY-OPERATION-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:15 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-EASY-OPERATION-MIB"
+  }
+}

@@ -1,0 +1,365 @@
+{
+  "hwLspCompliance": {
+    "class": "modulecompliance",
+    "description": "Description.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+        "object": "hwLspNotificationsGroup"
+      },
+      {
+        "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+        "object": "hwLspObjectGroup"
+      }
+    ],
+    "name": "hwLspCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.302.4.2.1",
+    "status": "current"
+  },
+  "hwLspCompliances": {
+    "class": "objectidentity",
+    "name": "hwLspCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.302.4.2"
+  },
+  "hwLspConformance": {
+    "class": "objectidentity",
+    "name": "hwLspConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.302.4"
+  },
+  "hwLspEndPointAddress": {
+    "class": "objecttype",
+    "description": "lsp end point address.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwLspEndPointAddress",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.302.2.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwLspGroup": {
+    "class": "objectidentity",
+    "name": "hwLspGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.302.4.1"
+  },
+  "hwLspHandle": {
+    "class": "objecttype",
+    "description": "lsp handle.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwLspHandle",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.302.2.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwLspIPv4VpnDstAddr": {
+    "class": "objecttype",
+    "description": "Destination address mask of IPv4-Vpn lsp.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwLspIPv4VpnDstAddr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.302.2.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwLspIPv4VpnName": {
+    "class": "objecttype",
+    "description": "Ipv4 vpn name.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwLspIPv4VpnName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.302.2.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLspIPv4VpnSrcAddr": {
+    "class": "objecttype",
+    "description": "destination address of IPv4-Vpn lsp.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwLspIPv4VpnSrcAddr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.302.2.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwLspNotifications": {
+    "class": "objectidentity",
+    "name": "hwLspNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.302.3"
+  },
+  "hwLspNotificationsGroup": {
+    "class": "notificationgroup",
+    "description": "trap group.",
+    "name": "hwLspNotificationsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+        "object": "hwLspPingProbe"
+      },
+      {
+        "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+        "object": "hwLspTraceProbe"
+      },
+      {
+        "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+        "object": "hwLspPingIPv4VpnProbe"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.302.4.1.1",
+    "status": "current"
+  },
+  "hwLspObjectGroup": {
+    "class": "objectgroup",
+    "description": "lsp object group.",
+    "name": "hwLspObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+        "object": "hwLspTunnelID"
+      },
+      {
+        "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+        "object": "hwLspTTL"
+      },
+      {
+        "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+        "object": "hwLspHandle"
+      },
+      {
+        "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+        "object": "hwLspSenderAddress"
+      },
+      {
+        "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+        "object": "hwLspEndPointAddress"
+      },
+      {
+        "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+        "object": "hwLspIPv4VpnName"
+      },
+      {
+        "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+        "object": "hwLspIPv4VpnSrcAddr"
+      },
+      {
+        "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+        "object": "hwLspIPv4VpnDstAddr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.302.4.1.2",
+    "status": "current"
+  },
+  "hwLspPingIPv4VpnProbe": {
+    "class": "notificationtype",
+    "description": "The trap indicates that a device received a not-reply ping request on IPv4 VPN LSP.",
+    "name": "hwLspPingIPv4VpnProbe",
+    "objects": [
+      {
+        "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+        "object": "hwLspIPv4VpnName"
+      },
+      {
+        "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+        "object": "hwLspIPv4VpnSrcAddr"
+      },
+      {
+        "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+        "object": "hwLspIPv4VpnDstAddr"
+      },
+      {
+        "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+        "object": "hwLspTTL"
+      },
+      {
+        "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+        "object": "hwLspHandle"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.302.3.3",
+    "status": "current"
+  },
+  "hwLspPingProbe": {
+    "class": "notificationtype",
+    "description": "lsp ping probe trap.",
+    "name": "hwLspPingProbe",
+    "objects": [
+      {
+        "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+        "object": "hwLspTunnelID"
+      },
+      {
+        "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+        "object": "hwLspSenderAddress"
+      },
+      {
+        "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+        "object": "hwLspEndPointAddress"
+      },
+      {
+        "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+        "object": "hwLspTTL"
+      },
+      {
+        "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+        "object": "hwLspHandle"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.302.3.1",
+    "status": "current"
+  },
+  "hwLspSenderAddress": {
+    "class": "objecttype",
+    "description": "lsp sender address.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwLspSenderAddress",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.302.2.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwLspTTL": {
+    "class": "objecttype",
+    "description": "lsp ttl.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwLspTTL",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.302.2.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwLspTraceProbe": {
+    "class": "notificationtype",
+    "description": "lsp trace probe trap.",
+    "name": "hwLspTraceProbe",
+    "objects": [
+      {
+        "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+        "object": "hwLspTunnelID"
+      },
+      {
+        "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+        "object": "hwLspSenderAddress"
+      },
+      {
+        "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+        "object": "hwLspEndPointAddress"
+      },
+      {
+        "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+        "object": "hwLspTTL"
+      },
+      {
+        "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+        "object": "hwLspHandle"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.302.3.2",
+    "status": "current"
+  },
+  "hwLspTrapObject": {
+    "class": "objectidentity",
+    "name": "hwLspTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.302.2"
+  },
+  "hwLspTunnelID": {
+    "class": "objecttype",
+    "description": "lsp tunnel id.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwLspTunnelID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.302.2.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwLsppttMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "HUAWEI lsp quality detect funcion.",
+    "lastupdated": "201411171914Z",
+    "name": "hwLsppttMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.302",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "Add ipv4-vpn lsp ping trap.",
+        "revision": "2014-11-17 19:14"
+      },
+      {
+        "description": "V1.00, initial version.",
+        "revision": "2011-08-07 16:00"
+      }
+    ]
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "mgmt",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "IpAddress",
+      "Counter32",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-LSP-PING-TRACE-TRAP-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:00 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-LSP-PING-TRACE-TRAP-MIB"
+  }
+}

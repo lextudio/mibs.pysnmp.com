@@ -1,0 +1,3088 @@
+{
+  "HWChannelMode": {
+    "class": "textualconvention",
+    "description": "The mode in which a channel is operating. ssm(1) Source-Specific Multicast (SSM) with PIM Sparse Mode. asm(2) Any Source Multicast (ASM), with PIM Sparse Mode.",
+    "name": "HWChannelMode",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "asm": 2,
+          "ssm": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwBoardIndex": {
+    "class": "objecttype",
+    "description": "The BoardIndex of the trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwBoardIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpMcast": {
+    "class": "objectidentity",
+    "name": "hwIpMcast",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1"
+  },
+  "hwIpMcastBoundaryAddress": {
+    "class": "objecttype",
+    "description": "The group address which, when combined with the corresponding value of hwIpMcastBoundaryAddressPrefixLength, identifies the group range for which the scoped boundary exists. Scoped IPv4 multicast address ranges must be prefixed by 239.0.0.0/4. Scoped IPv6 multicast address ranges are FF0x::/16, where x is a valid RFC 4291 multicast scope. An IPv6 address prefixed by FF1x::/16 is a non-permanently- assigned address. An IPv6 address prefixed by FF3x::/16 is a unicast-prefix-based multicast addresses. A zone boundary for FF0x::/16 implies an identical boundary for these other prefixes. No separate FF1x::/16 or FF3x::/16 entries exist in this table. This address object is only significant up to hwIpMcastBoundaryAddressPrefixLength bits. The remainder of the address bits are zero. This is especially important for this index field, which is part of the index of this entry. Any non-zero bits would signify an entirely different entry. For addresses of type ipv4z or ipv6z, the appended zone index is significant even though it lies beyond the prefix length. Zone index zero is not valid in this table.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastBoundaryAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.7.1.3",
+    "reference": "RFC 2365, RFC 3306 section 4, RFC 4291 section 2.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 4,
+            "min": 4
+          },
+          {
+            "max": 8,
+            "min": 8
+          },
+          {
+            "max": 16,
+            "min": 16
+          },
+          {
+            "max": 20,
+            "min": 20
+          }
+        ]
+      },
+      "type": "InetAddress"
+    }
+  },
+  "hwIpMcastBoundaryAddressPrefixLength": {
+    "class": "objecttype",
+    "description": "The length in bits of the mask which when, combined with the corresponding value of hwIpMcastBoundaryAddress, identifies the group range for which the scoped boundary exists.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastBoundaryAddressPrefixLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.7.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 4
+          }
+        ]
+      },
+      "type": "InetAddressPrefixLength"
+    }
+  },
+  "hwIpMcastBoundaryAddressType": {
+    "class": "objecttype",
+    "description": "A value indicating the address family of the address contained in hwIpMcastBoundaryAddress. Legal values correspond to the subset of address families for which multicast forwarding is supported.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastBoundaryAddressType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwIpMcastBoundaryDroppedMcastOctets": {
+    "class": "objecttype",
+    "description": "The number of octets of multicast packets that have been dropped as a result of this zone boundary configuration. Discontinuities in this monotonically increasing value occur at re-initialization of the management system. Discontinuities can also occur as a result of boundary configuration being removed and replaced, which can be detected by observing the value of hwIpMcastBoundaryTimeStamp.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastBoundaryDroppedMcastOctets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.7.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIpMcastBoundaryDroppedMcastPkts": {
+    "class": "objecttype",
+    "description": "The number of multicast packets that have been dropped as a result of this zone boundary configuration. Discontinuities in this monotonically increasing value occur at re-initialization of the management system. Discontinuities can also occur as a result of boundary configuration being removed and replaced, which can be detected by observing the value of hwIpMcastBoundaryTimeStamp.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastBoundaryDroppedMcastPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.7.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIpMcastBoundaryEntry": {
+    "class": "objecttype",
+    "description": "An entry (conceptual row) describing one of this device\u0027s multicast scope zone boundaries.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastBoundaryIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastBoundaryAddressType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastBoundaryAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastBoundaryAddressPrefixLength"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastBoundaryEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.7.1",
+    "reference": "RFC 2365 section 5, RFC 4007 section 5",
+    "status": "current"
+  },
+  "hwIpMcastBoundaryIfIndex": {
+    "class": "objecttype",
+    "description": "The IfIndex value for the interface to which this boundary applies. Packets with a destination address in the associated address/mask range will not be forwarded over this interface. For IPv4, zone boundaries cut through links. Therefore this is an external interface. This may be either a physical or virtual interface (tunnel, encapsulation, and so forth.) For IPv6, zone boundaries cut through nodes. Therefore this is a virtual interface within the node. This is not an external interface, either real or virtual. Packets crossing this interface neither arrive at nor leave the node, but only move between zones within the node.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastBoundaryIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.7.1.1",
+    "reference": "RFC 2365 section 5, RFC 4007 section 5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwIpMcastBoundaryStatus": {
+    "class": "objecttype",
+    "description": "The status of this row, by which rows in this table can be created and destroyed. This status object can be set to active(1) without setting any other columnar objects in this entry. All writeable objects in this entry can be modified when the status of this entry is active(1).",
+    "maxaccess": "read-create",
+    "name": "hwIpMcastBoundaryStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.7.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIpMcastBoundaryStorageType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "nonVolatile"
+      }
+    },
+    "description": "The storage type for this row. Rows having the value \u0027permanent\u0027 need not allow write-access to any columnar objects in the row.",
+    "maxaccess": "read-create",
+    "name": "hwIpMcastBoundaryStorageType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.7.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "StorageType"
+    }
+  },
+  "hwIpMcastBoundaryTable": {
+    "class": "objecttype",
+    "description": "The (conceptual) table listing the system\u0027s multicast scope zone boundaries.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastBoundaryTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.7",
+    "reference": "RFC 4007 section 5",
+    "status": "current"
+  },
+  "hwIpMcastBoundaryTimeStamp": {
+    "class": "objecttype",
+    "description": "The value of sysUpTime at which the multicast boundary information represented by this entry was learned by the router. If this infomration was present at the most recent re- initialization of the local management subsystem, then this object contains a zero value.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastBoundaryTimeStamp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.7.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeStamp"
+    }
+  },
+  "hwIpMcastCfgTotalLimit": {
+    "class": "objecttype",
+    "description": "The configured limit of global entries.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastCfgTotalLimit",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpMcastCfgTotalThreshold": {
+    "class": "objecttype",
+    "description": "The configured threshold of global entries.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastCfgTotalThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpMcastChannelChnName": {
+    "class": "objecttype",
+    "description": "The channel name of this row.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastChannelChnName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.24.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIpMcastChannelDownstreamBandWidth": {
+    "class": "objecttype",
+    "description": "The value of bandwidth on this interface.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastChannelDownstreamBandWidth",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIpMcastChannelDownstreamEntries": {
+    "class": "objecttype",
+    "description": "The total number of entries on the interface.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastChannelDownstreamEntries",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpMcastChannelDownstreamLimitBandWidth": {
+    "class": "objecttype",
+    "description": "The configured limit of bandwidth on this interface.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastChannelDownstreamLimitBandWidth",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.14",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIpMcastChannelDownstreamLimitEntries": {
+    "class": "objecttype",
+    "description": "The configured limit of entries on the interface.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastChannelDownstreamLimitEntries",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.15",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpMcastChannelEntry": {
+    "class": "objecttype",
+    "description": "An entry (conceptual row) containing the CAC limit and statistic information for a particular channel.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelChnName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastChannelEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.24.1",
+    "status": "current"
+  },
+  "hwIpMcastChannelGlobalEntries": {
+    "class": "objecttype",
+    "description": "The total number of entries on the router.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastChannelGlobalEntries",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpMcastChannelGlobalLimitEntries": {
+    "class": "objecttype",
+    "description": "The configured limit of global entries.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastChannelGlobalLimitEntries",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.16",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpMcastChannelGroup": {
+    "class": "objecttype",
+    "description": "Group address of the entry.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastChannelGroup",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIpMcastChannelInterfaceIfIndex": {
+    "class": "objecttype",
+    "description": "The interface on which this router most recently sent or received a CAC trap, or zero if this router has not sent or received a CAC trap.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastChannelInterfaceIfIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwIpMcastChannelInterfaceName": {
+    "class": "objecttype",
+    "description": "The name of interface on which this router most recently sent or received a CAC trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIpMcastChannelInterfaceName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIpMcastChannelLimit": {
+    "class": "objecttype",
+    "description": "The configured limit of global entries for a channel.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastChannelLimit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.24.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpMcastChannelMode": {
+    "class": "objecttype",
+    "description": "The mode of this channel.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastChannelMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.24.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWChannelMode"
+    }
+  },
+  "hwIpMcastChannelName": {
+    "class": "objecttype",
+    "description": "Channel name limited by CAC on the interface.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastChannelName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIpMcastChannelSource": {
+    "class": "objecttype",
+    "description": "Source address of the entry.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastChannelSource",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIpMcastChannelStat": {
+    "class": "objecttype",
+    "description": "The total number of entries for this channel.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastChannelStat",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.24.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpMcastChannelTable": {
+    "class": "objecttype",
+    "description": "The (conceptual) table used to list CAC limit and statistic information for all channels.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastChannelTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.24",
+    "status": "current"
+  },
+  "hwIpMcastChannelThreshold": {
+    "class": "objecttype",
+    "description": "The configured threshold of global entries for a channel.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastChannelThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.24.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpMcastDownstreamChannelBandwidthLimit": {
+    "class": "objecttype",
+    "description": "The configured limit of bandwidth of this channel on this interface.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastDownstreamChannelBandwidthLimit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.23.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIpMcastDownstreamChannelBandwidthStat": {
+    "class": "objecttype",
+    "description": "The value of bandwidth of this channel on the interface.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastDownstreamChannelBandwidthStat",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.23.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIpMcastDownstreamChannelEntry": {
+    "class": "objecttype",
+    "description": "An entry (conceptual row) containing the multicast protocol information for a particular interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastDownstreamChannelIpVersion"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastDownstreamChannelIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastDownstreamChannelName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastDownstreamChannelEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.23.1",
+    "status": "current"
+  },
+  "hwIpMcastDownstreamChannelEntryLimit": {
+    "class": "objecttype",
+    "description": "The configured limit of entries of this channel on the interface.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastDownstreamChannelEntryLimit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.23.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpMcastDownstreamChannelEntryStat": {
+    "class": "objecttype",
+    "description": "The total number of entries of this channel on the interface.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastDownstreamChannelEntryStat",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.23.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpMcastDownstreamChannelIfIndex": {
+    "class": "objecttype",
+    "description": "The index value that uniquely identifies the interface to which this entry is applicable. The interface identified by a particular value of this index is the same interface as identified by the same value of the IF-MIB\u0027s ifIndex.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastDownstreamChannelIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.23.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwIpMcastDownstreamChannelIpVersion": {
+    "class": "objecttype",
+    "description": "The IP version of this row.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastDownstreamChannelIpVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.23.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetVersion"
+    }
+  },
+  "hwIpMcastDownstreamChannelLimit": {
+    "class": "notificationtype",
+    "description": "A hwIpMcastDownstreamChannelLimit notification signifies that an entry belongs to specified channel has been limited. This notification is generated whenever an entry belongs to specified channel failed to add downstream cause channel downstream entry or bandwidth limit.",
+    "name": "hwIpMcastDownstreamChannelLimit",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelSource"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelGroup"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelName"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamEntries"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamBandWidth"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInstanceName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.2.1",
+    "status": "current"
+  },
+  "hwIpMcastDownstreamChannelName": {
+    "class": "objecttype",
+    "description": "Channel name limited by CAC on the interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastDownstreamChannelName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.23.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIpMcastDownstreamChannelTable": {
+    "class": "objecttype",
+    "description": "The (conceptual) table used to list CAC limit and statistic information for a channel on an interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastDownstreamChannelTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.23",
+    "status": "current"
+  },
+  "hwIpMcastDownstreamTotalBandwidthLimit": {
+    "class": "objecttype",
+    "description": "The configured limit of bandwidth on this interface.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastDownstreamTotalBandwidthLimit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.22.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIpMcastDownstreamTotalBandwidthStat": {
+    "class": "objecttype",
+    "description": "The value of bandwidth on this interface.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastDownstreamTotalBandwidthStat",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.22.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIpMcastDownstreamTotalEntriesLimit": {
+    "class": "objecttype",
+    "description": "The configured limit of entries on the interface.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastDownstreamTotalEntriesLimit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.22.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpMcastDownstreamTotalEntriesStat": {
+    "class": "objecttype",
+    "description": "The total number of entries on the interface.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastDownstreamTotalEntriesStat",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.22.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpMcastDownstreamTotalEntry": {
+    "class": "objecttype",
+    "description": "An entry (conceptual row) containing the CAC limit and statistic information for a particular interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastDownstreamTotalIpVersion"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastDownstreamTotalIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastDownstreamTotalEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.22.1",
+    "status": "current"
+  },
+  "hwIpMcastDownstreamTotalIfIndex": {
+    "class": "objecttype",
+    "description": "The index value that uniquely identifies the interface to which this entry is applicable. The interface identified by a particular value of this index is the same interface as identified by the same value of the IF-MIB\u0027s ifIndex.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastDownstreamTotalIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.22.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwIpMcastDownstreamTotalIpVersion": {
+    "class": "objecttype",
+    "description": "The IP version of this row.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastDownstreamTotalIpVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.22.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetVersion"
+    }
+  },
+  "hwIpMcastDownstreamTotalLimit": {
+    "class": "notificationtype",
+    "description": "A hwIpMcastDownstreamTotalLimit notification signifies that an entry has been limited. This notification is generated whenever an entry failed to add downstream cause total downstream entry or bandwidth limit.",
+    "name": "hwIpMcastDownstreamTotalLimit",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelSource"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelGroup"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamEntries"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamBandWidth"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInstanceName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.2.2",
+    "status": "current"
+  },
+  "hwIpMcastDownstreamTotalTable": {
+    "class": "objecttype",
+    "description": "The (conceptual) table used to list CAC limit and statistic information on an interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastDownstreamTotalTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.22",
+    "status": "current"
+  },
+  "hwIpMcastEnable": {
+    "class": "objecttype",
+    "description": "The enabled status of IP Multicast function on this system.",
+    "maxaccess": "read-write",
+    "name": "hwIpMcastEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwIpMcastGlobalChannelExceededLimit": {
+    "class": "notificationtype",
+    "description": "A hwIpMcastGlobalChannelExceededLimit notification signifies that existed entries exceeded global entry limit of pim routing-table. This notification is generated whenever existed entries belongs to specified channel exceeded global entry or bandwidth limit due to global limit configuration.",
+    "name": "hwIpMcastGlobalChannelExceededLimit",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelName"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelGlobalEntries"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelGlobalLimitEntries"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.2.7",
+    "status": "obsolete"
+  },
+  "hwIpMcastGlobalChannelLimit": {
+    "class": "notificationtype",
+    "description": "A hwIpMcastGlobalChannelLimit notification signifies that an entry belongs to specified channel has been limited for global limit. This notification is generated whenever an entry belongs to specified channel failed to create as global entries limits.",
+    "name": "hwIpMcastGlobalChannelLimit",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelSource"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelGroup"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelName"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelGlobalEntries"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInstanceName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.2.3",
+    "status": "current"
+  },
+  "hwIpMcastGlobalTotalExceededLimit": {
+    "class": "notificationtype",
+    "description": "A hwIpMcastGlobalTotalExceededLimit notification signifies that existed entries exceeded global total entry limit of pim routing-table. This notification is generated whenever existed entries exceeded global total entry or bandwidth limit due to global limit configuration.",
+    "name": "hwIpMcastGlobalTotalExceededLimit",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelGlobalEntries"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelGlobalLimitEntries"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.2.8",
+    "status": "obsolete"
+  },
+  "hwIpMcastGlobalTotalLimit": {
+    "class": "notificationtype",
+    "description": "A hwIpMcastGlobalTotalLimit notification signifies that an entry has been limited for global total entries limit. This notification is generated whenever an entry failed to create as global total entries limits.",
+    "name": "hwIpMcastGlobalTotalLimit",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelSource"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelGroup"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelGlobalEntries"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInstanceName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.2.4",
+    "status": "current"
+  },
+  "hwIpMcastInstanceName": {
+    "class": "objecttype",
+    "description": "The instance name of the trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIpMcastInstanceName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwIpMcastInterfaceDiscontinuityTime": {
+    "class": "objecttype",
+    "description": "The value of sysUpTime on the most recent occasion at which any one or more of this entry\u0027s counters suffered a discontinuity. If no such discontinuities have occurred since the last re- initialization of the local management subsystem, then this object contains a zero value.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastInterfaceDiscontinuityTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeStamp"
+    }
+  },
+  "hwIpMcastInterfaceEntry": {
+    "class": "objecttype",
+    "description": "An entry (conceptual row) containing the multicast protocol information for a particular interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInterfaceIpVersion"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInterfaceIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastInterfaceEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.3.1",
+    "status": "current"
+  },
+  "hwIpMcastInterfaceIfIndex": {
+    "class": "objecttype",
+    "description": "The index value that uniquely identifies the interface to which this entry is applicable. The interface identified by a particular value of this index is the same interface as identified by the same value of the IF-MIB\u0027s ifIndex.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastInterfaceIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwIpMcastInterfaceInMcastOctets": {
+    "class": "objecttype",
+    "description": "The number of octets of multicast packets that have arrived on the interface, including framing characters. This object is similar to ifInOctets in the Interfaces MIB, except that only multicast packets are counted. Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of hwIpMcastInterfaceDiscontinuityTime.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastInterfaceInMcastOctets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.3.1.5",
+    "reference": "RFC 4293 ifInOctets",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIpMcastInterfaceInMcastPkts": {
+    "class": "objecttype",
+    "description": "The number of multicast packets that have arrived on the interface. In many cases, this object is identical to ifInMulticastPkts in the Interfaces MIB. However, some implementations use ifXTable for Layer 2 traffic statistics and hwIpMcastInterfaceTable at Layer 3. In this case a difference between these objects probably indicates that some Layer 3 multicast packets are being transmitted as unicast at Layer 2. Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of hwIpMcastInterfaceDiscontinuityTime.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastInterfaceInMcastPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.3.1.7",
+    "reference": "RFC 4293 ifInMulticastPkts",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIpMcastInterfaceIpVersion": {
+    "class": "objecttype",
+    "description": "The IP version of this row.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastInterfaceIpVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetVersion"
+    }
+  },
+  "hwIpMcastInterfaceOutMcastOctets": {
+    "class": "objecttype",
+    "description": "The number of octets of multicast packets that have been sent on the interface, including framing characters. This object is similar to ifOutOctets in the Interfaces MIB, except that only multicast packets are counted. Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of hwIpMcastInterfaceDiscontinuityTime.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastInterfaceOutMcastOctets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.3.1.6",
+    "reference": "RFC 4293 ifOutOctets",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIpMcastInterfaceOutMcastPkts": {
+    "class": "objecttype",
+    "description": "The number of multicast packets that have been sent on the interface. In many cases, this object is identical to ifOutMulticastPkts in the Interfaces MIB. However, some implementations use ifXTable for Layer 2 traffic statistics and hwIpMcastInterfaceTable at Layer 3. In this case a difference between these objects probably indicates that some Layer 3 multicast packets are being transmitted as unicast at Layer 2. Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of hwIpMcastInterfaceDiscontinuityTime.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastInterfaceOutMcastPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.3.1.8",
+    "reference": "RFC 4293 ifOutMulticastPkts",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIpMcastInterfaceRateLimit": {
+    "class": "objecttype",
+    "description": "The rate-limit, in kilobits per second, of forwarded multicast traffic on the interface. A rate-limit of 0 indicates that no rate limiting is done.",
+    "maxaccess": "read-write",
+    "name": "hwIpMcastInterfaceRateLimit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpMcastInterfaceTable": {
+    "class": "objecttype",
+    "description": "The (conceptual) table used to manage the multicast protocol active on an interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastInterfaceTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.3",
+    "status": "current"
+  },
+  "hwIpMcastInterfaceTtl": {
+    "class": "objecttype",
+    "description": "The datagram TTL threshold for the interface. Any IP multicast datagrams with a TTL (IPv4) or Hop Limit (IPv6) less than this threshold will not be forwarded out the interface. The default value of 0 means all multicast packets are forwarded out the interface.",
+    "maxaccess": "read-write",
+    "name": "hwIpMcastInterfaceTtl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpMcastMib": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "The MIB module for management of IP Multicast, including multicast routing, data forwarding, and data reception. Huawei Technologies Co.,Ltd . Supplementary information may be available at: http://www.huawei.com",
+    "lastupdated": "201407010000Z",
+    "name": "hwIpMcastMib",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "1.Modify the description of hwIpMcastSGThresholdExceed. 2.Modify the description of hwIpMcastSGThresholdExceedClear. 3.Modify the description of hwIpMcastSGExceedClear. ",
+        "revision": "2014-07-01 00:00"
+      },
+      {
+        "description": "1.Add hwIpMcastSGThresholdExceed trap. 2.Add hwIpMcastSGThresholdExceedClear trap. 3.Add hwIpMcastSGExceed trap. 4.Add hwIpMcastSGExceedClear trap. ",
+        "revision": "2014-06-20 00:00"
+      },
+      {
+        "description": "Modify import mibs",
+        "revision": "2013-08-28 00:00"
+      },
+      {
+        "description": "The initial revision of this Mib module.",
+        "revision": "2007-04-16 00:00"
+      }
+    ]
+  },
+  "hwIpMcastMibBasicGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects to support basic management of IP Multicast protocols.",
+    "name": "hwIpMcastMibBasicGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastEnable"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteEntryCount"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.2.1",
+    "status": "current"
+  },
+  "hwIpMcastMibBoundaryIfGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects to support management of multicast scope zone boundaries.",
+    "name": "hwIpMcastMibBoundaryIfGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastBoundaryTimeStamp"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastBoundaryDroppedMcastOctets"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastBoundaryDroppedMcastPkts"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastBoundaryStatus"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastBoundaryStorageType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.2.8",
+    "status": "current"
+  },
+  "hwIpMcastMibComplianceBorderRouter": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for routers on scope boundaries supporting IPMCAST-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastMibRouteProtoGroup"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastMibBasicGroup"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastMibRouteGroup"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastMibBoundaryIfGroup"
+      }
+    ],
+    "name": "hwIpMcastMibComplianceBorderRouter",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.1.3",
+    "status": "current"
+  },
+  "hwIpMcastMibComplianceHost": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for hosts supporting IPMCAST-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastMibBasicGroup"
+      }
+    ],
+    "name": "hwIpMcastMibComplianceHost",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.1.1",
+    "status": "current"
+  },
+  "hwIpMcastMibComplianceRouter": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for routers supporting IPMCAST-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastMibRouteProtoGroup"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastMibBasicGroup"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastMibRouteGroup"
+      }
+    ],
+    "name": "hwIpMcastMibComplianceRouter",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.1.2",
+    "status": "current"
+  },
+  "hwIpMcastMibCompliances": {
+    "class": "objectidentity",
+    "name": "hwIpMcastMibCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.1"
+  },
+  "hwIpMcastMibConformance": {
+    "class": "objectidentity",
+    "name": "hwIpMcastMibConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3"
+  },
+  "hwIpMcastMibGroups": {
+    "class": "objectidentity",
+    "name": "hwIpMcastMibGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.2"
+  },
+  "hwIpMcastMibHopCountGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects to support management of the use of hop counts in IP Multicast routing.",
+    "name": "hwIpMcastMibHopCountGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopClosestMemberHops"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.2.5",
+    "status": "current"
+  },
+  "hwIpMcastMibIfPktsGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects to support management of packet counters for each interface entry.",
+    "name": "hwIpMcastMibIfPktsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInterfaceInMcastPkts"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInterfaceOutMcastPkts"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInterfaceDiscontinuityTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.2.3",
+    "status": "current"
+  },
+  "hwIpMcastMibNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "A collection of notifications for signaling MCAC network management events.",
+    "name": "hwIpMcastMibNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastDownstreamChannelLimit"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastDownstreamTotalLimit"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastGlobalChannelLimit"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastGlobalTotalLimit"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastOutChannelExceededLimit"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastOutTotalExceededLimit"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastGlobalChannelExceededLimit"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastGlobalTotalExceededLimit"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwMFIBEntryOverloadSuspend"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwMFIBEntryOverloadSusResume"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwMFIBEntryOifOverloadSuspend"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwMFIBEntryOifOverloadSusResume"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastSGThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastSGThresholdExceedClear"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastSGExceed"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastSGExceedClear"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.2.10",
+    "status": "current"
+  },
+  "hwIpMcastMibNotificationObjects": {
+    "class": "objectgroup",
+    "description": "A collection of objects to support notification of MCAC network management events.",
+    "name": "hwIpMcastMibNotificationObjects",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelName"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelGroup"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelSource"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamEntries"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamBandWidth"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelGlobalEntries"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamLimitBandWidth"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamLimitEntries"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelGlobalLimitEntries"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastCfgTotalLimit"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastCfgTotalThreshold"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastTotalStat"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInstanceName"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwBoardIndex"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastOverloadAddressType"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastOverloadSource"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastOverloadGroup"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastSGCurrentCount"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastSGThreshold"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastSGTotalCount"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.2.9",
+    "status": "current"
+  },
+  "hwIpMcastMibObjects": {
+    "class": "objectidentity",
+    "name": "hwIpMcastMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1"
+  },
+  "hwIpMcastMibPktsOutGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects to support management of packet counters for each outgoing interface entry of a route.",
+    "name": "hwIpMcastMibPktsOutGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopTimeStamp"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopPkts"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.2.4",
+    "status": "current"
+  },
+  "hwIpMcastMibRouteGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects to support basic management of IP Multicast routing.",
+    "name": "hwIpMcastMibRouteGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInterfaceTtl"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInterfaceRateLimit"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInterfaceInMcastOctets"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInterfaceOutMcastOctets"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInterfaceDiscontinuityTime"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteUpstreamNeighborType"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteUpstreamNeighbor"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteInIfIndex"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteTimeStamp"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteExpiryTime"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRoutePkts"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteTtlDropPackets"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteDifferentInIfPackets"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopState"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopTimeStamp"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopExpiryTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.2.2",
+    "status": "current"
+  },
+  "hwIpMcastMibRouteOctetsGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects to support management of octet counters for each forwarding entry.",
+    "name": "hwIpMcastMibRouteOctetsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteTimeStamp"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteOctets"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteTtlDropOctets"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteDifferentInIfOctets"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopTimeStamp"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopOctets"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.2.6",
+    "status": "current"
+  },
+  "hwIpMcastMibRouteProtoGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing information on the relationship between multicast routing information and the IP Forwarding Table.",
+    "name": "hwIpMcastMibRouteProtoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteProtocol"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteRtProtocol"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteRtAddressType"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteRtAddress"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteRtPrefixLength"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteRtType"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopProtocol"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.2.7",
+    "status": "current"
+  },
+  "hwIpMcastNotifications": {
+    "class": "objectidentity",
+    "name": "hwIpMcastNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.2"
+  },
+  "hwIpMcastOutChannelExceededLimit": {
+    "class": "notificationtype",
+    "description": "A hwIpMcastOutChannelExceededLimit notification signifies that existed entries exceeded channel downstream entry or bandwidth limit of pim routing-table. This notification is generated whenever existed entries belongs to specified channel exceeded downstream entry or bandwidth limit due to downstream limit configuration.",
+    "name": "hwIpMcastOutChannelExceededLimit",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelName"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamEntries"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamBandWidth"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamLimitEntries"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamLimitBandWidth"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelInterfaceName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.2.5",
+    "status": "obsolete"
+  },
+  "hwIpMcastOutTotalExceededLimit": {
+    "class": "notificationtype",
+    "description": "A hwIpMcastOutTotalExceededLimit notification signifies that existed entries exceeded total downstream entry or bandwidth limit of pim routing-table. This notification is generated whenever existed entries exceeded total downstream entry or bandwidth limit due to downstream limit configuration.",
+    "name": "hwIpMcastOutTotalExceededLimit",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamEntries"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamBandWidth"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamLimitEntries"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamLimitBandWidth"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelInterfaceName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.2.6",
+    "status": "obsolete"
+  },
+  "hwIpMcastOverloadAddressType": {
+    "class": "objecttype",
+    "description": "The OverloadAddressType of the trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIpMcastOverloadAddressType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpMcastOverloadGroup": {
+    "class": "objecttype",
+    "description": "The OverloadGroup of the trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIpMcastOverloadGroup",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwIpMcastOverloadSource": {
+    "class": "objecttype",
+    "description": "The OverloadSource of the trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIpMcastOverloadSource",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwIpMcastRouteDifferentInIfOctets": {
+    "class": "objecttype",
+    "description": "The number of octets contained in IP datagrams which this router has received from these sources and addressed to this multicast group address, which were dropped because they were received on an unexpected interface. For RPF checking protocols (such as PIM-SM), these packets arrived on interfaces other than hwIpMcastRouteInIfIndex, and were dropped because of this failed RPF check. (RPF paths are \u0027Reverse Path Forwarding\u0027 path; the unicast routes to the expected origin of multicast data flows). Other protocols may drop packets on an incoming interface check for different reasons (for example, BIDIR-PIM performs a DF check on receipt of packets). All packets dropped as a result of an incoming interface check are counted here. If this counter increases rapidly, this indicates a problem. A significant quantity of multicast data is arriving at this router on unexpected interfaces, and is not being forwarded. For guidance, if the rate of increase of this counter exceeds 1% of the rate of increase of hwIpMcastRouteOctets, then there are multicast routing problems that require investigation. Discontinuities in this monotonically increasing value occur at re-initialization of the management system. Discontinuities can also occur as a result of routes being removed and replaced, which can be detected by observing the value of hwIpMcastRouteTimeStamp.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastRouteDifferentInIfOctets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.22",
+    "reference": "RFC 4601 and I-D.ietf-pim-bidir",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIpMcastRouteDifferentInIfPackets": {
+    "class": "objecttype",
+    "description": "The number of packets which this router has received from these sources and addressed to this multicast group address, which were dropped because they were received on an unexpected interface. For RPF checking protocols (such as PIM-SM), these packets arrived on interfaces other than hwIpMcastRouteInIfIndex, and were dropped because of this failed RPF check. (RPF paths are \u0027Reverse Path Forwarding\u0027 path; the unicast routes to the expected origin of multicast data flows). Other protocols may drop packets on an incoming interface check for different reasons (for example, BIDIR-PIM performs a DF check on receipt of packets). All packets dropped as a result of an incoming interface check are counted here. If this counter increases rapidly, this indicates a problem. A significant quantity of multicast data is arriving at this router on unexpected interfaces, and is not being forwarded. For guidance, if the rate of increase of this counter exceeds 1% of the rate of increase of hwIpMcastRoutePkts, then there are multicast routing problems that require investigation. Discontinuities in this monotonically increasing value occur at re-initialization of the management system. Discontinuities can also occur as a result of routes being removed and replaced, which can be detected by observing the value of hwIpMcastRouteTimeStamp.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastRouteDifferentInIfPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.23",
+    "reference": "RFC 4601 and I-D.ietf-pim-bidir",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIpMcastRouteEntry": {
+    "class": "objecttype",
+    "description": "An entry (conceptual row) containing the multicast routing information for IP datagrams from a particular source and addressed to a particular IP multicast group address.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteGroupAddressType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteGroup"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteGroupPrefixLength"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteSourceAddressType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteSource"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteSourcePrefixLength"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastRouteEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1",
+    "status": "current"
+  },
+  "hwIpMcastRouteEntryCount": {
+    "class": "objecttype",
+    "description": "The number of rows in the hwIpMcastRouteTable. This can be used to check for multicast routing activity, and to monitor the multicast routing table size.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastRouteEntryCount",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwIpMcastRouteExpiryTime": {
+    "class": "objecttype",
+    "description": "The minimum amount of time remaining before this entry will be aged out. The value 0 indicates that the entry is not subject to aging. If hwIpMcastRouteNextHopState is pruned(1), this object represents the remaining time until the prune expires. If this timer expires, state reverts to forwarding(2). Otherwise, this object represents the time until this entry is removed from the table.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastRouteExpiryTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwIpMcastRouteGroup": {
+    "class": "objecttype",
+    "description": "The IP multicast group address which, when combined with the corresponding value specified in hwIpMcastRouteGroupPrefixLength, identifies the groups for which this entry contains multicast routing information. This address object is only significant up to hwIpMcastRouteGroupPrefixLength bits. The remainder of the address bits are zero. This is especially important for this index field, which is part of the index of this entry. Any non-zero bits would signify an entirely different entry. For addresses of type ipv4z or ipv6z, the appended zone index is significant even though it lies beyond the prefix length. The use of these address types indicate that this forwarding state applies only within the given zone. Zone index zero is not valid in this table.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastRouteGroup",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 4,
+            "min": 4
+          },
+          {
+            "max": 8,
+            "min": 8
+          },
+          {
+            "max": 16,
+            "min": 16
+          },
+          {
+            "max": 20,
+            "min": 20
+          }
+        ]
+      },
+      "type": "InetAddress"
+    }
+  },
+  "hwIpMcastRouteGroupAddressType": {
+    "class": "objecttype",
+    "description": "A value indicating the address family of the address contained in hwIpMcastRouteGroup. Legal values correspond to the subset of address families for which multicast forwarding is supported.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastRouteGroupAddressType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwIpMcastRouteGroupPrefixLength": {
+    "class": "objecttype",
+    "description": "The length in bits of the mask which, when combined with the corresponding value of hwIpMcastRouteGroup, identifies the groups for which this entry contains multicast routing information.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastRouteGroupPrefixLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 4
+          }
+        ]
+      },
+      "type": "InetAddressPrefixLength"
+    }
+  },
+  "hwIpMcastRouteInIfIndex": {
+    "class": "objecttype",
+    "description": "The value of ifIndex for the interface on which IP datagrams sent by these sources to this multicast address are received. A value of 0 indicates that datagrams are not subject to an incoming interface check, but may be accepted on multiple interfaces (for example, in BIDIR-PIM).",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastRouteInIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.9",
+    "reference": "I-D.ietf-pim-bidir",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwIpMcastRouteNextHopAddress": {
+    "class": "objecttype",
+    "description": "The address of the next-hop specific to this entry. For most interfaces, this is identical to hwIpMcastRouteNextHopGroup. NBMA interfaces, however, may have multiple next-hop addresses out a single outgoing interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastRouteNextHopAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 4,
+            "min": 4
+          },
+          {
+            "max": 8,
+            "min": 8
+          },
+          {
+            "max": 16,
+            "min": 16
+          },
+          {
+            "max": 20,
+            "min": 20
+          }
+        ]
+      },
+      "type": "InetAddress"
+    }
+  },
+  "hwIpMcastRouteNextHopAddressType": {
+    "class": "objecttype",
+    "description": "A value indicating the address family of the address contained in hwIpMcastRouteNextHopAddress.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastRouteNextHopAddressType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwIpMcastRouteNextHopClosestMemberHops": {
+    "class": "objecttype",
+    "description": "The minimum number of hops between this router and any member of this IP multicast group reached via this next-hop on this outgoing interface. Any IP multicast datagrams for the group which have a TTL (IPv4) or Hop Count (IPv6) less than this number of hops will not be forwarded to this next-hop. This is an optimization applied by multicast routing protocols that explicitly track hop counts to downstream listeners. Multicast protocols that are not aware of hop counts to downstream listeners set this object to zero.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastRouteNextHopClosestMemberHops",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpMcastRouteNextHopEntry": {
+    "class": "objecttype",
+    "description": "An entry (conceptual row) in the list of next-hops on outgoing interfaces to which IP multicast datagrams from particular sources to an IP multicast group address are routed.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopGroupAddressType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopGroup"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopGroupPrefixLength"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopSourceAddressType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopSource"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopSourcePrefixLength"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopAddressType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopAddress"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastRouteNextHopEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1",
+    "status": "current"
+  },
+  "hwIpMcastRouteNextHopExpiryTime": {
+    "class": "objecttype",
+    "description": "The minimum amount of time remaining before this entry will be aged out. If hwIpMcastRouteNextHopState is pruned(1), the remaining time until the prune expires and the state reverts to forwarding(2). Otherwise, the remaining time until this entry is removed from the table. The time remaining may be copied from hwIpMcastRouteExpiryTime if the protocol in use for this entry does not specify next-hop timers. The value 0 indicates that the entry is not subject to aging.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastRouteNextHopExpiryTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwIpMcastRouteNextHopGroup": {
+    "class": "objecttype",
+    "description": "The IP multicast group address which, when combined with the corresponding value specified in hwIpMcastRouteNextHopGroupPrefixLength, identifies the groups for which this entry contains multicast forwarding information. This address object is only significant up to hwIpMcastRouteNextHopGroupPrefixLength bits. The remainder of the address bits are zero. This is especially important for this index field, which is part of the index of this entry. Any non-zero bits would signify an entirely different entry. For addresses of type ipv4z or ipv6z, the appended zone index is significant even though it lies beyond the prefix length. The use of these address types indicate that this forwarding state applies only within the given zone. Zone index zero is not valid in this table.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastRouteNextHopGroup",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 4,
+            "min": 4
+          },
+          {
+            "max": 8,
+            "min": 8
+          },
+          {
+            "max": 16,
+            "min": 16
+          },
+          {
+            "max": 20,
+            "min": 20
+          }
+        ]
+      },
+      "type": "InetAddress"
+    }
+  },
+  "hwIpMcastRouteNextHopGroupAddressType": {
+    "class": "objecttype",
+    "description": "A value indicating the address family of the address contained in hwIpMcastRouteNextHopGroup. Legal values correspond to the subset of address families for which multicast forwarding is supported.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastRouteNextHopGroupAddressType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwIpMcastRouteNextHopGroupPrefixLength": {
+    "class": "objecttype",
+    "description": "The length in bits of the mask which, when combined with the corresponding value of hwIpMcastRouteGroup, identifies the groups for which this entry contains multicast routing information.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastRouteNextHopGroupPrefixLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 4
+          }
+        ]
+      },
+      "type": "InetAddressPrefixLength"
+    }
+  },
+  "hwIpMcastRouteNextHopIfIndex": {
+    "class": "objecttype",
+    "description": "The ifIndex value of the interface for the outgoing interface for this next-hop.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastRouteNextHopIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwIpMcastRouteNextHopOctets": {
+    "class": "objecttype",
+    "description": "The number of octets of multicast packets that have been forwarded using this route. Discontinuities in this monotonically increasing value occur at re-initialization of the management system. Discontinuities can also occur as a result of routes being removed and replaced, which can be detected by observing the value of hwIpMcastRouteNextHopTimeStamp.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastRouteNextHopOctets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIpMcastRouteNextHopPkts": {
+    "class": "objecttype",
+    "description": "The number of packets which have been forwarded using this route. Discontinuities in this monotonically increasing value occur at re-initialization of the management system. Discontinuities can also occur as a result of routes being removed and replaced, which can be detected by observing the value of hwIpMcastRouteNextHopTimeStamp.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastRouteNextHopPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIpMcastRouteNextHopProtocol": {
+    "class": "objecttype",
+    "description": "The routing mechanism via which this next-hop was learned.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastRouteNextHopProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IANAipMRouteProtocol"
+    }
+  },
+  "hwIpMcastRouteNextHopSource": {
+    "class": "objecttype",
+    "description": "The network address which, when combined with the corresponding value of the mask specified in hwIpMcastRouteNextHopSourcePrefixLength, identifies the sources for which this entry specifies a next-hop on an outgoing interface. This address object is only significant up to hwIpMcastRouteNextHopSourcePrefixLength bits. The remainder of the address bits are zero. This is especially important for this index field, which is part of the index of this entry. Any non-zero bits would signify an entirely different entry. For addresses of type ipv4z or ipv6z, the appended zone index is significant even though it lies beyond the prefix length. The use of these address types indicate that this source address applies only within the given zone. Zone index zero is not valid in this table.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastRouteNextHopSource",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 4,
+            "min": 4
+          },
+          {
+            "max": 8,
+            "min": 8
+          },
+          {
+            "max": 16,
+            "min": 16
+          },
+          {
+            "max": 20,
+            "min": 20
+          }
+        ]
+      },
+      "type": "InetAddress"
+    }
+  },
+  "hwIpMcastRouteNextHopSourceAddressType": {
+    "class": "objecttype",
+    "description": "A value indicating the address family of the address contained in hwIpMcastRouteNextHopSource. The value MUST be the same as the value of IpMcastRouteNextHopGroupType.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastRouteNextHopSourceAddressType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwIpMcastRouteNextHopSourcePrefixLength": {
+    "class": "objecttype",
+    "description": "The length in bits of the mask which, when combined with the corresponding value specified in hwIpMcastRouteNextHopSource, identifies the sources for which this entry specifies a next-hop on an outgoing interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastRouteNextHopSourcePrefixLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 4
+          }
+        ]
+      },
+      "type": "InetAddressPrefixLength"
+    }
+  },
+  "hwIpMcastRouteNextHopState": {
+    "class": "objecttype",
+    "description": "An indication of whether the outgoing interface and next- hop represented by this entry is currently being used to forward IP datagrams. The value \u0027forwarding\u0027 indicates it is currently being used; the value \u0027pruned\u0027 indicates it is not.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastRouteNextHopState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forwarding": 2,
+          "pruned": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIpMcastRouteNextHopTable": {
+    "class": "objecttype",
+    "description": "The (conceptual) table containing information on the next-hops on outgoing interfaces for routing IP multicast datagrams. Each entry is one of a list of next-hops on outgoing interfaces for particular sources sending to a particular multicast group address.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastRouteNextHopTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6",
+    "status": "current"
+  },
+  "hwIpMcastRouteNextHopTimeStamp": {
+    "class": "objecttype",
+    "description": "The value of sysUpTime at which the multicast routing information represented by this entry was learned by the router. If this infomration was present at the most recent re- initialization of the local management subsystem, then this object contains a zero value.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastRouteNextHopTimeStamp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeStamp"
+    }
+  },
+  "hwIpMcastRouteOctets": {
+    "class": "objecttype",
+    "description": "The number of octets contained in IP datagrams which were received from these sources and addressed to this multicast group address, and which were forwarded by this router. Discontinuities in this monotonically increasing value occur at re-initialization of the management system. Discontinuities can also occur as a result of routes being removed and replaced, which can be detected by observing the value of hwIpMcastRouteTimeStamp.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastRouteOctets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIpMcastRoutePkts": {
+    "class": "objecttype",
+    "description": "The number of packets routed using this multicast route entry. Discontinuities in this monotonically increasing value occur at re-initialization of the management system. Discontinuities can also occur as a result of routes being removed and replaced, which can be detected by observing the value of hwIpMcastRouteTimeStamp.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastRoutePkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIpMcastRouteProtocol": {
+    "class": "objecttype",
+    "description": "The multicast routing protocol via which this multicast forwarding entry was learned.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastRouteProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IANAipMRouteProtocol"
+    }
+  },
+  "hwIpMcastRouteRtAddress": {
+    "class": "objecttype",
+    "description": "The address portion of the route used to find the upstream or parent interface for this multicast forwarding entry. This address object is only significant up to hwIpMcastRouteGroupPrefixLength bits. The remainder of the address bits are zero. For addresses of type ipv4z or ipv6z, the appended zone index is significant even though it lies beyond the prefix length. The use of these address types indicate that this forwarding state applies only within the given zone. Zone index zero is not valid in this table.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastRouteRtAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 4,
+            "min": 4
+          },
+          {
+            "max": 8,
+            "min": 8
+          },
+          {
+            "max": 16,
+            "min": 16
+          },
+          {
+            "max": 20,
+            "min": 20
+          }
+        ]
+      },
+      "type": "InetAddress"
+    }
+  },
+  "hwIpMcastRouteRtAddressType": {
+    "class": "objecttype",
+    "description": "A value indicating the address family of the address contained in hwIpMcastRouteRtAddress.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastRouteRtAddressType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwIpMcastRouteRtPrefixLength": {
+    "class": "objecttype",
+    "description": "The length in bits of the mask associated with the route used to find the upstream or parent interface for this multicast forwarding entry.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastRouteRtPrefixLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 4
+          }
+        ]
+      },
+      "type": "InetAddressPrefixLength"
+    }
+  },
+  "hwIpMcastRouteRtProtocol": {
+    "class": "objecttype",
+    "description": "The routing mechanism via which the route used to find the upstream or parent interface for this multicast forwarding entry was learned.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastRouteRtProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IANAipRouteProtocol"
+    }
+  },
+  "hwIpMcastRouteRtType": {
+    "class": "objecttype",
+    "description": "The reason the given route was placed in the (logical) multicast Routing Information Base (RIB). A value of unicast means that the route would normally be placed only in the unicast RIB, but was placed in the multicast RIB (instead or in addition) due to local configuration, such as when running PIM over RIP. A value of multicast means that the route was explicitly added to the multicast RIB by the routing protocol, such as DVMRP or Multiprotocol BGP.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastRouteRtType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "multicast": 2,
+          "unicast": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIpMcastRouteSource": {
+    "class": "objecttype",
+    "description": "The network address which, when combined with the corresponding value of hwIpMcastRouteSourcePrefixLength, identifies the sources for which this entry contains multicast routing information. This address object is only significant up to hwIpMcastRouteGroupPrefixLength bits. The remainder of the address bits are zero. This is especially important for this index field, which is part of the index of this entry. Any non-zero bits would signify an entirely different entry. For addresses of type ipv4z or ipv6z, the appended zone index is significant even though it lies beyond the prefix length. The use of these address types indicate that this source address applies only within the given zone. Zone index zero is not valid in this table.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastRouteSource",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 4,
+            "min": 4
+          },
+          {
+            "max": 8,
+            "min": 8
+          },
+          {
+            "max": 16,
+            "min": 16
+          },
+          {
+            "max": 20,
+            "min": 20
+          }
+        ]
+      },
+      "type": "InetAddress"
+    }
+  },
+  "hwIpMcastRouteSourceAddressType": {
+    "class": "objecttype",
+    "description": "A value indicating the address family of the address contained in hwIpMcastRouteSource. The value MUST be the same as the value of IpMcastRouteGroupType.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastRouteSourceAddressType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwIpMcastRouteSourcePrefixLength": {
+    "class": "objecttype",
+    "description": "The length in bits of the mask which, when combined with the corresponding value of hwIpMcastRouteSource, identifies the sources for which this entry contains multicast routing information.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastRouteSourcePrefixLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 4
+          }
+        ]
+      },
+      "type": "InetAddressPrefixLength"
+    }
+  },
+  "hwIpMcastRouteTable": {
+    "class": "objecttype",
+    "description": "The (conceptual) table containing multicast routing information for IP datagrams sent by particular sources to to the IP multicast groups known to this router.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpMcastRouteTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5",
+    "status": "current"
+  },
+  "hwIpMcastRouteTimeStamp": {
+    "class": "objecttype",
+    "description": "The value of sysUpTime at which the multicast routing information represented by this entry was learned by the router. If this infomration was present at the most recent re- initialization of the local management subsystem, then this object contains a zero value.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastRouteTimeStamp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeStamp"
+    }
+  },
+  "hwIpMcastRouteTtlDropOctets": {
+    "class": "objecttype",
+    "description": "The number of octets contained in IP datagrams which this router has received from these sources and addressed to this multicast group address, which were dropped because the TTL (IPv4) or Hop Limit (IPv6) was decremented to zero, or to a value less than hwIpMcastInterfaceTtl for all next hops. Discontinuities in this monotonically increasing value occur at re-initialization of the management system. Discontinuities can also occur as a result of routes being removed and replaced, which can be detected by observing the value of hwIpMcastRouteTimeStamp.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastRouteTtlDropOctets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIpMcastRouteTtlDropPackets": {
+    "class": "objecttype",
+    "description": "The number of packets which this router has received from these sources and addressed to this multicast group address, which were dropped because the TTL (IPv4) or Hop Limit (IPv6) was decremented to zero, or to a value less than hwIpMcastInterfaceTtl for all next hops. Discontinuities in this monotonically increasing value occur at re-initialization of the management system. Discontinuities can also occur as a result of routes being removed and replaced, which can be detected by observing the value of hwIpMcastRouteTimeStamp.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastRouteTtlDropPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIpMcastRouteUpstreamNeighbor": {
+    "class": "objecttype",
+    "description": "The address of the upstream neighbor (for example, RPF neighbor) from which IP datagrams from these sources to this multicast address are received.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastRouteUpstreamNeighbor",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 4,
+            "min": 4
+          },
+          {
+            "max": 8,
+            "min": 8
+          },
+          {
+            "max": 16,
+            "min": 16
+          },
+          {
+            "max": 20,
+            "min": 20
+          }
+        ]
+      },
+      "type": "InetAddress"
+    }
+  },
+  "hwIpMcastRouteUpstreamNeighborType": {
+    "class": "objecttype",
+    "description": "A value indicating the address family of the address contained in hwIpMcastRouteUpstreamNeighbor. An address type of unknown(0) indicates that the upstream neighbor is unknown, for example in BIDIR-PIM.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastRouteUpstreamNeighborType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.7",
+    "reference": "I-D.ietf-pim-bidir",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwIpMcastSGCurrentCount": {
+    "class": "objecttype",
+    "description": "The current number of multicast routing (S, G) entries of all instances.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIpMcastSGCurrentCount",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 262144,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpMcastSGExceed": {
+    "class": "notificationtype",
+    "description": "A hwIpMcastSGExceed notification signifies that multicast routing (S, G) entries count of all instances reached the limit.",
+    "name": "hwIpMcastSGExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastSGTotalCount"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.2.15",
+    "status": "current"
+  },
+  "hwIpMcastSGExceedClear": {
+    "class": "notificationtype",
+    "description": "A hwIpMcastSGExceedClear notification signifies that multicast routing (S, G) entries count of all instances fell below the limit.",
+    "name": "hwIpMcastSGExceedClear",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastSGTotalCount"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.2.16",
+    "status": "current"
+  },
+  "hwIpMcastSGThreshold": {
+    "class": "objecttype",
+    "description": "The threshold value of multicast routing (S, G) entries uppper limit(%) of all instances.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIpMcastSGThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpMcastSGThresholdExceed": {
+    "class": "notificationtype",
+    "description": "A hwIpMcastSGThresholdExceed notification signifies that multicast routing (S, G) entries count of all instances reached the upper threshold.",
+    "name": "hwIpMcastSGThresholdExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastSGCurrentCount"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastSGThreshold"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastSGTotalCount"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.2.13",
+    "status": "current"
+  },
+  "hwIpMcastSGThresholdExceedClear": {
+    "class": "notificationtype",
+    "description": "A hwIpMcastSGThresholdExceedClear notification signifies that multicast routing (S, G) entries count of all instances fell below the lower threshold.",
+    "name": "hwIpMcastSGThresholdExceedClear",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastSGCurrentCount"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastSGThreshold"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastSGTotalCount"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.2.14",
+    "status": "current"
+  },
+  "hwIpMcastSGTotalCount": {
+    "class": "objecttype",
+    "description": "The total number of multicast routing (S, G) entries of all instances.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIpMcastSGTotalCount",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 262144,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpMcastTotalStat": {
+    "class": "objecttype",
+    "description": "The total number of entries of this instance.",
+    "maxaccess": "read-only",
+    "name": "hwIpMcastTotalStat",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMFIBEntryOifOverloadSusResume": {
+    "class": "notificationtype",
+    "description": "A hwMFIBEntryOifOverloadSuspend notification signifies that the MFIB entry changes from the overload suspension state to the normal state. This notification is generated whenever the MFIB entry changes from the overload suspension state to the normal state.",
+    "name": "hwMFIBEntryOifOverloadSusResume",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastOverloadAddressType"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastOverloadSource"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastOverloadGroup"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInstanceName"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwBoardIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.2.12",
+    "status": "current"
+  },
+  "hwMFIBEntryOifOverloadSuspend": {
+    "class": "notificationtype",
+    "description": "A hwMFIBEntryOifOverloadSuspend notification signifies that the downstream of the MFIB entry is overloaded. This notification is generated whenever the downstream of the MFIB entry is overloaded.",
+    "name": "hwMFIBEntryOifOverloadSuspend",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastOverloadAddressType"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastOverloadSource"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastOverloadGroup"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInstanceName"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwBoardIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.2.11",
+    "status": "current"
+  },
+  "hwMFIBEntryOverloadSusResume": {
+    "class": "notificationtype",
+    "description": "A hwMFIBEntryOverloadSusResume notification signifies that the board MFIB module changes from the overload suspension state to the normal state. This notification is generated whenever the MFIB module changes from the overload suspension state to the normal state.",
+    "name": "hwMFIBEntryOverloadSusResume",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastOverloadAddressType"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInstanceName"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwBoardIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.2.10",
+    "status": "current"
+  },
+  "hwMFIBEntryOverloadSuspend": {
+    "class": "notificationtype",
+    "description": "A hwMFIBEntryOverloadSuspend notification signifies that the MFIB module is overloaded. This notification is generated whenever the MFIB module is overloaded in the board.",
+    "name": "hwMFIBEntryOverloadSuspend",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastOverloadAddressType"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInstanceName"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwBoardIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.2.9",
+    "status": "current"
+  },
+  "hwMcast": {
+    "class": "objectidentity",
+    "name": "hwMcast",
+    "oid": "1.3.6.1.4.1.2011.5.25.149"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IANA-RTPROTO-MIB": [
+      "IANAipMRouteProtocol",
+      "IANAipRouteProtocol"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetZoneIndex",
+      "InetAddress",
+      "InetVersion",
+      "InetAddressType",
+      "InetAddressPrefixLength"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "mib-2",
+      "Unsigned32",
+      "TimeTicks",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "iso",
+      "Bits",
+      "Integer32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "StorageType",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "TimeStamp"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-IPMCAST-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:38 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-IPMCAST-MIB"
+  }
+}

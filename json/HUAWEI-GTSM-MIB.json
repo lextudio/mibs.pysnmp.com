@@ -1,0 +1,928 @@
+{
+  "hwGTSM": {
+    "class": "objectidentity",
+    "name": "hwGTSM",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1"
+  },
+  "hwGTSMBgpPeergroupEntry": {
+    "class": "objecttype",
+    "description": "Information about BGP peer group policies. This table is used to get BGP peer group policy (policies), create a policy, modify or delete BGP peer group policy (policies).",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMvrfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMBgpPeergroupName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwGTSMBgpPeergroupEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.3.1",
+    "status": "current"
+  },
+  "hwGTSMBgpPeergroupGroup": {
+    "class": "objectgroup",
+    "description": "The GTSM BGP peer group.",
+    "name": "hwGTSMBgpPeergroupGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMBgpPeergroupTTLMin"
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMBgpPeergroupTTLMax"
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMBgpPeergroupRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.126.2.2.3",
+    "status": "current"
+  },
+  "hwGTSMBgpPeergroupName": {
+    "class": "objecttype",
+    "description": "Peer group name in the BGP policy table that is compared with the peer group name to decide whether to apply this policy.",
+    "maxaccess": "not-accessible",
+    "name": "hwGTSMBgpPeergroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 47,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwGTSMBgpPeergroupRowStatus": {
+    "class": "objecttype",
+    "description": "The operating state of the row.",
+    "maxaccess": "read-create",
+    "name": "hwGTSMBgpPeergroupRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.3.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwGTSMBgpPeergroupTTLMax": {
+    "class": "objecttype",
+    "description": "The maximum TTL in policy table that is compared with the TTL in the packets to check whether it is between the minimum TTL and maximum TTL, and check the validity of the received packets. Default value is 255.",
+    "maxaccess": "read-only",
+    "name": "hwGTSMBgpPeergroupTTLMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.3.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwGTSMBgpPeergroupTTLMin": {
+    "class": "objecttype",
+    "description": "The minimum TTL in policy table that is compared with the TTL in the packets to check whether it is between the minimum TTL and maximum TTL, and thus check the validity of the received packets.",
+    "maxaccess": "read-create",
+    "name": "hwGTSMBgpPeergroupTTLMin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwGTSMBgpPeergroupTable": {
+    "class": "objecttype",
+    "description": "The table of BGP peer group policies. The table contains all the BGP peer group policies.",
+    "maxaccess": "not-accessible",
+    "name": "hwGTSMBgpPeergroupTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.3",
+    "status": "current"
+  },
+  "hwGTSMCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting this module.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMDefaultActionGroup"
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMPolicyGroup"
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMBgpPeergroupGroup"
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMStatisticsGroup"
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMGlobalConfigGroup"
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMStatisticsInfoGroup"
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMGlobalConfigInfoGroup"
+      }
+    ],
+    "name": "hwGTSMCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.2.1.1",
+    "status": "current"
+  },
+  "hwGTSMCompliances": {
+    "class": "objectidentity",
+    "name": "hwGTSMCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.2.1"
+  },
+  "hwGTSMConformance": {
+    "class": "objectidentity",
+    "name": "hwGTSMConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.2"
+  },
+  "hwGTSMDefaultAction": {
+    "class": "objecttype",
+    "description": "The object specifies the default action when no matching policy exists. Default value is pass.",
+    "maxaccess": "read-write",
+    "name": "hwGTSMDefaultAction",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 2,
+          "pass": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwGTSMDefaultActionGroup": {
+    "class": "objectgroup",
+    "description": "The default action group.",
+    "name": "hwGTSMDefaultActionGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMDefaultAction"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.126.2.2.1",
+    "status": "current"
+  },
+  "hwGTSMGlobalConfigClearStatistics": {
+    "class": "objecttype",
+    "description": "It is used to clear the statistics of the GTSM global configuration table.",
+    "maxaccess": "read-write",
+    "name": "hwGTSMGlobalConfigClearStatistics",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.5.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "unused": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwGTSMGlobalConfigClearStatisticsInfo": {
+    "class": "objecttype",
+    "description": "It is used to clear the statistics of the GTSM global configuration table.",
+    "maxaccess": "read-write",
+    "name": "hwGTSMGlobalConfigClearStatisticsInfo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.7.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "unused": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwGTSMGlobalConfigEntry": {
+    "class": "objecttype",
+    "description": "The information of GTSM global configuration table.The table is used to clear all statistics, you can use this table any time when you want to initialize the counter.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMSlotIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwGTSMGlobalConfigEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.5.1",
+    "status": "current"
+  },
+  "hwGTSMGlobalConfigGroup": {
+    "class": "objectgroup",
+    "description": "The GTSM global configuration group.",
+    "name": "hwGTSMGlobalConfigGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMGlobalConfigClearStatistics"
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMGlobalConfigLogDroppedPacket"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.126.2.2.5",
+    "status": "current"
+  },
+  "hwGTSMGlobalConfigInfoEntry": {
+    "class": "objecttype",
+    "description": "The information of GTSM global configuration table.The table is used to clear all statistics, you can use this table any time when you want to initialize the counter.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMSlotNum"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwGTSMGlobalConfigInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.7.1",
+    "status": "current"
+  },
+  "hwGTSMGlobalConfigInfoGroup": {
+    "class": "objectgroup",
+    "description": "The GTSM global configuration group.",
+    "name": "hwGTSMGlobalConfigInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMGlobalConfigClearStatisticsInfo"
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMGlobalConfigLogDroppedPacketInfo"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.126.2.2.7",
+    "status": "current"
+  },
+  "hwGTSMGlobalConfigInfoTable": {
+    "class": "objecttype",
+    "description": "The table of GTSM global configuration table. The table contains all information you have operated to the statistics table.",
+    "maxaccess": "not-accessible",
+    "name": "hwGTSMGlobalConfigInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.7",
+    "status": "current"
+  },
+  "hwGTSMGlobalConfigLogDroppedPacket": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "nolog"
+      }
+    },
+    "description": "It is used to decide whether to log the dropped packets.",
+    "maxaccess": "read-write",
+    "name": "hwGTSMGlobalConfigLogDroppedPacket",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.5.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "log": 1,
+          "nolog": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwGTSMGlobalConfigLogDroppedPacketInfo": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "nolog"
+      }
+    },
+    "description": "It is used to decide whether to log the dropped packets.",
+    "maxaccess": "read-write",
+    "name": "hwGTSMGlobalConfigLogDroppedPacketInfo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.7.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "log": 1,
+          "nolog": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwGTSMGlobalConfigTable": {
+    "class": "objecttype",
+    "description": "The table of GTSM global configuration table. The table contains all information you have operated to the statistics table.",
+    "maxaccess": "not-accessible",
+    "name": "hwGTSMGlobalConfigTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.5",
+    "status": "current"
+  },
+  "hwGTSMGroups": {
+    "class": "objectidentity",
+    "name": "hwGTSMGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.2.2"
+  },
+  "hwGTSMModule": {
+    "class": "moduleidentity",
+    "contactinfo": "VRP Team Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China http://www.huawei.com Zip:100085 ",
+    "description": "The HUAWEI-GTSM-MIB contains all the objects that manages GTSM, it mainly contains the following five parts. 1) Default action that is used to deal with the received packets when no GTSM policy matches. 2) Policy table that is used to get or set the GTSM policy. 3) BGP peer group table that is used to get or set the GTSM policy for BGP peer group. 4) Statistics table that is used to compute the number of the packets containing received packets, passing packets and dropped packets. 5) Global configuration clear statistics table that is used to clear all statistics. The table can be used any time when users want to initialize the counter.",
+    "lastupdated": "200611131938Z",
+    "name": "hwGTSMModule",
+    "oid": "1.3.6.1.4.1.2011.5.25.126",
+    "organization": "Huawei Technologies co.,Ltd.",
+    "revisions": [
+      {
+        "description": "The initial revision of this MIB module.",
+        "revision": "2006-09-05 19:38"
+      }
+    ]
+  },
+  "hwGTSMPolicyAddressType": {
+    "class": "objecttype",
+    "description": "The type of Internet address by where the packets received and will go.",
+    "maxaccess": "not-accessible",
+    "name": "hwGTSMPolicyAddressType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwGTSMPolicyDestIpAddress": {
+    "class": "objecttype",
+    "description": "Destination IP address in the GTSM policy that will be used to check the matching of destination IP address in the received packets.",
+    "maxaccess": "not-accessible",
+    "name": "hwGTSMPolicyDestIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwGTSMPolicyDestPort": {
+    "class": "objecttype",
+    "description": "Destination port number in the GTSM policy that will be used to check the matching of destination port number in the received packets.",
+    "maxaccess": "not-accessible",
+    "name": "hwGTSMPolicyDestPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwGTSMPolicyEntry": {
+    "class": "objecttype",
+    "description": "Information about GTSM policies,it used to get gtsm policy(policies),to create a new policy,to modify or to delete gtsm policy(policies).",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMvrfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMPolicyAddressType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMPolicyProtocol"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMPolicySourceIpAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMPolicyDestIpAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMPolicySourcePort"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMPolicyDestPort"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwGTSMPolicyEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.2.1",
+    "status": "current"
+  },
+  "hwGTSMPolicyGroup": {
+    "class": "objectgroup",
+    "description": "The GTSM policy group.",
+    "name": "hwGTSMPolicyGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMPolicyTTLMin"
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMPolicyTTLMax"
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMPolicyRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.126.2.2.2",
+    "status": "current"
+  },
+  "hwGTSMPolicyProtocol": {
+    "class": "objecttype",
+    "description": "The number of protocol.",
+    "maxaccess": "not-accessible",
+    "name": "hwGTSMPolicyProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwGTSMPolicyRowStatus": {
+    "class": "objecttype",
+    "description": "The operating state of the row.",
+    "maxaccess": "read-create",
+    "name": "hwGTSMPolicyRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.2.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwGTSMPolicySourceIpAddress": {
+    "class": "objecttype",
+    "description": "Source IP address in the GTSM policy that will be used to check the matching of source IP address in the received packets.",
+    "maxaccess": "not-accessible",
+    "name": "hwGTSMPolicySourceIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwGTSMPolicySourcePort": {
+    "class": "objecttype",
+    "description": "Source port number in the GTSM policy that will be used to check the matching of source port number in the received packets.",
+    "maxaccess": "not-accessible",
+    "name": "hwGTSMPolicySourcePort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwGTSMPolicyTTLMax": {
+    "class": "objecttype",
+    "description": "The maximum TTL in policy table that is compared with the TTL in the packets to check whether it is between the minimum TTL and maximum TTL ,and thus check the validity of the received packets. Default value is 255.",
+    "maxaccess": "read-only",
+    "name": "hwGTSMPolicyTTLMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwGTSMPolicyTTLMin": {
+    "class": "objecttype",
+    "description": "The minimum TTL in the policy table. The minimum TTL is compared with the TTL in the packets to check whether the minimum TTL is between the minimum TTL and maximum TTL, and thus check the validity of the received packets.",
+    "maxaccess": "read-create",
+    "name": "hwGTSMPolicyTTLMin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwGTSMPolicyTable": {
+    "class": "objecttype",
+    "description": "Information about GTSM policies. This object is used to get GTSM policy(policies), create a new policy, modify or delete GTSM policy (policies).",
+    "maxaccess": "not-accessible",
+    "name": "hwGTSMPolicyTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.2",
+    "status": "current"
+  },
+  "hwGTSMSlotIndex": {
+    "class": "objecttype",
+    "description": "The Index of Slot which receives the packets.",
+    "maxaccess": "not-accessible",
+    "name": "hwGTSMSlotIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwGTSMSlotNum": {
+    "class": "objecttype",
+    "description": "The Index of Slot which receives the packets.",
+    "maxaccess": "not-accessible",
+    "name": "hwGTSMSlotNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwGTSMStatisticsDropPacketNum": {
+    "class": "objecttype",
+    "description": "The total number of packets that do not match the specific GTSM policy when packets of specific slot are received.",
+    "maxaccess": "read-only",
+    "name": "hwGTSMStatisticsDropPacketNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.6.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwGTSMStatisticsDropPacketNumber": {
+    "class": "objecttype",
+    "description": "The total number of packets that do not match the specific GTSM policy when packets of specific slot are received.",
+    "maxaccess": "read-only",
+    "name": "hwGTSMStatisticsDropPacketNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.4.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwGTSMStatisticsEntry": {
+    "class": "objecttype",
+    "description": "The information of GTSM Statistics,it only can be read.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMSlotIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwGTSMStatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.4.1",
+    "status": "current"
+  },
+  "hwGTSMStatisticsGroup": {
+    "class": "objectgroup",
+    "description": "The GTSM statistics group.",
+    "name": "hwGTSMStatisticsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMStatisticsRcvPacketNumber"
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMStatisticsPassPacketNumber"
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMStatisticsDropPacketNumber"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.126.2.2.4",
+    "status": "current"
+  },
+  "hwGTSMStatisticsInfoEntry": {
+    "class": "objecttype",
+    "description": "The information of GTSM Statistics,it only can be read.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMSlotNum"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMPolicyAddressType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMPolicyProtocol"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwGTSMStatisticsInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.6.1",
+    "status": "current"
+  },
+  "hwGTSMStatisticsInfoGroup": {
+    "class": "objectgroup",
+    "description": "The GTSM statistics group.",
+    "name": "hwGTSMStatisticsInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMStatisticsReceivePacketNum"
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMStatisticsPassPacketNum"
+      },
+      {
+        "module": "HUAWEI-GTSM-MIB",
+        "object": "hwGTSMStatisticsDropPacketNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.126.2.2.6",
+    "status": "current"
+  },
+  "hwGTSMStatisticsInfoTable": {
+    "class": "objecttype",
+    "description": "The table of GTSM Statistics Information. The table contains the number of the packets containing received packets, passed packets and discarded packets.",
+    "maxaccess": "not-accessible",
+    "name": "hwGTSMStatisticsInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.6",
+    "status": "current"
+  },
+  "hwGTSMStatisticsPassPacketNum": {
+    "class": "objecttype",
+    "description": "The total number of packets that have been transferred to the up layer after packets of specific slot are received.",
+    "maxaccess": "read-only",
+    "name": "hwGTSMStatisticsPassPacketNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.6.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwGTSMStatisticsPassPacketNumber": {
+    "class": "objecttype",
+    "description": "The total number of packets that have been transferred to the up layer after packets of specific slot are received.",
+    "maxaccess": "read-only",
+    "name": "hwGTSMStatisticsPassPacketNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.4.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwGTSMStatisticsRcvPacketNumber": {
+    "class": "objecttype",
+    "description": "The total number of received packets of specific slot.",
+    "maxaccess": "read-only",
+    "name": "hwGTSMStatisticsRcvPacketNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.4.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwGTSMStatisticsReceivePacketNum": {
+    "class": "objecttype",
+    "description": "The total number of received packets of specific slot.",
+    "maxaccess": "read-only",
+    "name": "hwGTSMStatisticsReceivePacketNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.6.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwGTSMStatisticsTable": {
+    "class": "objecttype",
+    "description": "The table of GTSM Statistics table. The table contains the number of the packets containing received packets, passed packets and discarded packets.",
+    "maxaccess": "not-accessible",
+    "name": "hwGTSMStatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.4",
+    "status": "current"
+  },
+  "hwGTSMvrfIndex": {
+    "class": "objecttype",
+    "description": "The index of VPN Routing and Forwarding table.",
+    "maxaccess": "not-accessible",
+    "name": "hwGTSMvrfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.126.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "Unsigned32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Integer32",
+      "iso",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-GTSM-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:28 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-GTSM-MIB"
+  }
+}

@@ -1,0 +1,355 @@
+{
+  "hwVpCompliance": {
+    "class": "modulecompliance",
+    "description": "This is the virtual perception compliance.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-VP-MIB",
+        "object": "hwVpObjectGroup"
+      },
+      {
+        "module": "HUAWEI-VP-MIB",
+        "object": "hwVpNotificationGroup"
+      }
+    ],
+    "name": "hwVpCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.307.3.1.1",
+    "status": "current"
+  },
+  "hwVpCompliances": {
+    "class": "objectidentity",
+    "name": "hwVpCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.307.3.1"
+  },
+  "hwVpConformance": {
+    "class": "objectidentity",
+    "name": "hwVpConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.307.3"
+  },
+  "hwVpGroups": {
+    "class": "objectidentity",
+    "name": "hwVpGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.307.3.2"
+  },
+  "hwVpMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com",
+    "description": "The HUAWEI-VP-MIB contains objects to Manage configuration and Monitor running state for virtual perception feature.",
+    "lastupdated": "201407161350Z",
+    "name": "hwVpMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.307",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "V1.11, modified the MAX-ACCESS of hwVpVmVlan, hwVpVmMac and hwVpVmProfileId.",
+        "revision": "2014-07-16 13:50"
+      }
+    ]
+  },
+  "hwVpNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "This is the virtual perception notification group.",
+    "name": "hwVpNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VP-MIB",
+        "object": "hwVpVmDownloadProfileFault"
+      },
+      {
+        "module": "HUAWEI-VP-MIB",
+        "object": "hwVpVmDownloadProfileFaultResume"
+      },
+      {
+        "module": "HUAWEI-VP-MIB",
+        "object": "hwVpVmAuthenticateFail"
+      },
+      {
+        "module": "HUAWEI-VP-MIB",
+        "object": "hwVpVmDeliverAuthorInformationFail"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.307.3.2.2",
+    "status": "current"
+  },
+  "hwVpNotifications": {
+    "class": "objectidentity",
+    "name": "hwVpNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.307.2"
+  },
+  "hwVpObjectGroup": {
+    "class": "objectgroup",
+    "description": "This is the virtual perception object group.",
+    "name": "hwVpObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VP-MIB",
+        "object": "hwVpVmMac"
+      },
+      {
+        "module": "HUAWEI-VP-MIB",
+        "object": "hwVpVmVlan"
+      },
+      {
+        "module": "HUAWEI-VP-MIB",
+        "object": "hwVpVmProfileId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.307.3.2.1",
+    "status": "current"
+  },
+  "hwVpObjects": {
+    "class": "objectidentity",
+    "name": "hwVpObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.307.1"
+  },
+  "hwVpVmAuthenticateFail": {
+    "class": "notificationtype",
+    "description": "The alarm is reported when VM fail to pass authentication.",
+    "name": "hwVpVmAuthenticateFail",
+    "objects": [
+      {
+        "module": "HUAWEI-VP-MIB",
+        "object": "hwVpVmVlan"
+      },
+      {
+        "module": "HUAWEI-VP-MIB",
+        "object": "hwVpVmMac"
+      },
+      {
+        "module": "HUAWEI-VP-MIB",
+        "object": "hwVpVmProfileId"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.307.2.3",
+    "status": "current"
+  },
+  "hwVpVmDeliverAuthorInformationFail": {
+    "class": "notificationtype",
+    "description": "The alarm is reported when VM fail to deliver authorization information.",
+    "name": "hwVpVmDeliverAuthorInformationFail",
+    "objects": [
+      {
+        "module": "HUAWEI-VP-MIB",
+        "object": "hwVpVmVlan"
+      },
+      {
+        "module": "HUAWEI-VP-MIB",
+        "object": "hwVpVmMac"
+      },
+      {
+        "module": "HUAWEI-VP-MIB",
+        "object": "hwVpVmProfileId"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.307.2.4",
+    "status": "current"
+  },
+  "hwVpVmDownloadProfileFault": {
+    "class": "notificationtype",
+    "description": "The alarm is reported when VM fail to download profile.",
+    "name": "hwVpVmDownloadProfileFault",
+    "objects": [
+      {
+        "module": "HUAWEI-VP-MIB",
+        "object": "hwVpVmVlan"
+      },
+      {
+        "module": "HUAWEI-VP-MIB",
+        "object": "hwVpVmMac"
+      },
+      {
+        "module": "HUAWEI-VP-MIB",
+        "object": "hwVpVmProfileId"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.307.2.1",
+    "status": "current"
+  },
+  "hwVpVmDownloadProfileFaultResume": {
+    "class": "notificationtype",
+    "description": "The event is reported when VM succeed in downloading profile.",
+    "name": "hwVpVmDownloadProfileFaultResume",
+    "objects": [
+      {
+        "module": "HUAWEI-VP-MIB",
+        "object": "hwVpVmVlan"
+      },
+      {
+        "module": "HUAWEI-VP-MIB",
+        "object": "hwVpVmMac"
+      },
+      {
+        "module": "HUAWEI-VP-MIB",
+        "object": "hwVpVmProfileId"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.307.2.2",
+    "status": "current"
+  },
+  "hwVpVmEntry": {
+    "class": "objecttype",
+    "description": "Provides information about VM entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VP-MIB",
+        "object": "hwVpVmVlan"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VP-MIB",
+        "object": "hwVpVmMac"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVpVmEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.307.1.1.1",
+    "status": "current"
+  },
+  "hwVpVmMac": {
+    "class": "objecttype",
+    "description": "This object indicates the MAC of VM.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwVpVmMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.307.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwVpVmProfileId": {
+    "class": "objecttype",
+    "description": "This object indicates the profile ID of VM.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwVpVmProfileId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.307.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwVpVmTable": {
+    "class": "objecttype",
+    "description": "Table of VM.",
+    "maxaccess": "not-accessible",
+    "name": "hwVpVmTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.307.1.1",
+    "status": "current"
+  },
+  "hwVpVmVlan": {
+    "class": "objecttype",
+    "description": "This object indicates the VLAN of VM.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwVpVmVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.307.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifName",
+      "ifIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Gauge32",
+      "IpAddress",
+      "Counter32",
+      "Counter64",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-VP-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:24 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-VP-MIB"
+  }
+}

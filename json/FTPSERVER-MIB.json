@@ -1,260 +1,260 @@
 {
+  "connectionAttempts": {
+    "class": "objecttype",
+    "description": "This is the number of connection attempts that have been made to the FTP Server",
+    "maxaccess": "read-only",
+    "name": "connectionAttempts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.311.1.7.2.1.15",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "currentAnonymousUsers": {
+    "class": "objecttype",
+    "description": "This is the number of anonymous users currently connected to the FTP Server",
+    "maxaccess": "read-only",
+    "name": "currentAnonymousUsers",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.311.1.7.2.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "currentConnections": {
+    "class": "objecttype",
+    "description": "This is the current number of connections to the FTP Server",
+    "maxaccess": "read-only",
+    "name": "currentConnections",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.311.1.7.2.1.13",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "currentNonAnonymousUsers": {
+    "class": "objecttype",
+    "description": "This is the number of nonanonymous users currently connected to the FTP Server",
+    "maxaccess": "read-only",
+    "name": "currentNonAnonymousUsers",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.311.1.7.2.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "ftpServer": {
+    "class": "objectidentity",
+    "name": "ftpServer",
+    "oid": "1.3.6.1.4.1.311.1.7.2"
+  },
+  "ftpStatistics": {
+    "class": "objectidentity",
+    "name": "ftpStatistics",
+    "oid": "1.3.6.1.4.1.311.1.7.2.1"
+  },
   "imports": {
-    "class": "imports",
     "INTERNETSERVER-MIB": [
       "internetServer"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Gauge32",
-      "Bits",
-      "TimeTicks",
       "Unsigned32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
       "Counter32",
-      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "enterprises",
+      "TimeTicks",
       "MibIdentifier",
       "Counter64",
+      "Gauge32",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Integer32",
       "iso",
-      "enterprises"
+      "IpAddress",
+      "Bits",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
-    ]
-  },
-  "ftpServer": {
-    "name": "ftpServer",
-    "oid": "1.3.6.1.4.1.311.1.7.2",
-    "class": "objectidentity"
-  },
-  "ftpStatistics": {
-    "name": "ftpStatistics",
-    "oid": "1.3.6.1.4.1.311.1.7.2.1",
-    "class": "objectidentity"
-  },
-  "totalBytesSentHighWord": {
-    "name": "totalBytesSentHighWord",
-    "oid": "1.3.6.1.4.1.311.1.7.2.1.1",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "This is the high 32-bits of the total number of of BYTEs sent by the FTP Server"
-  },
-  "totalBytesSentLowWord": {
-    "name": "totalBytesSentLowWord",
-    "oid": "1.3.6.1.4.1.311.1.7.2.1.2",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "This is the low 32-bits of the total number of of BYTEs sent by the FTP Server"
-  },
-  "totalBytesReceivedHighWord": {
-    "name": "totalBytesReceivedHighWord",
-    "oid": "1.3.6.1.4.1.311.1.7.2.1.3",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "This is the high 32-bits of the total number of of BYTEs received by the FTP Server"
-  },
-  "totalBytesReceivedLowWord": {
-    "name": "totalBytesReceivedLowWord",
-    "oid": "1.3.6.1.4.1.311.1.7.2.1.4",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "This is the low 32-bits of the total number of of BYTEs received by the FTP Server"
-  },
-  "totalFilesSent": {
-    "name": "totalFilesSent",
-    "oid": "1.3.6.1.4.1.311.1.7.2.1.5",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "This is the total number of files sent by this FTP Server"
-  },
-  "totalFilesReceived": {
-    "name": "totalFilesReceived",
-    "oid": "1.3.6.1.4.1.311.1.7.2.1.6",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "This is the total number of files received by this FTP Server"
-  },
-  "currentAnonymousUsers": {
-    "name": "currentAnonymousUsers",
-    "oid": "1.3.6.1.4.1.311.1.7.2.1.7",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "This is the number of anonymous users currently connected to the FTP Server"
-  },
-  "currentNonAnonymousUsers": {
-    "name": "currentNonAnonymousUsers",
-    "oid": "1.3.6.1.4.1.311.1.7.2.1.8",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "This is the number of nonanonymous users currently connected to the FTP Server"
-  },
-  "totalAnonymousUsers": {
-    "name": "totalAnonymousUsers",
-    "oid": "1.3.6.1.4.1.311.1.7.2.1.9",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "This is the total number of anonymous users that have ever connected to the FTP Server"
-  },
-  "totalNonAnonymousUsers": {
-    "name": "totalNonAnonymousUsers",
-    "oid": "1.3.6.1.4.1.311.1.7.2.1.10",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "This is the total number of nonanonymous users that have ever connected to the FTP Server"
-  },
-  "maxAnonymousUsers": {
-    "name": "maxAnonymousUsers",
-    "oid": "1.3.6.1.4.1.311.1.7.2.1.11",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "This is the maximum number of anonymous users simultaneously connected to the FTP Server"
-  },
-  "maxNonAnonymousUsers": {
-    "name": "maxNonAnonymousUsers",
-    "oid": "1.3.6.1.4.1.311.1.7.2.1.12",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "This is the maximum number of nonanonymous users simultaneously connected to the FTP Server"
-  },
-  "currentConnections": {
-    "name": "currentConnections",
-    "oid": "1.3.6.1.4.1.311.1.7.2.1.13",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "This is the current number of connections to the FTP Server"
-  },
-  "maxConnections": {
-    "name": "maxConnections",
-    "oid": "1.3.6.1.4.1.311.1.7.2.1.14",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "This is the maximum number of simultaneous connections to the FTP Server"
-  },
-  "connectionAttempts": {
-    "name": "connectionAttempts",
-    "oid": "1.3.6.1.4.1.311.1.7.2.1.15",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "This is the number of connection attempts that have been made to the FTP Server"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
   },
   "logonAttempts": {
-    "name": "logonAttempts",
-    "oid": "1.3.6.1.4.1.311.1.7.2.1.16",
-    "nodetype": "scalar",
     "class": "objecttype",
-    "syntax": {
-      "type": "Counter",
-      "class": "type"
-    },
+    "description": "This is the number of logon attempts that have been made to the FTP Server",
     "maxaccess": "read-only",
+    "name": "logonAttempts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.311.1.7.2.1.16",
     "status": "mandatory",
-    "description": "This is the number of logon attempts that have been made to the FTP Server"
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "maxAnonymousUsers": {
+    "class": "objecttype",
+    "description": "This is the maximum number of anonymous users simultaneously connected to the FTP Server",
+    "maxaccess": "read-only",
+    "name": "maxAnonymousUsers",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.311.1.7.2.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "maxConnections": {
+    "class": "objecttype",
+    "description": "This is the maximum number of simultaneous connections to the FTP Server",
+    "maxaccess": "read-only",
+    "name": "maxConnections",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.311.1.7.2.1.14",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "maxNonAnonymousUsers": {
+    "class": "objecttype",
+    "description": "This is the maximum number of nonanonymous users simultaneously connected to the FTP Server",
+    "maxaccess": "read-only",
+    "name": "maxNonAnonymousUsers",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.311.1.7.2.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/tin/Dev/mibs.snmplabs.com/asn1/FTPSERVER-MIB",
-      "Produced by pysmi-0.3.4 at Fri Jan 31 21:33:36 2020",
-      "On host bier platform Linux version 5.4.0-3-amd64 by user tin",
-      "Using Python version 3.7.6 (default, Jan 19 2020, 22:34:52) "
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/FTPSERVER-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:35:26 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
     ],
     "module": "FTPSERVER-MIB"
+  },
+  "totalAnonymousUsers": {
+    "class": "objecttype",
+    "description": "This is the total number of anonymous users that have ever connected to the FTP Server",
+    "maxaccess": "read-only",
+    "name": "totalAnonymousUsers",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.311.1.7.2.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "totalBytesReceivedHighWord": {
+    "class": "objecttype",
+    "description": "This is the high 32-bits of the total number of of BYTEs received by the FTP Server",
+    "maxaccess": "read-only",
+    "name": "totalBytesReceivedHighWord",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.311.1.7.2.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "totalBytesReceivedLowWord": {
+    "class": "objecttype",
+    "description": "This is the low 32-bits of the total number of of BYTEs received by the FTP Server",
+    "maxaccess": "read-only",
+    "name": "totalBytesReceivedLowWord",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.311.1.7.2.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "totalBytesSentHighWord": {
+    "class": "objecttype",
+    "description": "This is the high 32-bits of the total number of of BYTEs sent by the FTP Server",
+    "maxaccess": "read-only",
+    "name": "totalBytesSentHighWord",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.311.1.7.2.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "totalBytesSentLowWord": {
+    "class": "objecttype",
+    "description": "This is the low 32-bits of the total number of of BYTEs sent by the FTP Server",
+    "maxaccess": "read-only",
+    "name": "totalBytesSentLowWord",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.311.1.7.2.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "totalFilesReceived": {
+    "class": "objecttype",
+    "description": "This is the total number of files received by this FTP Server",
+    "maxaccess": "read-only",
+    "name": "totalFilesReceived",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.311.1.7.2.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "totalFilesSent": {
+    "class": "objecttype",
+    "description": "This is the total number of files sent by this FTP Server",
+    "maxaccess": "read-only",
+    "name": "totalFilesSent",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.311.1.7.2.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "totalNonAnonymousUsers": {
+    "class": "objecttype",
+    "description": "This is the total number of nonanonymous users that have ever connected to the FTP Server",
+    "maxaccess": "read-only",
+    "name": "totalNonAnonymousUsers",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.311.1.7.2.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
   }
 }

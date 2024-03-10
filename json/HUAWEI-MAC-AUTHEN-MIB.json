@@ -1,0 +1,587 @@
+{
+  "hwMacAuthenCfgEntry": {
+    "class": "objecttype",
+    "description": "An entry in the MAC authentication configuration table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MAC-AUTHEN-MIB",
+        "object": "hwMacAuthenPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMacAuthenCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.171.1.10.1",
+    "status": "current"
+  },
+  "hwMacAuthenCfgGroup": {
+    "class": "objectgroup",
+    "description": "The mac-authen\u0027s Configuration group.",
+    "name": "hwMacAuthenCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MAC-AUTHEN-MIB",
+        "object": "hwMacAuthenGlobalEnable"
+      },
+      {
+        "module": "HUAWEI-MAC-AUTHEN-MIB",
+        "object": "hwMacAuthenModeUsername"
+      },
+      {
+        "module": "HUAWEI-MAC-AUTHEN-MIB",
+        "object": "hwMacAuthenPassword"
+      },
+      {
+        "module": "HUAWEI-MAC-AUTHEN-MIB",
+        "object": "hwMacAuthenUsername"
+      },
+      {
+        "module": "HUAWEI-MAC-AUTHEN-MIB",
+        "object": "hwMacAuthenDomain"
+      },
+      {
+        "module": "HUAWEI-MAC-AUTHEN-MIB",
+        "object": "hwMacAuthenTimerOfflineDetect"
+      },
+      {
+        "module": "HUAWEI-MAC-AUTHEN-MIB",
+        "object": "hwMacAuthenTimerQuiet"
+      },
+      {
+        "module": "HUAWEI-MAC-AUTHEN-MIB",
+        "object": "hwMacAuthenTimerServerTimeout"
+      },
+      {
+        "module": "HUAWEI-MAC-AUTHEN-MIB",
+        "object": "hwMacAuthenReauthInterval"
+      },
+      {
+        "module": "HUAWEI-MAC-AUTHEN-MIB",
+        "object": "hwMacAuthenPortEnable"
+      },
+      {
+        "module": "HUAWEI-MAC-AUTHEN-MIB",
+        "object": "hwMacAuthenGuestVlan"
+      },
+      {
+        "module": "HUAWEI-MAC-AUTHEN-MIB",
+        "object": "hwMacAuthenMaxUserNum"
+      },
+      {
+        "module": "HUAWEI-MAC-AUTHEN-MIB",
+        "object": "hwMacAuthenPortDomain"
+      },
+      {
+        "module": "HUAWEI-MAC-AUTHEN-MIB",
+        "object": "hwMacAuthenPortModeUserName"
+      },
+      {
+        "module": "HUAWEI-MAC-AUTHEN-MIB",
+        "object": "hwMacAuthenPortUserName"
+      },
+      {
+        "module": "HUAWEI-MAC-AUTHEN-MIB",
+        "object": "hwMacAuthenPortPassWord"
+      },
+      {
+        "module": "HUAWEI-MAC-AUTHEN-MIB",
+        "object": "hwMacAuthenPortPwdType"
+      },
+      {
+        "module": "HUAWEI-MAC-AUTHEN-MIB",
+        "object": "hwMacAuthenPwdType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.171.3.2.1",
+    "status": "current"
+  },
+  "hwMacAuthenCfgGroups": {
+    "class": "objectidentity",
+    "name": "hwMacAuthenCfgGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.171.3.2"
+  },
+  "hwMacAuthenCfgTable": {
+    "class": "objecttype",
+    "description": "The MAC authentication configuration table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacAuthenCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.171.1.10",
+    "status": "current"
+  },
+  "hwMacAuthenCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting this module.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-MAC-AUTHEN-MIB",
+        "object": "hwMacAuthenCfgGroup"
+      }
+    ],
+    "name": "hwMacAuthenCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.171.3.1.1",
+    "status": "current"
+  },
+  "hwMacAuthenCompliances": {
+    "class": "objectidentity",
+    "name": "hwMacAuthenCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.171.3.1"
+  },
+  "hwMacAuthenConformance": {
+    "class": "objectidentity",
+    "name": "hwMacAuthenConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.171.3"
+  },
+  "hwMacAuthenDomain": {
+    "class": "objecttype",
+    "description": "Specify domain server configuration. ",
+    "maxaccess": "read-write",
+    "name": "hwMacAuthenDomain",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.171.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMacAuthenGlobalEnable": {
+    "class": "objecttype",
+    "description": "The Global MAC authenticate. Enable this before you want to enable other interfaces MAC authentication. ",
+    "maxaccess": "read-write",
+    "name": "hwMacAuthenGlobalEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.171.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMacAuthenGuestVlan": {
+    "class": "objecttype",
+    "description": " Specify guest vlan configuration information for ports.",
+    "maxaccess": "read-create",
+    "name": "hwMacAuthenGuestVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.171.1.10.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrNone"
+    }
+  },
+  "hwMacAuthenMIB": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D NanJing, Huawei Technologies co.,Ltd. Huihong Bld.,NO.91 Baixia Rd., Bai-Xia District NanJing P.R. China Zip:210001 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": "This MIB describes objects used for mac-authentication,including configuring mac-authentication.",
+    "lastupdated": "200912151800Z",
+    "name": "hwMacAuthenMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.171",
+    "organization": "Huawei Technologies co., Ltd.",
+    "revisions": [
+      {
+        "description": "The initial revision of this MIB module.",
+        "revision": "2009-12-15 18:00"
+      }
+    ]
+  },
+  "hwMacAuthenMaxUserAlarm": {
+    "class": "notificationtype",
+    "description": "The number of ahthenticate users is reached the max number. ",
+    "name": "hwMacAuthenMaxUserAlarm",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.171.2.1",
+    "status": "current"
+  },
+  "hwMacAuthenMaxUserNum": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 256
+      }
+    },
+    "description": "The max number of users. ",
+    "maxaccess": "read-create",
+    "name": "hwMacAuthenMaxUserNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.171.1.10.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8192,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMacAuthenMibTraps": {
+    "class": "objectidentity",
+    "name": "hwMacAuthenMibTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.171.2"
+  },
+  "hwMacAuthenModeUsername": {
+    "class": "objecttype",
+    "description": "Specify MAC authentication mode config.",
+    "maxaccess": "read-write",
+    "name": "hwMacAuthenModeUsername",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.171.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixed": 3,
+          "macAddressWithHyphen": 2,
+          "macAddressWithoutHyphen": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMacAuthenObjects": {
+    "class": "objectidentity",
+    "name": "hwMacAuthenObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.171.1"
+  },
+  "hwMacAuthenPassword": {
+    "class": "objecttype",
+    "description": "Special the fixed password. ",
+    "maxaccess": "read-write",
+    "name": "hwMacAuthenPassword",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.171.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMacAuthenPortDomain": {
+    "class": "objecttype",
+    "description": "Specify domain server configuration for ports.",
+    "maxaccess": "read-write",
+    "name": "hwMacAuthenPortDomain",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.171.1.10.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMacAuthenPortEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32"
+      }
+    },
+    "description": " Whether to enable MAC authentication on this interface.",
+    "maxaccess": "read-create",
+    "name": "hwMacAuthenPortEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.171.1.10.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMacAuthenPortIndex": {
+    "class": "objecttype",
+    "description": "The Index of L2-Switch Interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacAuthenPortIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.171.1.10.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1280,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMacAuthenPortModeUserName": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "obeyGlobalConfiguration"
+      }
+    },
+    "description": "Specify MAC authentication mode config for ports.",
+    "maxaccess": "read-write",
+    "name": "hwMacAuthenPortModeUserName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.171.1.10.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixed": 4,
+          "macAddressWithHyphen": 3,
+          "macAddressWithoutHyphen": 2,
+          "obeyGlobalConfiguration": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMacAuthenPortPassWord": {
+    "class": "objecttype",
+    "description": "Special the fixed password for ports.",
+    "maxaccess": "read-write",
+    "name": "hwMacAuthenPortPassWord",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.171.1.10.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMacAuthenPortPwdType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "simple"
+      }
+    },
+    "description": "The type of port password. ",
+    "maxaccess": "read-write",
+    "name": "hwMacAuthenPortPwdType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.171.1.10.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cipher": 2,
+          "simple": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMacAuthenPortUserName": {
+    "class": "objecttype",
+    "description": "Special the fixed username for ports.",
+    "maxaccess": "read-write",
+    "name": "hwMacAuthenPortUserName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.171.1.10.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMacAuthenPwdType": {
+    "class": "objecttype",
+    "description": "The type of global password. ",
+    "maxaccess": "read-write",
+    "name": "hwMacAuthenPwdType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.171.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cipher": 2,
+          "simple": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMacAuthenReauthInterval": {
+    "class": "objecttype",
+    "description": "Specify timer configuration of guest vlan reauthentication. ",
+    "maxaccess": "read-write",
+    "name": "hwMacAuthenReauthInterval",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.171.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7200,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMacAuthenTimerOfflineDetect": {
+    "class": "objecttype",
+    "description": "Specify timer configuration.",
+    "maxaccess": "read-write",
+    "name": "hwMacAuthenTimerOfflineDetect",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.171.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7200,
+            "min": 30
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMacAuthenTimerQuiet": {
+    "class": "objecttype",
+    "description": "Specify timer configuration.",
+    "maxaccess": "read-write",
+    "name": "hwMacAuthenTimerQuiet",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.171.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 3600,
+            "min": 10
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMacAuthenTimerServerTimeout": {
+    "class": "objecttype",
+    "description": "Specify timer configuration.",
+    "maxaccess": "read-write",
+    "name": "hwMacAuthenTimerServerTimeout",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.171.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 120,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMacAuthenTrapGroup": {
+    "class": "notificationgroup",
+    "description": "The mac-authen\u0027s Notification group.",
+    "name": "hwMacAuthenTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MAC-AUTHEN-MIB",
+        "object": "hwMacAuthenMaxUserAlarm"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.171.3.2.2",
+    "status": "current"
+  },
+  "hwMacAuthenUsername": {
+    "class": "objecttype",
+    "description": "Special the fixed username. ",
+    "maxaccess": "read-write",
+    "name": "hwMacAuthenUsername",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.171.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifDescr",
+      "InterfaceIndexOrZero"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIdOrNone"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "Bits",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Gauge32",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-MAC-AUTHEN-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:10 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-MAC-AUTHEN-MIB"
+  }
+}

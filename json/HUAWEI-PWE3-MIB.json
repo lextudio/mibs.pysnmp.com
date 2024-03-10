@@ -1,0 +1,5474 @@
+{
+  "HWLdpPwStateChangeReason": {
+    "class": "textualconvention",
+    "description": "The type indicates the reason of LDP PW VC\u0027s status change: LDP session down (1) AC interface down (2) PSN tunnel state down (3) Mapping message not received (4) PW interface parameter not match (5) Notification not forwarding (6) ",
+    "name": "HWLdpPwStateChangeReason",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interfaceDown": 2,
+          "ldpSessionDown": 1,
+          "notifiNotForward": 6,
+          "paraUnMatched": 5,
+          "receivedNoMapping": 4,
+          "tunnelDown": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwL2Vpn": {
+    "class": "objectidentity",
+    "name": "hwL2Vpn",
+    "oid": "1.3.6.1.4.1.2011.5.25.119"
+  },
+  "hwL2VpnPwe3": {
+    "class": "moduleidentity",
+    "contactinfo": "R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com",
+    "description": "The HUAWEI-PWE3-MIB contains objects to manage PWE3.",
+    "lastupdated": "200704120900Z",
+    "name": "hwL2VpnPwe3",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4",
+    "organization": "Huawei Technologies Co., Ltd."
+  },
+  "hwL2vpnPWTableMIBGroups": {
+    "class": "objectidentity",
+    "name": "hwL2vpnPWTableMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.4"
+  },
+  "hwL2vpnSvcMIBGroups": {
+    "class": "objectidentity",
+    "name": "hwL2vpnSvcMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.3"
+  },
+  "hwL2vpnSvcMIBTraps": {
+    "class": "objectidentity",
+    "name": "hwL2vpnSvcMIBTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.4"
+  },
+  "hwLdpPWStateChangeReason": {
+    "class": "objecttype",
+    "description": "This object indicates the reason of LDP PW VC\u0027s state change.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwLdpPWStateChangeReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWLdpPwStateChangeReason"
+    }
+  },
+  "hwLdpPWStateChangeReasonGroup": {
+    "class": "objectgroup",
+    "description": "The LDP PW VC State Reason group.",
+    "name": "hwLdpPWStateChangeReasonGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwLdpPWStateChangeReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.2.9",
+    "status": "current"
+  },
+  "hwLdpPWVcDown": {
+    "class": "notificationtype",
+    "description": "This notification indicates the LDP PW VC\u0027s state changes to down.",
+    "name": "hwLdpPWVcDown",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwLdpPWStateChangeReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.2.7",
+    "status": "current"
+  },
+  "hwLdpPWVcUp": {
+    "class": "notificationtype",
+    "description": "This notification indicates the Ldp PW VC\u0027s state changes to up.",
+    "name": "hwLdpPWVcUp",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwLdpPWStateChangeReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.2.8",
+    "status": "current"
+  },
+  "hwPWBFDDetectMultiplier": {
+    "class": "objecttype",
+    "description": "The multiple of detection time.",
+    "maxaccess": "read-create",
+    "name": "hwPWBFDDetectMultiplier",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.40",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 50,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWBFDMinReceiveInterval": {
+    "class": "objecttype",
+    "description": "The interval of bfd messages to be received.",
+    "maxaccess": "read-create",
+    "name": "hwPWBFDMinReceiveInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.41",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 1000,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWBFDMinTransmitInterval": {
+    "class": "objecttype",
+    "description": "The interval of bfd messages to be sent.",
+    "maxaccess": "read-create",
+    "name": "hwPWBFDMinTransmitInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.42",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 1000,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWBFDRemoteVcID": {
+    "class": "objecttype",
+    "description": "In the multiple-hop model, the value of remote VC id.",
+    "maxaccess": "read-create",
+    "name": "hwPWBFDRemoteVcID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.44",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWCfmMaIndex": {
+    "class": "objecttype",
+    "description": "This value indicates the current CFM MA index.",
+    "maxaccess": "read-only",
+    "name": "hwPWCfmMaIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.46",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4095,
+            "min": 0
+          },
+          {
+            "max": 4294967295,
+            "min": 4294967295
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWDynamicBFDDetect": {
+    "class": "objecttype",
+    "description": "This value indicates the capacitability to support dynamic BFD detect.",
+    "maxaccess": "read-create",
+    "name": "hwPWDynamicBFDDetect",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.43",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwPWEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of a VC key entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWPeerIp"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPWEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.7.1.1",
+    "status": "current"
+  },
+  "hwPWEthOamType": {
+    "class": "objecttype",
+    "description": "This value indicates the type of ETH OAM.",
+    "maxaccess": "read-create",
+    "name": "hwPWEthOamType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.45",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethOam1ag": 1,
+          "ethOam3ah": 2,
+          "noEthOamCfg": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPWId": {
+    "class": "objecttype",
+    "description": "Index for the conceptual row identifying a PW within this PW Emulation table.Used in the outgoing PW ID field within the \u0027Virtual Circuit FEC Element\u0027.",
+    "maxaccess": "not-accessible",
+    "name": "hwPWId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.7.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWInterfaceIndex": {
+    "class": "objecttype",
+    "description": "Index of the interface (or the virtual interface) associated with the PW.",
+    "maxaccess": "read-only",
+    "name": "hwPWInterfaceIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.7.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwPWNotificationControlGroup": {
+    "class": "objectgroup",
+    "description": "The PWE3\u0027s Notification Control group.",
+    "name": "hwPWNotificationControlGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchNotifEnable"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcUpDownNotifEnable"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcDeletedNotifEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.2.6",
+    "status": "current"
+  },
+  "hwPWOAMSync": {
+    "class": "objecttype",
+    "description": "Denotes the AC and PSN are enable or not.",
+    "maxaccess": "read-create",
+    "name": "hwPWOAMSync",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwPWPeerIp": {
+    "class": "objecttype",
+    "description": "This object contain the value of the peer node address of the PW/PE maintenance protocol entity. This object SHOULD contain a value of all zeroes if not applicable.",
+    "maxaccess": "not-accessible",
+    "name": "hwPWPeerIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.7.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwPWRemoteVcCtrlword": {
+    "class": "objecttype",
+    "description": "Indicates the control word capability of the remote PW.",
+    "maxaccess": "read-only",
+    "name": "hwPWRemoteVcCtrlword",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwPWRemoteVcEntry": {
+    "class": "objecttype",
+    "description": "An entry in this table is created by the agent for every PW.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcType"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPWRemoteVcEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.4.1",
+    "status": "current"
+  },
+  "hwPWRemoteVcGroup": {
+    "class": "objectgroup",
+    "description": "The PWE3\u0027s Remote VC group.",
+    "name": "hwPWRemoteVcGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWRemoteVcID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWRemoteVcType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWRemoteVcStatus"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWRemoteVcGroupID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWRemoteVcMtu"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWRemoteVcCtrlword"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWRemoteVcMaxAtmCells"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWRemoteVcNotif"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.2.4",
+    "status": "current"
+  },
+  "hwPWRemoteVcGroupID": {
+    "class": "objecttype",
+    "description": "Indicates the Group ID field of the remote PW. Currently, this value always be zero.",
+    "maxaccess": "read-only",
+    "name": "hwPWRemoteVcGroupID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWRemoteVcID": {
+    "class": "objecttype",
+    "description": "Used in the outgoing PW ID field within the \u0027Virtual Circuit FEC Element\u0027 of the remote PW.",
+    "maxaccess": "read-only",
+    "name": "hwPWRemoteVcID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWRemoteVcMaxAtmCells": {
+    "class": "objecttype",
+    "description": "Indicates the max cell supported of the remote PW when vctype is atm.",
+    "maxaccess": "read-only",
+    "name": "hwPWRemoteVcMaxAtmCells",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWRemoteVcMtu": {
+    "class": "objecttype",
+    "description": "Indicates the supported MTU size of the remote PW.",
+    "maxaccess": "read-only",
+    "name": "hwPWRemoteVcMtu",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 9600,
+            "min": 46
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWRemoteVcNotif": {
+    "class": "objecttype",
+    "description": "Indicates notification is supported by the remote PW.",
+    "maxaccess": "read-only",
+    "name": "hwPWRemoteVcNotif",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.4.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwPWRemoteVcStatus": {
+    "class": "objecttype",
+    "description": "Indicates the forwarding status of the remote VC.",
+    "maxaccess": "read-only",
+    "name": "hwPWRemoteVcStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "plugout": 3,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPWRemoteVcTable": {
+    "class": "objecttype",
+    "description": "This table provides remote PW information for each local PW.",
+    "maxaccess": "not-accessible",
+    "name": "hwPWRemoteVcTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.4",
+    "status": "current"
+  },
+  "hwPWRemoteVcType": {
+    "class": "objecttype",
+    "description": "This value indicate the service to be carried over the remote PW.",
+    "maxaccess": "read-only",
+    "name": "hwPWRemoteVcType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWL2VpnVcEncapsType"
+    }
+  },
+  "hwPWTable": {
+    "class": "objecttype",
+    "description": "This table indicates a PW, that is Static PW or LDP PW",
+    "maxaccess": "not-accessible",
+    "name": "hwPWTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.7.1",
+    "status": "current"
+  },
+  "hwPWTableGroup": {
+    "class": "objectgroup",
+    "description": "The PW Table Group.",
+    "name": "hwPWTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWInterfaceIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.4.1",
+    "status": "current"
+  },
+  "hwPWTableObjects": {
+    "class": "objectidentity",
+    "name": "hwPWTableObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.7"
+  },
+  "hwPWTemplateAtmPackOvertime": {
+    "class": "objecttype",
+    "description": "Specifies the AtmPackOvertime.",
+    "maxaccess": "read-create",
+    "name": "hwPWTemplateAtmPackOvertime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 50000,
+            "min": 100
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWTemplateBFDDetectMultiplier": {
+    "class": "objecttype",
+    "description": "The multiple of detection time.",
+    "maxaccess": "read-create",
+    "name": "hwPWTemplateBFDDetectMultiplier",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 50,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWTemplateBFDMinReceiveInterval": {
+    "class": "objecttype",
+    "description": "The interval of bfd messages to be received.",
+    "maxaccess": "read-create",
+    "name": "hwPWTemplateBFDMinReceiveInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 1000,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWTemplateBFDMinTransmitInterval": {
+    "class": "objecttype",
+    "description": "The interval of bfd messages to be sent.",
+    "maxaccess": "read-create",
+    "name": "hwPWTemplateBFDMinTransmitInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 1000,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWTemplateBandwidth": {
+    "class": "objecttype",
+    "description": "Indicates the bandwitdh when signaling protocol is rsvp. Currently, can\u0027t support.\u00270\u0027 is the default value.",
+    "maxaccess": "read-only",
+    "name": "hwPWTemplateBandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPWTemplateCannotDeleted": {
+    "class": "notificationtype",
+    "description": "This notification indicates the PWTemplate cannot be deleted.",
+    "name": "hwPWTemplateCannotDeleted",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.6.1",
+    "status": "current"
+  },
+  "hwPWTemplateCir": {
+    "class": "objecttype",
+    "description": "Specifies the committed information rate, based on the PW template entry.",
+    "maxaccess": "read-create",
+    "name": "hwPWTemplateCir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWTemplateCtrlword": {
+    "class": "objecttype",
+    "description": "Indicates the control word capability of the switch PW.",
+    "maxaccess": "read-create",
+    "name": "hwPWTemplateCtrlword",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwPWTemplateDynamicBFDDetect": {
+    "class": "objecttype",
+    "description": "This value indicates the capacitability to support dynamic BFD detect.",
+    "maxaccess": "read-create",
+    "name": "hwPWTemplateDynamicBFDDetect",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwPWTemplateEntry": {
+    "class": "objecttype",
+    "description": "A row in this table represents a pseudo wire (PW) template. It is indexed by hwPWCmdTemplateIndex, which uniquely identifying a singular tempalte.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPWTemplateEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1",
+    "status": "current"
+  },
+  "hwPWTemplateExplicitPathName": {
+    "class": "objecttype",
+    "description": "Indicates the explicit path name set by the operator.Currently, can\u0027t support.",
+    "maxaccess": "read-create",
+    "name": "hwPWTemplateExplicitPathName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPWTemplateFlowLabel": {
+    "class": "objecttype",
+    "description": "The value of this object identifies whether the PW FlowLabel is enabled.",
+    "maxaccess": "read-create",
+    "name": "hwPWTemplateFlowLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwPWTemplateFrag": {
+    "class": "objecttype",
+    "description": "Indicates whether or not fragmentaion is supported.",
+    "maxaccess": "read-create",
+    "name": "hwPWTemplateFrag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwPWTemplateGroup": {
+    "class": "objectgroup",
+    "description": "The PWE3\u0027s Template group.",
+    "name": "hwPWTemplateGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplatePeerAddrType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplatePeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateCtrlword"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateVCCV"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateFrag"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateBandwidth"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateTnlPolicyName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateQoSBehaviorIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateExplicitPathName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateBFDDetectMultiplier"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateBFDMinReceiveInterval"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateBFDMinTransmitInterval"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateDynamicBFDDetect"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateMaxAtmCells"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateAtmPackOvertime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplatePwJitterBufferDepth"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplatePwTdmEncapsulationNum"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplatePwIdleCode"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplatePwRtpHeader"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplatePwCCSeqEnable"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateCir"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplatePir"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateQosProfile"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateFlowLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.2.5",
+    "status": "current"
+  },
+  "hwPWTemplateMIBTraps": {
+    "class": "objectidentity",
+    "name": "hwPWTemplateMIBTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.6"
+  },
+  "hwPWTemplateMaxAtmCells": {
+    "class": "objecttype",
+    "description": "Specifies the MaxAtmCells.",
+    "maxaccess": "read-create",
+    "name": "hwPWTemplateMaxAtmCells",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 28,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWTemplateName": {
+    "class": "objecttype",
+    "description": "The name of the PW template. Set by the operator to indicate the protocol responsible for establishing this PW. The value \u0027static\u0027 is used in all cases where no maintenance protocol (PW signaling) is used to set-up the PW, i.e. require configuration of entries in the PW tables including PW labels, etc. The value \u0027ldp\u0027 is used in case of signaling with the PWid FEC element with LDP signaling. The value \u0027rsvp\u0027 indicate the use of rsvp control protocol.",
+    "maxaccess": "not-accessible",
+    "name": "hwPWTemplateName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 19,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPWTemplatePeerAddr": {
+    "class": "objecttype",
+    "description": "This object contain the value of the peer node address of the PW/PE maintenance protocol entity. ",
+    "maxaccess": "read-create",
+    "name": "hwPWTemplatePeerAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwPWTemplatePeerAddrType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "ipv4"
+      }
+    },
+    "description": "Denotes the address type of the peer node. It should be set to \u0027unknown\u0027 if PE/PW maintenance protocol is not used and the address is unknown. Currently, support \u0027ipv4\u0027 only.",
+    "maxaccess": "read-create",
+    "name": "hwPWTemplatePeerAddrType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwPWTemplatePir": {
+    "class": "objecttype",
+    "description": "Specifies the peak information rate, based on the PW template entry.",
+    "maxaccess": "read-create",
+    "name": "hwPWTemplatePir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWTemplatePwCCSeqEnable": {
+    "class": "objecttype",
+    "description": "Specifies the CC Sequence is enable or not.",
+    "maxaccess": "read-create",
+    "name": "hwPWTemplatePwCCSeqEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwPWTemplatePwIdleCode": {
+    "class": "objecttype",
+    "description": "Specifies the PwIdleCode.",
+    "maxaccess": "read-create",
+    "name": "hwPWTemplatePwIdleCode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWTemplatePwJitterBufferDepth": {
+    "class": "objecttype",
+    "description": "Specifies the PwJitterBufferDepth.",
+    "maxaccess": "read-create",
+    "name": "hwPWTemplatePwJitterBufferDepth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWTemplatePwRtpHeader": {
+    "class": "objecttype",
+    "description": "Specifies the PwRtpHeader.",
+    "maxaccess": "read-create",
+    "name": "hwPWTemplatePwRtpHeader",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWTemplatePwTdmEncapsulationNum": {
+    "class": "objecttype",
+    "description": "Specifies the PwTdmEncapsulationNum.",
+    "maxaccess": "read-create",
+    "name": "hwPWTemplatePwTdmEncapsulationNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 40,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWTemplateQoSBehaviorIndex": {
+    "class": "objecttype",
+    "description": "Indicates the traffic behavior Index when QOS is implemented.Currently, can\u0027t support.\u00270\u0027 is the default value.",
+    "maxaccess": "read-create",
+    "name": "hwPWTemplateQoSBehaviorIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPWTemplateQosProfile": {
+    "class": "objecttype",
+    "description": "Specifies the QoS profile\u0027s name, based on the PW template entry.",
+    "maxaccess": "read-create",
+    "name": "hwPWTemplateQosProfile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwPWTemplateRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus for this Table. Restriction: The row must be created by \u0027createAndGo\u0027 handle only. Handle \u0027createAndWait\u0027 is forbidden.",
+    "maxaccess": "read-create",
+    "name": "hwPWTemplateRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwPWTemplateTable": {
+    "class": "objecttype",
+    "description": "This table specifies information for configuring and status monitoring to PW tempalte.",
+    "maxaccess": "not-accessible",
+    "name": "hwPWTemplateTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5",
+    "status": "current"
+  },
+  "hwPWTemplateTnlPolicyName": {
+    "class": "objecttype",
+    "description": "Indicates the tunnel policy name used.",
+    "maxaccess": "read-create",
+    "name": "hwPWTemplateTnlPolicyName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 39,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPWTemplateVCCV": {
+    "class": "objecttype",
+    "description": "Indicates the optional VCCV capabilities of the PW template. According to whether the control word is enabled, the value can be ccCw(0)|ccAlert(1)|ccTtl(6)|cvLspping(4)|cvBfd(5) or ccAlert(1)|ccTtl(6)|cvLspping(4)|cvBfd(5). The default value is ccAlert(1)|ccTtl(6)|cvLspping(4)|cvBfd(5).",
+    "maxaccess": "read-create",
+    "name": "hwPWTemplateVCCV",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.5.1.5",
+    "status": "current",
+    "syntax": {
+      "bits": {
+        "ccAlert": 1,
+        "ccCw": 0,
+        "ccLabel": 2,
+        "ccTtl": 6,
+        "cvBfd": 5,
+        "cvIcmpping": 3,
+        "cvLspping": 4
+      },
+      "class": "type",
+      "type": "Bits"
+    }
+  },
+  "hwPWTnlForBfdIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the index of LSP for BFD.",
+    "maxaccess": "read-only",
+    "name": "hwPWTnlForBfdIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWType": {
+    "class": "objecttype",
+    "description": "Index for the conceptual row identifying a PW within this PW Emulation table.This value indicate the service to be carried over this PW.",
+    "maxaccess": "not-accessible",
+    "name": "hwPWType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.7.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWL2VpnVcEncapsType"
+    }
+  },
+  "hwPWVCForBfdIndex": {
+    "class": "objecttype",
+    "description": "The index of PW for BFD.",
+    "maxaccess": "read-only",
+    "name": "hwPWVCForBfdIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcACOAMStatus": {
+    "class": "objecttype",
+    "description": "Denotes the AC\u0027s protocol is operational or not.",
+    "maxaccess": "read-only",
+    "name": "hwPWVcACOAMStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPWVcAcStatus": {
+    "class": "objecttype",
+    "description": "Local AC status. Currently, can\u0027t support \u0027plugout\u0027.",
+    "maxaccess": "read-only",
+    "name": "hwPWVcAcStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "downNotify": 6,
+          "notify": 4,
+          "notifyDown": 5,
+          "plugout": 3,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPWVcActive": {
+    "class": "objecttype",
+    "description": "Denotes the current vc is active or not.",
+    "maxaccess": "read-only",
+    "name": "hwPWVcActive",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.37",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwPWVcAtmPackOvertime": {
+    "class": "objecttype",
+    "description": "Specifies the AtmPackOvertime.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcAtmPackOvertime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.52",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 50000,
+            "min": 100
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcBackup": {
+    "class": "notificationtype",
+    "description": "This notification indicates the VC\u0027s state changes to backup.",
+    "name": "hwPWVcBackup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcInboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcOutboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSecondary"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcStateChangeReason"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.2.6",
+    "status": "current"
+  },
+  "hwPWVcBandWidth": {
+    "class": "objecttype",
+    "description": "This object indicates the bandwidth. \u00270\u0027 is the default value.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcBandWidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcBfdParaFromPWT": {
+    "class": "objecttype",
+    "description": "This object indicates the configuration of the Bfd parameters managed through command line or PW template.",
+    "maxaccess": "read-only",
+    "name": "hwPWVcBfdParaFromPWT",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.74",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cliOrMib": 1,
+          "pwTemplate": 2,
+          "unknown": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPWVcCfmMaName": {
+    "class": "objecttype",
+    "description": "This value indicates the current CFM MA name used.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcCfmMaName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.59",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 43,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPWVcCfmMdIndex": {
+    "class": "objecttype",
+    "description": "This value indicates the current CFM MD index.",
+    "maxaccess": "read-only",
+    "name": "hwPWVcCfmMdIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.58",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4095,
+            "min": 0
+          },
+          {
+            "max": 4294967295,
+            "min": 4294967295
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcCfmMdName": {
+    "class": "objecttype",
+    "description": "This value indicates the current CFM MD name used.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcCfmMdName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.60",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 43,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPWVcCir": {
+    "class": "objecttype",
+    "description": "Specifies the committed information rate, based on the VC entry.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcCir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.63",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcCtrlWord": {
+    "class": "objecttype",
+    "description": "If signaling is used for PW establishment, this object indicates the status of the control word negotiation, and in both signaling or manual configuration indicates if CW is to be present or not for this PW.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcCtrlWord",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwPWVcDelayTime": {
+    "class": "objecttype",
+    "description": "The reroute delay time.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcDelayTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcDeleted": {
+    "class": "notificationtype",
+    "description": "This notification indicates the VC is deleted.",
+    "name": "hwPWVcDeleted",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcInboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcOutboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSecondary"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.2.5",
+    "status": "current"
+  },
+  "hwPWVcDeletedNotifEnable": {
+    "class": "objecttype",
+    "description": "This object indicates the enable sign of PW VC deletion notification. The default value is disable (2).",
+    "maxaccess": "read-write",
+    "name": "hwPWVcDeletedNotifEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwPWVcDown": {
+    "class": "notificationtype",
+    "description": "This notification indicates the VC\u0027s state changes to down.",
+    "name": "hwPWVcDown",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcInboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcOutboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSecondary"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcStateChangeReason"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTnlPolicyName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.2.3",
+    "status": "current"
+  },
+  "hwPWVcEnableACOAM": {
+    "class": "objecttype",
+    "description": "Specifies whether ACOAM detection and notification are all enabled or not.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcEnableACOAM",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.70",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwPWVcEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of a VC entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcType"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPWVcEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1",
+    "status": "current"
+  },
+  "hwPWVcExplicitPathName": {
+    "class": "objecttype",
+    "description": "Indicates the explicit path name set by the operator.Currently, can\u0027t support.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcExplicitPathName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwPWVcGroup": {
+    "class": "objectgroup",
+    "description": "The Pwe3\u0027s VC group.",
+    "name": "hwPWVcGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPeerAddrType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcStatus"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcInboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcOutboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchSign"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchPeerAddrType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchInboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchOutboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcGroupID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcAcStatus"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcACOAMStatus"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcMtu"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcCtrlWord"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcVCCV"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcBandWidth"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcMaxAtmCells"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTnlPolicyName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcQoSBehaviorIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcExplicitPathName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTemplateName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSecondary"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcUpTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWOAMSync"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVCForBfdIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcDelayTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcReroutePolicy"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcResumeTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcRerouteReason"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcLastRerouteTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcManualSetFault"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcActive"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcVrIfIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcVrID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWBFDDetectMultiplier"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWBFDMinReceiveInterval"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWBFDMinTransmitInterval"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWDynamicBFDDetect"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWBFDRemoteVcID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWEthOamType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWCfmMaIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcUpStartTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcUpSumTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcRowStatus"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcAtmPackOvertime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPwJitterBufferDepth"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPwTdmEncapsulationNum"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPwIdleCode"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPwRtpHeader"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchTnlPolicyName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcCfmMdIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcCfmMaName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcCfmMdName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcRawOrTagged"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcInterworkingType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcCir"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPir"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcQosProfile"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchCir"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchPir"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchQosProfile"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTrigger"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcEnableACOAM"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchVrIfIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchVrID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcQosParaFromPWT"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcBfdParaFromPWT"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcNegotiateMode"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcIsBypass"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcIsAdmin"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcAdminPwIfIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcAdminPwLinkStatus"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchAdminPwIfIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchAdminPwLinkStatus"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchBackupAdminPwIfIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchBackupAdminPwLinkStatus"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchBackupVcId"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchBackupVcPeerAddrType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchBackupVcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchBackupVcReceiveLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchBackupVcSendLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchBackupVcTnlPolicyName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchBackupVcCir"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchBackupVcPir"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchBackupVcQosProfile"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSlaveMasterMode"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchVcSlaveMasterMode"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchBackupVcSlaveMasterMode"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchVcActive"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchBackupVcActive"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchCwTrans"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchVcServiceName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPwVcSwitchBackupVcServiceName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.2.1",
+    "status": "current"
+  },
+  "hwPWVcGroupID": {
+    "class": "objecttype",
+    "description": "Used in the Group ID field sent to the peer PWES within the maintenance protocol used for PW setup. Applicable if pwVcOwner equal \u0027pwIdFecSignaling\u0027 or \u0027l2tpControlProtocol\u0027, should be set to zero otherwise. Currently, this value always be zero.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcGroupID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcID": {
+    "class": "objecttype",
+    "description": "Index for the conceptual row identifying a PW within this PW Emulation table.Used in the outgoing PW ID field within the \u0027Virtual Circuit FEC Element\u0027.",
+    "maxaccess": "not-accessible",
+    "name": "hwPWVcID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcIfIndex": {
+    "class": "objecttype",
+    "description": "Index of the interface (or the virtual interface) associated with the PW.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwPWVcIfName": {
+    "class": "objecttype",
+    "description": "Name of the interface (or the virtual interface) associated with the PW.",
+    "maxaccess": "read-only",
+    "name": "hwPWVcIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.49",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwPWVcInboundLabel": {
+    "class": "objecttype",
+    "description": "For ldp vc, the value will be created by system automatically.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcInboundLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcInterworkingType": {
+    "class": "objecttype",
+    "description": "Specifies the interworking type of the VC entry.",
+    "maxaccess": "read-only",
+    "name": "hwPWVcInterworkingType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.62",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipInterWorking": 1,
+          "ipLayer2": 2,
+          "ipUnknown": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPWVcLastRerouteTime": {
+    "class": "objecttype",
+    "description": "Last reroute time.",
+    "maxaccess": "read-only",
+    "name": "hwPWVcLastRerouteTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.35",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcManualSetFault": {
+    "class": "objecttype",
+    "description": "Denotes the manual has been set fault or not.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcManualSetFault",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.36",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwPWVcMaxAtmCells": {
+    "class": "objecttype",
+    "description": "Indicates the max cell supported when vc type is atm.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcMaxAtmCells",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 28,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcMtu": {
+    "class": "objecttype",
+    "description": "If not equal zero, the optional Mtu object in the signaling protocol will be sent with this value, representing the locally supported MTU size over the interface (or the virtual interface) associated with the PW.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcMtu",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 9600,
+            "min": 46
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPWVcNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "The PWE3\u0027s VC Notification group.",
+    "name": "hwPWVcNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchWtoP"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchPtoW"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcDown"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcUp"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcDeleted"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcBackup"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwLdpPWVcDown"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwLdpPWVcUp"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.2.8",
+    "status": "current"
+  },
+  "hwPWVcOutboundLabel": {
+    "class": "objecttype",
+    "description": "For ldp vc, the value will be created by system automatically.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcOutboundLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcPeerAddr": {
+    "class": "objecttype",
+    "description": "This object contain the value of the peer node address of the PW/PE maintenance protocol entity. This object SHOULD contain a value of all zeroes if not applicable (hwPWVcPeerAddrType is \u0027unknown\u0027).",
+    "maxaccess": "read-create",
+    "name": "hwPWVcPeerAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwPWVcPeerAddrType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "ipv4"
+      }
+    },
+    "description": "Denotes the address type of the peer node. It should be set to \u0027unknown\u0027 if PE/PW maintenance protocol is not used and the address is unknown. Currently, support \u0027ipv4\u0027 only.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcPeerAddrType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwPWVcPir": {
+    "class": "objecttype",
+    "description": "Specifies the peak information rate, based on the VC entry.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcPir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.64",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcPwIdleCode": {
+    "class": "objecttype",
+    "description": "Specifies the PwIdleCode.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcPwIdleCode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.55",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcPwJitterBufferDepth": {
+    "class": "objecttype",
+    "description": "Specifies the PwJitterBufferDepth.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcPwJitterBufferDepth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.53",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcPwRtpHeader": {
+    "class": "objecttype",
+    "description": "Specifies the PwRtpHeader.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcPwRtpHeader",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.56",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcPwTdmEncapsulationNum": {
+    "class": "objecttype",
+    "description": "Specifies the PwTdmEncapsulationNum.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcPwTdmEncapsulationNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.54",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 40,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcQoSBehaviorIndex": {
+    "class": "objecttype",
+    "description": "Indicates the traffic behavior Index when QOS is implemented. Currently,can\u0027t support.Return the default value is \u00270\u0027.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcQoSBehaviorIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcQosParaFromPWT": {
+    "class": "objecttype",
+    "description": "This object indicates the configuration of the Qos parameters managed through command line or PW template.",
+    "maxaccess": "read-only",
+    "name": "hwPWVcQosParaFromPWT",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.73",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cliOrMib": 1,
+          "pwTemplate": 2,
+          "unknown": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPWVcQosProfile": {
+    "class": "objecttype",
+    "description": "Specifies the QoS profile\u0027s name, based on the VC entry.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcQosProfile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.65",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwPWVcRawOrTagged": {
+    "class": "objecttype",
+    "description": "Specifies whether the raw or tagged is configured.",
+    "maxaccess": "read-only",
+    "name": "hwPWVcRawOrTagged",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.61",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "raw": 1,
+          "rawTagNotConfiged": 3,
+          "tagged": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPWVcReroutePolicy": {
+    "class": "objecttype",
+    "description": "Reroute policy.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcReroutePolicy",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delay": 1,
+          "err": 5,
+          "immediately": 2,
+          "immediatelySwitch": 7,
+          "invalid": 6,
+          "never": 3,
+          "none": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPWVcRerouteReason": {
+    "class": "objecttype",
+    "description": "Last reroute reason.",
+    "maxaccess": "read-only",
+    "name": "hwPWVcRerouteReason",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.34",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWL2VpnStateChangeReason"
+    }
+  },
+  "hwPWVcResumeTime": {
+    "class": "objecttype",
+    "description": "The reroute resume time.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcResumeTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus for this Table. Restriction: The row must be created by \u0027createAndGo\u0027 handle only. Handle \u0027createAndWait\u0027 is forbidden. Not support modifying configuration.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwPWVcSecondary": {
+    "class": "objecttype",
+    "description": "Indicates whether or not the secondary PW is used.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcSecondary",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwPWVcStateChangeReason": {
+    "class": "objecttype",
+    "description": "This object indicates the reason of PE VC state change.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwPWVcStateChangeReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWL2VpnStateChangeReason"
+    }
+  },
+  "hwPWVcStateChangeReasonGroup": {
+    "class": "objectgroup",
+    "description": "The PWE3\u0027s Vc State Reason group.",
+    "name": "hwPWVcStateChangeReasonGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcStateChangeReason"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchRmtID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.2.7",
+    "status": "current"
+  },
+  "hwPWVcStatisticsEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of the Pwe3\u0027s VC packets statistics.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcType"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPWVcStatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.3.1",
+    "status": "current"
+  },
+  "hwPWVcStatisticsGroup": {
+    "class": "objectgroup",
+    "description": "The PWE3\u0027s VC Statistics group.",
+    "name": "hwPWVcStatisticsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcStatisticsRcvPkts"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcStatisticsRcvBytes"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcStatisticsSndPkts"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcStatisticsSndBytes"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.2.3",
+    "status": "current"
+  },
+  "hwPWVcStatisticsRcvBytes": {
+    "class": "objecttype",
+    "description": "The total number of bytes received on this VC.",
+    "maxaccess": "read-only",
+    "name": "hwPWVcStatisticsRcvBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPWVcStatisticsRcvPkts": {
+    "class": "objecttype",
+    "description": "The total number of packets received on this VC.",
+    "maxaccess": "read-only",
+    "name": "hwPWVcStatisticsRcvPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPWVcStatisticsSndBytes": {
+    "class": "objecttype",
+    "description": "The total number of bytes sent on the VC.",
+    "maxaccess": "read-only",
+    "name": "hwPWVcStatisticsSndBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPWVcStatisticsSndPkts": {
+    "class": "objecttype",
+    "description": "The total number of packets sent on this VC.",
+    "maxaccess": "read-only",
+    "name": "hwPWVcStatisticsSndPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPWVcStatisticsTable": {
+    "class": "objecttype",
+    "description": "This table contains the Pwe3\u0027s VC packets statistics.",
+    "maxaccess": "not-accessible",
+    "name": "hwPWVcStatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.3",
+    "status": "current"
+  },
+  "hwPWVcStatus": {
+    "class": "objecttype",
+    "description": "Indicates the status of the PW in the local node. Currently, can\u0027t support \u0027plugout\u0027.",
+    "maxaccess": "read-only",
+    "name": "hwPWVcStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backup": 4,
+          "down": 2,
+          "plugout": 3,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPWVcSwitchCir": {
+    "class": "objecttype",
+    "description": "Specifies the committed information rate, based on the switch VC entry.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcSwitchCir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.66",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcSwitchID": {
+    "class": "objecttype",
+    "description": "Used in the outgoing PW ID field within the \u0027Virtual Circuit FEC Element\u0027 of the switch PW.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcSwitchID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcSwitchInboundLabel": {
+    "class": "objecttype",
+    "description": "For ldp vc, the value will be created by system automatically.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcSwitchInboundLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcSwitchNotifEnable": {
+    "class": "objecttype",
+    "description": "If this object is set to enable(1), then it enables the emission of hwPWVcSwitchWtoP and hwPWVcSwitchPtoW notifications; otherwise these notifications are not emitted. The default value is disable (2).",
+    "maxaccess": "read-write",
+    "name": "hwPWVcSwitchNotifEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwPWVcSwitchOutboundLabel": {
+    "class": "objecttype",
+    "description": "For ldp vc, the value will be created by system automatically.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcSwitchOutboundLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcSwitchPeerAddr": {
+    "class": "objecttype",
+    "description": "This object contain the value of the peer node address of the switch PW of the PW/PE maintenance protocol entity. This object SHOULD contain a value of all zeroes if not applicable (hwPWVcSwitchPeerAddrType is \u0027unknown\u0027).",
+    "maxaccess": "read-create",
+    "name": "hwPWVcSwitchPeerAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwPWVcSwitchPeerAddrType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "ipv4"
+      }
+    },
+    "description": "Denotes the address type of the peer node of the switch PW. It should be set to \u0027unknown\u0027 if PE/PW maintenance protocol is not used and the address is unknown. Currently, support \u0027ipv4\u0027 only.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcSwitchPeerAddrType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwPWVcSwitchPir": {
+    "class": "objecttype",
+    "description": "Specifies the peak information rate, based on the switch VC entry.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcSwitchPir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.67",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcSwitchPtoW": {
+    "class": "notificationtype",
+    "description": "This notification is generated when switch from protect PW to working PW happens.",
+    "name": "hwPWVcSwitchPtoW",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcCtrlWord"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchRmtID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcStateChangeReason"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.2.2",
+    "status": "current"
+  },
+  "hwPWVcSwitchQosProfile": {
+    "class": "objecttype",
+    "description": "Specifies the QoS profile\u0027s name, based on the switch VC entry.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcSwitchQosProfile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.68",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwPWVcSwitchRmtID": {
+    "class": "objecttype",
+    "description": "This object indicates the VC ID of PW switch between working PW and protect PW .",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwPWVcSwitchRmtID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcSwitchSign": {
+    "class": "objecttype",
+    "description": "The sign of switch.",
+    "maxaccess": "read-only",
+    "name": "hwPWVcSwitchSign",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ldpToldp": 3,
+          "ldpTostatic": 2,
+          "staticTostatic": 1,
+          "upe": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPWVcSwitchTnlPolicyName": {
+    "class": "objecttype",
+    "description": "Indicates the switch tunnel policy name used.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcSwitchTnlPolicyName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.57",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 39,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPWVcSwitchVrID": {
+    "class": "objecttype",
+    "description": "Denotes the VrID the switch PW binding to.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcSwitchVrID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.72",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcSwitchVrIfIndex": {
+    "class": "objecttype",
+    "description": "Denotes the VRRP interface the switch PW binding to.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcSwitchVrIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.71",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwPWVcSwitchWtoP": {
+    "class": "notificationtype",
+    "description": "This notification is generated when switch from working PW to protect PW happens.",
+    "name": "hwPWVcSwitchWtoP",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcCtrlWord"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchRmtID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcStateChangeReason"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.2.1",
+    "status": "current"
+  },
+  "hwPWVcTDMPerfCurrentESs": {
+    "class": "objecttype",
+    "description": "The counter associated with the number of Error Seconds encountered. Any malformed packet, sequence error, LOPS, and the like are considered as Error Seconds.",
+    "maxaccess": "read-only",
+    "name": "hwPWVcTDMPerfCurrentESs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.11.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcTDMPerfCurrentEntry": {
+    "class": "objecttype",
+    "description": "An entry in this table is created by the agent for every TDM PW entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcType"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPWVcTDMPerfCurrentEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.11.1",
+    "status": "current"
+  },
+  "hwPWVcTDMPerfCurrentGroup": {
+    "class": "objectgroup",
+    "description": "The PWE3\u0027s VC TDM performance information group.",
+    "name": "hwPWVcTDMPerfCurrentGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTDMPerfCurrentMissingPkts"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTDMPerfCurrentJtrBfrOverruns"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTDMPerfCurrentJtrBfrUnderruns"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTDMPerfCurrentMisOrderDropped"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTDMPerfCurrentMalformedPkt"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTDMPerfCurrentESs"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTDMPerfCurrentSESs"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTDMPerfCurrentUASs"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.2.10",
+    "status": "current"
+  },
+  "hwPWVcTDMPerfCurrentJtrBfrOverruns": {
+    "class": "objecttype",
+    "description": "Number of times the jitter buffer was overrun.",
+    "maxaccess": "read-only",
+    "name": "hwPWVcTDMPerfCurrentJtrBfrOverruns",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.11.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcTDMPerfCurrentJtrBfrUnderruns": {
+    "class": "objecttype",
+    "description": "Number of times a packet needed to be played out and the jitter buffer was empty.",
+    "maxaccess": "read-only",
+    "name": "hwPWVcTDMPerfCurrentJtrBfrUnderruns",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.11.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcTDMPerfCurrentMalformedPkt": {
+    "class": "objecttype",
+    "description": "Number of packets detected with unexpected size or bad headers\u0027 stack.",
+    "maxaccess": "read-only",
+    "name": "hwPWVcTDMPerfCurrentMalformedPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.11.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcTDMPerfCurrentMisOrderDropped": {
+    "class": "objecttype",
+    "description": "Number of packets detected out of order (via control word sequence numbers) that could not be re-ordered or could not fit in the jitter buffer.",
+    "maxaccess": "read-only",
+    "name": "hwPWVcTDMPerfCurrentMisOrderDropped",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.11.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcTDMPerfCurrentMissingPkts": {
+    "class": "objecttype",
+    "description": "Number of missing packets (as detected via control word sequence number gaps).",
+    "maxaccess": "read-only",
+    "name": "hwPWVcTDMPerfCurrentMissingPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.11.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcTDMPerfCurrentSESs": {
+    "class": "objecttype",
+    "description": "The counter associated with the number of Severely Error Seconds encountered.",
+    "maxaccess": "read-only",
+    "name": "hwPWVcTDMPerfCurrentSESs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.11.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcTDMPerfCurrentTable": {
+    "class": "objecttype",
+    "description": "This table provides per TDM PW performance information. The contents of this table entry are reset to zero and gotten new information every 15 minutes.",
+    "maxaccess": "not-accessible",
+    "name": "hwPWVcTDMPerfCurrentTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.11",
+    "status": "current"
+  },
+  "hwPWVcTDMPerfCurrentUASs": {
+    "class": "objecttype",
+    "description": "The counter associated with the number of Unavailable Seconds encountered. Any consecutive ten seconds of SES are counted as one Unavailable Seconds (UAS).",
+    "maxaccess": "read-only",
+    "name": "hwPWVcTDMPerfCurrentUASs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.11.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcTable": {
+    "class": "objecttype",
+    "description": "This table is the VC configuration table. Users can create or delete a VC by it.",
+    "maxaccess": "not-accessible",
+    "name": "hwPWVcTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1",
+    "status": "current"
+  },
+  "hwPWVcTemplateName": {
+    "class": "objecttype",
+    "description": "Indicates the PW template index referenced.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcTemplateName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 19,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPWVcTnlEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of a VC tunnel entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTnlIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPWVcTnlEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.2.1",
+    "status": "current"
+  },
+  "hwPWVcTnlGroup": {
+    "class": "objectgroup",
+    "description": "The PWE3\u0027s VC Tunnel group.",
+    "name": "hwPWVcTnlGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTnlType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTnlForBfdIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.2.2",
+    "status": "current"
+  },
+  "hwPWVcTnlIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the tunnel index of the VC.",
+    "maxaccess": "not-accessible",
+    "name": "hwPWVcTnlIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcTnlPolicyName": {
+    "class": "objecttype",
+    "description": "Indicates the tunnel policy name used.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcTnlPolicyName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 39,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPWVcTnlTable": {
+    "class": "objecttype",
+    "description": "This table is used to search the tunnel index of a VC.",
+    "maxaccess": "not-accessible",
+    "name": "hwPWVcTnlTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.2",
+    "status": "current"
+  },
+  "hwPWVcTnlType": {
+    "class": "objecttype",
+    "description": "This object indicates the tunnel type.",
+    "maxaccess": "read-only",
+    "name": "hwPWVcTnlType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "crLsp": 4,
+          "gre": 2,
+          "ipsec": 3,
+          "lsp": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPWVcTrigger": {
+    "class": "objecttype",
+    "description": "Specifies whether the PW remote interface shutdown or not.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcTrigger",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.69",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwPWVcType": {
+    "class": "objecttype",
+    "description": "The type of the Virtual Circuit.This value indicate the service to be carried over this PW.",
+    "maxaccess": "not-accessible",
+    "name": "hwPWVcType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWL2VpnVcEncapsType"
+    }
+  },
+  "hwPWVcUp": {
+    "class": "notificationtype",
+    "description": "This notification indicates the VC\u0027s state changes to up.",
+    "name": "hwPWVcUp",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcInboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcOutboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSecondary"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcStateChangeReason"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcIfName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcSwitchID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTnlPolicyName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.2.4",
+    "status": "current"
+  },
+  "hwPWVcUpDownNotifEnable": {
+    "class": "objecttype",
+    "description": "This object indicates the enable sign of PW VC state change notification. The default value is disable (2).",
+    "maxaccess": "read-write",
+    "name": "hwPWVcUpDownNotifEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwPWVcUpStartTime": {
+    "class": "objecttype",
+    "description": "Specifies the time this PW status was Up(1).",
+    "maxaccess": "read-only",
+    "name": "hwPWVcUpStartTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.47",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwPWVcUpSumTime": {
+    "class": "objecttype",
+    "description": "Indicates the accumulated time when the VC is Up, in seconds.",
+    "maxaccess": "read-only",
+    "name": "hwPWVcUpSumTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.48",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcUpTime": {
+    "class": "objecttype",
+    "description": "Indicates the duration when the PW keeps Up for the last time, in seconds.",
+    "maxaccess": "read-only",
+    "name": "hwPWVcUpTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcVCCV": {
+    "class": "objecttype",
+    "description": "Indicates the optional VCCV capabilities of the PW. According to whether the control word is enabled, the value can be ccCw(0)|ccAlert(1)|ccTtl(6)|cvLspping(4)|cvBfd(5) or ccAlert(1)|ccTtl(6)|cvLspping(4)|cvBfd(5). The default value is ccAlert(1)|ccTtl(6)|cvLspping(4)|cvBfd(5).",
+    "maxaccess": "read-create",
+    "name": "hwPWVcVCCV",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.20",
+    "status": "current",
+    "syntax": {
+      "bits": {
+        "ccAlert": 1,
+        "ccCw": 0,
+        "ccLabel": 2,
+        "ccTtl": 6,
+        "cvBfd": 5,
+        "cvIcmpping": 3,
+        "cvLspping": 4
+      },
+      "class": "type",
+      "type": "Bits"
+    }
+  },
+  "hwPWVcVrID": {
+    "class": "objecttype",
+    "description": "Denotes the VrID this PW binding to.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcVrID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.39",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPWVcVrIfIndex": {
+    "class": "objecttype",
+    "description": "Denotes the VRRP interface this PW binding to.",
+    "maxaccess": "read-create",
+    "name": "hwPWVcVrIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.38",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwPwVcAdminPwIfIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the index of the interface on which the administrator PW resides after it is being tracked by the service PW.",
+    "maxaccess": "read-create",
+    "name": "hwPwVcAdminPwIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.78",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwPwVcAdminPwLinkStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the status of the administrator PW after it is being tracked by the service PW.",
+    "maxaccess": "read-only",
+    "name": "hwPwVcAdminPwLinkStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.79",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "unknown": 3,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPwVcIsAdmin": {
+    "class": "objecttype",
+    "description": "This object indicates whether the PW is the administrator PW.",
+    "maxaccess": "read-create",
+    "name": "hwPwVcIsAdmin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.77",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwPwVcIsBypass": {
+    "class": "objecttype",
+    "description": "This object indicates whether the PW is the bypass PW.",
+    "maxaccess": "read-create",
+    "name": "hwPwVcIsBypass",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.76",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwPwVcNegotiateMode": {
+    "class": "objecttype",
+    "description": "This object indicates the negotiation mode of the PW on the local node.",
+    "maxaccess": "read-create",
+    "name": "hwPwVcNegotiateMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.75",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "frr": 4,
+          "independent": 2,
+          "slaveOrMaster": 1,
+          "unknown": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPwVcSlaveMasterMode": {
+    "class": "objecttype",
+    "description": "This object indicates whether the status of the VC is master or slave.",
+    "maxaccess": "read-only",
+    "name": "hwPwVcSlaveMasterMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.93",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bypass": 4,
+          "master": 2,
+          "slave": 1,
+          "unknown": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPwVcSwitchAdminPwIfIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the index of the interface on which the administrator PW resides after it is being tracked by the switch PW.",
+    "maxaccess": "read-create",
+    "name": "hwPwVcSwitchAdminPwIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.80",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwPwVcSwitchAdminPwLinkStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the status of the administrator PW after it is being tracked by the switch PW.",
+    "maxaccess": "read-only",
+    "name": "hwPwVcSwitchAdminPwLinkStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.81",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "unknown": 3,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPwVcSwitchBackupAdminPwIfIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the index of the interface on which the administrator PW resides after it is being tracked by the switch backup PW.",
+    "maxaccess": "read-create",
+    "name": "hwPwVcSwitchBackupAdminPwIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.82",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwPwVcSwitchBackupAdminPwLinkStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the status of the administrator PW after it is being tracked by the switch backup PW.",
+    "maxaccess": "read-only",
+    "name": "hwPwVcSwitchBackupAdminPwLinkStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.83",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "unknown": 3,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPwVcSwitchBackupVcActive": {
+    "class": "objecttype",
+    "description": "This object indicates whether the status of the switch backup VC is active or not.",
+    "maxaccess": "read-only",
+    "name": "hwPwVcSwitchBackupVcActive",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.97",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwPwVcSwitchBackupVcCir": {
+    "class": "objecttype",
+    "description": "This object indicates the CIR of the switch backup VC.",
+    "maxaccess": "read-create",
+    "name": "hwPwVcSwitchBackupVcCir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.90",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPwVcSwitchBackupVcId": {
+    "class": "objecttype",
+    "description": "This object indicates the VC ID of the switch backup PW.",
+    "maxaccess": "read-create",
+    "name": "hwPwVcSwitchBackupVcId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.84",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPwVcSwitchBackupVcPeerAddr": {
+    "class": "objecttype",
+    "description": "This object indicates the IP address of the peer on the switch backup PW.",
+    "maxaccess": "read-create",
+    "name": "hwPwVcSwitchBackupVcPeerAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.86",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwPwVcSwitchBackupVcPeerAddrType": {
+    "class": "objecttype",
+    "description": "This object indicates type of the IP address of the peer on the switch backup PW. Currently, only IPv4 addresss are supported.",
+    "maxaccess": "read-only",
+    "name": "hwPwVcSwitchBackupVcPeerAddrType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.85",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwPwVcSwitchBackupVcPir": {
+    "class": "objecttype",
+    "description": "This object indicates the PIR of the switch backup VC.",
+    "maxaccess": "read-create",
+    "name": "hwPwVcSwitchBackupVcPir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.91",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPwVcSwitchBackupVcQosProfile": {
+    "class": "objecttype",
+    "description": "This object indicates the name of the QoS profile of the switch backup VC.",
+    "maxaccess": "read-create",
+    "name": "hwPwVcSwitchBackupVcQosProfile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.92",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwPwVcSwitchBackupVcReceiveLabel": {
+    "class": "objecttype",
+    "description": "This object indicates the inbound label of the switch backup VC. For a static VC, the value of the inbound label ranges from 16 to 1023. For a dynamic VC, the inbound label is automatically generated by the system.",
+    "maxaccess": "read-only",
+    "name": "hwPwVcSwitchBackupVcReceiveLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.87",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPwVcSwitchBackupVcSendLabel": {
+    "class": "objecttype",
+    "description": "This object indicates the outbound label of the switch backup VC. For a static VC, the value of the outbound label ranges from 0 to 1048575. For a dynamic VC, the outbound label is automatically generated by the system.",
+    "maxaccess": "read-only",
+    "name": "hwPwVcSwitchBackupVcSendLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.88",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPwVcSwitchBackupVcServiceName": {
+    "class": "objecttype",
+    "description": "This object indicates the service name of the switch backup VC.",
+    "maxaccess": "read-create",
+    "name": "hwPwVcSwitchBackupVcServiceName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.100",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPwVcSwitchBackupVcSlaveMasterMode": {
+    "class": "objecttype",
+    "description": "This object indicates whether the status of the switch backup VC is master or slave.",
+    "maxaccess": "read-only",
+    "name": "hwPwVcSwitchBackupVcSlaveMasterMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.95",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 2,
+          "slave": 1,
+          "unknown": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPwVcSwitchBackupVcTnlPolicyName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of the tunnel policy of the switch backup VC.",
+    "maxaccess": "read-create",
+    "name": "hwPwVcSwitchBackupVcTnlPolicyName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.89",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 19,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPwVcSwitchCwTrans": {
+    "class": "objecttype",
+    "description": "This object indicates whether the SPE support Control Word Transparent or not,default is false.",
+    "maxaccess": "read-create",
+    "name": "hwPwVcSwitchCwTrans",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.98",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwPwVcSwitchVcActive": {
+    "class": "objecttype",
+    "description": "This object indicates whether the status of the switch VC is active or not.",
+    "maxaccess": "read-only",
+    "name": "hwPwVcSwitchVcActive",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.96",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwPwVcSwitchVcServiceName": {
+    "class": "objecttype",
+    "description": "This object indicates the service name of the switch VC.",
+    "maxaccess": "read-create",
+    "name": "hwPwVcSwitchVcServiceName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.99",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPwVcSwitchVcSlaveMasterMode": {
+    "class": "objecttype",
+    "description": "This object indicates whether the status of the switch VC is master or slave.",
+    "maxaccess": "read-only",
+    "name": "hwPwVcSwitchVcSlaveMasterMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1.1.1.94",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 2,
+          "slave": 1,
+          "unknown": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPwe3MIBCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-PWE3-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcGroup"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcTnlGroup"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcStatisticsGroup"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWRemoteVcGroup"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTemplateGroup"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWNotificationControlGroup"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcStateChangeReasonGroup"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWVcNotificationGroup"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWTableGroup"
+      }
+    ],
+    "name": "hwPwe3MIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.1.1",
+    "status": "current"
+  },
+  "hwPwe3MIBCompliances": {
+    "class": "objectidentity",
+    "name": "hwPwe3MIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.1"
+  },
+  "hwPwe3MIBConformance": {
+    "class": "objectidentity",
+    "name": "hwPwe3MIBConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3"
+  },
+  "hwPwe3MIBGroups": {
+    "class": "objectidentity",
+    "name": "hwPwe3MIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.2"
+  },
+  "hwPwe3MIBObjects": {
+    "class": "objectidentity",
+    "name": "hwPwe3MIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1"
+  },
+  "hwPwe3MIBTraps": {
+    "class": "objectidentity",
+    "name": "hwPwe3MIBTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.2"
+  },
+  "hwPwe3Objects": {
+    "class": "objectidentity",
+    "name": "hwPwe3Objects",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.1"
+  },
+  "hwSvcACOAMStatus": {
+    "class": "objecttype",
+    "description": "Denotes the AC\u0027s protocol is operational or not.",
+    "maxaccess": "read-only",
+    "name": "hwSvcACOAMStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSvcAcStatus": {
+    "class": "objecttype",
+    "description": "Local AC status. Currently, can\u0027t support \u0027plugout\u0027.",
+    "maxaccess": "read-only",
+    "name": "hwSvcAcStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "plugout": 3,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSvcActive": {
+    "class": "objecttype",
+    "description": "Denotes the current vc is active or not.Currently, can\u0027t support.Return the default value is \u0027false\u0027.",
+    "maxaccess": "read-only",
+    "name": "hwSvcActive",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwSvcAtmPackOvertime": {
+    "class": "objecttype",
+    "description": "Specifies the AtmPackOvertime.",
+    "maxaccess": "read-create",
+    "name": "hwSvcAtmPackOvertime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 50000,
+            "min": 100
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwSvcBandWidth": {
+    "class": "objecttype",
+    "description": "This object indicates the bandwidth.Currently, can\u0027t support.\u00270\u0027 is the default value.",
+    "maxaccess": "read-create",
+    "name": "hwSvcBandWidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwSvcCir": {
+    "class": "objecttype",
+    "description": "Specifies the committed information rate, based on the SVC entry.",
+    "maxaccess": "read-create",
+    "name": "hwSvcCir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.40",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwSvcCtrlWord": {
+    "class": "objecttype",
+    "description": "If signaling is used for PW establishment, this object indicates the status of the control word negotiation, and in both signaling or manual configuration indicates if CW is to be present or not for this PW.",
+    "maxaccess": "read-create",
+    "name": "hwSvcCtrlWord",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwSvcDelayTime": {
+    "class": "objecttype",
+    "description": "The reroute delay time.Currently, can\u0027t support.Return the default value is \u00270\u0027.",
+    "maxaccess": "read-only",
+    "name": "hwSvcDelayTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwSvcDeleted": {
+    "class": "notificationtype",
+    "description": "This notification indicates the SVC is deleted.",
+    "name": "hwSvcDeleted",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcInboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcOutboundLabel"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.4.5",
+    "status": "current"
+  },
+  "hwSvcDeletedNotifEnable": {
+    "class": "objecttype",
+    "description": "This object indicates the enable sign of PW VC deletion notification. The default value is disable (2).",
+    "maxaccess": "read-write",
+    "name": "hwSvcDeletedNotifEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwSvcDown": {
+    "class": "notificationtype",
+    "description": "This notification indicates the SVC\u0027s state changes to down.",
+    "name": "hwSvcDown",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcInboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcOutboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcStateChangeReason"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcTnlPolicyName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.4.3",
+    "status": "current"
+  },
+  "hwSvcEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of a SVC entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSvcEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1",
+    "status": "current"
+  },
+  "hwSvcForBfdIndex": {
+    "class": "objecttype",
+    "description": "The index of PW for BFD.Currently, can\u0027t support.Return the default value is \u00270\u0027.",
+    "maxaccess": "read-only",
+    "name": "hwSvcForBfdIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwSvcGroup": {
+    "class": "objectgroup",
+    "description": "The L2vpn\u0027s SVC group.",
+    "name": "hwSvcGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcPeerAddrType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcStatus"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcInboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcOutboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcGroupID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcAcStatus"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcACOAMStatus"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcMtu"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcCtrlWord"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcVCCV"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcBandWidth"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcMaxAtmCells"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcTnlPolicyName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcQoSBehaviorIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcPWTemplateName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcUpTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcOAMSync"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcForBfdIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcSecondary"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcDelayTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcReroutePolicy"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcResumeTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcRerouteReason"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcLastRerouteTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcManualSetFault"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcActive"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcUpStartTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcUpSumTime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcAtmPackOvertime"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcPwJitterBufferDepth"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcPwTdmEncapsulationNum"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcPwIdleCode"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcPwRtpHeader"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcRawOrTagged"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcInterworkingType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcCir"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcPir"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcQosProfile"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.3.1",
+    "status": "current"
+  },
+  "hwSvcGroupID": {
+    "class": "objecttype",
+    "description": "Used in the Group ID field sent to the peer PWES within the maintenance protocol used for PW setup. Applicable if SvcOwner equal \u0027pwIdFecSignaling\u0027 or \u0027l2tpControlProtocol\u0027, should be set to zero otherwise. Currently, this value always be zero.",
+    "maxaccess": "read-only",
+    "name": "hwSvcGroupID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwSvcID": {
+    "class": "objecttype",
+    "description": "Index for the conceptual row identifying a PW within this PW Emulation table.Used in the outgoing PW ID field within the \u0027Virtual Circuit FEC Element\u0027.",
+    "maxaccess": "read-create",
+    "name": "hwSvcID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwSvcIfIndex": {
+    "class": "objecttype",
+    "description": "Index of the interface (or the virtual interface) associated with the PW.",
+    "maxaccess": "not-accessible",
+    "name": "hwSvcIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwSvcInboundLabel": {
+    "class": "objecttype",
+    "description": "This object indicates the inbound label.",
+    "maxaccess": "read-create",
+    "name": "hwSvcInboundLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwSvcInterworkingType": {
+    "class": "objecttype",
+    "description": "Specifies the interworking type of the SVC entry.",
+    "maxaccess": "read-create",
+    "name": "hwSvcInterworkingType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.39",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipInterWorking": 1,
+          "ipLayer2": 2,
+          "ipUnknown": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSvcLastRerouteTime": {
+    "class": "objecttype",
+    "description": "Last reroute time.Currently, can\u0027t support.Return the default value is \u00270\u0027.",
+    "maxaccess": "read-only",
+    "name": "hwSvcLastRerouteTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwSvcManualSetFault": {
+    "class": "objecttype",
+    "description": "Denotes the manual has been set fault or not.Currently, can\u0027t support.Return the default value is \u0027false\u0027.",
+    "maxaccess": "read-only",
+    "name": "hwSvcManualSetFault",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwSvcMaxAtmCells": {
+    "class": "objecttype",
+    "description": "Indicates the max cell supported when vc type is atm.",
+    "maxaccess": "read-create",
+    "name": "hwSvcMaxAtmCells",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 28,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwSvcMtu": {
+    "class": "objecttype",
+    "description": "If not equal zero, the optional Mtu object in the signaling protocol will be sent with this value, representing the locally supported MTU size over the interface (or the virtual interface) associated with the PW.Currently, can\u0027t support.\u00270\u0027 is the default value.",
+    "maxaccess": "read-only",
+    "name": "hwSvcMtu",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 9600,
+            "min": 46
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSvcNotificationControlGroup": {
+    "class": "objectgroup",
+    "description": "The L2vpn SVC\u0027s Notification Control group.",
+    "name": "hwSvcNotificationControlGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcSwitchNotifEnable"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcUpDownNotifEnable"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcDeletedNotifEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.3.4",
+    "status": "current"
+  },
+  "hwSvcNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "The L2vpn\u0027s SVC Notification group.",
+    "name": "hwSvcNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcSwitchWtoP"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcSwitchPtoW"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcDown"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcUp"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcDeleted"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.3.6",
+    "status": "current"
+  },
+  "hwSvcOAMSync": {
+    "class": "objecttype",
+    "description": "Denotes the AC and PSN are enable or not.",
+    "maxaccess": "read-only",
+    "name": "hwSvcOAMSync",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwSvcObjects": {
+    "class": "objectidentity",
+    "name": "hwSvcObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3"
+  },
+  "hwSvcOutboundLabel": {
+    "class": "objecttype",
+    "description": "This object indicates the outbound label.",
+    "maxaccess": "read-create",
+    "name": "hwSvcOutboundLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwSvcPWTemplateName": {
+    "class": "objecttype",
+    "description": "Indicates the PW template index referenced.",
+    "maxaccess": "read-create",
+    "name": "hwSvcPWTemplateName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 19,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSvcPeerAddr": {
+    "class": "objecttype",
+    "description": "This object contain the value of the peer node address of the PW/PE maintenance protocol entity. This object SHOULD contain a value of all zeroes if not applicable (hwSvcPeerAddrType is \u0027unknown\u0027).",
+    "maxaccess": "read-create",
+    "name": "hwSvcPeerAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwSvcPeerAddrType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "ipv4"
+      }
+    },
+    "description": "Denotes the address type of the peer node. It should be set to \u0027unknown\u0027 if PE/PW maintenance protocol is not used and the address is unknown. Currently, support \u0027ipv4\u0027 only.",
+    "maxaccess": "read-create",
+    "name": "hwSvcPeerAddrType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwSvcPir": {
+    "class": "objecttype",
+    "description": "Specifies the peak information rate, based on the SVC entry.",
+    "maxaccess": "read-create",
+    "name": "hwSvcPir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.41",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwSvcPwIdleCode": {
+    "class": "objecttype",
+    "description": "Specifies the PwIdleCode.",
+    "maxaccess": "read-create",
+    "name": "hwSvcPwIdleCode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.36",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwSvcPwJitterBufferDepth": {
+    "class": "objecttype",
+    "description": "Specifies the PwJitterBufferDepth.",
+    "maxaccess": "read-create",
+    "name": "hwSvcPwJitterBufferDepth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.34",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwSvcPwRtpHeader": {
+    "class": "objecttype",
+    "description": "Specifies the PwRtpHeader.",
+    "maxaccess": "read-create",
+    "name": "hwSvcPwRtpHeader",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.37",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwSvcPwTdmEncapsulationNum": {
+    "class": "objecttype",
+    "description": "Specifies the PwTdmEncapsulationNum.",
+    "maxaccess": "read-create",
+    "name": "hwSvcPwTdmEncapsulationNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.35",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 40,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwSvcQoSBehaviorIndex": {
+    "class": "objecttype",
+    "description": "Indicates the traffic behavior Index when QOS is implemented. Currently, can\u0027t support.\u00270\u0027 is the default value.",
+    "maxaccess": "read-create",
+    "name": "hwSvcQoSBehaviorIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwSvcQosProfile": {
+    "class": "objecttype",
+    "description": "Specifies the QoS profile\u0027s name, based on the SVC entry.",
+    "maxaccess": "read-create",
+    "name": "hwSvcQosProfile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.42",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwSvcRawOrTagged": {
+    "class": "objecttype",
+    "description": "Specifies whether the VLAN tag of the SVC entry is attached or stripped.",
+    "maxaccess": "read-create",
+    "name": "hwSvcRawOrTagged",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.38",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "raw": 1,
+          "rawTagNotConfiged": 3,
+          "tagged": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSvcReroutePolicy": {
+    "class": "objecttype",
+    "description": "Reroute policy.Currently, can\u0027t support.Return the default value is \u0027invalid(6)\u0027.",
+    "maxaccess": "read-only",
+    "name": "hwSvcReroutePolicy",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delay": 1,
+          "err": 5,
+          "immediately": 2,
+          "invalid": 6,
+          "never": 3,
+          "none": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSvcRerouteReason": {
+    "class": "objecttype",
+    "description": "Last reroute reason.Currently, can\u0027t support.Return the default value is \u0027invalidReason(1)\u0027.",
+    "maxaccess": "read-only",
+    "name": "hwSvcRerouteReason",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWL2VpnStateChangeReason"
+    }
+  },
+  "hwSvcResumeTime": {
+    "class": "objecttype",
+    "description": "The reroute resume time.Currently, can\u0027t support.Return the default value is \u00270\u0027.",
+    "maxaccess": "read-only",
+    "name": "hwSvcResumeTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwSvcRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus for this Table. Restriction: The row must be created by \u0027createAndGo\u0027 handle only. Handle \u0027createAndWait\u0027 is forbidden. Not support modifying configuration.",
+    "maxaccess": "read-create",
+    "name": "hwSvcRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwSvcSecondary": {
+    "class": "objecttype",
+    "description": "Indicates whether or not the secondary PW is used.Currently, can\u0027t support.Return the default value is \u0027false\u0027.",
+    "maxaccess": "read-create",
+    "name": "hwSvcSecondary",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwSvcStateChangeReason": {
+    "class": "objecttype",
+    "description": "This object indicates the reason of PE VC state change.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwSvcStateChangeReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWL2VpnStateChangeReason"
+    }
+  },
+  "hwSvcStateChangeReasonGroup": {
+    "class": "objectgroup",
+    "description": "The L2vpn\u0027s SVc State Reason group.",
+    "name": "hwSvcStateChangeReasonGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcStateChangeReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.3.5",
+    "status": "current"
+  },
+  "hwSvcStatisticsEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of the L2VPN\u0027s SVC packets Statistics.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSvcStatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.3.1",
+    "status": "current"
+  },
+  "hwSvcStatisticsGroup": {
+    "class": "objectgroup",
+    "description": "The L2vpn\u0027s SVC Statistics group.",
+    "name": "hwSvcStatisticsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcStatisticsRcvPkts"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcStatisticsRcvBytes"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcStatisticsSndPkts"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcStatisticsSndBytes"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.3.3",
+    "status": "current"
+  },
+  "hwSvcStatisticsRcvBytes": {
+    "class": "objecttype",
+    "description": "The total number of bytes received on this SVC.",
+    "maxaccess": "read-only",
+    "name": "hwSvcStatisticsRcvBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSvcStatisticsRcvPkts": {
+    "class": "objecttype",
+    "description": "The total number of packets received on this SVC.",
+    "maxaccess": "read-only",
+    "name": "hwSvcStatisticsRcvPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSvcStatisticsSndBytes": {
+    "class": "objecttype",
+    "description": "The total number of bytes sent on the SVC.",
+    "maxaccess": "read-only",
+    "name": "hwSvcStatisticsSndBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSvcStatisticsSndPkts": {
+    "class": "objecttype",
+    "description": "The total number of packets sent on this SVC.",
+    "maxaccess": "read-only",
+    "name": "hwSvcStatisticsSndPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSvcStatisticsTable": {
+    "class": "objecttype",
+    "description": "This table contains the L2vpn\u0027s SVC packets statistics.",
+    "maxaccess": "not-accessible",
+    "name": "hwSvcStatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.3",
+    "status": "current"
+  },
+  "hwSvcStatus": {
+    "class": "objecttype",
+    "description": "Indicates the status of the PW in the local node. Currently, can\u0027t support \u0027plugout\u0027.",
+    "maxaccess": "read-only",
+    "name": "hwSvcStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "plugout": 3,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSvcSwitchNotifEnable": {
+    "class": "objecttype",
+    "description": "If this object is set to enable(1), then it enables the emission of hwSvcSwitchWtoP and hwSvcSwitchPtoW notifications; otherwise these notifications are not emitted.Currently, can\u0027t support. The default value is disable (2).",
+    "maxaccess": "read-write",
+    "name": "hwSvcSwitchNotifEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwSvcSwitchPtoW": {
+    "class": "notificationtype",
+    "description": "This notification is generated when switch from protect PW to working PW happens.Currently, can\u0027t support.",
+    "name": "hwSvcSwitchPtoW",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcCtrlWord"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcStateChangeReason"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.4.2",
+    "status": "current"
+  },
+  "hwSvcSwitchWtoP": {
+    "class": "notificationtype",
+    "description": "This notification is generated when switch from working PW to protect PW happens.Currently, can\u0027t support.",
+    "name": "hwSvcSwitchWtoP",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcCtrlWord"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcStateChangeReason"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.4.1",
+    "status": "current"
+  },
+  "hwSvcTable": {
+    "class": "objecttype",
+    "description": "This table is the SVC configuration table. Users can create or delete a SVC by it.",
+    "maxaccess": "not-accessible",
+    "name": "hwSvcTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1",
+    "status": "current"
+  },
+  "hwSvcTnlEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of a SVC tunnel entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcTnlIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSvcTnlEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.2.1",
+    "status": "current"
+  },
+  "hwSvcTnlForBfdIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the index of LSP for BFD. Currently, can\u0027t support.Return the default value is \u00270\u0027.",
+    "maxaccess": "read-only",
+    "name": "hwSvcTnlForBfdIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwSvcTnlGroup": {
+    "class": "objectgroup",
+    "description": "The L2vpn\u0027s SVC Tunnel group.",
+    "name": "hwSvcTnlGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcTnlType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcTnlForBfdIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.3.3.2",
+    "status": "current"
+  },
+  "hwSvcTnlIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the tunnel index of the SVC.",
+    "maxaccess": "not-accessible",
+    "name": "hwSvcTnlIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwSvcTnlPolicyName": {
+    "class": "objecttype",
+    "description": "Indicates the tunnel policy name used.",
+    "maxaccess": "read-create",
+    "name": "hwSvcTnlPolicyName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 39,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSvcTnlTable": {
+    "class": "objecttype",
+    "description": "This table is used to search the tunnel index of a SVC.",
+    "maxaccess": "not-accessible",
+    "name": "hwSvcTnlTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.2",
+    "status": "current"
+  },
+  "hwSvcTnlType": {
+    "class": "objecttype",
+    "description": "This object indicates the tunnel type.",
+    "maxaccess": "read-only",
+    "name": "hwSvcTnlType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "crLsp": 4,
+          "gre": 2,
+          "ipsec": 3,
+          "lsp": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSvcType": {
+    "class": "objecttype",
+    "description": "Index for the conceptual row identifying a PW within this PW Emulation table.This value indicate the service to be carried over this PW.",
+    "maxaccess": "read-create",
+    "name": "hwSvcType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWL2VpnVcEncapsType"
+    }
+  },
+  "hwSvcUp": {
+    "class": "notificationtype",
+    "description": "This notification indicates the SVC\u0027s state changes to up.",
+    "name": "hwSvcUp",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcID"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcType"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcInboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcOutboundLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcStateChangeReason"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwSvcTnlPolicyName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.4.4",
+    "status": "current"
+  },
+  "hwSvcUpDownNotifEnable": {
+    "class": "objecttype",
+    "description": "This object indicates the enable sign of PW VC state change notification. The default value is disable (2).",
+    "maxaccess": "read-write",
+    "name": "hwSvcUpDownNotifEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwSvcUpStartTime": {
+    "class": "objecttype",
+    "description": "Specifies the time this PW status was Up(1).",
+    "maxaccess": "read-only",
+    "name": "hwSvcUpStartTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwSvcUpSumTime": {
+    "class": "objecttype",
+    "description": "Indicates the accumulated time when the SVC is Up, in seconds.",
+    "maxaccess": "read-only",
+    "name": "hwSvcUpSumTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwSvcUpTime": {
+    "class": "objecttype",
+    "description": "Indicates the duration when the SVC keeps Up for the last time, in seconds.",
+    "maxaccess": "read-only",
+    "name": "hwSvcUpTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwSvcVCCV": {
+    "class": "objecttype",
+    "description": "Indicates the optional VCCV capabilities of the SVC. According to whether the control word is enabled, the value can be ccCw(0)|ccAlert(1)|cvLspping(4)|cvBfd(5) or ccAlert(1)|cvLspping(4)|cvBfd(5). The default value is ccAlert(1)|cvLspping(4)|cvBfd(5).",
+    "maxaccess": "read-create",
+    "name": "hwSvcVCCV",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.4.1.3.1.1.14",
+    "status": "current",
+    "syntax": {
+      "bits": {
+        "ccAlert": 1,
+        "ccCw": 0,
+        "ccLabel": 2,
+        "cvBfd": 5,
+        "cvIcmpping": 3,
+        "cvLspping": 4
+      },
+      "class": "type",
+      "type": "Bits"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "HUAWEI-VPLS-EXT-MIB": [
+      "HWL2VpnVcEncapsType",
+      "HWL2VpnStateChangeReason",
+      "HWEnableValue"
+    ],
+    "IF-MIB": [
+      "ifName",
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-MIB": [
+      "sysUpTime"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Bits",
+      "MibIdentifier",
+      "Unsigned32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "BITS",
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-PWE3-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:53 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-PWE3-MIB"
+  }
+}

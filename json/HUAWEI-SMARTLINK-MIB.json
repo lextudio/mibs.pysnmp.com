@@ -1,0 +1,1431 @@
+{
+  "hwL2Mgmt": {
+    "class": "objectidentity",
+    "name": "hwL2Mgmt",
+    "oid": "1.3.6.1.4.1.2011.5.25.42"
+  },
+  "hwMonitorLinkDlArrayIndex": {
+    "class": "objecttype",
+    "description": "The downlink array index of Monitor link group.",
+    "maxaccess": "not-accessible",
+    "name": "hwMonitorLinkDlArrayIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.12.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMonitorLinkDlGroupId": {
+    "class": "objecttype",
+    "description": "Monitor link group index.",
+    "maxaccess": "not-accessible",
+    "name": "hwMonitorLinkDlGroupId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.12.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMonitorLinkDlIfIndex": {
+    "class": "objecttype",
+    "description": "Member interface index of monitor link group downlink.",
+    "maxaccess": "read-create",
+    "name": "hwMonitorLinkDlIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.12.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwMonitorLinkDlPortDownTime": {
+    "class": "objecttype",
+    "description": "Show the time when the port state turn to DOWN recently.",
+    "maxaccess": "read-only",
+    "name": "hwMonitorLinkDlPortDownTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.12.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 8,
+            "min": 8
+          }
+        ]
+      },
+      "type": "DateAndTime"
+    }
+  },
+  "hwMonitorLinkDlPortStatus": {
+    "class": "objecttype",
+    "description": "State of member port in monitor group, include UP and DOWN.",
+    "maxaccess": "read-only",
+    "name": "hwMonitorLinkDlPortStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.12.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMonitorLinkDlPortUpTime": {
+    "class": "objecttype",
+    "description": "Show the time when the port state turn to UP recently.",
+    "maxaccess": "read-only",
+    "name": "hwMonitorLinkDlPortUpTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.12.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 8,
+            "min": 8
+          }
+        ]
+      },
+      "type": "DateAndTime"
+    }
+  },
+  "hwMonitorLinkDlRowStatus": {
+    "class": "objecttype",
+    "description": "Status of monitor link group row.",
+    "maxaccess": "read-create",
+    "name": "hwMonitorLinkDlRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.12.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMonitorLinkDownLinkPortEntry": {
+    "class": "objecttype",
+    "description": "This is the information table of member port in monitor link group downlink, The table indexes are hwMonitorLinkDlGroupId and hwMonitorLinkDlArrayIndex.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwMonitorLinkDlGroupId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwMonitorLinkDlArrayIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMonitorLinkDownLinkPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.12.1",
+    "status": "current"
+  },
+  "hwMonitorLinkDownLinkPortGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing monitor link group downlink port configuration.",
+    "name": "hwMonitorLinkDownLinkPortGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwMonitorLinkDlIfIndex"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwMonitorLinkDlPortStatus"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwMonitorLinkDlPortUpTime"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwMonitorLinkDlPortDownTime"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwMonitorLinkDlRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.3.1.7",
+    "status": "current"
+  },
+  "hwMonitorLinkDownLinkPortTable": {
+    "class": "objecttype",
+    "description": "This is the information table of member port in monitor link group downlink, The table indexes are hwMonitorLinkDlGroupId and hwMonitorLinkDlArrayIndex.",
+    "maxaccess": "not-accessible",
+    "name": "hwMonitorLinkDownLinkPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.12",
+    "status": "current"
+  },
+  "hwMonitorLinkGcGroupId": {
+    "class": "objecttype",
+    "description": "Monitor link group index.",
+    "maxaccess": "not-accessible",
+    "name": "hwMonitorLinkGcGroupId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.10.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMonitorLinkGcRecoverTime": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "Set recover time, when uplink port turn to UP and over the recover time, all downlink port will be undo shutdown.",
+    "maxaccess": "read-create",
+    "name": "hwMonitorLinkGcRecoverTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.10.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 60,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMonitorLinkGcRowStatus": {
+    "class": "objecttype",
+    "description": "Status of monitor link group row.",
+    "maxaccess": "read-create",
+    "name": "hwMonitorLinkGcRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.10.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMonitorLinkGroupCfgEntry": {
+    "class": "objecttype",
+    "description": "This is status information table of monitor link group, and index is hwMonitorLinkGcGroupId.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwMonitorLinkGcGroupId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMonitorLinkGroupCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.10.1",
+    "status": "current"
+  },
+  "hwMonitorLinkGroupCfgGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects provding monitor link group information. ",
+    "name": "hwMonitorLinkGroupCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwMonitorLinkGcRecoverTime"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwMonitorLinkGcRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.3.1.5",
+    "status": "current"
+  },
+  "hwMonitorLinkGroupCfgTable": {
+    "class": "objecttype",
+    "description": "This is status information table of monitor link group, and index is hwMonitorLinkGcGroupId.",
+    "maxaccess": "not-accessible",
+    "name": "hwMonitorLinkGroupCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.10",
+    "status": "current"
+  },
+  "hwMonitorLinkUlGroupId": {
+    "class": "objecttype",
+    "description": "Monitor link group index.",
+    "maxaccess": "not-accessible",
+    "name": "hwMonitorLinkUlGroupId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.11.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMonitorLinkUlPortDownTime": {
+    "class": "objecttype",
+    "description": "Show the time when the port state turn to DOWN recently.",
+    "maxaccess": "read-only",
+    "name": "hwMonitorLinkUlPortDownTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.11.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 8,
+            "min": 8
+          }
+        ]
+      },
+      "type": "DateAndTime"
+    }
+  },
+  "hwMonitorLinkUlPortStatus": {
+    "class": "objecttype",
+    "description": "State of member port in monitor group, include UP and DOWN.",
+    "maxaccess": "read-only",
+    "name": "hwMonitorLinkUlPortStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.11.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMonitorLinkUlPortType": {
+    "class": "objecttype",
+    "description": "Type of uplink port in monitor link group, include smart link group and switch port.",
+    "maxaccess": "not-accessible",
+    "name": "hwMonitorLinkUlPortType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.11.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "smartLink": 1,
+          "switchPort": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMonitorLinkUlPortUpTime": {
+    "class": "objecttype",
+    "description": "Show the time when the port state turn to UP recently.",
+    "maxaccess": "read-only",
+    "name": "hwMonitorLinkUlPortUpTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.11.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 8,
+            "min": 8
+          }
+        ]
+      },
+      "type": "DateAndTime"
+    }
+  },
+  "hwMonitorLinkUlPortValue": {
+    "class": "objecttype",
+    "description": "When port type is smart link, the value is smart link group index. When port type is switch port, the value is ifindex of switch port.",
+    "maxaccess": "read-create",
+    "name": "hwMonitorLinkUlPortValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.11.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMonitorLinkUlRowStatus": {
+    "class": "objecttype",
+    "description": "Status of monitor link group row.",
+    "maxaccess": "read-create",
+    "name": "hwMonitorLinkUlRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.11.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMonitorLinkUpLinkPortEntry": {
+    "class": "objecttype",
+    "description": "This is the information table of member port in monitor link group upink, The table indexes are hwMonitorLinkUlGroupId and hwMonitorLinkUlPortType.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwMonitorLinkUlGroupId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwMonitorLinkUlPortType"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMonitorLinkUpLinkPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.11.1",
+    "status": "current"
+  },
+  "hwMonitorLinkUpLinkPortGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing monitor link group uplink port configuration.",
+    "name": "hwMonitorLinkUpLinkPortGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwMonitorLinkUlPortValue"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwMonitorLinkUlPortStatus"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwMonitorLinkUlPortUpTime"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwMonitorLinkUlPortDownTime"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwMonitorLinkUlRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.3.1.6",
+    "status": "current"
+  },
+  "hwMonitorLinkUpLinkPortTable": {
+    "class": "objecttype",
+    "description": "This is the information table of member port in monitor link group upink, The table indexes are hwMonitorLinkUlGroupId, hwMonitorLinkUlPortType.",
+    "maxaccess": "not-accessible",
+    "name": "hwMonitorLinkUpLinkPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.11",
+    "status": "current"
+  },
+  "hwSmartLinkCompliances": {
+    "class": "objectidentity",
+    "name": "hwSmartLinkCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.3.3"
+  },
+  "hwSmartLinkConformance": {
+    "class": "objectidentity",
+    "name": "hwSmartLinkConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.3"
+  },
+  "hwSmartLinkGcEnable": {
+    "class": "objecttype",
+    "description": "Startup or close the smart link group. Before startup the smart link group, the group must be created.",
+    "maxaccess": "read-create",
+    "name": "hwSmartLinkGcEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.8.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwSmartLinkGcForce": {
+    "class": "objecttype",
+    "description": "Active port was locked on slave port.",
+    "maxaccess": "read-create",
+    "name": "hwSmartLinkGcForce",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.8.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwSmartLinkGcGroupId": {
+    "class": "objecttype",
+    "description": "Smart link group index.",
+    "maxaccess": "not-accessible",
+    "name": "hwSmartLinkGcGroupId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSmartLinkGcGroupStatus": {
+    "class": "objecttype",
+    "description": "Working status of smart link group, include none, master and slave. none: all ports in group are inactive. Master: master port is active, and slave port is inactive. Slave: master port is inactive, and slave port is active.",
+    "maxaccess": "read-only",
+    "name": "hwSmartLinkGcGroupStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.8.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 2,
+          "none": 1,
+          "slave": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSmartLinkGcLock": {
+    "class": "objecttype",
+    "description": "Active port was locked on master port",
+    "maxaccess": "read-create",
+    "name": "hwSmartLinkGcLock",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.8.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwSmartLinkGcManual": {
+    "class": "objecttype",
+    "description": "The link was switched every setting manual command.",
+    "maxaccess": "read-create",
+    "name": "hwSmartLinkGcManual",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.8.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "switch": 1,
+          "unused": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSmartLinkGcMasterIfIndex": {
+    "class": "objecttype",
+    "description": "The master interface index of smart link group.",
+    "maxaccess": "read-only",
+    "name": "hwSmartLinkGcMasterIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.8.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwSmartLinkGcRevertEnable": {
+    "class": "objecttype",
+    "description": "When wait-to-restore timer is over, the smart link group link will be switched.",
+    "maxaccess": "read-create",
+    "name": "hwSmartLinkGcRevertEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.8.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwSmartLinkGcRevertWtrTime": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 60
+      }
+    },
+    "description": "Set wait-to-restore time.",
+    "maxaccess": "read-create",
+    "name": "hwSmartLinkGcRevertWtrTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.8.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1200,
+            "min": 30
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSmartLinkGcRowStatus": {
+    "class": "objecttype",
+    "description": "Status of smart link group row.",
+    "maxaccess": "read-create",
+    "name": "hwSmartLinkGcRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.8.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwSmartLinkGcSendControlVlan": {
+    "class": "objecttype",
+    "description": "Set the tag of flush packets which send from this smart link group.",
+    "maxaccess": "read-create",
+    "name": "hwSmartLinkGcSendControlVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.8.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrNone"
+    }
+  },
+  "hwSmartLinkGcSendPassword": {
+    "class": "objecttype",
+    "description": "Set password of flush packets which send from this smart link group.",
+    "maxaccess": "read-create",
+    "name": "hwSmartLinkGcSendPassword",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.8.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSmartLinkGcSlaveIfIndex": {
+    "class": "objecttype",
+    "description": "The slave interface index of smart link group.",
+    "maxaccess": "read-only",
+    "name": "hwSmartLinkGcSlaveIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.8.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwSmartLinkGroupCfgEntry": {
+    "class": "objecttype",
+    "description": "The table includes the information of the smart link group configuration information. The index of the table is hwSmartLinkGcGroupId.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkGcGroupId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSmartLinkGroupCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.8.1",
+    "status": "current"
+  },
+  "hwSmartLinkGroupCfgGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing smart link group status information.",
+    "name": "hwSmartLinkGroupCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkGcMasterIfIndex"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkGcSlaveIfIndex"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkGcGroupStatus"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkGcEnable"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkGcSendControlVlan"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkGcSendPassword"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkGcLock"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkGcForce"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkGcRevertWtrTime"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkGcRevertEnable"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkGcManual"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkGcRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.3.1.3",
+    "status": "current"
+  },
+  "hwSmartLinkGroupCfgTable": {
+    "class": "objecttype",
+    "description": "The table includes the information of the smart link group configuration information, and include the mode of smart link group, working status of group, control vlan of group etc.",
+    "maxaccess": "not-accessible",
+    "name": "hwSmartLinkGroupCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.8",
+    "status": "current"
+  },
+  "hwSmartLinkGroupDisable": {
+    "class": "notificationtype",
+    "description": "The SNMP trap that is generated when smart link group was disabled.",
+    "name": "hwSmartLinkGroupDisable",
+    "objects": [
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkGcEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.2.5",
+    "status": "current"
+  },
+  "hwSmartLinkGroupDown": {
+    "class": "notificationtype",
+    "description": "The SNMP trap that is generated when detect the group turn to down.",
+    "name": "hwSmartLinkGroupDown",
+    "objects": [
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkGcGroupStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.2.9",
+    "status": "current"
+  },
+  "hwSmartLinkGroupEnable": {
+    "class": "notificationtype",
+    "description": "The SNMP trap that is generated when smart link group was enabled.",
+    "name": "hwSmartLinkGroupEnable",
+    "objects": [
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkGcEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.2.4",
+    "status": "current"
+  },
+  "hwSmartLinkGroupUp": {
+    "class": "notificationtype",
+    "description": "The SNMP trap that is generated when detect the group turn to up.",
+    "name": "hwSmartLinkGroupUp",
+    "objects": [
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkGcGroupStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.2.8",
+    "status": "current"
+  },
+  "hwSmartLinkGroups": {
+    "class": "objectidentity",
+    "name": "hwSmartLinkGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.3.1"
+  },
+  "hwSmartLinkInactiveLinkFail": {
+    "class": "notificationtype",
+    "description": "The SNMP trap that is generated when detect the link change to abnormal status.",
+    "name": "hwSmartLinkInactiveLinkFail",
+    "objects": [
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkPcIfIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.2.2",
+    "status": "current"
+  },
+  "hwSmartLinkInactiveLinkResume": {
+    "class": "notificationtype",
+    "description": "The SNMP trap that is generated when detect the link change to normal status from abnormal status.",
+    "name": "hwSmartLinkInactiveLinkResume",
+    "objects": [
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkPcIfIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.2.3",
+    "status": "current"
+  },
+  "hwSmartLinkInfoGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing smart link information.",
+    "name": "hwSmartLinkInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkRevFlushTotal"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkRevLastFlushIfIndex"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkRevLastFlushTime"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkRevLastFlushSourceMacAddr"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkRevLastFlushVlan"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkResetFlushStatistics"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.3.1.1",
+    "status": "current"
+  },
+  "hwSmartLinkLinkSwitch": {
+    "class": "notificationtype",
+    "description": "The SNMP trap that is generated when smart link group link status switches.",
+    "name": "hwSmartLinkLinkSwitch",
+    "objects": [
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkGcGroupStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.2.1",
+    "status": "current"
+  },
+  "hwSmartLinkLinkSwitchToMaster": {
+    "class": "notificationtype",
+    "description": "The SNMP trap that is generated when detect the link change to master from slave.",
+    "name": "hwSmartLinkLinkSwitchToMaster",
+    "objects": [
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkGcGroupStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.2.6",
+    "status": "current"
+  },
+  "hwSmartLinkLinkSwitchToSlave": {
+    "class": "notificationtype",
+    "description": "The SNMP trap that is generated when detect the link change to slave from master.",
+    "name": "hwSmartLinkLinkSwitchToSlave",
+    "objects": [
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkGcGroupStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.2.7",
+    "status": "current"
+  },
+  "hwSmartLinkMib": {
+    "class": "moduleidentity",
+    "contactinfo": "CX Team Huawei Technologies Co.,Ltd. Shouchuang Bld.,NO.8 Dongbeiwang West Rd., Zhongguancun Software Park, Hai-Dian District Beijing P.R. China http://www.huawei.com Zip:100094",
+    "description": "This module includes the information about smart link. The information can be read and some of them can be set.",
+    "lastupdated": "200803111355Z",
+    "name": "hwSmartLinkMib",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5",
+    "organization": "Huawei Technologies Co.,Ltd."
+  },
+  "hwSmartLinkMibObjects": {
+    "class": "objectidentity",
+    "name": "hwSmartLinkMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1"
+  },
+  "hwSmartLinkMibTraps": {
+    "class": "objectidentity",
+    "description": "Definition point for smart link group notifications.",
+    "name": "hwSmartLinkMibTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.2",
+    "status": "current"
+  },
+  "hwSmartLinkPcGroupId": {
+    "class": "objecttype",
+    "description": "Smart link group index.",
+    "maxaccess": "not-accessible",
+    "name": "hwSmartLinkPcGroupId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.9.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSmartLinkPcIfIndex": {
+    "class": "objecttype",
+    "description": "Interface index of member port of smart link group.",
+    "maxaccess": "read-create",
+    "name": "hwSmartLinkPcIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.9.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwSmartLinkPcPortStatus": {
+    "class": "objecttype",
+    "description": "The status of member port, include unknown, active and inactive.",
+    "maxaccess": "read-only",
+    "name": "hwSmartLinkPcPortStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.9.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 2,
+          "inactive": 3,
+          "unknown": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSmartLinkPcPortType": {
+    "class": "objecttype",
+    "description": "The role of smart link group member port.",
+    "maxaccess": "not-accessible",
+    "name": "hwSmartLinkPcPortType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.9.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSmartLinkPcRowStatus": {
+    "class": "objecttype",
+    "description": "Status of monitor link group row.",
+    "maxaccess": "read-create",
+    "name": "hwSmartLinkPcRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.9.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwSmartLinkPcSendFlushNum": {
+    "class": "objecttype",
+    "description": "The total of flush packets send from this port.",
+    "maxaccess": "read-only",
+    "name": "hwSmartLinkPcSendFlushNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.9.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwSmartLinkPcSendFlushTime": {
+    "class": "objecttype",
+    "description": "The time when send flush packet lastly. field octets contents range ----- ------ -------- ----- 1 1-2 year 0..65536 2 3 month 1..12 3 4 day 1..31 4 5 hour 0..23 5 6 minutes 0..59 6 7 seconds 0..60 (use 60 for leap-second) 7 8 deci-seconds 0..9",
+    "maxaccess": "read-only",
+    "name": "hwSmartLinkPcSendFlushTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.9.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 8,
+            "min": 8
+          }
+        ]
+      },
+      "type": "DateAndTime"
+    }
+  },
+  "hwSmartLinkPortCfgEntry": {
+    "class": "objecttype",
+    "description": "This table described that configuration relation of member port of smart link group. This table index is hwSmartLinkPcGroupId and hwSmartLinkPcPortType.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkPcGroupId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkPcPortType"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSmartLinkPortCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.9.1",
+    "status": "current"
+  },
+  "hwSmartLinkPortCfgGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing smart link port configuration.",
+    "name": "hwSmartLinkPortCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkPcIfIndex"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkPcPortStatus"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkPcSendFlushNum"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkPcSendFlushTime"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkPcRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.3.1.4",
+    "status": "current"
+  },
+  "hwSmartLinkPortCfgTable": {
+    "class": "objecttype",
+    "description": "This table is the configuration table of member port of smart link group. This table described that configuration relation of member port of smart link group. This table index is hwSmartLinkPcGroupId and hwSmartLinkPcPortType.",
+    "maxaccess": "not-accessible",
+    "name": "hwSmartLinkPortCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.9",
+    "status": "current"
+  },
+  "hwSmartLinkResetFlushStatistics": {
+    "class": "objecttype",
+    "description": "Reset the statistics of flush packets.",
+    "maxaccess": "read-write",
+    "name": "hwSmartLinkResetFlushStatistics",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleared": 1,
+          "unused": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSmartLinkRevFlushTotal": {
+    "class": "objecttype",
+    "description": "The total of received flush packets.",
+    "maxaccess": "read-only",
+    "name": "hwSmartLinkRevFlushTotal",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwSmartLinkRevLastFlushIfIndex": {
+    "class": "objecttype",
+    "description": "The interface index of port which received flush packet lastly.",
+    "maxaccess": "read-only",
+    "name": "hwSmartLinkRevLastFlushIfIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwSmartLinkRevLastFlushSourceMacAddr": {
+    "class": "objecttype",
+    "description": "The SMAC of flush packet which arrived this device lastly.",
+    "maxaccess": "read-only",
+    "name": "hwSmartLinkRevLastFlushSourceMacAddr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwSmartLinkRevLastFlushTime": {
+    "class": "objecttype",
+    "description": "The time when received flush packet lastly. field octets contents range ----- ------ -------- ----- 1 1-2 year 0..65536 2 3 month 1..12 3 4 day 1..31 4 5 hour 0..23 5 6 minutes 0..59 6 7 seconds 0..60 (use 60 for leap-second) 7 8 deci-seconds 0..9",
+    "maxaccess": "read-only",
+    "name": "hwSmartLinkRevLastFlushTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 8,
+            "min": 8
+          }
+        ]
+      },
+      "type": "DateAndTime"
+    }
+  },
+  "hwSmartLinkRevLastFlushVlan": {
+    "class": "objecttype",
+    "description": "The control VLAN of flush packet which arrived this device lastly.",
+    "maxaccess": "read-only",
+    "name": "hwSmartLinkRevLastFlushVlan",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrNone"
+    }
+  },
+  "hwSmartLinkRevPortCfgEntry": {
+    "class": "objecttype",
+    "description": "The table includes the information of the received flush packet port configuration information. The index of the table is hwSmartLinkRpcIfIndex.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkRpcIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSmartLinkRevPortCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.7.1",
+    "status": "current"
+  },
+  "hwSmartLinkRevPortCfgGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing port configuration which received flush packet.",
+    "name": "hwSmartLinkRevPortCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkRpcRevVlan"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkRpcRevPassword"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.3.1.2",
+    "status": "current"
+  },
+  "hwSmartLinkRevPortCfgTable": {
+    "class": "objecttype",
+    "description": "This is port configuration table which received flush packet, and configuration relation of port received flush packet was described. The index of table is hwSmartLinkRpcIfIndex.",
+    "maxaccess": "not-accessible",
+    "name": "hwSmartLinkRevPortCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.7",
+    "status": "current"
+  },
+  "hwSmartLinkRpcIfIndex": {
+    "class": "objecttype",
+    "description": "The index of port from which received flush packets.",
+    "maxaccess": "not-accessible",
+    "name": "hwSmartLinkRpcIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwSmartLinkRpcRevPassword": {
+    "class": "objecttype",
+    "description": "Set the password to verify the validity of flush packets received.",
+    "maxaccess": "read-write",
+    "name": "hwSmartLinkRpcRevPassword",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSmartLinkRpcRevVlan": {
+    "class": "objecttype",
+    "description": "Set the VLAN ID to verify the validity of flush packets received. Ranging from 1 to 4094.",
+    "maxaccess": "read-write",
+    "name": "hwSmartLinkRpcRevVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.1.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrNone"
+    }
+  },
+  "hwSmartLinkTrapGroups": {
+    "class": "objectidentity",
+    "name": "hwSmartLinkTrapGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.3.2"
+  },
+  "hwSmartLinkTrapsGroup": {
+    "class": "notificationgroup",
+    "description": "The Group of smart link Trap.",
+    "name": "hwSmartLinkTrapsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkLinkSwitch"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkInactiveLinkFail"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkInactiveLinkResume"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkGroupEnable"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkGroupDisable"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkLinkSwitchToMaster"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkLinkSwitchToSlave"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkGroupUp"
+      },
+      {
+        "module": "HUAWEI-SMARTLINK-MIB",
+        "object": "hwSmartLinkGroupDown"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.5.3.2.1",
+    "status": "current"
+  },
+  "imports": {
+    "BRIDGE-MIB": [
+      "MacAddress"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIdOrNone"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "iso",
+      "Bits",
+      "Unsigned32",
+      "Gauge32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "MibIdentifier",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-SMARTLINK-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:58 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-SMARTLINK-MIB"
+  }
+}

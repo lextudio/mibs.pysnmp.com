@@ -1,0 +1,275 @@
+{
+  "hwMsdp": {
+    "class": "objectidentity",
+    "name": "hwMsdp",
+    "oid": "1.3.6.1.4.1.2011.5.25.218.1.1"
+  },
+  "hwMsdpInstanceID": {
+    "class": "objecttype",
+    "description": "The instance ID of the trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMsdpInstanceID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.218.1.1.2.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMsdpInstanceName": {
+    "class": "objecttype",
+    "description": "The instance name of the trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMsdpInstanceName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.218.1.1.2.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMsdpMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "The MIB module for management of PIM routers. Huawei Technologies co.,Ltd . Supplementary information may be available at: http://www.huawei.com",
+    "lastupdated": "201502050000Z",
+    "name": "hwMsdpMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.218",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "Delete hwPimTuningParametersGroup from hwMsdpMIBFullCompliance.",
+        "revision": "2015-02-05 00:00"
+      },
+      {
+        "description": "The initial revision of this Mib module.",
+        "revision": "2009-10-31 00:00"
+      }
+    ]
+  },
+  "hwMsdpMIBCompliance": {
+    "class": "modulecompliance",
+    "description": "Description.",
+    "name": "hwMsdpMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.218.1.1.4.1.1",
+    "status": "deprecated"
+  },
+  "hwMsdpMIBCompliances": {
+    "class": "objectidentity",
+    "name": "hwMsdpMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.218.1.1.4.1"
+  },
+  "hwMsdpMIBConformance": {
+    "class": "objectidentity",
+    "name": "hwMsdpMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.218.1.1.4"
+  },
+  "hwMsdpMIBFullCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for HUAWEI-MSDP MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-MSDP-MIB",
+        "object": "hwMsdpMIBPeerGroup"
+      },
+      {
+        "module": "HUAWEI-MSDP-MIB",
+        "object": "hwMsdpMIBNotificationGroup"
+      },
+      {
+        "module": "HUAWEI-MSDP-MIB",
+        "object": "hwMsdpMIBPeerGroup"
+      }
+    ],
+    "name": "hwMsdpMIBFullCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.218.1.1.4.1.2",
+    "status": "current"
+  },
+  "hwMsdpMIBGroups": {
+    "class": "objectidentity",
+    "name": "hwMsdpMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.218.1.1.4.2"
+  },
+  "hwMsdpMIBNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "Description.",
+    "name": "hwMsdpMIBNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MSDP-MIB",
+        "object": "hwMsdpNeighborUnavailable"
+      },
+      {
+        "module": "HUAWEI-MSDP-MIB",
+        "object": "hwMsdpNeighborUnvailableClear"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.218.1.1.4.2.2",
+    "status": "current"
+  },
+  "hwMsdpMIBObjects": {
+    "class": "objectidentity",
+    "name": "hwMsdpMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.218.1"
+  },
+  "hwMsdpMIBPeerGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwMsdpMIBPeerGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MSDP-MIB",
+        "object": "hwMsdpNotificationReason"
+      },
+      {
+        "module": "HUAWEI-MSDP-MIB",
+        "object": "hwMsdpInstanceName"
+      },
+      {
+        "module": "HUAWEI-MSDP-MIB",
+        "object": "hwMsdpInstanceID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.218.1.1.4.2.1",
+    "status": "current"
+  },
+  "hwMsdpNeighborUnavailable": {
+    "class": "notificationtype",
+    "description": "A hwMsdpNeighborUnavailable notification signifies that the MSDP peer is unavailable.",
+    "name": "hwMsdpNeighborUnavailable",
+    "objects": [
+      {
+        "module": "HUAWEI-MSDP-MIB",
+        "object": "hwMsdpInstanceID"
+      },
+      {
+        "module": "HUAWEI-MSDP-MIB",
+        "object": "hwMsdpInstanceName"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerState"
+      },
+      {
+        "module": "HUAWEI-MSDP-MIB",
+        "object": "hwMsdpNotificationReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.218.1.1.3.1",
+    "status": "current"
+  },
+  "hwMsdpNeighborUnvailableClear": {
+    "class": "notificationtype",
+    "description": "A hwMsdpNeighborUnvailableClear notification signifies that the MSDP peer is available.",
+    "name": "hwMsdpNeighborUnvailableClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MSDP-MIB",
+        "object": "hwMsdpInstanceID"
+      },
+      {
+        "module": "HUAWEI-MSDP-MIB",
+        "object": "hwMsdpInstanceName"
+      },
+      {
+        "module": "MSDP-MIB",
+        "object": "msdpPeerState"
+      },
+      {
+        "module": "HUAWEI-MSDP-MIB",
+        "object": "hwMsdpNotificationReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.218.1.1.3.2",
+    "status": "current"
+  },
+  "hwMsdpNotificationReason": {
+    "class": "objecttype",
+    "description": "The reason for trap sending. 1.HoldTime expired 2.TCP not establish 3.Socket error 4.Receive invalid TLV 5.Receive notification TLV 6.User operation 7.Peer Up again 8.Delete peer 9.Alarm timeout 100.Alarm Clear",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMsdpNotificationReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.218.1.1.2.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarmClear": 100,
+          "alarmTimeout": 9,
+          "deletePeer": 8,
+          "holdTimerExpired": 1,
+          "peerUpAgain": 7,
+          "receiveInvalidTLV": 4,
+          "receiveNotificationTLV": 5,
+          "sockerError": 3,
+          "tcpNotEstablish": 2,
+          "userOperation": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMsdpObjects": {
+    "class": "objectidentity",
+    "name": "hwMsdpObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.218.1.1.1"
+  },
+  "hwMsdpTraps": {
+    "class": "objectidentity",
+    "name": "hwMsdpTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.218.1.1.3"
+  },
+  "hwMsdpTrapsObjects": {
+    "class": "objectidentity",
+    "name": "hwMsdpTrapsObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.218.1.1.2"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "MSDP-MIB": [
+      "msdpPeerState",
+      "msdpPeerFsmEstablishedTransitions",
+      "msdpPeerRemoteAddress"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "iso",
+      "Unsigned32",
+      "IpAddress",
+      "MibIdentifier",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-MSDP-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:27 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-MSDP-MIB"
+  }
+}

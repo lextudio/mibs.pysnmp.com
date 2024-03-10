@@ -1,0 +1,184 @@
+{
+  "hwRip2Compliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for SNMPv2 entities which implement the HUAWEI RIP extension MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-RIPV2-EXT-MIB",
+        "object": "hwRip2ExtGroup"
+      }
+    ],
+    "name": "hwRip2Compliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.120.2.2.1",
+    "status": "current"
+  },
+  "hwRip2Compliances": {
+    "class": "objectidentity",
+    "name": "hwRip2Compliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.120.2.2"
+  },
+  "hwRip2Conformance": {
+    "class": "objectidentity",
+    "name": "hwRip2Conformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.120.2"
+  },
+  "hwRip2CurrentProcId": {
+    "class": "objecttype",
+    "description": "The current process id for which processing is being done.",
+    "maxaccess": "read-write",
+    "name": "hwRip2CurrentProcId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.120.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRip2ExtGroup": {
+    "class": "objectgroup",
+    "description": "The HUAWEI RIPv2 extension Table.",
+    "name": "hwRip2ExtGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RIPV2-EXT-MIB",
+        "object": "hwRip2VrfName"
+      },
+      {
+        "module": "HUAWEI-RIPV2-EXT-MIB",
+        "object": "hwRip2CurrentProcId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.120.2.1.2",
+    "status": "current"
+  },
+  "hwRip2Groups": {
+    "class": "objectidentity",
+    "name": "hwRip2Groups",
+    "oid": "1.3.6.1.4.1.2011.5.25.120.2.1"
+  },
+  "hwRip2ProcInstEntry": {
+    "class": "objecttype",
+    "description": "Information about the VRF of a process.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RIPV2-EXT-MIB",
+        "object": "hwRip2ProcessId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRip2ProcInstEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.120.1.1",
+    "status": "current"
+  },
+  "hwRip2ProcInstTable": {
+    "class": "objecttype",
+    "description": "A list of Process id and their VRF Name.",
+    "maxaccess": "not-accessible",
+    "name": "hwRip2ProcInstTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.120.1",
+    "status": "current"
+  },
+  "hwRip2ProcessId": {
+    "class": "objecttype",
+    "description": "The RIP process id.",
+    "maxaccess": "not-accessible",
+    "name": "hwRip2ProcessId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.120.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRip2VrfName": {
+    "class": "objecttype",
+    "description": "VRF Name.",
+    "maxaccess": "read-only",
+    "name": "hwRip2VrfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.120.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRipv2Ext": {
+    "class": "moduleidentity",
+    "contactinfo": "R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com",
+    "description": "The HUAWEI-RIPv2-EXT-MIB.mib contains objects to configure RIP module, including query RIP process, RIP VPN-instance configuration and status. This MIB module objects indicate hwRip2ProcInstTable. RIP can support many processes, but mib can support only one of them. To get more RIP configuration, it is required to locate one specified RIP process. ",
+    "lastupdated": "200605261430Z",
+    "name": "hwRipv2Ext",
+    "oid": "1.3.6.1.4.1.2011.5.25.120",
+    "organization": "Huawei Technologies Co., Ltd."
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Integer32",
+      "iso",
+      "IpAddress",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-RIPV2-EXT-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:48 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-RIPV2-EXT-MIB"
+  }
+}

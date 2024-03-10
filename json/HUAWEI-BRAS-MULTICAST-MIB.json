@@ -1,0 +1,354 @@
+{
+  "hwMulticastGroup": {
+    "class": "objectgroup",
+    "description": "The hwMulticast group.",
+    "name": "hwMulticastGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-MULTICAST-MIB",
+        "object": "hwMulticastVirtualAdjustSetBandType"
+      },
+      {
+        "module": "HUAWEI-BRAS-MULTICAST-MIB",
+        "object": "hwMulticastVirtualAdjustSetBandValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-MULTICAST-MIB",
+        "object": "hwMulticastVirtualAdjustSetBandDetectInterval"
+      },
+      {
+        "module": "HUAWEI-BRAS-MULTICAST-MIB",
+        "object": "hwMulticastVirtualAdjustSetBandThreshold"
+      },
+      {
+        "module": "HUAWEI-BRAS-MULTICAST-MIB",
+        "object": "hwMulticastVirtualAdjustSetBandRowStatus"
+      },
+      {
+        "module": "HUAWEI-BRAS-MULTICAST-MIB",
+        "object": "hwMulticastVirtualAdjustShowBandwidth"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.17.2.2.1",
+    "status": "current"
+  },
+  "hwMulticastMIBCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-DATACOMM-OID-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-BRAS-MULTICAST-MIB",
+        "object": "hwMulticastGroup"
+      }
+    ],
+    "name": "hwMulticastMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.17.2.1.1",
+    "status": "current"
+  },
+  "hwMulticastMIBCompliances": {
+    "class": "objectidentity",
+    "name": "hwMulticastMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.17.2.1"
+  },
+  "hwMulticastMIBConformance": {
+    "class": "objectidentity",
+    "name": "hwMulticastMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.17.2"
+  },
+  "hwMulticastMIBGroups": {
+    "class": "objectidentity",
+    "name": "hwMulticastMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.17.2.2"
+  },
+  "hwMulticastVirtualAdjust": {
+    "class": "moduleidentity",
+    "contactinfo": "R\u0026D NanJing, Huawei Technologies co.,Ltd. Huihong Bld.,NO.91 Baixia Rd., Bai-Xia District Nanjing P.R. China Zip:210001 Http://www.huawei.com E-mail:support@huawei.com",
+    "description": "The HUAWEI-BRAS-MULTICAST-MIB contains objects to manage BRAS.",
+    "lastupdated": "200705121200Z",
+    "name": "hwMulticastVirtualAdjust",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.17",
+    "organization": "Huawei Technologies Co., Ltd."
+  },
+  "hwMulticastVirtualAdjustMibObjects": {
+    "class": "objectidentity",
+    "name": "hwMulticastVirtualAdjustMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.17.1"
+  },
+  "hwMulticastVirtualAdjustSetBandDetectInterval": {
+    "class": "objecttype",
+    "description": "Detect interval of dynamic bandwidth statistics. units:second.",
+    "maxaccess": "read-create",
+    "name": "hwMulticastVirtualAdjustSetBandDetectInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.17.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1800,
+            "min": 15
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMulticastVirtualAdjustSetBandEntry": {
+    "class": "objecttype",
+    "description": "Setting multicast program bandwidth entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-MULTICAST-MIB",
+        "object": "hwMulticastVirtualAdjustSetBandListIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMulticastVirtualAdjustSetBandEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.17.1.1.1",
+    "status": "current"
+  },
+  "hwMulticastVirtualAdjustSetBandListIndex": {
+    "class": "objecttype",
+    "description": "Start of multicast list index.",
+    "maxaccess": "not-accessible",
+    "name": "hwMulticastVirtualAdjustSetBandListIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.17.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8191,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMulticastVirtualAdjustSetBandRowStatus": {
+    "class": "objecttype",
+    "description": "used to manage the creation and deletion of multicast virtual adjust band setting rows.",
+    "maxaccess": "read-create",
+    "name": "hwMulticastVirtualAdjustSetBandRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.17.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMulticastVirtualAdjustSetBandTable": {
+    "class": "objecttype",
+    "description": "A table of setting multicast program bandwidth.",
+    "maxaccess": "not-accessible",
+    "name": "hwMulticastVirtualAdjustSetBandTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.17.1.1",
+    "status": "current"
+  },
+  "hwMulticastVirtualAdjustSetBandThreshold": {
+    "class": "objecttype",
+    "description": "Ratio of bandwidth variation.",
+    "maxaccess": "read-create",
+    "name": "hwMulticastVirtualAdjustSetBandThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.17.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMulticastVirtualAdjustSetBandType": {
+    "class": "objecttype",
+    "description": "Type of multicast program bandwidth configured.",
+    "maxaccess": "read-create",
+    "name": "hwMulticastVirtualAdjustSetBandType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.17.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dynamic": 1,
+          "static": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMulticastVirtualAdjustSetBandValue": {
+    "class": "objecttype",
+    "description": "Bandwidth of multicast program. units:Kbps(kbit/s).",
+    "maxaccess": "read-create",
+    "name": "hwMulticastVirtualAdjustSetBandValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.17.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 400000,
+            "min": 10
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMulticastVirtualAdjustShowBandEntry": {
+    "class": "objecttype",
+    "description": "Bandwidth display entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-MULTICAST-MIB",
+        "object": "hwMulticastVirtualAdjustShowBandListIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-MULTICAST-MIB",
+        "object": "hwMulticastVirtualAdjustShowBandSourceIp"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-MULTICAST-MIB",
+        "object": "hwMulticastVirtualAdjustShowBandGroupIp"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMulticastVirtualAdjustShowBandEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.17.1.2.1",
+    "status": "current"
+  },
+  "hwMulticastVirtualAdjustShowBandGroupIp": {
+    "class": "objecttype",
+    "description": "Group address of multicast program.",
+    "maxaccess": "not-accessible",
+    "name": "hwMulticastVirtualAdjustShowBandGroupIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.17.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMulticastVirtualAdjustShowBandListIndex": {
+    "class": "objecttype",
+    "description": "Index of multicast list.",
+    "maxaccess": "not-accessible",
+    "name": "hwMulticastVirtualAdjustShowBandListIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.17.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8191,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMulticastVirtualAdjustShowBandSourceIp": {
+    "class": "objecttype",
+    "description": "Source address of multicast program.",
+    "maxaccess": "not-accessible",
+    "name": "hwMulticastVirtualAdjustShowBandSourceIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.17.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMulticastVirtualAdjustShowBandTable": {
+    "class": "objecttype",
+    "description": "A table of displaying multicast program bandwidth.",
+    "maxaccess": "not-accessible",
+    "name": "hwMulticastVirtualAdjustShowBandTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.17.1.2",
+    "status": "current"
+  },
+  "hwMulticastVirtualAdjustShowBandwidth": {
+    "class": "objecttype",
+    "description": "Bandwidth of multicast program. units:Kbps(kbit/s)",
+    "maxaccess": "read-only",
+    "name": "hwMulticastVirtualAdjustShowBandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.17.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwBRASMib"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "Counter32",
+      "Counter64",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "Bits",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-BRAS-MULTICAST-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:46:48 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-BRAS-MULTICAST-MIB"
+  }
+}

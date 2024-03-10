@@ -1,0 +1,389 @@
+{
+  "NatType": {
+    "class": "textualconvention",
+    "description": " nat type. ",
+    "name": "NatType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "easyIP": 3,
+          "nat": 2,
+          "pat": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwNAT": {
+    "class": "objectidentity",
+    "name": "hwNAT",
+    "oid": "1.3.6.1.4.1.2011.5.25.7"
+  },
+  "hwNATEudm": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": " V1.00 The NAT-EUDM mib is for Eudemon product. ",
+    "lastupdated": "200303180900Z",
+    "name": "hwNATEudm",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2",
+    "organization": "Huawei Technologies Co., Ltd. "
+  },
+  "hwNatEudmCfgGroup": {
+    "class": "objectgroup",
+    "description": " Nat Eudemon mib group. ",
+    "name": "hwNatEudmCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-NAT-EUDM-MIB",
+        "object": "hwNatEudmOutboundRefCount"
+      },
+      {
+        "module": "HUAWEI-NAT-EUDM-MIB",
+        "object": "hwNatEudmZoneApplyRowstatus"
+      },
+      {
+        "module": "HUAWEI-NAT-EUDM-MIB",
+        "object": "hwNatEudmOutboundType"
+      },
+      {
+        "module": "HUAWEI-NAT-EUDM-MIB",
+        "object": "hwNatEudmOutboundAclNumber"
+      },
+      {
+        "module": "HUAWEI-NAT-EUDM-MIB",
+        "object": "hwNatEudmOutboundPoolIndex"
+      },
+      {
+        "module": "HUAWEI-NAT-EUDM-MIB",
+        "object": "hwNatEudmOutboundEasyIpIfIndex"
+      },
+      {
+        "module": "HUAWEI-NAT-EUDM-MIB",
+        "object": "hwNatEudmOutboundRowstatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.2.1.1",
+    "status": "current"
+  },
+  "hwNatEudmConformance": {
+    "class": "objectidentity",
+    "name": "hwNatEudmConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.2"
+  },
+  "hwNatEudmGroups": {
+    "class": "objectidentity",
+    "name": "hwNatEudmGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.2.1"
+  },
+  "hwNatEudmMibObjects": {
+    "class": "objectidentity",
+    "name": "hwNatEudmMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1"
+  },
+  "hwNatEudmOutboundAclNumber": {
+    "class": "objecttype",
+    "description": " The access-list number. 0 means no use this item. ",
+    "maxaccess": "read-create",
+    "name": "hwNatEudmOutboundAclNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 3999,
+            "min": 2000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwNatEudmOutboundEasyIpIfIndex": {
+    "class": "objecttype",
+    "description": " The interface index used by easy-ip. ",
+    "maxaccess": "read-create",
+    "name": "hwNatEudmOutboundEasyIpIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwNatEudmOutboundEntry": {
+    "class": "objecttype",
+    "description": " The NAT Inside Table Entry. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-NAT-EUDM-MIB",
+        "object": "hwNatEudmOutboundNatID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwNatEudmOutboundEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.1.1",
+    "status": "current"
+  },
+  "hwNatEudmOutboundNatID": {
+    "class": "objecttype",
+    "description": " The nat outbound table index. This is index. ",
+    "maxaccess": "not-accessible",
+    "name": "hwNatEudmOutboundNatID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwNatEudmOutboundPoolIndex": {
+    "class": "objecttype",
+    "description": " The index of nat address pool. 0 means no use this item. ",
+    "maxaccess": "read-create",
+    "name": "hwNatEudmOutboundPoolIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwNatEudmOutboundRefCount": {
+    "class": "objecttype",
+    "description": " This outbound table reference count. ",
+    "maxaccess": "read-only",
+    "name": "hwNatEudmOutboundRefCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwNatEudmOutboundRowstatus": {
+    "class": "objecttype",
+    "description": " Row status Only support CreateAndGo and Destroy. ",
+    "maxaccess": "read-create",
+    "name": "hwNatEudmOutboundRowstatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwNatEudmOutboundTable": {
+    "class": "objecttype",
+    "description": " The NAT Inside Table. ",
+    "maxaccess": "not-accessible",
+    "name": "hwNatEudmOutboundTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.1",
+    "status": "current"
+  },
+  "hwNatEudmOutboundType": {
+    "class": "objecttype",
+    "description": " The type of NAT ",
+    "maxaccess": "read-create",
+    "name": "hwNatEudmOutboundType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "NatType"
+    }
+  },
+  "hwNatEudmZoneApplyEntry": {
+    "class": "objecttype",
+    "description": " Apply Table Entry. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-NAT-EUDM-MIB",
+        "object": "hwNatEudmZoneApplyZoneID1"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-NAT-EUDM-MIB",
+        "object": "hwNatEudmZoneApplyZoneID2"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-NAT-EUDM-MIB",
+        "object": "hwNatEudmZoneApplyNatID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwNatEudmZoneApplyEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.2.1",
+    "status": "current"
+  },
+  "hwNatEudmZoneApplyNatID": {
+    "class": "objecttype",
+    "description": " The nat outbound table index. This is index. ",
+    "maxaccess": "not-accessible",
+    "name": "hwNatEudmZoneApplyNatID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwNatEudmZoneApplyRowstatus": {
+    "class": "objecttype",
+    "description": " Row status Only support CreateAndGo and Destroy. ",
+    "maxaccess": "read-create",
+    "name": "hwNatEudmZoneApplyRowstatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwNatEudmZoneApplyTable": {
+    "class": "objecttype",
+    "description": " Table saves which nat is applyed between Zones . ",
+    "maxaccess": "not-accessible",
+    "name": "hwNatEudmZoneApplyTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.2",
+    "status": "current"
+  },
+  "hwNatEudmZoneApplyZoneID1": {
+    "class": "objecttype",
+    "description": " The internal ID of first security zone This is index. 0: Any zone. ",
+    "maxaccess": "not-accessible",
+    "name": "hwNatEudmZoneApplyZoneID1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwNatEudmZoneApplyZoneID2": {
+    "class": "objecttype",
+    "description": " The internal ID of second security zone. This is index. 0: Any zone. ",
+    "maxaccess": "not-accessible",
+    "name": "hwNatEudmZoneApplyZoneID2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.7.2.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "MPLS-VPN-MIB": [
+      "mplsVpnVrfName"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-NAT-EUDM-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:32 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-NAT-EUDM-MIB"
+  }
+}

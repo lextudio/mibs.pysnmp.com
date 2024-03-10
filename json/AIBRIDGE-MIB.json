@@ -1,0 +1,875 @@
+{
+  "BridgeId": {
+    "class": "type",
+    "name": "BridgeId",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 8,
+            "min": 8
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "MacAddress": {
+    "class": "type",
+    "name": "MacAddress",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 6,
+            "min": 6
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "Timeout": {
+    "class": "type",
+    "name": "Timeout",
+    "type": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "aiDot1dBase": {
+    "class": "objectidentity",
+    "name": "aiDot1dBase",
+    "oid": "1.3.6.1.4.1.539.30.1"
+  },
+  "aiDot1dBaseBridgeAddress": {
+    "class": "objecttype",
+    "description": "The MAC address used by this bridge when it must be referred to in a unique fashion. It is recommended that this be the numerically smallest MAC address of all ports that belong to this bridge. However it is only required to be unique. When concatenated with aiDot1dStpPriority a unique BridgeIdentifier is formed which is used in the Spanning Tree Protocol.",
+    "maxaccess": "read-only",
+    "name": "aiDot1dBaseBridgeAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.1.1.1.2",
+    "reference": "IEEE 802.1D-1990: Sections 6.4.1.1.3 and 3.12.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "aiDot1dBaseInfoEntry": {
+    "class": "objecttype",
+    "description": "A list of information for each instance of STP of the bridge.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "AIBRIDGE-MIB",
+        "object": "aiDot1dBaseInfoSTPIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "aiDot1dBaseInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.539.30.1.1.1",
+    "reference": "IEEE 802.1D-1990: Section 6.4.2, 6.6.1",
+    "status": "mandatory"
+  },
+  "aiDot1dBaseInfoSTPIndex": {
+    "class": "objecttype",
+    "description": "The STP instance number which this entry contains base information.",
+    "maxaccess": "read-only",
+    "name": "aiDot1dBaseInfoSTPIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.1.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "aiDot1dBaseInfoTable": {
+    "class": "objecttype",
+    "description": "A table that contains generic information about every instance of STP that is associated with this bridge. Transparent, source-route, and srt ports are included.",
+    "maxaccess": "not-accessible",
+    "name": "aiDot1dBaseInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.539.30.1.1",
+    "status": "mandatory"
+  },
+  "aiDot1dBaseNumPorts": {
+    "class": "objecttype",
+    "description": "The number of ports controlled by this bridging entity.",
+    "maxaccess": "read-only",
+    "name": "aiDot1dBaseNumPorts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.1.1.1.3",
+    "reference": "IEEE 802.1D-1990: Section 6.4.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "aiDot1dBasePort": {
+    "class": "objecttype",
+    "description": "The port number of the port for which this entry contains bridge management information.",
+    "maxaccess": "read-only",
+    "name": "aiDot1dBasePort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.1.2.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "aiDot1dBasePortCircuit": {
+    "class": "objecttype",
+    "description": "For a port which (potentially) has the same value of aiDot1dBasePortIfIndex as another port on the same bridge, this object contains the name of an object instance unique to this port. For example, in the case where multiple ports correspond one- to-one with multiple X.25 virtual circuits, this value might identify an (e.g., the first) object instance associated with the X.25 virtual circuit corresponding to this port. For a port which has a unique value of aiDot1dBasePortIfIndex, this object can have the value { 0 0 }.",
+    "maxaccess": "read-only",
+    "name": "aiDot1dBasePortCircuit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.1.2.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "OBJECT IDENTIFIER"
+    }
+  },
+  "aiDot1dBasePortDelayExceededDiscards": {
+    "class": "objecttype",
+    "description": "The number of frames discarded by this port due to excessive transit delay through the bridge. It is incremented by both transparent and source route bridges.",
+    "maxaccess": "read-only",
+    "name": "aiDot1dBasePortDelayExceededDiscards",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.1.2.1.5",
+    "reference": "IEEE 802.1D-1990: Section 6.6.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "aiDot1dBasePortEntry": {
+    "class": "objecttype",
+    "description": "A list of information for each port of the bridge.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "AIBRIDGE-MIB",
+        "object": "aiDot1dBasePortStpIndex"
+      },
+      {
+        "implied": 0,
+        "module": "AIBRIDGE-MIB",
+        "object": "aiDot1dBasePort"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "aiDot1dBasePortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.539.30.1.2.1",
+    "reference": "IEEE 802.1D-1990: Section 6.4.2, 6.6.1",
+    "status": "mandatory"
+  },
+  "aiDot1dBasePortIfIndex": {
+    "class": "objecttype",
+    "description": "The value of the instance of the ifIndex object, defined in MIB-II, for the interface corresponding to this port.",
+    "maxaccess": "read-only",
+    "name": "aiDot1dBasePortIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.1.2.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "aiDot1dBasePortMtuExceededDiscards": {
+    "class": "objecttype",
+    "description": "The number of frames discarded by this port due to an excessive size. It is incremented by both transparent and source route bridges.",
+    "maxaccess": "read-only",
+    "name": "aiDot1dBasePortMtuExceededDiscards",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.1.2.1.6",
+    "reference": "IEEE 802.1D-1990: Section 6.6.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "aiDot1dBasePortStpIndex": {
+    "class": "objecttype",
+    "description": "The STP instance number for which this entry contains bridge management information.",
+    "maxaccess": "read-only",
+    "name": "aiDot1dBasePortStpIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.1.2.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "aiDot1dBasePortTable": {
+    "class": "objecttype",
+    "description": "A table that contains generic information about every port that is associated with this bridge. Transparent, source-route, and srt ports are included.",
+    "maxaccess": "not-accessible",
+    "name": "aiDot1dBasePortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.539.30.1.2",
+    "status": "mandatory"
+  },
+  "aiDot1dBaseType": {
+    "class": "objecttype",
+    "description": "Indicates what type of bridging this bridge can perform. If a bridge is actually performing a certain type of bridging this will be indicated by entries in the port table for the given type.",
+    "maxaccess": "read-only",
+    "name": "aiDot1dBaseType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.1.1.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sourceroute-only": 3,
+          "srt": 4,
+          "transparent-only": 2,
+          "unknown": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "aiDot1dBridge": {
+    "class": "objectidentity",
+    "name": "aiDot1dBridge",
+    "oid": "1.3.6.1.4.1.539.30"
+  },
+  "aiDot1dSr": {
+    "class": "objectidentity",
+    "name": "aiDot1dSr",
+    "oid": "1.3.6.1.4.1.539.30.3"
+  },
+  "aiDot1dStatic": {
+    "class": "objectidentity",
+    "name": "aiDot1dStatic",
+    "oid": "1.3.6.1.4.1.539.30.5"
+  },
+  "aiDot1dStp": {
+    "class": "objectidentity",
+    "name": "aiDot1dStp",
+    "oid": "1.3.6.1.4.1.539.30.2"
+  },
+  "aiDot1dStpBridgeForwardDelay": {
+    "class": "objecttype",
+    "description": "The value that all bridges use for ForwardDelay when this bridge is acting as the root. Note that 802.1D-1990 specifies that the range for this parameter is related to the value of aiDot1dStpBridgeMaxAge. The granularity of this timer is specified by 802.1D-1990 to be 1 second. An agent may return a badValue error if a set is attempted to a value which is not a whole number of seconds.",
+    "maxaccess": "read-write",
+    "name": "aiDot1dStpBridgeForwardDelay",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.2.1.1.15",
+    "reference": "IEEE 802.1D-1990: Section 4.5.3.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 3000,
+            "min": 400
+          }
+        ]
+      },
+      "type": "Timeout"
+    }
+  },
+  "aiDot1dStpBridgeHelloTime": {
+    "class": "objecttype",
+    "description": "The value that all bridges use for HelloTime when this bridge is acting as the root. The granularity of this timer is specified by 802.1D- 1990 to be 1 second. An agent may return a badValue error if a set is attempted to a value which is not a whole number of seconds.",
+    "maxaccess": "read-write",
+    "name": "aiDot1dStpBridgeHelloTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.2.1.1.14",
+    "reference": "IEEE 802.1D-1990: Section 4.5.3.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 100
+          }
+        ]
+      },
+      "type": "Timeout"
+    }
+  },
+  "aiDot1dStpBridgeMaxAge": {
+    "class": "objecttype",
+    "description": "The value that all bridges use for MaxAge when this bridge is acting as the root. Note that 802.1D-1990 specifies that the range for this parameter is related to the value of aiDot1dStpBridgeHelloTime. The granularity of this timer is specified by 802.1D-1990 to be 1 second. An agent may return a badValue error if a set is attempted to a value which is not a whole number of seconds.",
+    "maxaccess": "read-write",
+    "name": "aiDot1dStpBridgeMaxAge",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.2.1.1.13",
+    "reference": "IEEE 802.1D-1990: Section 4.5.3.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4000,
+            "min": 600
+          }
+        ]
+      },
+      "type": "Timeout"
+    }
+  },
+  "aiDot1dStpDesignatedRoot": {
+    "class": "objecttype",
+    "description": "The bridge identifier of the root of the spanning tree as determined by the Spanning Tree Protocol as executed by this node. This value is used as the Root Identifier parameter in all Configuration Bridge PDUs originated by this node.",
+    "maxaccess": "read-only",
+    "name": "aiDot1dStpDesignatedRoot",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.2.1.1.6",
+    "reference": "IEEE 802.1D-1990: Section 4.5.3.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "BridgeId"
+    }
+  },
+  "aiDot1dStpEnabled": {
+    "class": "objecttype",
+    "description": "This value indicates whether STP is enabled or disabled.",
+    "maxaccess": "read-write",
+    "name": "aiDot1dStpEnabled",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.2.1.1.16",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stpDisabled": 2,
+          "stpEnabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "aiDot1dStpForwardDelay": {
+    "class": "objecttype",
+    "description": "This time value, measured in units of hundredths of a second, controls how fast a port changes its spanning state when moving towards the Forwarding state. The value determines how long the port stays in each of the Listening and Learning states, which precede the Forwarding state. This value is also used, when a topology change has been detected and is underway, to age all dynamic entries in the Forwarding Database. [Note that this value is the one that this bridge is currently using, in contrast to aiDot1dStpBridgeForwardDelay which is the value that this bridge and all others would start using if/when this bridge were to become the root.]",
+    "maxaccess": "read-only",
+    "name": "aiDot1dStpForwardDelay",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.2.1.1.12",
+    "reference": "IEEE 802.1D-1990: Section 4.5.3.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Timeout"
+    }
+  },
+  "aiDot1dStpHelloTime": {
+    "class": "objecttype",
+    "description": "The amount of time between the transmission of Configuration bridge PDUs by this node on any port when it is the root of the spanning tree or trying to become so, in units of hundredths of a second. This is the actual value that this bridge is currently using.",
+    "maxaccess": "read-only",
+    "name": "aiDot1dStpHelloTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.2.1.1.10",
+    "reference": "IEEE 802.1D-1990: Section 4.5.3.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Timeout"
+    }
+  },
+  "aiDot1dStpHoldTime": {
+    "class": "objecttype",
+    "description": "This time value determines the interval length during which no more than two Configuration bridge PDUs shall be transmitted by this node, in units of hundredths of a second.",
+    "maxaccess": "read-only",
+    "name": "aiDot1dStpHoldTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.2.1.1.11",
+    "reference": "IEEE 802.1D-1990: Section 4.5.3.14",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "aiDot1dStpInfoEntry": {
+    "class": "objecttype",
+    "description": "A list of information and configuration items for each instance of STP of the bridge.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "AIBRIDGE-MIB",
+        "object": "aiDot1dStpStpIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "aiDot1dStpInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.539.30.2.1.1",
+    "reference": "IEEE 802.1D-1990: Section 6.4.2, 6.6.1",
+    "status": "mandatory"
+  },
+  "aiDot1dStpInfoTable": {
+    "class": "objecttype",
+    "description": "A table that contains information and configuration items about every instance of STP that is associated with this bridge.",
+    "maxaccess": "not-accessible",
+    "name": "aiDot1dStpInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.539.30.2.1",
+    "status": "mandatory"
+  },
+  "aiDot1dStpMaxAge": {
+    "class": "objecttype",
+    "description": "The maximum age of Spanning Tree Protocol information learned from the network on any port before it is discarded, in units of hundredths of a second. This is the actual value that this bridge is currently using.",
+    "maxaccess": "read-only",
+    "name": "aiDot1dStpMaxAge",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.2.1.1.9",
+    "reference": "IEEE 802.1D-1990: Section 4.5.3.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Timeout"
+    }
+  },
+  "aiDot1dStpPort": {
+    "class": "objecttype",
+    "description": "The port number of the port for which this entry contains Spanning Tree Protocol management information.",
+    "maxaccess": "read-only",
+    "name": "aiDot1dStpPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.2.15.1.2",
+    "reference": "IEEE 802.1D-1990: Section 6.8.2.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "aiDot1dStpPortDesignatedBridge": {
+    "class": "objecttype",
+    "description": "The Bridge Identifier of the bridge which this port considers to be the Designated Bridge for this port\u0027s segment.",
+    "maxaccess": "read-only",
+    "name": "aiDot1dStpPortDesignatedBridge",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.2.15.1.9",
+    "reference": "IEEE 802.1D-1990: Section 4.5.5.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "BridgeId"
+    }
+  },
+  "aiDot1dStpPortDesignatedCost": {
+    "class": "objecttype",
+    "description": "The path cost of the Designated Port of the segment connected to this port. This value is compared to the Root Path Cost field in received bridge PDUs.",
+    "maxaccess": "read-only",
+    "name": "aiDot1dStpPortDesignatedCost",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.2.15.1.8",
+    "reference": "IEEE 802.1D-1990: Section 4.5.5.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "aiDot1dStpPortDesignatedPort": {
+    "class": "objecttype",
+    "description": "The Port Identifier of the port on the Designated Bridge for this port\u0027s segment.",
+    "maxaccess": "read-only",
+    "name": "aiDot1dStpPortDesignatedPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.2.15.1.10",
+    "reference": "IEEE 802.1D-1990: Section 4.5.5.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 2,
+            "min": 2
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "aiDot1dStpPortDesignatedRoot": {
+    "class": "objecttype",
+    "description": "The unique Bridge Identifier of the Bridge recorded as the Root in the Configuration BPDUs transmitted by the Designated Bridge for the segment to which the port is attached.",
+    "maxaccess": "read-only",
+    "name": "aiDot1dStpPortDesignatedRoot",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.2.15.1.7",
+    "reference": "IEEE 802.1D-1990: Section 4.5.5.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "BridgeId"
+    }
+  },
+  "aiDot1dStpPortEnable": {
+    "class": "objecttype",
+    "description": "The enabled/disabled status of the port.",
+    "maxaccess": "read-write",
+    "name": "aiDot1dStpPortEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.2.15.1.5",
+    "reference": "IEEE 802.1D-1990: Section 4.5.5.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "aiDot1dStpPortEntry": {
+    "class": "objecttype",
+    "description": "A list of information maintained by every port about the Spanning Tree Protocol state for that port.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "AIBRIDGE-MIB",
+        "object": "aiDot1dStpPortStpIndex"
+      },
+      {
+        "implied": 0,
+        "module": "AIBRIDGE-MIB",
+        "object": "aiDot1dStpPort"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "aiDot1dStpPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.539.30.2.15.1",
+    "status": "mandatory"
+  },
+  "aiDot1dStpPortForwardTransitions": {
+    "class": "objecttype",
+    "description": "The number of times this port has transitioned from the Learning state to the Forwarding state.",
+    "maxaccess": "read-only",
+    "name": "aiDot1dStpPortForwardTransitions",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.2.15.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "aiDot1dStpPortPathCost": {
+    "class": "objecttype",
+    "description": "The contribution of this port to the path cost of paths towards the spanning tree root which include this port. 802.1D-1990 recommends that the default value of this parameter be in inverse proportion to the speed of the attached LAN.",
+    "maxaccess": "read-write",
+    "name": "aiDot1dStpPortPathCost",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.2.15.1.6",
+    "reference": "IEEE 802.1D-1990: Section 4.5.5.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "aiDot1dStpPortPriority": {
+    "class": "objecttype",
+    "description": "The value of the priority field which is contained in the first (in network byte order) octet of the (2 octet long) Port ID. The other octet of the Port ID is given by the value of aiDot1dStpPort.",
+    "maxaccess": "read-write",
+    "name": "aiDot1dStpPortPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.2.15.1.3",
+    "reference": "IEEE 802.1D-1990: Section 4.5.5.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "aiDot1dStpPortState": {
+    "class": "objecttype",
+    "description": "The port\u0027s current state as defined by application of the Spanning Tree Protocol. This state controls what action a port takes on reception of a frame. If the bridge has detected a port that is malfunctioning it will place that port into the broken(6) state. For ports which are disabled (see aiDot1dStpPortEnable), this object will have a value of disabled(1).",
+    "maxaccess": "read-only",
+    "name": "aiDot1dStpPortState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.2.15.1.4",
+    "reference": "IEEE 802.1D-1990: Section 4.5.5.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blocking": 2,
+          "broken": 6,
+          "disabled": 1,
+          "forwarding": 5,
+          "learning": 4,
+          "listening": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "aiDot1dStpPortStpIndex": {
+    "class": "objecttype",
+    "description": "The STP instance number which this entry contains Spanning Tree Protocol management information.",
+    "maxaccess": "read-only",
+    "name": "aiDot1dStpPortStpIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.2.15.1.1",
+    "reference": "IEEE 802.1D-1990: Section 6.8.2.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "aiDot1dStpPortTable": {
+    "class": "objecttype",
+    "description": "A table that contains port-specific information for the Spanning Tree Protocol.",
+    "maxaccess": "not-accessible",
+    "name": "aiDot1dStpPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.539.30.2.15",
+    "status": "mandatory"
+  },
+  "aiDot1dStpPriority": {
+    "class": "objecttype",
+    "description": "The value of the write-able portion of the Bridge ID, i.e., the first two octets of the (8 octet long) Bridge ID. The other (last) 6 octets of the Bridge ID are given by the value of aiDot1dBaseBridgeAddress.",
+    "maxaccess": "read-write",
+    "name": "aiDot1dStpPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.2.1.1.3",
+    "reference": "IEEE 802.1D-1990: Section 4.5.3.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "aiDot1dStpProtocolSpecification": {
+    "class": "objecttype",
+    "description": "An indication of what version of the Spanning Tree Protocol is being run. The value \u0027decLb100(2)\u0027 indicates the DEC LANbridge 100 Spanning Tree protocol. IEEE 802.1d implementations will return \u0027ieee8021d(3)\u0027. If future versions of the IEEE Spanning Tree Protocol are released that are incompatible with the current version a new value will be defined.",
+    "maxaccess": "read-only",
+    "name": "aiDot1dStpProtocolSpecification",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.2.1.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "decLb100": 2,
+          "ieee8021d": 3,
+          "unknown": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "aiDot1dStpRootCost": {
+    "class": "objecttype",
+    "description": "The cost of the path to the root as seen from this bridge.",
+    "maxaccess": "read-only",
+    "name": "aiDot1dStpRootCost",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.2.1.1.7",
+    "reference": "IEEE 802.1D-1990: Section 4.5.3.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "aiDot1dStpRootPort": {
+    "class": "objecttype",
+    "description": "The port number of the port which offers the lowest cost path from this bridge to the root bridge.",
+    "maxaccess": "read-only",
+    "name": "aiDot1dStpRootPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.2.1.1.8",
+    "reference": "IEEE 802.1D-1990: Section 4.5.3.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "aiDot1dStpStpIndex": {
+    "class": "objecttype",
+    "description": "The STP instance number which this entry contains base information.",
+    "maxaccess": "read-only",
+    "name": "aiDot1dStpStpIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.2.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "aiDot1dStpTimeSinceTopologyChange": {
+    "class": "objecttype",
+    "description": "The time (in hundredths of a second) since the last time a topology change was detected by the bridge entity.",
+    "maxaccess": "read-only",
+    "name": "aiDot1dStpTimeSinceTopologyChange",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.2.1.1.4",
+    "reference": "IEEE 802.1D-1990: Section 6.8.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "aiDot1dStpTopChanges": {
+    "class": "objecttype",
+    "description": "The total number of topology changes detected by this bridge since the management entity was last reset or initialized.",
+    "maxaccess": "read-only",
+    "name": "aiDot1dStpTopChanges",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.539.30.2.1.1.5",
+    "reference": "IEEE 802.1D-1990: Section 6.8.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "aiDot1dTp": {
+    "class": "objectidentity",
+    "name": "aiDot1dTp",
+    "oid": "1.3.6.1.4.1.539.30.4"
+  },
+  "imports": {
+    "AIMIB": [
+      "aii"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Bits",
+      "TRAP-TYPE",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Gauge32",
+      "mib-2",
+      "IpAddress",
+      "iso",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/AIBRIDGE-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 13:45:35 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "AIBRIDGE-MIB"
+  }
+}

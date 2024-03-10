@@ -1,0 +1,1891 @@
+{
+  "hwBoardFwdResLack": {
+    "class": "notificationtype",
+    "description": "The board forwarding engine resources were overloaded.",
+    "name": "hwBoardFwdResLack",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwEntPhysicalindex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackSlotStr"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackReasonId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.3",
+    "status": "current"
+  },
+  "hwBoardFwdResLackResume": {
+    "class": "notificationtype",
+    "description": "The board forwarding engine resources were resumed.",
+    "name": "hwBoardFwdResLackResume",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwEntPhysicalindex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackSlotStr"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackReasonId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.4",
+    "status": "current"
+  },
+  "hwBoardFwdResThresholdExceed": {
+    "class": "notificationtype",
+    "description": "The board forwarding engine resources exceeded the threshold.",
+    "name": "hwBoardFwdResThresholdExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwEntPhysicalindex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackSlotStr"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackReasonId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.15",
+    "status": "current"
+  },
+  "hwBoardFwdResThresholdExceedResume": {
+    "class": "notificationtype",
+    "description": "The board forwarding engine resources fell from the threshold.",
+    "name": "hwBoardFwdResThresholdExceedResume",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwEntPhysicalindex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackSlotStr"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackReasonId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.16",
+    "status": "current"
+  },
+  "hwBoardIPv6ACLResLack": {
+    "class": "notificationtype",
+    "description": "Service failed because of insufficient resources.",
+    "name": "hwBoardIPv6ACLResLack",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwViewName"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackSlotStr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.22",
+    "status": "current"
+  },
+  "hwBoardIpmcResLack": {
+    "class": "notificationtype",
+    "description": "The ipmc index resources were overloaded.",
+    "name": "hwBoardIpmcResLack",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResThreshold"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackSlotStr"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackReasonId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.10",
+    "status": "current"
+  },
+  "hwBoardIpmcResLackResume": {
+    "class": "notificationtype",
+    "description": "The ipmc index resources were resumed.",
+    "name": "hwBoardIpmcResLackResume",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResThreshold"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackSlotStr"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackReasonId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.11",
+    "status": "current"
+  },
+  "hwBoardL2mcResLack": {
+    "class": "notificationtype",
+    "description": "The l2mc index resources were overloaded.",
+    "name": "hwBoardL2mcResLack",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResThreshold"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackSlotStr"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackReasonId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.8",
+    "status": "current"
+  },
+  "hwBoardL2mcResLackResume": {
+    "class": "notificationtype",
+    "description": "The l2mc index resources were resumed.",
+    "name": "hwBoardL2mcResLackResume",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResThreshold"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackSlotStr"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackReasonId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.9",
+    "status": "current"
+  },
+  "hwBoardL3ACLResLack": {
+    "class": "notificationtype",
+    "description": "ACL failed to be delivered.",
+    "name": "hwBoardL3ACLResLack",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwL3FailedService"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackSlotStr"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackReasonId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.7",
+    "status": "current"
+  },
+  "hwBoardL3FwdResLack": {
+    "class": "notificationtype",
+    "description": "The L3 forwarding engine resources were overloaded.",
+    "name": "hwBoardL3FwdResLack",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResThreshold"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwEntPhysicalindex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackSlotStr"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackReasonId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.5",
+    "status": "current"
+  },
+  "hwBoardL3FwdResLackResume": {
+    "class": "notificationtype",
+    "description": "The L3 forwarding engine resources were resumed.",
+    "name": "hwBoardL3FwdResLackResume",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResThreshold"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwEntPhysicalindex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackSlotStr"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackReasonId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.6",
+    "status": "current"
+  },
+  "hwBoardMplsFwdResLack": {
+    "class": "notificationtype",
+    "description": "The MPLS forwarding engine resources were overloaded.",
+    "name": "hwBoardMplsFwdResLack",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwEntPhysicalindex"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackSlotStr"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackReasonId"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.25",
+    "status": "current"
+  },
+  "hwBoardMplsFwdResLackResume": {
+    "class": "notificationtype",
+    "description": "The MPLS forwarding engine resources were resumed.",
+    "name": "hwBoardMplsFwdResLackResume",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwEntPhysicalindex"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackSlotStr"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackReasonId"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.26",
+    "status": "current"
+  },
+  "hwBoardMplsNonSupport": {
+    "class": "notificationtype",
+    "description": "The board does not support the MPLS function due to hardware limit.",
+    "name": "hwBoardMplsNonSupport",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackSlotStr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.24",
+    "status": "current"
+  },
+  "hwBoardMplsPhpNonsupport": {
+    "class": "notificationtype",
+    "description": "One or more boards do not support MPLS PHP.",
+    "name": "hwBoardMplsPhpNonsupport",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackSlotStr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.17",
+    "status": "current"
+  },
+  "hwBoardMplsPhpResLack": {
+    "class": "notificationtype",
+    "description": "PHP labels added failed because of insufficient resource.",
+    "name": "hwBoardMplsPhpResLack",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackSlotStr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.23",
+    "status": "current"
+  },
+  "hwBoardResThresholdExceed": {
+    "class": "notificationtype",
+    "description": "The number of forwarding resources reaches the alarm threshold.",
+    "name": "hwBoardResThresholdExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackSlotStr"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResThreshold"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackReasonId"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwReasonDescription"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.18",
+    "status": "current"
+  },
+  "hwBoardResThresholdExceedResume": {
+    "class": "notificationtype",
+    "description": "The number of forwarding engine resources is less than the threshold.",
+    "name": "hwBoardResThresholdExceedResume",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackSlotStr"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResThreshold"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackReasonId"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwReasonDescription"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.19",
+    "status": "current"
+  },
+  "hwBoardResWarningThresholdExceed": {
+    "class": "notificationtype",
+    "description": "The number of board forwarding engine resources reaches the threshold.",
+    "name": "hwBoardResWarningThresholdExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackSlotStr"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResThreshold"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackReasonId"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwReasonDescription"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.20",
+    "status": "current"
+  },
+  "hwBoardResWarningThresholdExceedResume": {
+    "class": "notificationtype",
+    "description": "The number of board forwarding engine resources is less than the threshold.",
+    "name": "hwBoardResWarningThresholdExceedResume",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackSlotStr"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResThreshold"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackReasonId"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwReasonDescription"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.21",
+    "status": "current"
+  },
+  "hwBoardServiceFailed": {
+    "class": "notificationtype",
+    "description": "Service failed because resources were overloaded.",
+    "name": "hwBoardServiceFailed",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwCommand"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwViewName"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackReasonId"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwReasonDescription"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackSlotStr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.12",
+    "status": "current"
+  },
+  "hwCommand": {
+    "class": "objecttype",
+    "description": "The Command failed to execute.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwCommand",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.227.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 256,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEntPhysicalindex": {
+    "class": "objecttype",
+    "description": "The index for this entry.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEntPhysicalindex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.227.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwFwdEntryConflict": {
+    "class": "notificationtype",
+    "description": " Table check failed.",
+    "name": "hwFwdEntryConflict",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackSlotStr"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackReasonId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.3.1",
+    "status": "current"
+  },
+  "hwFwdEntryConflictResume": {
+    "class": "notificationtype",
+    "description": "The table check failure was removed.",
+    "name": "hwFwdEntryConflictResume",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackSlotStr"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackReasonId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.3.2",
+    "status": "current"
+  },
+  "hwFwdEntryConflictTrap": {
+    "class": "objectidentity",
+    "name": "hwFwdEntryConflictTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.3"
+  },
+  "hwFwdLicenseName": {
+    "class": "objecttype",
+    "description": "To describe the license name.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwFwdLicenseName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.227.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwFwdProcFailForLCS": {
+    "class": "notificationtype",
+    "description": "Operation is failed by reason of the license is not authorized.",
+    "name": "hwFwdProcFailForLCS",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdLicenseName"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackSlotStr"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdProcFailForLCSOperationId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.2.1",
+    "status": "current"
+  },
+  "hwFwdProcFailForLCSOperationId": {
+    "class": "objecttype",
+    "description": "To describe which operation is failed by reason of the license is not authorized.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwFwdProcFailForLCSOperationId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.227.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "l3vpnFibDownloadFailed": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFwdProcFailForLCSResume": {
+    "class": "notificationtype",
+    "description": "The license is authorized.",
+    "name": "hwFwdProcFailForLCSResume",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdLicenseName"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackSlotStr"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdProcFailForLCSOperationId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.2.2",
+    "status": "current"
+  },
+  "hwFwdProcFailForLCSTrap": {
+    "class": "objectidentity",
+    "name": "hwFwdProcFailForLCSTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.2"
+  },
+  "hwFwdResCurThroughput": {
+    "class": "objecttype",
+    "description": "The current average system throughput.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwFwdResCurThroughput",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.227.1.12.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwFwdResDevName": {
+    "class": "objecttype",
+    "description": "The information for the dev name.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwFwdResDevName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.227.1.12.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwFwdResEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of a license forward flow entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResDevName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwFwdResEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.227.1.12.1",
+    "status": "current"
+  },
+  "hwFwdResLacTrap": {
+    "class": "objectidentity",
+    "name": "hwFwdResLacTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1"
+  },
+  "hwFwdResLackReasonId": {
+    "class": "objecttype",
+    "description": "To describe the type of fowarding engine resource.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwFwdResLackReasonId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.227.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aclCarStat": 159,
+          "aclEntry": 61,
+          "aclEntryOutbound": 65,
+          "aclGroup": 62,
+          "aclGroupOutbound": 66,
+          "aclNhp": 133,
+          "aclNst": 148,
+          "aclRe": 132,
+          "aclResExceedThresHold": 212,
+          "apsRes": 255,
+          "apsResOverLoad": 270,
+          "arpNumLack": 76,
+          "arpNumOverLoad": 4,
+          "arpResExceedThresHold": 202,
+          "atIndex": 103,
+          "atmResExceedThresHold": 218,
+          "bfdGlobalIndex": 34,
+          "bfdIndex": 17,
+          "bfdRes": 188,
+          "bfdResExceedThresHold": 233,
+          "bfdaclNumLack": 82,
+          "bfdaclNumOverLoad": 10,
+          "bgp6ExtNum": 54,
+          "bgp6ExtNumLack": 91,
+          "bgpExtNum": 53,
+          "bgpExtNumLack": 90,
+          "bhvInCarExceedThresHold": 310,
+          "bhvOutCarExceedThresHold": 311,
+          "boardAclTCAMNumExhaust": 342,
+          "bridgeDomain": 185,
+          "carResExceedThresHold": 213,
+          "ccRecvNum": 43,
+          "ccSendNum": 42,
+          "cesResExceedThresHold": 219,
+          "chipinUserQueue": 257,
+          "chipouUserQueue": 258,
+          "comRull": 40,
+          "counter": 64,
+          "counterOutbound": 68,
+          "cpcarQueue": 254,
+          "cqWred": 250,
+          "dcnRes": 179,
+          "dcnResExceedThresHold": 237,
+          "defendResExceedThresHold": 238,
+          "devmResExceedThresHold": 221,
+          "dhcpsnpBindTableResOverLoad": 71,
+          "dhcpsnpResExceedThresHold": 240,
+          "diffservResExceedThresHold": 214,
+          "dp": 241,
+          "dpiRull": 39,
+          "dynLoadbNhpRes": 198,
+          "ecmpNextHopTable": 29,
+          "egressvlanxlateResOverLoad": 278,
+          "eoamRes": 181,
+          "erpsResExceed90ThresHold": 285,
+          "ethtestResExceedThresHold": 232,
+          "evcRes": 190,
+          "evpnResExceed90ThresHold": 301,
+          "evpnResOverLoad": 317,
+          "fesdrveResExceedThresHold": 217,
+          "fibArpFwdModeNumOverLoad": 73,
+          "fibResExceedThresHold": 201,
+          "fibv4NumExceedThresHold": 318,
+          "fibv4NumLack": 88,
+          "fibv4NumOverLoad": 2,
+          "fibv6NumExceedThresHold": 319,
+          "fibv6NumLack": 89,
+          "fibv6NumOverLoad": 3,
+          "flexQvctNum": 104,
+          "flexRes": 177,
+          "forwardvpnResOverLoad": 276,
+          "fvrfIndex": 14,
+          "fwdArp": 174,
+          "fwdBoardThresHoldToken": 99,
+          "fwdBoardToken": 94,
+          "fwdFibCheck": 175,
+          "fwdGlobal1ThresHoldToken": 98,
+          "fwdGlobal1Token": 93,
+          "fwdGlobal2ThresHoldToken": 100,
+          "fwdGlobal2Token": 95,
+          "fwdGlobal3ThresHoldToken": 101,
+          "fwdGlobal3Token": 96,
+          "fwdGlobal4ThresHoldToken": 102,
+          "fwdGlobal4Token": 97,
+          "fwdInAc": 168,
+          "fwdL2Entry": 171,
+          "fwdLem": 170,
+          "fwdMcMacfibv4": 172,
+          "fwdOutAc": 169,
+          "fwdSnoop": 173,
+          "fwdToken": 13,
+          "gid": 129,
+          "gidExceedThresHold": 307,
+          "greResExceedThresHold": 204,
+          "hostTablePrefixTable": 27,
+          "hqosResExceedThresHold": 211,
+          "imsResExceedThresHold": 235,
+          "inAclCar": 130,
+          "inAclStat": 157,
+          "inBehaviorSuppCar": 191,
+          "inCarRemark": 127,
+          "inFlowMapping": 107,
+          "inFlowQueueCbs": 111,
+          "inFlowQueuePbs": 113,
+          "inFlowQueueWfq": 109,
+          "inFlowWred": 105,
+          "inGQ": 121,
+          "inGQSshaper": 242,
+          "inGQTemp": 123,
+          "inGqResExceed90ThresHold": 343,
+          "inIFCarExceedThresHold": 305,
+          "inIPV4TCAMExceedThresHold": 312,
+          "inIPV4UCLTCAMExceedThresHold": 334,
+          "inIPV4UCLTCAMNumOverload": 338,
+          "inIPV6TCAMExceedThresHold": 314,
+          "inIPV6UCLTCAMExceedThresHold": 336,
+          "inIPV6UCLTCAMNumOverload": 340,
+          "inIPv4Acl": 134,
+          "inIPv6Acl": 135,
+          "inIfCar": 125,
+          "inIfCarStat": 160,
+          "inL2Acl": 162,
+          "inMirror": 140,
+          "inMirrorCapture": 142,
+          "inMirrorCar": 146,
+          "inProfSingleCar": 153,
+          "inProfSingleCarStat": 155,
+          "inProfSuppCar": 149,
+          "inProfSuppCarStat": 151,
+          "inQppbCar": 138,
+          "inRuleStatExceedThresHold": 308,
+          "inServiceTemp": 119,
+          "inSlotSqResExceed90ThresHold": 273,
+          "inSuppressCar": 144,
+          "inTmSqResExceed90ThresHold": 271,
+          "inUserQueue": 115,
+          "inUserQueueTemp": 117,
+          "inVI": 244,
+          "inVISshaper": 246,
+          "inVITemp": 248,
+          "incqServiceTemp": 251,
+          "ipfpmAclResOverLoad": 70,
+          "ipfpmRes": 196,
+          "ipfpmResExceedThresHold": 231,
+          "ipmcindex": 75,
+          "ipsecAclResOverLoad": 280,
+          "ipv4FullRull": 35,
+          "ipv4GreDecapsulationRes": 325,
+          "ipv4MaskRull": 36,
+          "ipv6FullRull": 37,
+          "ipv6GreDecapsulationRes": 326,
+          "ipv6MaskRull": 38,
+          "ipv6NdExceedThresHold": 320,
+          "ipv6NdNumLack": 77,
+          "ipv6NdNumOverLoad": 5,
+          "ipv6RoutingTablePrefixTable": 47,
+          "l2MfibNumExceed95ThresHold": 304,
+          "l2TrafLmt": 167,
+          "l2TrafLmtStat": 199,
+          "l2UserEntryOverload": 92,
+          "l2mcastResExceedThresHold": 200,
+          "l2mcindex": 74,
+          "l2tpv3ResExceed90ThresHold": 302,
+          "l2vpn": 183,
+          "l2vpnLinkLack": 80,
+          "l2vpnLinkOverLoad": 8,
+          "l3aclFailed": 72,
+          "l3mcastResExceedThresHold": 239,
+          "l3vpnResExceedThresHold": 203,
+          "largeExactlyMatchTable": 57,
+          "layer3InterfaceTable": 30,
+          "ldrResExceedThresHold": 206,
+          "linkEncap": 55,
+          "logicalInterface": 58,
+          "macMulticastIndex": 59,
+          "mainsubifRes": 178,
+          "mcMlidOverLoad": 25,
+          "mcOutIfNumOverload": 23,
+          "mcRepSerNumOverload": 22,
+          "mcTmgidOverLoad": 24,
+          "mcfibv4NumExceedThresHold": 321,
+          "mcfibv4NumLack": 83,
+          "mcfibv4NumOverLoad": 11,
+          "mcfibv6NumExceedThresHold": 322,
+          "mcfibv6NumLack": 84,
+          "mcfibv6NumOverLoad": 12,
+          "mcintNumLack": 81,
+          "mcintNumOverLoad": 9,
+          "mcv4StatId": 48,
+          "mcv6StatId": 49,
+          "meter": 63,
+          "meterOutbound": 67,
+          "mlpppResExceedThresHold": 220,
+          "mplsLdpStatResExceedThresHold": 347,
+          "mplsLinkLack": 87,
+          "mplsLinkOverLoad": 1,
+          "mplsResExceedThresHold": 205,
+          "mplsSRTELabelStackResExceedThresHold": 346,
+          "mplsSRTELabelStackResLack": 345,
+          "mplsvllResExceedThresHold": 208,
+          "multicastGroupExceed95ThresHold": 303,
+          "multicastIndex": 69,
+          "multioutlifResExceed90ThresHold": 295,
+          "ndIndex": 15,
+          "nextHopTable": 31,
+          "nhpNum": 50,
+          "nhpNumLack": 85,
+          "nqaResExceedThresHold": 226,
+          "nsIndex": 20,
+          "nscvmNum": 51,
+          "nscvmNumLack": 86,
+          "oam1agResExceedThresHold": 223,
+          "oam3ahResExceedThresHold": 225,
+          "oamRes": 256,
+          "oamResExceedThresHold": 222,
+          "oammaxResExceedThresHold": 234,
+          "outAclCar": 131,
+          "outAclStat": 158,
+          "outBehaviorSuppCar": 192,
+          "outCarRemark": 128,
+          "outFlowMapping": 108,
+          "outFlowQueueCbs": 112,
+          "outFlowQueuePbs": 114,
+          "outFlowQueueWfq": 110,
+          "outFlowWred": 106,
+          "outGQ": 122,
+          "outGQSshaper": 243,
+          "outGQTemp": 124,
+          "outGqResExceed90ThresHold": 344,
+          "outIFCarExceedThresHold": 306,
+          "outIPV4TCAMExceedThresHold": 313,
+          "outIPV4UCLTCAMExceedThresHold": 335,
+          "outIPV4UCLTCAMNumOverload": 339,
+          "outIPV6TCAMExceedThresHold": 315,
+          "outIPV6UCLTCAMExceedThresHold": 337,
+          "outIPV6UCLTCAMNumOverload": 341,
+          "outIPv4Acl": 136,
+          "outIPv6Acl": 137,
+          "outIfCar": 126,
+          "outIfCarStat": 161,
+          "outL2Acl": 163,
+          "outMirror": 141,
+          "outMirrorCapture": 143,
+          "outMirrorCar": 147,
+          "outProfSingleCar": 154,
+          "outProfSingleCarStat": 156,
+          "outProfSuppCar": 150,
+          "outProfSuppCarStat": 152,
+          "outQppbCar": 139,
+          "outRuleStatExceedThresHold": 309,
+          "outServiceTemp": 120,
+          "outSlotSqResExceed90ThresHold": 274,
+          "outSuppressCar": 145,
+          "outTmSqResExceed90ThresHold": 272,
+          "outUserQueue": 116,
+          "outUserQueueTemp": 118,
+          "outVI": 245,
+          "outVISshaper": 247,
+          "outVITemp": 249,
+          "outcqServiceTemp": 252,
+          "pbbBmacRes": 324,
+          "pbbResExceed90ThresHold": 328,
+          "pbbResOverLoad": 329,
+          "popgoRe": 253,
+          "protectgroupResOverLoad": 275,
+          "pwHqosOverLoad": 260,
+          "qinqRes": 189,
+          "qosNumLack": 79,
+          "qosNumOverLoad": 7,
+          "qppbAcl": 193,
+          "qppbGid": 194,
+          "qvctNumOverload": 33,
+          "remoteIntfRes": 323,
+          "resmResExceedThresHold": 216,
+          "rfc2544Res": 197,
+          "rfc2544ResExceedThresHold": 227,
+          "ringIndex": 21,
+          "routingTablePrefixTable": 28,
+          "sdResExceedThresHold": 228,
+          "semResOverLoad": 279,
+          "statNumLack": 78,
+          "statNumOverLoad": 6,
+          "statRes": 180,
+          "statResExceedThresHold": 215,
+          "tcamResExceedThresHold": 236,
+          "tcpFlagRull": 41,
+          "teResExceedThresHold": 207,
+          "tp1dmResExceedThresHold": 262,
+          "tp1dmResOverLoad": 266,
+          "tp2dmResExceedThresHold": 263,
+          "tp2dmResOverLoad": 267,
+          "tpDlmResExceedThresHold": 264,
+          "tpDlmResOverLoad": 268,
+          "tpSlmResExceedThresHold": 261,
+          "tpSlmResOverLoad": 265,
+          "tpapsResExceedThresHold": 230,
+          "tpoamCcResOverLoad": 269,
+          "tpoamResExceedThresHold": 229,
+          "trillMcOutIfNumOverload": 327,
+          "trillNhpIndex": 26,
+          "trunkDynAdjRes": 176,
+          "tunnelDecapsulationRes": 195,
+          "tunnelDecapsulationTable": 32,
+          "tunnelEncap": 56,
+          "tunnelIndex": 16,
+          "twampRes": 187,
+          "virtualPort": 60,
+          "vlan": 184,
+          "vlanxlateResOverLoad": 277,
+          "vllResExceedThresHold": 209,
+          "vplsLearnId": 18,
+          "vplsResExceed90ThresHold": 300,
+          "vplsResExceedThresHold": 210,
+          "vplsResOverLoad": 316,
+          "vrrpRes": 186,
+          "vsiIndex": 19,
+          "y1564Res": 182,
+          "y17311dmNum": 45,
+          "y17312dmNum": 46,
+          "y1731ResExceedThresHold": 224,
+          "y1731SlmNum": 44,
+          "y1731dlmNum": 52
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFwdResLackSlotStr": {
+    "class": "objecttype",
+    "description": "The information for the slot.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwFwdResLackSlotStr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.227.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwFwdResLackVrId": {
+    "class": "objecttype",
+    "description": "The current vrid.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwFwdResLackVrId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.227.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwFwdResLimit": {
+    "class": "objecttype",
+    "description": "The bandwidth configured for the license.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwFwdResLimit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.227.1.12.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwFwdResObjectGroup": {
+    "class": "objectgroup",
+    "description": "Group for base trap objects.",
+    "name": "hwFwdResObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwEntPhysicalindex"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackSlotStr"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackReasonId"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResThreshold"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwL3FailedService"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwCommand"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwViewName"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwReasonDescription"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackVrId"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdProcFailForLCSOperationId"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdLicenseName"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResDevName"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLimit"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResCurThroughput"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.3.2.1",
+    "status": "current"
+  },
+  "hwFwdResOverLimit": {
+    "class": "notificationtype",
+    "description": "The current average system throughput exceeded the bandwidth configured for the license.",
+    "name": "hwFwdResOverLimit",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLimit"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResCurThroughput"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.27",
+    "status": "current"
+  },
+  "hwFwdResOverLimitResume": {
+    "class": "notificationtype",
+    "description": "The current average system throughput decreased below the bandwidth configured for the license.",
+    "name": "hwFwdResOverLimitResume",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLimit"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResCurThroughput"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.28",
+    "status": "current"
+  },
+  "hwFwdResOverThresh": {
+    "class": "notificationtype",
+    "description": "The current average system throughput exceeded 95% of the bandwidth configured for the license.",
+    "name": "hwFwdResOverThresh",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLimit"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResCurThroughput"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.29",
+    "status": "current"
+  },
+  "hwFwdResOverThreshResume": {
+    "class": "notificationtype",
+    "description": "The current average system throughput decreased below 95% of the bandwidth configured for the license",
+    "name": "hwFwdResOverThreshResume",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLimit"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResCurThroughput"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.30",
+    "status": "current"
+  },
+  "hwFwdResTable": {
+    "class": "objecttype",
+    "description": "This table provides the information of forward flow Table.",
+    "maxaccess": "not-accessible",
+    "name": "hwFwdResTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.227.1.12",
+    "status": "current"
+  },
+  "hwFwdResThreshold": {
+    "class": "objecttype",
+    "description": "The threshold for trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwFwdResThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.227.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwFwdResTrapCompliance": {
+    "class": "modulecompliance",
+    "description": "Compliance statement for agents that provide full support for hwBaseTrapMIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResObjectGroup"
+      }
+    ],
+    "name": "hwFwdResTrapCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.227.3.1.1",
+    "status": "current"
+  },
+  "hwFwdResTrapCompliances": {
+    "class": "objectidentity",
+    "name": "hwFwdResTrapCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.227.3.1"
+  },
+  "hwFwdResTrapConformance": {
+    "class": "objectidentity",
+    "name": "hwFwdResTrapConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.227.3"
+  },
+  "hwFwdResTrapGroup": {
+    "class": "notificationgroup",
+    "description": "Group for all base traps.",
+    "name": "hwFwdResTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwWholeFwdResLack"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwWholeFwdResLackResume"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwBoardFwdResLack"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwBoardFwdResLackResume"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwBoardL3FwdResLack"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwBoardL3FwdResLackResume"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwBoardL3ACLResLack"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwBoardL2mcResLack"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwBoardL2mcResLackResume"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwBoardIpmcResLack"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwBoardIpmcResLackResume"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwBoardServiceFailed"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwWholeFwdResThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwWholeFwdResThresholdExceedResume"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwBoardFwdResThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwBoardFwdResThresholdExceedResume"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwBoardMplsPhpNonsupport"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwBoardResThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwBoardResThresholdExceedResume"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwBoardResWarningThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwBoardResWarningThresholdExceedResume"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwBoardIPv6ACLResLack"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdProcFailForLCS"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdProcFailForLCSResume"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdEntryConflict"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdEntryConflictResume"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResOverLimit"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResOverLimitResume"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResOverThresh"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResOverThreshResume"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.3.2.2",
+    "status": "current"
+  },
+  "hwFwdResTrapGroups": {
+    "class": "objectidentity",
+    "name": "hwFwdResTrapGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.227.3.2"
+  },
+  "hwFwdResTrapMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "The private mib file includes the alarm information of fowarding engine resouce overload.",
+    "lastupdated": "201510141123Z",
+    "name": "hwFwdResTrapMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.227",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "add reasonid for hwFwdResLackReasonId: mplsSRTELabelStackResLack(347)",
+        "revision": "2015-10-14 11:23"
+      },
+      {
+        "description": "add reasonid for hwFwdResLackReasonId: mplsSRTELabelStackResLack(345)",
+        "revision": "2015-10-12 21:00"
+      },
+      {
+        "description": "add reasonid for hwFwdResLackReasonId: mplsSRTELabelStackResExceedTresHold(346)",
+        "revision": "2015-10-12 21:00"
+      },
+      {
+        "description": "add reasonid for hwFwdResLackReasonId: mplsSRTELabelStackResLack(330)",
+        "revision": "2015-10-12 15:00"
+      },
+      {
+        "description": "add reasonid for hwFwdResLackReasonId: mplsSRTELabelStackResExceedTresHold(331)",
+        "revision": "2015-10-12 15:00"
+      },
+      {
+        "description": "add hwFwdResTable table and alarms(hwFwdResOverLimit,hwFwdResOverLimitResume,hwFwdResOverThresh,hwFwdResOverThreshResume).",
+        "revision": "2015-10-08 17:50"
+      },
+      {
+        "description": "add reasonid for hwFwdResLackReasonId: BoardAclTCAMNumExhaust(342)",
+        "revision": "2015-09-25 17:50"
+      },
+      {
+        "description": "add reasonid for hwFwdResLackReasonId: BoardAclTCAMNumExhaust(342)",
+        "revision": "2015-09-22 20:10"
+      },
+      {
+        "description": " add some reasonid for hwFwdResLackReasonId:inIPV4UCLTCAMExceedThresHold(334),outIPV4UCLTCAMExceedThresHold(335),inIPV6UCLTCAMExceedThresHold(336),outIPV6UCLTCAMExceedThresHold(337),inIPV4UCLTCAMNumOverload(338),outIPV4UCLTCAMNumOverload(339),inIPV6UCLTCAMNumOverload(340),outIPV6UCLTCAMNumOverload(341)",
+        "revision": "2015-09-22 19:20"
+      },
+      {
+        "description": " add a new node hwBoardMplsNonSupport.",
+        "revision": "2015-09-17 19:20"
+      },
+      {
+        "description": " add a reasonid for hwFwdResLackReasonId: pbbResExceed90ThresHold(328). pbbResOverLoad(329).",
+        "revision": "2015-08-04 19:20"
+      },
+      {
+        "description": " add a reasonid for hwFwdResLackReasonId. ReasonId:trillMcOutIfNumOverload(327).",
+        "revision": "2015-06-24 17:23"
+      },
+      {
+        "description": " add a reasonid for hwFwdResLackReasonId. ReasonId:ipv4GreDecapsulationRes(325) ipv6GreDecapsulationRes(326).",
+        "revision": "2015-06-23 14:32"
+      },
+      {
+        "description": " add a reasonid for hwWholeFwdResLack. ReasonId: pbbBmacRes(324) .",
+        "revision": "2015-06-17 16:20"
+      },
+      {
+        "description": " add a reasonid for hwFwdResLackReasonId: remoteIntfRes(323) .",
+        "revision": "2015-06-09 15:20"
+      },
+      {
+        "description": " add a reasonid for hwFwdResLackReasonId: mfibv4NumExceedThresHold(321) mfibv6NumExceedThresHold(322) .",
+        "revision": "2015-05-22 09:50"
+      },
+      {
+        "description": " add a reasonid for hwFwdResLackReasonId: fibv4NumExceedThresHold(318).",
+        "revision": "2015-05-08 09:50"
+      },
+      {
+        "description": " add a reasonid for hwFwdResLackReasonId: fibv6NumExceedThresHold(319).",
+        "revision": "2015-05-08 09:50"
+      },
+      {
+        "description": " add a reasonid for hwFwdResLackReasonId: ipv6NdExceedThresHold(320).",
+        "revision": "2015-05-08 09:50"
+      },
+      {
+        "description": " add a reasonid for hwFwdResLackReasonId: vplsResOverLoad(316).",
+        "revision": "2015-05-05 14:20"
+      },
+      {
+        "description": " add a reasonid for hwFwdResLackReasonId: evpnResOverLoad(317).",
+        "revision": "2015-05-05 14:20"
+      },
+      {
+        "description": " add a trap info for qos exceed.",
+        "revision": "2015-04-16 22:00"
+      },
+      {
+        "description": " add a trap info for mc exceed.",
+        "revision": "2015-04-16 21:50"
+      },
+      {
+        "description": " add a trap info for php exceed.",
+        "revision": "2015-04-08 21:50"
+      },
+      {
+        "description": " add a reasonid for hwFwdResLackReasonId: l2tpv3ResExceed90ThresHold(302).",
+        "revision": "2015-03-31 21:50"
+      },
+      {
+        "description": " add a reasonid for hwFwdResLackReasonId: evpnResExceed90ThresHold(301).",
+        "revision": "2015-03-31 21:50"
+      },
+      {
+        "description": " add a reasonid for hwFwdResLackReasonId: vplsResExceed90ThresHold(300).",
+        "revision": "2015-03-31 21:50"
+      },
+      {
+        "description": " add a reasonid for hwFwdResLackReasonId: multioutlifResExceed90ThresHold(295).",
+        "revision": "2015-03-28 09:50"
+      },
+      {
+        "description": " add a reasonid for hwFwdResLackReasonId: erpsResExceed90ThresHold(285).",
+        "revision": "2015-02-07 10:11"
+      },
+      {
+        "description": " add a reasonid for hwFwdResLackReasonId: ipsecAclResOverLoad(280).",
+        "revision": "2014-11-18 13:58"
+      },
+      {
+        "description": " add a reasonid for hwFwdResLackReasonId: semResOverLoad(279).",
+        "revision": "2014-10-28 18:46"
+      },
+      {
+        "description": " add a reasonid for hwFwdResLackReasonId: vlanxlateResOverLoad(277).",
+        "revision": "2014-10-23 10:47"
+      },
+      {
+        "description": " add a reasonid for hwFwdResLackReasonId: egressvlanxlateResOverLoad(278).",
+        "revision": "2014-10-23 10:47"
+      },
+      {
+        "description": " add a reasonid for hwFwdResLackReasonId: forwardvpnResOverLoad(276).",
+        "revision": "2014-10-17 15:47"
+      },
+      {
+        "description": " add a reasonid for hwFwdResLackReasonId: protectgroupResOverLoad(275).",
+        "revision": "2014-10-17 15:47"
+      },
+      {
+        "description": " add a reasonid for hwFwdResLackReasonId: outTmSqResExceed90ThresHold(274).",
+        "revision": "2014-09-25 10:58"
+      },
+      {
+        "description": " add a reasonid for hwFwdResLackReasonId: inSlotSqResExceed90ThresHold(273).",
+        "revision": "2014-09-25 10:58"
+      },
+      {
+        "description": " add a reasonid for hwFwdResLackReasonId: outTmSqResExceed90ThresHold(272).",
+        "revision": "2014-09-25 10:58"
+      },
+      {
+        "description": " add a reasonid for hwFwdResLackReasonId: inTmSqResExceed90ThresHold(271).",
+        "revision": "2014-09-25 10:58"
+      },
+      {
+        "description": " add a reasonid for hwFwdResLackReasonId: tunnelDecapsulationRes(195),dynLoadbNhpRes(198).",
+        "revision": "2014-09-03 15:01"
+      },
+      {
+        "description": " add a reasonid for hwFwdResLackReasonId: trunkDynAdjRes(176).",
+        "revision": "2014-08-30 11:56"
+      },
+      {
+        "description": " adjust the alarm description .",
+        "revision": "2014-08-22 10:10"
+      },
+      {
+        "description": " add some reasonid for hwFwdResLackReasonId : tpSlmResExceedThresHold(261),tp1dmResExceedThresHold(262),tp2dmResExceedThresHold(263),tpDlmResExceedThresHold(264),tpSlmResOverLoad(265),tp1dmResOverLoad(266),tp2dmResOverLoad(267),tpDlmResOverLoad(268),tpoamCcResOverLoad(269),apsResOverLoad(270).",
+        "revision": "2014-08-19 10:01"
+      },
+      {
+        "description": " modified for hwFwdProcFailForLCSOperationId,hwFwdLicenseName,hwFwdProcFailForLCS,hwFwdProcFailForLCSResume to keep same with code.",
+        "revision": "2014-08-06 16:39"
+      },
+      {
+        "description": " add some reasonid for hwFwdResLackReasonId : pwHqosOverLoad(260).",
+        "revision": "2014-07-31 19:22"
+      },
+      {
+        "description": " add some reasonid for hwFwdResLackReasonId : chipinUserQueue(257) chipouUserQueue(258).",
+        "revision": "2014-07-28 19:47"
+      },
+      {
+        "description": " add some reasonid for hwFwdResLackReasonId : l2mcastResExceedThresHold(200),fibResExceedThresHold(201),arpResExceedThresHold(202),l3vpnResExceedThresHold(203),greResExceedThresHold(204),mplsResExceedThresHold(205),ldrResExceedThresHold(206),teResExceedThresHold(207),mplsvllResExceedThresHold(208),vllResExceedThresHold(209),vplsResExceedThresHold(210),hqosResExceedThresHold(211),.etc.",
+        "revision": "2014-07-28 16:55"
+      },
+      {
+        "description": " add some reasonid for hwFwdResLackReasonId : apsRes(255) oamRes(256).",
+        "revision": "2014-07-26 17:14"
+      },
+      {
+        "description": " add some reasonid for hwFwdResLackReasonId : flexRes(177) mainsubifRes(178) dcnRes(179) statRes(180) eoamRes(181) qinqRes(189) l2TrafLmtStat(199).",
+        "revision": "2014-07-26 15:38"
+      },
+      {
+        "description": " modified for hwFwdProcFailForLCSOperationId,hwFwdLicenseName,hwFwdProcFailForLCS,hwFwdProcFailForLCSResume to keep same with code.",
+        "revision": "2014-07-21 15:54"
+      },
+      {
+        "description": " add some reasonid for hwFwdResLackReasonId : cpcarQueue(254).",
+        "revision": "2014-07-16 21:35"
+      },
+      {
+        "description": " add some reasonid for hwFwdResLackReasonId : popgoRe(253).",
+        "revision": "2014-07-15 19:35"
+      },
+      {
+        "description": " add some reasonid for hwFwdResLackReasonId : dp(241) inGQSshaper(242) outGQSshaper(243) inVI(244) outVI(245) inVISshaper(246) outVISshaper(247) inVITemp(248) outVITemp(249) cqWred(250) incqServiceTemp(251) outcqServiceTemp(252).",
+        "revision": "2014-07-11 08:29"
+      },
+      {
+        "description": " add some reasonid for hwFwdResLackReasonId : hqosdp(238) hqosgqshaper(239) hqosvi(240) hqosvishaper(241) hqosvitemplate(242).",
+        "revision": "2014-07-08 17:29"
+      },
+      {
+        "description": " add some reasonid for hwFwdResLackReasonId : l2TrafLmt(167) vlan(184) bridgeDomain(185) evcRes(190).",
+        "revision": "2014-06-09 08:44"
+      },
+      {
+        "description": " add some reasonid for hwFwdResLackReasonId : l2vpn(183).",
+        "revision": "2014-06-05 14:59"
+      },
+      {
+        "description": " add some reasonid for hwFwdResLackReasonId : y1564Res(182),vrrpRes(186),twampRes(187),bfdRes(188), ipfpmRes(196), rfc2544Res(197).",
+        "revision": "2014-05-30 14:50"
+      },
+      {
+        "description": "hwFwdEntryConflict,hwFwdEntryConflictResume,fwdFibCheck(175).",
+        "revision": "2014-05-21 10:00"
+      },
+      {
+        "description": "Add hwFwdProcFailForLCSOperationId,hwFwdProcFailForLCS,hwFwdProcFailForLCSResume.",
+        "revision": "2014-03-08 16:00"
+      },
+      {
+        "description": "Add hwBoardIPv6ACLResLack 22.",
+        "revision": "2014-03-05 15:26"
+      },
+      {
+        "description": " add reasonid fwdInAc(168) fwdOutAc(169) fwdLem(170) fwdL2Entry(171) fwdMcMacfibv4(172) fwdSnoop(173) fwdArp(174) ",
+        "revision": "2014-01-23 16:57"
+      },
+      {
+        "description": " modified hwBoardResWarningThresholdExceed,hwBoardResWarningThresholdExceedResume.",
+        "revision": "2014-01-21 11:40"
+      },
+      {
+        "description": "Add hwBoardResThresholdExceed,hwBoardResThresholdExceedResume,hwBoardResWarningThresholdExceed,hwBoardResWarningThresholdExceedResume.",
+        "revision": "2014-01-14 21:46"
+      },
+      {
+        "description": "Add QPPB alarm type.",
+        "revision": "2014-01-06 19:52"
+      },
+      {
+        "description": "Add Beavior alarm type.",
+        "revision": "2013-12-12 17:28"
+      },
+      {
+        "description": "Add hwFwdResLacTrap 17 ",
+        "revision": "2013-11-13 10:28"
+      },
+      {
+        "description": "Add alarm type.",
+        "revision": "2013-05-14 11:21"
+      },
+      {
+        "description": "Add alarm type.",
+        "revision": "2013-05-14 11:21"
+      },
+      {
+        "description": "ver 1.0",
+        "revision": "2010-06-04 10:43"
+      }
+    ]
+  },
+  "hwFwdResTrapObject": {
+    "class": "objectidentity",
+    "name": "hwFwdResTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.227.1"
+  },
+  "hwFwdResTraps": {
+    "class": "objectidentity",
+    "name": "hwFwdResTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2"
+  },
+  "hwL3FailedService": {
+    "class": "objecttype",
+    "description": "Layer 3 services failed to be delivered because of insufficient ACL resource.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwL3FailedService",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.227.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwReasonDescription": {
+    "class": "objecttype",
+    "description": "The specific description for failed reason.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwReasonDescription",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.227.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 256,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwViewName": {
+    "class": "objecttype",
+    "description": "The specific view of the command.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwViewName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.227.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 256,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWholeFwdResLack": {
+    "class": "notificationtype",
+    "description": "The whole device forwarding engine resources were overloaded.",
+    "name": "hwWholeFwdResLack",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwEntPhysicalindex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackReasonId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.1",
+    "status": "current"
+  },
+  "hwWholeFwdResLackResume": {
+    "class": "notificationtype",
+    "description": "The whole device forwarding engine resources were resumed.",
+    "name": "hwWholeFwdResLackResume",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwEntPhysicalindex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackReasonId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.2",
+    "status": "current"
+  },
+  "hwWholeFwdResThresholdExceed": {
+    "class": "notificationtype",
+    "description": "The whole device forwarding engine resources exceeded the threshold.",
+    "name": "hwWholeFwdResThresholdExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwEntPhysicalindex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackReasonId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.13",
+    "status": "current"
+  },
+  "hwWholeFwdResThresholdExceedResume": {
+    "class": "notificationtype",
+    "description": "The whole device forwarding engine resources fell from the threshold.",
+    "name": "hwWholeFwdResThresholdExceedResume",
+    "objects": [
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwEntPhysicalindex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-FWD-RES-TRAP-MIB",
+        "object": "hwFwdResLackReasonId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.227.2.1.14",
+    "status": "current"
+  },
+  "imports": {
+    "ENTITY-MIB": [
+      "entPhysicalName"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "TimeTicks",
+      "iso",
+      "Unsigned32",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-FWD-RES-TRAP-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:26 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-FWD-RES-TRAP-MIB"
+  }
+}

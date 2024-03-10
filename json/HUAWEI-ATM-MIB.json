@@ -1,0 +1,1759 @@
+{
+  "hwAtmClock": {
+    "class": "objecttype",
+    "description": "Master clock: uses the internal clock signal. Slave clock: uses the line clock signal.",
+    "maxaccess": "read-write",
+    "name": "hwAtmClock",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAtmCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-ATM-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmObjectGroup"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmMapPvpObjectGroup"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmMapPvcObjectGroup"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcIpoaObjectGroup"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcBridgeObjectGroup"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcServiceObjectGroup"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcOAMLoopbackObjectGroup"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvpLimitObjectGroup"
+      }
+    ],
+    "name": "hwAtmCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.1.1",
+    "status": "current"
+  },
+  "hwAtmCompliances": {
+    "class": "objectidentity",
+    "name": "hwAtmCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.1"
+  },
+  "hwAtmConformance": {
+    "class": "objectidentity",
+    "name": "hwAtmConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11"
+  },
+  "hwAtmEntry": {
+    "class": "objecttype",
+    "description": "This table is used to configure the parameters of the ATM interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAtmEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.1.1",
+    "status": "current"
+  },
+  "hwAtmFrameFormat": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "sdh"
+      }
+    },
+    "description": "For the optical interface STM-1/STM-4, the frame format on the ATM interface is SDH; for the OC-3/OC-12 interface, the frame format is SONET. The default frame format is SDH.",
+    "maxaccess": "read-write",
+    "name": "hwAtmFrameFormat",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sdh": 1,
+          "sonet": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAtmGroups": {
+    "class": "objectidentity",
+    "name": "hwAtmGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.2"
+  },
+  "hwAtmIfConf": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwAtmIfConf",
+    "objects": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmIfConfMaxVccs"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmIfConfOperVccs"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmIfConfIntfType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.2.2",
+    "status": "current"
+  },
+  "hwAtmIfConfEntry": {
+    "class": "objecttype",
+    "description": "Indicates the configuration of the ATM interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmIfConfIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAtmIfConfEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.11.1",
+    "status": "current"
+  },
+  "hwAtmIfConfIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtmIfConfIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.11.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwAtmIfConfIntfType": {
+    "class": "objecttype",
+    "description": "This object indicates the type of the serial interface with the ATM protocol.",
+    "maxaccess": "read-write",
+    "name": "hwAtmIfConfIntfType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.11.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nni": 2,
+          "uni": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAtmIfConfMaxVccs": {
+    "class": "objecttype",
+    "description": "Indicates the maximum number of the PVCs.",
+    "maxaccess": "read-write",
+    "name": "hwAtmIfConfMaxVccs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.11.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2048,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtmIfConfOperVccs": {
+    "class": "objecttype",
+    "description": "Indicates the number of the configured PVCs.",
+    "maxaccess": "read-only",
+    "name": "hwAtmIfConfOperVccs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.11.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAtmIfConfTable": {
+    "class": "objecttype",
+    "description": "Indicates the configuration of the ATM interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtmIfConfTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.11",
+    "status": "current"
+  },
+  "hwAtmIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtmIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwAtmIfType": {
+    "class": "objecttype",
+    "description": "Indicates the interface type.",
+    "maxaccess": "read-only",
+    "name": "hwAtmIfType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oc12OrStm4": 2,
+          "oc3OrStm1": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAtmLoopback": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "none"
+      }
+    },
+    "description": "Enable the loopback function of the channel. local: enables the local loopback on the interface. remote: enables the remote loopback on the interface. payload: enables the remote payload loopback on the interface. By default, all loopback functions are disabled.",
+    "maxaccess": "read-write",
+    "name": "hwAtmLoopback",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "none": 255,
+          "payload": 3,
+          "remote": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAtmMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "VRP Team Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China http://www.huawei.com Zip:100085 ",
+    "description": "This MIB is mainly used to configure the ATM OC-3/STM-1 and ATM OC-12/STM-4 interface, IPoA, IPoEoA, PVC service type, OAM F5 loopback, parameters of the VP limit, and mapping between the peer VPI and the local VPI.",
+    "lastupdated": "200710172230Z",
+    "name": "hwAtmMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.156",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwAtmMapPvcEntry": {
+    "class": "objecttype",
+    "description": "This table is used to configure the mapping between the peer VPI/VCI and the local VPI/VCI.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclVpi"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclVci"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAtmMapPvcEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.3.1",
+    "status": "current"
+  },
+  "hwAtmMapPvcObjectGroup": {
+    "class": "objectgroup",
+    "description": "The Atm Map Pvc attribute group.",
+    "name": "hwAtmMapPvcObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmMapPvcRemoteVclVpi"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmMapPvcRemoteVclVci"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmMapPvcRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.2.6",
+    "status": "current"
+  },
+  "hwAtmMapPvcRemoteVclVci": {
+    "class": "objecttype",
+    "description": "Indicates the peer VCI value. VCI is short for Virtual Channel Identifier. The VCI value ranges from 0 to 2047. Generally, the values from 0 to 31 are reserved for specail use.",
+    "maxaccess": "read-create",
+    "name": "hwAtmMapPvcRemoteVclVci",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "AtmVcIdentifier"
+    }
+  },
+  "hwAtmMapPvcRemoteVclVpi": {
+    "class": "objecttype",
+    "description": "Indicates the peer VPI value. The value is an integer ranging from 0 to 255.",
+    "maxaccess": "read-create",
+    "name": "hwAtmMapPvcRemoteVclVpi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.3.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "AtmVpIdentifier"
+    }
+  },
+  "hwAtmMapPvcRowStatus": {
+    "class": "objecttype",
+    "description": "This variable is used to create or delete an object.",
+    "maxaccess": "read-create",
+    "name": "hwAtmMapPvcRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.3.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAtmMapPvcTable": {
+    "class": "objecttype",
+    "description": "This table is used to configure the mapping between the peer VPI/VCI and the local VPI/VCI.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtmMapPvcTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.3",
+    "status": "current"
+  },
+  "hwAtmMapPvpEntry": {
+    "class": "objecttype",
+    "description": "This table is used to configure the mapping between the peer VPI and the local VPI.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmMapPvpIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmMapPvpVplVpi"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAtmMapPvpEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.2.1",
+    "status": "current"
+  },
+  "hwAtmMapPvpIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtmMapPvpIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwAtmMapPvpObjectGroup": {
+    "class": "objectgroup",
+    "description": "The Atm Map Pvp attribute group.",
+    "name": "hwAtmMapPvpObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmMapPvpRemoteVplVpi"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmMapPvpRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.2.5",
+    "status": "current"
+  },
+  "hwAtmMapPvpRemoteVplVpi": {
+    "class": "objecttype",
+    "description": "Indicates the peer VPI value. The value is an integer ranging from 0 to 255.",
+    "maxaccess": "read-create",
+    "name": "hwAtmMapPvpRemoteVplVpi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "AtmVpIdentifier"
+    }
+  },
+  "hwAtmMapPvpRowStatus": {
+    "class": "objecttype",
+    "description": "This variable is used to create or delete an object.",
+    "maxaccess": "read-create",
+    "name": "hwAtmMapPvpRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.2.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAtmMapPvpTable": {
+    "class": "objecttype",
+    "description": "This table is used to configure the mapping between the peer VPI and the local VPI.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtmMapPvpTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.2",
+    "status": "current"
+  },
+  "hwAtmMapPvpVplVpi": {
+    "class": "objecttype",
+    "description": "Indicates the local VPI value. The value is an integer ranging from 0 to 255.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtmMapPvpVplVpi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "AtmVpIdentifier"
+    }
+  },
+  "hwAtmObjectGroup": {
+    "class": "objectgroup",
+    "description": "The Atm attribute group.",
+    "name": "hwAtmObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmIfType"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmClock"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmFrameFormat"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmScramble"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmLoopback"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.2.1",
+    "status": "current"
+  },
+  "hwAtmObjects": {
+    "class": "objectidentity",
+    "name": "hwAtmObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1"
+  },
+  "hwAtmPvcBridgeDstIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the index of the VE interface.",
+    "maxaccess": "read-create",
+    "name": "hwAtmPvcBridgeDstIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.15.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwAtmPvcBridgeEntry": {
+    "class": "objecttype",
+    "description": "This table is used to configure the IPoEoA mapping and PPPoEoA mapping on the PVC.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclVpi"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclVci"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAtmPvcBridgeEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.15.1",
+    "status": "current"
+  },
+  "hwAtmPvcBridgeObjectGroup": {
+    "class": "objectgroup",
+    "description": "The Atm Pvl attribute group.",
+    "name": "hwAtmPvcBridgeObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVplRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.2.10",
+    "status": "current"
+  },
+  "hwAtmPvcBridgeRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus.",
+    "maxaccess": "read-create",
+    "name": "hwAtmPvcBridgeRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.15.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAtmPvcBridgeTable": {
+    "class": "objecttype",
+    "description": "This table is used to configure the IPoEoA mapping and PPPoEoA mapping on the PVC.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtmPvcBridgeTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.15",
+    "status": "current"
+  },
+  "hwAtmPvcIpoaBroadcast": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "If a mapping with this attribute is configured on the PVC, broadcast packets on the interface where the PVC resides will be sent over the PVC.",
+    "maxaccess": "read-create",
+    "name": "hwAtmPvcIpoaBroadcast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.14.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAtmPvcIpoaEntry": {
+    "class": "objecttype",
+    "description": "This table is used to configure the IPoA mapping on the PVC.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclVpi"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclVci"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcIpoaType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcIpoaIpAddress"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAtmPvcIpoaEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.14.1",
+    "status": "current"
+  },
+  "hwAtmPvcIpoaInarpInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "Indicates the interval for sending InARP packets. The parameter is optional. The value ranges from 1 to 600 in seconds. If the type of the PVC IPoA mapping is IP or default, the value is 0. The default value is 1.",
+    "maxaccess": "read-create",
+    "name": "hwAtmPvcIpoaInarpInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.14.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 600,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtmPvcIpoaIpAddress": {
+    "class": "objecttype",
+    "description": "Indicates the peer IP address mapped to the PVC.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtmPvcIpoaIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.14.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwAtmPvcIpoaIpMask": {
+    "class": "objecttype",
+    "description": "Indicates the IP address mask. The IP address mask is an optional parameter.",
+    "maxaccess": "read-create",
+    "name": "hwAtmPvcIpoaIpMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.14.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwAtmPvcIpoaObjectGroup": {
+    "class": "objectgroup",
+    "description": "The Atm Pvc IPOA attribute group.",
+    "name": "hwAtmPvcIpoaObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcIpoaIpMask"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcIpoaInarpInterval"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcIpoaBroadcast"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcIpoaRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.2.9",
+    "status": "current"
+  },
+  "hwAtmPvcIpoaRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus.",
+    "maxaccess": "read-create",
+    "name": "hwAtmPvcIpoaRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.14.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAtmPvcIpoaTable": {
+    "class": "objecttype",
+    "description": "This table is used to configure the IPoA mapping on the PVC.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtmPvcIpoaTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.14",
+    "status": "current"
+  },
+  "hwAtmPvcIpoaType": {
+    "class": "objecttype",
+    "description": "Indicates the type of the PVC IPoA mapping. ip: sets the peer IP address and mask that are mapped to the PVC. default: configures a mapping with default route attributes. If no mapping of the next hop address of a packet can be found, the packet is sent over the PVC if the PVC is configured with default mapping. inarp: configures InARP on the PVC.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtmPvcIpoaType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.14.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 2,
+          "inarp": 3,
+          "ip": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAtmPvcOAMLoopbackDownCount": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": "Indicates the number of continuous OAM F5 Loopback cells that are not received before the PVC turns Down.",
+    "maxaccess": "read-create",
+    "name": "hwAtmPvcOAMLoopbackDownCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.17.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 600,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtmPvcOAMLoopbackEntry": {
+    "class": "objecttype",
+    "description": "This table is used to configure OAM F5 Loopback.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclVpi"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclVci"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAtmPvcOAMLoopbackEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.17.1",
+    "status": "current"
+  },
+  "hwAtmPvcOAMLoopbackFrequency": {
+    "class": "objecttype",
+    "description": "Indicates the interval for sending OAM F5 Loopback cells.",
+    "maxaccess": "read-create",
+    "name": "hwAtmPvcOAMLoopbackFrequency",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.17.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 600,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtmPvcOAMLoopbackObjectGroup": {
+    "class": "objectgroup",
+    "description": "The Port attribute group.",
+    "name": "hwAtmPvcOAMLoopbackObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcOAMLoopbackFrequency"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcOAMLoopbackUpCount"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcOAMLoopbackDownCount"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcOAMLoopbackRetryFrequency"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcOAMLoopbackRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.2.11",
+    "status": "current"
+  },
+  "hwAtmPvcOAMLoopbackRetryFrequency": {
+    "class": "objecttype",
+    "description": "Indicates the interval for sending cells during OAM F5 Loopback retransmission verification before the PVC status changes.",
+    "maxaccess": "read-create",
+    "name": "hwAtmPvcOAMLoopbackRetryFrequency",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.17.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtmPvcOAMLoopbackRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus",
+    "maxaccess": "read-create",
+    "name": "hwAtmPvcOAMLoopbackRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.17.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAtmPvcOAMLoopbackUpCount": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "Indicates the number of continuous OAM F5 Loopback cells that must be received before the PVC turns Up.",
+    "maxaccess": "read-create",
+    "name": "hwAtmPvcOAMLoopbackUpCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.17.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 600,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtmPvcOamLoopbackTable": {
+    "class": "objecttype",
+    "description": "This table is used to configure OAM F5 Loopback, enable the sending of OAM F5 Loopback cells, and configure the parameters of the retransmission check or modify the parameters of the retransmission check.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtmPvcOamLoopbackTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.17",
+    "status": "current"
+  },
+  "hwAtmPvcServiceEntry": {
+    "class": "objecttype",
+    "description": "This table is used to configure the service type for the PVC.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclVpi"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclVci"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAtmPvcServiceEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.5.1",
+    "status": "current"
+  },
+  "hwAtmPvcServiceName": {
+    "class": "objecttype",
+    "description": "Indicates the name of the service type. The name is a string of 1 to 31 characters.",
+    "maxaccess": "read-create",
+    "name": "hwAtmPvcServiceName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.5.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAtmPvcServiceObjectGroup": {
+    "class": "objectgroup",
+    "description": "The Atm Pvc Service attribute group.",
+    "name": "hwAtmPvcServiceObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcServiceName"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcTransmittalDirection"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcServiceRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.2.8",
+    "status": "current"
+  },
+  "hwAtmPvcServiceRowStatus": {
+    "class": "objecttype",
+    "description": "This variable is used to create or delete an object.",
+    "maxaccess": "read-create",
+    "name": "hwAtmPvcServiceRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.5.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAtmPvcServiceTable": {
+    "class": "objecttype",
+    "description": "This table is used to configure the service type for the PVC.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtmPvcServiceTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.5",
+    "status": "current"
+  },
+  "hwAtmPvcTransmittalDirection": {
+    "class": "objecttype",
+    "description": "Indicates the input or output tpye of the service type.",
+    "maxaccess": "read-create",
+    "name": "hwAtmPvcTransmittalDirection",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.5.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "input": 1,
+          "output": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAtmPvpLimitEntry": {
+    "class": "objecttype",
+    "description": "This table is used to configure the VP limit.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvpLimitIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvpLimitVpi"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAtmPvpLimitEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.18.1",
+    "status": "current"
+  },
+  "hwAtmPvpLimitIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtmPvpLimitIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.18.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwAtmPvpLimitObjectGroup": {
+    "class": "objectgroup",
+    "description": "The Port attribute group.",
+    "name": "hwAtmPvpLimitObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvpLimitPeakRate"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvpLimitRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.2.12",
+    "status": "current"
+  },
+  "hwAtmPvpLimitPeakRate": {
+    "class": "objecttype",
+    "description": "VCI.",
+    "maxaccess": "read-create",
+    "name": "hwAtmPvpLimitPeakRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.18.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAtmPvpLimitRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus. ",
+    "maxaccess": "read-create",
+    "name": "hwAtmPvpLimitRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.18.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAtmPvpLimitTable": {
+    "class": "objecttype",
+    "description": "This table is used to configure the VP limit. To monitor the VP, configure related VP parameters.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtmPvpLimitTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.18",
+    "status": "current"
+  },
+  "hwAtmPvpLimitVpi": {
+    "class": "objecttype",
+    "description": "VPI.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtmPvpLimitVpi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.18.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "AtmVpIdentifier"
+    }
+  },
+  "hwAtmScramble": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "true"
+      }
+    },
+    "description": "By default, the scramble function is enabled. The scramble function takes effect only on payload rather than cell header. true: enables the scramble function. false: disables the scramble function.",
+    "maxaccess": "read-write",
+    "name": "hwAtmScramble",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAtmServiceCbrCdvtValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 500
+      }
+    },
+    "description": "Indicates the limit of the ATM cell delay variation. When hwPvcServiceTableType is cbr, the variable is valid. For other service types, the variable is 0.",
+    "maxaccess": "read-create",
+    "name": "hwAtmServiceCbrCdvtValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.4.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtmServiceEntry": {
+    "class": "objecttype",
+    "description": "This table is used to configure the service type for the PVC.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmServiceName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAtmServiceEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.4.1",
+    "status": "current"
+  },
+  "hwAtmServiceName": {
+    "class": "objecttype",
+    "description": "Indicates the name of the service type. The name is a string of 1 to 31 characters.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtmServiceName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAtmServiceObjectGroup": {
+    "class": "objectgroup",
+    "description": "The Atm Service attribute group.",
+    "name": "hwAtmServiceObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmServiceType"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmServiceOutputPcr"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmServiceOutputScr"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmServiceOutputMbs"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmServiceCbrCdvtValue"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmServiceOutputMcr"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmServiceRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.2.7",
+    "status": "current"
+  },
+  "hwAtmServiceOutputMbs": {
+    "class": "objecttype",
+    "description": "Indicates the peak output rate of the ATM cell. When hwPvcServiceTableType is cbr or ubr, the peak output rate is 0.",
+    "maxaccess": "read-create",
+    "name": "hwAtmServiceOutputMbs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.4.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 512,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtmServiceOutputMcr": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 149760
+      }
+    },
+    "description": "Indicates the mini width guarantee bit rate of the ATM cell. When hwPvcServiceTableType is ubr, the peak output rate is 0.",
+    "maxaccess": "read-create",
+    "name": "hwAtmServiceOutputMcr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.4.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 149760,
+            "min": 64
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtmServiceOutputPcr": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 149760
+      }
+    },
+    "description": "Indicates the peak output rate of the ATM cell. When hwPvcServiceTableType is ubr, the peak output rate is 0.",
+    "maxaccess": "read-create",
+    "name": "hwAtmServiceOutputPcr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.4.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 149760,
+            "min": 64
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtmServiceOutputScr": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 149760
+      }
+    },
+    "description": "Indicates the peak output rate of the ATM cell. When hwPvcServiceTableType is cbr or ubr, the peak output rate is 0.",
+    "maxaccess": "read-create",
+    "name": "hwAtmServiceOutputScr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.4.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 149760,
+            "min": 64
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtmServiceRowStatus": {
+    "class": "objecttype",
+    "description": "This variable is used to create or delete an object.",
+    "maxaccess": "read-create",
+    "name": "hwAtmServiceRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.4.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAtmServiceTable": {
+    "class": "objecttype",
+    "description": "This table is used to configure the service type and related parameters for the PVC.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtmServiceTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.4",
+    "status": "current"
+  },
+  "hwAtmServiceType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "ubr"
+      }
+    },
+    "description": "Set the service type for the PVC as required.",
+    "maxaccess": "read-create",
+    "name": "hwAtmServiceType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.4.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cbr": 1,
+          "ubr": 4,
+          "ubrPlus": 5,
+          "vbrNrt": 2,
+          "vbrRt": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAtmTable": {
+    "class": "objecttype",
+    "description": "This table is used to configure the parameters of the ATM interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtmTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.1",
+    "status": "current"
+  },
+  "hwAtmVccAal5EncapsType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32"
+      }
+    },
+    "description": "Indicates the encapsulation mode of AAL5.",
+    "maxaccess": "read-create",
+    "name": "hwAtmVccAal5EncapsType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.13.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aal5Mux": 2,
+          "aal5MuxNonstandard": 3,
+          "aal5Nlpid": 4,
+          "aal5Snap": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAtmVclEntry": {
+    "class": "objecttype",
+    "description": "Indicates the configuration of the ATM PVC.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclVpi"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclVci"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAtmVclEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.13.1",
+    "status": "current"
+  },
+  "hwAtmVclIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtmVclIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.13.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwAtmVclName": {
+    "class": "objecttype",
+    "description": "Indicates the name of the PVC.",
+    "maxaccess": "read-create",
+    "name": "hwAtmVclName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.13.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAtmVclObjectGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwAtmVclObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclName"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVccAal5EncapsType"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVclRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.2.4",
+    "status": "current"
+  },
+  "hwAtmVclRowStatus": {
+    "class": "objecttype",
+    "description": "Indicates the status of the row.",
+    "maxaccess": "read-create",
+    "name": "hwAtmVclRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.13.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAtmVclTable": {
+    "class": "objecttype",
+    "description": "Indicates the configuration of the ATM PVC.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtmVclTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.13",
+    "status": "current"
+  },
+  "hwAtmVclVci": {
+    "class": "objecttype",
+    "description": "VCI.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtmVclVci",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.13.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "AtmVcIdentifier"
+    }
+  },
+  "hwAtmVclVpi": {
+    "class": "objecttype",
+    "description": "VPI.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtmVclVpi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.13.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "AtmVpIdentifier"
+    }
+  },
+  "hwAtmVplEntry": {
+    "class": "objecttype",
+    "description": "Indicates the configuration of the ATM PVP.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVplIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmVplVpi"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAtmVplEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.12.1",
+    "status": "current"
+  },
+  "hwAtmVplIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtmVplIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.12.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwAtmVplObjectGroup": {
+    "class": "objectgroup",
+    "description": "The Atm Pvc Bridge attribute group.",
+    "name": "hwAtmVplObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcBridgeDstIfIndex"
+      },
+      {
+        "module": "HUAWEI-ATM-MIB",
+        "object": "hwAtmPvcBridgeRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.156.11.2.3",
+    "status": "current"
+  },
+  "hwAtmVplRowStatus": {
+    "class": "objecttype",
+    "description": "Indicates the status of the row.",
+    "maxaccess": "read-create",
+    "name": "hwAtmVplRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.12.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAtmVplTable": {
+    "class": "objecttype",
+    "description": "Indicates the configuration of the ATM PVP.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtmVplTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.12",
+    "status": "current"
+  },
+  "hwAtmVplVpi": {
+    "class": "objecttype",
+    "description": "VPI.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtmVplVpi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.156.1.12.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "AtmVpIdentifier"
+    }
+  },
+  "imports": {
+    "ATM-TC-MIB": [
+      "AtmVpIdentifier",
+      "AtmVcIdentifier"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "MibIdentifier",
+      "Counter32",
+      "Gauge32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-ATM-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:46:40 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-ATM-MIB"
+  }
+}

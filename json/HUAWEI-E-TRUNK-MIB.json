@@ -1,0 +1,946 @@
+{
+  "hwDatacomm": {
+    "class": "objectidentity",
+    "name": "hwDatacomm",
+    "oid": "1.3.6.1.4.1.2011.5.25"
+  },
+  "hwETrunkBfdSessId": {
+    "class": "objecttype",
+    "description": "The ID of a BFD session which is bound to the E-Trunk. When the status of the BFD session is changed, the status of the E-Trunk is also changed with BFD\u0027s status.",
+    "maxaccess": "read-create",
+    "name": "hwETrunkBfdSessId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8191,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwETrunkBfdSessName": {
+    "class": "objecttype",
+    "description": "The name of a BFD session which is bound to the E-Trunk. And BFD session name is composed of octet string which is 1 to 15 octet and can\u0027t contain space within it. When the status of the BFD session is changed, the status of the E-Trunk is also changed with BFD\u0027s status.",
+    "maxaccess": "read-create",
+    "name": "hwETrunkBfdSessName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwETrunkCompliances": {
+    "class": "objectidentity",
+    "name": "hwETrunkCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.3.1"
+  },
+  "hwETrunkConformance": {
+    "class": "objectidentity",
+    "name": "hwETrunkConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.3"
+  },
+  "hwETrunkDescription": {
+    "class": "objecttype",
+    "description": "The description of the E-Trunk. The default is NULL",
+    "maxaccess": "read-create",
+    "name": "hwETrunkDescription",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 242,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwETrunkEntry": {
+    "class": "objecttype",
+    "description": "E-Trunk entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwETrunkEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1",
+    "status": "current"
+  },
+  "hwETrunkFullCompliance": {
+    "class": "modulecompliance",
+    "description": "Description.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkGroup"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkMemberGroup"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkNotificationGroup"
+      }
+    ],
+    "name": "hwETrunkFullCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.3.1.1",
+    "status": "current"
+  },
+  "hwETrunkGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwETrunkGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkSystemId"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkPri"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkStatus"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkStatusReason"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkPeerIpAddr"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkSourceIpAddr"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkReceiveFailTimeMultiple"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkSendPeriod"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkPacketReceive"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkPacketSend"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkPacketRecDrop"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkPacketSndDrop"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkPeerSystemId"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkPeerPri"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkPeerReceiveFailTime"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkSecurityKeyType"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkSecurityKey"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkBfdSessId"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkResetCounter"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkRevertTime"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkBfdSessName"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkDescription"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.178.3.2.1",
+    "status": "current"
+  },
+  "hwETrunkGroups": {
+    "class": "objectidentity",
+    "name": "hwETrunkGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.3.2"
+  },
+  "hwETrunkId": {
+    "class": "objecttype",
+    "description": "The index of the E-Trunk.",
+    "maxaccess": "not-accessible",
+    "name": "hwETrunkId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwETrunkMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "Contact-info.",
+    "description": "Description.",
+    "lastupdated": "200810211010Z",
+    "name": "hwETrunkMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.178",
+    "organization": "Organization."
+  },
+  "hwETrunkMemberEntry": {
+    "class": "objecttype",
+    "description": "Member Entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkMemberParentId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkMemberType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkMemberId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwETrunkMemberEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1",
+    "status": "current"
+  },
+  "hwETrunkMemberGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwETrunkMemberGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkMemberStatus"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkMemberStatusReason"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkMemberWorkMode"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkMemberPhyStatus"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkMemberRemoteId"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkMemberRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.178.3.2.2",
+    "status": "current"
+  },
+  "hwETrunkMemberId": {
+    "class": "objecttype",
+    "description": "The ID of the member.",
+    "maxaccess": "not-accessible",
+    "name": "hwETrunkMemberId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwETrunkMemberParentId": {
+    "class": "objecttype",
+    "description": "The ID of the E-Trunk to which the member belongs.",
+    "maxaccess": "not-accessible",
+    "name": "hwETrunkMemberParentId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwETrunkMemberPhyStatus": {
+    "class": "objecttype",
+    "description": "The physical status of the member. 1:up. 2:down. ",
+    "maxaccess": "read-only",
+    "name": "hwETrunkMemberPhyStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwETrunkMemberRemoteId": {
+    "class": "objecttype",
+    "description": "Indicates the ID of a remote E-Trunk member. By default, the ID of a remote E-Trunk member is the same as the ID of the local E-Trunk member. When both ends have E-Trunk member with different IDs, you need to specify the ID of a remote E-Trunk member.",
+    "maxaccess": "read-create",
+    "name": "hwETrunkMemberRemoteId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwETrunkMemberRowStatus": {
+    "class": "objecttype",
+    "description": "Current operation status of the row. It is used to manage the creation and deletion of conceptual rows.",
+    "maxaccess": "read-create",
+    "name": "hwETrunkMemberRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.50",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwETrunkMemberStatus": {
+    "class": "objecttype",
+    "description": "The member status. 1:backup. 2:master. ",
+    "maxaccess": "read-only",
+    "name": "hwETrunkMemberStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backup": 1,
+          "master": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwETrunkMemberStatusChange": {
+    "class": "notificationtype",
+    "description": "The trap is generated when the status of the memeber is changed or the status reason of the memeber is changed.",
+    "name": "hwETrunkMemberStatusChange",
+    "objects": [
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkMemberStatus"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkMemberStatusReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.178.2.2",
+    "status": "current"
+  },
+  "hwETrunkMemberStatusReason": {
+    "class": "objecttype",
+    "description": "The reason for the member being in the current status. forceBackup(1):The work mode of the member is force-backup. forceMaster(2):The work mode of the member is force-master. etrunkInit(3):The work mode of the member is auto. The status of E-Trunk is initialize. etrunkBackup(4):The work mode of the member is auto. The status of E-Trunk is backup. etrunkMaster(5):The work mode of the member is auto. The status of E-Trunk is master. peerMemberDown(6):The status of the member belonging to the peer E-Trunk is down. peerMemberUp(7):The status of the member belonging to the peer E-Trunk is up. ",
+    "maxaccess": "read-only",
+    "name": "hwETrunkMemberStatusReason",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "etrunkBackup": 4,
+          "etrunkInit": 3,
+          "etrunkMaster": 5,
+          "forceBackup": 1,
+          "forceMaster": 2,
+          "peerMemberDown": 6,
+          "peerMemberUp": 7
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwETrunkMemberTable": {
+    "class": "objecttype",
+    "description": "The member table of the E-Trunk.",
+    "maxaccess": "not-accessible",
+    "name": "hwETrunkMemberTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2",
+    "status": "current"
+  },
+  "hwETrunkMemberType": {
+    "class": "objecttype",
+    "description": "The type of the member. Now it is Eth-Trunk only. 1:EthTrunk",
+    "maxaccess": "not-accessible",
+    "name": "hwETrunkMemberType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwETrunkMemberWorkMode": {
+    "class": "objecttype",
+    "description": "The work mode of the member. 1:auto. 2:forceBackup. 3:forceMaster. ",
+    "maxaccess": "read-create",
+    "name": "hwETrunkMemberWorkMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "forceBackup": 2,
+          "forceMaster": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwETrunkNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "Description.",
+    "name": "hwETrunkNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkStatusChange"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkMemberStatusChange"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.178.3.2.3",
+    "status": "current"
+  },
+  "hwETrunkObjects": {
+    "class": "objectidentity",
+    "name": "hwETrunkObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1"
+  },
+  "hwETrunkPacketRecDrop": {
+    "class": "objecttype",
+    "description": "The number of the dropped packets when the packets are received.",
+    "maxaccess": "read-only",
+    "name": "hwETrunkPacketRecDrop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwETrunkPacketReceive": {
+    "class": "objecttype",
+    "description": "The number of received packets.",
+    "maxaccess": "read-only",
+    "name": "hwETrunkPacketReceive",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwETrunkPacketSend": {
+    "class": "objecttype",
+    "description": "The number of sent packets.",
+    "maxaccess": "read-only",
+    "name": "hwETrunkPacketSend",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwETrunkPacketSndDrop": {
+    "class": "objecttype",
+    "description": "The number of the dropped packets when the packets are sent.",
+    "maxaccess": "read-only",
+    "name": "hwETrunkPacketSndDrop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwETrunkPeerIpAddr": {
+    "class": "objecttype",
+    "description": "The peer IP address of the E-Trunk.",
+    "maxaccess": "read-create",
+    "name": "hwETrunkPeerIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwETrunkPeerPri": {
+    "class": "objecttype",
+    "description": "The priority of the peer E-Trunk.",
+    "maxaccess": "read-only",
+    "name": "hwETrunkPeerPri",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 254,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwETrunkPeerReceiveFailTime": {
+    "class": "objecttype",
+    "description": "The failure time for the peer E-Trunk to receive packets. The unit is 100ms. ",
+    "maxaccess": "read-only",
+    "name": "hwETrunkPeerReceiveFailTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 30000,
+            "min": 15
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwETrunkPeerSystemId": {
+    "class": "objecttype",
+    "description": "The system ID of the peer E-Trunk. It is a physical address.",
+    "maxaccess": "read-only",
+    "name": "hwETrunkPeerSystemId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "PhysAddress"
+    }
+  },
+  "hwETrunkPri": {
+    "class": "objecttype",
+    "description": "The priority of the E-Trunk. The default value is 100.",
+    "maxaccess": "read-create",
+    "name": "hwETrunkPri",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 254,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwETrunkReceiveFailTimeMultiple": {
+    "class": "objecttype",
+    "description": "The detection time multiplier for failure detection. It is the multiple of the sending period.",
+    "maxaccess": "read-create",
+    "name": "hwETrunkReceiveFailTimeMultiple",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 300,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwETrunkResetCounter": {
+    "class": "objecttype",
+    "description": "Reset hwETrunkPacketReceive,hwETrunkPacketSend,hwETrunkPacketRecDrop,hwETrunkPacketSndDrop.",
+    "maxaccess": "read-create",
+    "name": "hwETrunkResetCounter",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwETrunkRevertTime": {
+    "class": "objecttype",
+    "description": "The delay time to revert. The unit is second. The default is 120. ",
+    "maxaccess": "read-create",
+    "name": "hwETrunkRevertTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 3600,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwETrunkRowStatus": {
+    "class": "objecttype",
+    "description": "Current operation status of the row. It is used to manage the creation and deletion of conceptual rows.",
+    "maxaccess": "read-create",
+    "name": "hwETrunkRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.50",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwETrunkSecurityKey": {
+    "class": "objecttype",
+    "description": "This object can be set to a simple password with a string of 0 to 255 characters or a encrypted password with a string less than 392 characters. For security purposes, a get on this returns a zero length string.",
+    "maxaccess": "read-create",
+    "name": "hwETrunkSecurityKey",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 392,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwETrunkSecurityKeyType": {
+    "class": "objecttype",
+    "description": "The type of the security key. 1:The simple encrypt type. 2:The cipher encrypt type. ",
+    "maxaccess": "read-create",
+    "name": "hwETrunkSecurityKeyType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cipher": 2,
+          "simple": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwETrunkSendPeriod": {
+    "class": "objecttype",
+    "description": "The period for sending packets of the E-Trunk. The unit is 100ms. ",
+    "maxaccess": "read-create",
+    "name": "hwETrunkSendPeriod",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 5
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwETrunkSourceIpAddr": {
+    "class": "objecttype",
+    "description": "The source IP address of the E-Trunk.",
+    "maxaccess": "read-create",
+    "name": "hwETrunkSourceIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwETrunkStatus": {
+    "class": "objecttype",
+    "description": "The status of the E-Trunk. 1:initialize. 2:backup. 3:master. ",
+    "maxaccess": "read-only",
+    "name": "hwETrunkStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backup": 2,
+          "initialize": 1,
+          "master": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwETrunkStatusChange": {
+    "class": "notificationtype",
+    "description": "The trap is generated when the status of the E-Trunk is changed or the status reason of the E-Trunk is changed.",
+    "name": "hwETrunkStatusChange",
+    "objects": [
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkStatus"
+      },
+      {
+        "module": "HUAWEI-E-TRUNK-MIB",
+        "object": "hwETrunkStatusReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.178.2.1",
+    "status": "current"
+  },
+  "hwETrunkStatusReason": {
+    "class": "objecttype",
+    "description": "The reason for the E-Trunk being in the current status. pri(1):Priority calculation. timeout(2):The receiving timer timed out. bfdDown(3):BFD detected the control link between the PE and peer down. peerTimeout(4):The receiving timer of the peer timed out. peerBfdDown(5):BFD of the peer detected the control link between the PE and peer down. allMemberDown(6):All members of the E-Trunk were down. init(7):Initiated the E-Trunk. ",
+    "maxaccess": "read-only",
+    "name": "hwETrunkStatusReason",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allMemberDown": 6,
+          "bfdDown": 3,
+          "init": 7,
+          "peerBfdDown": 5,
+          "peerTimeout": 4,
+          "pri": 1,
+          "timeout": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwETrunkSystemId": {
+    "class": "objecttype",
+    "description": "The system ID of the E-Trunk. It is a physical address.",
+    "maxaccess": "read-only",
+    "name": "hwETrunkSystemId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "PhysAddress"
+    }
+  },
+  "hwETrunkTable": {
+    "class": "objecttype",
+    "description": "The E-Trunk table.",
+    "maxaccess": "not-accessible",
+    "name": "hwETrunkTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1",
+    "status": "current"
+  },
+  "hwETrunkTraps": {
+    "class": "objectidentity",
+    "name": "hwETrunkTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.2"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "huaweiMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Gauge32",
+      "Counter64",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "iso",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "PhysAddress"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-E-TRUNK-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:15 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-E-TRUNK-MIB"
+  }
+}

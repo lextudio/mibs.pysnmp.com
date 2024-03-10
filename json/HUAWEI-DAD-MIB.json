@@ -1,0 +1,142 @@
+{
+  "PortIndex": {
+    "class": "textualconvention",
+    "description": "Each port is uniquely identified by a port number. The port number ranges from 0 to 575.",
+    "name": "PortIndex",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 575,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDadCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for SNMP entities which implement the HUAWEI-DAD-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-DAD-MIB",
+        "object": "hwDadTrapGroup"
+      }
+    ],
+    "name": "hwDadCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.246.2.1.1",
+    "status": "current"
+  },
+  "hwDadCompliances": {
+    "class": "objectidentity",
+    "name": "hwDadCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.246.2.1"
+  },
+  "hwDadConflictDetect": {
+    "class": "notificationtype",
+    "description": "Notify the NMS that dual-active scenario is detected.",
+    "name": "hwDadConflictDetect",
+    "oid": "1.3.6.1.4.1.2011.5.25.246.1.1",
+    "status": "current"
+  },
+  "hwDadConflictResume": {
+    "class": "notificationtype",
+    "description": "Notify the NMS that dual-active scenario is merged.",
+    "name": "hwDadConflictResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.246.1.2",
+    "status": "current"
+  },
+  "hwDadConformance": {
+    "class": "objectidentity",
+    "name": "hwDadConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.246.2"
+  },
+  "hwDadGroups": {
+    "class": "objectidentity",
+    "name": "hwDadGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.246.2.2"
+  },
+  "hwDadMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Nanjing R\u0026D Center 101 Software Avenue, Yuhuatai District, Nanjing city Zip:210012 Http://www.huawei.com E-mail:support@huawei.com Zip:100000 ",
+    "description": "This MIB contains private managed object definitions for dual-active detection.",
+    "lastupdated": "201109142130Z",
+    "name": "hwDadMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.246",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwDadTrapGroup": {
+    "class": "notificationgroup",
+    "description": "The collection of notifications used to indicate that the HUAWEI-DAD-MIB data is consistent and indicate the general status information. This group is mandatory for agents which implement the DAD and have the capability of receiving DAD frames.",
+    "name": "hwDadTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DAD-MIB",
+        "object": "hwDadConflictDetect"
+      },
+      {
+        "module": "HUAWEI-DAD-MIB",
+        "object": "hwDadConflictResume"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.246.2.2.1",
+    "status": "current"
+  },
+  "hwDadTraps": {
+    "class": "objectidentity",
+    "name": "hwDadTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.246.1"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "TimeTicks",
+      "IpAddress",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "MacAddress",
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-DAD-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:06 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-DAD-MIB"
+  }
+}

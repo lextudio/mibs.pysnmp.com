@@ -1,0 +1,189 @@
+{
+  "hwDeviceEsn": {
+    "class": "objecttype",
+    "description": "The equipment serial number of device.Its type is string.If the esn of lr0 is xxx, then the esn of lrn is xxx.ss,ss is the lrn\u0027s id.",
+    "maxaccess": "read-only",
+    "name": "hwDeviceEsn",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.188.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDeviceExt": {
+    "class": "moduleidentity",
+    "contactinfo": "VRP Team Huawei Technologies Co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China http://www.huawei.com Zip:100085 ",
+    "description": "The MIB module for collect base device information.",
+    "lastupdated": "200901051414Z",
+    "name": "hwDeviceExt",
+    "oid": "1.3.6.1.4.1.2011.5.25.188",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "The initial revision of this MIB module .",
+        "revision": "2008-12-17 14:14"
+      }
+    ]
+  },
+  "hwDeviceExtCompliance": {
+    "class": "modulecompliance",
+    "description": "Compliance statement for agents that provide full support for hwDeviceExt.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-DEVICE-EXT-MIB",
+        "object": "hwDeviceInfoGroup"
+      }
+    ],
+    "name": "hwDeviceExtCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.188.4.1.1",
+    "status": "current"
+  },
+  "hwDeviceExtCompliances": {
+    "class": "objectidentity",
+    "name": "hwDeviceExtCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.188.4.1"
+  },
+  "hwDeviceExtConformance": {
+    "class": "objectidentity",
+    "name": "hwDeviceExtConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.188.4"
+  },
+  "hwDeviceExtGroups": {
+    "class": "objectidentity",
+    "name": "hwDeviceExtGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.188.4.2"
+  },
+  "hwDeviceExtObject": {
+    "class": "objectidentity",
+    "name": "hwDeviceExtObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.188.1"
+  },
+  "hwDeviceInfoGroup": {
+    "class": "objectgroup",
+    "description": "Group for base device information.",
+    "name": "hwDeviceInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-EXT-MIB",
+        "object": "hwDeviceEsn"
+      },
+      {
+        "module": "HUAWEI-DEVICE-EXT-MIB",
+        "object": "hwPlatformName"
+      },
+      {
+        "module": "HUAWEI-DEVICE-EXT-MIB",
+        "object": "hwPlatformVersion"
+      },
+      {
+        "module": "HUAWEI-DEVICE-EXT-MIB",
+        "object": "hwProductName"
+      },
+      {
+        "module": "HUAWEI-DEVICE-EXT-MIB",
+        "object": "hwProductVersion"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.188.4.2.1",
+    "status": "current"
+  },
+  "hwPlatformName": {
+    "class": "objecttype",
+    "description": "The name of a platform.For example,Huawei Versatile Routing Platform Software.",
+    "maxaccess": "read-only",
+    "name": "hwPlatformName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.188.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPlatformVersion": {
+    "class": "objecttype",
+    "description": "The version of a platform.For example,VRP (R) Software,Version 3.10.",
+    "maxaccess": "read-only",
+    "name": "hwPlatformVersion",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.188.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwProductName": {
+    "class": "objecttype",
+    "description": "The name of a product.For example,Quidway NetEngine 5000E.The product name is not equal to the system name. the system name is an instance of the product name.User can config the system name of a device,bot can not change the product name of the device.",
+    "maxaccess": "read-only",
+    "name": "hwProductName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.188.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwProductVersion": {
+    "class": "objecttype",
+    "description": "The version of a product.For example,NE5000E V200R002C01B39L.",
+    "maxaccess": "read-only",
+    "name": "hwProductVersion",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.188.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Bits",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Gauge32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-DEVICE-EXT-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:08 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-DEVICE-EXT-MIB"
+  }
+}

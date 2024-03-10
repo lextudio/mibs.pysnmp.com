@@ -1,0 +1,316 @@
+{
+  "hwFtp": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "V1.00 The HUAWEI-FTP-MIB which contains objects manages the FTP server and FTP client configuration. ",
+    "lastupdated": "201404210900Z",
+    "name": "hwFtp",
+    "oid": "1.3.6.1.4.1.2011.5.25.166",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "Modified to Add nodes for wlan npe trusted host.",
+        "revision": "2014-04-21 09:00"
+      },
+      {
+        "description": "Modified to Add switch notify.",
+        "revision": "2014-08-15 16:00"
+      }
+    ]
+  },
+  "hwFtpHostPermit": {
+    "class": "objectidentity",
+    "name": "hwFtpHostPermit",
+    "oid": "1.3.6.1.4.1.2011.5.25.166.1.1.2"
+  },
+  "hwFtpHostPermitEntry": {
+    "class": "objecttype",
+    "description": "This object indicates trusted the entry of trusted host table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-FTP-MIB",
+        "object": "hwFtpHostPermitIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwFtpHostPermitEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.166.1.1.2.1.1",
+    "status": "current"
+  },
+  "hwFtpHostPermitIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the index of trusted host table.",
+    "maxaccess": "read-write",
+    "name": "hwFtpHostPermitIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.166.1.1.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFtpHostPermitInformation": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the description of trusted host.",
+    "maxaccess": "read-write",
+    "name": "hwFtpHostPermitInformation",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.166.1.1.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 127,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwFtpHostPermitIpAddress": {
+    "class": "objecttype",
+    "description": "The value of this object identifies ip address of trusted host.",
+    "maxaccess": "read-write",
+    "name": "hwFtpHostPermitIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.166.1.1.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwFtpHostPermitMaskAddress": {
+    "class": "objecttype",
+    "description": "The value of this object identifies mask address of trusted host.",
+    "maxaccess": "read-write",
+    "name": "hwFtpHostPermitMaskAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.166.1.1.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwFtpHostPermitRowState": {
+    "class": "objecttype",
+    "description": "This object identifies the status of a row.",
+    "maxaccess": "read-write",
+    "name": "hwFtpHostPermitRowState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.166.1.1.2.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwFtpHostPermitTable": {
+    "class": "objecttype",
+    "description": "This object indicates trusted host table.",
+    "maxaccess": "not-accessible",
+    "name": "hwFtpHostPermitTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.166.1.1.2.1",
+    "status": "current"
+  },
+  "hwFtpLowerThreshold": {
+    "class": "objecttype",
+    "description": "The object specifies the resune threshold of FTP users",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwFtpLowerThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.166.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFtpMIBCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-FTP-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-FTP-MIB",
+        "object": "hwFtpServerGroup"
+      }
+    ],
+    "name": "hwFtpMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.166.3.1.1",
+    "status": "current"
+  },
+  "hwFtpMIBCompliances": {
+    "class": "objectidentity",
+    "name": "hwFtpMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.166.3.1"
+  },
+  "hwFtpMIBConformance": {
+    "class": "objectidentity",
+    "name": "hwFtpMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.166.3"
+  },
+  "hwFtpMIBGroups": {
+    "class": "objectidentity",
+    "name": "hwFtpMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.166.3.2"
+  },
+  "hwFtpNotification": {
+    "class": "objectidentity",
+    "name": "hwFtpNotification",
+    "oid": "1.3.6.1.4.1.2011.5.25.166.2"
+  },
+  "hwFtpNumThreshold": {
+    "class": "notificationtype",
+    "description": "This object indicates the alarm reported when the number of FTP users exceed the threshold. ",
+    "name": "hwFtpNumThreshold",
+    "objects": [
+      {
+        "module": "HUAWEI-FTP-MIB",
+        "object": "hwFtpUpperThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.166.2.1",
+    "status": "current"
+  },
+  "hwFtpNumThresholdResume": {
+    "class": "notificationtype",
+    "description": "This object indicates the alarm reported when the number of FTP users fell below the threshold. ",
+    "name": "hwFtpNumThresholdResume",
+    "objects": [
+      {
+        "module": "HUAWEI-FTP-MIB",
+        "object": "hwFtpLowerThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.166.2.2",
+    "status": "current"
+  },
+  "hwFtpObjects": {
+    "class": "objectidentity",
+    "name": "hwFtpObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.166.1"
+  },
+  "hwFtpServer": {
+    "class": "objectidentity",
+    "name": "hwFtpServer",
+    "oid": "1.3.6.1.4.1.2011.5.25.166.1.1"
+  },
+  "hwFtpServerEnable": {
+    "class": "objecttype",
+    "description": "The object specifies whether the FTP server is enable. Default value is 2.",
+    "maxaccess": "read-write",
+    "name": "hwFtpServerEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.166.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFtpServerGroup": {
+    "class": "objectgroup",
+    "description": "The FTP server attribute group.",
+    "name": "hwFtpServerGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-FTP-MIB",
+        "object": "hwFtpServerEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.166.3.2.1",
+    "status": "current"
+  },
+  "hwFtpUpperThreshold": {
+    "class": "objecttype",
+    "description": "The object specifies the threshold of FTP users",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwFtpUpperThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.166.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Integer32",
+      "TimeTicks",
+      "IpAddress",
+      "iso",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Bits",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-FTP-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:26 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-FTP-MIB"
+  }
+}

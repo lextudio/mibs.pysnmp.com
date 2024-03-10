@@ -1,0 +1,639 @@
+{
+  "hwDIECompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting this module.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-DIE-MIB",
+        "object": "hwDIEGroup"
+      },
+      {
+        "module": "HUAWEI-DIE-MIB",
+        "object": "hwDIERuleGroup"
+      },
+      {
+        "module": "HUAWEI-DIE-MIB",
+        "object": "hwDeviceSensorGroup"
+      }
+    ],
+    "name": "hwDIECompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.317.3.1.1",
+    "status": "current"
+  },
+  "hwDIECompliances": {
+    "class": "objectidentity",
+    "name": "hwDIECompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.317.3.1"
+  },
+  "hwDIEConformance": {
+    "class": "objectidentity",
+    "name": "hwDIEConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.317.3"
+  },
+  "hwDIEDeviceProfileDevType": {
+    "class": "objecttype",
+    "description": "DIE profile device type.",
+    "maxaccess": "read-create",
+    "name": "hwDIEDeviceProfileDevType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.317.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwDIEDeviceProfileEnable": {
+    "class": "objecttype",
+    "description": "Specify device profile enable Flag.",
+    "maxaccess": "read-create",
+    "name": "hwDIEDeviceProfileEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.317.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDIEDeviceProfileIndex": {
+    "class": "objecttype",
+    "description": "DIE profile index.",
+    "maxaccess": "read-only",
+    "name": "hwDIEDeviceProfileIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.317.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDIEDeviceProfileName": {
+    "class": "objecttype",
+    "description": "DIE profile name.",
+    "maxaccess": "read-create",
+    "name": "hwDIEDeviceProfileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.317.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwDIEDeviceProfileRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus.",
+    "maxaccess": "read-create",
+    "name": "hwDIEDeviceProfileRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.317.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwDIEDeviceProfileRuleLogic": {
+    "class": "objecttype",
+    "description": "Rule operation logic.",
+    "maxaccess": "read-create",
+    "name": "hwDIEDeviceProfileRuleLogic",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.317.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 80,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwDIEEntry": {
+    "class": "objecttype",
+    "description": "The DIE entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DIE-MIB",
+        "object": "hwDIEDeviceProfileIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDIEEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.317.1.1.1",
+    "status": "current"
+  },
+  "hwDIEGroup": {
+    "class": "objectgroup",
+    "description": "The DIE configuration.",
+    "name": "hwDIEGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DIE-MIB",
+        "object": "hwDIEDeviceProfileIndex"
+      },
+      {
+        "module": "HUAWEI-DIE-MIB",
+        "object": "hwDIEDeviceProfileName"
+      },
+      {
+        "module": "HUAWEI-DIE-MIB",
+        "object": "hwDIEDeviceProfileDevType"
+      },
+      {
+        "module": "HUAWEI-DIE-MIB",
+        "object": "hwDIEDeviceProfileEnable"
+      },
+      {
+        "module": "HUAWEI-DIE-MIB",
+        "object": "hwDIEDeviceProfileRuleLogic"
+      },
+      {
+        "module": "HUAWEI-DIE-MIB",
+        "object": "hwDIEDeviceProfileRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.317.3.2.1",
+    "status": "current"
+  },
+  "hwDIEMibObjects": {
+    "class": "objectidentity",
+    "name": "hwDIEMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.317.1"
+  },
+  "hwDIEObjectGroups": {
+    "class": "objectidentity",
+    "name": "hwDIEObjectGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.317.3.2"
+  },
+  "hwDIERuleDhcpOptionID": {
+    "class": "objecttype",
+    "description": "DHCP option id.",
+    "maxaccess": "read-create",
+    "name": "hwDIERuleDhcpOptionID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.317.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 254,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDIERuleDhcpOptionMatch": {
+    "class": "objecttype",
+    "description": "DHCP option mask.",
+    "maxaccess": "read-create",
+    "name": "hwDIERuleDhcpOptionMatch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.317.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allMatch": 2,
+          "invalid": 0,
+          "subMatch": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDIERuleDhcpOptionTextAscii": {
+    "class": "objecttype",
+    "description": "DHCP option content.",
+    "maxaccess": "read-create",
+    "name": "hwDIERuleDhcpOptionTextAscii",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.317.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 247,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwDIERuleDhcpOptionTextHex": {
+    "class": "objecttype",
+    "description": "DHCP option content.",
+    "maxaccess": "read-create",
+    "name": "hwDIERuleDhcpOptionTextHex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.317.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 765,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwDIERuleDhcpOptionType": {
+    "class": "objecttype",
+    "description": "The object means option type in DHCP option value The value means : ascii(1)- The option type is ascii string hex(2) - The option type is hex number",
+    "maxaccess": "read-create",
+    "name": "hwDIERuleDhcpOptionType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.317.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ascii": 1,
+          "hex": 2,
+          "invalid": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDIERuleEntry": {
+    "class": "objecttype",
+    "description": "The DIE extend entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DIE-MIB",
+        "object": "hwDIEDeviceProfileIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DIE-MIB",
+        "object": "hwDIERuleRuleIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDIERuleEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.317.1.2.1",
+    "status": "current"
+  },
+  "hwDIERuleGroup": {
+    "class": "objectgroup",
+    "description": "The DIE rule configuration.",
+    "name": "hwDIERuleGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DIE-MIB",
+        "object": "hwDIERuleRuleIndex"
+      },
+      {
+        "module": "HUAWEI-DIE-MIB",
+        "object": "hwDIERuleMacAddress"
+      },
+      {
+        "module": "HUAWEI-DIE-MIB",
+        "object": "hwDIERuleMacMask"
+      },
+      {
+        "module": "HUAWEI-DIE-MIB",
+        "object": "hwDIERuleDhcpOptionID"
+      },
+      {
+        "module": "HUAWEI-DIE-MIB",
+        "object": "hwDIERuleDhcpOptionType"
+      },
+      {
+        "module": "HUAWEI-DIE-MIB",
+        "object": "hwDIERuleDhcpOptionTextAscii"
+      },
+      {
+        "module": "HUAWEI-DIE-MIB",
+        "object": "hwDIERuleDhcpOptionTextHex"
+      },
+      {
+        "module": "HUAWEI-DIE-MIB",
+        "object": "hwDIERuleDhcpOptionMatch"
+      },
+      {
+        "module": "HUAWEI-DIE-MIB",
+        "object": "hwDIERuleUserAgentText"
+      },
+      {
+        "module": "HUAWEI-DIE-MIB",
+        "object": "hwDIERuleUserAgentMatch"
+      },
+      {
+        "module": "HUAWEI-DIE-MIB",
+        "object": "hwDIERuleRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.317.3.2.2",
+    "status": "current"
+  },
+  "hwDIERuleMacAddress": {
+    "class": "objecttype",
+    "description": "Mac address",
+    "maxaccess": "read-create",
+    "name": "hwDIERuleMacAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.317.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwDIERuleMacMask": {
+    "class": "objecttype",
+    "description": "Mac address mask.",
+    "maxaccess": "read-create",
+    "name": "hwDIERuleMacMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.317.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 48,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDIERuleRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus.",
+    "maxaccess": "read-create",
+    "name": "hwDIERuleRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.317.1.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwDIERuleRuleIndex": {
+    "class": "objecttype",
+    "description": "Rule index.",
+    "maxaccess": "read-only",
+    "name": "hwDIERuleRuleIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.317.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDIERuleTable": {
+    "class": "objecttype",
+    "description": "The DIE extend table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDIERuleTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.317.1.2",
+    "status": "current"
+  },
+  "hwDIERuleUserAgentMatch": {
+    "class": "objecttype",
+    "description": "User agent mask.",
+    "maxaccess": "read-create",
+    "name": "hwDIERuleUserAgentMatch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.317.1.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allMatch": 2,
+          "invalid": 0,
+          "subMatch": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDIERuleUserAgentText": {
+    "class": "objecttype",
+    "description": "User agent content.",
+    "maxaccess": "read-create",
+    "name": "hwDIERuleUserAgentText",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.317.1.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 247,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwDIETable": {
+    "class": "objecttype",
+    "description": "The DIE table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDIETable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.317.1.1",
+    "status": "current"
+  },
+  "hwDIEmib": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com",
+    "description": "The MIB module for creating and deleting bulk files of SNMP data for file transfer.",
+    "lastupdated": "201301101150Z",
+    "name": "hwDIEmib",
+    "oid": "1.3.6.1.4.1.2011.5.25.317",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "The MIB module for creating and deleting bulk files of SNMP data for file transfer.",
+        "revision": "2013-01-10 11:50"
+      },
+      {
+        "description": "The MIB module for creating and deleting bulk files of SNMP data for file transfer.",
+        "revision": "2013-06-29 11:50"
+      },
+      {
+        "description": "The MIB contains objects of module DIE.",
+        "revision": "2013-10-26 11:50"
+      }
+    ]
+  },
+  "hwDeviceSensorDhcpOption": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwDeviceSensorDhcpOption",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.317.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDeviceSensorGroup": {
+    "class": "objectgroup",
+    "description": "The DIE sensor configuration.",
+    "name": "hwDeviceSensorGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DIE-MIB",
+        "object": "hwDeviceSensorDhcpOption"
+      },
+      {
+        "module": "HUAWEI-DIE-MIB",
+        "object": "hwDeviceSensorLLDPTlv"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.317.3.2.3",
+    "status": "current"
+  },
+  "hwDeviceSensorLLDPTlv": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwDeviceSensorLLDPTlv",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.317.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm",
+      "huaweiMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Gauge32",
+      "Counter32",
+      "MibIdentifier",
+      "Unsigned32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "MacAddress",
+      "DateAndTime"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-DIE-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:12 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-DIE-MIB"
+  }
+}

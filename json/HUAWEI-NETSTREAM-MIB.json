@@ -1,0 +1,233 @@
+{
+  "hwNetStream16BitIndex": {
+    "class": "objecttype",
+    "description": "NetStream16BitIndex indicates the interface index of netstream character.",
+    "maxaccess": "read-only",
+    "name": "hwNetStream16BitIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwNetStreamIfIndexEntry": {
+    "class": "objecttype",
+    "description": "Information about a replaceable unit physical entity. Each entry provides objects of a replaceable unit to help an NMS identify and characterize the entry in this table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-NETSTREAM-MIB",
+        "object": "hwNetStream16BitIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwNetStreamIfIndexEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.1.2.1",
+    "status": "current"
+  },
+  "hwNetStreamIfIndexTable": {
+    "class": "objecttype",
+    "description": "This table contains tow rows, one of the two elements indicates the interface index which is distributed by VRP, named netStream32BitIndex and occupies 32 bits.Another indicates the interface index of netstream character, which named netStream16BitIndex and occupies 16 bits.",
+    "maxaccess": "not-accessible",
+    "name": "hwNetStreamIfIndexTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.1.2",
+    "status": "current"
+  },
+  "hwNetStreamIndexStatusChanged": {
+    "class": "notificationtype",
+    "description": "The object indicates if the hwNetStreamIfIndexTable has been changed when interface is deleted,created and board is inserted and drawed.",
+    "name": "hwNetStreamIndexStatusChanged",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.2.0.1",
+    "status": "current"
+  },
+  "hwNetStreamIndexUsedUp": {
+    "class": "notificationtype",
+    "description": "The object indicates if there is enough index to be distributed, which is on the managed object.",
+    "name": "hwNetStreamIndexUsedUp",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.2.0.2",
+    "status": "current"
+  },
+  "hwNetStreamMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": "The private mib file includes the general extent information of the device.hwDatacomm(25).htNetStream(110)",
+    "lastupdated": "200510250000Z",
+    "name": "hwNetStreamMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.110",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwNetStreamNotifications": {
+    "class": "objectidentity",
+    "name": "hwNetStreamNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.2"
+  },
+  "hwNetStreamObjects": {
+    "class": "objectidentity",
+    "name": "hwNetStreamObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.1"
+  },
+  "hwNetStreamSessionFull": {
+    "class": "notificationtype",
+    "description": "The object indicates if the session is full.",
+    "name": "hwNetStreamSessionFull",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.2.0.3",
+    "status": "current"
+  },
+  "hwNetStreamTrapPrefix": {
+    "class": "objectidentity",
+    "name": "hwNetStreamTrapPrefix",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.2.0"
+  },
+  "hwNetStreamlastchangedtime": {
+    "class": "objecttype",
+    "description": "The object is the time stamp, which describes the last time that the netStreamIfIndex table has been changed. ",
+    "maxaccess": "read-only",
+    "name": "hwNetStreamlastchangedtime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwNetstreamCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for SNMPv2 entities which implement the HUAWEI Netstream extension MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-NETSTREAM-MIB",
+        "object": "hwNetstreamExtGroup"
+      },
+      {
+        "module": "HUAWEI-NETSTREAM-MIB",
+        "object": "hwNotificationExtGroup"
+      }
+    ],
+    "name": "hwNetstreamCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.3.2.1",
+    "status": "current"
+  },
+  "hwNetstreamCompliances": {
+    "class": "objectidentity",
+    "name": "hwNetstreamCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.3.2"
+  },
+  "hwNetstreamConformance": {
+    "class": "objectidentity",
+    "name": "hwNetstreamConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.3"
+  },
+  "hwNetstreamExtGroup": {
+    "class": "objectgroup",
+    "description": "The HUAWEI Netstream extension Table.",
+    "name": "hwNetstreamExtGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-NETSTREAM-MIB",
+        "object": "hwNetStreamlastchangedtime"
+      },
+      {
+        "module": "HUAWEI-NETSTREAM-MIB",
+        "object": "hwNetStream16BitIndex"
+      },
+      {
+        "module": "HUAWEI-NETSTREAM-MIB",
+        "object": "hwifNet32BitIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.110.3.1.2",
+    "status": "current"
+  },
+  "hwNetstreamGroups": {
+    "class": "objectidentity",
+    "name": "hwNetstreamGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.3.1"
+  },
+  "hwNotificationExtGroup": {
+    "class": "notificationgroup",
+    "description": "The HUAWEI Netstream trap info.",
+    "name": "hwNotificationExtGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-NETSTREAM-MIB",
+        "object": "hwNetStreamIndexUsedUp"
+      },
+      {
+        "module": "HUAWEI-NETSTREAM-MIB",
+        "object": "hwNetStreamIndexStatusChanged"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.110.3.1.3",
+    "status": "current"
+  },
+  "hwifNet32BitIndex": {
+    "class": "objecttype",
+    "description": "NetStream32BitIndex indicates the interface index which is distributed by VRP.",
+    "maxaccess": "read-only",
+    "name": "hwifNet32BitIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.110.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "iso",
+      "Bits",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "BITS",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-NETSTREAM-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:33 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-NETSTREAM-MIB"
+  }
+}

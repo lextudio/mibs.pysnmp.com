@@ -1,0 +1,3844 @@
+{
+  "hwMacAddressWhitelistEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwMacAddressWhitelistMacAddress"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMacAddressWhitelistEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.5.1",
+    "status": "current"
+  },
+  "hwMacAddressWhitelistMacAddress": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacAddressWhitelistMacAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwMacAddressWhitelistRowStatus": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-create",
+    "name": "hwMacAddressWhitelistRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMacAddressWhitelistTable": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacAddressWhitelistTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.5",
+    "status": "current"
+  },
+  "hwOuiWhitelistEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwOuiWhitelistOui"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwOuiWhitelistEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.4.1",
+    "status": "current"
+  },
+  "hwOuiWhitelistOui": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwOuiWhitelistOui",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwOuiWhitelistRowStatus": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-create",
+    "name": "hwOuiWhitelistRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwOuiWhitelistTable": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwOuiWhitelistTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.4",
+    "status": "current"
+  },
+  "hwSsidWhitelistEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwSsidWhitelistSsid"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSsidWhitelistEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.6.1",
+    "status": "current"
+  },
+  "hwSsidWhitelistGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwSsidWhitelistGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwSsidWhitelisttRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.14.2.7",
+    "status": "current"
+  },
+  "hwSsidWhitelistSsid": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwSsidWhitelistSsid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSsidWhitelistTable": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwSsidWhitelistTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.6",
+    "status": "current"
+  },
+  "hwSsidWhitelisttRowStatus": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-create",
+    "name": "hwSsidWhitelisttRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwWidsAttDevEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackDevMac"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwWidsAttDevEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.2.1",
+    "status": "current"
+  },
+  "hwWidsAttDevTable": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwWidsAttDevTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.2",
+    "status": "current"
+  },
+  "hwWidsAttackDetorApID": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwWidsAttackDetorApID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackDetorAttTypeBmp": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackDetorAttTypeBmp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackDetorEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackDevMac"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackDetorApID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwWidsAttackDetorEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.3.1",
+    "status": "current"
+  },
+  "hwWidsAttackDetorFirstDetTimeFlood": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackDetorFirstDetTimeFlood",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackDetorFirstDetTimeSpoof": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackDetorFirstDetTimeSpoof",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackDetorFirstDetTimeWapi": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackDetorFirstDetTimeWapi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackDetorFirstDetTimeWeakIv": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackDetorFirstDetTimeWeakIv",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackDetorFirstDetTimeWep": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackDetorFirstDetTimeWep",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackDetorFirstDetTimeWpa": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackDetorFirstDetTimeWpa",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackDetorFirstDetTimeWpa2": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackDetorFirstDetTimeWpa2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackDetorGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWidsAttackDetorGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackDetorPacketBmpFlood"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackDetorPacketBmpSpoof"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackDetorFirstDetTimeFlood"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackDetorFirstDetTimeSpoof"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackDetorFirstDetTimeWeakIv"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackDetorFirstDetTimeWep"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackDetorFirstDetTimeWpa"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackDetorFirstDetTimeWpa2"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackDetorFirstDetTimeWapi"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackDetorAttTypeBmp"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.14.2.16",
+    "status": "current"
+  },
+  "hwWidsAttackDetorPacketBmpFlood": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackDetorPacketBmpFlood",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackDetorPacketBmpSpoof": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackDetorPacketBmpSpoof",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackDetorTable": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwWidsAttackDetorTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.3",
+    "status": "current"
+  },
+  "hwWidsAttackDevChannel": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackDevChannel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsAttackDevGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWidsAttackDevGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackDevChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackDevRssi"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackDevLastAttType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackDevLastPacketBmp"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackDevLastDetTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.14.2.15",
+    "status": "current"
+  },
+  "hwWidsAttackDevLastAttType": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackDevLastAttType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackDevLastDetTime": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackDevLastDetTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackDevLastPacketBmp": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackDevLastPacketBmp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackDevMac": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwWidsAttackDevMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwWidsAttackDevRssi": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackDevRssi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsAttackHistoryAttackType": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackHistoryAttackType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.8.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsAttackHistoryChannel": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackHistoryChannel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.8.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsAttackHistoryDetTime": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackHistoryDetTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.8.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackHistoryDetectorApId": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackHistoryDetectorApId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.8.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsAttackHistoryDevMac": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackHistoryDevMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.8.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwWidsAttackHistoryDevType": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackHistoryDevType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.8.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsAttackHistoryEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackHistorySeq"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackHistorySubSeq"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwWidsAttackHistoryEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.8.1",
+    "status": "current"
+  },
+  "hwWidsAttackHistoryGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWidsAttackHistoryGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackHistoryDevMac"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackHistoryDevType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackHistoryRssi"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackHistoryChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackHistoryAttackType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackHistoryPacketBmp1"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackHistoryPacketBmp2"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackHistorySSID"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackHistoryDetTime"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackHistoryDetectorApId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.14.2.9",
+    "status": "current"
+  },
+  "hwWidsAttackHistoryPacketBmp1": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackHistoryPacketBmp1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.8.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsAttackHistoryPacketBmp2": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackHistoryPacketBmp2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.8.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsAttackHistoryRssi": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackHistoryRssi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.8.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsAttackHistorySSID": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackHistorySSID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.8.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWidsAttackHistorySeq": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwWidsAttackHistorySeq",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackHistorySubSeq": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwWidsAttackHistorySubSeq",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.8.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackHistoryTable": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwWidsAttackHistoryTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.8",
+    "status": "current"
+  },
+  "hwWidsAttackStatActionFloodAttack": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackStatActionFloodAttack",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.10.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackStatAssocReqFloodAttack": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackStatAssocReqFloodAttack",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.10.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackStatAuthRequestFloodAttack": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackStatAuthRequestFloodAttack",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.10.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackStatDeAuthenFloodAttack": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackStatDeAuthenFloodAttack",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.10.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackStatDeauthSpoofAttack": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackStatDeauthSpoofAttack",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.10.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackStatDisassocReqFloodAttack": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackStatDisassocReqFloodAttack",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.10.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackStatDisassocSpoofAttack": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackStatDisassocSpoofAttack",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.10.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackStatEAPOLLogoffFloodAttack": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackStatEAPOLLogoffFloodAttack",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.10.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackStatEAPOLStartFloodAttack": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackStatEAPOLStartFloodAttack",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.10.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackStatGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWidsAttackStatGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackStatProbeRequestFloodAttack"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackStatAuthRequestFloodAttack"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackStatDeAuthenFloodAttack"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackStatAssocReqFloodAttack"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackStatDisassocReqFloodAttack"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackStatReassocReqFloodAttack"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackStatActionFloodAttack"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackStatNullDataFloodAttack"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackStatWeakIvAttack"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackStatDeauthSpoofAttack"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackStatDisassocSpoofAttack"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackStatWepShareKeyAttack"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackStatWpaAttack"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackStatWpa2Attack"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackStatWapiAttack"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackStatStartTime"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackStatEAPOLStartFloodAttack"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackStatEAPOLLogoffFloodAttack"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackStatNullQosFloodAttack"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.14.2.11",
+    "status": "current"
+  },
+  "hwWidsAttackStatNullDataFloodAttack": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackStatNullDataFloodAttack",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.10.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackStatNullQosFloodAttack": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackStatNullQosFloodAttack",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.10.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackStatProbeRequestFloodAttack": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackStatProbeRequestFloodAttack",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.10.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackStatReassocReqFloodAttack": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackStatReassocReqFloodAttack",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.10.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackStatStartTime": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackStatStartTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.10.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackStatTable": {
+    "class": "objectidentity",
+    "name": "hwWidsAttackStatTable",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.10"
+  },
+  "hwWidsAttackStatWapiAttack": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackStatWapiAttack",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.10.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackStatWeakIvAttack": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackStatWeakIvAttack",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.10.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackStatWepShareKeyAttack": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackStatWepShareKeyAttack",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.10.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackStatWpa2Attack": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackStatWpa2Attack",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.10.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsAttackStatWpaAttack": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsAttackStatWpaAttack",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.10.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsDetDevBSSID": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetDevBSSID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwWidsDetDevChannel": {
+    "class": "objecttype",
+    "description": "Detected device channel",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetDevChannel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetDevEntry": {
+    "class": "objecttype",
+    "description": "Ap UpdateEntry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetDevMac"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwWidsDetDevEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.3.1",
+    "status": "current"
+  },
+  "hwWidsDetDevFirstDetTime": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetDevFirstDetTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsDetDevGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWidsDetDevGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetDevType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetDevRssi"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetDevChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetDevSSID"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetDevRogue"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetDevLastTime"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetDevIsCountermeasuresed"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetDevInterference"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetDevBSSID"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetDevFirstDetTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.14.2.4",
+    "status": "current"
+  },
+  "hwWidsDetDevInterference": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetDevInterference",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetDevIsCountermeasuresed": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetDevIsCountermeasuresed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disbale": 1,
+          "enable": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWidsDetDevLastTime": {
+    "class": "objecttype",
+    "description": "Last Detected time ",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetDevLastTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsDetDevMac": {
+    "class": "objecttype",
+    "description": "Index. Detected device mac.",
+    "maxaccess": "not-accessible",
+    "name": "hwWidsDetDevMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwWidsDetDevMonitorApChannel": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetDevMonitorApChannel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetDevMonitorApCountermeasuresDev": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetDevMonitorApCountermeasuresDev",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.4.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWidsDetDevMonitorApID": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwWidsDetDevMonitorApID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetDevMonitorApIP": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetDevMonitorApIP",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwWidsDetDevMonitorApLastDetTime": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetDevMonitorApLastDetTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsDetDevMonitorApMAC": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetDevMonitorApMAC",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwWidsDetDevMonitorApRadioID": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwWidsDetDevMonitorApRadioID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetDevMonitorApRssi": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetDevMonitorApRssi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetDevMonitorDetAtt": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetDevMonitorDetAtt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.4.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetDevMonitorEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetDevMac"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetDevMonitorApID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetDevMonitorApRadioID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwWidsDetDevMonitorEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.4.1",
+    "status": "current"
+  },
+  "hwWidsDetDevMonitorGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWidsDetDevMonitorGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetDevMonitorApMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetDevMonitorApIP"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetDevMonitorApChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetDevMonitorApRssi"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetDevMonitorApLastDetTime"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetDevMonitorApCountermeasuresDev"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetDevMonitorDetAtt"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.14.2.5",
+    "status": "current"
+  },
+  "hwWidsDetDevMonitorTable": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwWidsDetDevMonitorTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.4",
+    "status": "current"
+  },
+  "hwWidsDetDevRogue": {
+    "class": "objecttype",
+    "description": "Detected device is rouge device",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetDevRogue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetDevRssi": {
+    "class": "objecttype",
+    "description": "Detected device rssi",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetDevRssi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetDevSSID": {
+    "class": "objecttype",
+    "description": "Detected device ssid. ",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetDevSSID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWidsDetDevTable": {
+    "class": "objecttype",
+    "description": "Detected device table. ",
+    "maxaccess": "not-accessible",
+    "name": "hwWidsDetDevTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.3",
+    "status": "current"
+  },
+  "hwWidsDetDevType": {
+    "class": "objecttype",
+    "description": "Detected device type :",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetDevType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetNonWifiBandwidth": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiBandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.7.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetNonWifiCenterFrequency": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiCenterFrequency",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.7.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetNonWifiChannel": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiChannel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.7.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWidsDetNonWifiDevEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiDevMonitorApMac"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiDevMonitorRadioId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiType"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwWidsDetNonWifiDevEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.7.1",
+    "status": "current"
+  },
+  "hwWidsDetNonWifiDevFirstTime": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiDevFirstTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.7.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetNonWifiDevGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWidsDetNonWifiDevGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiRssi"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiFrequencyType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiDevLastTime"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiCenterFrequency"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiBandwidth"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiDutycycle"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiInterferenceLevel"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiDevMonitorAPName"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiDevMonitorAPID"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiDevRadioType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiDevMonitorAPChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiDevFirstTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.14.2.8",
+    "status": "current"
+  },
+  "hwWidsDetNonWifiDevHistEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiHistIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwWidsDetNonWifiDevHistEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.1.1",
+    "status": "current"
+  },
+  "hwWidsDetNonWifiDevHistGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWidsDetNonWifiDevHistGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiHistMonitorApMac"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiHistMonitorAPName"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiHistMonitorAPID"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiHistMonitorRadioId"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiHistMonitorRadioType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiHistMonitorAPChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiHistDevType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiHistRssi"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiHistFrequencyType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiHistChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiHistDevLastTime"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiHistCenterFrequency"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiHistBandwidth"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiHistDutycycle"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiHistInterferenceLevel"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiHistDevFirstTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.14.2.14",
+    "status": "current"
+  },
+  "hwWidsDetNonWifiDevHistTable": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwWidsDetNonWifiDevHistTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.1",
+    "status": "current"
+  },
+  "hwWidsDetNonWifiDevLastTime": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiDevLastTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.7.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetNonWifiDevMonitorAPChannel": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiDevMonitorAPChannel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.7.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetNonWifiDevMonitorAPID": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiDevMonitorAPID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.7.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetNonWifiDevMonitorAPName": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiDevMonitorAPName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.7.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWidsDetNonWifiDevMonitorApMac": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwWidsDetNonWifiDevMonitorApMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwWidsDetNonWifiDevMonitorRadioId": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwWidsDetNonWifiDevMonitorRadioId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetNonWifiDevRadioType": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiDevRadioType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.7.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetNonWifiDevTable": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwWidsDetNonWifiDevTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.7",
+    "status": "current"
+  },
+  "hwWidsDetNonWifiDutycycle": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiDutycycle",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.7.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetNonWifiFrequencyType": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiFrequencyType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.7.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetNonWifiHistBandwidth": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiHistBandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetNonWifiHistCenterFrequency": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiHistCenterFrequency",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetNonWifiHistChannel": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiHistChannel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWidsDetNonWifiHistDevFirstTime": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiHistDevFirstTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetNonWifiHistDevLastTime": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiHistDevLastTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetNonWifiHistDevType": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiHistDevType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetNonWifiHistDutycycle": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiHistDutycycle",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetNonWifiHistFrequencyType": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiHistFrequencyType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetNonWifiHistIndex": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwWidsDetNonWifiHistIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetNonWifiHistInterferenceLevel": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiHistInterferenceLevel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetNonWifiHistMonitorAPChannel": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiHistMonitorAPChannel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetNonWifiHistMonitorAPID": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiHistMonitorAPID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetNonWifiHistMonitorAPName": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiHistMonitorAPName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWidsDetNonWifiHistMonitorApMac": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiHistMonitorApMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwWidsDetNonWifiHistMonitorRadioId": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiHistMonitorRadioId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetNonWifiHistMonitorRadioType": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiHistMonitorRadioType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetNonWifiHistRssi": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiHistRssi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWidsDetNonWifiInterferenceLevel": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiInterferenceLevel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.7.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDetNonWifiRssi": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDetNonWifiRssi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.7.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWidsDetNonWifiType": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwWidsDetNonWifiType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDynamicBlacklistAPEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDynamicBlacklistDevMac"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDynamicBlacklistApID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwWidsDynamicBlacklistAPEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.12.1",
+    "status": "current"
+  },
+  "hwWidsDynamicBlacklistAPGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWidsDynamicBlacklistAPGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDynamicBlacklistAPMac"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDynamicBlacklistApIP"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDynamicBlacklistAttackType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDynamicBlacklistAPLastTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.14.2.13",
+    "status": "current"
+  },
+  "hwWidsDynamicBlacklistAPLastTime": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDynamicBlacklistAPLastTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.12.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsDynamicBlacklistAPMac": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDynamicBlacklistAPMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.12.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwWidsDynamicBlacklistAPTable": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwWidsDynamicBlacklistAPTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.12",
+    "status": "current"
+  },
+  "hwWidsDynamicBlacklistApID": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwWidsDynamicBlacklistApID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.12.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDynamicBlacklistApIP": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDynamicBlacklistApIP",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.12.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwWidsDynamicBlacklistAttackPacketBmp1": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDynamicBlacklistAttackPacketBmp1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.11.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDynamicBlacklistAttackPacketBmp2": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDynamicBlacklistAttackPacketBmp2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.11.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDynamicBlacklistAttackType": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDynamicBlacklistAttackType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.12.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDynamicBlacklistDevAttackType": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDynamicBlacklistDevAttackType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.11.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDynamicBlacklistDevMac": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwWidsDynamicBlacklistDevMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.11.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwWidsDynamicBlacklistDevType": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDynamicBlacklistDevType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.11.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsDynamicBlacklistEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDynamicBlacklistDevMac"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwWidsDynamicBlacklistEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.11.1",
+    "status": "current"
+  },
+  "hwWidsDynamicBlacklistGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWidsDynamicBlacklistGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDynamicBlacklistDevType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDynamicBlacklistDevAttackType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDynamicBlacklistAttackPacketBmp1"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDynamicBlacklistAttackPacketBmp2"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDynamicBlacklistLastTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.14.2.12",
+    "status": "current"
+  },
+  "hwWidsDynamicBlacklistLastTime": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsDynamicBlacklistLastTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.11.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsDynamicBlacklistTable": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwWidsDynamicBlacklistTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.11",
+    "status": "current"
+  },
+  "hwWidsEnableAPEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsEnableAPID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwWidsEnableAPEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.9.1",
+    "status": "current"
+  },
+  "hwWidsEnableAPGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWidsEnableAPGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsEnableDevDetSwitch"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsEnableAttackDetSwitch"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsEnableAPName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.14.2.10",
+    "status": "current"
+  },
+  "hwWidsEnableAPID": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwWidsEnableAPID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.9.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsEnableAPName": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsEnableAPName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.9.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWidsEnableAPTable": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwWidsEnableAPTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.9",
+    "status": "current"
+  },
+  "hwWidsEnableAttackDetSwitch": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsEnableAttackDetSwitch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.9.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsEnableDevDetSwitch": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsEnableDevDetSwitch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.9.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsMacAddressWhitelistGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWidsMacAddressWhitelistGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwMacAddressWhitelistRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.14.2.18",
+    "status": "current"
+  },
+  "hwWidsOuiWhitelistGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWidsOuiWhitelistGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwOuiWhitelistRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.14.2.17",
+    "status": "current"
+  },
+  "hwWidsResetAttackDev": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWidsResetAttackDev",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.2.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsResetAttackHistory": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWidsResetAttackHistory",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.2.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsResetAttackStat": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWidsResetAttackStat",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.2.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsResetDetDevTableAll": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWidsResetDetDevTableAll",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.2.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsResetDetDevTableByType": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWidsResetDetDevTableByType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.2.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsResetDynamicBlacklist": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWidsResetDynamicBlacklist",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.2.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsResetDynamicBlacklistMac": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWidsResetDynamicBlacklistMac",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.2.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwWidsResetRogueHistoryAll": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWidsResetRogueHistoryAll",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.2.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsResetRogueHistoryByDevType": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWidsResetRogueHistoryByDevType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.2.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsRogueDevChannel": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsRogueDevChannel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsRogueDevLastTime": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsRogueDevLastTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.5.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWidsRogueDevMac": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwWidsRogueDevMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwWidsRogueDevRssi": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsRogueDevRssi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsRogueDevSSID": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsRogueDevSSID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.5.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWidsRogueDevType": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWidsRogueDevType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWidsRogueHistoryEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsRogueDevMac"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwWidsRogueHistoryEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.5.1",
+    "status": "current"
+  },
+  "hwWidsRogueHistoryGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWidsRogueHistoryGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsRogueDevType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsRogueDevRssi"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsRogueDevChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsRogueDevSSID"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsRogueDevLastTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.14.2.6",
+    "status": "current"
+  },
+  "hwWidsRogueHistoryTable": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwWidsRogueHistoryTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.5",
+    "status": "current"
+  },
+  "hwWidsSpoofSsidRule": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwWidsSpoofSsidRule",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWidsSpoofSsidRuleGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWidsSpoofSsidRuleGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsSpoofSsidRuleListRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.14.2.19",
+    "status": "current"
+  },
+  "hwWidsSpoofSsidRuleListEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsSpoofSsidRule"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwWidsSpoofSsidRuleListEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.6.1",
+    "status": "current"
+  },
+  "hwWidsSpoofSsidRuleListRowStatus": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-create",
+    "name": "hwWidsSpoofSsidRuleListRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwWidsSpoofSsidRuleListTable": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwWidsSpoofSsidRuleListTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13.6",
+    "status": "current"
+  },
+  "hwWlanObjWidsAttackDevMAC": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlanObjWidsAttackDevMAC",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.2.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwWlanObjWidsAttackType": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlanObjWidsAttackType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.2.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanObjWidsAttackTypeStr": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlanObjWidsAttackTypeStr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.2.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlanObjWidsDetAPChannel": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlanObjWidsDetAPChannel",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.2.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanObjWidsDetAPID": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlanObjWidsDetAPID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.2.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanObjWidsDetAPIP": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlanObjWidsDetAPIP",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.2.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwWlanObjWidsDetAPMAC": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlanObjWidsDetAPMAC",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.2.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwWlanObjWidsDetAPName": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanObjWidsDetAPName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.2.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlanObjWidsDetRadioId": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlanObjWidsDetRadioId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.2.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanObjWidsDetRadioType": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWlanObjWidsDetRadioType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.2.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanObjWidsNonWifiDeviceType": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlanObjWidsNonWifiDeviceType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.2.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanObjWidsNonWifiInterChannel": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlanObjWidsNonWifiInterChannel",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.2.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlanObjWidsNonWifiRssi": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlanObjWidsNonWifiRssi",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.2.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlanObjWidsRogueDevChannel": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlanObjWidsRogueDevChannel",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.2.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanObjWidsRogueDevMAC": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlanObjWidsRogueDevMAC",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.2.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwWlanObjWidsRogueDevRSSI": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlanObjWidsRogueDevRSSI",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.2.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanObjWidsRogueDevSSID": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlanObjWidsRogueDevSSID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.2.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlanObjWidsRogueDevType": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlanObjWidsRogueDevType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.2.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanWids": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "The MIB module include wids informations.",
+    "lastupdated": "201405041600Z",
+    "name": "hwWlanWids",
+    "oid": "1.3.6.1.4.1.2011.6.139.8",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "V1.03, update for v2r5 change",
+        "revision": "2014-05-04 16:00"
+      },
+      {
+        "description": "V1.02, update for v2r3 change",
+        "revision": "2013-09-04 10:22"
+      },
+      {
+        "description": "V1.01, update for v2r3 change",
+        "revision": "2013-05-21 15:40"
+      },
+      {
+        "description": "V1.01, Add wids device",
+        "revision": "2012-05-10 00:00"
+      },
+      {
+        "description": " V1.00, Inital version. ",
+        "revision": "2012-05-08 00:00"
+      }
+    ]
+  },
+  "hwWlanWidsCompliance": {
+    "class": "modulecompliance",
+    "description": "Description.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanWidsMIBNotifyObjectGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanWidsMIBNotifyGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanWidsGlobalOptGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetDevGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetDevMonitorGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsRogueHistoryGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwSsidWhitelistGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiDevGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackHistoryGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsEnableAPGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackStatGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDynamicBlacklistGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDynamicBlacklistAPGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsDetNonWifiDevHistGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackDevGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsAttackDetorGroup"
+      }
+    ],
+    "name": "hwWlanWidsCompliance",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.14.1.1",
+    "status": "current"
+  },
+  "hwWlanWidsCompliances": {
+    "class": "objectidentity",
+    "name": "hwWlanWidsCompliances",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.14.1"
+  },
+  "hwWlanWidsConformance": {
+    "class": "objectidentity",
+    "name": "hwWlanWidsConformance",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.14"
+  },
+  "hwWlanWidsFloodAttackClearNotify": {
+    "class": "notificationtype",
+    "description": "Description.",
+    "name": "hwWlanWidsFloodAttackClearNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsAttackDevMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsAttackType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsAttackTypeStr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.1.6",
+    "status": "current"
+  },
+  "hwWlanWidsFloodAttackDetectedNotify": {
+    "class": "notificationtype",
+    "description": "Description.",
+    "name": "hwWlanWidsFloodAttackDetectedNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsAttackDevMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsAttackType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsAttackTypeStr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.1.5",
+    "status": "current"
+  },
+  "hwWlanWidsGloablOpt": {
+    "class": "objectidentity",
+    "name": "hwWlanWidsGloablOpt",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.2"
+  },
+  "hwWlanWidsGlobalOptGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWlanWidsGlobalOptGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsResetDetDevTableAll"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsResetDetDevTableByType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsResetRogueHistoryAll"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsResetRogueHistoryByDevType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsResetAttackDev"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsResetAttackStat"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsResetDynamicBlacklist"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsResetDynamicBlacklistMac"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWidsResetAttackHistory"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.14.2.3",
+    "status": "current"
+  },
+  "hwWlanWidsMIBNotifyGroup": {
+    "class": "notificationgroup",
+    "description": "Description.",
+    "name": "hwWlanWidsMIBNotifyGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanWidsRougeDevDetectedNotify"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanWidsRougeDevClearNotify"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanWidsNonWifiDetNotify"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanWidsNonWifiClearNotify"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanWidsFloodAttackDetectedNotify"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanWidsFloodAttackClearNotify"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanWidsSpoofAttackDetectedNotify"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanWidsSpoofAttackClearNotify"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanWidsWeakIvAttackDetectedNotify"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanWidsWeakIvAttackClearNotify"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanWidsPSKAttackDetectedNotify"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanWidsPSKAttackClearNotify"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.14.2.2",
+    "status": "current"
+  },
+  "hwWlanWidsMIBNotifyObjectGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWlanWidsMIBNotifyObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsRogueDevMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsRogueDevType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsRogueDevChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsRogueDevRSSI"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsRogueDevSSID"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPID"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetRadioId"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPIP"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsNonWifiDeviceType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsNonWifiInterChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsNonWifiRssi"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPName"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetRadioType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsAttackDevMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsAttackType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsAttackTypeStr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.14.2.1",
+    "status": "current"
+  },
+  "hwWlanWidsNonWifiClearNotify": {
+    "class": "notificationtype",
+    "description": "Description.",
+    "name": "hwWlanWidsNonWifiClearNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPID"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPName"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetRadioId"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetRadioType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsNonWifiDeviceType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsNonWifiRssi"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsNonWifiInterChannel"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.1.4",
+    "status": "current"
+  },
+  "hwWlanWidsNonWifiDetNotify": {
+    "class": "notificationtype",
+    "description": "Description.",
+    "name": "hwWlanWidsNonWifiDetNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPID"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPName"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetRadioId"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetRadioType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsNonWifiDeviceType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsNonWifiRssi"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsNonWifiInterChannel"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.1.3",
+    "status": "current"
+  },
+  "hwWlanWidsNotifications": {
+    "class": "objectidentity",
+    "name": "hwWlanWidsNotifications",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1"
+  },
+  "hwWlanWidsNotify": {
+    "class": "objectidentity",
+    "name": "hwWlanWidsNotify",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.1"
+  },
+  "hwWlanWidsNotifyObjects": {
+    "class": "objectidentity",
+    "name": "hwWlanWidsNotifyObjects",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.2"
+  },
+  "hwWlanWidsObjectGroups": {
+    "class": "objectidentity",
+    "name": "hwWlanWidsObjectGroups",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.14.2"
+  },
+  "hwWlanWidsObjects": {
+    "class": "objectidentity",
+    "name": "hwWlanWidsObjects",
+    "oid": "1.3.6.1.4.1.2011.6.139.8.13"
+  },
+  "hwWlanWidsPSKAttackClearNotify": {
+    "class": "notificationtype",
+    "description": "Description.",
+    "name": "hwWlanWidsPSKAttackClearNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsAttackDevMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsAttackType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsAttackTypeStr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.1.12",
+    "status": "current"
+  },
+  "hwWlanWidsPSKAttackDetectedNotify": {
+    "class": "notificationtype",
+    "description": "Description.",
+    "name": "hwWlanWidsPSKAttackDetectedNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsAttackDevMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsAttackType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsAttackTypeStr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.1.11",
+    "status": "current"
+  },
+  "hwWlanWidsRougeDevClearNotify": {
+    "class": "notificationtype",
+    "description": "Description.",
+    "name": "hwWlanWidsRougeDevClearNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsRogueDevMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsRogueDevType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsRogueDevChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsRogueDevRSSI"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsRogueDevSSID"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPID"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetRadioId"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPIP"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPChannel"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.1.2",
+    "status": "current"
+  },
+  "hwWlanWidsRougeDevDetectedNotify": {
+    "class": "notificationtype",
+    "description": "Description.",
+    "name": "hwWlanWidsRougeDevDetectedNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsRogueDevMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsRogueDevType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsRogueDevChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsRogueDevRSSI"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsRogueDevSSID"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPID"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetRadioId"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPIP"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPChannel"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.1.1",
+    "status": "current"
+  },
+  "hwWlanWidsSpoofAttackClearNotify": {
+    "class": "notificationtype",
+    "description": "Description.",
+    "name": "hwWlanWidsSpoofAttackClearNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsAttackDevMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsAttackType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsAttackTypeStr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.1.8",
+    "status": "current"
+  },
+  "hwWlanWidsSpoofAttackDetectedNotify": {
+    "class": "notificationtype",
+    "description": "Description.",
+    "name": "hwWlanWidsSpoofAttackDetectedNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsAttackDevMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsAttackType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsAttackTypeStr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.1.7",
+    "status": "current"
+  },
+  "hwWlanWidsWeakIvAttackClearNotify": {
+    "class": "notificationtype",
+    "description": "Description.",
+    "name": "hwWlanWidsWeakIvAttackClearNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsAttackDevMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsAttackType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsAttackTypeStr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.1.10",
+    "status": "current"
+  },
+  "hwWlanWidsWeakIvAttackDetectedNotify": {
+    "class": "notificationtype",
+    "description": "Description.",
+    "name": "hwWlanWidsWeakIvAttackDetectedNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsAttackDevMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsDetAPChannel"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsAttackType"
+      },
+      {
+        "module": "HUAWEI-WLAN-WIDS-MIB",
+        "object": "hwWlanObjWidsAttackTypeStr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.8.1.1.9",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-WLAN-DEVICE-MIB": [
+      "hwApMac",
+      "hwApType",
+      "hwApIndex"
+    ],
+    "HUAWEI-WLAN-MIB": [
+      "hwWlan"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "Gauge32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "MacAddress"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-WLAN-WIDS-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:33 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-WLAN-WIDS-MIB"
+  }
+}

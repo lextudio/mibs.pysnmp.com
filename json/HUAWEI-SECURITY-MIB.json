@@ -1,0 +1,4089 @@
+{
+  "hwAntiAttack": {
+    "class": "objectidentity",
+    "name": "hwAntiAttack",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.16"
+  },
+  "hwAntiAttackCurrentRate": {
+    "class": "objecttype",
+    "description": "The current rate of anti-attack alarm. unit(bps).",
+    "maxaccess": "read-only",
+    "name": "hwAntiAttackCurrentRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.16.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAntiAttackEntry": {
+    "class": "objecttype",
+    "description": "This table list the information about anti-attack alarm.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAntiAttackType"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAntiAttackEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.16.1.1",
+    "status": "current"
+  },
+  "hwAntiAttackObjectGroup": {
+    "class": "objectgroup",
+    "description": "The alarm parameter of anti-attack alarm.",
+    "name": "hwAntiAttackObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAntiAttackType"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAntiAttackRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAntiAttackCurrentRate"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11.2.12",
+    "status": "current"
+  },
+  "hwAntiAttackRateThreshold": {
+    "class": "objecttype",
+    "description": "The alarm threshold of anti-attack alarm during the processing of pkt-flooding.unit(bps).",
+    "maxaccess": "read-only",
+    "name": "hwAntiAttackRateThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.16.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAntiAttackTable": {
+    "class": "objecttype",
+    "description": "This table list the information about anti-attack alarm.",
+    "maxaccess": "not-accessible",
+    "name": "hwAntiAttackTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.16.1",
+    "status": "current"
+  },
+  "hwAntiAttackType": {
+    "class": "objecttype",
+    "description": "The data index of anti-attack, attack type configured in anti-attack alarm.",
+    "maxaccess": "read-only",
+    "name": "hwAntiAttackType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.16.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "abnormal": 1,
+          "fragment": 2,
+          "icmpFlood": 5,
+          "tcpSyn": 3,
+          "udpFlood": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAppliApperChassisId": {
+    "class": "objecttype",
+    "description": "The Data index of Application-Apperceive protection,the chassis ID indicates the slot on which chassis is configured with Application-Apperceive protection.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwAppliApperChassisId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.5.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clc1": 1,
+          "clc2": 2,
+          "clc3": 3,
+          "clc4": 4,
+          "clc5": 5,
+          "clc6": 6,
+          "clc7": 7,
+          "clc8": 8
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAppliApperCurrentRateHigh": {
+    "class": "objecttype",
+    "description": "The upper 32 bits discard number during the interval of Application-Apperceive protection.unit(packet).",
+    "maxaccess": "read-only",
+    "name": "hwAppliApperCurrentRateHigh",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.5.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAppliApperCurrentRateLow": {
+    "class": "objecttype",
+    "description": "The lower 32 bits discard number during the interval of Application-Apperceive protection.unit(packet).",
+    "maxaccess": "read-only",
+    "name": "hwAppliApperCurrentRateLow",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.5.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAppliApperNotifyEnabledStatus": {
+    "class": "objecttype",
+    "description": "The alarm state of Application-Apperceive protection.",
+    "maxaccess": "read-only",
+    "name": "hwAppliApperNotifyEnabledStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.5.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwAppliApperProtocol": {
+    "class": "objecttype",
+    "description": "The Data index of Application-Apperceive protection,the protocol configured in Application-Apperceive protection.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwAppliApperProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.5.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bfd": 28,
+          "bgp": 6,
+          "bgpv6": 72,
+          "bpdu": 17,
+          "dhcp": 18,
+          "dnsClient": 35,
+          "dnsv6": 68,
+          "eth8021ag": 30,
+          "ftpClient": 31,
+          "ftpServer": 1,
+          "ftpv6Client": 73,
+          "ftpv6Server": 74,
+          "hwTacacs": 22,
+          "icmp": 13,
+          "icmpv6": 67,
+          "igmp": 24,
+          "ipv4Arp": 16,
+          "isis": 11,
+          "lacp": 19,
+          "ldp": 7,
+          "lspPing": 23,
+          "mplsOam": 29,
+          "msdp": 14,
+          "ntp": 20,
+          "ospf": 9,
+          "ospfv3": 71,
+          "pim": 15,
+          "pimv6": 69,
+          "radius": 21,
+          "rip": 10,
+          "rrpp": 26,
+          "rsvp": 8,
+          "sftpClient": 34,
+          "sftpSever": 12,
+          "snmp": 3,
+          "sshClient": 33,
+          "sshServer": 2,
+          "sshv6Server": 70,
+          "telnetClient": 32,
+          "telnetServer": 4,
+          "telnetv6Client": 65,
+          "telnetv6Server": 64,
+          "tftp": 5,
+          "tftpv6Client": 66,
+          "vgmp": 25,
+          "vrrp": 27,
+          "webAuthServer": 36
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAppliApperProtocolDescirption": {
+    "class": "objecttype",
+    "description": "The descirption of Protocol.",
+    "maxaccess": "read-only",
+    "name": "hwAppliApperProtocolDescirption",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.5.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAppliApperRateInterval": {
+    "class": "objecttype",
+    "description": "The detect interval of Application-Apperceive protection. unit(s).",
+    "maxaccess": "read-only",
+    "name": "hwAppliApperRateInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.5.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAppliApperRateThreshold": {
+    "class": "objecttype",
+    "description": "The discard threshold of Application-Apperceive protection during the configured interval.unit(packet).",
+    "maxaccess": "read-only",
+    "name": "hwAppliApperRateThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.5.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAppliApperSlotId": {
+    "class": "objecttype",
+    "description": "The Data index of Application-Apperceive protection,the slots configured with Application-Apperceive protection.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwAppliApperSlotId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.5.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwApplicationApperceive": {
+    "class": "objectidentity",
+    "name": "hwApplicationApperceive",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.5"
+  },
+  "hwApplicationApperceiveEntry": {
+    "class": "objecttype",
+    "description": "This table list the information about Application-Apperceive protection.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperChassisId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperSlotId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperProtocol"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwApplicationApperceiveEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.5.1.1",
+    "status": "current"
+  },
+  "hwApplicationApperceiveObjectGroup": {
+    "class": "objectgroup",
+    "description": "The alarm parameter of Application-Apperceive protection.",
+    "name": "hwApplicationApperceiveObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperCurrentRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperCurrentRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperNotifyEnabledStatus"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperRateInterval"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperSlotId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperProtocol"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperProtocolDescirption"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11.2.5",
+    "status": "current"
+  },
+  "hwApplicationApperceiveTable": {
+    "class": "objecttype",
+    "description": "This table list the information about Application-Apperceive protection.",
+    "maxaccess": "not-accessible",
+    "name": "hwApplicationApperceiveTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.5.1",
+    "status": "current"
+  },
+  "hwArpGlobleSpeedLimitALarm": {
+    "class": "notificationtype",
+    "description": "The arp rate limit alarm is resumed.",
+    "name": "hwArpGlobleSpeedLimitALarm",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsAlarmThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.5",
+    "status": "current"
+  },
+  "hwArpIfRateLimitBlockALarm": {
+    "class": "notificationtype",
+    "description": "The arp rate limit block alarm is resumed.",
+    "name": "hwArpIfRateLimitBlockALarm",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceInterface"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsBlockTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.13",
+    "status": "current"
+  },
+  "hwArpIfSpeedLimitALarm": {
+    "class": "notificationtype",
+    "description": "TThe arp rate limit alarm is resumed.",
+    "name": "hwArpIfSpeedLimitALarm",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceInterface"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.6",
+    "status": "current"
+  },
+  "hwArpMissGlobleSpeedLimitALarm": {
+    "class": "notificationtype",
+    "description": "The arp miss rate limit alarm is resumed.",
+    "name": "hwArpMissGlobleSpeedLimitALarm",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsAlarmThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.8",
+    "status": "current"
+  },
+  "hwArpMissIfSpeedLimitALarm": {
+    "class": "notificationtype",
+    "description": "The arp miss rate limit alarm is resumed.",
+    "name": "hwArpMissIfSpeedLimitALarm",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceInterface"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.9",
+    "status": "current"
+  },
+  "hwArpMissSourceIpSpeedLimitALarm": {
+    "class": "notificationtype",
+    "description": "The alarm of arp miss speed limit.",
+    "name": "hwArpMissSourceIpSpeedLimitALarm",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceIp"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsAlarmThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.12",
+    "status": "current"
+  },
+  "hwArpMissVlanSpeedLimitALarm": {
+    "class": "notificationtype",
+    "description": "The arp miss rate limit alarm is resumed.",
+    "name": "hwArpMissVlanSpeedLimitALarm",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsPVlan"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.10",
+    "status": "current"
+  },
+  "hwArpSourceIpSpeedLimitALarm": {
+    "class": "notificationtype",
+    "description": "The alarm of arp speed limit.",
+    "name": "hwArpSourceIpSpeedLimitALarm",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceIp"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsAlarmThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.11",
+    "status": "current"
+  },
+  "hwArpVlanSpeedLimitALarm": {
+    "class": "notificationtype",
+    "description": "The arp rate limit alarm is resumed.",
+    "name": "hwArpVlanSpeedLimitALarm",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsPVlan"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.7",
+    "status": "current"
+  },
+  "hwArpsAlarmThreshold": {
+    "class": "objecttype",
+    "description": "The alarm threshold of dynamic arp inspection during the configured interval.unit(packet).",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwArpsAlarmThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.2.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwArpsBlockTime": {
+    "class": "objecttype",
+    "description": "The data of time which ARP Packet will be blocked. unit(second).",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwArpsBlockTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.2.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwArpsCVlan": {
+    "class": "objecttype",
+    "description": "The data of arp security.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwArpsCVlan",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.2.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwArpsDaiDropALarm": {
+    "class": "notificationtype",
+    "description": "The DAI alarm is resumed.",
+    "name": "hwArpsDaiDropALarm",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsPacketDropNum"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceInterface"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.4",
+    "status": "current"
+  },
+  "hwArpsEntryCheck": {
+    "class": "notificationtype",
+    "description": "The arp talbe chekc alarm is resumed.",
+    "name": "hwArpsEntryCheck",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceInterface"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceIp"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceMac"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsPVlan"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsCVlan"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.2",
+    "status": "current"
+  },
+  "hwArpsGatewayConflict": {
+    "class": "notificationtype",
+    "description": "The gateway conflict alarm is resumed.",
+    "name": "hwArpsGatewayConflict",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceInterface"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceIp"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceMac"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsPVlan"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsCVlan"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.1",
+    "status": "current"
+  },
+  "hwArpsLearnStrictCheck": {
+    "class": "notificationtype",
+    "description": "The alarm of arp learn strict check.",
+    "name": "hwArpsLearnStrictCheck",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceInterface"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceIp"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceMac"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsPVlan"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.14",
+    "status": "current"
+  },
+  "hwArpsPVlan": {
+    "class": "objecttype",
+    "description": "The data of arp security.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwArpsPVlan",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.2.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwArpsPacketCheck": {
+    "class": "notificationtype",
+    "description": "The arp packet check alarm is resumed.",
+    "name": "hwArpsPacketCheck",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceInterface"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceIp"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceMac"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsPVlan"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsCVlan"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2.3",
+    "status": "current"
+  },
+  "hwArpsPacketDropNum": {
+    "class": "objecttype",
+    "description": "The number of packets discarded by arp inspection .unit(packet).",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwArpsPacketDropNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.2.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwArpsSourceInterface": {
+    "class": "objecttype",
+    "description": "The data of arp security.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwArpsSourceInterface",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.2.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwArpsSourceIp": {
+    "class": "objecttype",
+    "description": "TThe data of arp security.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwArpsSourceIp",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.2.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwArpsSourceMac": {
+    "class": "objecttype",
+    "description": "The data of arp security.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwArpsSourceMac",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.2.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwArpsTrap": {
+    "class": "objectidentity",
+    "name": "hwArpsTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.2"
+  },
+  "hwArpsTrapObject": {
+    "class": "objectidentity",
+    "name": "hwArpsTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.2"
+  },
+  "hwBaseArpVlanCarInfoEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarLogIfName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarPhyIfName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBaseArpVlanCarInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.14.1.1",
+    "status": "current"
+  },
+  "hwBaseArpVlanCarInfoTable": {
+    "class": "objecttype",
+    "description": "A Table about arp vlan car information.",
+    "maxaccess": "not-accessible",
+    "name": "hwBaseArpVlanCarInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.14.1",
+    "status": "current"
+  },
+  "hwBaseArpVlanCarLogIfName": {
+    "class": "objecttype",
+    "description": "The logic interface name.",
+    "maxaccess": "read-only",
+    "name": "hwBaseArpVlanCarLogIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.14.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBaseArpVlanCarPhyIfName": {
+    "class": "objecttype",
+    "description": "The physical interface name.",
+    "maxaccess": "read-only",
+    "name": "hwBaseArpVlanCarPhyIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.14.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBaseArpVlanCarResumeTrap": {
+    "class": "notificationtype",
+    "description": "ARP VLAN CAR become ineffective on an interface.",
+    "name": "hwBaseArpVlanCarResumeTrap",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarLogIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarPhyIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.18",
+    "status": "current"
+  },
+  "hwBaseArpVlanCarTrap": {
+    "class": "notificationtype",
+    "description": "ARP VLAN CAR took effect on an interface, which may be because a loop occurred on the interface.",
+    "name": "hwBaseArpVlanCarTrap",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarLogIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarPhyIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.17",
+    "status": "current"
+  },
+  "hwBaseArpVlanCarTrapObject": {
+    "class": "objectidentity",
+    "name": "hwBaseArpVlanCarTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.14"
+  },
+  "hwBaseArpVlanCarVlanId": {
+    "class": "objecttype",
+    "description": "The VlanId of arp vlan car.",
+    "maxaccess": "read-only",
+    "name": "hwBaseArpVlanCarVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.14.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBaseSecurityAntiAttackRateResume": {
+    "class": "notificationtype",
+    "description": " The alarm of anti-attack alarm is resumed. ",
+    "name": "hwBaseSecurityAntiAttackRateResume",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAntiAttackType"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAntiAttackRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAntiAttackCurrentRate"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.20",
+    "status": "current"
+  },
+  "hwBaseSecurityAntiAttackRateRising": {
+    "class": "notificationtype",
+    "description": " The rate of packets exceed the threshold of anti-attack alarm. ",
+    "name": "hwBaseSecurityAntiAttackRateRising",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAntiAttackType"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAntiAttackRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAntiAttackCurrentRate"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.19",
+    "status": "current"
+  },
+  "hwBaseSecurityApplicationApperceiveDiscardedRateResume": {
+    "class": "notificationtype",
+    "description": "The alarm of Application-Apperceive protection is resumed.",
+    "name": "hwBaseSecurityApplicationApperceiveDiscardedRateResume",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperCurrentRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperCurrentRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperRateInterval"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperSlotId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperProtocol"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperProtocolDescirption"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.8",
+    "status": "current"
+  },
+  "hwBaseSecurityApplicationApperceiveDiscardedRateRising": {
+    "class": "notificationtype",
+    "description": " The discard packets exceed the threshold of Application-Apperceive protection. ",
+    "name": "hwBaseSecurityApplicationApperceiveDiscardedRateRising",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperCurrentRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperCurrentRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperRateInterval"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperSlotId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperProtocol"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAppliApperProtocolDescirption"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.7",
+    "status": "current"
+  },
+  "hwBaseSecurityGroups": {
+    "class": "objectidentity",
+    "name": "hwBaseSecurityGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11.2"
+  },
+  "hwBaseSecurityMIBObjects": {
+    "class": "objectidentity",
+    "name": "hwBaseSecurityMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1"
+  },
+  "hwBaseSecurityMaDiscardedRateResume": {
+    "class": "notificationtype",
+    "description": " The alarm of management and application protection is resumed. ",
+    "name": "hwBaseSecurityMaDiscardedRateResume",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendCurrentRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendCurrentRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendRateInterval"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendSlotId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendProtocol"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.6",
+    "status": "current"
+  },
+  "hwBaseSecurityMaDiscardedRateRising": {
+    "class": "notificationtype",
+    "description": " The discard packets exceed the threshold of management and application protection.",
+    "name": "hwBaseSecurityMaDiscardedRateRising",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendCurrentRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendCurrentRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendRateInterval"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendSlotId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendProtocol"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.5",
+    "status": "current"
+  },
+  "hwBaseSecurityNotifications": {
+    "class": "objectidentity",
+    "name": "hwBaseSecurityNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11"
+  },
+  "hwBaseSecurityNotificationsObjectGroup": {
+    "class": "notificationgroup",
+    "description": "Total alarm of protection are resumed.",
+    "name": "hwBaseSecurityNotificationsObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityUrpfDiscardedRateRising"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityUrpfDiscardedRateResume"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityTcpIpAttackDiscardedRateRising"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityTcpIpAttackDiscardedRateResume"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityMaDiscardedRateRising"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityMaDiscardedRateResume"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityApplicationApperceiveDiscardedRateRising"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityApplicationApperceiveDiscardedRateResume"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityStormControlInterface"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSocAttackTrap"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSocAttackResumeTrap"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityStormControlInterfaceResume"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityTtlExpiredLoop"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityTtlExpiredLoopResume"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarTrap"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseArpVlanCarResumeTrap"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityAntiAttackRateRising"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityAntiAttackRateResume"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11.2.6",
+    "status": "current"
+  },
+  "hwBaseSecurityStormControlInterface": {
+    "class": "notificationtype",
+    "description": "The alarm of storm-control detection.",
+    "name": "hwBaseSecurityStormControlInterface",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityStormControlInterfaceChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityStormControlInterfaceSlotId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityStormControlInterfaceName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityStormControlInterfaceVlanID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.9",
+    "status": "current"
+  },
+  "hwBaseSecurityStormControlInterfaceChassisId": {
+    "class": "objecttype",
+    "description": "The chassis ID indicates the slot on which chassis is configured with storm control.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwBaseSecurityStormControlInterfaceChassisId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.13.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBaseSecurityStormControlInterfaceEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityStormControlInterfaceChassisId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityStormControlInterfaceSlotId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBaseSecurityStormControlInterfaceEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.13.1.1",
+    "status": "current"
+  },
+  "hwBaseSecurityStormControlInterfaceName": {
+    "class": "objecttype",
+    "description": "The interface name.",
+    "maxaccess": "read-only",
+    "name": "hwBaseSecurityStormControlInterfaceName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.13.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBaseSecurityStormControlInterfaceObjects": {
+    "class": "objectidentity",
+    "name": "hwBaseSecurityStormControlInterfaceObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.13"
+  },
+  "hwBaseSecurityStormControlInterfaceResume": {
+    "class": "notificationtype",
+    "description": "L2 loop detect alarm cleared.",
+    "name": "hwBaseSecurityStormControlInterfaceResume",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityStormControlInterfaceChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityStormControlInterfaceSlotId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityStormControlInterfaceName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityStormControlInterfaceVlanID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.14",
+    "status": "current"
+  },
+  "hwBaseSecurityStormControlInterfaceSlotId": {
+    "class": "objecttype",
+    "description": "The slot configured with storm control.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwBaseSecurityStormControlInterfaceSlotId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.13.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBaseSecurityStormControlInterfaceTable": {
+    "class": "objecttype",
+    "description": "A Table about storm-control interface information.",
+    "maxaccess": "not-accessible",
+    "name": "hwBaseSecurityStormControlInterfaceTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.13.1",
+    "status": "current"
+  },
+  "hwBaseSecurityStormControlInterfaceVlanID": {
+    "class": "objecttype",
+    "description": "The VlanID of VlanIF which the interface join in.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwBaseSecurityStormControlInterfaceVlanID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.13.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBaseSecurityTcpIpAttackDiscardedRateResume": {
+    "class": "notificationtype",
+    "description": " The alarm of TCPIP protection is resumed. ",
+    "name": "hwBaseSecurityTcpIpAttackDiscardedRateResume",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendCurrentRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendCurrentRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendRateInterval"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendSlotId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendType"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendProtocolDescirption"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.4",
+    "status": "current"
+  },
+  "hwBaseSecurityTcpIpAttackDiscardedRateRising": {
+    "class": "notificationtype",
+    "description": " The discard packets exceed the threshold of TCPIP protection. ",
+    "name": "hwBaseSecurityTcpIpAttackDiscardedRateRising",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendCurrentRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendCurrentRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendRateInterval"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendSlotId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendType"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendProtocolDescirption"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.3",
+    "status": "current"
+  },
+  "hwBaseSecurityTtlExpiredLoop": {
+    "class": "notificationtype",
+    "description": "The alarm of ttl-expired loop detection.",
+    "name": "hwBaseSecurityTtlExpiredLoop",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopSlotId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopLastRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopLastRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopCurrentRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopCurrentRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopRateInterval"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopRateThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.15",
+    "status": "current"
+  },
+  "hwBaseSecurityTtlExpiredLoopResume": {
+    "class": "notificationtype",
+    "description": "TTL-Expired loop alarm cleared.",
+    "name": "hwBaseSecurityTtlExpiredLoopResume",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopSlotId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopLastRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopLastRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopCurrentRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopCurrentRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopRateInterval"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopRateThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.16",
+    "status": "current"
+  },
+  "hwBaseSecurityUrpfDiscardedRateResume": {
+    "class": "notificationtype",
+    "description": " The alarm of local URPF is resumed.",
+    "name": "hwBaseSecurityUrpfDiscardedRateResume",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfCurrentRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfCurrentRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfSlotId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.2",
+    "status": "current"
+  },
+  "hwBaseSecurityUrpfDiscardedRateRising": {
+    "class": "notificationtype",
+    "description": " The discard packets exceed the threshold of local URPF protection.",
+    "name": "hwBaseSecurityUrpfDiscardedRateRising",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfCurrentRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfCurrentRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfSlotId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.1",
+    "status": "current"
+  },
+  "hwBaseSocAttackResumeTrap": {
+    "class": "notificationtype",
+    "description": "An attack cancels on the Network.",
+    "name": "hwBaseSocAttackResumeTrap",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackSeqNo"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackPossib"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackReason"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackSubIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackVlanIndex"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackUserQinQIndex"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackMacAddr"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackIPAddr"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackIPv6Addr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.13",
+    "status": "current"
+  },
+  "hwBaseSocAttackTrap": {
+    "class": "notificationtype",
+    "description": "An attack occur on the Network. ",
+    "name": "hwBaseSocAttackTrap",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackSeqNo"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackPossib"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackReason"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackSubIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackVlanIndex"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackUserQinQIndex"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackMacAddr"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackIPAddr"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackIPv6Addr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.11.12",
+    "status": "current"
+  },
+  "hwCfgApApID": {
+    "class": "objecttype",
+    "description": "The ID of access point failed to be configured.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwCfgApApID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.6.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwCfgApIPAddress": {
+    "class": "objecttype",
+    "description": "The IP-address of user failed to configure access point.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwCfgApIPAddress",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.6.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCfgApOperation": {
+    "class": "objecttype",
+    "description": "The operation of confiuration to access point.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwCfgApOperation",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.6.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCfgApReason": {
+    "class": "objecttype",
+    "description": "The reason of failed to configure access point.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwCfgApReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.6.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCfgApTrap": {
+    "class": "objectidentity",
+    "name": "hwCfgApTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.6"
+  },
+  "hwCfgApTrapFailAlarm": {
+    "class": "notificationtype",
+    "description": "The operation failed to config access point.",
+    "name": "hwCfgApTrapFailAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCfgApUserName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCfgApIPAddress"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCfgApApID"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCfgApOperation"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCfgApReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.6.1",
+    "status": "current"
+  },
+  "hwCfgApTrapObject": {
+    "class": "objectidentity",
+    "name": "hwCfgApTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.6"
+  },
+  "hwCfgApUserName": {
+    "class": "objecttype",
+    "description": "The name of user failed to configure access point.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwCfgApUserName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.6.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDapMibPortChange": {
+    "class": "notificationtype",
+    "description": "The dap port is changed.",
+    "name": "hwDapMibPortChange",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwDapPortChange"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.5.1",
+    "status": "current"
+  },
+  "hwDapPortChange": {
+    "class": "objecttype",
+    "description": "The alarm of dap port changed",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwDapPortChange",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.5.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDapTrap": {
+    "class": "objectidentity",
+    "name": "hwDapTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.5"
+  },
+  "hwDapTrapObject": {
+    "class": "objectidentity",
+    "name": "hwDapTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.5"
+  },
+  "hwDefdPortVlan": {
+    "class": "objectidentity",
+    "name": "hwDefdPortVlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.6"
+  },
+  "hwDefdPortVlanCheckProtocol": {
+    "class": "objecttype",
+    "description": "Check protocol name.",
+    "maxaccess": "read-only",
+    "name": "hwDefdPortVlanCheckProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.6.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDefdPortVlanEntry": {
+    "class": "objecttype",
+    "description": "This table list the information about defend port vlan .",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwDefdPortVlanIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDefdPortVlanEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.6.1.1",
+    "status": "current"
+  },
+  "hwDefdPortVlanId": {
+    "class": "objecttype",
+    "description": "The Data index of defend port vlan.",
+    "maxaccess": "read-only",
+    "name": "hwDefdPortVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.6.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4096,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDefdPortVlanIfIndex": {
+    "class": "objecttype",
+    "description": "Interface Index, equal to ifIndex.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwDefdPortVlanIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.6.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDefdPortVlanIfName": {
+    "class": "objecttype",
+    "description": "The name of the interface.",
+    "maxaccess": "read-only",
+    "name": "hwDefdPortVlanIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.6.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 256,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDefdPortVlanObjectGroup": {
+    "class": "objectgroup",
+    "description": "The alarm parameter of l2 ring-route .",
+    "name": "hwDefdPortVlanObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwDefdPortVlanIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwDefdPortVlanId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwDefdPortVlanCheckProtocol"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11.2.9",
+    "status": "current"
+  },
+  "hwDefdPortVlanTable": {
+    "class": "objecttype",
+    "description": " The table lists the information about defend port vlan packet. ",
+    "maxaccess": "not-accessible",
+    "name": "hwDefdPortVlanTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.6.1",
+    "status": "current"
+  },
+  "hwIcmpAlarmThreshold": {
+    "class": "objecttype",
+    "description": "The alarm threshold of icmp defend during the configured interval.unit(packet).",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIcmpAlarmThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.4.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIcmpGlobleDropALarm": {
+    "class": "notificationtype",
+    "description": "The icmp rate limit alarm is resumed.",
+    "name": "hwIcmpGlobleDropALarm",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIcmpAlarmThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.4.1",
+    "status": "current"
+  },
+  "hwIcmpIfDropALarm": {
+    "class": "notificationtype",
+    "description": "The icmp rate limit alarm is resumed.",
+    "name": "hwIcmpIfDropALarm",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIcmpAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIcmpSourceInterface"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.4.2",
+    "status": "current"
+  },
+  "hwIcmpPacketDropNum": {
+    "class": "objecttype",
+    "description": "The number of packets discarded by ip source check .unit(packet).",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIcmpPacketDropNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.4.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIcmpSourceInterface": {
+    "class": "objecttype",
+    "description": "The data of icmp security.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIcmpSourceInterface",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.4.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIcmpTrap": {
+    "class": "objectidentity",
+    "name": "hwIcmpTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.4"
+  },
+  "hwIcmpTrapObject": {
+    "class": "objectidentity",
+    "name": "hwIcmpTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.4"
+  },
+  "hwIpsgAlarmThreshold": {
+    "class": "objecttype",
+    "description": "The alarm threshold of ip source check during the configured interval.unit(packet).",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIpsgAlarmThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.3.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpsgDropALarm": {
+    "class": "notificationtype",
+    "description": "The ipsg alarm is resumed.",
+    "name": "hwIpsgDropALarm",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIpsgPacketDropNum"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIpsgAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIpsgSourceInterface"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.3.1",
+    "status": "current"
+  },
+  "hwIpsgPacketDropNum": {
+    "class": "objecttype",
+    "description": "The data of ip source check .",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIpsgPacketDropNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.3.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpsgSourceInterface": {
+    "class": "objecttype",
+    "description": "The data of ip souce check.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIpsgSourceInterface",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.3.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIpsgTrap": {
+    "class": "objectidentity",
+    "name": "hwIpsgTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.3"
+  },
+  "hwIpsgTrapObject": {
+    "class": "objectidentity",
+    "name": "hwIpsgTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.3"
+  },
+  "hwLocalUrpf": {
+    "class": "objectidentity",
+    "name": "hwLocalUrpf",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.2"
+  },
+  "hwLocalUrpfChassisId": {
+    "class": "objecttype",
+    "description": "The Data index of local URPF,the chassis ID indicates the slot on which chassis is configured with URPF.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwLocalUrpfChassisId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clc1": 1,
+          "clc2": 2,
+          "clc3": 3,
+          "clc4": 4,
+          "clc5": 5,
+          "clc6": 6,
+          "clc7": 7,
+          "clc8": 8
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLocalUrpfCurrentRateHigh": {
+    "class": "objecttype",
+    "description": "The upper 32 bits discard number during the interval of local URPF.unit(packet).",
+    "maxaccess": "read-only",
+    "name": "hwLocalUrpfCurrentRateHigh",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.2.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwLocalUrpfCurrentRateLow": {
+    "class": "objecttype",
+    "description": "The lower 32 bits discard number during the interval of local URPF.unit(packet).",
+    "maxaccess": "read-only",
+    "name": "hwLocalUrpfCurrentRateLow",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.2.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwLocalUrpfEntry": {
+    "class": "objecttype",
+    "description": " The table lists the information about local URPF protection.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfChassisId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfSlotId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwLocalUrpfEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.2.1.1",
+    "status": "current"
+  },
+  "hwLocalUrpfNotifyEnabledStatus": {
+    "class": "objecttype",
+    "description": "The alarm state of local URPF.",
+    "maxaccess": "read-only",
+    "name": "hwLocalUrpfNotifyEnabledStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.2.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwLocalUrpfObjectGroup": {
+    "class": "objectgroup",
+    "description": "The alarm parameter of URPF.",
+    "name": "hwLocalUrpfObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfCurrentRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfCurrentRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfNotifyEnabledStatus"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfRateInterval"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfSlotId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11.2.2",
+    "status": "current"
+  },
+  "hwLocalUrpfRateInterval": {
+    "class": "objecttype",
+    "description": "The detection interval of the local URPF.unit(s). ",
+    "maxaccess": "read-only",
+    "name": "hwLocalUrpfRateInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.2.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwLocalUrpfRateThreshold": {
+    "class": "objecttype",
+    "description": "Local URPF\u0027s discard threshold during the configured interval.unit(packet).",
+    "maxaccess": "read-only",
+    "name": "hwLocalUrpfRateThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.2.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwLocalUrpfSlotId": {
+    "class": "objecttype",
+    "description": "The Data index of local URPF,the slot configured with URPF.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwLocalUrpfSlotId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLocalUrpfTable": {
+    "class": "objecttype",
+    "description": " The table lists the information about local URPF Packets. ",
+    "maxaccess": "not-accessible",
+    "name": "hwLocalUrpfTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.2.1",
+    "status": "current"
+  },
+  "hwMaDefend": {
+    "class": "objectidentity",
+    "name": "hwMaDefend",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.4"
+  },
+  "hwMaDefendChassisId": {
+    "class": "objecttype",
+    "description": "The Data index of management and application protection,the chassis ID indicates the slot on which chassis is configured with management and application protection.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMaDefendChassisId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.4.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clc1": 1,
+          "clc2": 2,
+          "clc3": 3,
+          "clc4": 4,
+          "clc5": 5,
+          "clc6": 6,
+          "clc7": 7,
+          "clc8": 8
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMaDefendCurrentRateHigh": {
+    "class": "objecttype",
+    "description": "The upper 32 bits discard number during the interval of management and application protection.unit(packet).",
+    "maxaccess": "read-only",
+    "name": "hwMaDefendCurrentRateHigh",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.4.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMaDefendCurrentRateLow": {
+    "class": "objecttype",
+    "description": "The lower 32 bits discard number during the interval of management and application protection.unit(packet).",
+    "maxaccess": "read-only",
+    "name": "hwMaDefendCurrentRateLow",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.4.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMaDefendEntry": {
+    "class": "objecttype",
+    "description": "This table list the information about management and application protection.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendChassisId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendSlotId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendProtocol"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMaDefendEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.4.1.1",
+    "status": "current"
+  },
+  "hwMaDefendNotifyEnabledStatus": {
+    "class": "objecttype",
+    "description": "The alarm state of management and application protection.",
+    "maxaccess": "read-only",
+    "name": "hwMaDefendNotifyEnabledStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.4.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMaDefendObjectGroup": {
+    "class": "objectgroup",
+    "description": "The alarm parameter of management and application protection.",
+    "name": "hwMaDefendObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendCurrentRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendCurrentRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendNotifyEnabledStatus"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendRateInterval"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendSlotId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendProtocol"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11.2.4",
+    "status": "current"
+  },
+  "hwMaDefendProtocol": {
+    "class": "objecttype",
+    "description": "The Data index of management and application protection,the protocols configured in management and application protection.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMaDefendProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.4.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bgp": 6,
+          "dhcpc": 15,
+          "dhcpr": 16,
+          "ftp": 1,
+          "ipprotocol": 19,
+          "isis": 11,
+          "ldp": 7,
+          "lspping": 14,
+          "ntp": 13,
+          "ospf": 9,
+          "pim": 12,
+          "rip": 10,
+          "rsvp": 8,
+          "snmp": 3,
+          "ssh": 2,
+          "tcp": 17,
+          "telnet": 4,
+          "tftp": 5,
+          "udp": 18
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMaDefendRateInterval": {
+    "class": "objecttype",
+    "description": "The detection interval of management and application protection. unit(s).",
+    "maxaccess": "read-only",
+    "name": "hwMaDefendRateInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.4.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMaDefendRateThreshold": {
+    "class": "objecttype",
+    "description": "The discard threshold of management and application protection during the configured interval.unit(packet).",
+    "maxaccess": "read-only",
+    "name": "hwMaDefendRateThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.4.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMaDefendSlotId": {
+    "class": "objecttype",
+    "description": "The Data index of management and application protection,the slots configured with management and application protection.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMaDefendSlotId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.4.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMaDefendTable": {
+    "class": "objecttype",
+    "description": "This table list the information about management and application protection.",
+    "maxaccess": "not-accessible",
+    "name": "hwMaDefendTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.4.1",
+    "status": "current"
+  },
+  "hwMacFilter": {
+    "class": "objectidentity",
+    "name": "hwMacFilter",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.12"
+  },
+  "hwMacFilterEnableMode": {
+    "class": "objecttype",
+    "description": "Mac-filter enable mode.",
+    "maxaccess": "read-only",
+    "name": "hwMacFilterEnableMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.12.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "balcklist": 2,
+          "none": 0,
+          "whitelist": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMacFilterIfIndex": {
+    "class": "objecttype",
+    "description": "Mac-filter interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacFilterIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.12.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMacFilterIfindex": {
+    "class": "objecttype",
+    "description": "Mac-filter interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacFilterIfindex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.12.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMacFilterInterface": {
+    "class": "objecttype",
+    "description": "Mac-filter interface name.",
+    "maxaccess": "read-only",
+    "name": "hwMacFilterInterface",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.12.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 128,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwMacFilterInterfaceBuf": {
+    "class": "objecttype",
+    "description": "Mac-filter interface name.",
+    "maxaccess": "read-only",
+    "name": "hwMacFilterInterfaceBuf",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.12.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 128,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwMacFilterMacAddr": {
+    "class": "objecttype",
+    "description": "Mac-filter if-match mac-address.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacFilterMacAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.12.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwMacFilterMacAddrEntry": {
+    "class": "objecttype",
+    "description": "This table list the information about mac-filter if-match mac-address.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMacFilterIfindex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMacFilterMacAddr"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMacFilterMacAddrEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.12.2.1",
+    "status": "current"
+  },
+  "hwMacFilterMacAddrTable": {
+    "class": "objecttype",
+    "description": "This table list the information about mac-filter if-match mac-address.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacFilterMacAddrTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.12.2",
+    "status": "current"
+  },
+  "hwMacFilterMatchNum": {
+    "class": "objecttype",
+    "description": "Mac-filter if-match number.",
+    "maxaccess": "read-only",
+    "name": "hwMacFilterMatchNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.12.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMacFilterModeEntry": {
+    "class": "objecttype",
+    "description": "This table list the information about mac-filter statistics.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMacFilterIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMacFilterModeEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.12.1.1",
+    "status": "current"
+  },
+  "hwMacFilterModeTable": {
+    "class": "objecttype",
+    "description": "This table list the information about mac-filter statistics.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacFilterModeTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.12.1",
+    "status": "current"
+  },
+  "hwMeSecurityMIBObjects": {
+    "class": "objectidentity",
+    "name": "hwMeSecurityMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2"
+  },
+  "hwMeSecurityObjectGroup": {
+    "class": "objectgroup",
+    "description": "The alarm parameter of huawei base security group.",
+    "name": "hwMeSecurityObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackTotalPacket"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackEndTime"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackSourceMac"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketPVlan"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketCVlan"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackSourceIp"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceInterface"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceIp"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsSourceMac"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsPVlan"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsCVlan"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsPacketDropNum"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsBlockTime"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIpsgPacketDropNum"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIpsgAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIpsgSourceInterface"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIcmpPacketDropNum"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIcmpAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIcmpSourceInterface"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwDapPortChange"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCfgApUserName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCfgApIPAddress"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCfgApApID"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCfgApOperation"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCfgApReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11.2.7",
+    "status": "current"
+  },
+  "hwMeSecurityTrapGroup": {
+    "class": "notificationgroup",
+    "description": "Total alarm of protection are resumed.",
+    "name": "hwMeSecurityTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackUserInfo"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackIfVlanInfo"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackDenyPacket"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackErrorDown"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackIpInfo"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsGatewayConflict"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsEntryCheck"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsPacketCheck"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsDaiDropALarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpGlobleSpeedLimitALarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpIfSpeedLimitALarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpVlanSpeedLimitALarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpMissGlobleSpeedLimitALarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpMissIfSpeedLimitALarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpMissVlanSpeedLimitALarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpSourceIpSpeedLimitALarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpMissSourceIpSpeedLimitALarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpIfRateLimitBlockALarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwArpsLearnStrictCheck"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIpsgDropALarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIcmpGlobleDropALarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwIcmpIfDropALarm"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwDapMibPortChange"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwCfgApTrapFailAlarm"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11.2.8",
+    "status": "current"
+  },
+  "hwSecurityCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-SECURITY-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwLocalUrpfObjectGroup"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendObjectGroup"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMaDefendObjectGroup"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwApplicationApperceiveObjectGroup"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwBaseSecurityNotificationsObjectGroup"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMeSecurityObjectGroup"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwMeSecurityTrapGroup"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwDefdPortVlanObjectGroup"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackTrapGroup"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwAntiAttackObjectGroup"
+      }
+    ],
+    "name": "hwSecurityCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11.1.1",
+    "status": "current"
+  },
+  "hwSecurityCompliances": {
+    "class": "objectidentity",
+    "name": "hwSecurityCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11.1"
+  },
+  "hwSecurityConformance": {
+    "class": "objectidentity",
+    "name": "hwSecurityConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11"
+  },
+  "hwSecurityMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com",
+    "description": "The private mib file includes the general extent information of the device.hwDatacomm(165).hwSecurityMIB.",
+    "lastupdated": "201510141420Z",
+    "name": "hwSecurityMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.165",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "Add hwAntiAttack hwAntiAttackObjectGroup hwBaseSecurityAntiAttackRateRising hwBaseSecurityAntiAttackRateResume for DFNS(LDM)",
+        "revision": "2015-10-14 14:20"
+      },
+      {
+        "description": "Add hwCfgApTrapObject hwCfgApTrap hwCfgApTrapFailAlarm for Virtual-Access",
+        "revision": "2015-09-29 16:48"
+      },
+      {
+        "description": "Add hwBaseArpVlanCarTrap",
+        "revision": "2015-05-26 20:23"
+      },
+      {
+        "description": "Add hwBaseSecurityTtlExpiredLoop",
+        "revision": "2015-04-07 11:02"
+      },
+      {
+        "description": "Add hwDapPortChange,hwDapMibPortChange for DAP",
+        "revision": "2015-03-24 10:12"
+      },
+      {
+        "description": "MIB file fo APP alarm and MADEFEND.",
+        "revision": "2014-09-18 20:20"
+      },
+      {
+        "description": "MIB file for NETSEC.",
+        "revision": "2014-09-18 20:20"
+      },
+      {
+        "description": "Add hwArpsLearnStrictCheck",
+        "revision": "2013-10-24 15:29"
+      },
+      {
+        "description": "Add webAuthServer(36) for hwAppliApperProtocol",
+        "revision": "2013-10-18 11:23"
+      },
+      {
+        "description": "Add the indispensable fields, e.g. chassisid and slotid for hwBaseSecurityUrpfDiscardedRateRising, hwBaseSecurityUrpfDiscardedRateResume, hwBaseSecurityTcpIpAttackDiscardedRateRising, hwBaseSecurityTcpIpAttackDiscardedRateResume, hwBaseSecurityMaDiscardedRateRising, hwBaseSecurityMaDiscardedRateResume, hwBaseSecurityApplicationApperceiveDiscardedRateRising and hwBaseSecurityApplicationApperceiveDiscardedRateResume",
+        "revision": "2013-06-05 17:56"
+      },
+      {
+        "description": "Add telnetv6Server(64),telnetv6Client(65),tftpv6Client(66),icmpv6(67),dnsv6(68),pimv6(69),sshv6Server(70),ospfv3(71),bgpv6(72),ftpv6Client(73),ftpv6Server(74) for hwAppliApperProtocol",
+        "revision": "2013-05-20 14:04"
+      },
+      {
+        "description": "Add the VB object hwBaseSecurityStormControlInterfaceVlanID for hwBaseSecurityStormControlInterface and hwBaseSecurityStormControlInterfaceResume",
+        "revision": "2013-04-17 11:11"
+      },
+      {
+        "description": "Add ipprotocol(19) for hwMaDefendProtocol .",
+        "revision": "2013-04-08 16:53"
+      },
+      {
+        "description": "SOC add IPv6",
+        "revision": "2013-03-06 14:43"
+      },
+      {
+        "description": "SOC modify SeqNo",
+        "revision": "2014-04-04 13:01"
+      },
+      {
+        "description": "CP-CAR Add hwAppliApperProtocolDescirption hwTcpIpDefendProtocolDescirption",
+        "revision": "2015-03-24 10:12"
+      }
+    ]
+  },
+  "hwSecurityTrapObject": {
+    "class": "objectidentity",
+    "name": "hwSecurityTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1"
+  },
+  "hwSecurityTraps": {
+    "class": "objectidentity",
+    "name": "hwSecurityTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2"
+  },
+  "hwSocAttackIPAddr": {
+    "class": "objecttype",
+    "description": "The IP of the attack",
+    "maxaccess": "read-only",
+    "name": "hwSocAttackIPAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.7.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSocAttackIPv6Addr": {
+    "class": "objecttype",
+    "description": "The IPv6 of the attack",
+    "maxaccess": "read-only",
+    "name": "hwSocAttackIPv6Addr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.7.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSocAttackIfName": {
+    "class": "objecttype",
+    "description": "The interface of the attack",
+    "maxaccess": "read-only",
+    "name": "hwSocAttackIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.7.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSocAttackInfoEntry": {
+    "class": "objecttype",
+    "description": "This table list the information about Securty Operation Center detected one attack.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackSeqNo"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSocAttackInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.7.1.1",
+    "status": "current"
+  },
+  "hwSocAttackInfoTable": {
+    "class": "objecttype",
+    "description": " The table lists the information about Security Operation Center. ",
+    "maxaccess": "not-accessible",
+    "name": "hwSocAttackInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.7.1",
+    "status": "current"
+  },
+  "hwSocAttackMacAddr": {
+    "class": "objecttype",
+    "description": "The MAC of the attack",
+    "maxaccess": "read-only",
+    "name": "hwSocAttackMacAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.7.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSocAttackPossib": {
+    "class": "objecttype",
+    "description": "The prabability of the attack .",
+    "maxaccess": "read-only",
+    "name": "hwSocAttackPossib",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.7.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSocAttackReason": {
+    "class": "objecttype",
+    "description": "The reason of the attack .",
+    "maxaccess": "read-only",
+    "name": "hwSocAttackReason",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.7.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSocAttackSeqNo": {
+    "class": "objecttype",
+    "description": "The sequence number of attack infomation.",
+    "maxaccess": "read-only",
+    "name": "hwSocAttackSeqNo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.7.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16777215,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSocAttackSubIfName": {
+    "class": "objecttype",
+    "description": "The sub-interface of the attack",
+    "maxaccess": "read-only",
+    "name": "hwSocAttackSubIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.7.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 256,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSocAttackTrapGroup": {
+    "class": "objectgroup",
+    "description": "The alarm parameter of Security Operation Center",
+    "name": "hwSocAttackTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackSeqNo"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackPossib"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackReason"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackSubIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackVlanIndex"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackUserQinQIndex"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackMacAddr"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackIPAddr"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwSocAttackIPv6Addr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11.2.11",
+    "status": "current"
+  },
+  "hwSocAttackTrapObject": {
+    "class": "objectidentity",
+    "name": "hwSocAttackTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.7"
+  },
+  "hwSocAttackUserQinQIndex": {
+    "class": "objecttype",
+    "description": "The UserQinQ of the attack",
+    "maxaccess": "read-only",
+    "name": "hwSocAttackUserQinQIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.7.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSocAttackVlanIndex": {
+    "class": "objecttype",
+    "description": "The vlan of the attack",
+    "maxaccess": "read-only",
+    "name": "hwSocAttackVlanIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.7.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStrackDenyPacket": {
+    "class": "notificationtype",
+    "description": "The infomation of the packets discarded by strack.",
+    "name": "hwStrackDenyPacket",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackSourceMac"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackSourceIp"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketCVlan"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketPVlan"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.1.3",
+    "status": "current"
+  },
+  "hwStrackEndTime": {
+    "class": "objecttype",
+    "description": "The data of strack.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStrackEndTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwStrackErrorDown": {
+    "class": "notificationtype",
+    "description": "The interface that is shutdown by strack.",
+    "name": "hwStrackErrorDown",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.1.4",
+    "status": "current"
+  },
+  "hwStrackIfVlanInfo": {
+    "class": "notificationtype",
+    "description": "The data of strack.",
+    "name": "hwStrackIfVlanInfo",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketCVlan"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketPVlan"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackEndTime"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackTotalPacket"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.1.2",
+    "status": "current"
+  },
+  "hwStrackIpInfo": {
+    "class": "notificationtype",
+    "description": "The user data of strack.",
+    "name": "hwStrackIpInfo",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackSourceIp"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketCVlan"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketPVlan"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackEndTime"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackTotalPacket"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.1.5",
+    "status": "current"
+  },
+  "hwStrackPacketCVlan": {
+    "class": "objecttype",
+    "description": "The data of strack.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStrackPacketCVlan",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwStrackPacketIfName": {
+    "class": "objecttype",
+    "description": "The data of strack.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStrackPacketIfName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStrackPacketPVlan": {
+    "class": "objecttype",
+    "description": "The data of strack.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStrackPacketPVlan",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwStrackSourceIp": {
+    "class": "objecttype",
+    "description": "The data of strack.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStrackSourceIp",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStrackSourceMac": {
+    "class": "objecttype",
+    "description": "The data of strack.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStrackSourceMac",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStrackTotalPacket": {
+    "class": "objecttype",
+    "description": "The total packets of strack during the configured interval.unit(packet).",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStrackTotalPacket",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwStrackTrap": {
+    "class": "objectidentity",
+    "name": "hwStrackTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.1"
+  },
+  "hwStrackTrapObject": {
+    "class": "objectidentity",
+    "name": "hwStrackTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.1.1"
+  },
+  "hwStrackUserInfo": {
+    "class": "notificationtype",
+    "description": "The user data of strack.",
+    "name": "hwStrackUserInfo",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketIfName"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackSourceMac"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketCVlan"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackPacketPVlan"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackEndTime"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwStrackTotalPacket"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.2.1.1",
+    "status": "current"
+  },
+  "hwTcpIpDefend": {
+    "class": "objectidentity",
+    "name": "hwTcpIpDefend",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.3"
+  },
+  "hwTcpIpDefendChassisId": {
+    "class": "objecttype",
+    "description": "The Data index of TCPIP protection,the chassis ID indicates the slot on which chassis is configured with TCPIP protection.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwTcpIpDefendChassisId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.3.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clc1": 1,
+          "clc2": 2,
+          "clc3": 3,
+          "clc4": 4,
+          "clc5": 5,
+          "clc6": 6,
+          "clc7": 7,
+          "clc8": 8
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwTcpIpDefendCurrentRateHigh": {
+    "class": "objecttype",
+    "description": "The upper 32 bits discard number during the interval of TCPIP protection.unit(packet).",
+    "maxaccess": "read-only",
+    "name": "hwTcpIpDefendCurrentRateHigh",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.3.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwTcpIpDefendCurrentRateLow": {
+    "class": "objecttype",
+    "description": "The lower 32 bits discard number during the interval of TCPIP protection.unit(packet).",
+    "maxaccess": "read-only",
+    "name": "hwTcpIpDefendCurrentRateLow",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.3.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwTcpIpDefendEntry": {
+    "class": "objecttype",
+    "description": "This table list the information about TCPIP protection.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendChassisId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendSlotId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendType"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTcpIpDefendEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.3.1.1",
+    "status": "current"
+  },
+  "hwTcpIpDefendNotifyEnabledStatus": {
+    "class": "objecttype",
+    "description": "The alarm state of TCPIP protection.",
+    "maxaccess": "read-only",
+    "name": "hwTcpIpDefendNotifyEnabledStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.3.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwTcpIpDefendObjectGroup": {
+    "class": "objectgroup",
+    "description": "The alarm parameter of TCPIP protection.",
+    "name": "hwTcpIpDefendObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendCurrentRateLow"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendCurrentRateHigh"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendNotifyEnabledStatus"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendRateThreshold"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendRateInterval"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendChassisId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendSlotId"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendType"
+      },
+      {
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTcpIpDefendProtocolDescirption"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.165.11.2.3",
+    "status": "current"
+  },
+  "hwTcpIpDefendProtocolDescirption": {
+    "class": "objecttype",
+    "description": "The descirption of Protocol.",
+    "maxaccess": "read-only",
+    "name": "hwTcpIpDefendProtocolDescirption",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.3.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwTcpIpDefendRateInterval": {
+    "class": "objecttype",
+    "description": "The detection interval of TCPIP protection.unit(s).",
+    "maxaccess": "read-only",
+    "name": "hwTcpIpDefendRateInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.3.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwTcpIpDefendRateThreshold": {
+    "class": "objecttype",
+    "description": "TCPIP protection\u0027s discard threshold during the configured interval.unit(packet).",
+    "maxaccess": "read-only",
+    "name": "hwTcpIpDefendRateThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.3.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwTcpIpDefendSlotId": {
+    "class": "objecttype",
+    "description": "The Data index of TCPIP protection,the slot configured with TCPIP protection.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwTcpIpDefendSlotId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.3.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTcpIpDefendTable": {
+    "class": "objecttype",
+    "description": "This table list the information about TCPIP protection.",
+    "maxaccess": "not-accessible",
+    "name": "hwTcpIpDefendTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.3.1",
+    "status": "current"
+  },
+  "hwTcpIpDefendType": {
+    "class": "objecttype",
+    "description": "The Data index of TCPIP protection,the type of TCPIP protection.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwTcpIpDefendType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.3.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "abnormalPacket": 1,
+          "ipFragmentation": 4,
+          "tcpSyn": 3,
+          "udpPacket": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwTrafficSuppression": {
+    "class": "objectidentity",
+    "name": "hwTrafficSuppression",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.3"
+  },
+  "hwTrafficSuppressionBcastRatio": {
+    "class": "objecttype",
+    "description": " Broadcast-suppression ratio. Default is 100% . 100% indicates that the broadcast isn\u0027t suppressed.",
+    "maxaccess": "read-write",
+    "name": "hwTrafficSuppressionBcastRatio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.3.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTrafficSuppressionEntry": {
+    "class": "objecttype",
+    "description": " The table lists the information about traffic suppression protection.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTrafficSuppressionIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTrafficSuppressionEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.3.1.1",
+    "status": "current"
+  },
+  "hwTrafficSuppressionIfIndex": {
+    "class": "objecttype",
+    "description": "The port index.",
+    "maxaccess": "not-accessible",
+    "name": "hwTrafficSuppressionIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.3.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwTrafficSuppressionTable": {
+    "class": "objecttype",
+    "description": " The table lists the information about the configuration of traffic suppression on an interface. ",
+    "maxaccess": "not-accessible",
+    "name": "hwTrafficSuppressionTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.2.3.1",
+    "status": "current"
+  },
+  "hwTtlExpiredLoop": {
+    "class": "objectidentity",
+    "name": "hwTtlExpiredLoop",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.15"
+  },
+  "hwTtlExpiredLoopChassisId": {
+    "class": "objecttype",
+    "description": "The chassis ID indicates the chassis ttl-expired loop occur.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwTtlExpiredLoopChassisId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.15.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwTtlExpiredLoopCurrentRateHigh": {
+    "class": "objecttype",
+    "description": "The high 32 bits of current discard bytes.",
+    "maxaccess": "read-only",
+    "name": "hwTtlExpiredLoopCurrentRateHigh",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.15.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwTtlExpiredLoopCurrentRateLow": {
+    "class": "objecttype",
+    "description": "The lower 32 bits of current discard bytes.",
+    "maxaccess": "read-only",
+    "name": "hwTtlExpiredLoopCurrentRateLow",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.15.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwTtlExpiredLoopEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopChassisId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECURITY-MIB",
+        "object": "hwTtlExpiredLoopSlotId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTtlExpiredLoopEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.15.1.1",
+    "status": "current"
+  },
+  "hwTtlExpiredLoopLastRateHigh": {
+    "class": "objecttype",
+    "description": "The high 32 bits of last discard bytes.",
+    "maxaccess": "read-only",
+    "name": "hwTtlExpiredLoopLastRateHigh",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.15.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwTtlExpiredLoopLastRateLow": {
+    "class": "objecttype",
+    "description": "The lower 32 bits of last discard bytes.",
+    "maxaccess": "read-only",
+    "name": "hwTtlExpiredLoopLastRateLow",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.15.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwTtlExpiredLoopRateInterval": {
+    "class": "objecttype",
+    "description": "Interval.",
+    "maxaccess": "read-only",
+    "name": "hwTtlExpiredLoopRateInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.15.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwTtlExpiredLoopRateThreshold": {
+    "class": "objecttype",
+    "description": "Threshold.",
+    "maxaccess": "read-only",
+    "name": "hwTtlExpiredLoopRateThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.15.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwTtlExpiredLoopSlotId": {
+    "class": "objecttype",
+    "description": "The slot ID indicates the slot ttl-expired loop occur.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwTtlExpiredLoopSlotId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.15.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwTtlExpiredLoopTable": {
+    "class": "objecttype",
+    "description": "A Table about TTL-expired loop information.",
+    "maxaccess": "not-accessible",
+    "name": "hwTtlExpiredLoopTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.165.1.15.1",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "IpAddress",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Gauge32",
+      "MibIdentifier",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Integer32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-SECURITY-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:54 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-SECURITY-MIB"
+  }
+}

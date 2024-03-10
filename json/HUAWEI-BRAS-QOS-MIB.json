@@ -1,0 +1,5986 @@
+{
+  "InterfaceScheduler": {
+    "class": "textualconvention",
+    "description": "Interface scheduler service type,with location,none and service group.",
+    "name": "InterfaceScheduler",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "location": 1,
+          "none": 2,
+          "servicegroup": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "LinkMode": {
+    "class": "textualconvention",
+    "description": "Remote Qos link mode,with frame and cell.",
+    "name": "LinkMode",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cell": 3,
+          "frame": 2,
+          "none": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "QueueClass": {
+    "class": "textualconvention",
+    "description": "QoS Queue service class,from ef to cs7.",
+    "name": "QueueClass",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "af1": 2,
+          "af2": 3,
+          "af3": 4,
+          "af4": 5,
+          "be": 1,
+          "cs6": 7,
+          "cs7": 8,
+          "ef": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "SchedulerService": {
+    "class": "textualconvention",
+    "description": "QoS scheduler service style,with pq,lpq and wfq.",
+    "name": "SchedulerService",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lpq": 3,
+          "pq": 1,
+          "wfq": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "SchedulerStyle": {
+    "class": "textualconvention",
+    "description": "QoS scheduler style,with sp and wrr.",
+    "name": "SchedulerStyle",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sp": 1,
+          "wrr": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "StatMode": {
+    "class": "textualconvention",
+    "description": "Interface statistics mode,with before,all and after.",
+    "name": "StatMode",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "after": 3,
+          "before": 2,
+          "both": 4,
+          "none": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwBRASQoS": {
+    "class": "moduleidentity",
+    "contactinfo": "Floor 5, Block 4, R\u0026D Building, Huawei Longgang Production Base, Shenzhen, P.R.C. http://www.huawei.com Zip:518057 ",
+    "description": "The MIB contains objects of module QOS.",
+    "lastupdated": "200504181334Z",
+    "name": "hwBRASQoS",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18",
+    "organization": "Organization."
+  },
+  "hwBRASQoSAf1Mapping": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "af1"
+      }
+    },
+    "description": "AF1 mapping vlue.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSAf1Mapping",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "QueueClass"
+    }
+  },
+  "hwBRASQoSAf2Mapping": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "af2"
+      }
+    },
+    "description": "AF2 mapping vlue.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSAf2Mapping",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "QueueClass"
+    }
+  },
+  "hwBRASQoSAf3Mapping": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "af3"
+      }
+    },
+    "description": "AF3 mapping vlue.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSAf3Mapping",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "QueueClass"
+    }
+  },
+  "hwBRASQoSAf4Mapping": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "af4"
+      }
+    },
+    "description": "AF4 mapping vlue.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSAf4Mapping",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.6.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "QueueClass"
+    }
+  },
+  "hwBRASQoSBeMapping": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "be"
+      }
+    },
+    "description": "BE mapping vlue.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSBeMapping",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "QueueClass"
+    }
+  },
+  "hwBRASQoSCarProfileCbs": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "CAR cbs (Unit:bit).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSCarProfileCbs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.15.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 33554432,
+            "min": 2000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSCarProfileCir": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "CAR cir (Unit:Kbps).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSCarProfileCir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.15.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 10000000,
+            "min": 100
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSCarProfileEntry": {
+    "class": "objecttype",
+    "description": "CAR Profile Configuration Information Entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSCarProfileIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSCarProfileEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.15.1",
+    "status": "current"
+  },
+  "hwBRASQoSCarProfileIndex": {
+    "class": "objecttype",
+    "description": "CAR profile entry index.",
+    "maxaccess": "read-only",
+    "name": "hwBRASQoSCarProfileIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.15.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1023,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSCarProfileName": {
+    "class": "objecttype",
+    "description": "CAR profile name.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSCarProfileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.15.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSCarProfilePbs": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "CAR pbs (Unit:bit).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSCarProfilePbs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.15.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 33554432,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSCarProfilePir": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "CAR pir (Unit:Kbps).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSCarProfilePir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.15.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 10000000,
+            "min": 100
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSCarProfileRowStatus": {
+    "class": "objecttype",
+    "description": "Row status,two actions are used: active and destroy.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSCarProfileRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.15.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwBRASQoSCarProfileTable": {
+    "class": "objecttype",
+    "description": "CAR profile config info.",
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSCarProfileTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.15",
+    "status": "current"
+  },
+  "hwBRASQoSCs6Mapping": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "cs6"
+      }
+    },
+    "description": "CS6 mapping vlue.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSCs6Mapping",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.6.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "QueueClass"
+    }
+  },
+  "hwBRASQoSCs7Mapping": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "cs7"
+      }
+    },
+    "description": "CS7 mapping vlue.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSCs7Mapping",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.6.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "QueueClass"
+    }
+  },
+  "hwBRASQoSDropProfileEntry": {
+    "class": "objecttype",
+    "description": "QoS Drop Profile Configuration Information Entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSDropProfileEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1",
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileIndex": {
+    "class": "objecttype",
+    "description": "Drop profile entry index.",
+    "maxaccess": "read-only",
+    "name": "hwBRASQoSDropProfileIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSDropProfileName": {
+    "class": "objecttype",
+    "description": "Drop profile name.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSDropProfileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSDropProfileRowStatus": {
+    "class": "objecttype",
+    "description": "Row status,two actions are used: active and destroy.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSDropProfileRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwBRASQoSDropProfileTable": {
+    "class": "objecttype",
+    "description": "QoS drop profile config info.",
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSDropProfileTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3",
+    "status": "current"
+  },
+  "hwBRASQoSDropProfileTailAf1Threshold": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 55
+      }
+    },
+    "description": "Tail-drop Threshold for AF1,in percentage. ",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSDropProfileTailAf1Threshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSDropProfileTailAf2Threshold": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 60
+      }
+    },
+    "description": "Tail-drop Threshold for AF2,in percentage. ",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSDropProfileTailAf2Threshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSDropProfileTailAf3Threshold": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 60
+      }
+    },
+    "description": "Tail-drop Threshold for AF3,in percentage. ",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSDropProfileTailAf3Threshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSDropProfileTailAf4Threshold": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 70
+      }
+    },
+    "description": "Tail-drop Threshold for AF4,in percentage. ",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSDropProfileTailAf4Threshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSDropProfileTailBeThreshold": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 55
+      }
+    },
+    "description": "Tail-drop Threshold for BE,in percentage. ",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSDropProfileTailBeThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSDropProfileTailCs6Threshold": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 90
+      }
+    },
+    "description": "Tail-drop Threshold for CS6,in percentage. ",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSDropProfileTailCs6Threshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSDropProfileTailCs7Threshold": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 100
+      }
+    },
+    "description": "Tail-drop Threshold for CS7,in percentage. ",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSDropProfileTailCs7Threshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSDropProfileTailEfThreshold": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 80
+      }
+    },
+    "description": "Tail-drop Threshold for EF,in percentage. ",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSDropProfileTailEfThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSDropProfileWredGreenHighValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 4095
+      }
+    },
+    "description": "WRED green high threshold (Unit:256byte).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSDropProfileWredGreenHighValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4095,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSDropProfileWredGreenLowValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 4095
+      }
+    },
+    "description": "WRED green low threshold (Unit:256byte).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSDropProfileWredGreenLowValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4095,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSDropProfileWredGreenMaxDrop": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "bin",
+        "value": "4"
+      }
+    },
+    "description": "WRED green max drop,in percentage.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSDropProfileWredGreenMaxDrop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSDropProfileWredMaxThreshold": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 90
+      }
+    },
+    "description": "Max threshold for WRED.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSDropProfileWredMaxThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSDropProfileWredMinThreshold": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "Minimum threshold for WRED.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSDropProfileWredMinThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSDropProfileWredRedHighValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 4095
+      }
+    },
+    "description": "WRED red high threshold (Unit:256byte).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSDropProfileWredRedHighValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4095,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSDropProfileWredRedLowValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 4095
+      }
+    },
+    "description": "WRED red low threshold (Unit:256byte).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSDropProfileWredRedLowValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4095,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSDropProfileWredRedMaxDrop": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 100
+      }
+    },
+    "description": "WRED red max drop,in percentage.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSDropProfileWredRedMaxDrop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSDropProfileWredUserDefHighValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 4095
+      }
+    },
+    "description": "User defined WRED high threshold (Unit:256byte).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSDropProfileWredUserDefHighValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4095,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSDropProfileWredUserDefLowValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 4095
+      }
+    },
+    "description": "User defined WRED low threshold (Unit:256byte).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSDropProfileWredUserDefLowValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4095,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSDropProfileWredUserDefMaxDrop": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 100
+      }
+    },
+    "description": "User defined WRED max drop,in percentage.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSDropProfileWredUserDefMaxDrop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSDropProfileWredYellowHighValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 4095
+      }
+    },
+    "description": "WRED yellow high threshold (Unit:256byte).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSDropProfileWredYellowHighValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4095,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSDropProfileWredYellowLowValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 4095
+      }
+    },
+    "description": "WRED yellow low threshold (Unit:256byte).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSDropProfileWredYellowLowValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4095,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSDropProfileWredYellowMaxDrop": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 100
+      }
+    },
+    "description": "WRED yellow max drop,in percentage.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSDropProfileWredYellowMaxDrop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.3.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSEfMapping": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "ef"
+      }
+    },
+    "description": "EF mapping vlue.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSEfMapping",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.6.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "QueueClass"
+    }
+  },
+  "hwBRASQoSFailBandwidth": {
+    "class": "objecttype",
+    "description": "Bandwidth value with alloced failure.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwBRASQoSFailBandwidth",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSFlowMappingEntry": {
+    "class": "objecttype",
+    "description": "QoS FlowMapping Configuration Information Entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSFlowMappingName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSFlowMappingEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.6.1",
+    "status": "current"
+  },
+  "hwBRASQoSFlowMappingName": {
+    "class": "objecttype",
+    "description": "Flow mapping entry name.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSFlowMappingName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSFlowMappingRowStatus": {
+    "class": "objecttype",
+    "description": "Row status,two actions are used: active and destroy.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSFlowMappingRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.6.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwBRASQoSFlowMappingTable": {
+    "class": "objecttype",
+    "description": "QoS queue flow mapping info.",
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSFlowMappingTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.6",
+    "status": "current"
+  },
+  "hwBRASQoSGVpGroupEntry": {
+    "class": "objecttype",
+    "description": "QoS GVP-Group Configuration Information Entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSVpGroupName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSGVpGroupEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.11.1",
+    "status": "current"
+  },
+  "hwBRASQoSGVpGroupName": {
+    "class": "objecttype",
+    "description": "GVP-Group name.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSGVpGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.11.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSGVpGroupQosProfileName": {
+    "class": "objecttype",
+    "description": "QoS profile name.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSGVpGroupQosProfileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.11.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSGVpGroupRowStatus": {
+    "class": "objecttype",
+    "description": "Row status,two actions are used: active and destroy.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSGVpGroupRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.11.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwBRASQoSGVpGroupSlotId": {
+    "class": "objecttype",
+    "description": "Slot ID.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSGVpGroupSlotId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.11.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSGVpGroupTable": {
+    "class": "objecttype",
+    "description": "Global VP-Group config info.",
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSGVpGroupTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.11",
+    "status": "current"
+  },
+  "hwBRASQoSIfActiveStatus": {
+    "class": "objecttype",
+    "description": "Interface active status.",
+    "maxaccess": "read-only",
+    "name": "hwBRASQoSIfActiveStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwBRASQoSIfEntry": {
+    "class": "objecttype",
+    "description": "QoS interface Configuration Information Entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSIfEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1",
+    "status": "current"
+  },
+  "hwBRASQoSIfInCarProfileName": {
+    "class": "objecttype",
+    "description": "Inbound CAR profile name.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSIfInCarProfileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSIfInStatistics": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "none"
+      }
+    },
+    "description": "Inbound statistics style.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSIfInStatistics",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "StatMode"
+    }
+  },
+  "hwBRASQoSIfInboundGVpGroupName": {
+    "class": "objecttype",
+    "description": "Inbound GVP-Group name.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSIfInboundGVpGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSIfInboundVcGroupName": {
+    "class": "objecttype",
+    "description": "Inbound VC-Group name.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSIfInboundVcGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSIfIndex": {
+    "class": "objecttype",
+    "description": "Interface index.",
+    "maxaccess": "read-only",
+    "name": "hwBRASQoSIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwBRASQoSIfMultiShapingStatus": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "Multicast shaping enable status.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSIfMultiShapingStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwBRASQoSIfName": {
+    "class": "objecttype",
+    "description": "Interface name.",
+    "maxaccess": "read-only",
+    "name": "hwBRASQoSIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 47,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSIfOutCarProfileName": {
+    "class": "objecttype",
+    "description": "Outbound CAR profile name.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSIfOutCarProfileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSIfOutStatistics": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "none"
+      }
+    },
+    "description": "Outbound statistics style.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSIfOutStatistics",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "StatMode"
+    }
+  },
+  "hwBRASQoSIfOutboundAGVpGroupName": {
+    "class": "objecttype",
+    "description": "Outbound-A GVP-Group name.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSIfOutboundAGVpGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSIfOutboundAVcGroupName": {
+    "class": "objecttype",
+    "description": "Outbound-A VC-Group name.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSIfOutboundAVcGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSIfOutboundBVcGroupName": {
+    "class": "objecttype",
+    "description": "Outbound-B VC-Group name.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSIfOutboundBVcGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSIfPacketAjustOverhead": {
+    "class": "objecttype",
+    "description": "Packet ajustment overhead value.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSIfPacketAjustOverhead",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 34,
+            "min": -34
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSIfQoSProfileName": {
+    "class": "objecttype",
+    "description": "QoS profile name.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSIfQoSProfileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSIfRemoteLinkMode": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "none"
+      }
+    },
+    "description": "Remote QoS link mode.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSIfRemoteLinkMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "LinkMode"
+    }
+  },
+  "hwBRASQoSIfResFail": {
+    "class": "notificationtype",
+    "description": "QoS interface or subinterface resource opration fail.",
+    "name": "hwBRASQoSIfResFail",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapIfindex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.2.1.1",
+    "status": "current"
+  },
+  "hwBRASQoSIfScheduleId": {
+    "class": "objecttype",
+    "description": "QoS schedule ID.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSIfScheduleId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceScheduler"
+    }
+  },
+  "hwBRASQoSIfServiceGroupName": {
+    "class": "objecttype",
+    "description": "Service group name.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSIfServiceGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSIfShapingValue": {
+    "class": "objecttype",
+    "description": "Port shaping value (Unit:Kbps).",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSIfShapingValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSIfTable": {
+    "class": "objecttype",
+    "description": "QoS interface info table.",
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSIfTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7",
+    "status": "current"
+  },
+  "hwBRASQoSIfVcEntry": {
+    "class": "objecttype",
+    "description": "QoS interface VC Configuration Information Entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcVlanId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcQinqVlanId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSIfVcEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8.1",
+    "status": "current"
+  },
+  "hwBRASQoSIfVcIfIndex": {
+    "class": "objecttype",
+    "description": "Interface index.",
+    "maxaccess": "read-only",
+    "name": "hwBRASQoSIfVcIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwBRASQoSIfVcInCarEachVlanStatus": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "Inbound each vlan car enable status.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSIfVcInCarEachVlanStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwBRASQoSIfVcInCarProfileName": {
+    "class": "objecttype",
+    "description": "Inbound CAR profile name.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSIfVcInCarProfileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSIfVcInStatistics": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "none"
+      }
+    },
+    "description": "Inbound statistics style.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSIfVcInStatistics",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "StatMode"
+    }
+  },
+  "hwBRASQoSIfVcOutCarEachVlanStatus": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "Outbound each vlan car enable status.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSIfVcOutCarEachVlanStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwBRASQoSIfVcOutCarProfileName": {
+    "class": "objecttype",
+    "description": "Outbound statistics style.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSIfVcOutCarProfileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSIfVcOutStatistics": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "none"
+      }
+    },
+    "description": "Outbound statistics style.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSIfVcOutStatistics",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "StatMode"
+    }
+  },
+  "hwBRASQoSIfVcQinqVlanEndId": {
+    "class": "objecttype",
+    "description": "End Qinq VLAN ID.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSIfVcQinqVlanEndId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4096,
+            "min": 2
+          }
+        ]
+      },
+      "type": "VlanIndex"
+    }
+  },
+  "hwBRASQoSIfVcQinqVlanId": {
+    "class": "objecttype",
+    "description": "Qinq VLAN ID.",
+    "maxaccess": "read-only",
+    "name": "hwBRASQoSIfVcQinqVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4096,
+            "min": 0
+          }
+        ]
+      },
+      "type": "VlanIndex"
+    }
+  },
+  "hwBRASQoSIfVcServiceGroupName": {
+    "class": "objecttype",
+    "description": "Service group name.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSIfVcServiceGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 47,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSIfVcTable": {
+    "class": "objecttype",
+    "description": "QoS interface VC info table.",
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSIfVcTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8",
+    "status": "current"
+  },
+  "hwBRASQoSIfVcVcGroupName": {
+    "class": "objecttype",
+    "description": "VC-Group name.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSIfVcVcGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 47,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSIfVcVlanEndId": {
+    "class": "objecttype",
+    "description": "End VLAN ID.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSIfVcVlanEndId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4096,
+            "min": 2
+          }
+        ]
+      },
+      "type": "VlanIndex"
+    }
+  },
+  "hwBRASQoSIfVcVlanId": {
+    "class": "objecttype",
+    "description": "VLAN ID.",
+    "maxaccess": "read-only",
+    "name": "hwBRASQoSIfVcVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.8.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4096,
+            "min": 1
+          }
+        ]
+      },
+      "type": "VlanIndex"
+    }
+  },
+  "hwBRASQoSIfVlanResFail": {
+    "class": "notificationtype",
+    "description": "QoS VLAN resource opration fail.",
+    "name": "hwBRASQoSIfVlanResFail",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapIfindex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapVlan"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapQinqVlan"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.2.1.2",
+    "status": "current"
+  },
+  "hwBRASQoSIfVpGroupName": {
+    "class": "objecttype",
+    "description": "VP-Group name.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSIfVpGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSIfVplsCarStatus": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "VPLS broadcast CAR enable status.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSIfVplsCarStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.7.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwBRASQoSMibTrap": {
+    "class": "objectidentity",
+    "name": "hwBRASQoSMibTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2"
+  },
+  "hwBRASQoSMultiShapingCir": {
+    "class": "objecttype",
+    "description": "QoS multicast shaping CIR,Unit(Kbps).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSMultiShapingCir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.17.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000000,
+            "min": 70
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSMultiShapingEndIndex": {
+    "class": "objecttype",
+    "description": "Multicast shaping list end-index.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSMultiShapingEndIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.17.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8191,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSMultiShapingEntry": {
+    "class": "objecttype",
+    "description": "Multicast QoS Shaping Configuration Information Entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSMultiShapingIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSMultiShapingEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.17.1",
+    "status": "current"
+  },
+  "hwBRASQoSMultiShapingIndex": {
+    "class": "objecttype",
+    "description": "Multicast shaping list index.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSMultiShapingIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.17.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8191,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSMultiShapingName": {
+    "class": "objecttype",
+    "description": "Multicast shaping entry name.",
+    "maxaccess": "read-only",
+    "name": "hwBRASQoSMultiShapingName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.17.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSMultiShapingPir": {
+    "class": "objecttype",
+    "description": "QoS multicast shaping PIR,Unit(Kbps).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSMultiShapingPir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.17.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 10000000,
+            "min": 70
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSMultiShapingQueueLength": {
+    "class": "objecttype",
+    "description": "QoS multicast shaping queue length,Unit(byte).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSMultiShapingQueueLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.17.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 128000,
+            "min": 2000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSMultiShapingRowStatus": {
+    "class": "objecttype",
+    "description": "Row status,two actions are used: active and destroy.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSMultiShapingRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.17.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwBRASQoSMultiShapingTable": {
+    "class": "objecttype",
+    "description": "Multicast QoS shaping list info.",
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSMultiShapingTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.17",
+    "status": "current"
+  },
+  "hwBRASQoSObjects": {
+    "class": "objectidentity",
+    "name": "hwBRASQoSObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1"
+  },
+  "hwBRASQoSPortQueueEntry": {
+    "class": "objecttype",
+    "description": "QoS Port Queue Configuration Information Entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortQueueIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortQueueServiceId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSPortQueueEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.13.1",
+    "status": "current"
+  },
+  "hwBRASQoSPortQueueIfIndex": {
+    "class": "objecttype",
+    "description": "Interface index.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSPortQueueIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.13.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwBRASQoSPortQueuePortWredName": {
+    "class": "objecttype",
+    "description": "Port WRED entry name. ",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSPortQueuePortWredName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.13.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSPortQueueRowStatus": {
+    "class": "objecttype",
+    "description": "Row status,two actions are used: active and destroy. ",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSPortQueueRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.13.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwBRASQoSPortQueueScheduleStyle": {
+    "class": "objecttype",
+    "description": "Queue schedule style.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSPortQueueScheduleStyle",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.13.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SchedulerService"
+    }
+  },
+  "hwBRASQoSPortQueueServiceId": {
+    "class": "objecttype",
+    "description": "Port queue service class ID.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSPortQueueServiceId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.13.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "QueueClass"
+    }
+  },
+  "hwBRASQoSPortQueueShaingPercentage": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 100
+      }
+    },
+    "description": "Port queue shaping value,in percentage.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSPortQueueShaingPercentage",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.13.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSPortQueueShapingValue": {
+    "class": "objecttype",
+    "description": "Port queue shaping bandwidth.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSPortQueueShapingValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.13.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSPortQueueTable": {
+    "class": "objecttype",
+    "description": "Port queue config info.",
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSPortQueueTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.13",
+    "status": "current"
+  },
+  "hwBRASQoSPortQueueWfqWeight": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "WFQ schedule weight.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSPortQueueWfqWeight",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.13.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSPortWredEntry": {
+    "class": "objecttype",
+    "description": "QoS Port Wred Configuration Information Entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortWredName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSPortWredEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.14.1",
+    "status": "current"
+  },
+  "hwBRASQoSPortWredGreenDiscardValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 100
+      }
+    },
+    "description": "WRED green max discard,in percentage.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSPortWredGreenDiscardValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.14.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSPortWredGreenHighLimitValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2047
+      }
+    },
+    "description": "WRED green high threshold (Unit:8192Byte).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSPortWredGreenHighLimitValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.14.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2047,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSPortWredGreenLowLimitValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2047
+      }
+    },
+    "description": "WRED green low threshold (Unit:8192Byte).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSPortWredGreenLowLimitValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.14.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2047,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSPortWredName": {
+    "class": "objecttype",
+    "description": "Port WRED name.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSPortWredName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.14.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSPortWredRedDiscardValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 100
+      }
+    },
+    "description": "WRED red max discard,in percentage.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSPortWredRedDiscardValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.14.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSPortWredRedHighLimitValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2047
+      }
+    },
+    "description": "WRED red high threshold (Unit:8192Byte).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSPortWredRedHighLimitValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.14.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2047,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSPortWredRedLowLimitValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2047
+      }
+    },
+    "description": "WRED red low threshold (Unit:8192Byte).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSPortWredRedLowLimitValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.14.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2047,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSPortWredRowStatus": {
+    "class": "objecttype",
+    "description": "Row status,two actions are used: active and destroy.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSPortWredRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.14.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwBRASQoSPortWredTable": {
+    "class": "objecttype",
+    "description": "Port WRED config info.",
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSPortWredTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.14",
+    "status": "current"
+  },
+  "hwBRASQoSPortWredYellowDiscardValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 100
+      }
+    },
+    "description": "WRED yellow max discard,in percentage.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSPortWredYellowDiscardValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.14.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSPortWredYellowHighLimitValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2047
+      }
+    },
+    "description": "WRED yellow high threshold (Unit:8192Byte).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSPortWredYellowHighLimitValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.14.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2047,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSPortWredYellowLowLimitValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2047
+      }
+    },
+    "description": "WRED yellow low threshold (Unit:8192Byte).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSPortWredYellowLowLimitValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.14.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2047,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSQoSFlowMappingName": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "OctetString",
+        "format": "string",
+        "value": "default"
+      }
+    },
+    "description": "QoS flow mapping name.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSQoSFlowMappingName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSQoSLinkAjustLength": {
+    "class": "objecttype",
+    "description": "Exact link ajustment length fo SQ.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSQoSLinkAjustLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSQoSProfileDropName": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "OctetString",
+        "format": "string",
+        "value": "default"
+      }
+    },
+    "description": "QoS drop profile name.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSQoSProfileDropName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSQoSProfileEntry": {
+    "class": "objecttype",
+    "description": "QoS Profile Configuration Information Entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQoSProfileIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSQoSProfileEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.1.1",
+    "status": "current"
+  },
+  "hwBRASQoSQoSProfileIndex": {
+    "class": "objecttype",
+    "description": "QoS profile entry index.",
+    "maxaccess": "read-only",
+    "name": "hwBRASQoSQoSProfileIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1023,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSQoSProfileName": {
+    "class": "objecttype",
+    "description": "QoS profile name.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSQoSProfileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSQoSProfileQueueName": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "OctetString",
+        "format": "string",
+        "value": "default"
+      }
+    },
+    "description": "QoS queue profile name.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSQoSProfileQueueName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSQoSProfileRowStatus": {
+    "class": "objecttype",
+    "description": "Row status,two actions are used: active and destroy.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSQoSProfileRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwBRASQoSQoSProfileSchedulerName": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "OctetString",
+        "format": "string",
+        "value": "default"
+      }
+    },
+    "description": "QoS scheduler profile name.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSQoSProfileSchedulerName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSQoSProfileTable": {
+    "class": "objecttype",
+    "description": "QoS profile config info.",
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSQoSProfileTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.1",
+    "status": "current"
+  },
+  "hwBRASQoSQueueClassCbs": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "Queue cbs (Unit:byte).",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSQueueClassCbs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 131071,
+            "min": 64
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSQueueClassCir": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "Queue cir (Unit:Kbps).",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSQueueClassCir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 3000000,
+            "min": 100
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSQueueClassDropName": {
+    "class": "objecttype",
+    "description": "Drop profile name.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSQueueClassDropName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSQueueClassEntry": {
+    "class": "objecttype",
+    "description": "QoS Queue Class Configuration Information Entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassProfileName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassServiceId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSQueueClassEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1",
+    "status": "current"
+  },
+  "hwBRASQoSQueueClassLength": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 20
+      }
+    },
+    "description": "Queue length (Unit:Kbyte).",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSQueueClassLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 20
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSQueueClassPbs": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "Queue pbs (Unit:byte).",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSQueueClassPbs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 4000000,
+            "min": 64
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSQueueClassPir": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "Queue pir (Unit:Kbps).",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSQueueClassPir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 3000000,
+            "min": 100
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSQueueClassProfileName": {
+    "class": "objecttype",
+    "description": "Queue profile name.",
+    "maxaccess": "read-only",
+    "name": "hwBRASQoSQueueClassProfileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSQueueClassScheduler": {
+    "class": "objecttype",
+    "description": "Queue scheduler style.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSQueueClassScheduler",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SchedulerService"
+    }
+  },
+  "hwBRASQoSQueueClassServiceId": {
+    "class": "objecttype",
+    "description": "Service queue class id.",
+    "maxaccess": "read-only",
+    "name": "hwBRASQoSQueueClassServiceId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "QueueClass"
+    }
+  },
+  "hwBRASQoSQueueClassShaping": {
+    "class": "objecttype",
+    "description": "Queue shaping value,in percentage.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSQueueClassShaping",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSQueueClassTable": {
+    "class": "objecttype",
+    "description": "QoS queue schedule class info.",
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSQueueClassTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5",
+    "status": "current"
+  },
+  "hwBRASQoSQueueClassWfqWeight": {
+    "class": "objecttype",
+    "description": "WFQ weight value.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSQueueClassWfqWeight",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSQueueClassWredEnableStatus": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "WRED enable status.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSQueueClassWredEnableStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwBRASQoSQueueClassWredWeight": {
+    "class": "objecttype",
+    "description": "WRED weight value.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSQueueClassWredWeight",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSQueueClassWrrWeight": {
+    "class": "objecttype",
+    "description": "WRR weight value.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSQueueClassWrrWeight",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.5.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSQueueProfileAf1Style": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "sp"
+      }
+    },
+    "description": "AF1 queue schedule style.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSQueueProfileAf1Style",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SchedulerStyle"
+    }
+  },
+  "hwBRASQoSQueueProfileAf2Style": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "sp"
+      }
+    },
+    "description": "AF2 queue schedule style.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSQueueProfileAf2Style",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SchedulerStyle"
+    }
+  },
+  "hwBRASQoSQueueProfileAf3Style": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "sp"
+      }
+    },
+    "description": "AF3 queue schedule style.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSQueueProfileAf3Style",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SchedulerStyle"
+    }
+  },
+  "hwBRASQoSQueueProfileAf4Style": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "sp"
+      }
+    },
+    "description": "AF4 queue schedule style.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSQueueProfileAf4Style",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SchedulerStyle"
+    }
+  },
+  "hwBRASQoSQueueProfileBeStyle": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "sp"
+      }
+    },
+    "description": "BE queue schedule style.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSQueueProfileBeStyle",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SchedulerStyle"
+    }
+  },
+  "hwBRASQoSQueueProfileCs6Style": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "sp"
+      }
+    },
+    "description": "CS6 queue schedule style.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSQueueProfileCs6Style",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.4.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SchedulerStyle"
+    }
+  },
+  "hwBRASQoSQueueProfileCs7Style": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "sp"
+      }
+    },
+    "description": "CS7 queue schedule style.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSQueueProfileCs7Style",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.4.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SchedulerStyle"
+    }
+  },
+  "hwBRASQoSQueueProfileEfStyle": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "sp"
+      }
+    },
+    "description": "EF queue schedule style.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSQueueProfileEfStyle",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.4.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SchedulerStyle"
+    }
+  },
+  "hwBRASQoSQueueProfileEntry": {
+    "class": "objecttype",
+    "description": "QoS Queue Profile Configuration Information Entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueProfileIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSQueueProfileEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.4.1",
+    "status": "current"
+  },
+  "hwBRASQoSQueueProfileIndex": {
+    "class": "objecttype",
+    "description": "Queue profile entry index.",
+    "maxaccess": "read-only",
+    "name": "hwBRASQoSQueueProfileIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSQueueProfileName": {
+    "class": "objecttype",
+    "description": "Queue profile name.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSQueueProfileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSQueueProfileRowStatus": {
+    "class": "objecttype",
+    "description": "Row status,two actions are used: active and destroy.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSQueueProfileRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.4.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwBRASQoSQueueProfileTable": {
+    "class": "objecttype",
+    "description": "QoS queue profile config info.",
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSQueueProfileTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.4",
+    "status": "current"
+  },
+  "hwBRASQoSSchedulerProfileDownCbs": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "Downstream cbs (Unit:byte).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSSchedulerProfileDownCbs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 8388608,
+            "min": 10000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSSchedulerProfileDownCir": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "Downstream cir (Unit:Kbps).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSSchedulerProfileDownCir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 10000000,
+            "min": 70
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSSchedulerProfileDownPbs": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "Downstream pbs (Unit:byte).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSSchedulerProfileDownPbs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 8388608,
+            "min": 10000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSSchedulerProfileDownPir": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "Downstream cir (Unit:Kbps).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSSchedulerProfileDownPir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 1000000,
+            "min": 70
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSSchedulerProfileEntry": {
+    "class": "objecttype",
+    "description": "QoS Scheduler Profile Configuration Information Entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSSchedulerProfileEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1",
+    "status": "current"
+  },
+  "hwBRASQoSSchedulerProfileGtsDownCir": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "GTS downstream cir (Unit:Kbps).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSSchedulerProfileGtsDownCir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 1000000,
+            "min": 70
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSSchedulerProfileGtsDownLength": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "GTS downstream queue length (Unit:Kbyte).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSSchedulerProfileGtsDownLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 128000,
+            "min": 2000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSSchedulerProfileGtsDownPir": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "GTS downstream pir (Unit:Kbps).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSSchedulerProfileGtsDownPir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 1000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSSchedulerProfileGtsUpCir": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "GTS upstream cir (Unit:Kbps).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSSchedulerProfileGtsUpCir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 10000000,
+            "min": 70
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSSchedulerProfileGtsUpLength": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "GTS upstream queue length (Unit:Kbyte).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSSchedulerProfileGtsUpLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 128000,
+            "min": 2000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSSchedulerProfileGtsUpPir": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "GTS upstream pir (Unit:Kbps).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSSchedulerProfileGtsUpPir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 10000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSSchedulerProfileIndex": {
+    "class": "objecttype",
+    "description": "Scheduler profile entry index.",
+    "maxaccess": "read-only",
+    "name": "hwBRASQoSSchedulerProfileIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1023,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSSchedulerProfileName": {
+    "class": "objecttype",
+    "description": "Scheduler profile name.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSSchedulerProfileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSSchedulerProfileTable": {
+    "class": "objecttype",
+    "description": "QoS scheduler profile config info.",
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSSchedulerProfileTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2",
+    "status": "current"
+  },
+  "hwBRASQoSSchedulerProfileUpCbs": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "Upstream cbs (Unit:byte).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSSchedulerProfileUpCbs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 8388608,
+            "min": 10000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSSchedulerProfileUpCir": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "Upstream cir (Unit:Kbps).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSSchedulerProfileUpCir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 1000000,
+            "min": 70
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSSchedulerProfileUpPbs": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "Upstream pbs (Unit:byte).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSSchedulerProfileUpPbs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 8388608,
+            "min": 10000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSSchedulerProfileUpPir": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "Upstream pir (Unit:Kbps).",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSSchedulerProfileUpPir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 1000000,
+            "min": 70
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSSchedulerProfileWfqWeight": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 10
+      }
+    },
+    "description": "Scheduler WFQ Weight.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSSchedulerProfileWfqWeight",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 63,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSSchedulerRowStatus": {
+    "class": "objecttype",
+    "description": "Row status,two actions are used: active and destroy.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSSchedulerRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.2.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwBRASQoSServiceGroupEntry": {
+    "class": "objecttype",
+    "description": "QoS Service Group Configuration Information Entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSServiceGroupIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSServiceGroupEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.12.1",
+    "status": "current"
+  },
+  "hwBRASQoSServiceGroupIndex": {
+    "class": "objecttype",
+    "description": "Service group entry index.",
+    "maxaccess": "read-only",
+    "name": "hwBRASQoSServiceGroupIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.12.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 499,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSServiceGroupName": {
+    "class": "objecttype",
+    "description": "Service group name.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSServiceGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.12.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSServiceGroupRowStatus": {
+    "class": "objecttype",
+    "description": "Row status,two actions are used: active and destroy.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSServiceGroupRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.12.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwBRASQoSServiceGroupTable": {
+    "class": "objecttype",
+    "description": "Service group table info.",
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSServiceGroupTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.12",
+    "status": "current"
+  },
+  "hwBRASQoSSlotActiveStatus": {
+    "class": "objecttype",
+    "description": "Slot active status.",
+    "maxaccess": "read-only",
+    "name": "hwBRASQoSSlotActiveStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwBRASQoSSlotEntry": {
+    "class": "objecttype",
+    "description": "QoS Slot Configuration Information Entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSlotId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSSlotEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16.1",
+    "status": "current"
+  },
+  "hwBRASQoSSlotEtherAjustOverhead": {
+    "class": "objecttype",
+    "description": "Ethernet packet adustment overhead (Unit:byte).",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSSlotEtherAjustOverhead",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 50,
+            "min": -35
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSSlotId": {
+    "class": "objecttype",
+    "description": "Slot ID.",
+    "maxaccess": "read-only",
+    "name": "hwBRASQoSSlotId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSSlotInboundGqFreeNum": {
+    "class": "objecttype",
+    "description": "Inbound GQ resource free-number.",
+    "maxaccess": "read-only",
+    "name": "hwBRASQoSSlotInboundGqFreeNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSSlotInboundGqUsedNum": {
+    "class": "objecttype",
+    "description": "Inbound GQ resource used-number.",
+    "maxaccess": "read-only",
+    "name": "hwBRASQoSSlotInboundGqUsedNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSSlotInboundSqFreeNum": {
+    "class": "objecttype",
+    "description": "Inbound SQ resource free-number.",
+    "maxaccess": "read-only",
+    "name": "hwBRASQoSSlotInboundSqFreeNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSSlotInboundSqUsedNum": {
+    "class": "objecttype",
+    "description": "Inbound SQ resource used-number.",
+    "maxaccess": "read-only",
+    "name": "hwBRASQoSSlotInboundSqUsedNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSSlotLinkLayerExclude": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "Whether exclude link-layer bit for CAR or statistics.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSSlotLinkLayerExclude",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwBRASQoSSlotOutboundGqFreeNum": {
+    "class": "objecttype",
+    "description": "Outbound GQ resource free-number.",
+    "maxaccess": "read-only",
+    "name": "hwBRASQoSSlotOutboundGqFreeNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSSlotOutboundGqUsedNum": {
+    "class": "objecttype",
+    "description": "Outbound GQ resource used-number.",
+    "maxaccess": "read-only",
+    "name": "hwBRASQoSSlotOutboundGqUsedNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSSlotOutboundSqFreeNum": {
+    "class": "objecttype",
+    "description": "Outbound SQ resource free-number.",
+    "maxaccess": "read-only",
+    "name": "hwBRASQoSSlotOutboundSqFreeNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSSlotOutboundSqUsedNum": {
+    "class": "objecttype",
+    "description": "Outbound SQ resource used-number.",
+    "maxaccess": "read-only",
+    "name": "hwBRASQoSSlotOutboundSqUsedNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSSlotRemoteAdjustEnableStatus": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "Remote QoS adjustment enable status.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSSlotRemoteAdjustEnableStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwBRASQoSSlotTable": {
+    "class": "objecttype",
+    "description": "QoS slot config table.",
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSSlotTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.16",
+    "status": "current"
+  },
+  "hwBRASQoSTMExcepion": {
+    "class": "notificationtype",
+    "description": "TM exception in current slot.",
+    "name": "hwBRASQoSTMExcepion",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapSlotID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.2.1.7",
+    "status": "current"
+  },
+  "hwBRASQoSTrapDefine": {
+    "class": "objectidentity",
+    "name": "hwBRASQoSTrapDefine",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.2"
+  },
+  "hwBRASQoSTrapIfindex": {
+    "class": "objecttype",
+    "description": "QoS interface index. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwBRASQoSTrapIfindex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwBRASQoSTrapOid": {
+    "class": "objectidentity",
+    "name": "hwBRASQoSTrapOid",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.1"
+  },
+  "hwBRASQoSTrapQinqVlan": {
+    "class": "objecttype",
+    "description": "QINQ VLAN ID in QoS sub-interface.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwBRASQoSTrapQinqVlan",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4096,
+            "min": 0
+          }
+        ]
+      },
+      "type": "VlanIndex"
+    }
+  },
+  "hwBRASQoSTrapSlotID": {
+    "class": "objecttype",
+    "description": "Slot ID relating QoS resource.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwBRASQoSTrapSlotID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSTrapTunnelID": {
+    "class": "objecttype",
+    "description": "QoS tunnel ID.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwBRASQoSTrapTunnelID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65536,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSTrapUserBehavior": {
+    "class": "objecttype",
+    "description": "User behavior when operatiing with QoS resource.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwBRASQoSTrapUserBehavior",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alloc": 1,
+          "free": 3,
+          "update": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwBRASQoSTrapUserID": {
+    "class": "objecttype",
+    "description": "User ID with QoS resource. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwBRASQoSTrapUserID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBRASQoSTrapVlan": {
+    "class": "objecttype",
+    "description": "VLAN ID in QoS sub-interface.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwBRASQoSTrapVlan",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4096,
+            "min": 1
+          }
+        ]
+      },
+      "type": "VlanIndex"
+    }
+  },
+  "hwBRASQoSTraps": {
+    "class": "objectidentity",
+    "name": "hwBRASQoSTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.2.1"
+  },
+  "hwBRASQoSTrunkFail": {
+    "class": "notificationtype",
+    "description": "QoS Trunk resource exception.",
+    "name": "hwBRASQoSTrunkFail",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapIfindex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.2.1.5",
+    "status": "current"
+  },
+  "hwBRASQoSTunnelResFail": {
+    "class": "notificationtype",
+    "description": "QoS tunnel resource opration fail.",
+    "name": "hwBRASQoSTunnelResFail",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapTunnelID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.2.1.3",
+    "status": "current"
+  },
+  "hwBRASQoSUserBandwidthOverflow": {
+    "class": "notificationtype",
+    "description": "User\u0027s bandwidth to be alloced has exceeded the limit of current intface.",
+    "name": "hwBRASQoSUserBandwidthOverflow",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapIfindex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapUserID"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSFailBandwidth"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.2.1.6",
+    "status": "current"
+  },
+  "hwBRASQoSUserResFail": {
+    "class": "notificationtype",
+    "description": "QoS user resource opration fail.",
+    "name": "hwBRASQoSUserResFail",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapUserID"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapUserBehavior"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.2.2.1.4",
+    "status": "current"
+  },
+  "hwBRASQoSVcGroupEntry": {
+    "class": "objecttype",
+    "description": "QoS VC-Group Configuration Information Entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSVcGroupIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSVcGroupName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSVcGroupEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.10.1",
+    "status": "current"
+  },
+  "hwBRASQoSVcGroupIfIndex": {
+    "class": "objecttype",
+    "description": "Interface index.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSVcGroupIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.10.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwBRASQoSVcGroupName": {
+    "class": "objecttype",
+    "description": "VC-Group name.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSVcGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.10.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSVcGroupQosProfileName": {
+    "class": "objecttype",
+    "description": "QoS profile name.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSVcGroupQosProfileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.10.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSVcGroupRowStatus": {
+    "class": "objecttype",
+    "description": "Row status.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSVcGroupRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.10.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwBRASQoSVcGroupTable": {
+    "class": "objecttype",
+    "description": "VC-Group config info.",
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSVcGroupTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.10",
+    "status": "current"
+  },
+  "hwBRASQoSVpGroupEntry": {
+    "class": "objecttype",
+    "description": "QoS VP-Group Configuration Information Entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSVpGroupIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSVpGroupName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSVpGroupEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.9.1",
+    "status": "current"
+  },
+  "hwBRASQoSVpGroupIfIndex": {
+    "class": "objecttype",
+    "description": "Interface index.",
+    "maxaccess": "read-write",
+    "name": "hwBRASQoSVpGroupIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.9.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwBRASQoSVpGroupName": {
+    "class": "objecttype",
+    "description": "VP-Group name.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSVpGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.9.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSVpGroupQosProfileName": {
+    "class": "objecttype",
+    "description": "QoS profile name.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSVpGroupQosProfileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.9.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBRASQoSVpGroupRowStatus": {
+    "class": "objecttype",
+    "description": "Row status,two actions are used: active and destroy.",
+    "maxaccess": "read-create",
+    "name": "hwBRASQoSVpGroupRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.9.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwBRASQoSVpGroupTable": {
+    "class": "objecttype",
+    "description": "VP-Group config info.",
+    "maxaccess": "not-accessible",
+    "name": "hwBRASQoSVpGroupTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.1.9",
+    "status": "current"
+  },
+  "hwBrasQosCarProfileGroup": {
+    "class": "objectgroup",
+    "description": "The BRAS QoS Car Profile group.",
+    "name": "hwBrasQosCarProfileGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSCarProfileIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSCarProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSCarProfileCir"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSCarProfilePir"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSCarProfileCbs"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSCarProfilePbs"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSCarProfileRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.15",
+    "status": "current"
+  },
+  "hwBrasQosCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the this module.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBrasQosQosProfileGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBrasQosSchedulerProfileGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBrasQosDropProfileGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBrasQosQueueProfileGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBrasQosQueueClassGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBrasQosFlowMappingGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBrasQosIfGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBrasQosIfVcGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBrasQosVpGroupGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBrasQosVcGroupGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBrasQosGVpGroupGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBrasQosServiceGroupGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBrasQosPortQueueGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBrasQosPortWredGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBrasQosCarProfileGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBrasQosSlotGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBrasQosMultiShapingGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBrasQosTrapOidGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBrasQosTrapDefineGroup"
+      }
+    ],
+    "name": "hwBrasQosCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.1.1",
+    "status": "current"
+  },
+  "hwBrasQosCompliances": {
+    "class": "objectidentity",
+    "name": "hwBrasQosCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.1"
+  },
+  "hwBrasQosConformance": {
+    "class": "objectidentity",
+    "name": "hwBrasQosConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3"
+  },
+  "hwBrasQosDropProfileGroup": {
+    "class": "objectgroup",
+    "description": "The BRAS QoS Drop Profile group.",
+    "name": "hwBrasQosDropProfileGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileTailBeThreshold"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileTailAf1Threshold"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileTailAf2Threshold"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileTailAf3Threshold"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileTailAf4Threshold"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileTailEfThreshold"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileTailCs6Threshold"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileTailCs7Threshold"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileWredMaxThreshold"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileWredMinThreshold"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileWredGreenHighValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileWredGreenLowValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileWredGreenMaxDrop"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileWredYellowHighValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileWredYellowLowValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileWredYellowMaxDrop"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileWredRedHighValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileWredRedLowValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileWredRedMaxDrop"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileWredUserDefHighValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileWredUserDefLowValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileWredUserDefMaxDrop"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSDropProfileRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.3",
+    "status": "current"
+  },
+  "hwBrasQosFlowMappingGroup": {
+    "class": "objectgroup",
+    "description": "The BRAS QoS Flow Mapping group.",
+    "name": "hwBrasQosFlowMappingGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSFlowMappingName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSBeMapping"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSAf1Mapping"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSAf2Mapping"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSAf3Mapping"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSAf4Mapping"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSEfMapping"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSCs6Mapping"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSCs7Mapping"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSFlowMappingRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.6",
+    "status": "current"
+  },
+  "hwBrasQosGVpGroupGroup": {
+    "class": "objectgroup",
+    "description": "The BRAS QoS GVp Group group.",
+    "name": "hwBrasQosGVpGroupGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSGVpGroupSlotId"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSGVpGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSGVpGroupQosProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSGVpGroupRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.11",
+    "status": "current"
+  },
+  "hwBrasQosGroups": {
+    "class": "objectidentity",
+    "name": "hwBrasQosGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2"
+  },
+  "hwBrasQosIfGroup": {
+    "class": "objectgroup",
+    "description": "The BRAS QoS If group.",
+    "name": "hwBrasQosIfGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfQoSProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfScheduleId"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfServiceGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfShapingValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVpGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfInboundVcGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfOutboundAVcGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfOutboundBVcGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfInboundGVpGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfOutboundAGVpGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfPacketAjustOverhead"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfRemoteLinkMode"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfInCarProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfInStatistics"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfOutCarProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfOutStatistics"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVplsCarStatus"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfMultiShapingStatus"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfActiveStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.7",
+    "status": "current"
+  },
+  "hwBrasQosIfVcGroup": {
+    "class": "objectgroup",
+    "description": "The BRAS QoS If Vc group.",
+    "name": "hwBrasQosIfVcGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcIfIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcVlanId"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcQinqVlanId"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcVlanEndId"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcQinqVlanEndId"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcVcGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcServiceGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcInCarProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcInStatistics"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcInCarEachVlanStatus"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcOutCarProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcOutStatistics"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVcOutCarEachVlanStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.8",
+    "status": "current"
+  },
+  "hwBrasQosMultiShapingGroup": {
+    "class": "objectgroup",
+    "description": "The BRAS QoS Multi Shaping group.",
+    "name": "hwBrasQosMultiShapingGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSMultiShapingIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSMultiShapingName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSMultiShapingEndIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSMultiShapingCir"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSMultiShapingPir"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSMultiShapingQueueLength"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSMultiShapingRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.17",
+    "status": "current"
+  },
+  "hwBrasQosPortQueueGroup": {
+    "class": "objectgroup",
+    "description": "The BRAS QoS Port Queue group.",
+    "name": "hwBrasQosPortQueueGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortQueueIfIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortQueueServiceId"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortQueueScheduleStyle"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortQueueWfqWeight"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortQueueShapingValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortQueueShaingPercentage"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortQueuePortWredName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortQueueRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.13",
+    "status": "current"
+  },
+  "hwBrasQosPortWredGroup": {
+    "class": "objectgroup",
+    "description": "The BRAS QoS Port Wred group.",
+    "name": "hwBrasQosPortWredGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortWredName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortWredGreenLowLimitValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortWredGreenHighLimitValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortWredGreenDiscardValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortWredYellowLowLimitValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortWredYellowHighLimitValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortWredYellowDiscardValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortWredRedLowLimitValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortWredRedHighLimitValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortWredRedDiscardValue"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSPortWredRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.14",
+    "status": "current"
+  },
+  "hwBrasQosQosProfileGroup": {
+    "class": "objectgroup",
+    "description": "The BRAS QoS Qos Profile group.",
+    "name": "hwBrasQosQosProfileGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQoSProfileIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQoSProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQoSProfileQueueName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQoSProfileDropName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQoSProfileSchedulerName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQoSFlowMappingName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQoSLinkAjustLength"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQoSProfileRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.1",
+    "status": "current"
+  },
+  "hwBrasQosQueueClassGroup": {
+    "class": "objectgroup",
+    "description": "The BRAS QoS Queue Class group.",
+    "name": "hwBrasQosQueueClassGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassServiceId"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassWredEnableStatus"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassWredWeight"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassWrrWeight"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassLength"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassCir"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassCbs"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassPir"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassPbs"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassWfqWeight"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassShaping"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassScheduler"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueClassDropName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.5",
+    "status": "current"
+  },
+  "hwBrasQosQueueProfileGroup": {
+    "class": "objectgroup",
+    "description": "The BRAS QoS Queue Profile group.",
+    "name": "hwBrasQosQueueProfileGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueProfileIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueProfileBeStyle"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueProfileAf1Style"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueProfileAf2Style"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueProfileAf3Style"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueProfileAf4Style"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueProfileEfStyle"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueProfileCs6Style"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueProfileCs7Style"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSQueueProfileRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.4",
+    "status": "current"
+  },
+  "hwBrasQosSchedulerProfileGroup": {
+    "class": "objectgroup",
+    "description": "The BRAS QoS Scheduler Profile group.",
+    "name": "hwBrasQosSchedulerProfileGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileGtsUpCir"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileGtsUpPir"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileGtsUpLength"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileGtsDownCir"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileGtsDownPir"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileGtsDownLength"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileUpCir"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileUpCbs"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileUpPir"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileUpPbs"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileDownCir"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileDownCbs"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileDownPir"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileDownPbs"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerProfileWfqWeight"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSchedulerRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.2",
+    "status": "current"
+  },
+  "hwBrasQosServiceGroupGroup": {
+    "class": "objectgroup",
+    "description": "The BRAS QoS Service Group group.",
+    "name": "hwBrasQosServiceGroupGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSServiceGroupIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSServiceGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSServiceGroupRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.12",
+    "status": "current"
+  },
+  "hwBrasQosSlotGroup": {
+    "class": "objectgroup",
+    "description": "The BRAS QoS Slot group.",
+    "name": "hwBrasQosSlotGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSlotId"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSlotLinkLayerExclude"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSlotEtherAjustOverhead"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSlotRemoteAdjustEnableStatus"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSlotInboundGqUsedNum"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSlotInboundSqUsedNum"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSlotInboundGqFreeNum"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSlotInboundSqFreeNum"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSlotOutboundGqUsedNum"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSlotOutboundSqUsedNum"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSlotOutboundGqFreeNum"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSlotOutboundSqFreeNum"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSSlotActiveStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.16",
+    "status": "current"
+  },
+  "hwBrasQosTrapDefineGroup": {
+    "class": "notificationgroup",
+    "description": "The BRAS QoS Trap Define group.",
+    "name": "hwBrasQosTrapDefineGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfResFail"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSIfVlanResFail"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTunnelResFail"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSUserResFail"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrunkFail"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSUserBandwidthOverflow"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTMExcepion"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.19",
+    "status": "current"
+  },
+  "hwBrasQosTrapOidGroup": {
+    "class": "objectgroup",
+    "description": "The BRAS QoS Trap Oid group.",
+    "name": "hwBrasQosTrapOidGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapSlotID"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSFailBandwidth"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapUserBehavior"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapUserID"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapTunnelID"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapQinqVlan"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapVlan"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSTrapIfindex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.18",
+    "status": "current"
+  },
+  "hwBrasQosVcGroupGroup": {
+    "class": "objectgroup",
+    "description": "The BRAS QoS Vc Group group.",
+    "name": "hwBrasQosVcGroupGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSVcGroupIfIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSVcGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSVcGroupQosProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSVcGroupRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.10",
+    "status": "current"
+  },
+  "hwBrasQosVpGroupGroup": {
+    "class": "objectgroup",
+    "description": "The BRAS QoS Vp Group group.",
+    "name": "hwBrasQosVpGroupGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSVpGroupIfIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSVpGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSVpGroupQosProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-QOS-MIB",
+        "object": "hwBRASQoSVpGroupRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.18.3.2.9",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwBRASMib"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "IpAddress",
+      "Counter64",
+      "Integer32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "TimeTicks",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus",
+      "TruthValue"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-BRAS-QOS-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:46:51 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-BRAS-QOS-MIB"
+  }
+}

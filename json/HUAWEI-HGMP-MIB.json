@@ -1,0 +1,4176 @@
+{
+  "basicCompliance": {
+    "class": "modulecompliance",
+    "description": "Enter the description of the created MODULE-COMPLIANCE.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "currentObjectGroup"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "currentNotificationGroup"
+      }
+    ],
+    "name": "basicCompliance",
+    "oid": "1.3.6.1.4.1.2011.6.7.6.2.1",
+    "status": "current"
+  },
+  "currentNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "Enter the description of the created NOTIFICATION-GROUP.",
+    "name": "currentNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpMemberfailure"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpMemberRecover"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpMemberStatusChange"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpMemberAdd"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberfailure"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberRecover"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberStatusChange"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNetTopChange"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopoChange"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.7.6.1.2",
+    "status": "current"
+  },
+  "currentObjectGroup": {
+    "class": "objectgroup",
+    "description": "Enter the description of the created OBJECT-GROUP.",
+    "name": "currentObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpSetVLANSecurity"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpHandShakeInterval"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpHandShakeHoldtime"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberTableChange"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpMemberDisconRate"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpCmdLanswitchFlag"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpCmdClusterName"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpMngPriIpSegCMIP"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpMngPriIpMask"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpFtpServer"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpTftpServer"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpSnmpHost"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpLogHost"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberDeviceId"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberSerial"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberIpAddr"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberName"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberPassword"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberPlatform"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberStatus"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberDisconCount"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberEnrollTime"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberOperate"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpMemberResetMAC"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpMemberEraseflash"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpClusterRole"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpClusterMaxPoolNum"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpClusterCmdSwMac"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpRun"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpClusterAutojoin"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpClusterDiscAgingTime"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpPlugAndPlayStatus"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpMultiMacAddress"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpManageVlan"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpSftpServer"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNdpAdminGroupType"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNdpAdminGroupValue"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNdpAdminStatus"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNdpAdminRowStatus"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNdpResultMemberId"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNdpResult"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNtdpAdminGroupType"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNtdpAdminGroupValue"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNtdpAdminStatus"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNtdpAdminRowStatus"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNtdpResultMemberId"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNtdpResult"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchUpgradeGroupType"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchUpgradeGroupValue"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchUpgradeFileType"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchUpgradeFileName"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchUpgradeRowStatus"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchUpgradeResultMemberId"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchUpgradeResult"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchRebootGroupType"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchRebootGroupValue"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchRebootRowStatus"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchRebootResultMemberId"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchRebootResult"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSaveGroupType"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSaveGroupValue"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSaveRowStatus"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSaveResultMemberId"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSaveResult"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSynchronizeCfgFileGroupType"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSynchronizeCfgFileGroupValue"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSynchronizeCfgFileRowStatus"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSynchronizeCfgFileResultMemberId"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSynchronizeCfgFileResult"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpMemberRebootTimeoutValue"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberTableChange"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberDisconRate"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpMainLanswitchFlag"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackIpPoolStartIP"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackIpPoolLength"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberDeviceId"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberSerial"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberIpAddr"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberName"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberPassword"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberPlatform"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberStatus"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberDisconCount"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberEnrollTime"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackRole"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMaxPoolNum"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMainSwMac"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackIpPoolMask"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCollectTopTime"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPHopRange"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPRun"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPPortDelay"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPHopDelay"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPLastTopCollectDuration"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCacheChange"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTOPTableChange"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPInterfaceEnable"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCacheHashIndex"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCacheDeviceID"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCacheClusterName"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCacheClusterRole"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCacheCapabilities"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCacheVersion"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCachePlatform"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCacheMngVLAN"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCacheHop"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopHashIndex"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopEdgeStartDevID"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopEdgeIndex"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopEdgeEndDevID"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopEdgeStartPort"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopEdgeStartPortFullDuplex"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopEdgeStartPortSpeed"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopEdgeEndPort"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopEdgeStartPortIfIndex"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopEdgeEndPortIfIndex"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPStatus"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPHelloTimer"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPAgingTime"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPChange"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPIfIndex"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPPortStatus"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPPortNbDeviceId"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPPortNbPortName"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPPortNbDeviceName"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPPortNbPortMode"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPPortNbProductVer"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPPortNbHardVer"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPPortNbBootromVer"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPPortNbSoftVer"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPPortNbAgingtime"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpClusterVersion"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPExplore"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopoLinkStatus"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPTrunkMemberEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.7.6.1.1",
+    "status": "current"
+  },
+  "hgmpBatchRebootCmdId": {
+    "class": "objecttype",
+    "description": "Identifier of the commands for member switch reboot.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpBatchRebootCmdId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.32.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpBatchRebootEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of member reboot entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchRebootCmdId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hgmpBatchRebootEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.32.1",
+    "status": "current"
+  },
+  "hgmpBatchRebootGroupType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "allMembers"
+      }
+    },
+    "description": "Type of grouping member swithces.",
+    "maxaccess": "read-create",
+    "name": "hgmpBatchRebootGroupType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.32.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allMembers": 1,
+          "deviceType": 2,
+          "memberIdList": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpBatchRebootGroupValue": {
+    "class": "objecttype",
+    "description": "Details about grouping member switches.",
+    "maxaccess": "read-create",
+    "name": "hgmpBatchRebootGroupValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.32.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 1024,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hgmpBatchRebootResult": {
+    "class": "objecttype",
+    "description": "Results returned from member switches.",
+    "maxaccess": "read-only",
+    "name": "hgmpBatchRebootResult",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.33.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failure": 2,
+          "running": 3,
+          "success": 1,
+          "timeout": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpBatchRebootResultEntry": {
+    "class": "objecttype",
+    "description": "Provides the result of member reboot entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchRebootCmdId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchRebootResultMemberMac"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hgmpBatchRebootResultEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.33.1",
+    "status": "current"
+  },
+  "hgmpBatchRebootResultMemberId": {
+    "class": "objecttype",
+    "description": "Identifier of the member switch.",
+    "maxaccess": "read-only",
+    "name": "hgmpBatchRebootResultMemberId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.33.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2047,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpBatchRebootResultMemberMac": {
+    "class": "objecttype",
+    "description": "MAC address of the member switch.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpBatchRebootResultMemberMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.33.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hgmpBatchRebootResultTable": {
+    "class": "objecttype",
+    "description": "Results of reboot command returned from member switches.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpBatchRebootResultTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.33",
+    "status": "current"
+  },
+  "hgmpBatchRebootRowStatus": {
+    "class": "objecttype",
+    "description": "Row status for this table.",
+    "maxaccess": "read-create",
+    "name": "hgmpBatchRebootRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.32.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hgmpBatchRebootTable": {
+    "class": "objecttype",
+    "description": "Table of commands for member switch reboot.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpBatchRebootTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.32",
+    "status": "current"
+  },
+  "hgmpBatchSaveCmdId": {
+    "class": "objecttype",
+    "description": "The identifier of the commands to save configuration files on cluster members.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpBatchSaveCmdId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.34.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpBatchSaveEntry": {
+    "class": "objecttype",
+    "description": "The entry of saving configuration files on cluster members.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSaveCmdId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hgmpBatchSaveEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.34.1",
+    "status": "current"
+  },
+  "hgmpBatchSaveGroupType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "allMembers"
+      }
+    },
+    "description": "Type of grouping member swithces.",
+    "maxaccess": "read-create",
+    "name": "hgmpBatchSaveGroupType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.34.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allMembers": 1,
+          "deviceType": 2,
+          "memberIdList": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpBatchSaveGroupValue": {
+    "class": "objecttype",
+    "description": "Details about grouping member switches.",
+    "maxaccess": "read-create",
+    "name": "hgmpBatchSaveGroupValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.34.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 1024,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hgmpBatchSaveResult": {
+    "class": "objecttype",
+    "description": "Results returned from member switches.",
+    "maxaccess": "read-only",
+    "name": "hgmpBatchSaveResult",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.35.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failure": 2,
+          "running": 3,
+          "success": 1,
+          "timeout": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpBatchSaveResultEntry": {
+    "class": "objecttype",
+    "description": "The entry of result when saving configuration files on cluster members.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSaveCmdId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSaveResultMemberMac"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hgmpBatchSaveResultEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.35.1",
+    "status": "current"
+  },
+  "hgmpBatchSaveResultMemberId": {
+    "class": "objecttype",
+    "description": "Identifier of the member switch.",
+    "maxaccess": "read-only",
+    "name": "hgmpBatchSaveResultMemberId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.35.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2047,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpBatchSaveResultMemberMac": {
+    "class": "objecttype",
+    "description": "MAC address of the member switch.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpBatchSaveResultMemberMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.35.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hgmpBatchSaveResultTable": {
+    "class": "objecttype",
+    "description": "The results of saving configuration files on cluster members.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpBatchSaveResultTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.35",
+    "status": "current"
+  },
+  "hgmpBatchSaveRowStatus": {
+    "class": "objecttype",
+    "description": "Row status for this table.",
+    "maxaccess": "read-create",
+    "name": "hgmpBatchSaveRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.34.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hgmpBatchSaveTable": {
+    "class": "objecttype",
+    "description": "The table of saving configuration files on cluster members.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpBatchSaveTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.34",
+    "status": "current"
+  },
+  "hgmpBatchSynchronizeCfgFileCmdId": {
+    "class": "objecttype",
+    "description": "The identifier of the command of synchronizing configuration files on cluster members.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpBatchSynchronizeCfgFileCmdId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.36.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpBatchSynchronizeCfgFileEntry": {
+    "class": "objecttype",
+    "description": "The entry of synchronizing configuration files on cluster members.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSynchronizeCfgFileCmdId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hgmpBatchSynchronizeCfgFileEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.36.1",
+    "status": "current"
+  },
+  "hgmpBatchSynchronizeCfgFileGroupType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "allMembers"
+      }
+    },
+    "description": "Type of grouping member swithces.",
+    "maxaccess": "read-create",
+    "name": "hgmpBatchSynchronizeCfgFileGroupType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.36.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allMembers": 1,
+          "deviceType": 2,
+          "memberIdList": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpBatchSynchronizeCfgFileGroupValue": {
+    "class": "objecttype",
+    "description": "Details about grouping member switches.",
+    "maxaccess": "read-create",
+    "name": "hgmpBatchSynchronizeCfgFileGroupValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.36.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 1024,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hgmpBatchSynchronizeCfgFileResult": {
+    "class": "objecttype",
+    "description": "Results returned from member switches.",
+    "maxaccess": "read-only",
+    "name": "hgmpBatchSynchronizeCfgFileResult",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.37.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failure": 2,
+          "running": 3,
+          "success": 1,
+          "timeout": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpBatchSynchronizeCfgFileResultEntry": {
+    "class": "objecttype",
+    "description": "The entry of result when synchronizing configuration files on cluster members.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSynchronizeCfgFileCmdId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchSynchronizeCfgFileResultMemberMac"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hgmpBatchSynchronizeCfgFileResultEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.37.1",
+    "status": "current"
+  },
+  "hgmpBatchSynchronizeCfgFileResultMemberId": {
+    "class": "objecttype",
+    "description": "Identifier of the member switch.",
+    "maxaccess": "read-only",
+    "name": "hgmpBatchSynchronizeCfgFileResultMemberId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.37.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2047,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpBatchSynchronizeCfgFileResultMemberMac": {
+    "class": "objecttype",
+    "description": "MAC address of the member switch.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpBatchSynchronizeCfgFileResultMemberMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.37.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hgmpBatchSynchronizeCfgFileResultTable": {
+    "class": "objecttype",
+    "description": "The result of synchronizing configuration files on cluster members.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpBatchSynchronizeCfgFileResultTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.37",
+    "status": "current"
+  },
+  "hgmpBatchSynchronizeCfgFileRowStatus": {
+    "class": "objecttype",
+    "description": "Row status for this table.",
+    "maxaccess": "read-create",
+    "name": "hgmpBatchSynchronizeCfgFileRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.36.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hgmpBatchSynchronizeCfgFileTable": {
+    "class": "objecttype",
+    "description": "The table of synchronizing configuration files on cluster members.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpBatchSynchronizeCfgFileTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.36",
+    "status": "current"
+  },
+  "hgmpBatchUpgradeCmdId": {
+    "class": "objecttype",
+    "description": "Identifier of batch upgrade commands.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpBatchUpgradeCmdId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.30.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpBatchUpgradeEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of batch upgrade entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchUpgradeCmdId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hgmpBatchUpgradeEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.30.1",
+    "status": "current"
+  },
+  "hgmpBatchUpgradeFileName": {
+    "class": "objecttype",
+    "description": "Path of the file to be upgraded.",
+    "maxaccess": "read-create",
+    "name": "hgmpBatchUpgradeFileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.30.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hgmpBatchUpgradeFileType": {
+    "class": "objecttype",
+    "description": "Type of the file to be upgraded.",
+    "maxaccess": "read-create",
+    "name": "hgmpBatchUpgradeFileType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.30.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configFile": 3,
+          "licenseFile": 5,
+          "pafFile": 4,
+          "patchFile": 2,
+          "versionFile": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpBatchUpgradeGroupType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "allMembers"
+      }
+    },
+    "description": "Type of grouping member switches.",
+    "maxaccess": "read-create",
+    "name": "hgmpBatchUpgradeGroupType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.30.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allMembers": 1,
+          "deviceType": 2,
+          "memberIdList": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpBatchUpgradeGroupValue": {
+    "class": "objecttype",
+    "description": "Details about grouping member switches.",
+    "maxaccess": "read-create",
+    "name": "hgmpBatchUpgradeGroupValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.30.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 1024,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hgmpBatchUpgradeResult": {
+    "class": "objecttype",
+    "description": "Results returned from member switchs.",
+    "maxaccess": "read-only",
+    "name": "hgmpBatchUpgradeResult",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.31.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failure": 2,
+          "running": 3,
+          "success": 1,
+          "timeout": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpBatchUpgradeResultEntry": {
+    "class": "objecttype",
+    "description": "Provides the result of batch upgrade entry. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchUpgradeCmdId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpBatchUpgradeResultMemberMac"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hgmpBatchUpgradeResultEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.31.1",
+    "status": "current"
+  },
+  "hgmpBatchUpgradeResultMemberId": {
+    "class": "objecttype",
+    "description": "Identifier of the member switch.",
+    "maxaccess": "read-only",
+    "name": "hgmpBatchUpgradeResultMemberId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.31.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2047,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpBatchUpgradeResultMemberMac": {
+    "class": "objecttype",
+    "description": "MAC address of the member switch.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpBatchUpgradeResultMemberMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.31.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hgmpBatchUpgradeResultTable": {
+    "class": "objecttype",
+    "description": "Results of batch commands returned from member switches.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpBatchUpgradeResultTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.31",
+    "status": "current"
+  },
+  "hgmpBatchUpgradeRowStatus": {
+    "class": "objecttype",
+    "description": "Row status for this table.",
+    "maxaccess": "read-create",
+    "name": "hgmpBatchUpgradeRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.30.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hgmpBatchUpgradeTable": {
+    "class": "objecttype",
+    "description": "Table of batch upgrade commands.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpBatchUpgradeTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.30",
+    "status": "current"
+  },
+  "hgmpClusterAutojoin": {
+    "class": "objecttype",
+    "description": "Status of the cluster autojoin function. The default value is false(0).",
+    "maxaccess": "read-write",
+    "name": "hgmpClusterAutojoin",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpClusterCmdSwMac": {
+    "class": "objecttype",
+    "description": "The mac address of command switch. It will be 00:00:00:00:00:00 when not a member of a cluster.",
+    "maxaccess": "read-only",
+    "name": "hgmpClusterCmdSwMac",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hgmpClusterDiscAgingTime": {
+    "class": "objecttype",
+    "description": "Aging time of the lanswitch in disconnect state. The default value is 0.",
+    "maxaccess": "read-write",
+    "name": "hgmpClusterDiscAgingTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 18,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpClusterMaxPoolNum": {
+    "class": "objecttype",
+    "description": "Maximum switch members that the cluster can support (including the command switch).",
+    "maxaccess": "read-only",
+    "name": "hgmpClusterMaxPoolNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hgmpClusterRole": {
+    "class": "objecttype",
+    "description": "Role of this switch in a cluster.",
+    "maxaccess": "read-only",
+    "name": "hgmpClusterRole",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "roleBAKSW": 3,
+          "roleCASW": 16,
+          "roleCMDSW": 1,
+          "roleMEMBERSW": 2,
+          "roleUNISW": 17
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpClusterVersion": {
+    "class": "objecttype",
+    "description": "Configure the cluster version. The default value is v2c(2).",
+    "maxaccess": "read-write",
+    "name": "hgmpClusterVersion",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.39",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v2": 1,
+          "v2c": 2,
+          "v3": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpCmdClusterName": {
+    "class": "objecttype",
+    "description": "Cluster name of the command switch.",
+    "maxaccess": "read-write",
+    "name": "hgmpCmdClusterName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 8,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hgmpCmdLanswitchFlag": {
+    "class": "objecttype",
+    "description": "Command switch flag. The default value is false(0). If the value is set to 1, the cluster name is \u0027huawei\u0027 by default.",
+    "maxaccess": "read-write",
+    "name": "hgmpCmdLanswitchFlag",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpEventsV2": {
+    "class": "objectidentity",
+    "name": "hgmpEventsV2",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.0"
+  },
+  "hgmpFtpServer": {
+    "class": "objecttype",
+    "description": "The cluster members can access the FTP Server through the command switch, which can only be configured and accessed on the command switch. The default value is \u00270.0.0.0\u0027.",
+    "maxaccess": "read-write",
+    "name": "hgmpFtpServer",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hgmpGrpMemberDeviceId": {
+    "class": "objecttype",
+    "description": "2 bytes address type of the member switch + 2 bytes /0 + MAC address, comprising a character string of hexadecimal numbers.",
+    "maxaccess": "read-only",
+    "name": "hgmpGrpMemberDeviceId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.14.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 10,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hgmpGrpMemberDisconCount": {
+    "class": "objecttype",
+    "description": "Count of inside communication disconnections between the member switch and the command switch.",
+    "maxaccess": "read-only",
+    "name": "hgmpGrpMemberDisconCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.14.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hgmpGrpMemberEnrollTime": {
+    "class": "objecttype",
+    "description": "Enrollment time of the member, measured in seconds.",
+    "maxaccess": "read-only",
+    "name": "hgmpGrpMemberEnrollTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.14.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hgmpGrpMemberEntry": {
+    "class": "objecttype",
+    "description": "Provides information about cluster member entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberDeviceId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hgmpGrpMemberEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.14.1",
+    "status": "current"
+  },
+  "hgmpGrpMemberIpAddr": {
+    "class": "objecttype",
+    "description": "The private IP addresses of the member switches for communication inside the cluster.",
+    "maxaccess": "read-only",
+    "name": "hgmpGrpMemberIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.14.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hgmpGrpMemberName": {
+    "class": "objecttype",
+    "description": "Hostname of the member switch.",
+    "maxaccess": "read-only",
+    "name": "hgmpGrpMemberName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.14.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hgmpGrpMemberOperate": {
+    "class": "objecttype",
+    "description": "Operation indication field, indicating the operation of adding/removing a member by the network management agent and the status of current line.",
+    "maxaccess": "read-write",
+    "name": "hgmpGrpMemberOperate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.14.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hgmpGrpMemberPassword": {
+    "class": "objecttype",
+    "description": "Member password for joining a cluster.",
+    "maxaccess": "read-write",
+    "name": "hgmpGrpMemberPassword",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.14.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hgmpGrpMemberPlatform": {
+    "class": "objecttype",
+    "description": "Set the hardware platform. A null string indicates the information does not exist in the device adjacency table.",
+    "maxaccess": "read-only",
+    "name": "hgmpGrpMemberPlatform",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.14.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hgmpGrpMemberSerial": {
+    "class": "objecttype",
+    "description": "When adding member switch to the cluster, the command switch will assign an unique integer to identify it.",
+    "maxaccess": "read-only",
+    "name": "hgmpGrpMemberSerial",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.14.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2047,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpGrpMemberStatus": {
+    "class": "objecttype",
+    "description": "Member status on the command switch, used for displaying the network management status.",
+    "maxaccess": "read-only",
+    "name": "hgmpGrpMemberStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.14.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fault": 1,
+          "normal": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpGrpMemberTable": {
+    "class": "objecttype",
+    "description": "Table of cluster member switches.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpGrpMemberTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.14",
+    "status": "current"
+  },
+  "hgmpGrpMemberTableChange": {
+    "class": "objecttype",
+    "description": "Add 1 to the member list after it changes. The administrator checks if the value has changed. If not, it will not read the list once more. The default value is 0.",
+    "maxaccess": "read-only",
+    "name": "hgmpGrpMemberTableChange",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpHandShakeHoldtime": {
+    "class": "objecttype",
+    "description": "Holdtime of command switch and member switch in the cluster. The default value is 60.",
+    "maxaccess": "read-write",
+    "name": "hgmpHandShakeHoldtime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpHandShakeInterval": {
+    "class": "objecttype",
+    "description": "Handshaking interval of the cluster member switches. The default value is 10.",
+    "maxaccess": "read-write",
+    "name": "hgmpHandShakeInterval",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpLogHost": {
+    "class": "objecttype",
+    "description": "Log host of the cluster, which can only be configured and accessed on the command switch. The default value is \u00270.0.0.0\u0027.",
+    "maxaccess": "read-write",
+    "name": "hgmpLogHost",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hgmpMainLanswitchFlag": {
+    "class": "objecttype",
+    "description": "Main switch flag. The default value is false(0).",
+    "maxaccess": "read-write",
+    "name": "hgmpMainLanswitchFlag",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpManageVlan": {
+    "class": "objecttype",
+    "description": "ID of the management VLAN of the cluster. The default value is 1.",
+    "maxaccess": "read-write",
+    "name": "hgmpManageVlan",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpMemberAdd": {
+    "class": "notificationtype",
+    "description": "When a cluster member added, send an SNMP trap to the network manager.",
+    "name": "hgmpMemberAdd",
+    "objects": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberDeviceId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.7.1.0.6",
+    "status": "current"
+  },
+  "hgmpMemberDisconRate": {
+    "class": "objecttype",
+    "description": "Disconnection times of the member and command switches divided by member number times 1000. The default value is 0.",
+    "maxaccess": "read-only",
+    "name": "hgmpMemberDisconRate",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hgmpMemberEraseflash": {
+    "class": "objecttype",
+    "description": "Whether to erase the configuration file from the flash after resetting a switch. When this node is read, cannotget(65535) will be returned.",
+    "maxaccess": "read-write",
+    "name": "hgmpMemberEraseflash",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.15.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cannotget": 65535,
+          "erase": 1,
+          "noErase": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpMemberRebootTimeoutValue": {
+    "class": "objecttype",
+    "description": "Timeout time of the member reboot operation (in seconds). The default value is 360 seconds.",
+    "maxaccess": "read-write",
+    "name": "hgmpMemberRebootTimeoutValue",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.38",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 3600,
+            "min": 60
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpMemberRecover": {
+    "class": "notificationtype",
+    "description": "When a cluster member recovered, send an SNMP trap to the network manager.",
+    "name": "hgmpMemberRecover",
+    "objects": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberDeviceId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.7.1.0.2",
+    "status": "current"
+  },
+  "hgmpMemberResetEntry": {
+    "class": "objecttype",
+    "description": "Provides information about resetting member entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpMemberResetMAC"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hgmpMemberResetEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.15.1",
+    "status": "current"
+  },
+  "hgmpMemberResetMAC": {
+    "class": "objecttype",
+    "description": "The management MAC address of the switch to be reset, which is the unique identifier of the switch.",
+    "maxaccess": "read-only",
+    "name": "hgmpMemberResetMAC",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.15.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hgmpMemberResetTable": {
+    "class": "objecttype",
+    "description": "Reset a member switch in the cluster.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpMemberResetTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.15",
+    "status": "current"
+  },
+  "hgmpMemberStatusChange": {
+    "class": "notificationtype",
+    "description": "When a cluster member status changed, send an SNMP trap to the network manager.",
+    "name": "hgmpMemberStatusChange",
+    "objects": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberDeviceId"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCacheClusterRole"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.7.1.0.3",
+    "status": "current"
+  },
+  "hgmpMemberfailure": {
+    "class": "notificationtype",
+    "description": "When a cluster member failed, send an SNMP trap to the network manager.",
+    "name": "hgmpMemberfailure",
+    "objects": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberDeviceId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.7.1.0.1",
+    "status": "current"
+  },
+  "hgmpMngPriIpMask": {
+    "class": "objecttype",
+    "description": "The private management IP address mask assigned by the command switch, which cannot be modified after the cluster has been created. The default value is \u00270.0.0.0\u0027.",
+    "maxaccess": "read-write",
+    "name": "hgmpMngPriIpMask",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hgmpMngPriIpSegCMIP": {
+    "class": "objecttype",
+    "description": "The private management IP address of the command switch, which cannot be modified after the cluster has been created. The default value is \u00270.0.0.0\u0027.",
+    "maxaccess": "read-write",
+    "name": "hgmpMngPriIpSegCMIP",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hgmpMultiMacAddress": {
+    "class": "objecttype",
+    "description": "Multicast MAC address of cluster. The default value is \u002701:80:C2:00:00:0A\u0027.",
+    "maxaccess": "read-write",
+    "name": "hgmpMultiMacAddress",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hgmpNTDPCacheCapabilities": {
+    "class": "objecttype",
+    "description": "The capabilities of the device. Zero indicates that the field was not included in the latest NTDP packet. The default value is 0.",
+    "maxaccess": "read-only",
+    "name": "hgmpNTDPCacheCapabilities",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.10.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hgmpNTDPCacheChange": {
+    "class": "objecttype",
+    "description": "Add 1 when the device table changes. The network administrator will check if it has changed before accessing the table. If it has not changed, he will not access again. The default value is 0.",
+    "maxaccess": "read-only",
+    "name": "hgmpNTDPCacheChange",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpNTDPCacheClusterName": {
+    "class": "objecttype",
+    "description": "Name of the cluster including the device.",
+    "maxaccess": "read-only",
+    "name": "hgmpNTDPCacheClusterName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.10.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hgmpNTDPCacheClusterRole": {
+    "class": "objecttype",
+    "description": "Cluster role of the current device, which can be a command switch(0X01), member switch(0X02), backup switch(0X03), candidate switch(0X10) or an independent switch(incapable of cluster member)(0X11). The default value is 17.",
+    "maxaccess": "read-only",
+    "name": "hgmpNTDPCacheClusterRole",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.10.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "roleBKSW": 3,
+          "roleCASW": 16,
+          "roleCOSW": 1,
+          "roleMSW": 2,
+          "roleUNISW": 17
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpNTDPCacheDeviceID": {
+    "class": "objecttype",
+    "description": "2 bytes address type of the member switch + 2 bytes /0 + MAC address, comprising as a character string of the hexadecimal number.",
+    "maxaccess": "read-only",
+    "name": "hgmpNTDPCacheDeviceID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.10.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 10,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hgmpNTDPCacheEntry": {
+    "class": "objecttype",
+    "description": "Provides information about the switch from the topology table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCacheHashIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCacheDeviceID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hgmpNTDPCacheEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.10.1",
+    "status": "current"
+  },
+  "hgmpNTDPCacheHashIndex": {
+    "class": "objecttype",
+    "description": "NTDP information is saved in a HASH table on the command switch. Using DeviceID as an index will lead to the comparison of a large number of character strings, which puts too many burdens on the command switch. A HASHIndex is added to reduce the character string comparison to the least range.",
+    "maxaccess": "read-only",
+    "name": "hgmpNTDPCacheHashIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.10.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpNTDPCacheHop": {
+    "class": "objecttype",
+    "description": "Hops to this switch.",
+    "maxaccess": "read-only",
+    "name": "hgmpNTDPCacheHop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.10.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hgmpNTDPCacheMngVLAN": {
+    "class": "objecttype",
+    "description": "The management VLAN ID of a device. The default value is 1.",
+    "maxaccess": "read-only",
+    "name": "hgmpNTDPCacheMngVLAN",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.10.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hgmpNTDPCachePlatform": {
+    "class": "objecttype",
+    "description": "Hardware platform. A null string indicates that the field was not included in the latest NTDP packet.",
+    "maxaccess": "read-only",
+    "name": "hgmpNTDPCachePlatform",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.10.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hgmpNTDPCacheTable": {
+    "class": "objecttype",
+    "description": "Access information about the switch from the topology table.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpNTDPCacheTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.10",
+    "status": "current"
+  },
+  "hgmpNTDPCacheVersion": {
+    "class": "objecttype",
+    "description": "The version information about the corresponding device. A null string indicates that the field was not included in the latest NTDP packet.",
+    "maxaccess": "read-only",
+    "name": "hgmpNTDPCacheVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.10.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hgmpNTDPCollectTopTime": {
+    "class": "objecttype",
+    "description": "Topology collection interval of the command switch of the cluster, measured in minutes. The default value is 0.",
+    "maxaccess": "read-write",
+    "name": "hgmpNTDPCollectTopTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpNTDPExplore": {
+    "class": "objecttype",
+    "description": "The value of this object identifies whether to start collecting topology information. 1 indicates to start collecting topology information. 0 is the default value, indicating doing nothing. The get operation always returns 0.",
+    "maxaccess": "read-write",
+    "name": "hgmpNTDPExplore",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "start": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpNTDPHopDelay": {
+    "class": "objecttype",
+    "description": "Set the delay to forward the topology request from each hop, measured in milliseconds. The default value is 200.",
+    "maxaccess": "read-write",
+    "name": "hgmpNTDPHopDelay",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpNTDPHopRange": {
+    "class": "objecttype",
+    "description": "Range of the topology collection of the command switch. The maximum value of this object may vary with different types of products.",
+    "maxaccess": "read-write",
+    "name": "hgmpNTDPHopRange",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpNTDPInterfaceEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "true"
+      }
+    },
+    "description": "If it is true, the device will send and receive the NTDP packets via the interface. To disable the NTDP function on the interface, set the entry to false(0).",
+    "maxaccess": "read-write",
+    "name": "hgmpNTDPInterfaceEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.9.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpNTDPInterfaceEntry": {
+    "class": "objecttype",
+    "description": "Provides information about the NTDP function on the switch\u0027s port.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPInterfaceIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hgmpNTDPInterfaceEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.9.1",
+    "status": "current"
+  },
+  "hgmpNTDPInterfaceIfIndex": {
+    "class": "objecttype",
+    "description": "Unique identifier of an interface of the device.",
+    "maxaccess": "read-only",
+    "name": "hgmpNTDPInterfaceIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.9.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpNTDPInterfaceTable": {
+    "class": "objecttype",
+    "description": "Status of NTDP function on the switch\u0027s port.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpNTDPInterfaceTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.9",
+    "status": "current"
+  },
+  "hgmpNTDPLastTopCollectDuration": {
+    "class": "objecttype",
+    "description": "Duration of the latest overall topology collection, a performance count measured in milliseconds. The default value is 0.",
+    "maxaccess": "read-only",
+    "name": "hgmpNTDPLastTopCollectDuration",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hgmpNTDPNotifications": {
+    "class": "objectidentity",
+    "name": "hgmpNTDPNotifications",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.14"
+  },
+  "hgmpNTDPPortDelay": {
+    "class": "objecttype",
+    "description": "Set the delay to forward the topology request via the ports, measured in milliseconds. The default value is 20.",
+    "maxaccess": "read-write",
+    "name": "hgmpNTDPPortDelay",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpNTDPRun": {
+    "class": "objecttype",
+    "description": "Status of the NTDP function.",
+    "maxaccess": "read-write",
+    "name": "hgmpNTDPRun",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpNTDPTOPTableChange": {
+    "class": "objecttype",
+    "description": "Add 1 when the topology table changes. The network administrator will check if it has changed before accessing the table. If it has not changed, he will not access again. The default value is 0.",
+    "maxaccess": "read-only",
+    "name": "hgmpNTDPTOPTableChange",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpNTDPTopEdgeEndDevID": {
+    "class": "objecttype",
+    "description": "2 bytes address type of the member switch + 2 bytes /0 + MAC address, comprising a character string of the hexadecimal number.",
+    "maxaccess": "read-only",
+    "name": "hgmpNTDPTopEdgeEndDevID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.11.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 10,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hgmpNTDPTopEdgeEndPort": {
+    "class": "objecttype",
+    "description": "The number of the last port of a topology edge. Interface type + card number / slot number / sequence number.",
+    "maxaccess": "read-only",
+    "name": "hgmpNTDPTopEdgeEndPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.11.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hgmpNTDPTopEdgeEndPortIfIndex": {
+    "class": "objecttype",
+    "description": "The iterface index of the end port.",
+    "maxaccess": "read-only",
+    "name": "hgmpNTDPTopEdgeEndPortIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.11.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hgmpNTDPTopEdgeIndex": {
+    "class": "objecttype",
+    "description": "Edge index of this entry in the data structure.",
+    "maxaccess": "read-only",
+    "name": "hgmpNTDPTopEdgeIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.11.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpNTDPTopEdgeStartDevID": {
+    "class": "objecttype",
+    "description": "2 bytes address type of the member switch + 2 bytes /0 + MAC address, comprising a character string of the hexadecimal number.",
+    "maxaccess": "read-only",
+    "name": "hgmpNTDPTopEdgeStartDevID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.11.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 10,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hgmpNTDPTopEdgeStartPort": {
+    "class": "objecttype",
+    "description": "The number of the first port of a topology edge. Interface type + card number / slot number / sequence number.",
+    "maxaccess": "read-only",
+    "name": "hgmpNTDPTopEdgeStartPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.11.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hgmpNTDPTopEdgeStartPortFullDuplex": {
+    "class": "objecttype",
+    "description": "The full-duplex status of the first port on a topology edge. The default value is half.",
+    "maxaccess": "read-only",
+    "name": "hgmpNTDPTopEdgeStartPortFullDuplex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.11.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 3,
+          "full": 1,
+          "half": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpNTDPTopEdgeStartPortIfIndex": {
+    "class": "objecttype",
+    "description": "The interface index of the start port.",
+    "maxaccess": "read-only",
+    "name": "hgmpNTDPTopEdgeStartPortIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.11.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hgmpNTDPTopEdgeStartPortSpeed": {
+    "class": "objecttype",
+    "description": "The speed of the first port on a topology edge. The default value is 0.",
+    "maxaccess": "read-only",
+    "name": "hgmpNTDPTopEdgeStartPortSpeed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.11.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hgmpNTDPTopEntry": {
+    "class": "objecttype",
+    "description": "Provides information about the topology structure collected by the NTDP.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopHashIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopEdgeStartDevID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopEdgeIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hgmpNTDPTopEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.11.1",
+    "status": "current"
+  },
+  "hgmpNTDPTopHashIndex": {
+    "class": "objecttype",
+    "description": "NTDP information is saved in a HASH table on the command switch. Using DeviceID as an index will lead to the comparison of a large number of character strings, which puts too many burdens on the command switch. A HASHIndex is added to reduce the character string comparison to the least range.",
+    "maxaccess": "read-only",
+    "name": "hgmpNTDPTopHashIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.11.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpNTDPTopTable": {
+    "class": "objecttype",
+    "description": "Access the topology structure collected by the NTDP. ",
+    "maxaccess": "not-accessible",
+    "name": "hgmpNTDPTopTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.11",
+    "status": "current"
+  },
+  "hgmpNTDPTopoChange": {
+    "class": "notificationtype",
+    "description": "This object indicates that an SNMP trap is sent to the NMS when the NTDP topology is changed.",
+    "name": "hgmpNTDPTopoChange",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.14.1",
+    "status": "current"
+  },
+  "hgmpNTDPTopoLinkEntry": {
+    "class": "objecttype",
+    "description": "This object indicates the topology link information collected using NTDP.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopoLocalDeviceID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopoLocalPortName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopoNbrDeviceID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPTopoNbrPortName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hgmpNTDPTopoLinkEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.13.1",
+    "status": "current"
+  },
+  "hgmpNTDPTopoLinkStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the topology link status.",
+    "maxaccess": "read-only",
+    "name": "hgmpNTDPTopoLinkStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.13.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpNTDPTopoLinkTable": {
+    "class": "objecttype",
+    "description": "This object indicates the topology link table collected using NTDP.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpNTDPTopoLinkTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.13",
+    "status": "current"
+  },
+  "hgmpNTDPTopoLocalDeviceID": {
+    "class": "objecttype",
+    "description": "This object indicates the ID of the local device. This ID is a hexadecimal string that comprises 2 bytes address type of the member switch, 2 bytes /0, and MAC address.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpNTDPTopoLocalDeviceID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.13.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 10,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hgmpNTDPTopoLocalPortName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of the local port.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpNTDPTopoLocalPortName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.13.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hgmpNTDPTopoNbrDeviceID": {
+    "class": "objecttype",
+    "description": "This object indicates the ID of the neighbor device. This ID is a hexadecimal string that comprises 2 bytes address type of the member switch, 2 bytes /0, and MAC address.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpNTDPTopoNbrDeviceID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.13.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 10,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hgmpNTDPTopoNbrPortName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of the neighbor port.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpNTDPTopoNbrPortName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.4.13.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hgmpNetTopChange": {
+    "class": "notificationtype",
+    "description": "When net topology of this cluster change, send a snmp trap to the network management.",
+    "name": "hgmpNetTopChange",
+    "objects": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpGrpMemberDeviceId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.7.1.0.4",
+    "status": "current"
+  },
+  "hgmpPlugAndPlayStatus": {
+    "class": "objecttype",
+    "description": "Status of the plug and play function. The default value is disabled(2) .",
+    "maxaccess": "read-write",
+    "name": "hgmpPlugAndPlayStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hgmpRun": {
+    "class": "objecttype",
+    "description": "Status of the cluster function.",
+    "maxaccess": "read-write",
+    "name": "hgmpRun",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 0,
+          "true": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpSetVLANSecurity": {
+    "class": "objecttype",
+    "description": "Configure whether to perform the VLAN check inside the cluster. The default value is noSecurity(0).",
+    "maxaccess": "read-write",
+    "name": "hgmpSetVLANSecurity",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noSecurity": 0,
+          "security": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpSftpServer": {
+    "class": "objecttype",
+    "description": "The cluster members can access the SFTP Server through the command switch, which can only be configured and accessed on the command switch. The default value is \u00270.0.0.0\u0027.",
+    "maxaccess": "read-write",
+    "name": "hgmpSftpServer",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hgmpSnmpHost": {
+    "class": "objecttype",
+    "description": "The Snmp Host to send the cluster trap packets, which can only be configured and accessed on the command switch. The default value is \u00270.0.0.0\u0027.",
+    "maxaccess": "read-write",
+    "name": "hgmpSnmpHost",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hgmpStackEventsV2": {
+    "class": "objectidentity",
+    "name": "hgmpStackEventsV2",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.0"
+  },
+  "hgmpStackIpPoolLength": {
+    "class": "objecttype",
+    "description": "The length of the management IP segment assigned by the master switch, which cannot be modified if there is IP address assignment. The default value is 17.",
+    "maxaccess": "read-write",
+    "name": "hgmpStackIpPoolLength",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 200,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpStackIpPoolMask": {
+    "class": "objecttype",
+    "description": "The mask of the management IP segment assigned by the master switch, which cannot be modified if there is IP address assignment. The default value is \u0027255.255.0.0 \u0027.",
+    "maxaccess": "read-write",
+    "name": "hgmpStackIpPoolMask",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hgmpStackIpPoolStartIP": {
+    "class": "objecttype",
+    "description": "The first address of management IP network segment assigned by the master switch, which cannot be modified in the case that there is IP address assignment. The default value is \u00270.0.0.0\u0027.",
+    "maxaccess": "read-write",
+    "name": "hgmpStackIpPoolStartIP",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hgmpStackMainSwMac": {
+    "class": "objecttype",
+    "description": "The MAC address of the main switch. It will be 00:00:00:00:00:00 when not a member of a stack.",
+    "maxaccess": "read-only",
+    "name": "hgmpStackMainSwMac",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hgmpStackMaxPoolNum": {
+    "class": "objecttype",
+    "description": "Maximum switch members in a stack that the switch supports (including the main switch).",
+    "maxaccess": "read-only",
+    "name": "hgmpStackMaxPoolNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hgmpStackMemberDeviceId": {
+    "class": "objecttype",
+    "description": "2 bytes address type of the switch + 2 bytes/0 + MAC address, comprising a hexadecimal number string.",
+    "maxaccess": "read-only",
+    "name": "hgmpStackMemberDeviceId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 10,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hgmpStackMemberDisconCount": {
+    "class": "objecttype",
+    "description": "Count of inside communication disconnections between the member switch and the main switch.",
+    "maxaccess": "read-only",
+    "name": "hgmpStackMemberDisconCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.6.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hgmpStackMemberDisconRate": {
+    "class": "objecttype",
+    "description": "Disconnection rate of the stack member switches. The default value is 0.",
+    "maxaccess": "read-only",
+    "name": "hgmpStackMemberDisconRate",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hgmpStackMemberEnrollTime": {
+    "class": "objecttype",
+    "description": "Enrollment time of the member, measured in seconds.",
+    "maxaccess": "read-only",
+    "name": "hgmpStackMemberEnrollTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.6.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hgmpStackMemberEntry": {
+    "class": "objecttype",
+    "description": "Provides information about the stack member entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberDeviceId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hgmpStackMemberEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.6.1",
+    "status": "current"
+  },
+  "hgmpStackMemberIpAddr": {
+    "class": "objecttype",
+    "description": "The private member IP address for the communication inside the stack.",
+    "maxaccess": "read-only",
+    "name": "hgmpStackMemberIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hgmpStackMemberName": {
+    "class": "objecttype",
+    "description": "Hostname of the member switch.",
+    "maxaccess": "read-only",
+    "name": "hgmpStackMemberName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hgmpStackMemberPassword": {
+    "class": "objecttype",
+    "description": "Member password for joining a stack.",
+    "maxaccess": "read-only",
+    "name": "hgmpStackMemberPassword",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hgmpStackMemberPlatform": {
+    "class": "objecttype",
+    "description": "Set the hardware platform. A null string indicates the information does not exist in the device adjacency table.",
+    "maxaccess": "read-only",
+    "name": "hgmpStackMemberPlatform",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.6.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hgmpStackMemberRecover": {
+    "class": "notificationtype",
+    "description": "When a stack member recovered, send an SNMP trap to the network manager.",
+    "name": "hgmpStackMemberRecover",
+    "objects": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberDeviceId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.7.2.0.2",
+    "status": "current"
+  },
+  "hgmpStackMemberSerial": {
+    "class": "objecttype",
+    "description": "When adding a member switch to the stack, the master switch will assign a unique integer to identify it.",
+    "maxaccess": "read-only",
+    "name": "hgmpStackMemberSerial",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2047,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpStackMemberStatus": {
+    "class": "objecttype",
+    "description": "Member status on the master switch, used for displaying the network management status. The default value is fault.",
+    "maxaccess": "read-only",
+    "name": "hgmpStackMemberStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.6.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fault": 1,
+          "normal": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpStackMemberStatusChange": {
+    "class": "notificationtype",
+    "description": "When a stack member status changed, send an SNMP trap to the network manager.",
+    "name": "hgmpStackMemberStatusChange",
+    "objects": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberDeviceId"
+      },
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpNTDPCacheClusterRole"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.7.2.0.3",
+    "status": "current"
+  },
+  "hgmpStackMemberTable": {
+    "class": "objecttype",
+    "description": "Stack member table.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpStackMemberTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.6",
+    "status": "current"
+  },
+  "hgmpStackMemberTableChange": {
+    "class": "objecttype",
+    "description": "Change identifier of the stack member table. The default value is 0.",
+    "maxaccess": "read-only",
+    "name": "hgmpStackMemberTableChange",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpStackMemberfailure": {
+    "class": "notificationtype",
+    "description": "When a stack member failed, send an SNMP trap to the network manager.",
+    "name": "hgmpStackMemberfailure",
+    "objects": [
+      {
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpStackMemberDeviceId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.7.2.0.1",
+    "status": "current"
+  },
+  "hgmpStackRole": {
+    "class": "objecttype",
+    "description": "Role of this switch in a stack. The default value is roleCASW(16).",
+    "maxaccess": "read-only",
+    "name": "hgmpStackRole",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.2.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "roleBAKSW": 3,
+          "roleCASW": 16,
+          "roleCMDSW": 1,
+          "roleMEMBERSW": 2,
+          "roleUNISW": 17
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpTftpServer": {
+    "class": "objecttype",
+    "description": "The cluster members can access the TFTP Server through the command switch, which can only be configured and accessed on the command switch. The default value is \u00270.0.0.0\u0027.",
+    "maxaccess": "read-write",
+    "name": "hgmpTftpServer",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hgmpUnrelatedPortNdpAdminCmdId": {
+    "class": "objecttype",
+    "description": "The identifier of the command to set the NDP status on unrelated interfaces of cluster members.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpUnrelatedPortNdpAdminCmdId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.26.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpUnrelatedPortNdpAdminEntry": {
+    "class": "objecttype",
+    "description": "The entry used to set the NDP status on unrelated interfaces of cluster members.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNdpAdminCmdId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hgmpUnrelatedPortNdpAdminEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.26.1",
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNdpAdminGroupType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "allMembers"
+      }
+    },
+    "description": "Type of grouping member swithces.",
+    "maxaccess": "read-create",
+    "name": "hgmpUnrelatedPortNdpAdminGroupType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.26.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allMembers": 1,
+          "deviceType": 2,
+          "memberIdList": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpUnrelatedPortNdpAdminGroupValue": {
+    "class": "objecttype",
+    "description": "Details about grouping member switches.",
+    "maxaccess": "read-create",
+    "name": "hgmpUnrelatedPortNdpAdminGroupValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.26.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 1024,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hgmpUnrelatedPortNdpAdminRowStatus": {
+    "class": "objecttype",
+    "description": "Row status for this table.",
+    "maxaccess": "read-create",
+    "name": "hgmpUnrelatedPortNdpAdminRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.26.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hgmpUnrelatedPortNdpAdminStatus": {
+    "class": "objecttype",
+    "description": "The flag bit identifying whether NDP is enabled or not on unrelated interface on unrelated interfaces of cluster members.",
+    "maxaccess": "read-write",
+    "name": "hgmpUnrelatedPortNdpAdminStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.26.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hgmpUnrelatedPortNdpAdminTable": {
+    "class": "objecttype",
+    "description": "The table of the commands to set the NDP status on unrelated interfaces of cluster members.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpUnrelatedPortNdpAdminTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.26",
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNdpResult": {
+    "class": "objecttype",
+    "description": "Results returned from member switches.",
+    "maxaccess": "read-only",
+    "name": "hgmpUnrelatedPortNdpResult",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.27.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failure": 2,
+          "running": 3,
+          "success": 1,
+          "timeout": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpUnrelatedPortNdpResultEntry": {
+    "class": "objecttype",
+    "description": "The entry of the result when enabling or disabling NDP on unrelated interfaces of cluster members.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNdpAdminCmdId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNdpResultMemberMac"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hgmpUnrelatedPortNdpResultEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.27.1",
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNdpResultMemberId": {
+    "class": "objecttype",
+    "description": "Identifier of the member switch.",
+    "maxaccess": "read-only",
+    "name": "hgmpUnrelatedPortNdpResultMemberId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.27.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2047,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpUnrelatedPortNdpResultMemberMac": {
+    "class": "objecttype",
+    "description": "MAC address of the member switch.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpUnrelatedPortNdpResultMemberMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.27.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hgmpUnrelatedPortNdpResultTable": {
+    "class": "objecttype",
+    "description": "The result table of enabling or disabling NDP on unrelated interfaces of cluster members.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpUnrelatedPortNdpResultTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.27",
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNtdpAdminCmdId": {
+    "class": "objecttype",
+    "description": "The identifier of the command to set the NTDP status on unrelated interfaces of cluster members.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpUnrelatedPortNtdpAdminCmdId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.28.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpUnrelatedPortNtdpAdminEntry": {
+    "class": "objecttype",
+    "description": "The entry used to set the NTDP status on unrelated interfaces of cluster members.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNtdpAdminCmdId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hgmpUnrelatedPortNtdpAdminEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.28.1",
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNtdpAdminGroupType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "allMembers"
+      }
+    },
+    "description": "Type of grouping member swithces.",
+    "maxaccess": "read-create",
+    "name": "hgmpUnrelatedPortNtdpAdminGroupType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.28.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allMembers": 1,
+          "deviceType": 2,
+          "memberIdList": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpUnrelatedPortNtdpAdminGroupValue": {
+    "class": "objecttype",
+    "description": "Details about grouping member switches.",
+    "maxaccess": "read-create",
+    "name": "hgmpUnrelatedPortNtdpAdminGroupValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.28.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 1024,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hgmpUnrelatedPortNtdpAdminRowStatus": {
+    "class": "objecttype",
+    "description": "Row status for this table.",
+    "maxaccess": "read-create",
+    "name": "hgmpUnrelatedPortNtdpAdminRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.28.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hgmpUnrelatedPortNtdpAdminStatus": {
+    "class": "objecttype",
+    "description": "The flag bit identifying whether NTDP is enabled or not on unrelated interface on unrelated interfaces of cluster members.",
+    "maxaccess": "read-write",
+    "name": "hgmpUnrelatedPortNtdpAdminStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.28.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hgmpUnrelatedPortNtdpAdminTable": {
+    "class": "objecttype",
+    "description": "The table of the commands to set the NTDP status on unrelated interfaces of cluster members.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpUnrelatedPortNtdpAdminTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.28",
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNtdpResult": {
+    "class": "objecttype",
+    "description": "Results returned from member switches.",
+    "maxaccess": "read-only",
+    "name": "hgmpUnrelatedPortNtdpResult",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.29.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failure": 2,
+          "running": 3,
+          "success": 1,
+          "timeout": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hgmpUnrelatedPortNtdpResultEntry": {
+    "class": "objecttype",
+    "description": "The entry of the result when enabling or disabling NTDP on unrelated interfaces of cluster members.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNtdpAdminCmdId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hgmpUnrelatedPortNtdpResultMemberMac"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hgmpUnrelatedPortNtdpResultEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.29.1",
+    "status": "current"
+  },
+  "hgmpUnrelatedPortNtdpResultMemberId": {
+    "class": "objecttype",
+    "description": "Identifier of the member switch.",
+    "maxaccess": "read-only",
+    "name": "hgmpUnrelatedPortNtdpResultMemberId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.29.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2047,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hgmpUnrelatedPortNtdpResultMemberMac": {
+    "class": "objecttype",
+    "description": "MAC address of the member switch.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpUnrelatedPortNtdpResultMemberMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.29.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hgmpUnrelatedPortNtdpResultTable": {
+    "class": "objecttype",
+    "description": "The result table of enabling or disabling NTDP on unrelated interfaces of cluster members.",
+    "maxaccess": "not-accessible",
+    "name": "hgmpUnrelatedPortNtdpResultTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.7.1.29",
+    "status": "current"
+  },
+  "hwCluster": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "HUAWEI-HGMP-MIB is defined and owned by Huawei. This MIB includes four parts: the cluster, stack, Neighbor Discovery Protocol (NDP), and Network Topology Discovery Protocol (NTDP). This MIB can monitor the cluster, stack and topology collection.",
+    "lastupdated": "201504111531Z",
+    "name": "hwCluster",
+    "oid": "1.3.6.1.4.1.2011.6.7",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "Modify the description of hgmpNTDPExplore and hgmpNTDPHopRange node.",
+        "revision": "2015-04-11 15:31"
+      },
+      {
+        "description": "Add hgmpNTDPExplore, hgmpNTDPTopoLinkTable and trap node hgmpNTDPTopoChange for NTDP function. Add hwNDPTrunkMemberEnable node for NDP function.",
+        "revision": "2015-04-07 15:25"
+      },
+      {
+        "description": "Fix the errors checked by a tool.",
+        "revision": "2013-09-07 00:00"
+      }
+    ]
+  },
+  "hwClusterCompliances": {
+    "class": "objectidentity",
+    "name": "hwClusterCompliances",
+    "oid": "1.3.6.1.4.1.2011.6.7.6.2"
+  },
+  "hwClusterConformance": {
+    "class": "objectidentity",
+    "name": "hwClusterConformance",
+    "oid": "1.3.6.1.4.1.2011.6.7.6"
+  },
+  "hwClusterGroups": {
+    "class": "objectidentity",
+    "name": "hwClusterGroups",
+    "oid": "1.3.6.1.4.1.2011.6.7.6.1"
+  },
+  "hwClusterObject": {
+    "class": "objectidentity",
+    "name": "hwClusterObject",
+    "oid": "1.3.6.1.4.1.2011.6.7.1"
+  },
+  "hwNDPAgingTime": {
+    "class": "objecttype",
+    "description": "How long NDP information about the local switch can be hold in the adjacent switch, measured in seconds. The default value is 180.",
+    "maxaccess": "read-write",
+    "name": "hwNDPAgingTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 6
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwNDPChange": {
+    "class": "objecttype",
+    "description": "Change identifier of the Neighbor table.",
+    "maxaccess": "read-only",
+    "name": "hwNDPChange",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwNDPHelloTimer": {
+    "class": "objecttype",
+    "description": "NDP packet transmission interval, measured in seconds. The default value is 60.",
+    "maxaccess": "read-write",
+    "name": "hwNDPHelloTimer",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 254,
+            "min": 5
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwNDPIfIndex": {
+    "class": "objecttype",
+    "description": "Unique identifier of an interface of the device.",
+    "maxaccess": "read-only",
+    "name": "hwNDPIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwNDPObject": {
+    "class": "objectidentity",
+    "name": "hwNDPObject",
+    "oid": "1.3.6.1.4.1.2011.6.7.5"
+  },
+  "hwNDPPortEntry": {
+    "class": "objecttype",
+    "description": "Provides information about the NDP function on the switch\u0027s port.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwNDPPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.5.1",
+    "status": "current"
+  },
+  "hwNDPPortNbAgingtime": {
+    "class": "objecttype",
+    "description": "How long NDP information about the local switch can be hold in the adjacent switch, measured in seconds.",
+    "maxaccess": "read-only",
+    "name": "hwNDPPortNbAgingtime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.6.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 5
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwNDPPortNbBootromVer": {
+    "class": "objecttype",
+    "description": "Bootrom version. A null string indicates that the field was not included in the latest NDP packet.",
+    "maxaccess": "read-only",
+    "name": "hwNDPPortNbBootromVer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.6.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwNDPPortNbDeviceId": {
+    "class": "objecttype",
+    "description": "2 bytes address type of the member switch + 2 bytes /0 + MAC address, comprising a character string of the hexadecimal number.",
+    "maxaccess": "read-only",
+    "name": "hwNDPPortNbDeviceId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 10,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwNDPPortNbDeviceName": {
+    "class": "objecttype",
+    "description": "Device name. A null string indicates that the field was not included in the latest NDP packet.",
+    "maxaccess": "read-only",
+    "name": "hwNDPPortNbDeviceName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwNDPPortNbEntry": {
+    "class": "objecttype",
+    "description": "Provides neighbor information about NDP.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPPortNbDeviceId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-HGMP-MIB",
+        "object": "hwNDPPortNbPortName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwNDPPortNbEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.6.1",
+    "status": "current"
+  },
+  "hwNDPPortNbHardVer": {
+    "class": "objecttype",
+    "description": "Hardware version. A null string indicates that the field was not included in the latest NDP packet.",
+    "maxaccess": "read-only",
+    "name": "hwNDPPortNbHardVer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.6.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwNDPPortNbPortMode": {
+    "class": "objecttype",
+    "description": "The neighbor port duplex mode. ",
+    "maxaccess": "read-only",
+    "name": "hwNDPPortNbPortMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 3,
+          "full": 1,
+          "half": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwNDPPortNbPortName": {
+    "class": "objecttype",
+    "description": "Unique identifier of a port. A null string indicates that the field was not included in the latest NDP packet. Interface type + card number / slot number / sequence number.",
+    "maxaccess": "read-only",
+    "name": "hwNDPPortNbPortName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwNDPPortNbProductVer": {
+    "class": "objecttype",
+    "description": "Product version. A null string indicates that the field was not included in the latest NDP packet.",
+    "maxaccess": "read-only",
+    "name": "hwNDPPortNbProductVer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwNDPPortNbSoftVer": {
+    "class": "objecttype",
+    "description": "Software version. A null string indicates that the field was not included in the latest NDP packet.",
+    "maxaccess": "read-only",
+    "name": "hwNDPPortNbSoftVer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.6.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwNDPPortNbTable": {
+    "class": "objecttype",
+    "description": "Table of NDP neighbor information.",
+    "maxaccess": "not-accessible",
+    "name": "hwNDPPortNbTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.6",
+    "status": "current"
+  },
+  "hwNDPPortStatus": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "enable"
+      }
+    },
+    "description": "If it is enabled, the device will send and receive NDP packets via the interface. To disable the NDP function on the interface, set the entry to false(0).",
+    "maxaccess": "read-write",
+    "name": "hwNDPPortStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwNDPPortTable": {
+    "class": "objecttype",
+    "description": "Status of NDP function on the switch\u0027s port.",
+    "maxaccess": "not-accessible",
+    "name": "hwNDPPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.5",
+    "status": "current"
+  },
+  "hwNDPStatus": {
+    "class": "objecttype",
+    "description": "NDP protocol module enable flag.",
+    "maxaccess": "read-write",
+    "name": "hwNDPStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwNDPTrunkMemberEnable": {
+    "class": "objecttype",
+    "description": "The value of this object identifies whether to enable neighbor discovery on trunk member interfaces.",
+    "maxaccess": "read-write",
+    "name": "hwNDPTrunkMemberEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.7.5.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwNTDPObject": {
+    "class": "objectidentity",
+    "name": "hwNTDPObject",
+    "oid": "1.3.6.1.4.1.2011.6.7.4"
+  },
+  "hwStackObject": {
+    "class": "objectidentity",
+    "name": "hwStackObject",
+    "oid": "1.3.6.1.4.1.2011.6.7.2"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "huaweiUtility"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "Counter32",
+      "OBJECT-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-HGMP-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:29 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-HGMP-MIB"
+  }
+}

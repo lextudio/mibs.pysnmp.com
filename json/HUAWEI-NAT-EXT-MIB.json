@@ -1,0 +1,2469 @@
+{
+  "NATFilterMode": {
+    "class": "textualconvention",
+    "description": "The mode of NAT filter.",
+    "name": "NATFilterMode",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "endPointDependent": 2,
+          "endPointIndependent": 1,
+          "endPointPortDependent": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "NATProtocolType": {
+    "class": "textualconvention",
+    "description": "A list of protocols that are affected by NAT. Inclusion of values is not intended to imply that those protocols need be supported.",
+    "name": "NATProtocolType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "icmp": 2,
+          "other": 1,
+          "tcp": 4,
+          "udp": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwNATSessionCnt": {
+    "class": "objecttype",
+    "description": "NAT session number of the selected slot",
+    "maxaccess": "read-only",
+    "name": "hwNATSessionCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.2.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwNATSessionCntEntry": {
+    "class": "objecttype",
+    "description": "A entry for showing nat session table number.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNATSlotIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwNATSessionCntEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.2.3.1",
+    "status": "current"
+  },
+  "hwNATSessionCntTable": {
+    "class": "objecttype",
+    "description": "A table for showing nat session table number.",
+    "maxaccess": "not-accessible",
+    "name": "hwNATSessionCntTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.2.3",
+    "status": "current"
+  },
+  "hwNATSlotIndex": {
+    "class": "objecttype",
+    "description": " Slot index that identifies the physical position of a spu board that support NAT. ",
+    "maxaccess": "read-only",
+    "name": "hwNATSlotIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.2.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwNatAddrBindCurrentIdleTime": {
+    "class": "objecttype",
+    "description": "At any given instance of time, this object indicates the time that this BIND has been idle with no sessions attached to it. The value represented by this object is of relevance only when the value of Maximum Idle time (hwNatConfMaxBindIdleTime) is non-zero.",
+    "maxaccess": "read-only",
+    "name": "hwNatAddrBindCurrentIdleTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwNatAddrBindEntry": {
+    "class": "objecttype",
+    "description": "Each entry in the NAT BIND table holds information about a NAT BIND that is currently active.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrBindQueryVrfName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrBindQueryAddr"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrBindType"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwNatAddrBindEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.2.1",
+    "status": "current"
+  },
+  "hwNatAddrBindId": {
+    "class": "objecttype",
+    "description": "This object represents a BIND id that is dynamically assigned to each BIND by a NAT enabled device. Each BIND is represented by a unique BIND id across both, the Address Bind and Address-Port Bind tables.",
+    "maxaccess": "read-only",
+    "name": "hwNatAddrBindId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwNatAddrBindInTranslate": {
+    "class": "objecttype",
+    "description": "The number of inbound packets that were translated as per this BIND entry.",
+    "maxaccess": "read-only",
+    "name": "hwNatAddrBindInTranslate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwNatAddrBindMappedAddr": {
+    "class": "objecttype",
+    "description": "This object represents the ip address that maps to the hwNatAddrBindQueryAddr.",
+    "maxaccess": "read-only",
+    "name": "hwNatAddrBindMappedAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwNatAddrBindMappedVrfName": {
+    "class": "objecttype",
+    "description": "Vrf name for the hwNatAddrBindMappedAddr.",
+    "maxaccess": "read-only",
+    "name": "hwNatAddrBindMappedVrfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwNatAddrBindNumberOfEntries": {
+    "class": "objecttype",
+    "description": "This object maintains a count of the number of entries that currently exist in the hwNatAddrBindTable.",
+    "maxaccess": "read-only",
+    "name": "hwNatAddrBindNumberOfEntries",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwNatAddrBindOutTranslate": {
+    "class": "objecttype",
+    "description": "The number of outbound packets that were translated as per this BIND entry.",
+    "maxaccess": "read-only",
+    "name": "hwNatAddrBindOutTranslate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwNatAddrBindQueryAddr": {
+    "class": "objecttype",
+    "description": "This object represents the query ip address, which can be local address or global address, depending on the value of hwNatAddrBindType.",
+    "maxaccess": "not-accessible",
+    "name": "hwNatAddrBindQueryAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwNatAddrBindQueryVrfName": {
+    "class": "objecttype",
+    "description": "Vrf name for the hwNatAddrQueryAddr.",
+    "maxaccess": "not-accessible",
+    "name": "hwNatAddrBindQueryVrfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwNatAddrBindSessionCount": {
+    "class": "objecttype",
+    "description": "Number of sessions currently using this BIND.",
+    "maxaccess": "read-only",
+    "name": "hwNatAddrBindSessionCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwNatAddrBindTable": {
+    "class": "objecttype",
+    "description": "This table holds information about the currently active NAT BINDs.",
+    "maxaccess": "not-accessible",
+    "name": "hwNatAddrBindTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.2",
+    "status": "current"
+  },
+  "hwNatAddrBindType": {
+    "class": "objecttype",
+    "description": "This object represents the type of the BIND.",
+    "maxaccess": "not-accessible",
+    "name": "hwNatAddrBindType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "natOutbound": 1,
+          "natServer": 2,
+          "staticNatGlobalToLocal": 4,
+          "staticNatLocalToGlobal": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwNatAddrPool": {
+    "class": "objectidentity",
+    "name": "hwNatAddrPool",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.3"
+  },
+  "hwNatAddrPoolEndAddr": {
+    "class": "objecttype",
+    "description": "End IP address of the NAT address pool.",
+    "maxaccess": "read-only",
+    "name": "hwNatAddrPoolEndAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.3.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwNatAddrPoolEntry": {
+    "class": "objecttype",
+    "description": "An entry in the table, containing information about a NAT address pool.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrPoolIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwNatAddrPoolEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.3.2.1",
+    "status": "current"
+  },
+  "hwNatAddrPoolGroup": {
+    "class": "objectgroup",
+    "description": "This is a NAT address pool group.",
+    "name": "hwNatAddrPoolGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrPoolNumOfEntries"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrPoolStartAddr"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrPoolEndAddr"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrPoolRefTimes"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrPoolRefType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.226.4.2.5",
+    "status": "current"
+  },
+  "hwNatAddrPoolIndex": {
+    "class": "objecttype",
+    "description": "Index of the NAT address pool.",
+    "maxaccess": "not-accessible",
+    "name": "hwNatAddrPoolIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.3.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1023,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwNatAddrPoolNumOfEntries": {
+    "class": "objecttype",
+    "description": "This object maintains a count of the number of entries that currently exist in the hwNatAddrPoolTable.",
+    "maxaccess": "read-only",
+    "name": "hwNatAddrPoolNumOfEntries",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.3.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1023,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Gauge32"
+    }
+  },
+  "hwNatAddrPoolRefTimes": {
+    "class": "objecttype",
+    "description": "Number of times the NAT address pool is referenced.",
+    "maxaccess": "read-only",
+    "name": "hwNatAddrPoolRefTimes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.3.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwNatAddrPoolRefType": {
+    "class": "objecttype",
+    "description": "Mode of referencing the NAT address pool. It contains NOPAT(1) , PAT(2) and EasyIP(3)",
+    "maxaccess": "read-only",
+    "name": "hwNatAddrPoolRefType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.3.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 3,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwNatAddrPoolStartAddr": {
+    "class": "objecttype",
+    "description": "Start IP address of the NAT address pool.",
+    "maxaccess": "read-only",
+    "name": "hwNatAddrPoolStartAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.3.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwNatAddrPoolTable": {
+    "class": "objecttype",
+    "description": "Table of NAT address pool instances.",
+    "maxaccess": "not-accessible",
+    "name": "hwNatAddrPoolTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.3.2",
+    "status": "current"
+  },
+  "hwNatAddrPortBindCurrentIdleTime": {
+    "class": "objecttype",
+    "description": "At any given instance of time, this object indicates the time that this BIND has been idle with no sessions attached to it. The value represented by this object is of relevance only when the value of Maximum Idle time (hwNatConfMaxBindIdleTime) is non-zero.",
+    "maxaccess": "read-only",
+    "name": "hwNatAddrPortBindCurrentIdleTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.4.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwNatAddrPortBindEntry": {
+    "class": "objecttype",
+    "description": "Each entry in the this table holds information a NAPT BIND that is currently active.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrPortBindQueryVrfName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrPortBindQueryAddr"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrPortBindQueryProtocol"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrPortBindQueryPort"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrPortBindType"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwNatAddrPortBindEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.4.1",
+    "status": "current"
+  },
+  "hwNatAddrPortBindId": {
+    "class": "objecttype",
+    "description": "This object represents a BIND id that is dynamically assigned to each BIND by a NAT enabled device. Each BIND is represented by a unique BIND id across both, the Address Bind and Address-Port Bind tables.",
+    "maxaccess": "read-only",
+    "name": "hwNatAddrPortBindId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.4.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwNatAddrPortBindInTranslate": {
+    "class": "objecttype",
+    "description": "The number of inbound packets that were translated as per this BIND entry.",
+    "maxaccess": "read-only",
+    "name": "hwNatAddrPortBindInTranslate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.4.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwNatAddrPortBindMappedAddr": {
+    "class": "objecttype",
+    "description": "This object represents the address maps to the hwNatAddrPortBindQueryAddr.",
+    "maxaccess": "read-only",
+    "name": "hwNatAddrPortBindMappedAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwNatAddrPortBindMappedPort": {
+    "class": "objecttype",
+    "description": "This object represents the port number that, in conjunction with hwNatAddrPortBindMappedAddr, maps to the hwNatAddrPortBindQueryPort .",
+    "maxaccess": "read-only",
+    "name": "hwNatAddrPortBindMappedPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.4.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwNatAddrPortBindMappedVrfName": {
+    "class": "objecttype",
+    "description": "Vrf name for the hwNatAddrPortBindMappedAddr.",
+    "maxaccess": "read-only",
+    "name": "hwNatAddrPortBindMappedVrfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwNatAddrPortBindNumberOfEntries": {
+    "class": "objecttype",
+    "description": "This object maintains a count of the number of entries that currently exist in the hwNatAddrPortBindTable.",
+    "maxaccess": "read-only",
+    "name": "hwNatAddrPortBindNumberOfEntries",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwNatAddrPortBindOutTranslate": {
+    "class": "objecttype",
+    "description": "The number of outbound packets that were translated as per this BIND entry.",
+    "maxaccess": "read-only",
+    "name": "hwNatAddrPortBindOutTranslate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.4.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwNatAddrPortBindQueryAddr": {
+    "class": "objecttype",
+    "description": "This object represents the query ip address, which can be local address or global address, depending on the value of hwNatAddrBindType.",
+    "maxaccess": "not-accessible",
+    "name": "hwNatAddrPortBindQueryAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwNatAddrPortBindQueryPort": {
+    "class": "objecttype",
+    "description": "This object represents the query port number, which can be local port number or global port number, depending on the value of hwNatAddrPortBindType..",
+    "maxaccess": "not-accessible",
+    "name": "hwNatAddrPortBindQueryPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwNatAddrPortBindQueryProtocol": {
+    "class": "objecttype",
+    "description": "This object specifies a protocol identifier.",
+    "maxaccess": "not-accessible",
+    "name": "hwNatAddrPortBindQueryProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwNatAddrPortBindQueryVrfName": {
+    "class": "objecttype",
+    "description": "Vrf name for the hwNatAddrPortBindQueryAddr.",
+    "maxaccess": "not-accessible",
+    "name": "hwNatAddrPortBindQueryVrfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwNatAddrPortBindSessionCount": {
+    "class": "objecttype",
+    "description": "Number of sessions currently using this BIND.",
+    "maxaccess": "read-only",
+    "name": "hwNatAddrPortBindSessionCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.4.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwNatAddrPortBindTable": {
+    "class": "objecttype",
+    "description": "This table holds information about the currently active NAPT BINDs.",
+    "maxaccess": "not-accessible",
+    "name": "hwNatAddrPortBindTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.4",
+    "status": "current"
+  },
+  "hwNatAddrPortBindType": {
+    "class": "objecttype",
+    "description": "This object represents the type of the BIND. ",
+    "maxaccess": "not-accessible",
+    "name": "hwNatAddrPortBindType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "natOutbound": 1,
+          "natServer": 2,
+          "staticPatGlobalToLocal": 4,
+          "staticPatLocalToGlobal": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwNatAgingTimeGroup": {
+    "class": "objectgroup",
+    "description": "This is the nat Aging time group.",
+    "name": "hwNatAgingTimeGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatSipAgingTime"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatSipMediaAgingTime"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatRtspAgingTime"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatRtspMediaAgingTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.226.4.2.14",
+    "status": "current"
+  },
+  "hwNatAlg": {
+    "class": "objectidentity",
+    "name": "hwNatAlg",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.9"
+  },
+  "hwNatAlgDns": {
+    "class": "objecttype",
+    "description": "Whether the DNS NAT ALG is enabled. ",
+    "maxaccess": "read-only",
+    "name": "hwNatAlgDns",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.9.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwNatAlgFtp": {
+    "class": "objecttype",
+    "description": "Whether the FTP NAT ALG is enabled. ",
+    "maxaccess": "read-only",
+    "name": "hwNatAlgFtp",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.9.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwNatAlgGroup": {
+    "class": "objectgroup",
+    "description": "This is a NAT ALG group.",
+    "name": "hwNatAlgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAlgFtp"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAlgDns"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAlgSip"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAlgRtsp"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.226.4.2.11",
+    "status": "current"
+  },
+  "hwNatAlgRtsp": {
+    "class": "objecttype",
+    "description": "Whether the Rtsp NAT ALG is enabled. ",
+    "maxaccess": "read-only",
+    "name": "hwNatAlgRtsp",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.9.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwNatAlgSip": {
+    "class": "objecttype",
+    "description": "Whether the Sip NAT ALG is enabled. ",
+    "maxaccess": "read-only",
+    "name": "hwNatAlgSip",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.9.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwNatBind": {
+    "class": "objectidentity",
+    "name": "hwNatBind",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1"
+  },
+  "hwNatBindGroup": {
+    "class": "objectgroup",
+    "description": "A collection of BIND-related objects required to support management of devices supporting NAT.",
+    "name": "hwNatBindGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrBindNumberOfEntries"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrBindId"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrBindSessionCount"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrBindCurrentIdleTime"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrBindInTranslate"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrBindOutTranslate"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrPortBindNumberOfEntries"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrPortBindId"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrPortBindSessionCount"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrPortBindCurrentIdleTime"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrPortBindInTranslate"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrPortBindOutTranslate"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrBindMappedAddr"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrBindMappedVrfName"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrPortBindMappedPort"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrPortBindMappedAddr"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatAddrPortBindMappedVrfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.226.4.2.2",
+    "status": "current"
+  },
+  "hwNatDnsMap": {
+    "class": "objectidentity",
+    "name": "hwNatDnsMap",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.4"
+  },
+  "hwNatDnsMapDomainName": {
+    "class": "objecttype",
+    "description": "Domain name of the DNS mapping.",
+    "maxaccess": "read-only",
+    "name": "hwNatDnsMapDomainName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.4.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwNatDnsMapEntry": {
+    "class": "objecttype",
+    "description": "An entry in the table, containing information about a DNS mapping.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatDnsMapIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwNatDnsMapEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.4.2.1",
+    "status": "current"
+  },
+  "hwNatDnsMapGroup": {
+    "class": "objectgroup",
+    "description": "This is a NAT DNS mapping group.",
+    "name": "hwNatDnsMapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatDnsMapNumOfEntries"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatDnsMapDomainName"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatDnsMapIpAddr"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatDnsMapPort"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatDnsMapProtocol"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.226.4.2.6",
+    "status": "current"
+  },
+  "hwNatDnsMapIndex": {
+    "class": "objecttype",
+    "description": "Index of the DNS mapping.",
+    "maxaccess": "not-accessible",
+    "name": "hwNatDnsMapIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.4.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwNatDnsMapIpAddr": {
+    "class": "objecttype",
+    "description": "IP address provided for external access.",
+    "maxaccess": "read-only",
+    "name": "hwNatDnsMapIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.4.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwNatDnsMapNumOfEntries": {
+    "class": "objecttype",
+    "description": "This object maintains a count of the number of entries that currently exist in the hwNatDnsMapTable.",
+    "maxaccess": "read-only",
+    "name": "hwNatDnsMapNumOfEntries",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.4.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwNatDnsMapPort": {
+    "class": "objecttype",
+    "description": "Port number of the service provided for external access.",
+    "maxaccess": "read-only",
+    "name": "hwNatDnsMapPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.4.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwNatDnsMapProtocol": {
+    "class": "objecttype",
+    "description": "Type of the protocol carried over IP.",
+    "maxaccess": "read-only",
+    "name": "hwNatDnsMapProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.4.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwNatDnsMapTable": {
+    "class": "objecttype",
+    "description": "Table of instances of DNS mapping.",
+    "maxaccess": "not-accessible",
+    "name": "hwNatDnsMapTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.4.2",
+    "status": "current"
+  },
+  "hwNatExtIfEntry": {
+    "class": "objecttype",
+    "description": "Each entry in the this table holds information about an interface that is currently active.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatExtIfName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwNatExtIfEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.5.1",
+    "status": "current"
+  },
+  "hwNatExtIfGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwNatExtIfGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatExtIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.226.4.2.4",
+    "status": "current"
+  },
+  "hwNatExtIfName": {
+    "class": "objecttype",
+    "description": "This object represents the name of an interface.",
+    "maxaccess": "read-only",
+    "name": "hwNatExtIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 47,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwNatExtIfTable": {
+    "class": "objecttype",
+    "description": "This table holds information about the currently active interfaces.",
+    "maxaccess": "not-accessible",
+    "name": "hwNatExtIfTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.1.5",
+    "status": "current"
+  },
+  "hwNatExtMIB": {
+    "class": "moduleidentity",
+    "contactinfo": " NanJing Institute,Huawei Technologies Co.,Ltd. HuiHong Mansion,No.91 BaiXia Rd. NanJing, P.R. of China Zipcode:210001 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": "The MIB contains objects of S9300 NAT features , referencing the RFC4004.",
+    "lastupdated": "200911022030Z",
+    "name": "hwNatExtMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.226",
+    "organization": "Huawei Technologies Co., Ltd. "
+  },
+  "hwNatExtMIBCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for devices running NAT.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatBindGroup"
+      }
+    ],
+    "name": "hwNatExtMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.4.1.1",
+    "status": "current"
+  },
+  "hwNatExtMIBCompliances": {
+    "class": "objectidentity",
+    "name": "hwNatExtMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.4.1"
+  },
+  "hwNatExtMIBConformance": {
+    "class": "objectidentity",
+    "name": "hwNatExtMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.4"
+  },
+  "hwNatExtMIBGroups": {
+    "class": "objectidentity",
+    "name": "hwNatExtMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.4.2"
+  },
+  "hwNatExtMIBNotifications": {
+    "class": "objectidentity",
+    "name": "hwNatExtMIBNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.1"
+  },
+  "hwNatExtMIBObjects": {
+    "class": "objectidentity",
+    "name": "hwNatExtMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2"
+  },
+  "hwNatFilter": {
+    "class": "objectidentity",
+    "name": "hwNatFilter",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.10"
+  },
+  "hwNatFilterGroup": {
+    "class": "objectgroup",
+    "description": "This is a NAT Filter group.",
+    "name": "hwNatFilterGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatFilterMode"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.226.4.2.12",
+    "status": "current"
+  },
+  "hwNatFilterMode": {
+    "class": "objecttype",
+    "description": "The mode of NAT filter. ",
+    "maxaccess": "read-only",
+    "name": "hwNatFilterMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.10.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "NATFilterMode"
+    }
+  },
+  "hwNatInterfacePktsIn": {
+    "class": "objecttype",
+    "description": "Number of packets received on this interface that were translated.",
+    "maxaccess": "read-only",
+    "name": "hwNatInterfacePktsIn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.2.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwNatInterfacePktsOut": {
+    "class": "objecttype",
+    "description": "Number of translated packets that were sent out this interface.",
+    "maxaccess": "read-only",
+    "name": "hwNatInterfacePktsOut",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.2.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwNatInterfaceStatsEntry": {
+    "class": "objecttype",
+    "description": "Each entry of the hwNatInterfaceStatsTable represents stats pertaining to one interface, which is identified by its InterfaceIndex.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwNatInterfaceStatsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.2.2.1",
+    "status": "current"
+  },
+  "hwNatInterfaceStatsTable": {
+    "class": "objecttype",
+    "description": "This table augments the hwNatInterfaceTable and provides statistics information pertaining to the specified interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwNatInterfaceStatsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.2.2",
+    "status": "current"
+  },
+  "hwNatMap": {
+    "class": "objectidentity",
+    "name": "hwNatMap",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.13"
+  },
+  "hwNatMapDestPort": {
+    "class": "objecttype",
+    "description": "The port number of nat map entry.",
+    "maxaccess": "read-only",
+    "name": "hwNatMapDestPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.13.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwNatMapEntry": {
+    "class": "objecttype",
+    "description": "An entry in the table, containing information about a Nat map.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatMapIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwNatMapEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.13.2.1",
+    "status": "current"
+  },
+  "hwNatMapGroup": {
+    "class": "objectgroup",
+    "description": "This is the nat map group.",
+    "name": "hwNatMapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatMapNumOfEntries"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatMapProtocol"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatMapDestPort"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.226.4.2.15",
+    "status": "current"
+  },
+  "hwNatMapIndex": {
+    "class": "objecttype",
+    "description": "An index that uniquely identifies an entry in the Nat map table.",
+    "maxaccess": "not-accessible",
+    "name": "hwNatMapIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.13.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwNatMapNumOfEntries": {
+    "class": "objecttype",
+    "description": "This object maintains a count of the number of entries that currently exist in the hwNatMapTable.",
+    "maxaccess": "read-only",
+    "name": "hwNatMapNumOfEntries",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.13.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwNatMapProtocol": {
+    "class": "objecttype",
+    "description": "The protocol of nat map entry. The value is TCP or UDP.",
+    "maxaccess": "read-only",
+    "name": "hwNatMapProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.13.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwNatMapTable": {
+    "class": "objecttype",
+    "description": "Table of static NAT instances.",
+    "maxaccess": "not-accessible",
+    "name": "hwNatMapTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.13.2",
+    "status": "current"
+  },
+  "hwNatNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "A collection of notifications generated by devices supporting this MIB.",
+    "name": "hwNatNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatPacketDiscard"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.226.4.2.1",
+    "status": "current"
+  },
+  "hwNatOutbound": {
+    "class": "objectidentity",
+    "name": "hwNatOutbound",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.5"
+  },
+  "hwNatOutboundAclNum": {
+    "class": "objecttype",
+    "description": "Basic or advanced ACL that is in use.",
+    "maxaccess": "read-only",
+    "name": "hwNatOutboundAclNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.5.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 3999,
+            "min": 2000
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwNatOutboundAddr": {
+    "class": "objecttype",
+    "description": "IP address of the NAT address pool or interface.",
+    "maxaccess": "read-only",
+    "name": "hwNatOutboundAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.5.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwNatOutboundEasyIp": {
+    "class": "objecttype",
+    "description": "Whether type of the translated IP address is EasyIP.",
+    "maxaccess": "read-only",
+    "name": "hwNatOutboundEasyIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.5.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwNatOutboundEntry": {
+    "class": "objecttype",
+    "description": "An entry in the table, containing information about a outbound NAT.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatOutboundIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwNatOutboundEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.5.2.1",
+    "status": "current"
+  },
+  "hwNatOutboundGroup": {
+    "class": "objectgroup",
+    "description": "This is a outbound NAT group.",
+    "name": "hwNatOutboundGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatOutboundNumOfEntries"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatOutboundInterface"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatOutboundAclNum"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatOutboundAddr"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatOutboundPat"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatOutboundEasyIp"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.226.4.2.7",
+    "status": "current"
+  },
+  "hwNatOutboundIndex": {
+    "class": "objecttype",
+    "description": "Index of the outbound NAT entry. ",
+    "maxaccess": "not-accessible",
+    "name": "hwNatOutboundIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.5.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 256,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwNatOutboundInterface": {
+    "class": "objecttype",
+    "description": "IfIndex of the interface that configured with the outbound NAT. ",
+    "maxaccess": "read-only",
+    "name": "hwNatOutboundInterface",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.5.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwNatOutboundNumOfEntries": {
+    "class": "objecttype",
+    "description": "This object maintains a count of the number of entries that currently exist in the hwNatOutboundTable.",
+    "maxaccess": "read-only",
+    "name": "hwNatOutboundNumOfEntries",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.5.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwNatOutboundPat": {
+    "class": "objecttype",
+    "description": "This object represents type of the translated IP, NOPAT(1) or PAT(2).",
+    "maxaccess": "read-only",
+    "name": "hwNatOutboundPat",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.5.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwNatOutboundTable": {
+    "class": "objecttype",
+    "description": "Table of outbound NAT instances.",
+    "maxaccess": "not-accessible",
+    "name": "hwNatOutboundTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.5.2",
+    "status": "current"
+  },
+  "hwNatOverlapMap": {
+    "class": "objectidentity",
+    "name": "hwNatOverlapMap",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.6"
+  },
+  "hwNatOverlapMapEntry": {
+    "class": "objecttype",
+    "description": "An entry in the table, containing information about a overlap mapping.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatOverlapMapIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwNatOverlapMapEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.6.2.1",
+    "status": "current"
+  },
+  "hwNatOverlapMapGroup": {
+    "class": "objectgroup",
+    "description": "This is a overlap mapping group.",
+    "name": "hwNatOverlapMapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatOverlapMapNumOfEntries"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatOverlapMapLapAddr"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatOverlapMapTmpAddr"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatOverlapMapPoolLen"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatOverlapMapVpnName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.226.4.2.8",
+    "status": "current"
+  },
+  "hwNatOverlapMapIndex": {
+    "class": "objecttype",
+    "description": "Index of the mapping between the overlapped address pool and the temporary address pool.",
+    "maxaccess": "not-accessible",
+    "name": "hwNatOverlapMapIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.6.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwNatOverlapMapLapAddr": {
+    "class": "objecttype",
+    "description": "Start IP address of the overlapped address pool.",
+    "maxaccess": "read-only",
+    "name": "hwNatOverlapMapLapAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.6.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwNatOverlapMapNumOfEntries": {
+    "class": "objecttype",
+    "description": "This object maintains a count of the number of entries that currently exist in the hwNatOverlapMapTable.",
+    "maxaccess": "read-only",
+    "name": "hwNatOverlapMapNumOfEntries",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.6.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwNatOverlapMapPoolLen": {
+    "class": "objecttype",
+    "description": "Length of the address pool.",
+    "maxaccess": "read-only",
+    "name": "hwNatOverlapMapPoolLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.6.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwNatOverlapMapTable": {
+    "class": "objecttype",
+    "description": "Table of instances of overlap NAT that mapping between an overlapped address pool and a temporary address pool.",
+    "maxaccess": "not-accessible",
+    "name": "hwNatOverlapMapTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.6.2",
+    "status": "current"
+  },
+  "hwNatOverlapMapTmpAddr": {
+    "class": "objecttype",
+    "description": "Start IP address of the temporary address pool.",
+    "maxaccess": "read-only",
+    "name": "hwNatOverlapMapTmpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.6.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwNatOverlapMapVpnName": {
+    "class": "objecttype",
+    "description": "Index of the VPN instance of the private network.",
+    "maxaccess": "read-only",
+    "name": "hwNatOverlapMapVpnName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.6.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwNatPacketDiscard": {
+    "class": "notificationtype",
+    "description": "This notification is generated when IP packets are discarded by the NAT function; e.g., due to lack of mapping space when NAT is out of addresses or ports.",
+    "name": "hwNatPacketDiscard",
+    "objects": [
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatExtIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.226.1.1",
+    "status": "current"
+  },
+  "hwNatPortMap": {
+    "class": "objectidentity",
+    "name": "hwNatPortMap",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.11"
+  },
+  "hwNatPortMapGroup": {
+    "class": "objectgroup",
+    "description": "This is the nat portmap group.",
+    "name": "hwNatPortMapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatPortMapSipPort"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatPortMapSipAcl"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatPortMapRtspPort"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatPortMapRtspAcl"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.226.4.2.13",
+    "status": "current"
+  },
+  "hwNatPortMapRtspAcl": {
+    "class": "objecttype",
+    "description": "ACL number for Rtsp port-mapping . ",
+    "maxaccess": "read-only",
+    "name": "hwNatPortMapRtspAcl",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.11.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2999,
+            "min": 2000
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwNatPortMapRtspPort": {
+    "class": "objecttype",
+    "description": "Port number for Rtsp port-mapping . ",
+    "maxaccess": "read-only",
+    "name": "hwNatPortMapRtspPort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.11.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwNatPortMapSipAcl": {
+    "class": "objecttype",
+    "description": "ACL number for Sip port-mapping . ",
+    "maxaccess": "read-only",
+    "name": "hwNatPortMapSipAcl",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.11.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2999,
+            "min": 2000
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwNatPortMapSipPort": {
+    "class": "objecttype",
+    "description": "Port number for Sip port-mapping . ",
+    "maxaccess": "read-only",
+    "name": "hwNatPortMapSipPort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.11.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwNatProtoAgingTime": {
+    "class": "objectidentity",
+    "name": "hwNatProtoAgingTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.12"
+  },
+  "hwNatProtocolStatsEntry": {
+    "class": "objecttype",
+    "description": "An entry (conceptual row) containing NAT statistics pertaining to a particular protocol.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatProtocolStatsName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwNatProtocolStatsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.2.1.1",
+    "status": "current"
+  },
+  "hwNatProtocolStatsInTranslate": {
+    "class": "objecttype",
+    "description": "The number of inbound packets, pertaining to the protocol identified by hwNatProtocolStatsName, that underwent NAT.",
+    "maxaccess": "read-only",
+    "name": "hwNatProtocolStatsInTranslate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwNatProtocolStatsName": {
+    "class": "objecttype",
+    "description": "This object represents the protocol pertaining to which statistics are reported.",
+    "maxaccess": "not-accessible",
+    "name": "hwNatProtocolStatsName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "NATProtocolType"
+    }
+  },
+  "hwNatProtocolStatsOutTranslate": {
+    "class": "objecttype",
+    "description": "The number of outbound packets, pertaining to the protocol identified by hwNatProtocolStatsName, that underwent NAT.",
+    "maxaccess": "read-only",
+    "name": "hwNatProtocolStatsOutTranslate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwNatProtocolStatsRejectCount": {
+    "class": "objecttype",
+    "description": "The number of packets, pertaining to the protocol identified by hwNatProtocolStatsName, that had to be rejected/dropped due to lack of resources. These rejections could be due to session timeout, resource unavailability etc.",
+    "maxaccess": "read-only",
+    "name": "hwNatProtocolStatsRejectCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwNatProtocolStatsTable": {
+    "class": "objecttype",
+    "description": "The (conceptual) table containing per protocol NAT statistics.",
+    "maxaccess": "not-accessible",
+    "name": "hwNatProtocolStatsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.2.1",
+    "status": "current"
+  },
+  "hwNatRtspAgingTime": {
+    "class": "objecttype",
+    "description": "Aging time for Rtsp stream. ",
+    "maxaccess": "read-only",
+    "name": "hwNatRtspAgingTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.12.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwNatRtspMediaAgingTime": {
+    "class": "objecttype",
+    "description": "Aging time for Rtsp media stream. ",
+    "maxaccess": "read-only",
+    "name": "hwNatRtspMediaAgingTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.12.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwNatServer": {
+    "class": "objectidentity",
+    "name": "hwNatServer",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.7"
+  },
+  "hwNatServerEntry": {
+    "class": "objecttype",
+    "description": "An entry in the table, containing information about a NAT server.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatServerIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwNatServerEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.7.2.1",
+    "status": "current"
+  },
+  "hwNatServerGlobalAddr": {
+    "class": "objecttype",
+    "description": "Public address of the NAT server.",
+    "maxaccess": "read-only",
+    "name": "hwNatServerGlobalAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.7.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwNatServerGlobalPort": {
+    "class": "objecttype",
+    "description": "Public port number of the NAT server.",
+    "maxaccess": "read-only",
+    "name": "hwNatServerGlobalPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.7.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwNatServerGroup": {
+    "class": "objectgroup",
+    "description": "This is a NAT server group.",
+    "name": "hwNatServerGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatServerNumOfEntries"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatServerInterface"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatServerProtocol"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatServerGlobalAddr"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatServerGlobalPort"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatServerInsideAddr"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatServerInsidePort"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatServerVpnName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.226.4.2.9",
+    "status": "current"
+  },
+  "hwNatServerIndex": {
+    "class": "objecttype",
+    "description": "An index that uniquely identifies an entry in the NAT server table.",
+    "maxaccess": "not-accessible",
+    "name": "hwNatServerIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.7.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwNatServerInsideAddr": {
+    "class": "objecttype",
+    "description": "Private address of the NAT server.",
+    "maxaccess": "read-only",
+    "name": "hwNatServerInsideAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.7.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwNatServerInsidePort": {
+    "class": "objecttype",
+    "description": "Private port number of the NAT server.",
+    "maxaccess": "read-only",
+    "name": "hwNatServerInsidePort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.7.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwNatServerInterface": {
+    "class": "objecttype",
+    "description": "Interface Name of the NAT server.",
+    "maxaccess": "read-only",
+    "name": "hwNatServerInterface",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.7.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwNatServerNumOfEntries": {
+    "class": "objecttype",
+    "description": "This object maintains a count of the number of entries that currently exist in the hwNatServerTable.",
+    "maxaccess": "read-only",
+    "name": "hwNatServerNumOfEntries",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.7.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwNatServerProtocol": {
+    "class": "objecttype",
+    "description": "Protocol type of the NAT server.",
+    "maxaccess": "read-only",
+    "name": "hwNatServerProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.7.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwNatServerTable": {
+    "class": "objecttype",
+    "description": "Table of NAT server instances.",
+    "maxaccess": "not-accessible",
+    "name": "hwNatServerTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.7.2",
+    "status": "current"
+  },
+  "hwNatServerVpnName": {
+    "class": "objecttype",
+    "description": "VPN instance name of the NAT server.",
+    "maxaccess": "read-only",
+    "name": "hwNatServerVpnName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.7.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwNatSipAgingTime": {
+    "class": "objecttype",
+    "description": "Aging time for Sip stream. ",
+    "maxaccess": "read-only",
+    "name": "hwNatSipAgingTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.12.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwNatSipMediaAgingTime": {
+    "class": "objecttype",
+    "description": "Aging time for Sip media stream. ",
+    "maxaccess": "read-only",
+    "name": "hwNatSipMediaAgingTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.12.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwNatStatic": {
+    "class": "objectidentity",
+    "name": "hwNatStatic",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.8"
+  },
+  "hwNatStaticEntry": {
+    "class": "objecttype",
+    "description": "An entry in the table, containing information about a static NAT.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatStaticIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwNatStaticEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.8.2.1",
+    "status": "current"
+  },
+  "hwNatStaticGlobalAddr": {
+    "class": "objecttype",
+    "description": "Public address of the static NAT.",
+    "maxaccess": "read-only",
+    "name": "hwNatStaticGlobalAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.8.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwNatStaticGlobalPort": {
+    "class": "objecttype",
+    "description": "Public port number of the static NAT.",
+    "maxaccess": "read-only",
+    "name": "hwNatStaticGlobalPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.8.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwNatStaticGroup": {
+    "class": "objectgroup",
+    "description": "This is a static NAT group.",
+    "name": "hwNatStaticGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatStaticNumOfEntries"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatStaticInterface"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatStaticProtocol"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatStaticGlobalAddr"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatStaticGlobalPort"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatStaticInsideAddr"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatStaticInsidePort"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatStaticVpnName"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatStaticNetMask"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.226.4.2.10",
+    "status": "current"
+  },
+  "hwNatStaticIndex": {
+    "class": "objecttype",
+    "description": "An index that uniquely identifies an entry in the static NAT table.",
+    "maxaccess": "not-accessible",
+    "name": "hwNatStaticIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.8.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwNatStaticInsideAddr": {
+    "class": "objecttype",
+    "description": "Private address of the static NAT.",
+    "maxaccess": "read-only",
+    "name": "hwNatStaticInsideAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.8.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwNatStaticInsidePort": {
+    "class": "objecttype",
+    "description": "Private port number of the static NAT.",
+    "maxaccess": "read-only",
+    "name": "hwNatStaticInsidePort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.8.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwNatStaticInterface": {
+    "class": "objecttype",
+    "description": "Interface Name of the static NAT.",
+    "maxaccess": "read-only",
+    "name": "hwNatStaticInterface",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.8.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwNatStaticNetMask": {
+    "class": "objecttype",
+    "description": "Network mask of the static NAT.",
+    "maxaccess": "read-only",
+    "name": "hwNatStaticNetMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.8.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwNatStaticNumOfEntries": {
+    "class": "objecttype",
+    "description": "This object maintains a count of the number of entries that currently exist in the hwNatStaticTable.",
+    "maxaccess": "read-only",
+    "name": "hwNatStaticNumOfEntries",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.8.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwNatStaticProtocol": {
+    "class": "objecttype",
+    "description": "Protocol type of the static NAT.",
+    "maxaccess": "read-only",
+    "name": "hwNatStaticProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.8.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwNatStaticTable": {
+    "class": "objecttype",
+    "description": "Table of static NAT instances.",
+    "maxaccess": "not-accessible",
+    "name": "hwNatStaticTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.8.2",
+    "status": "current"
+  },
+  "hwNatStaticVpnName": {
+    "class": "objecttype",
+    "description": "VPN instance name of the static NAT.",
+    "maxaccess": "read-only",
+    "name": "hwNatStaticVpnName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.8.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwNatStatistics": {
+    "class": "objectidentity",
+    "name": "hwNatStatistics",
+    "oid": "1.3.6.1.4.1.2011.5.25.226.2.2"
+  },
+  "hwNatStatsGroup": {
+    "class": "objectgroup",
+    "description": "A collection of NAT statistics related objects required to support troubleshooting/monitoring NAT operation.",
+    "name": "hwNatStatsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatProtocolStatsInTranslate"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatProtocolStatsOutTranslate"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatProtocolStatsRejectCount"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatInterfacePktsIn"
+      },
+      {
+        "module": "HUAWEI-NAT-EXT-MIB",
+        "object": "hwNatInterfacePktsOut"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.226.4.2.3",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "Counter64",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-NAT-EXT-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:32 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-NAT-EXT-MIB"
+  }
+}

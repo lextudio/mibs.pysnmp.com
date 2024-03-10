@@ -1,0 +1,662 @@
+{
+  "hwRPR": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": "The HUAWEI-RPR-TRAP-MIB contains objects to Monitor the RPR TRAPs. ********************************* RPR TRAP ********************************** This RPR TRAP consists of the following TRAPs: 1 : hwRPRexcessReservedRateDefect 2 : hwRPRprotMisconfigDefect 3 : hwRPRtopoChange 4 : hwRPRtopoInvalidDefect 5 : hwRPRduplicateMacAddressDefect 6 : hwRPRtopoInstabilityDefect 7 : hwRPRtopoStabilityRestore 8 : hwRPRPhyIfEventTrap 9 : hwRPRLogicIfEventTrap ",
+    "lastupdated": "200601090000Z",
+    "name": "hwRPR",
+    "oid": "1.3.6.1.4.1.2011.5.25.36",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwRPRIfConfigEntry": {
+    "class": "objecttype",
+    "description": "RPR interface Configuration entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRIfConfigIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRPRIfConfigEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.36.1.2.1",
+    "status": "current"
+  },
+  "hwRPRIfConfigGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwRPRIfConfigGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRLogicIfTotalBandWidth"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.36.3.2.3",
+    "status": "current"
+  },
+  "hwRPRIfConfigIfIndex": {
+    "class": "objecttype",
+    "description": "The ifIndex of this RPR logic interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwRPRIfConfigIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.36.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwRPRIfConfigTable": {
+    "class": "objecttype",
+    "description": "A table of RPR logic interface configuration information.",
+    "maxaccess": "not-accessible",
+    "name": "hwRPRIfConfigTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.36.1.2",
+    "status": "current"
+  },
+  "hwRPRIfEventEntry": {
+    "class": "objecttype",
+    "description": "Interface event information Entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRLogicIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRLogicIfSpanId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRPRIfEventEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.36.1.1.1",
+    "status": "current"
+  },
+  "hwRPRIfEventGroup": {
+    "class": "objectgroup",
+    "description": "provide RPRTRAP objects configuration information. ",
+    "name": "hwRPRIfEventGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRLogicIfIndex"
+      },
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRLogicIfSpanId"
+      },
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRPhyIfEvent"
+      },
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRLogicIfEvent"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.36.3.2.1",
+    "status": "current"
+  },
+  "hwRPRIfEventTable": {
+    "class": "objecttype",
+    "description": "A table of interface event information.",
+    "maxaccess": "not-accessible",
+    "name": "hwRPRIfEventTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.36.1.1",
+    "status": "current"
+  },
+  "hwRPRLOS": {
+    "class": "notificationtype",
+    "description": "On RPR physical layer, link connection is detected through physical singal. When can\u0027t receive physical singal, then local node from neighbor node, LOS(lost of signal) alarm is report, auto protection is executed by software.!",
+    "name": "hwRPRLOS",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.36.2.16",
+    "status": "current"
+  },
+  "hwRPRLOSResume": {
+    "class": "notificationtype",
+    "description": "On RPR physical layer, link connection is detected through physical singal. When can\u0027t receive physical singal, then local node from neighbor node, LOS(lost of signal) alarm is report, auto protection is executed by software.when LOS is resumed,this notification is sent",
+    "name": "hwRPRLOSResume",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.36.2.17",
+    "status": "current"
+  },
+  "hwRPRLogicIfEvent": {
+    "class": "objecttype",
+    "description": "Type of logic interface event. SD indicates that SDH Signal of the RPR logic interface degrades; SF indicates that SDH Signal of the RPR logic interface fails; MATEERR indicates that mate cable error caused by mate cable of the RPR physical interface is linked incorrect; ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwRPRLogicIfEvent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.36.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mateerr": 3,
+          "sd": 1,
+          "sf": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRPRLogicIfEventTrap": {
+    "class": "notificationtype",
+    "description": "The critical severity Logic interface defect. When an logic interface defect that caused by physical interface event is present, a notification may be generated. ",
+    "name": "hwRPRLogicIfEventTrap",
+    "objects": [
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRLogicIfIndex"
+      },
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRLogicIfSpanId"
+      },
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRLogicIfEvent"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.36.2.9",
+    "status": "current"
+  },
+  "hwRPRLogicIfIndex": {
+    "class": "objecttype",
+    "description": "The ifIndex of this RPR logic interface.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwRPRLogicIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.36.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwRPRLogicIfSpanId": {
+    "class": "objecttype",
+    "description": "The SpanId of this RPR logic interface.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwRPRLogicIfSpanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.36.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RprSpan"
+    }
+  },
+  "hwRPRLogicIfTotalBandWidth": {
+    "class": "objecttype",
+    "description": "The total bandwidth of this RPR logic interface.",
+    "maxaccess": "read-write",
+    "name": "hwRPRLogicIfTotalBandWidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.36.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bandwidth1000": 1000,
+          "bandwidth10000": 10000,
+          "bandwidth2488": 2488
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRPRMateErr": {
+    "class": "notificationtype",
+    "description": "In double RPR operating mode, east and west directions of one rpr node lay on two RPR cards, These two cards are internally conntected by Gigaibit-ethernet, which is called MATE interface. The RPR nodes cannot work normaly under condition of MATE error.!",
+    "name": "hwRPRMateErr",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.36.2.14",
+    "status": "current"
+  },
+  "hwRPRMateErrResume": {
+    "class": "notificationtype",
+    "description": "In double RPR operating mode, east and west directions of one rpr node lay on two RPR cards, These two cards are internally conntected by Gigaibit-ethernet, which is called MATE interface. The RPR nodes cannot work normaly under condition of MATE error.when MATE error is resumed ,this notification is sent!",
+    "name": "hwRPRMateErrResume",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.36.2.15",
+    "status": "current"
+  },
+  "hwRPRNodeConErr": {
+    "class": "notificationtype",
+    "description": "On RPR ring, to detect the connection, a kind of packet is send between neighbor RPR nodes, This kind of packet is SC(Single-Choke) packet, If a node cannot receive SC packet from neighbor node in KEEPALIVE time, then there is failure between the two nodes. When happened, auto protection is executed by software.!",
+    "name": "hwRPRNodeConErr",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.36.2.10",
+    "status": "current"
+  },
+  "hwRPRNodeConErrResume": {
+    "class": "notificationtype",
+    "description": "On RPR ring, to detect the connection, a kind of packet is send between neighbor RPR nodes, This kind of packet is SC(Single-Choke) packet, If a node cannot receive SC packet from neighbor node in KEEPALIVE time, then there is failure between the two nodes. When failure is resumed , this notification is sent.!",
+    "name": "hwRPRNodeConErrResume",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.36.2.11",
+    "status": "current"
+  },
+  "hwRPRNodeMisCabling": {
+    "class": "notificationtype",
+    "description": "Optical fiber is connected in error. i.e the east direction of one node is connected with east direction of another node, or the west direction of one node is connected with west direction of another node!",
+    "name": "hwRPRNodeMisCabling",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.36.2.12",
+    "status": "current"
+  },
+  "hwRPRNodeMisCablingResume": {
+    "class": "notificationtype",
+    "description": "when phenomena that Optical fiber is connected in error disappears, this notification is sent!",
+    "name": "hwRPRNodeMisCablingResume",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.36.2.13",
+    "status": "current"
+  },
+  "hwRPRObjects": {
+    "class": "objectidentity",
+    "name": "hwRPRObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.36.1"
+  },
+  "hwRPRPhyIfEvent": {
+    "class": "objecttype",
+    "description": "Type of physical interface event. SDHFramerSDst indicates that SDH Signal of the RPR physical interface degrades; SDHFramerSFst indicates that SDH Signal of the RPR physical interface fails; SDHFramerLOSst indicates that SDH Signal of the RPR physical interface loses; SDHFramerLOFst indicates that SDH framer of the RPR physical interface loses; SDHFramerRDIst indicates that remote Defect Indication ; SDHFramerAISst indicates that alarm Indication Signal; SDHFramerREIst indicates that remote ErrorIndication; Miscabling indicates that cable of the RPR physical interface is linked incorrect; Keepalive indicates that an exchange of messages allowing verification that communication between stations is not active; MateState indicates that mate cable of the RPR physical interface is linked incorrect. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwRPRPhyIfEvent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.36.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "keepalive": 9,
+          "mateState": 10,
+          "miscabling": 8,
+          "sdHFramerAISst": 6,
+          "sdHFramerLOFst": 4,
+          "sdHFramerLOSst": 3,
+          "sdHFramerRDIst": 5,
+          "sdHFramerREIst": 7,
+          "sdHFramerSDst": 1,
+          "sdHFramerSFst": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRPRPhyIfEventTrap": {
+    "class": "notificationtype",
+    "description": "The critical severity physical interface defect. When an physical interface defect is present, a notification may be generated. ",
+    "name": "hwRPRPhyIfEventTrap",
+    "objects": [
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRLogicIfIndex"
+      },
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRLogicIfSpanId"
+      },
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRPhyIfEvent"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.36.2.8",
+    "status": "current"
+  },
+  "hwRPRTrapCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for entities that implement RPRTRAP on a router. ",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRIfEventGroup"
+      },
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRTrapGroup"
+      }
+    ],
+    "name": "hwRPRTrapCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.36.3.1.1",
+    "status": "current"
+  },
+  "hwRPRTrapCompliances": {
+    "class": "objectidentity",
+    "name": "hwRPRTrapCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.36.3.1"
+  },
+  "hwRPRTrapConformance": {
+    "class": "objectidentity",
+    "name": "hwRPRTrapConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.36.3"
+  },
+  "hwRPRTrapGroup": {
+    "class": "notificationgroup",
+    "description": "Required objects to provide RPRTRAP objects configuration information. ",
+    "name": "hwRPRTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRexcessReservedRateDefect"
+      },
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRprotMisconfigDefect"
+      },
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRtopoChange"
+      },
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRtopoInvalidDefect"
+      },
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRduplicateMacAddressDefect"
+      },
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRtopoInstabilityDefect"
+      },
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRtopoStabilityRestore"
+      },
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRPhyIfEventTrap"
+      },
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRLogicIfEventTrap"
+      },
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRNodeConErr"
+      },
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRNodeConErrResume"
+      },
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRNodeMisCabling"
+      },
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRNodeMisCablingResume"
+      },
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRMateErr"
+      },
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRMateErrResume"
+      },
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRLOS"
+      },
+      {
+        "module": "HUAWEI-RPR-MIB",
+        "object": "hwRPRLOSResume"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.36.3.2.2",
+    "status": "current"
+  },
+  "hwRPRTrapGroups": {
+    "class": "objectidentity",
+    "name": "hwRPRTrapGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.36.3.2"
+  },
+  "hwRPRTraps": {
+    "class": "objectidentity",
+    "name": "hwRPRTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.36.2"
+  },
+  "hwRPRduplicateMacAddressDefect": {
+    "class": "notificationtype",
+    "description": "A critical severity defect indicating that a duplicateMacAddress has been found on the ring. When a duplicateMacAddress defect is present, a notification may be generated. ",
+    "name": "hwRPRduplicateMacAddressDefect",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifPhysAddress"
+      },
+      {
+        "module": "IEEE-802DOT17-RPR-MIB",
+        "object": "rprTopoImageRinglet0Hops"
+      },
+      {
+        "module": "IEEE-802DOT17-RPR-MIB",
+        "object": "rprTopoImageRinglet1Hops"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.36.2.5",
+    "status": "current"
+  },
+  "hwRPRexcessReservedRateDefect": {
+    "class": "notificationtype",
+    "description": "This defect indicates that the amount of reserved bandwidth on a ringlet exceeds the available LINK_RATE. When an excess reserved rate defect is present, a notification may be generated. ",
+    "name": "hwRPRexcessReservedRateDefect",
+    "objects": [
+      {
+        "module": "IEEE-802DOT17-RPR-MIB",
+        "object": "rprSpanTotalRingletReservedRate"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.36.2.1",
+    "status": "current"
+  },
+  "hwRPRprotMisconfigDefect": {
+    "class": "notificationtype",
+    "description": "A critical severity defect that indicates the presence of mismatched-protection-configuration stations, based on the value returned by MismatchedProtection(). When a protection configuration defect is present on the station, a notification may be generated. ",
+    "name": "hwRPRprotMisconfigDefect",
+    "objects": [
+      {
+        "module": "IEEE-802DOT17-RPR-MIB",
+        "object": "rprIfWrapConfig"
+      },
+      {
+        "module": "IEEE-802DOT17-RPR-MIB",
+        "object": "rprIfRingOperModes"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.36.2.2",
+    "status": "current"
+  },
+  "hwRPRtopoChange": {
+    "class": "notificationtype",
+    "description": "When an topology change is present, a notification may be generated.. ",
+    "name": "hwRPRtopoChange",
+    "objects": [
+      {
+        "module": "IEEE-802DOT17-RPR-MIB",
+        "object": "rprTopoImageStationIfIndex"
+      },
+      {
+        "module": "IEEE-802DOT17-RPR-MIB",
+        "object": "rprTopoImageStatus"
+      },
+      {
+        "module": "IEEE-802DOT17-RPR-MIB",
+        "object": "rprTopoImageWestProtectionStatus"
+      },
+      {
+        "module": "IEEE-802DOT17-RPR-MIB",
+        "object": "rprTopoImageEastProtectionStatus"
+      },
+      {
+        "module": "IEEE-802DOT17-RPR-MIB",
+        "object": "rprIfCurrentStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.36.2.3",
+    "status": "current"
+  },
+  "hwRPRtopoInstabilityDefect": {
+    "class": "notificationtype",
+    "description": "The critical severity Instable topology defect. When an Instable topology defect is present, a notification may be generated. ",
+    "name": "hwRPRtopoInstabilityDefect",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifPhysAddress"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.36.2.6",
+    "status": "current"
+  },
+  "hwRPRtopoInvalidDefect": {
+    "class": "notificationtype",
+    "description": "A critical severity defect indicating that an invalid entry has been found within the scope of the topology,the stations on the ring excess the MAX_STATIONS or the local station has one or more duplicate secondary MAC addresses. When a topology entry invalid defect ,exceeing MaxStations or duplicate secondary MAC addresses is present, a notification may be generated. ",
+    "name": "hwRPRtopoInvalidDefect",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifPhysAddress"
+      },
+      {
+        "module": "IEEE-802DOT17-RPR-MIB",
+        "object": "rprIfCurrentStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.36.2.4",
+    "status": "current"
+  },
+  "hwRPRtopoStabilityRestore": {
+    "class": "notificationtype",
+    "description": "The critical severity Instable topology restore. When an stable topology is present, a notification may be generated. ",
+    "name": "hwRPRtopoStabilityRestore",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifPhysAddress"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.36.2.7",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IEEE-802DOT17-RPR-MIB": [
+      "rprIfIndex",
+      "rprIfRingOperModes",
+      "rprSpanIfIndex",
+      "rprSpanId",
+      "rprIfWrapConfig",
+      "rprTopoImageEastProtectionStatus",
+      "rprTopoImageStatus",
+      "rprTopoImageStationIfIndex",
+      "rprTopoImageWestProtectionStatus",
+      "rprTopoImageRinglet1Hops",
+      "rprTopoImageMacAddress",
+      "rprTopoImageIfIndex",
+      "rprIfCurrentStatus",
+      "RprSpan",
+      "rprSpanTotalRingletReservedRate",
+      "rprTopoImageRinglet0Hops"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifPhysAddress",
+      "InterfaceIndex",
+      "ifName"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "iso",
+      "MODULE-IDENTITY",
+      "Bits",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-RPR-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:50 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-RPR-MIB"
+  }
+}

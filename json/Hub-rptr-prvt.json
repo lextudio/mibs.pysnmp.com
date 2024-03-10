@@ -1,787 +1,348 @@
 {
-  "imports": {
-    "class": "imports",
-    "SNMP-REPEATER-MIB": [
-      "rptrPortIndex",
-      "rptrPortGroupIndex",
-      "rptrPortAdminStatus"
-    ],
-    "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
-    ],
-    "SNMPv2-SMI": [
-      "Counter64",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "iso",
-      "Gauge32",
-      "Integer32",
-      "TRAP-TYPE",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "internet",
-      "OBJECT-IDENTITY",
-      "Bits"
-    ],
-    "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
-    ]
-  },
-  "private": {
-    "name": "private",
-    "oid": "1.3.6.1.4",
-    "class": "objectidentity"
-  },
   "enterprises": {
+    "class": "objectidentity",
     "name": "enterprises",
-    "oid": "1.3.6.1.4.1",
-    "class": "objectidentity"
+    "oid": "1.3.6.1.4.1"
   },
   "fibronics": {
+    "class": "objectidentity",
     "name": "fibronics",
-    "oid": "1.3.6.1.4.1.22",
-    "class": "objectidentity"
-  },
-  "trap": {
-    "name": "trap",
-    "oid": "1.3.6.1.4.1.22.3",
-    "class": "objectidentity"
-  },
-  "traprun": {
-    "name": "traprun",
-    "oid": "1.3.6.1.4.1.22.3.1",
-    "class": "objectidentity"
-  },
-  "traperm": {
-    "name": "traperm",
-    "oid": "1.3.6.1.4.1.22.3.2",
-    "class": "objectidentity"
-  },
-  "trapvar": {
-    "name": "trapvar",
-    "oid": "1.3.6.1.4.1.22.3.3",
-    "class": "objectidentity"
+    "oid": "1.3.6.1.4.1.22"
   },
   "fm800": {
+    "class": "objectidentity",
     "name": "fm800",
-    "oid": "1.3.6.1.4.1.22.51",
-    "class": "objectidentity"
-  },
-  "fmsystem": {
-    "name": "fmsystem",
-    "oid": "1.3.6.1.4.1.22.51.1",
-    "class": "objectidentity"
-  },
-  "fmslot": {
-    "name": "fmslot",
-    "oid": "1.3.6.1.4.1.22.51.2",
-    "class": "objectidentity"
-  },
-  "fmlu": {
-    "name": "fmlu",
-    "oid": "1.3.6.1.4.1.22.51.3",
-    "class": "objectidentity"
-  },
-  "fmdiag": {
-    "name": "fmdiag",
-    "oid": "1.3.6.1.4.1.22.51.5",
-    "class": "objectidentity"
+    "oid": "1.3.6.1.4.1.22.51"
   },
   "fmdebug": {
+    "class": "objectidentity",
     "name": "fmdebug",
-    "oid": "1.3.6.1.4.1.22.51.6",
-    "class": "objectidentity"
+    "oid": "1.3.6.1.4.1.22.51.6"
   },
-  "fmsystemrun": {
-    "name": "fmsystemrun",
-    "oid": "1.3.6.1.4.1.22.51.1.1",
-    "class": "objectidentity"
-  },
-  "fmsystemperm": {
-    "name": "fmsystemperm",
-    "oid": "1.3.6.1.4.1.22.51.1.2",
-    "class": "objectidentity"
+  "fmdiag": {
+    "class": "objectidentity",
+    "name": "fmdiag",
+    "oid": "1.3.6.1.4.1.22.51.5"
   },
   "fmethrptr": {
+    "class": "objectidentity",
     "name": "fmethrptr",
-    "oid": "1.3.6.1.4.1.22.51.11",
-    "class": "objectidentity"
+    "oid": "1.3.6.1.4.1.22.51.11"
   },
-  "rptrinfo": {
-    "name": "rptrinfo",
-    "oid": "1.3.6.1.4.1.22.51.11.1",
-    "class": "objectidentity"
+  "fmlu": {
+    "class": "objectidentity",
+    "name": "fmlu",
+    "oid": "1.3.6.1.4.1.22.51.3"
   },
-  "rptrgroup": {
-    "name": "rptrgroup",
-    "oid": "1.3.6.1.4.1.22.51.11.2",
-    "class": "objectidentity"
+  "fmslot": {
+    "class": "objectidentity",
+    "name": "fmslot",
+    "oid": "1.3.6.1.4.1.22.51.2"
   },
-  "rptrgroupport": {
-    "name": "rptrgroupport",
-    "oid": "1.3.6.1.4.1.22.51.11.3",
-    "class": "objectidentity"
+  "fmsystem": {
+    "class": "objectidentity",
+    "name": "fmsystem",
+    "oid": "1.3.6.1.4.1.22.51.1"
   },
-  "rptrgroupmodule": {
-    "name": "rptrgroupmodule",
-    "oid": "1.3.6.1.4.1.22.51.11.4",
-    "class": "objectidentity"
+  "fmsystemperm": {
+    "class": "objectidentity",
+    "name": "fmsystemperm",
+    "oid": "1.3.6.1.4.1.22.51.1.2"
   },
-  "rptrRxDscrptrOverFlow": {
-    "name": "rptrRxDscrptrOverFlow",
-    "oid": "1.3.6.1.4.1.22.51.11.1.1",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "This counter reflects the number of the missed received packets due to lack of resourcees such as descriptors or memory buffers"
+  "fmsystemrun": {
+    "class": "objectidentity",
+    "name": "fmsystemrun",
+    "oid": "1.3.6.1.4.1.22.51.1.1"
   },
-  "rptrTxDscrptrOverFlow": {
-    "name": "rptrTxDscrptrOverFlow",
-    "oid": "1.3.6.1.4.1.22.51.11.1.2",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "This counter is incremented evry time there is a transmit over flow"
+  "imports": {
+    "SNMP-REPEATER-MIB": [
+      "rptrPortAdminStatus",
+      "rptrPortGroupIndex",
+      "rptrPortIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "TRAP-TYPE",
+      "Bits",
+      "MODULE-IDENTITY",
+      "internet",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "iso",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
   },
-  "rptrMemoryErrors": {
-    "name": "rptrMemoryErrors",
-    "oid": "1.3.6.1.4.1.22.51.11.1.3",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "This counter is incremented evry time there is a memory error"
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/Hub-rptr-prvt",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:39 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "Hub-rptr-prvt"
   },
-  "rptrJabberCounter": {
-    "name": "rptrJabberCounter",
-    "oid": "1.3.6.1.4.1.22.51.11.1.4",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "This counter is incremented evry time there is a jubber in one of the ports."
-  },
-  "rptrNMSConnectionPort": {
-    "name": "rptrNMSConnectionPort",
-    "oid": "1.3.6.1.4.1.22.51.11.1.5",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "Returns the port number which the NMS is connected."
+  "private": {
+    "class": "objectidentity",
+    "name": "private",
+    "oid": "1.3.6.1.4"
   },
   "rptrEDBPort": {
+    "class": "objecttype",
+    "description": "Returns the port number which the MultiHub (EDB) is connected to. if the MultiHub is not connected to the card the value returned will be 99, if the card is installed in a stand alone chassis then reading this object will return 99",
+    "maxaccess": "read-only",
     "name": "rptrEDBPort",
-    "oid": "1.3.6.1.4.1.22.51.11.1.6",
     "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
+    "oid": "1.3.6.1.4.1.22.51.11.1.6",
     "status": "mandatory",
-    "description": "Returns the port number which the MultiHub (EDB) is connected to. if the MultiHub is not connected to the card the value returned will be 99, if the card is installed in a stand alone chassis then reading this object will return 99"
-  },
-  "rptrfmGroupTable": {
-    "name": "rptrfmGroupTable",
-    "oid": "1.3.6.1.4.1.22.51.11.2.1",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "mandatory"
-  },
-  "rptrfmGroupEntry": {
-    "name": "rptrfmGroupEntry",
-    "oid": "1.3.6.1.4.1.22.51.11.2.1.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "Hub-rptr-prvt",
-        "object": "rptrGroupIndex",
-        "implied": 0
-      }
-    ],
-    "status": "mandatory"
-  },
-  "rptrGroupIndex": {
-    "name": "rptrGroupIndex",
-    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "Group Number"
-  },
-  "rptrGroupGlobalStatus": {
-    "name": "rptrGroupGlobalStatus",
-    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "OCTET STRING",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "8 bytes. 60 status bits of the card. For more information about the meaning of the status, read the specific user manual of each card. The channel leds are encoded into 2 bytes."
-  },
-  "rptrGroupPrevStatus": {
-    "name": "rptrGroupPrevStatus",
-    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "OCTET STRING",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "8 bytes. Previous 60 status bits of the card. This object id is used mainly for traps (see Card Trap)"
-  },
-  "rptrGroupGlobalError": {
-    "name": "rptrGroupGlobalError",
-    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
       "class": "type",
-      "constraints": {
-        "enumeration": {
-          "fault-exist": 1,
-          "no-fault-exist": 2
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "Group Global Fault status. If the value is one - there is a fault in the card."
-  },
-  "rptrGroupJabberError": {
-    "name": "rptrGroupJabberError",
-    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "fault-exist": 1,
-          "no-fault-exist": 2
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "Jabber Fault status. If the value is one - there is a jabber event."
-  },
-  "rptrGroupCpuError": {
-    "name": "rptrGroupCpuError",
-    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "fault-exist": 1,
-          "no-fault-exist": 2
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "CPU Fault status. If the value is one - there is a CPU fault in the card."
-  },
-  "rptrGroupSQE": {
-    "name": "rptrGroupSQE",
-    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.7",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "fault-exist": 1,
-          "no-fault-exist": 2
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "Group SQE Fault status (for AUI module (339)). If the value is one - there is an SQE indication to the card."
-  },
-  "rptrGroupRepeaterBlockError": {
-    "name": "rptrGroupRepeaterBlockError",
-    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.8",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "fault-exist": 1,
-          "no-fault-exist": 2
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "Repeater Block Fault status. If the value is one - there is a fault in the repeater block."
+      "type": "INTEGER"
+    }
   },
   "rptrGroupAutoPartition": {
-    "name": "rptrGroupAutoPartition",
-    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.9",
-    "nodetype": "column",
     "class": "objecttype",
+    "description": "Group Auto partition Fault status. If the value is one - at least one of the ports is in auto-partition.",
+    "maxaccess": "read-only",
+    "name": "rptrGroupAutoPartition",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.9",
+    "status": "mandatory",
     "syntax": {
-      "type": "INTEGER",
       "class": "type",
       "constraints": {
         "enumeration": {
           "fault-exist": 1,
           "no-fault-exist": 2
         }
-      }
-    },
-    "maxaccess": "read-only",
+      },
+      "type": "INTEGER"
+    }
+  },
+  "rptrGroupBackupHead1State": {
+    "class": "objecttype",
+    "description": "Enable the user to enable or disable the backup port for Head module only in 303 cards. when set to enabled(1) the active port will be the primary port, when set to disabled(2) the active port will be the secondary port and when set to normal(3) the active port will be set by the backup algorithm",
+    "maxaccess": "read-write",
+    "name": "rptrGroupBackupHead1State",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.14",
     "status": "mandatory",
-    "description": "Group Auto partition Fault status. If the value is one - at least one of the ports is in auto-partition."
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1,
+          "normal": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "rptrGroupCPUFaultStatus": {
+    "class": "notificationtype",
+    "description": "Issued when a CPU fault is detected",
+    "name": "rptrGroupCPUFaultStatus",
+    "objects": [
+      {
+        "module": "Hub-rptr-prvt",
+        "object": "rptrGroupIndex"
+      },
+      {
+        "module": "Hub-rptr-prvt",
+        "object": "rptrGroupCpuError"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.22.51.11.0.3"
+  },
+  "rptrGroupCpuError": {
+    "class": "objecttype",
+    "description": "CPU Fault status. If the value is one - there is a CPU fault in the card.",
+    "maxaccess": "read-only",
+    "name": "rptrGroupCpuError",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fault-exist": 1,
+          "no-fault-exist": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "rptrGroupDetachEdbPort": {
+    "class": "notificationtype",
+    "description": "Issued when the port connected to the EDB Is not dettached by a detach command received from the NMS",
+    "name": "rptrGroupDetachEdbPort",
+    "objects": [
+      {
+        "module": "Hub-rptr-prvt",
+        "object": "rptrEDBPort"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.22.51.11.0.12"
+  },
+  "rptrGroupDetachNmsPort": {
+    "class": "notificationtype",
+    "description": "Issued when the port connected to the NMS Is not dettached by a detach command received from the NMS",
+    "name": "rptrGroupDetachNmsPort",
+    "objects": [
+      {
+        "module": "Hub-rptr-prvt",
+        "object": "rptrNMSConnectionPort"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.22.51.11.0.9"
   },
   "rptrGroupDetachStatus": {
-    "name": "rptrGroupDetachStatus",
-    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.10",
-    "nodetype": "column",
     "class": "objecttype",
+    "description": "Global Detach status. If the value is one - at least one of the ports is detached.",
+    "maxaccess": "read-only",
+    "name": "rptrGroupDetachStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.10",
+    "status": "mandatory",
     "syntax": {
-      "type": "INTEGER",
       "class": "type",
       "constraints": {
         "enumeration": {
           "detach-exist": 1,
           "no-detach-exist": 2
         }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "Global Detach status. If the value is one - at least one of the ports is detached."
+      },
+      "type": "INTEGER"
+    }
   },
   "rptrGroupGlobalCommandCode": {
-    "name": "rptrGroupGlobalCommandCode",
-    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.11",
-    "nodetype": "column",
     "class": "objecttype",
+    "description": "Enable the user to attach/detach all repeater ports. Note: in case off detach command - all port will detach except the port on which the last NMS message was received. when reading this object the value returned is always attach-all-ports(1)",
+    "maxaccess": "read-write",
+    "name": "rptrGroupGlobalCommandCode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.11",
+    "status": "mandatory",
     "syntax": {
-      "type": "INTEGER",
       "class": "type",
       "constraints": {
         "enumeration": {
           "attach-all-ports": 1,
           "detach-all-ports": 2
         }
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "mandatory",
-    "description": "Enable the user to attach/detach all repeater ports. Note: in case off detach command - all port will detach except the port on which the last NMS message was received. when reading this object the value returned is always attach-all-ports(1)"
-  },
-  "rptrGroupTrapMask": {
-    "name": "rptrGroupTrapMask",
-    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.12",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "mask-all": 1,
-          "mask-fatal": 2,
-          "mask-warn": 3,
-          "mask-info": 4
-        }
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "mandatory",
-    "description": "When setting this variable to mask-info(4) then only all traps will be sent. When setting this variable to mask-warn(3) then only traps with severity of warn or fatal will be sent.When setting this variable to mask-fatal(2) then only traps with severity of fatal will be sent. When setting this variable to mask-all(1) then no traps will be sent."
-  },
-  "rptrGroupLinkSelectHead1": {
-    "name": "rptrGroupLinkSelectHead1",
-    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.13",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "toggle-link-select": 1
-        }
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "mandatory",
-    "description": "Enable the user to switch between MAIN and SECOND link only in Head module in the 303 type cards."
-  },
-  "rptrGroupBackupHead1State": {
-    "name": "rptrGroupBackupHead1State",
-    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.14",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2,
-          "normal": 3
-        }
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "mandatory",
-    "description": "Enable the user to enable or disable the backup port for Head module only in 303 cards. when set to enabled(1) the active port will be the primary port, when set to disabled(2) the active port will be the secondary port and when set to normal(3) the active port will be set by the backup algorithm"
-  },
-  "rptrGroupTailState": {
-    "name": "rptrGroupTailState",
-    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.15",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2
-        }
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "deprecated",
-    "description": "Enable the user to enable or disable Tail in 303 card"
-  },
-  "rptrGroupMaxModuleNumber": {
-    "name": "rptrGroupMaxModuleNumber",
-    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.16",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "Maximum Number of modules in a group."
-  },
-  "rptrGroupPortTable": {
-    "name": "rptrGroupPortTable",
-    "oid": "1.3.6.1.4.1.22.51.11.3.1",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "mandatory"
-  },
-  "rptrGroupPortEntry": {
-    "name": "rptrGroupPortEntry",
-    "oid": "1.3.6.1.4.1.22.51.11.3.1.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "read-write",
-    "indices": [
-      {
-        "module": "Hub-rptr-prvt",
-        "object": "rptrGroupPIndex",
-        "implied": 0
       },
-      {
-        "module": "Hub-rptr-prvt",
-        "object": "rptrGroupPortIndex",
-        "implied": 0
-      }
-    ],
-    "status": "mandatory"
+      "type": "INTEGER"
+    }
   },
-  "rptrGroupPIndex": {
-    "name": "rptrGroupPIndex",
-    "oid": "1.3.6.1.4.1.22.51.11.3.1.1.1",
-    "nodetype": "column",
+  "rptrGroupGlobalError": {
     "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type"
-    },
+    "description": "Group Global Fault status. If the value is one - there is a fault in the card.",
     "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "Group Number"
-  },
-  "rptrGroupPortIndex": {
-    "name": "rptrGroupPortIndex",
-    "oid": "1.3.6.1.4.1.22.51.11.3.1.1.2",
+    "name": "rptrGroupGlobalError",
     "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
+    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.4",
     "status": "mandatory",
-    "description": "Port Number"
-  },
-  "rptrGroupPortLinkStatus": {
-    "name": "rptrGroupPortLinkStatus",
-    "oid": "1.3.6.1.4.1.22.51.11.3.1.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
       "class": "type",
       "constraints": {
         "enumeration": {
-          "link-ok": 1,
-          "link-not-ok": 2,
-          "link-not-applicable": 3
+          "fault-exist": 1,
+          "no-fault-exist": 2
         }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "When the value is 1, link status is O.K."
-  },
-  "rptrGroupPortRcvStatus": {
-    "name": "rptrGroupPortRcvStatus",
-    "oid": "1.3.6.1.4.1.22.51.11.3.1.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "receive": 1,
-          "no-receive": 2
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "This object describes the receive status of the port, When a port is receiveing data the object gets the value receive(1), when the port does not receive any data the object gets the value no-receive(2)"
-  },
-  "rptrGroupPortLinkFaultCounter": {
-    "name": "rptrGroupPortLinkFaultCounter",
-    "oid": "1.3.6.1.4.1.22.51.11.3.1.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "This counter is incremented evry time a link change is detected in the port. A link change is encountered on the port whenever the link is disappearing or apearing on the port"
-  },
-  "rptrGroupPortAutoPartitionCount": {
-    "name": "rptrGroupPortAutoPartitionCount",
-    "oid": "1.3.6.1.4.1.22.51.11.3.1.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "This counter is incremented evry time there is a Auto Partition state in the port."
-  },
-  "rptrGroupPortAutoPartitionType": {
-    "name": "rptrGroupPortAutoPartitionType",
-    "oid": "1.3.6.1.4.1.22.51.11.3.1.1.7",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "collision-limit": 1,
-          "collision-length-limit": 2,
-          "loopback-failure": 3,
-          "cpu-forced-reconnection": 4,
-          "none": 5
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "Auto Partition type."
-  },
-  "rptrGroupModuleTable": {
-    "name": "rptrGroupModuleTable",
-    "oid": "1.3.6.1.4.1.22.51.11.4.1",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "mandatory"
-  },
-  "rptrGroupModuleEntry": {
-    "name": "rptrGroupModuleEntry",
-    "oid": "1.3.6.1.4.1.22.51.11.4.1.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "read-write",
-    "indices": [
-      {
-        "module": "Hub-rptr-prvt",
-        "object": "rptrGroupMIndex",
-        "implied": 0
       },
-      {
-        "module": "Hub-rptr-prvt",
-        "object": "rptrGroupModuleIndex",
-        "implied": 0
-      }
-    ],
-    "status": "mandatory"
+      "type": "INTEGER"
+    }
   },
-  "rptrGroupMIndex": {
-    "name": "rptrGroupMIndex",
-    "oid": "1.3.6.1.4.1.22.51.11.4.1.1.1",
-    "nodetype": "column",
+  "rptrGroupGlobalStatus": {
     "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type"
-    },
+    "description": "8 bytes. 60 status bits of the card. For more information about the meaning of the status, read the specific user manual of each card. The channel leds are encoded into 2 bytes.",
     "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": "Group Number"
-  },
-  "rptrGroupModuleIndex": {
-    "name": "rptrGroupModuleIndex",
-    "oid": "1.3.6.1.4.1.22.51.11.4.1.1.2",
+    "name": "rptrGroupGlobalStatus",
     "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
+    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.2",
     "status": "mandatory",
-    "description": "Module Number"
-  },
-  "rptrGroupModuleStructInfo": {
-    "name": "rptrGroupModuleStructInfo",
-    "oid": "1.3.6.1.4.1.22.51.11.4.1.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
       "class": "type",
-      "constraints": {
-        "enumeration": {
-          "em892-330-blank": 1,
-          "em892-331-fo1": 2,
-          "em892-332-fo2": 3,
-          "em892-333-cx1": 4,
-          "em892-334-cx2": 5,
-          "em892-332b-fo2b": 6,
-          "em892-335-tp1": 7,
-          "em892-337-dte": 8,
-          "em892-336-tp2": 9,
-          "em892-339-aui": 10
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "mandatory",
-    "description": " List of modules numnbers: eM892.330 /* BLANK */ EM892.331 /* FO single port */ EM892.332 /* FO dual port */ EM892.333 /* COAX single port */ EM892.334 /* COAX dual port */ EM892.332B /* FO dual port for Dual Homing */ EM892.335 /* 10BASET single port */ EM892.337 /* DTE */ EM892.336 /* 10BASET dual port */ EM892.339 /* AUI */"
+      "type": "OCTET STRING"
+    }
   },
-  "rptrGroupModuleBackupState": {
-    "name": "rptrGroupModuleBackupState",
-    "oid": "1.3.6.1.4.1.22.51.11.4.1.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enable": 1,
-          "disable": 2,
-          "hardware": 3
-        }
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "mandatory",
-    "description": "Enable the user to overide the backup switch (enable/disable). or let the state be as the switch is (hardware) This object applies only to the 308 card. setting this object will take effect only after the next reset or power up of the card."
-  },
-  "rptrGroupPortStatus": {
-    "name": "rptrGroupPortStatus",
-    "oid": "1.3.6.1.4.1.22.51.110.1",
+  "rptrGroupHead1BackupMainActive": {
     "class": "notificationtype",
+    "description": "Indicates that the MAIN link is active",
+    "name": "rptrGroupHead1BackupMainActive",
     "objects": [
       {
-        "module": "SNMP-REPEATER-MIB",
-        "object": "rptrPortGroupIndex"
-      },
-      {
-        "module": "SNMP-REPEATER-MIB",
-        "object": "rptrPortIndex"
-      },
-      {
-        "module": "SNMP-REPEATER-MIB",
-        "object": "rptrPortAdminStatus"
+        "module": "Hub-rptr-prvt",
+        "object": "rptrGroupIndex"
       }
     ],
-    "description": "Issued when the port changed its status"
+    "oid": "1.3.6.1.4.1.22.51.0.10"
+  },
+  "rptrGroupHead1BackupSecondActive": {
+    "class": "notificationtype",
+    "description": "Indicates that the SECOND link is active",
+    "name": "rptrGroupHead1BackupSecondActive",
+    "objects": [
+      {
+        "module": "Hub-rptr-prvt",
+        "object": "rptrGroupIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.22.51.0.11"
+  },
+  "rptrGroupIndex": {
+    "class": "objecttype",
+    "description": "Group Number",
+    "maxaccess": "read-only",
+    "name": "rptrGroupIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "rptrGroupJabberError": {
+    "class": "objecttype",
+    "description": "Jabber Fault status. If the value is one - there is a jabber event.",
+    "maxaccess": "read-only",
+    "name": "rptrGroupJabberError",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fault-exist": 1,
+          "no-fault-exist": 2
+        }
+      },
+      "type": "INTEGER"
+    }
   },
   "rptrGroupJabberFaultStatus": {
-    "name": "rptrGroupJabberFaultStatus",
-    "oid": "1.3.6.1.4.1.22.51.110.2",
     "class": "notificationtype",
+    "description": "Issued when the port enters the jabber lock state",
+    "name": "rptrGroupJabberFaultStatus",
     "objects": [
       {
         "module": "Hub-rptr-prvt",
@@ -796,64 +357,170 @@
         "object": "rptrGroupJabberError"
       }
     ],
-    "description": "Issued when the port enters the jabber lock state"
+    "oid": "1.3.6.1.4.1.22.51.11.0.2"
   },
-  "rptrGroupCPUFaultStatus": {
-    "name": "rptrGroupCPUFaultStatus",
-    "oid": "1.3.6.1.4.1.22.51.110.3",
-    "class": "notificationtype",
-    "objects": [
+  "rptrGroupLinkSelectHead1": {
+    "class": "objecttype",
+    "description": "Enable the user to switch between MAIN and SECOND link only in Head module in the 303 type cards.",
+    "maxaccess": "read-write",
+    "name": "rptrGroupLinkSelectHead1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.13",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "toggle-link-select": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "rptrGroupMIndex": {
+    "class": "objecttype",
+    "description": "Group Number",
+    "maxaccess": "read-only",
+    "name": "rptrGroupMIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.51.11.4.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "rptrGroupMaxModuleNumber": {
+    "class": "objecttype",
+    "description": "Maximum Number of modules in a group.",
+    "maxaccess": "read-only",
+    "name": "rptrGroupMaxModuleNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.16",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "rptrGroupModuleBackupState": {
+    "class": "objecttype",
+    "description": "Enable the user to overide the backup switch (enable/disable). or let the state be as the switch is (hardware) This object applies only to the 308 card. setting this object will take effect only after the next reset or power up of the card.",
+    "maxaccess": "read-write",
+    "name": "rptrGroupModuleBackupState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.51.11.4.1.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1,
+          "hardware": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "rptrGroupModuleEntry": {
+    "class": "objecttype",
+    "indices": [
       {
+        "implied": 0,
         "module": "Hub-rptr-prvt",
-        "object": "rptrGroupIndex"
+        "object": "rptrGroupMIndex"
       },
       {
+        "implied": 0,
         "module": "Hub-rptr-prvt",
-        "object": "rptrGroupCpuError"
+        "object": "rptrGroupModuleIndex"
       }
     ],
-    "description": "Issued when a CPU fault is detected"
+    "maxaccess": "read-write",
+    "name": "rptrGroupModuleEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.22.51.11.4.1.1",
+    "status": "mandatory"
   },
-  "rptrGroupSQEStatus": {
-    "name": "rptrGroupSQEStatus",
-    "oid": "1.3.6.1.4.1.22.51.110.4",
-    "class": "notificationtype",
-    "objects": [
-      {
-        "module": "Hub-rptr-prvt",
-        "object": "rptrGroupIndex"
-      },
-      {
-        "module": "Hub-rptr-prvt",
-        "object": "rptrGroupPortIndex"
-      },
-      {
-        "module": "Hub-rptr-prvt",
-        "object": "rptrGroupSQE"
-      }
-    ],
-    "description": "Issued when a SQE error is detected"
+  "rptrGroupModuleIndex": {
+    "class": "objecttype",
+    "description": "Module Number",
+    "maxaccess": "read-only",
+    "name": "rptrGroupModuleIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.51.11.4.1.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
   },
-  "rptrGroupRepeaterBlockFaultStatus": {
-    "name": "rptrGroupRepeaterBlockFaultStatus",
-    "oid": "1.3.6.1.4.1.22.51.110.5",
-    "class": "notificationtype",
-    "objects": [
-      {
-        "module": "Hub-rptr-prvt",
-        "object": "rptrGroupIndex"
+  "rptrGroupModuleStructInfo": {
+    "class": "objecttype",
+    "description": " List of modules numnbers: eM892.330 /* BLANK */ EM892.331 /* FO single port */ EM892.332 /* FO dual port */ EM892.333 /* COAX single port */ EM892.334 /* COAX dual port */ EM892.332B /* FO dual port for Dual Homing */ EM892.335 /* 10BASET single port */ EM892.337 /* DTE */ EM892.336 /* 10BASET dual port */ EM892.339 /* AUI */",
+    "maxaccess": "read-only",
+    "name": "rptrGroupModuleStructInfo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.51.11.4.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "em892-330-blank": 1,
+          "em892-331-fo1": 2,
+          "em892-332-fo2": 3,
+          "em892-332b-fo2b": 6,
+          "em892-333-cx1": 4,
+          "em892-334-cx2": 5,
+          "em892-335-tp1": 7,
+          "em892-336-tp2": 9,
+          "em892-337-dte": 8,
+          "em892-339-aui": 10
+        }
       },
-      {
-        "module": "Hub-rptr-prvt",
-        "object": "rptrGroupRepeaterBlockError"
-      }
-    ],
-    "description": "Issued when a repeater block error is detected"
+      "type": "INTEGER"
+    }
+  },
+  "rptrGroupModuleTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "rptrGroupModuleTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.22.51.11.4.1",
+    "status": "mandatory"
+  },
+  "rptrGroupPIndex": {
+    "class": "objecttype",
+    "description": "Group Number",
+    "maxaccess": "read-only",
+    "name": "rptrGroupPIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.51.11.3.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "rptrGroupPortAutoPartitionCount": {
+    "class": "objecttype",
+    "description": "This counter is incremented evry time there is a Auto Partition state in the port.",
+    "maxaccess": "read-only",
+    "name": "rptrGroupPortAutoPartitionCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.51.11.3.1.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
   },
   "rptrGroupPortAutoPartitionStatus": {
-    "name": "rptrGroupPortAutoPartitionStatus",
-    "oid": "1.3.6.1.4.1.22.51.110.6",
     "class": "notificationtype",
+    "description": "Issued when the port is auto partitioned",
+    "name": "rptrGroupPortAutoPartitionStatus",
     "objects": [
       {
         "module": "Hub-rptr-prvt",
@@ -868,32 +535,100 @@
         "object": "rptrGroupPortAutoPartitionType"
       }
     ],
-    "description": "Issued when the port is auto partitioned"
+    "oid": "1.3.6.1.4.1.22.51.11.0.6"
   },
-  "rptrGroupTrap": {
-    "name": "rptrGroupTrap",
-    "oid": "1.3.6.1.4.1.22.51.110.7",
-    "class": "notificationtype",
-    "objects": [
+  "rptrGroupPortAutoPartitionType": {
+    "class": "objecttype",
+    "description": "Auto Partition type.",
+    "maxaccess": "read-only",
+    "name": "rptrGroupPortAutoPartitionType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.51.11.3.1.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "collision-length-limit": 2,
+          "collision-limit": 1,
+          "cpu-forced-reconnection": 4,
+          "loopback-failure": 3,
+          "none": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "rptrGroupPortEntry": {
+    "class": "objecttype",
+    "indices": [
       {
+        "implied": 0,
         "module": "Hub-rptr-prvt",
-        "object": "rptrGroupIndex"
+        "object": "rptrGroupPIndex"
       },
       {
+        "implied": 0,
         "module": "Hub-rptr-prvt",
-        "object": "rptrGroupGlobalStatus"
-      },
-      {
-        "module": "Hub-rptr-prvt",
-        "object": "rptrGroupPrevStatus"
+        "object": "rptrGroupPortIndex"
       }
     ],
-    "description": "Generated when a significant status has changed in a group. By xoring the 2 statuses, the NMS can identify the cause of the trap."
+    "maxaccess": "read-write",
+    "name": "rptrGroupPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.22.51.11.3.1.1",
+    "status": "mandatory"
+  },
+  "rptrGroupPortIndex": {
+    "class": "objecttype",
+    "description": "Port Number",
+    "maxaccess": "read-only",
+    "name": "rptrGroupPortIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.51.11.3.1.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "rptrGroupPortLinkFaultCounter": {
+    "class": "objecttype",
+    "description": "This counter is incremented evry time a link change is detected in the port. A link change is encountered on the port whenever the link is disappearing or apearing on the port",
+    "maxaccess": "read-only",
+    "name": "rptrGroupPortLinkFaultCounter",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.51.11.3.1.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "rptrGroupPortLinkStatus": {
+    "class": "objecttype",
+    "description": "When the value is 1, link status is O.K.",
+    "maxaccess": "read-only",
+    "name": "rptrGroupPortLinkStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.51.11.3.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "link-not-applicable": 3,
+          "link-not-ok": 2,
+          "link-ok": 1
+        }
+      },
+      "type": "INTEGER"
+    }
   },
   "rptrGroupPortLinkStatus2": {
-    "name": "rptrGroupPortLinkStatus2",
-    "oid": "1.3.6.1.4.1.22.51.110.8",
     "class": "notificationtype",
+    "description": "Issued when the link status of the port changed its status",
+    "name": "rptrGroupPortLinkStatus2",
     "objects": [
       {
         "module": "SNMP-REPEATER-MIB",
@@ -908,63 +643,328 @@
         "object": "rptrGroupPortLinkStatus"
       }
     ],
-    "description": "Issued when the link status of the port changed its status"
+    "oid": "1.3.6.1.4.1.22.51.11.0.8"
   },
-  "rptrGroupDetachNmsPort": {
-    "name": "rptrGroupDetachNmsPort",
-    "oid": "1.3.6.1.4.1.22.51.110.9",
+  "rptrGroupPortRcvStatus": {
+    "class": "objecttype",
+    "description": "This object describes the receive status of the port, When a port is receiveing data the object gets the value receive(1), when the port does not receive any data the object gets the value no-receive(2)",
+    "maxaccess": "read-only",
+    "name": "rptrGroupPortRcvStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.51.11.3.1.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-receive": 2,
+          "receive": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "rptrGroupPortStatus": {
     "class": "notificationtype",
+    "description": "Issued when the port changed its status",
+    "name": "rptrGroupPortStatus",
     "objects": [
       {
-        "module": "Hub-rptr-prvt",
-        "object": "rptrNMSConnectionPort"
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrPortGroupIndex"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrPortIndex"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrPortAdminStatus"
       }
     ],
-    "description": "Issued when the port connected to the NMS Is not dettached by a detach command received from the NMS"
+    "oid": "1.3.6.1.4.1.22.51.11.0.1"
   },
-  "rptrGroupHead1BackupMainActive": {
-    "name": "rptrGroupHead1BackupMainActive",
-    "oid": "1.3.6.1.4.1.22.510.10",
+  "rptrGroupPortTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "rptrGroupPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.22.51.11.3.1",
+    "status": "mandatory"
+  },
+  "rptrGroupPrevStatus": {
+    "class": "objecttype",
+    "description": "8 bytes. Previous 60 status bits of the card. This object id is used mainly for traps (see Card Trap)",
+    "maxaccess": "read-only",
+    "name": "rptrGroupPrevStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "rptrGroupRepeaterBlockError": {
+    "class": "objecttype",
+    "description": "Repeater Block Fault status. If the value is one - there is a fault in the repeater block.",
+    "maxaccess": "read-only",
+    "name": "rptrGroupRepeaterBlockError",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fault-exist": 1,
+          "no-fault-exist": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "rptrGroupRepeaterBlockFaultStatus": {
     "class": "notificationtype",
+    "description": "Issued when a repeater block error is detected",
+    "name": "rptrGroupRepeaterBlockFaultStatus",
     "objects": [
       {
         "module": "Hub-rptr-prvt",
         "object": "rptrGroupIndex"
+      },
+      {
+        "module": "Hub-rptr-prvt",
+        "object": "rptrGroupRepeaterBlockError"
       }
     ],
-    "description": "Indicates that the MAIN link is active"
+    "oid": "1.3.6.1.4.1.22.51.11.0.5"
   },
-  "rptrGroupHead1BackupSecondActive": {
-    "name": "rptrGroupHead1BackupSecondActive",
-    "oid": "1.3.6.1.4.1.22.510.11",
+  "rptrGroupSQE": {
+    "class": "objecttype",
+    "description": "Group SQE Fault status (for AUI module (339)). If the value is one - there is an SQE indication to the card.",
+    "maxaccess": "read-only",
+    "name": "rptrGroupSQE",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fault-exist": 1,
+          "no-fault-exist": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "rptrGroupSQEStatus": {
     "class": "notificationtype",
+    "description": "Issued when a SQE error is detected",
+    "name": "rptrGroupSQEStatus",
     "objects": [
       {
         "module": "Hub-rptr-prvt",
         "object": "rptrGroupIndex"
+      },
+      {
+        "module": "Hub-rptr-prvt",
+        "object": "rptrGroupPortIndex"
+      },
+      {
+        "module": "Hub-rptr-prvt",
+        "object": "rptrGroupSQE"
       }
     ],
-    "description": "Indicates that the SECOND link is active"
+    "oid": "1.3.6.1.4.1.22.51.11.0.4"
   },
-  "rptrGroupDetachEdbPort": {
-    "name": "rptrGroupDetachEdbPort",
-    "oid": "1.3.6.1.4.1.22.51.110.12",
+  "rptrGroupTailState": {
+    "class": "objecttype",
+    "description": "Enable the user to enable or disable Tail in 303 card",
+    "maxaccess": "read-write",
+    "name": "rptrGroupTailState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.15",
+    "status": "deprecated",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "rptrGroupTrap": {
     "class": "notificationtype",
+    "description": "Generated when a significant status has changed in a group. By xoring the 2 statuses, the NMS can identify the cause of the trap.",
+    "name": "rptrGroupTrap",
     "objects": [
       {
         "module": "Hub-rptr-prvt",
-        "object": "rptrEDBPort"
+        "object": "rptrGroupIndex"
+      },
+      {
+        "module": "Hub-rptr-prvt",
+        "object": "rptrGroupGlobalStatus"
+      },
+      {
+        "module": "Hub-rptr-prvt",
+        "object": "rptrGroupPrevStatus"
       }
     ],
-    "description": "Issued when the port connected to the EDB Is not dettached by a detach command received from the NMS"
+    "oid": "1.3.6.1.4.1.22.51.11.0.7"
   },
-  "meta": {
-    "comments": [
-      "ASN.1 source file:///home/tin/Dev/mibs.snmplabs.com/asn1/Hub-rptr-prvt",
-      "Produced by pysmi-0.3.4 at Fri Jan 31 21:34:16 2020",
-      "On host bier platform Linux version 5.4.0-3-amd64 by user tin",
-      "Using Python version 3.7.6 (default, Jan 19 2020, 22:34:52) "
+  "rptrGroupTrapMask": {
+    "class": "objecttype",
+    "description": "When setting this variable to mask-info(4) then only all traps will be sent. When setting this variable to mask-warn(3) then only traps with severity of warn or fatal will be sent.When setting this variable to mask-fatal(2) then only traps with severity of fatal will be sent. When setting this variable to mask-all(1) then no traps will be sent.",
+    "maxaccess": "read-write",
+    "name": "rptrGroupTrapMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.22.51.11.2.1.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mask-all": 1,
+          "mask-fatal": 2,
+          "mask-info": 4,
+          "mask-warn": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "rptrJabberCounter": {
+    "class": "objecttype",
+    "description": "This counter is incremented evry time there is a jubber in one of the ports.",
+    "maxaccess": "read-only",
+    "name": "rptrJabberCounter",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.51.11.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "rptrMemoryErrors": {
+    "class": "objecttype",
+    "description": "This counter is incremented evry time there is a memory error",
+    "maxaccess": "read-only",
+    "name": "rptrMemoryErrors",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.51.11.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "rptrNMSConnectionPort": {
+    "class": "objecttype",
+    "description": "Returns the port number which the NMS is connected.",
+    "maxaccess": "read-only",
+    "name": "rptrNMSConnectionPort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.51.11.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "rptrRxDscrptrOverFlow": {
+    "class": "objecttype",
+    "description": "This counter reflects the number of the missed received packets due to lack of resourcees such as descriptors or memory buffers",
+    "maxaccess": "read-only",
+    "name": "rptrRxDscrptrOverFlow",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.51.11.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "rptrTxDscrptrOverFlow": {
+    "class": "objecttype",
+    "description": "This counter is incremented evry time there is a transmit over flow",
+    "maxaccess": "read-only",
+    "name": "rptrTxDscrptrOverFlow",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.22.51.11.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "rptrfmGroupEntry": {
+    "class": "objecttype",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "Hub-rptr-prvt",
+        "object": "rptrGroupIndex"
+      }
     ],
-    "module": "Hub-rptr-prvt"
+    "maxaccess": "not-accessible",
+    "name": "rptrfmGroupEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.22.51.11.2.1.1",
+    "status": "mandatory"
+  },
+  "rptrfmGroupTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "rptrfmGroupTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.22.51.11.2.1",
+    "status": "mandatory"
+  },
+  "rptrgroup": {
+    "class": "objectidentity",
+    "name": "rptrgroup",
+    "oid": "1.3.6.1.4.1.22.51.11.2"
+  },
+  "rptrgroupmodule": {
+    "class": "objectidentity",
+    "name": "rptrgroupmodule",
+    "oid": "1.3.6.1.4.1.22.51.11.4"
+  },
+  "rptrgroupport": {
+    "class": "objectidentity",
+    "name": "rptrgroupport",
+    "oid": "1.3.6.1.4.1.22.51.11.3"
+  },
+  "rptrinfo": {
+    "class": "objectidentity",
+    "name": "rptrinfo",
+    "oid": "1.3.6.1.4.1.22.51.11.1"
+  },
+  "trap": {
+    "class": "objectidentity",
+    "name": "trap",
+    "oid": "1.3.6.1.4.1.22.3"
+  },
+  "traperm": {
+    "class": "objectidentity",
+    "name": "traperm",
+    "oid": "1.3.6.1.4.1.22.3.2"
+  },
+  "traprun": {
+    "class": "objectidentity",
+    "name": "traprun",
+    "oid": "1.3.6.1.4.1.22.3.1"
+  },
+  "trapvar": {
+    "class": "objectidentity",
+    "name": "trapvar",
+    "oid": "1.3.6.1.4.1.22.3.3"
   }
 }

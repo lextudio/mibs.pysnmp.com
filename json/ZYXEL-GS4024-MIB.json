@@ -1,0 +1,5793 @@
+{
+  "EventIdNumber": {
+    "class": "textualconvention",
+    "description": "This textual convention describes the index that uniquely identifies a fault event type in the entire system. Every fault event type, e.g. link down, has a unique EventIdNumber.",
+    "name": "EventIdNumber",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "EventPersistence": {
+    "class": "textualconvention",
+    "description": "This textual convention indicates whether the event is delta (automatically and immediately cleared) or normal (not automatically cleared).",
+    "name": "EventPersistence",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delta": 2,
+          "normal": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "EventServiceAffective": {
+    "class": "textualconvention",
+    "description": "This textual convention indicates whether an event is immediately service affecting or not.",
+    "name": "EventServiceAffective",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noServiceAffected": 1,
+          "serviceAffected": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "EventSeverity": {
+    "class": "textualconvention",
+    "description": "This textual convention describes the severity of a fault event. The decreasing order of severity is shown in the textual convention.",
+    "name": "EventSeverity",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "informational": 4,
+          "major": 2,
+          "minor": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "InstanceType": {
+    "class": "textualconvention",
+    "description": "This textual convention describes the type of an instanceId associated with each event and by that means specifies how the instanceId variable should be intepreted. Various instanceId types are specified below to enable fault monitoring for different kind of devices from fixed configuration pizza boxes to multi chassis nodes. All instanceId types may not need to be used in every device type. Note also that instanceId semantics are element type dependent (e.g. different kind of interface naming conventions may be used) and thus instanceId usage may vary from element to element. ========================================================================= Type Description Example form of InstanceId ========================================================================= unknown (1) unknown type - Irrelevant- ------------------------------------------------------------------------- node (2) Associated with events originating from 1 the node. Used for general events that (Node number) can not be associated with any specific block. InstanceId value 1 is used for single node equipment. ------------------------------------------------------------------------- shelf (3) Associated with events originating from 1 the shelf. In the case of fixed (shelf number) configuration devices this type is used for events that are associated with the physical enclosure, e.g. faults related to fan etc. InstanceId value 1 is used for single self equipment. ------------------------------------------------------------------------- line (4) Associated with events originating from physical interfaces or associated components such as line cards. InstanceId usage examples for faults originating from: - Physical port: Simply port number, e.g. .......1 ------------------------------------------------------------------------- switch (5) Associated with events originating from 1 from a switch chip or a switch card. (switch number) For single switch equipment InstanceId value 1 is used, for multi swich nodes InstanceId semantics if for further study. ------------------------------------------------------------------------- lsp (6) Associated with events originating from 1 a particular lsp. (lsp index) NOTE: In this case the InstanceName contains the lsp name and InstanceId contains lsp index. ------------------------------------------------------------------------- l2Interface(7) Associated with events originating from - TBD - a particular layer 2 interface. Used for layer 2 related events such as L2 control protocol faults. InstanceId semantics is for further study. ------------------------------------------------------------------------- l3Interface(8) Associated with events originating from - TBD - a particular layer 3 interface. Used for layer 3 related events such as L3 control protocol faults. InstanceId semantics is for further study. ------------------------------------------------------------------------- rowIndex (9) Associated with events reporting about a \u0027logical\u0027 or conceptual table that consists of rows. The Instance Id is the index/key for a row in the table. The format of the Instance Id will simply be a series of decimal numbers seperated by a \u0027.\u0027: =========================================================================",
+    "name": "InstanceType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "l2Interface": 7,
+          "l3Interface": 8,
+          "line": 4,
+          "lsp": 6,
+          "node": 2,
+          "rowIndex": 9,
+          "shelf": 3,
+          "switch": 5,
+          "unknown": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "UtcTimeStamp": {
+    "class": "textualconvention",
+    "description": "Universal Time Coordinated as a 32-bit value that designates the number of seconds since Jan 1, 1970 12:00AM.",
+    "name": "UtcTimeStamp",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "accessCtlEnable": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "accessCtlEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.18.1.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "accessCtlEntry": {
+    "class": "objecttype",
+    "description": "An entry in accessCtlTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "accessCtlService"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "accessCtlEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.18.1.1",
+    "status": "mandatory"
+  },
+  "accessCtlService": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "accessCtlService",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.18.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftp": 3,
+          "http": 4,
+          "https": 5,
+          "icmp": 6,
+          "snmp": 7,
+          "ssh": 2,
+          "telnet": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "accessCtlServicePort": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "accessCtlServicePort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.18.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "accessCtlSetup": {
+    "class": "objectidentity",
+    "name": "accessCtlSetup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.18"
+  },
+  "accessCtlTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "accessCtlTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.18.1",
+    "status": "mandatory"
+  },
+  "accessCtlTimeout": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "accessCtlTimeout",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.18.1.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "accessSwitch": {
+    "class": "objectidentity",
+    "name": "accessSwitch",
+    "oid": "1.3.6.1.4.1.890.1.5"
+  },
+  "aggrGroupDynamicState": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "aggrGroupDynamicState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.17.3.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "aggrGroupEntry": {
+    "class": "objecttype",
+    "description": "An entry in aggrGroupTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "aggrGroupIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "aggrGroupEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.17.3.1",
+    "status": "mandatory"
+  },
+  "aggrGroupIndex": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "aggrGroupIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.17.3.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "aggrGroupState": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "aggrGroupState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.17.3.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "aggrGroupTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "aggrGroupTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.17.3",
+    "status": "mandatory"
+  },
+  "aggrPortDynamicStateTimeout": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "aggrPortDynamicStateTimeout",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.17.4.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "aggrPortEntry": {
+    "class": "objecttype",
+    "description": "An entry in aggrPortTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "aggrPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.17.4.1",
+    "status": "mandatory"
+  },
+  "aggrPortGroup": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "aggrPortGroup",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.17.4.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "t1": 1,
+          "t2": 2,
+          "t3": 3,
+          "t4": 4,
+          "t5": 5,
+          "t6": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "aggrPortTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "aggrPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.17.4",
+    "status": "mandatory"
+  },
+  "aggrSetup": {
+    "class": "objectidentity",
+    "name": "aggrSetup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.17"
+  },
+  "aggrState": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "aggrState",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.17.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "aggrSystemPriority": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "aggrSystemPriority",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.17.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "arpEntry": {
+    "class": "objecttype",
+    "description": "An entry in arpTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "arpIpAddr"
+      },
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "arpMacVid"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "arpEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.22.1.1",
+    "status": "mandatory"
+  },
+  "arpIndex": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "arpIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.22.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "arpInfo": {
+    "class": "objectidentity",
+    "name": "arpInfo",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.22"
+  },
+  "arpIpAddr": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "arpIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.22.1.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "arpMacAddr": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "arpMacAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.22.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "arpMacVid": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "arpMacVid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.22.1.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "arpTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "arpTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.22.1",
+    "status": "mandatory"
+  },
+  "arpType": {
+    "class": "objecttype",
+    "description": "1-static, 2-dynamic",
+    "maxaccess": "read-only",
+    "name": "arpType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.22.1.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dynamic": 2,
+          "static": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "brLimitPortBrRate": {
+    "class": "objecttype",
+    "description": "Allowed broadcast rate in pkts/s. For FE port, the maximum value is 148800. For GE port, the maximum value is 262143.",
+    "maxaccess": "read-write",
+    "name": "brLimitPortBrRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.3.2.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "brLimitPortBrState": {
+    "class": "objecttype",
+    "description": "Broadcast rate limiting enabled/disabled on the port.",
+    "maxaccess": "read-write",
+    "name": "brLimitPortBrState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.3.2.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "brLimitPortDlfRate": {
+    "class": "objecttype",
+    "description": "Allowed destination lookup failure frames rate in pkts/s. For FE port, the maximum value is 148800. For GE port, the maximum value is 262143.",
+    "maxaccess": "read-write",
+    "name": "brLimitPortDlfRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.3.2.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "brLimitPortDlfState": {
+    "class": "objecttype",
+    "description": "Destination lookup failure frames rate limiting enabled/disabled on the port.",
+    "maxaccess": "read-write",
+    "name": "brLimitPortDlfState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.3.2.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "brLimitPortEntry": {
+    "class": "objecttype",
+    "description": "An entry in brLimitPortTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "brLimitPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.3.2.1",
+    "status": "mandatory"
+  },
+  "brLimitPortMcRate": {
+    "class": "objecttype",
+    "description": "AAllowed mullticast rate in pkts/s. For FE port, the maximum value is 148800. For GE port, the maximum value is 262143.",
+    "maxaccess": "read-write",
+    "name": "brLimitPortMcRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.3.2.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "brLimitPortMcState": {
+    "class": "objecttype",
+    "description": "Multicast rate limiting enabled/disabled on the port.",
+    "maxaccess": "read-write",
+    "name": "brLimitPortMcState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.3.2.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "brLimitPortTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "brLimitPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.3.2",
+    "status": "mandatory"
+  },
+  "brLimitSetup": {
+    "class": "objectidentity",
+    "name": "brLimitSetup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.3"
+  },
+  "brLimitState": {
+    "class": "objecttype",
+    "description": "Broadcast/multicast/DLF rate limiting enabled/disabled for the switch.",
+    "maxaccess": "read-write",
+    "name": "brLimitState",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.3.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "clsuterStatusMaxNumOfMember": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "clsuterStatusMaxNumOfMember",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.4.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "clusterCandidateEntry": {
+    "class": "objecttype",
+    "description": "An entry in clusterCandidateTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "clusterCandidateMac"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "clusterCandidateEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.3.1.1",
+    "status": "mandatory"
+  },
+  "clusterCandidateMac": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "clusterCandidateMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.3.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "clusterCandidateModel": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "clusterCandidateModel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.3.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "clusterCandidateName": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "clusterCandidateName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.3.1.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "clusterCandidateTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "clusterCandidateTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.3.1",
+    "status": "mandatory"
+  },
+  "clusterCandidates": {
+    "class": "objectidentity",
+    "name": "clusterCandidates",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.3"
+  },
+  "clusterManager": {
+    "class": "objectidentity",
+    "name": "clusterManager",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.1"
+  },
+  "clusterManagerEntry": {
+    "class": "objecttype",
+    "description": "An entry in clusterManagerTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "clusterManagerVid"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "clusterManagerEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.1.2.1",
+    "status": "mandatory"
+  },
+  "clusterManagerName": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "clusterManagerName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.1.2.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "clusterManagerRowStatus": {
+    "class": "objecttype",
+    "maxaccess": "read-create",
+    "name": "clusterManagerRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.1.2.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "clusterManagerTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "clusterManagerTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.1.2",
+    "status": "mandatory"
+  },
+  "clusterManagerVid": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "clusterManagerVid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.1.2.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "clusterMaxNumOfManager": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "clusterMaxNumOfManager",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "clusterMaxNumOfMember": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "clusterMaxNumOfMember",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.2.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "clusterMemberEntry": {
+    "class": "objecttype",
+    "description": "An entry in clusterMemberTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "clusterMemberMac"
+      },
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "clusterMemberPassword"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "clusterMemberEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.2.2.1",
+    "status": "mandatory"
+  },
+  "clusterMemberMac": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "clusterMemberMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.2.2.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "clusterMemberModel": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "clusterMemberModel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.2.2.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "clusterMemberName": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "clusterMemberName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.2.2.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "clusterMemberPassword": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "clusterMemberPassword",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.2.2.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "clusterMemberRowStatus": {
+    "class": "objecttype",
+    "maxaccess": "read-create",
+    "name": "clusterMemberRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.2.2.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "clusterMemberTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "clusterMemberTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.2.2",
+    "status": "mandatory"
+  },
+  "clusterMembers": {
+    "class": "objectidentity",
+    "name": "clusterMembers",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.2"
+  },
+  "clusterSetup": {
+    "class": "objectidentity",
+    "name": "clusterSetup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35"
+  },
+  "clusterStatus": {
+    "class": "objectidentity",
+    "name": "clusterStatus",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.4"
+  },
+  "clusterStatusManager": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "clusterStatusManager",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.4.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "clusterStatusMemberEntry": {
+    "class": "objecttype",
+    "description": "An entry in clusterStatusMemberTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "clusterStatusMemberMac"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "clusterStatusMemberEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.4.4.1",
+    "status": "mandatory"
+  },
+  "clusterStatusMemberMac": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "clusterStatusMemberMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.4.4.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "clusterStatusMemberModel": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "clusterStatusMemberModel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.4.4.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "clusterStatusMemberName": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "clusterStatusMemberName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.4.4.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "clusterStatusMemberStatus": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "clusterStatusMemberStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.4.4.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "error": 0,
+          "offline": 2,
+          "online": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "clusterStatusMemberTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "clusterStatusMemberTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.4.4",
+    "status": "mandatory"
+  },
+  "clusterStatusRole": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "clusterStatusRole",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.35.4.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manager": 1,
+          "member": 2,
+          "none": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "ctlProtTransSetup": {
+    "class": "objectidentity",
+    "name": "ctlProtTransSetup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.6"
+  },
+  "ctlProtTransState": {
+    "class": "objecttype",
+    "description": "Bridge control protocol transparency enabled/disabled for the switch",
+    "maxaccess": "read-write",
+    "name": "ctlProtTransState",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.6.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "ctlProtTransTunnelMode": {
+    "class": "objecttype",
+    "description": "Bridge control protocol transparency mode for the port. Modes: Peer(0), Tunnel(1), Discard(2), Network(3)",
+    "maxaccess": "read-write",
+    "name": "ctlProtTransTunnelMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.6.2.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discard": 2,
+          "network": 3,
+          "peer": 0,
+          "tunnel": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "ctlProtTransTunnelPortEntry": {
+    "class": "objecttype",
+    "description": "An entry in ctlProtTransTunnelPortTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "ctlProtTransTunnelPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.6.2.1",
+    "status": "mandatory"
+  },
+  "ctlProtTransTunnelPortTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "ctlProtTransTunnelPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.6.2",
+    "status": "mandatory"
+  },
+  "dateTimeNewDateDay": {
+    "class": "objecttype",
+    "description": "The new date in day.",
+    "maxaccess": "read-write",
+    "name": "dateTimeNewDateDay",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.11.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "dateTimeNewDateMonth": {
+    "class": "objecttype",
+    "description": "The new date in month.",
+    "maxaccess": "read-write",
+    "name": "dateTimeNewDateMonth",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.11.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "dateTimeNewDateYear": {
+    "class": "objecttype",
+    "description": "The new date in year.",
+    "maxaccess": "read-write",
+    "name": "dateTimeNewDateYear",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.11.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "dateTimeNewTimeHour": {
+    "class": "objecttype",
+    "description": "The new time in hour.",
+    "maxaccess": "read-write",
+    "name": "dateTimeNewTimeHour",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.11.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "dateTimeNewTimeMinute": {
+    "class": "objecttype",
+    "description": "The new time in minute.",
+    "maxaccess": "read-write",
+    "name": "dateTimeNewTimeMinute",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.11.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "dateTimeNewTimeSecond": {
+    "class": "objecttype",
+    "description": "The new time in second.",
+    "maxaccess": "read-write",
+    "name": "dateTimeNewTimeSecond",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.11.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "dateTimeServerIP": {
+    "class": "objecttype",
+    "description": "IP address of time server.",
+    "maxaccess": "read-write",
+    "name": "dateTimeServerIP",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.11.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "dateTimeServerSetup": {
+    "class": "objectidentity",
+    "name": "dateTimeServerSetup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.11"
+  },
+  "dateTimeServerType": {
+    "class": "objecttype",
+    "description": "The time service protocol.",
+    "maxaccess": "read-write",
+    "name": "dateTimeServerType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.11.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "daytime": 2,
+          "none": 1,
+          "ntp": 4,
+          "time": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "dateTimeZone": {
+    "class": "objecttype",
+    "description": "The time difference between UTC. Ex: +01",
+    "maxaccess": "read-write",
+    "name": "dateTimeZone",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.11.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "defaultGateway": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "defaultGateway",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.14.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "defaultMgmt": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "defaultMgmt",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.14.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "in-band": 0,
+          "out-of-band": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "dhcpRelay": {
+    "class": "objectidentity",
+    "name": "dhcpRelay",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.20.1"
+  },
+  "dhcpRelayEnable": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "dhcpRelayEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.20.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "dhcpRelayInfoData": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "dhcpRelayInfoData",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.20.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "dhcpRelayInfoEnable": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "dhcpRelayInfoEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.20.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "dhcpRelayOption82Enable": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "dhcpRelayOption82Enable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.20.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "dhcpRemoteServerEntry": {
+    "class": "objecttype",
+    "description": "An entry in dhcpRemoteServerTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "dhcpRemoteServerIp"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "dhcpRemoteServerEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.20.1.6.1",
+    "status": "mandatory"
+  },
+  "dhcpRemoteServerIp": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "dhcpRemoteServerIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.20.1.6.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "dhcpRemoteServerRowStatus": {
+    "class": "objecttype",
+    "maxaccess": "read-create",
+    "name": "dhcpRemoteServerRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.20.1.6.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "dhcpRemoteServerTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "dhcpRemoteServerTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.20.1.6",
+    "status": "mandatory"
+  },
+  "dhcpServer": {
+    "class": "objectidentity",
+    "name": "dhcpServer",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.20.2"
+  },
+  "dhcpServerEntry": {
+    "class": "objecttype",
+    "description": "An entry in dhcpServerTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "dhcpServerVid"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "dhcpServerEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.20.2.2.1",
+    "status": "mandatory"
+  },
+  "dhcpServerGateway": {
+    "class": "objecttype",
+    "maxaccess": "read-create",
+    "name": "dhcpServerGateway",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.20.2.2.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "dhcpServerMask": {
+    "class": "objecttype",
+    "maxaccess": "read-create",
+    "name": "dhcpServerMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.20.2.2.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "dhcpServerPoolSize": {
+    "class": "objecttype",
+    "maxaccess": "read-create",
+    "name": "dhcpServerPoolSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.20.2.2.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "dhcpServerPrimaryDNS": {
+    "class": "objecttype",
+    "maxaccess": "read-create",
+    "name": "dhcpServerPrimaryDNS",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.20.2.2.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "dhcpServerRowStatus": {
+    "class": "objecttype",
+    "maxaccess": "read-create",
+    "name": "dhcpServerRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.20.2.2.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "dhcpServerSecondaryDNS": {
+    "class": "objecttype",
+    "maxaccess": "read-create",
+    "name": "dhcpServerSecondaryDNS",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.20.2.2.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "dhcpServerStartAddr": {
+    "class": "objecttype",
+    "maxaccess": "read-create",
+    "name": "dhcpServerStartAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.20.2.2.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "dhcpServerTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "dhcpServerTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.20.2.2",
+    "status": "mandatory"
+  },
+  "dhcpServerVid": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "dhcpServerVid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.20.2.2.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "dhcpSetup": {
+    "class": "objectidentity",
+    "name": "dhcpSetup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.20"
+  },
+  "diffservMapDscp": {
+    "class": "objecttype",
+    "description": "0-63",
+    "maxaccess": "read-only",
+    "name": "diffservMapDscp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.34.2.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "diffservMapEntry": {
+    "class": "objecttype",
+    "description": "An entry in diffservMapTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "diffservMapDscp"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "diffservMapEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.34.2.1",
+    "status": "mandatory"
+  },
+  "diffservMapPriority": {
+    "class": "objecttype",
+    "description": "0-7",
+    "maxaccess": "read-write",
+    "name": "diffservMapPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.34.2.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "diffservMapTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "diffservMapTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.34.2",
+    "status": "mandatory"
+  },
+  "diffservPortEntry": {
+    "class": "objecttype",
+    "description": "An entry in diffservPortTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "diffservPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.34.3.1",
+    "status": "mandatory"
+  },
+  "diffservPortState": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "diffservPortState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.34.3.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "diffservPortTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "diffservPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.34.3",
+    "status": "mandatory"
+  },
+  "diffservSetup": {
+    "class": "objectidentity",
+    "name": "diffservSetup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.34"
+  },
+  "diffservState": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "diffservState",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.34.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "dnsIpAddress": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "dnsIpAddress",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.14.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "esSeries": {
+    "class": "objectidentity",
+    "name": "esSeries",
+    "oid": "1.3.6.1.4.1.890.1.5.8"
+  },
+  "eventClearedTrap": {
+    "class": "notificationtype",
+    "description": "This trap is used to inform network management system that a normal type fault event has been cleared (state set off). Objects are used as follows: - eventSeqNum is the sequence number of the this clearing event. Note that the sequence number of the cleared event is reported in the trapRefSeqNum object. - eventEventId specifies what event has been cleared. - eventSetTime indicates when fault event has been cleared. - eventInstanceType indicates what kind of object has been faulty. - eventInstanceId specifies what instance has been faulty. - trapRefSeqNum specifies the sequence number of the cleared event (i.e. the sequence number was assigned for the event in the events table). - trapSenderNodeId specifies the node ID of the sending network element if configuring it is supported for the network element, otherwise 0. - sysObjectID specifies what kind of equipment reports the clearing event. For more information see the eventTable specification",
+    "name": "eventClearedTrap",
+    "objects": [
+      {
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "eventSeqNum"
+      },
+      {
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "eventEventId"
+      },
+      {
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "eventSetTime"
+      },
+      {
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "eventInstanceType"
+      },
+      {
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "eventInstanceId"
+      },
+      {
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "trapRefSeqNum"
+      },
+      {
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "trapSenderNodeId"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysObjectID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.37.2.2",
+    "status": "current"
+  },
+  "eventDescription": {
+    "class": "objecttype",
+    "description": "This variable contains a description of the event and reasons behind the event. This is a free format alpha-numeric string that is set by the entity generating this event. This variable may be empty if there is no usefull information to report. The maximum length of this string is 255 characters.",
+    "maxaccess": "read-only",
+    "name": "eventDescription",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.36.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "eventEntry": {
+    "class": "objecttype",
+    "description": "An entry containing information about an event in the event table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "eventSeqNum"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "eventEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.36.1.1.1",
+    "status": "current"
+  },
+  "eventEventId": {
+    "class": "objecttype",
+    "description": "This variable represents the event ID which uniquely identifies the event in the entire system.",
+    "maxaccess": "read-only",
+    "name": "eventEventId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.36.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EventIdNumber"
+    }
+  },
+  "eventInstanceId": {
+    "class": "objecttype",
+    "description": "This variable represents the InstanceId of a particular event in the event current table. In brief the instanceId refers to the sub-component generating this event in the system, for example \u00271\u0027 for port 1. For more details see the textual conventions section. DEPENDS ON: eventInstanceType",
+    "maxaccess": "read-only",
+    "name": "eventInstanceId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.36.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "eventInstanceName": {
+    "class": "objecttype",
+    "description": "This variable is mainly used to store additional information about the sub-component that is generating an event. For example this field may specify what cooling fan is faulty. DEPENDS ON: eventInstanceType",
+    "maxaccess": "read-only",
+    "name": "eventInstanceName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.36.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "eventInstanceType": {
+    "class": "objecttype",
+    "description": "This variable represents the type of InstanceId of a particular event in the event table. In brief the instanceType refers to the type of sub-component generating this event in the system, for example switch (5). For more details see the textual conventions section. AFFECTS: eventInstanceId, eventInstanceName",
+    "maxaccess": "read-only",
+    "name": "eventInstanceType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.36.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InstanceType"
+    }
+  },
+  "eventName": {
+    "class": "objecttype",
+    "description": "This variable represents the name of the event, for example \u0027Ethernet Link Down\u0027",
+    "maxaccess": "read-only",
+    "name": "eventName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.36.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 40,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "eventObjects": {
+    "class": "objectidentity",
+    "name": "eventObjects",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.36.1"
+  },
+  "eventOnTrap": {
+    "class": "notificationtype",
+    "description": "This trap is used to inform network management system that a delta fault event (events that are automatically cleared) has occured or a normal fault event (not automatically cleared) state has been set on. Objects are used as follows: - eventSeqNum is the sequence number of the event. For normal type of events must equal to the sequence number of the event in the events table. - eventEventId specifies what fault event has occured. - eventName specifies the name of the fault event. - eventSetTime indicates when fault event has occured (delta events) or when fault has been set on (normal events). - eventSeverity reports the severity level of the event. - eventInstanceType indicates what kind of object is faulty. - eventInstanceId specifies what instance is faulty. - eventInstanceName may contain textual description for the faulty object. - eventServAffective specifies whether the event is immediately service affcetive. - eventDescription reports possible additional information about the event. - trapPersistence tells whether this event is a delta or normal event. - trapSenderNodeId specifies the node ID of the sending network element if configuring it is supported for the network element, otherwise 0. - sysObjectID specifies what kind of equipment reports the fault event. For more information see the eventTable specification",
+    "name": "eventOnTrap",
+    "objects": [
+      {
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "eventSeqNum"
+      },
+      {
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "eventEventId"
+      },
+      {
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "eventName"
+      },
+      {
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "eventSetTime"
+      },
+      {
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "eventSeverity"
+      },
+      {
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "eventInstanceType"
+      },
+      {
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "eventInstanceId"
+      },
+      {
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "eventInstanceName"
+      },
+      {
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "eventServAffective"
+      },
+      {
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "eventDescription"
+      },
+      {
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "trapPersistence"
+      },
+      {
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "trapSenderNodeId"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysObjectID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.37.2.1",
+    "status": "current"
+  },
+  "eventSeqNum": {
+    "class": "objecttype",
+    "description": "This variable represents the sequence number of an event. Sequence number is incremented monotonically starting from 0 until it reaches its maximum and wraps around back to 0. Sequence number is incremented when - the state of a normal type fault is set on (the same sequence number is present in the events table as well as in the trap that is sent to notify about the fault on event) - delta event occurs (sequence number present in trap message) - the state of a normal type fault is set off (sequence number present in trap that is sent to notify for clearing).",
+    "maxaccess": "read-only",
+    "name": "eventSeqNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.36.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "eventServAffective": {
+    "class": "objecttype",
+    "description": "This variable indicates whether the event is service affective or not",
+    "maxaccess": "read-only",
+    "name": "eventServAffective",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.36.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EventServiceAffective"
+    }
+  },
+  "eventSetTime": {
+    "class": "objecttype",
+    "description": "This table contains only normal events and this variable represents the time when the event become active, i.e. the number of seconds since Jan 1, 1970 12:00AM.",
+    "maxaccess": "read-only",
+    "name": "eventSetTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.36.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "UtcTimeStamp"
+    }
+  },
+  "eventSeverity": {
+    "class": "objecttype",
+    "description": "This variable dictates the urgency of action when a event occurs. There are four severity levels - Critical, Major, Minor, and Informational. Critical events are those, which require immediate operator intervention to prevent/reduce system down time. Major events require quick attention and Minor events possibly require some attention. Informational events indicate the occurrence of events that may need to be investigated.",
+    "maxaccess": "read-only",
+    "name": "eventSeverity",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.36.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EventSeverity"
+    }
+  },
+  "eventTable": {
+    "class": "objecttype",
+    "description": "A list of currently active fault events. All faults of normal type regardless of their severity level are recorded in the event table. When a normal type fault is cleared it is deleted from the event table.",
+    "maxaccess": "not-accessible",
+    "name": "eventTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.36.1.1",
+    "status": "current"
+  },
+  "fanRpmCurValue": {
+    "class": "objecttype",
+    "description": "Current speed in Revolutions Per Minute (RPM) on the fan.",
+    "maxaccess": "read-only",
+    "name": "fanRpmCurValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.9.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "fanRpmDescr": {
+    "class": "objecttype",
+    "description": "\u0027Normal\u0027 indicates that this fan is functioning above the minimum speed. \u0027Error\u0027 indicates that this fan is functioning below the minimum speed.",
+    "maxaccess": "read-only",
+    "name": "fanRpmDescr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.9.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "fanRpmEntry": {
+    "class": "objecttype",
+    "description": "An entry in fanRpmTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "fanRpmIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "fanRpmEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.9.1.1",
+    "status": "current"
+  },
+  "fanRpmIndex": {
+    "class": "objecttype",
+    "description": "Index of FAN.",
+    "maxaccess": "read-only",
+    "name": "fanRpmIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.9.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "fanRpmLowThresh": {
+    "class": "objecttype",
+    "description": "The minimum speed at which a normal fan should work.",
+    "maxaccess": "read-only",
+    "name": "fanRpmLowThresh",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.9.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "fanRpmMaxValue": {
+    "class": "objecttype",
+    "description": "Maximum speed measured in Revolutions Per Minute (RPM) on the fan.",
+    "maxaccess": "read-only",
+    "name": "fanRpmMaxValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.9.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "fanRpmMinValue": {
+    "class": "objecttype",
+    "description": "Minimum speed measured in Revolutions Per Minute (RPM) on the fan.",
+    "maxaccess": "read-only",
+    "name": "fanRpmMinValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.9.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "fanRpmTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "fanRpmTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.9.1",
+    "status": "current"
+  },
+  "faultMIB": {
+    "class": "moduleidentity",
+    "description": "Fault event table definitions",
+    "lastupdated": "200411031200Z",
+    "name": "faultMIB",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.36",
+    "organization": "ZyXEL"
+  },
+  "faultTrapsMIB": {
+    "class": "moduleidentity",
+    "description": "Fault event trap definitions",
+    "lastupdated": "200411011200Z",
+    "name": "faultTrapsMIB",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.37",
+    "organization": "ZyXEL"
+  },
+  "filterActionState": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "filterActionState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.15.1.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "both": 3,
+          "discard-destination": 2,
+          "discard-source": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "filterEntry": {
+    "class": "objecttype",
+    "description": "An entry in filterTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "filterMacAddr"
+      },
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "filterVid"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "filterEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.15.1.1",
+    "status": "mandatory"
+  },
+  "filterMacAddr": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "filterMacAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.15.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "filterName": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "filterName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.15.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "filterRowStatus": {
+    "class": "objecttype",
+    "maxaccess": "read-create",
+    "name": "filterRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.15.1.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "filterSetup": {
+    "class": "objectidentity",
+    "name": "filterSetup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.15"
+  },
+  "filterTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "filterTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.15.1",
+    "status": "mandatory"
+  },
+  "filterVid": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "filterVid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.15.1.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "gs4024": {
+    "class": "objectidentity",
+    "name": "gs4024",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13"
+  },
+  "hwMonitorInfo": {
+    "class": "objectidentity",
+    "name": "hwMonitorInfo",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.9"
+  },
+  "igmpFilteringMaxNumberOfProfile": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "igmpFilteringMaxNumberOfProfile",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.27.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "igmpFilteringProfileEndAddress": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "igmpFilteringProfileEndAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.27.2.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "igmpFilteringProfileEntry": {
+    "class": "objecttype",
+    "description": "An entry in igmpFilteringProfileTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "igmpFilteringProfileName"
+      },
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "igmpFilteringProfileStartAddress"
+      },
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "igmpFilteringProfileEndAddress"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "igmpFilteringProfileEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.27.2.1",
+    "status": "mandatory"
+  },
+  "igmpFilteringProfileName": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "igmpFilteringProfileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.27.2.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "igmpFilteringProfileRowStatus": {
+    "class": "objecttype",
+    "maxaccess": "read-create",
+    "name": "igmpFilteringProfileRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.27.2.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "igmpFilteringProfileSetup": {
+    "class": "objectidentity",
+    "name": "igmpFilteringProfileSetup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.27"
+  },
+  "igmpFilteringProfileStartAddress": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "igmpFilteringProfileStartAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.27.2.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "igmpFilteringProfileTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "igmpFilteringProfileTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.27.2",
+    "status": "mandatory"
+  },
+  "igmpFilteringStateSetup": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "igmpFilteringStateSetup",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.13.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "igmpSnoopingStateSetup": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "igmpSnoopingStateSetup",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.13.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "imports": {
+    "BRIDGE-MIB": [
+      "dot1dBasePort"
+    ],
+    "DISMAN-PING-MIB": [
+      "OperationResponseStatus"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "OSPF-MIB": [
+      "ospfLsdbRouterId",
+      "ospfLsdbLsid",
+      "ospfLsdbAreaId",
+      "ospfLsdbType",
+      "ospfIfIpAddress",
+      "ospfNbrAddressLessIndex",
+      "ospfVirtIfNeighbor",
+      "ospfVirtIfAreaId",
+      "ospfNbrIpAddr",
+      "ospfAddressLessIf",
+      "ospfAreaId"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "Q-BRIDGE-MIB": [
+      "PortList"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysObjectID"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Gauge32",
+      "enterprises",
+      "MibIdentifier",
+      "IpAddress",
+      "Counter32",
+      "Unsigned32",
+      "iso",
+      "TimeTicks",
+      "Counter64",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "StorageType",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus",
+      "DateAndTime"
+    ],
+    "class": "imports"
+  },
+  "inbandEntryIp": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "inbandEntryIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.14.6.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "inbandEntryRowStatus": {
+    "class": "objecttype",
+    "maxaccess": "read-create",
+    "name": "inbandEntryRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.14.6.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "inbandEntrySubnetMask": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "inbandEntrySubnetMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.14.6.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "inbandEntryVid": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "inbandEntryVid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.14.6.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "inbandIpEntry": {
+    "class": "objecttype",
+    "description": "An entry in inbandIpTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "inbandEntryIp"
+      },
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "inbandEntrySubnetMask"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "inbandIpEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.14.6.1",
+    "status": "mandatory"
+  },
+  "inbandIpTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "inbandIpTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.14.6",
+    "status": "mandatory"
+  },
+  "ipSetup": {
+    "class": "objectidentity",
+    "name": "ipSetup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.14"
+  },
+  "ipStatus": {
+    "class": "objectidentity",
+    "name": "ipStatus",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.38"
+  },
+  "ipStatusEntry": {
+    "class": "objecttype",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "ipStatusIPAddress"
+      },
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "ipStatusVid"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "ipStatusEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.38.1.1",
+    "status": "mandatory"
+  },
+  "ipStatusIPAddress": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "ipStatusIPAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.38.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "ipStatusPort": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "ipStatusPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.38.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "ipStatusTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "ipStatusTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.38.1",
+    "status": "mandatory"
+  },
+  "ipStatusType": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "ipStatusType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.38.1.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dynamic": 2,
+          "static": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "ipStatusVid": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "ipStatusVid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.38.1.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "layer2Setup": {
+    "class": "objectidentity",
+    "name": "layer2Setup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.13"
+  },
+  "layer3Setup": {
+    "class": "objectidentity",
+    "name": "layer3Setup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.29"
+  },
+  "maxNumOfInbandIp": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "maxNumOfInbandIp",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.14.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "maxNumberOfDhcpRemoteServer": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "maxNumberOfDhcpRemoteServer",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.20.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "maxNumberOfDhcpServers": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "maxNumberOfDhcpServers",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.20.2.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "maxNumberOfMVR": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "maxNumberOfMVR",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.28.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "maxNumberOfMvrGroup": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "maxNumberOfMvrGroup",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.28.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "maxNumberOfStaticRoutes": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "maxNumberOfStaticRoutes",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.21.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/ZYXEL-GS4024-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 15:43:17 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "ZYXEL-GS4024-MIB"
+  },
+  "mirrorDirection": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "mirrorDirection",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.16.3.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "both": 2,
+          "egress": 1,
+          "ingress": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "mirrorEntry": {
+    "class": "objecttype",
+    "description": "An entry in mirrorTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "mirrorEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.16.3.1",
+    "status": "mandatory"
+  },
+  "mirrorMirroredState": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "mirrorMirroredState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.16.3.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "mirrorMonitorPort": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "mirrorMonitorPort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.16.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "mirrorSetup": {
+    "class": "objectidentity",
+    "name": "mirrorSetup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.16"
+  },
+  "mirrorState": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "mirrorState",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.16.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "mirrorTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "mirrorTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.16.3",
+    "status": "mandatory"
+  },
+  "multicastPortEntry": {
+    "class": "objecttype",
+    "description": "An entry in multicastPortTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "multicastPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.25.1.1",
+    "status": "mandatory"
+  },
+  "multicastPortIgmpFilteringProfile": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "multicastPortIgmpFilteringProfile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.25.1.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "multicastPortImmediateLeave": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "multicastPortImmediateLeave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.25.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "multicastPortMaxGroupLimited": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "multicastPortMaxGroupLimited",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.25.1.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "multicastPortMaxOfGroup": {
+    "class": "objecttype",
+    "description": "0..255",
+    "maxaccess": "read-write",
+    "name": "multicastPortMaxOfGroup",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.25.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "multicastPortSetup": {
+    "class": "objectidentity",
+    "name": "multicastPortSetup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.25"
+  },
+  "multicastPortTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "multicastPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.25.1",
+    "status": "mandatory"
+  },
+  "multicastStatus": {
+    "class": "objectidentity",
+    "name": "multicastStatus",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.26"
+  },
+  "multicastStatusEntry": {
+    "class": "objecttype",
+    "description": "An entry in multicastStatusTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "multicastStatusVlanID"
+      },
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "multicastStatusPort"
+      },
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "multicastStatusGroup"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "multicastStatusEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.26.1.1",
+    "status": "mandatory"
+  },
+  "multicastStatusGroup": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "multicastStatusGroup",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.26.1.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "multicastStatusIndex": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "multicastStatusIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.26.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "multicastStatusPort": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "multicastStatusPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.26.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "multicastStatusTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "multicastStatusTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.26.1",
+    "status": "mandatory"
+  },
+  "multicastStatusVlanID": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "multicastStatusVlanID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.26.1.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "mvrEntry": {
+    "class": "objecttype",
+    "description": "An entry in mvrTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "mvrVlanID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "mvrEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.28.2.1",
+    "status": "mandatory"
+  },
+  "mvrGroupEndAddress": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "mvrGroupEndAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.28.5.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "mvrGroupEntry": {
+    "class": "objecttype",
+    "description": "An entry in mvrGroupTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "mvrVlanID"
+      },
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "mvrGroupName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "mvrGroupEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.28.5.1",
+    "status": "mandatory"
+  },
+  "mvrGroupName": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "mvrGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.28.5.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "mvrGroupRowStatus": {
+    "class": "objecttype",
+    "maxaccess": "read-create",
+    "name": "mvrGroupRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.28.5.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "mvrGroupStartAddress": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "mvrGroupStartAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.28.5.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "mvrGroupTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "mvrGroupTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.28.5",
+    "status": "mandatory"
+  },
+  "mvrMode": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "mvrMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.28.2.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "compatible": 1,
+          "dynamic": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "mvrName": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "mvrName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.28.2.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "mvrPortEntry": {
+    "class": "objecttype",
+    "description": "An entry in mvrPortTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "mvrVlanID"
+      },
+      {
+        "implied": 0,
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "mvrPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.28.3.1",
+    "status": "mandatory"
+  },
+  "mvrPortRole": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "mvrPortRole",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.28.3.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "receiver-port": 3,
+          "source-port": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "mvrPortTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "mvrPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.28.3",
+    "status": "mandatory"
+  },
+  "mvrPortTagging": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "mvrPortTagging",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.28.3.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "mvrRowStatus": {
+    "class": "objecttype",
+    "maxaccess": "read-create",
+    "name": "mvrRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.28.2.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "mvrSetup": {
+    "class": "objectidentity",
+    "name": "mvrSetup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.28"
+  },
+  "mvrTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "mvrTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.28.2",
+    "status": "mandatory"
+  },
+  "mvrVlanID": {
+    "class": "objecttype",
+    "description": "1..4094",
+    "maxaccess": "read-only",
+    "name": "mvrVlanID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.28.2.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "ospfAreaExtEntry": {
+    "class": "objecttype",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "OSPF-MIB",
+        "object": "ospfAreaId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "ospfAreaExtEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.2.1",
+    "status": "mandatory"
+  },
+  "ospfAreaExtName": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "ospfAreaExtName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.2.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "ospfAreaExtTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "ospfAreaExtTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.2",
+    "status": "mandatory"
+  },
+  "ospfExt": {
+    "class": "objectidentity",
+    "name": "ospfExt",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40"
+  },
+  "ospfIfAdjacentNbrCount": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "ospfIfAdjacentNbrCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.1.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "ospfIfBackupDesignatedRouterID": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "ospfIfBackupDesignatedRouterID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.1.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "ospfIfDesignatedRouterID": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "ospfIfDesignatedRouterID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "ospfIfHelloDueTime": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "ospfIfHelloDueTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.1.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "ospfIfKeyId": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "ospfIfKeyId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "ospfIfMaskbits": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "ospfIfMaskbits",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.1.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "ospfIfNbrCount": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "ospfIfNbrCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.1.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "ospfInterfaceEntry": {
+    "class": "objecttype",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "OSPF-MIB",
+        "object": "ospfIfIpAddress"
+      },
+      {
+        "implied": 0,
+        "module": "OSPF-MIB",
+        "object": "ospfAddressLessIf"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "ospfInterfaceEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.1.1",
+    "status": "mandatory"
+  },
+  "ospfInterfaceTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "ospfInterfaceTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.1",
+    "status": "mandatory"
+  },
+  "ospfLsdbExtEntry": {
+    "class": "objecttype",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "OSPF-MIB",
+        "object": "ospfLsdbAreaId"
+      },
+      {
+        "implied": 0,
+        "module": "OSPF-MIB",
+        "object": "ospfLsdbType"
+      },
+      {
+        "implied": 0,
+        "module": "OSPF-MIB",
+        "object": "ospfLsdbLsid"
+      },
+      {
+        "implied": 0,
+        "module": "OSPF-MIB",
+        "object": "ospfLsdbRouterId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "ospfLsdbExtEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.5.1",
+    "status": "mandatory"
+  },
+  "ospfLsdbExtLinkCount": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "ospfLsdbExtLinkCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.5.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "ospfLsdbExtRouteAddress": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "ospfLsdbExtRouteAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.5.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "ospfLsdbExtRouteMaskbits": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "ospfLsdbExtRouteMaskbits",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.5.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "ospfLsdbExtTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "ospfLsdbExtTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.5",
+    "status": "mandatory"
+  },
+  "ospfNbrExtDBsmL": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "ospfNbrExtDBsmL",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.4.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "ospfNbrExtDeadtime": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "ospfNbrExtDeadtime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.4.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "ospfNbrExtEntry": {
+    "class": "objecttype",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "OSPF-MIB",
+        "object": "ospfNbrIpAddr"
+      },
+      {
+        "implied": 0,
+        "module": "OSPF-MIB",
+        "object": "ospfNbrAddressLessIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "ospfNbrExtEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.4.1",
+    "status": "mandatory"
+  },
+  "ospfNbrExtInterface": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "ospfNbrExtInterface",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.4.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "ospfNbrExtRXmtL": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "ospfNbrExtRXmtL",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.4.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "ospfNbrExtRole": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "ospfNbrExtRole",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.4.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backup": 2,
+          "dr": 1,
+          "dr-other": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "ospfNbrExtRqstL": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "ospfNbrExtRqstL",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.4.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "ospfNbrExtTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "ospfNbrExtTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.4",
+    "status": "mandatory"
+  },
+  "ospfRedistributeRouteEntry": {
+    "class": "objecttype",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "ospfRedistributeRouteProtocol"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "ospfRedistributeRouteEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.3.1",
+    "status": "mandatory"
+  },
+  "ospfRedistributeRouteMetric": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "ospfRedistributeRouteMetric",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.3.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "ospfRedistributeRouteProtocol": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "ospfRedistributeRouteProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.3.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rip": 1,
+          "static": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "ospfRedistributeRouteState": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "ospfRedistributeRouteState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.3.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "ospfRedistributeRouteTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "ospfRedistributeRouteTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.3",
+    "status": "mandatory"
+  },
+  "ospfRedistributeRouteType": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "ospfRedistributeRouteType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.3.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "ospfVirtualLinkEntry": {
+    "class": "objecttype",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "OSPF-MIB",
+        "object": "ospfVirtIfAreaId"
+      },
+      {
+        "implied": 0,
+        "module": "OSPF-MIB",
+        "object": "ospfVirtIfNeighbor"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "ospfVirtualLinkEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.6.1",
+    "status": "mandatory"
+  },
+  "ospfVirtualLinkKeyId": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "ospfVirtualLinkKeyId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.6.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "ospfVirtualLinkName": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "ospfVirtualLinkName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.6.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "ospfVirtualLinkTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "ospfVirtualLinkTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.40.6",
+    "status": "mandatory"
+  },
+  "outOfBandGateway": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "outOfBandGateway",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.14.4.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "outOfBandIp": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "outOfBandIp",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.14.4.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "outOfBandIpSetup": {
+    "class": "objectidentity",
+    "name": "outOfBandIpSetup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.14.4"
+  },
+  "outOfBandSubnetMask": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "outOfBandSubnetMask",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.14.4.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "portAuthEntry": {
+    "class": "objecttype",
+    "description": "An entry in portAuthTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "portAuthEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.8.4.1",
+    "status": "mandatory"
+  },
+  "portAuthEntryState": {
+    "class": "objecttype",
+    "description": "802.1x port authentication enabled or disabled on the port.",
+    "maxaccess": "read-write",
+    "name": "portAuthEntryState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.8.4.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "portAuthState": {
+    "class": "objecttype",
+    "description": "802.1x port authentication enabled/disabled for the switch.",
+    "maxaccess": "read-write",
+    "name": "portAuthState",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.8.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "portAuthTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "portAuthTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.8.4",
+    "status": "mandatory"
+  },
+  "portBasedVlanPortListEntry": {
+    "class": "objecttype",
+    "description": "An entry in portBasedVlanPortListTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "portBasedVlanPortListEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.24.1.1",
+    "status": "mandatory"
+  },
+  "portBasedVlanPortListMembers": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "portBasedVlanPortListMembers",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.24.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "PortList"
+    }
+  },
+  "portBasedVlanPortListTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "portBasedVlanPortListTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.24.1",
+    "status": "mandatory"
+  },
+  "portBasedVlanSetup": {
+    "class": "objectidentity",
+    "name": "portBasedVlanSetup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.24"
+  },
+  "portOpModePortEntry": {
+    "class": "objecttype",
+    "description": "An entry in portOpModePortTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "portOpModePortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.23.1.1",
+    "status": "mandatory"
+  },
+  "portOpModePortFlowCntl": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "portOpModePortFlowCntl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.23.1.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "portOpModePortIntrusionLock": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "portOpModePortIntrusionLock",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.23.1.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "portOpModePortLBTestStatus": {
+    "class": "objecttype",
+    "description": "This entry display latest loopback test status of port while performing loopback test.",
+    "maxaccess": "read-only",
+    "name": "portOpModePortLBTestStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.23.1.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fail": 3,
+          "none": 0,
+          "success": 2,
+          "underTesting": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "portOpModePortLinkUpType": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "portOpModePortLinkUpType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.23.1.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "copper": 1,
+          "down": 0,
+          "fiber": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "portOpModePortModuleType": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "portOpModePortModuleType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.23.1.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fast-ethernet-10-100": 0,
+          "fiber-1000": 2,
+          "gigabit-ethernet-100-1000": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "portOpModePortName": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "portOpModePortName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.23.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "portOpModePortSpeedDuplex": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "portOpModePortSpeedDuplex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.23.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 0,
+          "speed-10-full": 2,
+          "speed-10-half": 1,
+          "speed-100-full": 4,
+          "speed-100-half": 3,
+          "speed-1000-full": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "portOpModePortTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "portOpModePortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.23.1",
+    "status": "mandatory"
+  },
+  "portOpModeSetup": {
+    "class": "objectidentity",
+    "name": "portOpModeSetup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.23"
+  },
+  "portQueuingMethodEntry": {
+    "class": "objecttype",
+    "description": "An entry in portQueuingMethodTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort"
+      },
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "portQueuingMethodQueue"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "portQueuingMethodEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.19.1.1",
+    "status": "mandatory"
+  },
+  "portQueuingMethodMode": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "portQueuingMethodMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.19.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "strictly-priority": 0,
+          "weighted-round-robin": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "portQueuingMethodQueue": {
+    "class": "objecttype",
+    "description": "0...7",
+    "maxaccess": "read-only",
+    "name": "portQueuingMethodQueue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.19.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "portQueuingMethodTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "portQueuingMethodTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.19.1",
+    "status": "mandatory"
+  },
+  "portQueuingMethodWeight": {
+    "class": "objecttype",
+    "description": "0...15",
+    "maxaccess": "read-write",
+    "name": "portQueuingMethodWeight",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.19.1.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "portReAuthEntryState": {
+    "class": "objecttype",
+    "description": "802.1x port re-authentication enabled or disabled on the port.",
+    "maxaccess": "read-write",
+    "name": "portReAuthEntryState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.8.4.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "portReAuthEntryTimer": {
+    "class": "objecttype",
+    "description": "Re-authentication timer in seconds.",
+    "maxaccess": "read-write",
+    "name": "portReAuthEntryTimer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.8.4.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "portSecurityMacFreeze": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "portSecurityMacFreeze",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.4.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "PortList"
+    }
+  },
+  "portSecurityPortCount": {
+    "class": "objecttype",
+    "description": "Number of (dynamic) MAC addresses that may be learned on the port.",
+    "maxaccess": "read-write",
+    "name": "portSecurityPortCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.4.2.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "portSecurityPortEntry": {
+    "class": "objecttype",
+    "description": "An entry in portSecurityPortTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "portSecurityPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.4.2.1",
+    "status": "mandatory"
+  },
+  "portSecurityPortLearnState": {
+    "class": "objecttype",
+    "description": "MAC address learning enabled/disable on the port.",
+    "maxaccess": "read-write",
+    "name": "portSecurityPortLearnState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.4.2.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "portSecurityPortState": {
+    "class": "objecttype",
+    "description": "Port Security enabled/disabled on the port. Active(1) means this port only accept frames from static MAC addresses that are configured for the port, and dynamic MAC address frames up to the number specified by portSecurityPortCount object.",
+    "maxaccess": "read-write",
+    "name": "portSecurityPortState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.4.2.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "portSecurityPortTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "portSecurityPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.4.2",
+    "status": "mandatory"
+  },
+  "portSecuritySetup": {
+    "class": "objectidentity",
+    "name": "portSecuritySetup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.4"
+  },
+  "portSecurityState": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "portSecurityState",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.4.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "products": {
+    "class": "objectidentity",
+    "name": "products",
+    "oid": "1.3.6.1.4.1.890.1"
+  },
+  "queuingMethodSetup": {
+    "class": "objectidentity",
+    "name": "queuingMethodSetup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.19"
+  },
+  "radius8021xSetup": {
+    "class": "objectidentity",
+    "name": "radius8021xSetup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.8"
+  },
+  "radiusAnd8021xServer": {
+    "class": "objectidentity",
+    "name": "radiusAnd8021xServer",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.8.2"
+  },
+  "radiusIpAddr": {
+    "class": "objecttype",
+    "description": "The IP address of the RADIUS server.",
+    "maxaccess": "read-write",
+    "name": "radiusIpAddr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.8.2.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "radiusLoginPrecedence": {
+    "class": "objecttype",
+    "description": "1. Local Only 2. Local then RADIUS 3. RADIUS Only",
+    "maxaccess": "read-write",
+    "name": "radiusLoginPrecedence",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.8.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "radiusSharedSecret": {
+    "class": "objecttype",
+    "description": "Shared secret used for RADIUS and network eleemnt authentication.",
+    "maxaccess": "read-write",
+    "name": "radiusSharedSecret",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.8.2.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "radiusUdpPort": {
+    "class": "objecttype",
+    "description": "The UDP port of the RADIUS server.",
+    "maxaccess": "read-write",
+    "name": "radiusUdpPort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.8.2.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "rateLimitPortCommitRate": {
+    "class": "objecttype",
+    "description": "Commit rate in Kbit/s. The range of FE port is between 0 and 100,000. For GE port, the range is between 0 and 1000,000.",
+    "maxaccess": "read-write",
+    "name": "rateLimitPortCommitRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.2.2.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "rateLimitPortEgrRate": {
+    "class": "objecttype",
+    "description": "Egress rate in Mbit/s. The granularity of FE port is between 1 and 100. For GE port, the granularity is between 1 and 1000.",
+    "maxaccess": "read-write",
+    "name": "rateLimitPortEgrRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.2.2.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "rateLimitPortEntry": {
+    "class": "objecttype",
+    "description": "An entry in rateLimitPortTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "rateLimitPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.2.2.1",
+    "status": "mandatory"
+  },
+  "rateLimitPortPeakRate": {
+    "class": "objecttype",
+    "description": "Peak rate in Kbit/s. The range of FE port is between 1 and 100,000. For GE port, the range is between 1 and 1000,000.",
+    "maxaccess": "read-write",
+    "name": "rateLimitPortPeakRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.2.2.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "rateLimitPortState": {
+    "class": "objecttype",
+    "description": "Ingress/egress rate limiting enabled/disabled on the port.",
+    "maxaccess": "read-write",
+    "name": "rateLimitPortState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.2.2.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "rateLimitPortTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "rateLimitPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.2.2",
+    "status": "mandatory"
+  },
+  "rateLimitSetup": {
+    "class": "objectidentity",
+    "name": "rateLimitSetup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.2"
+  },
+  "rateLimitState": {
+    "class": "objecttype",
+    "description": "Ingress/egress rate limiting enabled/disabled for the switch.",
+    "maxaccess": "read-write",
+    "name": "rateLimitState",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.2.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "routerDomainEntry": {
+    "class": "objecttype",
+    "description": "An entry in routerDomainTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "routerDomainIpAddress"
+      },
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "routerDomainIpMaskBits"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "routerDomainEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.33.1.1",
+    "status": "mandatory"
+  },
+  "routerDomainIpAddress": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "routerDomainIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.33.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "routerDomainIpDvmrp": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "routerDomainIpDvmrp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.33.2.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "routerDomainIpEntry": {
+    "class": "objecttype",
+    "description": "An entry in routerDomainIpTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "routerDomainIpAddress"
+      },
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "routerDomainIpMaskBits"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "routerDomainIpEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.33.2.1",
+    "status": "mandatory"
+  },
+  "routerDomainIpIgmpVersion": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "routerDomainIpIgmpVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.33.2.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "igmp-v1": 1,
+          "igmp-v2": 2,
+          "none": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "routerDomainIpMaskBits": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "routerDomainIpMaskBits",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.33.1.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "routerDomainIpRipDirection": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "routerDomainIpRipDirection",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.33.2.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "both": 3,
+          "incoming": 2,
+          "none": 0,
+          "outgoing": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "routerDomainIpRipVersion": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "routerDomainIpRipVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.33.2.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v1": 0,
+          "v2b": 1,
+          "v2m": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "routerDomainIpTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "routerDomainIpTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.33.2",
+    "status": "mandatory"
+  },
+  "routerDomainSetup": {
+    "class": "objectidentity",
+    "name": "routerDomainSetup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.33"
+  },
+  "routerDomainTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "routerDomainTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.33.1",
+    "status": "mandatory"
+  },
+  "routerDomainVid": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "routerDomainVid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.33.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "routerDvmrpState": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "routerDvmrpState",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.29.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "routerDvmrpThreshold": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "routerDvmrpThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.29.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "routerIgmpState": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "routerIgmpState",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.29.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "routerIpmcPortEgressUntagVlan": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "routerIpmcPortEgressUntagVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.30.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "routerIpmcPortEntry": {
+    "class": "objecttype",
+    "description": "An entry in routerIpmcPortTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "routerIpmcPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.30.1.1",
+    "status": "mandatory"
+  },
+  "routerIpmcPortSetup": {
+    "class": "objectidentity",
+    "name": "routerIpmcPortSetup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.30"
+  },
+  "routerIpmcPortTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "routerIpmcPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.30.1",
+    "status": "mandatory"
+  },
+  "routerRipState": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "routerRipState",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.29.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "routerVrrpAuthKey": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "routerVrrpAuthKey",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.31.3.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "routerVrrpAuthType": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "routerVrrpAuthType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.31.3.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "simple": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "routerVrrpDomainEntry": {
+    "class": "objecttype",
+    "description": "An entry in routerVrrpTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "routerDomainIpAddress"
+      },
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "routerDomainIpMaskBits"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "routerVrrpDomainEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.31.3.1",
+    "status": "mandatory"
+  },
+  "routerVrrpDomainTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "routerVrrpDomainTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.31.3",
+    "status": "mandatory"
+  },
+  "routerVrrpEntry": {
+    "class": "objecttype",
+    "description": "An entry in routerVrrpTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "routerDomainIpAddress"
+      },
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "routerDomainIpMaskBits"
+      },
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "routerVrrpVirtualID"
+      },
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "routerVrrpUplinkGateway"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "routerVrrpEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.31.2.1",
+    "status": "mandatory"
+  },
+  "routerVrrpInterval": {
+    "class": "objecttype",
+    "description": "1-255",
+    "maxaccess": "read-write",
+    "name": "routerVrrpInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.31.2.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "routerVrrpMaxNumber": {
+    "class": "objecttype",
+    "description": "Always set it as 14.",
+    "maxaccess": "read-only",
+    "name": "routerVrrpMaxNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.31.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "routerVrrpName": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "routerVrrpName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.31.2.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "routerVrrpPreempt": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "routerVrrpPreempt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.31.2.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "routerVrrpPrimaryVirtualIP": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "routerVrrpPrimaryVirtualIP",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.31.2.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "routerVrrpPriority": {
+    "class": "objecttype",
+    "description": "1-254",
+    "maxaccess": "read-write",
+    "name": "routerVrrpPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.31.2.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "routerVrrpSecondaryVirtualIP": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "routerVrrpSecondaryVirtualIP",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.31.2.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "routerVrrpSetup": {
+    "class": "objectidentity",
+    "name": "routerVrrpSetup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.31"
+  },
+  "routerVrrpStatus": {
+    "class": "objectidentity",
+    "name": "routerVrrpStatus",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.32"
+  },
+  "routerVrrpStatusEntry": {
+    "class": "objecttype",
+    "description": " ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "routerVrrpStatusIpAddress"
+      },
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "routerVrrpStatusIpMaskBits"
+      },
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "routerVrrpStatusVirtualID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "routerVrrpStatusEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.32.1.1",
+    "status": "mandatory"
+  },
+  "routerVrrpStatusIpAddress": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "routerVrrpStatusIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.32.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "routerVrrpStatusIpMaskBits": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "routerVrrpStatusIpMaskBits",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.32.1.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "routerVrrpStatusTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "routerVrrpStatusTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.32.1",
+    "status": "mandatory"
+  },
+  "routerVrrpStatusUpLinkStatus": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "routerVrrpStatusUpLinkStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.32.1.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "routerVrrpStatusVRStatus": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "routerVrrpStatusVRStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.32.1.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "routerVrrpStatusVirtualID": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "routerVrrpStatusVirtualID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.32.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "routerVrrpTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "routerVrrpTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.31.2",
+    "status": "mandatory"
+  },
+  "routerVrrpUplinkGateway": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "routerVrrpUplinkGateway",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.31.2.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "routerVrrpVirtualID": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "routerVrrpVirtualID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.31.2.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "routingStatus": {
+    "class": "objectidentity",
+    "name": "routingStatus",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.39"
+  },
+  "routingStatusDestAddress": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "routingStatusDestAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.39.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "routingStatusDestMaskbits": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "routingStatusDestMaskbits",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.39.1.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "routingStatusEntry": {
+    "class": "objecttype",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "routingStatusDestAddress"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "routingStatusEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.39.1.1",
+    "status": "mandatory"
+  },
+  "routingStatusGateway": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "routingStatusGateway",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.39.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "routingStatusInterface": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "routingStatusInterface",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.39.1.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "routingStatusMetric": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "routingStatusMetric",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.39.1.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "routingStatusTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "routingStatusTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.39.1",
+    "status": "mandatory"
+  },
+  "routingStatusType": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "routingStatusType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.39.1.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bgp": 2,
+          "ospf": 3,
+          "rip": 1,
+          "static": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "rpVrrpRowStatus": {
+    "class": "objecttype",
+    "maxaccess": "read-create",
+    "name": "rpVrrpRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.31.2.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "securedClientEnable": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "securedClientEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.18.2.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "securedClientEndIp": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "securedClientEndIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.18.2.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "securedClientEntry": {
+    "class": "objecttype",
+    "description": "An entry in securedClientTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "securedClientIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "securedClientEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.18.2.1",
+    "status": "mandatory"
+  },
+  "securedClientIndex": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "securedClientIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.18.2.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "securedClientService": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "securedClientService",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.18.2.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "bits": {
+        "ftp": 1,
+        "http": 2,
+        "https": 6,
+        "icmp": 3,
+        "snmp": 4,
+        "ssh": 5,
+        "telnet": 0
+      },
+      "class": "type",
+      "type": "Bits"
+    }
+  },
+  "securedClientStartIp": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "securedClientStartIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.18.2.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "securedClientTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "securedClientTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.18.2",
+    "status": "mandatory"
+  },
+  "snmpGetCommunity": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "snmpGetCommunity",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.10.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "snmpSetCommunity": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "snmpSetCommunity",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.10.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "snmpSetup": {
+    "class": "objectidentity",
+    "name": "snmpSetup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.10"
+  },
+  "snmpTrapCommunity": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "snmpTrapCommunity",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.10.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "snmpTrapDestEntry": {
+    "class": "objecttype",
+    "description": "An entry in snmpTrapDestTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "snmpTrapDestIP"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "snmpTrapDestEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.10.4.1",
+    "status": "mandatory"
+  },
+  "snmpTrapDestIP": {
+    "class": "objecttype",
+    "description": "IP address of trap destination.",
+    "maxaccess": "not-accessible",
+    "name": "snmpTrapDestIP",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.10.4.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "snmpTrapDestRowStatus": {
+    "class": "objecttype",
+    "maxaccess": "read-create",
+    "name": "snmpTrapDestRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.10.4.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "snmpTrapDestTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "snmpTrapDestTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.10.4",
+    "status": "mandatory"
+  },
+  "staticRouteEntry": {
+    "class": "objecttype",
+    "description": "An entry in staticRouteTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "staticRouteIp"
+      },
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "staticRouteMask"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "staticRouteEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.21.2.1",
+    "status": "mandatory"
+  },
+  "staticRouteGateway": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "staticRouteGateway",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.21.2.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "staticRouteIp": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "staticRouteIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.21.2.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "staticRouteMask": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "staticRouteMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.21.2.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "staticRouteMetric": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "staticRouteMetric",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.21.2.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "staticRouteName": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "staticRouteName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.21.2.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "staticRouteRowStatus": {
+    "class": "objecttype",
+    "maxaccess": "read-create",
+    "name": "staticRouteRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.21.2.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "staticRouteSetup": {
+    "class": "objectidentity",
+    "name": "staticRouteSetup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.21"
+  },
+  "staticRouteTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "staticRouteTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.21.2",
+    "status": "mandatory"
+  },
+  "stpState": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "stpState",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.13.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "sysHwMajorVers": {
+    "class": "objecttype",
+    "description": "HW major version number, e.g. 1.",
+    "maxaccess": "read-only",
+    "name": "sysHwMajorVers",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "sysHwMinorVers": {
+    "class": "objecttype",
+    "description": "HW minor version number, e.g. 0.",
+    "maxaccess": "read-only",
+    "name": "sysHwMinorVers",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "sysInfo": {
+    "class": "objectidentity",
+    "name": "sysInfo",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.1"
+  },
+  "sysMgmt": {
+    "class": "objectidentity",
+    "name": "sysMgmt",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.12"
+  },
+  "sysMgmtBootupConfig": {
+    "class": "objecttype",
+    "description": "The setting value (read index) will be written into non-volatile memory. While rebooting, the variable write index is equal to read index initially. You can change the value of write index by CLI / MIB.",
+    "maxaccess": "read-write",
+    "name": "sysMgmtBootupConfig",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.12.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "config-1": 1,
+          "config-2": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sysMgmtCPUUsage": {
+    "class": "objecttype",
+    "description": "Show device CPU load in %, it\u0027s the snapshot of CPU load when getting the values.",
+    "maxaccess": "read-only",
+    "name": "sysMgmtCPUUsage",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.12.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "sysMgmtConfigSave": {
+    "class": "objecttype",
+    "description": "If setting value is given, the variable write index will be set and running-config will be written to the assigned configuration file. If not, running-config will be written to the booting one.",
+    "maxaccess": "read-write",
+    "name": "sysMgmtConfigSave",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.12.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "config-1": 1,
+          "config-2": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sysMgmtDefaultConfig": {
+    "class": "objecttype",
+    "description": "Erase running config and reset to default.",
+    "maxaccess": "read-write",
+    "name": "sysMgmtDefaultConfig",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.12.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nothing": 0,
+          "reset-to-default": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sysMgmtLastActionStatus": {
+    "class": "objecttype",
+    "description": "Display status of last mgmt action.",
+    "maxaccess": "read-only",
+    "name": "sysMgmtLastActionStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.12.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fail": 2,
+          "none": 0,
+          "success": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sysMgmtReboot": {
+    "class": "objecttype",
+    "description": "Reboot switch from SNMP. 1:Reboot, 0:Nothing",
+    "maxaccess": "read-write",
+    "name": "sysMgmtReboot",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.12.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nothing": 0,
+          "reboot": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sysMgmtSystemStatus": {
+    "class": "objecttype",
+    "description": "This variable indicates the status of the system. The sysMgmtAlarmStatus is a bit map represented a sum, therefore, it can represent multiple defects simultaneously. The sysNoDefect should be set if and only if no other flag is set. The various bit positions are: 0 sysAlarmDetected 1 sysTemperatureError 2 sysFanRPMError 3 sysVoltageRangeError",
+    "maxaccess": "read-only",
+    "name": "sysMgmtSystemStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.12.6",
+    "status": "mandatory",
+    "syntax": {
+      "bits": {
+        "sysAlarmDetected": 0,
+        "sysFanRPMError": 2,
+        "sysTemperatureError": 1,
+        "sysVoltageRangeError": 3
+      },
+      "class": "type",
+      "type": "Bits"
+    }
+  },
+  "sysSerialNumber": {
+    "class": "objecttype",
+    "description": "Serial number",
+    "maxaccess": "read-only",
+    "name": "sysSerialNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "sysSwDay": {
+    "class": "objecttype",
+    "description": "SW compilation day, e.g. 19.",
+    "maxaccess": "read-only",
+    "name": "sysSwDay",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "sysSwModelString": {
+    "class": "objecttype",
+    "description": "Model letters, e.g. TJ",
+    "maxaccess": "read-only",
+    "name": "sysSwModelString",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "sysSwMonth": {
+    "class": "objecttype",
+    "description": "SW compilation month, e.g. 8.",
+    "maxaccess": "read-only",
+    "name": "sysSwMonth",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "sysSwPlatformMajorVers": {
+    "class": "objecttype",
+    "description": "SW platform major version, e.g. 3.",
+    "maxaccess": "read-only",
+    "name": "sysSwPlatformMajorVers",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "sysSwPlatformMinorVers": {
+    "class": "objecttype",
+    "description": "SW platform minor version, e.g. 50.",
+    "maxaccess": "read-only",
+    "name": "sysSwPlatformMinorVers",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "sysSwVersionControlNbr": {
+    "class": "objecttype",
+    "description": "Version control number, e.g. 0.",
+    "maxaccess": "read-only",
+    "name": "sysSwVersionControlNbr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "sysSwYear": {
+    "class": "objecttype",
+    "description": "SW compilation year, e.g. 2004.",
+    "maxaccess": "read-only",
+    "name": "sysSwYear",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "tagVlanPortIsolationState": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "tagVlanPortIsolationState",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.13.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "tempCurValue": {
+    "class": "objecttype",
+    "description": "The current temperature measured at this sensor.",
+    "maxaccess": "read-only",
+    "name": "tempCurValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.9.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "tempDescr": {
+    "class": "objecttype",
+    "description": "\u0027Normal\u0027 indicates temperatures below the threshold and \u0027Error\u0027 for those above.",
+    "maxaccess": "read-only",
+    "name": "tempDescr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.9.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "tempEntry": {
+    "class": "objecttype",
+    "description": "An entry in tempTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "tempIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "tempEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.9.2.1",
+    "status": "current"
+  },
+  "tempHighThresh": {
+    "class": "objecttype",
+    "description": "The upper temperature limit at this sensor.",
+    "maxaccess": "read-only",
+    "name": "tempHighThresh",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.9.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "tempIndex": {
+    "class": "objecttype",
+    "description": "Index of temperature unit. 1:MAC, 2:CPU, 3:PHY",
+    "maxaccess": "read-only",
+    "name": "tempIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.9.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cpu": 2,
+          "mac": 1,
+          "phy": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tempMaxValue": {
+    "class": "objecttype",
+    "description": "The maximum temperature measured at this sensor.",
+    "maxaccess": "read-only",
+    "name": "tempMaxValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.9.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "tempMinValue": {
+    "class": "objecttype",
+    "description": "The minimum temperature measured at this sensor.",
+    "maxaccess": "read-only",
+    "name": "tempMinValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.9.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "tempTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "tempTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.9.2",
+    "status": "current"
+  },
+  "trapInfoObjects": {
+    "class": "objectidentity",
+    "name": "trapInfoObjects",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.37.1"
+  },
+  "trapNotifications": {
+    "class": "objectidentity",
+    "name": "trapNotifications",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.37.2"
+  },
+  "trapPersistence": {
+    "class": "objecttype",
+    "description": "Indicates whether the event is delta (automatically and immediately cleared) or normal (not automatically cleared). Not intended to read but only used in trap notifications.",
+    "maxaccess": "read-only",
+    "name": "trapPersistence",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.37.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EventPersistence"
+    }
+  },
+  "trapRefSeqNum": {
+    "class": "objecttype",
+    "description": "Indicates the former sequence number of a cleared event in the event table. Not intended to read but only used in trap notifications.",
+    "maxaccess": "read-only",
+    "name": "trapRefSeqNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.37.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "trapSenderNodeId": {
+    "class": "objecttype",
+    "description": "Represents the node ID of the sending network element. If not supported should be set to 0. Not intended to read but only used in trap notifications.",
+    "maxaccess": "read-only",
+    "name": "trapSenderNodeId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.37.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "unknownMulticastFrameForwarding": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "unknownMulticastFrameForwarding",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.13.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 2,
+          "flooding": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "vlanStackPortEntry": {
+    "class": "objecttype",
+    "description": "An entry in vlanStackPortTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "vlanStackPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.7.3.1",
+    "status": "mandatory"
+  },
+  "vlanStackPortMode": {
+    "class": "objecttype",
+    "description": "Mode of the port.Set Access mode to have the switch add the SP TPID tag to all incoming frames received on this port. Set Access mode for ingress ports at the edge of the service provider\u0027s network. Set Tunnel mode (available for Gigabit ports only) for egress ports at the edge of the service provider\u0027s network. In order to support VLAN stacking on a port, the port must be able to allow frames of 1526 Bytes (1522 Bytes + 4 Bytes for the second tag) to pass through it. Access (0), tunnel (1)",
+    "maxaccess": "read-write",
+    "name": "vlanStackPortMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.7.3.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "access": 1,
+          "tunnel": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "vlanStackPortPrio": {
+    "class": "objecttype",
+    "description": "Priority value for service provider tag. 0 is the lowest priority level and 7 is the highest.",
+    "maxaccess": "read-write",
+    "name": "vlanStackPortPrio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.7.3.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "prioriry-0": 0,
+          "prioriry-1": 1,
+          "prioriry-2": 2,
+          "prioriry-3": 3,
+          "prioriry-4": 4,
+          "prioriry-5": 5,
+          "prioriry-6": 6,
+          "prioriry-7": 7
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "vlanStackPortTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "vlanStackPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.7.3",
+    "status": "mandatory"
+  },
+  "vlanStackPortVid": {
+    "class": "objecttype",
+    "description": "VLAN ID used in service provider tag.",
+    "maxaccess": "read-write",
+    "name": "vlanStackPortVid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.7.3.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "vlanStackSetup": {
+    "class": "objectidentity",
+    "name": "vlanStackSetup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.7"
+  },
+  "vlanStackState": {
+    "class": "objecttype",
+    "description": "VLAN Stacking enabled/disabled for the switch.",
+    "maxaccess": "read-write",
+    "name": "vlanStackState",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.7.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "vlanStackTpid": {
+    "class": "objecttype",
+    "description": "SP TPID in hex format, e.g. 8100.",
+    "maxaccess": "read-write",
+    "name": "vlanStackTpid",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.7.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "vlanTrunkPortEntry": {
+    "class": "objecttype",
+    "description": "An entry in vlanTrunkPortTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "BRIDGE-MIB",
+        "object": "dot1dBasePort"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "vlanTrunkPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.5.1.1",
+    "status": "mandatory"
+  },
+  "vlanTrunkPortState": {
+    "class": "objecttype",
+    "description": "VlanTrunking enabled/disabled on the port. Active(1) to allow frames belonging to unknown VLAN groups to pass through the switch.",
+    "maxaccess": "read-write",
+    "name": "vlanTrunkPortState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.5.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "vlanTrunkPortTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "vlanTrunkPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.5.1",
+    "status": "mandatory"
+  },
+  "vlanTrunkSetup": {
+    "class": "objectidentity",
+    "name": "vlanTrunkSetup",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.5"
+  },
+  "vlanTypeSetup": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "vlanTypeSetup",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.13.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1Q": 1,
+          "port-based": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "voltageCurValue": {
+    "class": "objecttype",
+    "description": "The current voltage reading.",
+    "maxaccess": "read-only",
+    "name": "voltageCurValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.9.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "voltageDescr": {
+    "class": "objecttype",
+    "description": "\u0027Normal\u0027 indicates that the voltage is within an acceptable operating range at this point; otherwise \u0027Error\u0027 is displayed.",
+    "maxaccess": "read-only",
+    "name": "voltageDescr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.9.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "voltageEntry": {
+    "class": "objecttype",
+    "description": "An entry in voltageTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ZYXEL-GS4024-MIB",
+        "object": "voltageIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "voltageEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.9.3.1",
+    "status": "current"
+  },
+  "voltageIndex": {
+    "class": "objecttype",
+    "description": "Index of voltage.",
+    "maxaccess": "read-only",
+    "name": "voltageIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.9.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "voltageLowThresh": {
+    "class": "objecttype",
+    "description": "The minimum voltage at which the switch should work.",
+    "maxaccess": "read-only",
+    "name": "voltageLowThresh",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.9.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "voltageMaxValue": {
+    "class": "objecttype",
+    "description": "The maximum voltage measured at this point.",
+    "maxaccess": "read-only",
+    "name": "voltageMaxValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.9.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "voltageMinValue": {
+    "class": "objecttype",
+    "description": "The minimum voltage measured at this point.",
+    "maxaccess": "read-only",
+    "name": "voltageMinValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.9.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "voltageNominalValue": {
+    "class": "objecttype",
+    "description": "The normal voltage at wchich the switch work.",
+    "maxaccess": "read-only",
+    "name": "voltageNominalValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.9.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "voltageTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "voltageTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.890.1.5.8.13.9.3",
+    "status": "current"
+  },
+  "zyxel": {
+    "class": "objectidentity",
+    "name": "zyxel",
+    "oid": "1.3.6.1.4.1.890"
+  }
+}

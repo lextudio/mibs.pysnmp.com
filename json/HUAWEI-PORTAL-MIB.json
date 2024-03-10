@@ -1,0 +1,1296 @@
+{
+  "hwPortal": {
+    "class": "moduleidentity",
+    "contactinfo": " NanJing Institute,Huawei Technologies Co.,Ltd. HuiHong Mansion,No.91 BaiXia Rd. NanJing, P.R. of China Zipcode:210001 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": "The MIB contains objects of module PORTAL.",
+    "lastupdated": "200303280900Z",
+    "name": "hwPortal",
+    "oid": "1.3.6.1.4.1.2011.5.4",
+    "organization": "Huawei Technologies Co., Ltd. "
+  },
+  "hwPortalCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the this module.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigParaObjectGroup"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsParaObjectGroup"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigSecretKeyObjectGroup"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalServerObjectGroup"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalUserObjectGroup"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigSecretKeyV2ObjectGroup"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalServerV2ObjectGroup"
+      }
+    ],
+    "name": "hwPortalCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.4.3.1.1",
+    "status": "current"
+  },
+  "hwPortalCompliances": {
+    "class": "objectidentity",
+    "name": "hwPortalCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.4.3.1"
+  },
+  "hwPortalConfigPara": {
+    "class": "objectidentity",
+    "name": "hwPortalConfigPara",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.1"
+  },
+  "hwPortalConfigParaObjectGroup": {
+    "class": "objectgroup",
+    "description": "The config parameter group.",
+    "name": "hwPortalConfigParaObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigVersionSupport"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigTextInfoSwitch"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigServerUdpReceivePort"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigServerUdpSendPort"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigTrapUdpPort"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigSourecIfIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.4.3.2.1",
+    "status": "current"
+  },
+  "hwPortalConfigPortalServerIpAddress": {
+    "class": "objecttype",
+    "description": "The IP address of PORTAL server. ",
+    "maxaccess": "read-only",
+    "name": "hwPortalConfigPortalServerIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwPortalConfigPortalServerIpAddressV2": {
+    "class": "objecttype",
+    "description": "The IP address of PORTAL server.(V2) ",
+    "maxaccess": "read-only",
+    "name": "hwPortalConfigPortalServerIpAddressV2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwPortalConfigPortalServerIpMask": {
+    "class": "objecttype",
+    "description": "The IP mask of PORTAL server. ",
+    "maxaccess": "read-write",
+    "name": "hwPortalConfigPortalServerIpMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwPortalConfigPortalServerIpMaskV2": {
+    "class": "objecttype",
+    "description": "The IP mask of PORTAL server.(V2) ",
+    "maxaccess": "read-write",
+    "name": "hwPortalConfigPortalServerIpMaskV2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwPortalConfigPortalServerNasip": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "Whether transport the NAS IP address. ",
+    "maxaccess": "read-write",
+    "name": "hwPortalConfigPortalServerNasip",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwPortalConfigPortalServerNasipV2": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "Whether transport the NAS IP address.(V2)",
+    "maxaccess": "read-write",
+    "name": "hwPortalConfigPortalServerNasipV2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwPortalConfigPortalServerPort": {
+    "class": "objecttype",
+    "description": "The port of PORTAL server.",
+    "maxaccess": "read-write",
+    "name": "hwPortalConfigPortalServerPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPortalConfigPortalServerPortV2": {
+    "class": "objecttype",
+    "description": "The port of PORTAL server.(V2)",
+    "maxaccess": "read-write",
+    "name": "hwPortalConfigPortalServerPortV2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPortalConfigSecretKey": {
+    "class": "objecttype",
+    "description": "The secret key of PORTAL server. ",
+    "maxaccess": "read-write",
+    "name": "hwPortalConfigSecretKey",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwPortalConfigSecretKeyEntry": {
+    "class": "objecttype",
+    "description": "The entry of shared secret key table. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigPortalServerIpAddress"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPortalConfigSecretKeyEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.3.1",
+    "status": "current"
+  },
+  "hwPortalConfigSecretKeyEntryV2": {
+    "class": "objecttype",
+    "description": "The entry of shared secret key table.(V2)",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalVrfNameV2"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigPortalServerIpAddressV2"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPortalConfigSecretKeyEntryV2",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.6.1",
+    "status": "current"
+  },
+  "hwPortalConfigSecretKeyObjectGroup": {
+    "class": "objectgroup",
+    "description": "The config secret key group.",
+    "name": "hwPortalConfigSecretKeyObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigPortalServerIpAddress"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigPortalServerIpMask"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigSecretKey"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigPortalServerPort"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigPortalServerNasip"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.4.3.2.3",
+    "status": "current"
+  },
+  "hwPortalConfigSecretKeyTable": {
+    "class": "objecttype",
+    "description": "The shared secret key table, realizing the config of shared secret key. ",
+    "maxaccess": "not-accessible",
+    "name": "hwPortalConfigSecretKeyTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.3",
+    "status": "current"
+  },
+  "hwPortalConfigSecretKeyTableV2": {
+    "class": "objecttype",
+    "description": "The shared secret key table, realizing the config of shared secret key. ",
+    "maxaccess": "not-accessible",
+    "name": "hwPortalConfigSecretKeyTableV2",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.6",
+    "status": "current"
+  },
+  "hwPortalConfigSecretKeyV2": {
+    "class": "objecttype",
+    "description": "The secret key of PORTAL server.(V2)",
+    "maxaccess": "read-write",
+    "name": "hwPortalConfigSecretKeyV2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwPortalConfigSecretKeyV2ObjectGroup": {
+    "class": "objectgroup",
+    "description": "The config secret key group.(V2)",
+    "name": "hwPortalConfigSecretKeyV2ObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigPortalServerIpAddressV2"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigPortalServerIpMaskV2"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigSecretKeyV2"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigPortalServerPortV2"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigPortalServerNasipV2"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalConfigStatusV2"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalVrfNameV2"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.4.3.2.6",
+    "status": "current"
+  },
+  "hwPortalConfigServerUdpReceivePort": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2000
+      }
+    },
+    "description": "The receiving UDP port of server. ",
+    "maxaccess": "read-write",
+    "name": "hwPortalConfigServerUdpReceivePort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1024
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPortalConfigServerUdpSendPort": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2000
+      }
+    },
+    "description": "The sending UDP port of server. ",
+    "maxaccess": "read-write",
+    "name": "hwPortalConfigServerUdpSendPort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1024
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPortalConfigSourecIfIndex": {
+    "class": "objecttype",
+    "description": "The source interface of sending PORTAL packet. ",
+    "maxaccess": "read-write",
+    "name": "hwPortalConfigSourecIfIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwPortalConfigStatus": {
+    "class": "objecttype",
+    "description": "The row status.",
+    "maxaccess": "read-write",
+    "name": "hwPortalConfigStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwPortalConfigStatusV2": {
+    "class": "objecttype",
+    "description": "The row status.(V2)",
+    "maxaccess": "read-write",
+    "name": "hwPortalConfigStatusV2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.6.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwPortalConfigTextInfoSwitch": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "Changed to transparent transmission information. The source of transparent transmission information, \u0027true\u0027 means transparent transmission the information of PORTAL server, \u0027false\u0027 means no transparent transmission the information of PORTAL server, the default is no transparent transmission. ",
+    "maxaccess": "read-write",
+    "name": "hwPortalConfigTextInfoSwitch",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwPortalConfigTrapUdpPort": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 50100
+      }
+    },
+    "description": "The trap sending UDP port of server, used to send the message that user has been forced to leave. ",
+    "maxaccess": "read-write",
+    "name": "hwPortalConfigTrapUdpPort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1024
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPortalConfigVersionSupport": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "both"
+      }
+    },
+    "description": " The version of supported protocol.",
+    "maxaccess": "read-write",
+    "name": "hwPortalConfigVersionSupport",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "both": 3,
+          "v2": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPortalConformance": {
+    "class": "objectidentity",
+    "name": "hwPortalConformance",
+    "oid": "1.3.6.1.4.1.2011.5.4.3"
+  },
+  "hwPortalMibObjects": {
+    "class": "objectidentity",
+    "name": "hwPortalMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.4.1"
+  },
+  "hwPortalObjectGroups": {
+    "class": "objectidentity",
+    "name": "hwPortalObjectGroups",
+    "oid": "1.3.6.1.4.1.2011.5.4.3.2"
+  },
+  "hwPortalPacketStatisticsAccessACKFailed": {
+    "class": "objecttype",
+    "description": "The total number of access ack failure packet. ",
+    "maxaccess": "read-only",
+    "name": "hwPortalPacketStatisticsAccessACKFailed",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPortalPacketStatisticsAccessAckSent": {
+    "class": "objecttype",
+    "description": "The total number of sending access ack packet. ",
+    "maxaccess": "read-only",
+    "name": "hwPortalPacketStatisticsAccessAckSent",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPortalPacketStatisticsAccessReqError": {
+    "class": "objecttype",
+    "description": " The total number of access request error packet.",
+    "maxaccess": "read-only",
+    "name": "hwPortalPacketStatisticsAccessReqError",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPortalPacketStatisticsAccessReqReceived": {
+    "class": "objecttype",
+    "description": "The total number of received access request packet. ",
+    "maxaccess": "read-only",
+    "name": "hwPortalPacketStatisticsAccessReqReceived",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPortalPacketStatisticsAuthenticatorError": {
+    "class": "objecttype",
+    "description": "The total packet number of validate failure. ",
+    "maxaccess": "read-only",
+    "name": "hwPortalPacketStatisticsAuthenticatorError",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPortalPacketStatisticsInquiryACKFailed": {
+    "class": "objecttype",
+    "description": "The total number of inquiry ack failure packet. ",
+    "maxaccess": "read-only",
+    "name": "hwPortalPacketStatisticsInquiryACKFailed",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPortalPacketStatisticsInquiryAckSent": {
+    "class": "objecttype",
+    "description": "The total number of sending inquiry ack packet. ",
+    "maxaccess": "read-only",
+    "name": "hwPortalPacketStatisticsInquiryAckSent",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPortalPacketStatisticsInquiryReqError": {
+    "class": "objecttype",
+    "description": "The total number of inquiry request error packet. ",
+    "maxaccess": "read-only",
+    "name": "hwPortalPacketStatisticsInquiryReqError",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPortalPacketStatisticsInquiryReqReceived": {
+    "class": "objecttype",
+    "description": "The total number of received inquiry request packet. ",
+    "maxaccess": "read-only",
+    "name": "hwPortalPacketStatisticsInquiryReqReceived",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPortalPacketStatisticsLoginACKFailed": {
+    "class": "objecttype",
+    "description": "The total number of login ack failure packet. ",
+    "maxaccess": "read-only",
+    "name": "hwPortalPacketStatisticsLoginACKFailed",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPortalPacketStatisticsLoginAckSent": {
+    "class": "objecttype",
+    "description": "The total number of sending login ack packet. ",
+    "maxaccess": "read-only",
+    "name": "hwPortalPacketStatisticsLoginAckSent",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPortalPacketStatisticsLoginConfirmError": {
+    "class": "objecttype",
+    "description": "The total number of login confirm error packet. ",
+    "maxaccess": "read-only",
+    "name": "hwPortalPacketStatisticsLoginConfirmError",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPortalPacketStatisticsLoginConfirmReceived": {
+    "class": "objecttype",
+    "description": "The total number of received login confirm packet. ",
+    "maxaccess": "read-only",
+    "name": "hwPortalPacketStatisticsLoginConfirmReceived",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPortalPacketStatisticsLoginReqReceived": {
+    "class": "objecttype",
+    "description": "The total number of received login request packet. ",
+    "maxaccess": "read-only",
+    "name": "hwPortalPacketStatisticsLoginReqReceived",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPortalPacketStatisticsLogoutACKFailed": {
+    "class": "objecttype",
+    "description": "The total number of logout ack failure packet. ",
+    "maxaccess": "read-only",
+    "name": "hwPortalPacketStatisticsLogoutACKFailed",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPortalPacketStatisticsLogoutAckSent": {
+    "class": "objecttype",
+    "description": "The total number of sending logout ack packet. ",
+    "maxaccess": "read-only",
+    "name": "hwPortalPacketStatisticsLogoutAckSent",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPortalPacketStatisticsLogoutReqError": {
+    "class": "objecttype",
+    "description": " The total number of logout request error packet.",
+    "maxaccess": "read-only",
+    "name": "hwPortalPacketStatisticsLogoutReqError",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPortalPacketStatisticsLogoutReqReceived": {
+    "class": "objecttype",
+    "description": "The total number of received logout request packet. ",
+    "maxaccess": "read-only",
+    "name": "hwPortalPacketStatisticsLogoutReqReceived",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPortalPacketStatisticsPara": {
+    "class": "objectidentity",
+    "name": "hwPortalPacketStatisticsPara",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2"
+  },
+  "hwPortalPacketStatisticsParaObjectGroup": {
+    "class": "objectgroup",
+    "description": "The pachet statistics parameter group.",
+    "name": "hwPortalPacketStatisticsParaObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalStatisticsBeginTime"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsAuthenticatorError"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsAccessReqError"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsLogoutReqError"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsInquiryReqError"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsLoginConfirmError"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsAccessReqReceived"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsLoginReqReceived"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsLogoutReqReceived"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsInquiryReqReceived"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsLoginConfirmReceived"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsAccessACKFailed"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsLoginACKFailed"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsLogoutACKFailed"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsInquiryACKFailed"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsAccessAckSent"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsLoginAckSent"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsLogoutAckSent"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalPacketStatisticsInquiryAckSent"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.4.3.2.2",
+    "status": "current"
+  },
+  "hwPortalServerEntry": {
+    "class": "objecttype",
+    "description": "The entry of statistics table of PORTAL server.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalServerIpAddress"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPortalServerEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.4.1",
+    "status": "current"
+  },
+  "hwPortalServerEntryV2": {
+    "class": "objecttype",
+    "description": "The entry of statistics table of PORTAL server.(V2)",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalVrfNameV2"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalServerIpAddressV2"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPortalServerEntryV2",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.7.1",
+    "status": "current"
+  },
+  "hwPortalServerIpAddress": {
+    "class": "objecttype",
+    "description": "The IP address of PORTAL server.",
+    "maxaccess": "read-only",
+    "name": "hwPortalServerIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwPortalServerIpAddressV2": {
+    "class": "objecttype",
+    "description": "The IP address of PORTAL server.(V2)",
+    "maxaccess": "read-only",
+    "name": "hwPortalServerIpAddressV2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwPortalServerObjectGroup": {
+    "class": "objectgroup",
+    "description": "The PORTAL server group.",
+    "name": "hwPortalServerObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalServerIpAddress"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalServerUserNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.4.3.2.4",
+    "status": "current"
+  },
+  "hwPortalServerTable": {
+    "class": "objecttype",
+    "description": "The statistics table of PORTAL server, used to inquire total number of every access user on PORTAL server. ",
+    "maxaccess": "not-accessible",
+    "name": "hwPortalServerTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.4",
+    "status": "current"
+  },
+  "hwPortalServerTableV2": {
+    "class": "objecttype",
+    "description": "The statistics table of PORTAL server, used to inquire total number of every access user on PORTAL server.(V2)",
+    "maxaccess": "not-accessible",
+    "name": "hwPortalServerTableV2",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.7",
+    "status": "current"
+  },
+  "hwPortalServerUserNum": {
+    "class": "objecttype",
+    "description": " The total number of access users on PORTAL server. ",
+    "maxaccess": "read-only",
+    "name": "hwPortalServerUserNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPortalServerUserNumV2": {
+    "class": "objecttype",
+    "description": "The total number of access users on PORTAL server.(V2)",
+    "maxaccess": "read-only",
+    "name": "hwPortalServerUserNumV2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPortalServerV2ObjectGroup": {
+    "class": "objectgroup",
+    "description": "The PORTAL server group.(V2)",
+    "name": "hwPortalServerV2ObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalServerIpAddressV2"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalServerUserNumV2"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.4.3.2.7",
+    "status": "current"
+  },
+  "hwPortalStatisticsBeginTime": {
+    "class": "objecttype",
+    "description": "The time of system startup time, statistics of start time. When clear the statistics data, it will be reset. If power off, the data would not be saved. ",
+    "maxaccess": "read-only",
+    "name": "hwPortalStatisticsBeginTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.2.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwPortalUserDownFlow": {
+    "class": "objecttype",
+    "description": " The downstream flow, unit is bytes. ",
+    "maxaccess": "read-only",
+    "name": "hwPortalUserDownFlow",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.5.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPortalUserEntry": {
+    "class": "objecttype",
+    "description": "The entry of PORTAL user table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalUserMACAddress"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPortalUserEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.5.1",
+    "status": "current"
+  },
+  "hwPortalUserIpAddress": {
+    "class": "objecttype",
+    "description": " The IP address of users. ",
+    "maxaccess": "read-only",
+    "name": "hwPortalUserIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwPortalUserLoginTime": {
+    "class": "objecttype",
+    "description": " The login time of user. ",
+    "maxaccess": "read-only",
+    "name": "hwPortalUserLoginTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.5.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPortalUserMACAddress": {
+    "class": "objecttype",
+    "description": " The MAC address of users. ",
+    "maxaccess": "read-only",
+    "name": "hwPortalUserMACAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwPortalUserName": {
+    "class": "objecttype",
+    "description": " The username. ",
+    "maxaccess": "read-only",
+    "name": "hwPortalUserName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.5.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 253,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPortalUserObjectGroup": {
+    "class": "objectgroup",
+    "description": "The PORTAL user group.",
+    "name": "hwPortalUserObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalUserMACAddress"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalUserIpAddress"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalUserPort"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalUserUpFlow"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalUserDownFlow"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalUserName"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalUserLoginTime"
+      },
+      {
+        "module": "HUAWEI-PORTAL-MIB",
+        "object": "hwPortalUserServerIpAddress"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.4.3.2.5",
+    "status": "current"
+  },
+  "hwPortalUserPort": {
+    "class": "objecttype",
+    "description": " The port number of users. ",
+    "maxaccess": "read-only",
+    "name": "hwPortalUserPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPortalUserServerIpAddress": {
+    "class": "objecttype",
+    "description": "The IP address of PORTAL server.",
+    "maxaccess": "read-only",
+    "name": "hwPortalUserServerIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.5.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwPortalUserTable": {
+    "class": "objecttype",
+    "description": " The PORTAL user table, used to inquire the attribute of PORTAL users. ",
+    "maxaccess": "not-accessible",
+    "name": "hwPortalUserTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.5",
+    "status": "current"
+  },
+  "hwPortalUserUpFlow": {
+    "class": "objecttype",
+    "description": " The upstream flow, unit is bytes. ",
+    "maxaccess": "read-only",
+    "name": "hwPortalUserUpFlow",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPortalVrfNameV2": {
+    "class": "objecttype",
+    "description": "VPN instance name of portal server (V2)",
+    "maxaccess": "read-only",
+    "name": "hwPortalVrfNameV2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.4.1.6.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "huaweiMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "MPLS-VPN-MIB": [
+      "mplsVpnVrfName"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Gauge32",
+      "Bits",
+      "iso",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "IpAddress",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "MibIdentifier"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DateAndTime",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "MacAddress"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-PORTAL-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:42 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-PORTAL-MIB"
+  }
+}

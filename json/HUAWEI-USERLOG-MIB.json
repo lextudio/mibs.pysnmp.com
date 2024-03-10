@@ -1,0 +1,1130 @@
+{
+  "hwUserLogMIB": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": "The HUAWEI-USERLOG-MIB contains objects to manage configuration and monitor running state for userlog feature. For users who access network through NAT and BAS equipments, their IP addresses are generally unfixed, and so it is hard to exactly locate which host a certain access comes from and which user initiates it. This decreases the network security. User log is designed to solve the problem. User log can record Network Address Translation (NAT) flow information, and login/ logout information and flow information of Broadband Access Server (BAS) user, thus enabling the administrator know address information before NAT, access record of BAS user, etc. Then, network activities and operations can be queried and tracked, and network availability and security are improved accordingly.",
+    "lastupdated": "200304100000Z",
+    "name": "hwUserLogMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.18",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwUserlogAccessCfgSlotNumber": {
+    "class": "objecttype",
+    "description": "Slot number. The object specifies which slot is configured with BAS ACCESS LOG. ",
+    "maxaccess": "read-only",
+    "name": "hwUserlogAccessCfgSlotNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwUserlogAccessClearRunStat": {
+    "class": "objecttype",
+    "description": "Clear the running statistics for ACCESS LOG. Its access is write-only. If 1, the running statistics for ACCESS LOG is resetted, the other value is invalid.",
+    "maxaccess": "read-write",
+    "name": "hwUserlogAccessClearRunStat",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.5.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUserlogAccessEnable": {
+    "class": "objecttype",
+    "description": "The BAS ACCESS LOG feature status. If 1, BAS ACCESS LOG is enabled. If 0, BAS ACCESS LOG is disabled. The default value 0 means BAS ACCESS LOG is disabled.",
+    "maxaccess": "read-write",
+    "name": "hwUserlogAccessEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUserlogAccessFailedEntries": {
+    "class": "objecttype",
+    "description": "The total number of BAS ACCESS entries failed in outputting.",
+    "maxaccess": "read-only",
+    "name": "hwUserlogAccessFailedEntries",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwUserlogAccessFailedPackets": {
+    "class": "objecttype",
+    "description": "The total number of BAS ACCESS LOG UDP packet failed in outputting.",
+    "maxaccess": "read-only",
+    "name": "hwUserlogAccessFailedPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.5.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwUserlogAccessHostAddress": {
+    "class": "objecttype",
+    "description": "The IP address of BAS ACCESS LOG server. If user log is output in UDP packet mode, user log server must be configured and user log server address must be specified correctly. Otherwise, user log function cannot work normally. The address of the destination server must be a valid unicast address rather than a loop address or multicast address. In principle, it should be the address of the user log server that can communicate normally.",
+    "maxaccess": "read-write",
+    "name": "hwUserlogAccessHostAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwUserlogAccessObjects": {
+    "class": "objectidentity",
+    "name": "hwUserlogAccessObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3"
+  },
+  "hwUserlogAccessRunSlotNumber": {
+    "class": "objecttype",
+    "description": "Slot number. The object specifies on which slot the BAS ACCESS LOG statistics are calculated.",
+    "maxaccess": "read-only",
+    "name": "hwUserlogAccessRunSlotNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwUserlogAccessSlotCfgInfoEntry": {
+    "class": "objecttype",
+    "description": "BAS ACCESS LOG configuration information entry for a slot.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessCfgSlotNumber"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwUserlogAccessSlotCfgInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.4.1",
+    "status": "current"
+  },
+  "hwUserlogAccessSlotCfgInfoTable": {
+    "class": "objecttype",
+    "description": "A table of BAS ACCESS LOG configuration information for the specified slot.",
+    "maxaccess": "not-accessible",
+    "name": "hwUserlogAccessSlotCfgInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.4",
+    "status": "current"
+  },
+  "hwUserlogAccessSlotRunInfoEntry": {
+    "class": "objecttype",
+    "description": "Running Information Entry for a slot.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessRunSlotNumber"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwUserlogAccessSlotRunInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.5.1",
+    "status": "current"
+  },
+  "hwUserlogAccessSlotRunInfoTable": {
+    "class": "objecttype",
+    "description": "A table of BAS ACCESS LOG running information for the specified slot.",
+    "maxaccess": "not-accessible",
+    "name": "hwUserlogAccessSlotRunInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.5",
+    "status": "current"
+  },
+  "hwUserlogAccessSourceIP": {
+    "class": "objecttype",
+    "description": "The Source IP address of BAS ACCESS LOG UDP packet. By default, the source IP address of the UDP packet is the IP address of the interface through which the router outputs the user log packet. On the user log server side, the source of log information can be located rapidly through identifying the source IP address of the log. You are recommended to configure a loopback address or router ID to function as the source IP address of the UDP packet.",
+    "maxaccess": "read-write",
+    "name": "hwUserlogAccessSourceIP",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwUserlogAccessSyslog": {
+    "class": "objecttype",
+    "description": "BAS ACCESS LOG format. If 1, LOG format is sysLog; If 0, LOG format is UDP packet. UDP packet is the default format, and is recommended. Syslog can be used in the case that log amount is not too large.",
+    "maxaccess": "read-write",
+    "name": "hwUserlogAccessSyslog",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUserlogAccessTotalEntries": {
+    "class": "objecttype",
+    "description": "The total number of BAS ACCESS records which are logged. ",
+    "maxaccess": "read-only",
+    "name": "hwUserlogAccessTotalEntries",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwUserlogAccessTotalPackets": {
+    "class": "objecttype",
+    "description": "The total number of ACCESS LOG UDP packet generated by the router.",
+    "maxaccess": "read-only",
+    "name": "hwUserlogAccessTotalPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwUserlogAccessUdpPort": {
+    "class": "objecttype",
+    "description": "The UDP Port Number of BAS ACCESS LOG server. Its range is 1 ~ 65535. In order to avoid confliction with general UDP port numbers, you are recommended to use the UDP port number above 1024.",
+    "maxaccess": "read-write",
+    "name": "hwUserlogAccessUdpPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwUserlogAccessVersion": {
+    "class": "objecttype",
+    "description": "BAS ACCESS LOG version. Currently only version 1 is developed.",
+    "maxaccess": "read-only",
+    "name": "hwUserlogAccessVersion",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.3.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUserlogCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for entities which implement the Huawei Userlog mib.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogMandatoryGroup"
+      }
+    ],
+    "name": "hwUserlogCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.3.1.1",
+    "status": "current"
+  },
+  "hwUserlogCompliances": {
+    "class": "objectidentity",
+    "name": "hwUserlogCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.3.1"
+  },
+  "hwUserlogConfigGroup": {
+    "class": "objectgroup",
+    "description": "All configurable parameters of Userlog feature.",
+    "name": "hwUserlogConfigGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatVersion"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatSyslog"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatSourceIP"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatFlowBegin"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatActiveTime"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatCfgSlotNumber"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatEnable"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatAclNumber"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatHostAddress"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatUdpPort"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowVersion"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowSyslog"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowSourceIP"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowFlowBegin"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowActiveTime"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowCfgSlotNumber"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowEnable"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowAclNumber"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowHostAddress"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowUdpPort"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessVersion"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessSyslog"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessSourceIP"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessCfgSlotNumber"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessEnable"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessHostAddress"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessUdpPort"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.18.3.2.2",
+    "status": "current"
+  },
+  "hwUserlogConformance": {
+    "class": "objectidentity",
+    "name": "hwUserlogConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.3"
+  },
+  "hwUserlogFlowAclNumber": {
+    "class": "objecttype",
+    "description": "Access-list number. Its range is 2000 ~ 3999. The value 0 means no ACL is specified. Only when BAS FLOW LOG is enabled, the ACL be configured. Only BAS flow which match the ACL will be logged. ",
+    "maxaccess": "read-write",
+    "name": "hwUserlogFlowAclNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUserlogFlowActiveTime": {
+    "class": "objecttype",
+    "description": "The active time for long-time existed BAS flow. Its unit is minute. Its range is 10 minutes ~ 120 minutes. When setting it, BAS flow can be logged after an internal of active time. This function will be used when real-time monitor is required. The default value 0 means real-time monitor function is disabled. ",
+    "maxaccess": "read-write",
+    "name": "hwUserlogFlowActiveTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUserlogFlowCfgSlotNumber": {
+    "class": "objecttype",
+    "description": "Slot number. The ojects specifies which slot is configured with BAS FLOW LOG. ",
+    "maxaccess": "read-only",
+    "name": "hwUserlogFlowCfgSlotNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwUserlogFlowClearRunStat": {
+    "class": "objecttype",
+    "description": "Clears the running statistics for FLOW LOG. Its access is write-only. If 1, the running statistics for FLOW LOG is resetted. Other value is invalid.",
+    "maxaccess": "read-write",
+    "name": "hwUserlogFlowClearRunStat",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.7.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUserlogFlowEnable": {
+    "class": "objecttype",
+    "description": "The BAS FLOW LOG feature status. If 1, BAS FLOW LOG is enabled. If 0, BAS FLOW LOG is disabled. The default value 0 means BAS FLOW LOG is disabled.",
+    "maxaccess": "read-write",
+    "name": "hwUserlogFlowEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUserlogFlowFailedEntries": {
+    "class": "objecttype",
+    "description": "The total number of BAS FLOW entries failed in outputting. ",
+    "maxaccess": "read-only",
+    "name": "hwUserlogFlowFailedEntries",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.7.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwUserlogFlowFailedPackets": {
+    "class": "objecttype",
+    "description": "The total number of BAS FLOW LOG UDP packet failed in outputting.",
+    "maxaccess": "read-only",
+    "name": "hwUserlogFlowFailedPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.7.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwUserlogFlowFlowBegin": {
+    "class": "objecttype",
+    "description": "Log the BAS flow when it is created. If 1, this function is enabled. If 0, this function is disabled. This function will be used when real-time monitor is required. The default value 0 means this function is disabled.",
+    "maxaccess": "read-write",
+    "name": "hwUserlogFlowFlowBegin",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUserlogFlowHostAddress": {
+    "class": "objecttype",
+    "description": "The IP address of BAS FLOW LOG server. If user log is output in UDP packet mode, user log server must be configured and user log server address must be specified correctly. Otherwise, user log function cannot work normally. The address of the destination server must be a valid unicast address rather than a loop address or multicast address. In principle, it should be the address of the user log server that can communicate normally.",
+    "maxaccess": "read-write",
+    "name": "hwUserlogFlowHostAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwUserlogFlowObjects": {
+    "class": "objectidentity",
+    "name": "hwUserlogFlowObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2"
+  },
+  "hwUserlogFlowRunSlotNumber": {
+    "class": "objecttype",
+    "description": "Slot number. The object specifies on which slot the BAS FLOW LOG statistics are calculated.",
+    "maxaccess": "read-only",
+    "name": "hwUserlogFlowRunSlotNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwUserlogFlowSlotCfgInfoEntry": {
+    "class": "objecttype",
+    "description": "BAS FLOW LOG configuration information entry for a slot.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowCfgSlotNumber"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwUserlogFlowSlotCfgInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.6.1",
+    "status": "current"
+  },
+  "hwUserlogFlowSlotCfgInfoTable": {
+    "class": "objecttype",
+    "description": "A table of BAS FLOW LOG configuration information for the specified slot. By default, user log function is disabled on the interface board. Only after user log function is enabled, the other configurations related to user log take effect.",
+    "maxaccess": "not-accessible",
+    "name": "hwUserlogFlowSlotCfgInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.6",
+    "status": "current"
+  },
+  "hwUserlogFlowSlotRunInfoEntry": {
+    "class": "objecttype",
+    "description": "Running Information Entry for a slot.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowRunSlotNumber"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwUserlogFlowSlotRunInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.7.1",
+    "status": "current"
+  },
+  "hwUserlogFlowSlotRunInfoTable": {
+    "class": "objecttype",
+    "description": "A table of BAS FLOW LOG running information for the specified slot.",
+    "maxaccess": "not-accessible",
+    "name": "hwUserlogFlowSlotRunInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.7",
+    "status": "current"
+  },
+  "hwUserlogFlowSourceIP": {
+    "class": "objecttype",
+    "description": "The Source IP address of BAS FLOW LOG UDP packet. By default, the source IP address of the UDP packet is the IP address of the interface through which the router outputs the user log packet. On the user log server side, the source of log information can be located rapidly through identifying the source IP address of the log. You are recommended to configure a loopback address or router ID to function as the source IP address of the UDP packet.",
+    "maxaccess": "read-write",
+    "name": "hwUserlogFlowSourceIP",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwUserlogFlowSyslog": {
+    "class": "objecttype",
+    "description": "BAS FLOW LOG format. If 1, LOG format is sysLog. If 0, LOG format is UDP packet. UDP packet is the default format, and is recommended. Syslog can be used in the case that log amount is not too large.",
+    "maxaccess": "read-write",
+    "name": "hwUserlogFlowSyslog",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUserlogFlowTotalEntries": {
+    "class": "objecttype",
+    "description": "The total number of BAS FLOW Entries which are logged. ",
+    "maxaccess": "read-only",
+    "name": "hwUserlogFlowTotalEntries",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwUserlogFlowTotalPackets": {
+    "class": "objecttype",
+    "description": "The total number of FLOW LOG UDP packet generated by the device. ",
+    "maxaccess": "read-only",
+    "name": "hwUserlogFlowTotalPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwUserlogFlowUdpPort": {
+    "class": "objecttype",
+    "description": "The UDP Port Number of BAS FLOW LOG server. Its range is 1 ~ 65535. In order to avoid confliction with general UDP port numbers, you are recommended to use the UDP port number above 1024.",
+    "maxaccess": "read-write",
+    "name": "hwUserlogFlowUdpPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwUserlogFlowVersion": {
+    "class": "objecttype",
+    "description": "BAS FLOW LOG version. Currently only version 1 is developed.",
+    "maxaccess": "read-only",
+    "name": "hwUserlogFlowVersion",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.2.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUserlogGroups": {
+    "class": "objectidentity",
+    "name": "hwUserlogGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.3.2"
+  },
+  "hwUserlogInfoGroup": {
+    "class": "objectgroup",
+    "description": "All running information of Userlog feature.",
+    "name": "hwUserlogInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatTotalEntries"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatTotalPackets"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatFailedEntries"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatFailedPackets"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowTotalEntries"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowTotalPackets"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowFailedEntries"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowFailedPackets"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessTotalEntries"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessTotalPackets"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessFailedEntries"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessFailedPackets"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.18.3.2.3",
+    "status": "current"
+  },
+  "hwUserlogMandatoryGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing mandatory Userlog information.",
+    "name": "hwUserlogMandatoryGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatEnable"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatHostAddress"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatUdpPort"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowEnable"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowHostAddress"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogFlowUdpPort"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessEnable"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessHostAddress"
+      },
+      {
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogAccessUdpPort"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.18.3.2.1",
+    "status": "current"
+  },
+  "hwUserlogNatAclNumber": {
+    "class": "objecttype",
+    "description": "Access-list number. Its range is 2000 ~ 3999. The value 0 means no ACL is specified. Only when NAT LOG is enabled, and ACL is configured. Only NAT flow which match the ACL will be logged. ",
+    "maxaccess": "read-write",
+    "name": "hwUserlogNatAclNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUserlogNatActiveTime": {
+    "class": "objecttype",
+    "description": "The active time for long-time existed NAT flow. Unit: minute. Range: 10 minutes ~ 120 minutes. When setting it, NAT flow can be logged after an interval of active time. This function will be used when real-time monitor is required. The default value 0 means real-time monitor function is disabled. ",
+    "maxaccess": "read-write",
+    "name": "hwUserlogNatActiveTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUserlogNatCfgSlotNumber": {
+    "class": "objecttype",
+    "description": "Slot number. The object specifies which slot is configured with NAT LOG. For NAT LOG, it is the slot of the egress interface configured with NAT.",
+    "maxaccess": "read-only",
+    "name": "hwUserlogNatCfgSlotNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwUserlogNatClearRunStat": {
+    "class": "objecttype",
+    "description": "Clears the running statistics for NAT LOG. Its access is write-only. If 1, the running statistics for NAT LOG is resetted. Other value is invalid.",
+    "maxaccess": "read-write",
+    "name": "hwUserlogNatClearRunStat",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.7.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUserlogNatEnable": {
+    "class": "objecttype",
+    "description": "The NAT LOG feature status. If 1, NAT LOG is enabled. If 0, NAT LOG is disabled. The default value 0 means NAT LOG is disabled.",
+    "maxaccess": "read-write",
+    "name": "hwUserlogNatEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUserlogNatFailedEntries": {
+    "class": "objecttype",
+    "description": "The total number of NAT flow entries failed in outputting.",
+    "maxaccess": "read-only",
+    "name": "hwUserlogNatFailedEntries",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.7.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwUserlogNatFailedPackets": {
+    "class": "objecttype",
+    "description": "The total number of NAT LOG UDP packets failed in outputting.",
+    "maxaccess": "read-only",
+    "name": "hwUserlogNatFailedPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.7.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwUserlogNatFlowBegin": {
+    "class": "objecttype",
+    "description": "Log the NAT flow when it is created. If 1, this function is enabled. If 0, this function is disabled. This function will be used when real-time monitor is required. The default value 0 means this function is disabled.",
+    "maxaccess": "read-write",
+    "name": "hwUserlogNatFlowBegin",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUserlogNatHostAddress": {
+    "class": "objecttype",
+    "description": "The IP address of NAT LOG server. If user log is output in UDP packet mode, user log server must be configured and user log server address must be specified correctly. Otherwise, user log function cannot work normally. The address of the destination server must be a valid unicast address rather than a loop address or multicast address. In principle, it should be the address of the user log server that can communicate normally.",
+    "maxaccess": "read-write",
+    "name": "hwUserlogNatHostAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwUserlogNatObjects": {
+    "class": "objectidentity",
+    "name": "hwUserlogNatObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1"
+  },
+  "hwUserlogNatRunSlotNumber": {
+    "class": "objecttype",
+    "description": "Slot number. The object specifies on which slot the NAT LOG statistics are calculated.",
+    "maxaccess": "read-only",
+    "name": "hwUserlogNatRunSlotNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwUserlogNatSlotCfgInfoEntry": {
+    "class": "objecttype",
+    "description": "NAT LOG configuration information entry for a slot.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatCfgSlotNumber"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwUserlogNatSlotCfgInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.6.1",
+    "status": "current"
+  },
+  "hwUserlogNatSlotCfgInfoTable": {
+    "class": "objecttype",
+    "description": "A table of NAT LOG configuration information for the specified slot. By default, user log function is disabled on the interface board. Only after user log function is enabled, the other configurations related to user log take effect.",
+    "maxaccess": "not-accessible",
+    "name": "hwUserlogNatSlotCfgInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.6",
+    "status": "current"
+  },
+  "hwUserlogNatSlotRunInfoEntry": {
+    "class": "objecttype",
+    "description": "NAT LOG running information entry for a slot.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-USERLOG-MIB",
+        "object": "hwUserlogNatRunSlotNumber"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwUserlogNatSlotRunInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.7.1",
+    "status": "current"
+  },
+  "hwUserlogNatSlotRunInfoTable": {
+    "class": "objecttype",
+    "description": "A table of NAT LOG running information for the specified slot.",
+    "maxaccess": "not-accessible",
+    "name": "hwUserlogNatSlotRunInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.7",
+    "status": "current"
+  },
+  "hwUserlogNatSourceIP": {
+    "class": "objecttype",
+    "description": "The Source IP address of NAT LOG UDP packet. By default, the source IP address of the UDP packet is the IP address of the interface through which the router outputs the user log packet. On the user log server side, the source of log information can be located rapidly through identifying the source IP address of the log. You are recommended to configure a loopback address or router ID to function as the source IP address of the UDP packet.",
+    "maxaccess": "read-write",
+    "name": "hwUserlogNatSourceIP",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwUserlogNatSyslog": {
+    "class": "objecttype",
+    "description": "NAT LOG format. If 1, LOG format is sysLog. If 0, LOG format is UDP packet. UDP packet is the default format and is recommended. Syslog can be used in the case that log amount is not too large.",
+    "maxaccess": "read-write",
+    "name": "hwUserlogNatSyslog",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUserlogNatTotalEntries": {
+    "class": "objecttype",
+    "description": "The total number of NAT flow entries which are logged.",
+    "maxaccess": "read-only",
+    "name": "hwUserlogNatTotalEntries",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwUserlogNatTotalPackets": {
+    "class": "objecttype",
+    "description": "The total number of NAT LOG UDP packets generated by the device.",
+    "maxaccess": "read-only",
+    "name": "hwUserlogNatTotalPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwUserlogNatUdpPort": {
+    "class": "objecttype",
+    "description": "The UDP Port Number of NAT LOG server. Its range is 1 ~ 65535. In order to avoid confliction with general UDP port numbers, you are recommended to use the UDP port number above 1024.",
+    "maxaccess": "read-write",
+    "name": "hwUserlogNatUdpPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwUserlogNatVersion": {
+    "class": "objecttype",
+    "description": "NAT LOG version. Currently only version 1 is developed.",
+    "maxaccess": "read-only",
+    "name": "hwUserlogNatVersion",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUserlogNotifications": {
+    "class": "objectidentity",
+    "name": "hwUserlogNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.2"
+  },
+  "hwUserlogObjects": {
+    "class": "objectidentity",
+    "name": "hwUserlogObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.18.1"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Bits",
+      "Integer32",
+      "iso",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "IpAddress",
+      "Unsigned32",
+      "Counter64",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-USERLOG-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:17 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-USERLOG-MIB"
+  }
+}

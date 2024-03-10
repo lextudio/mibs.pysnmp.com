@@ -1,0 +1,525 @@
+{
+  "hwL3Vlan": {
+    "class": "moduleidentity",
+    "contactinfo": "R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com",
+    "description": "The HUAWEI-L3VLAN-MIB contains objects to manage level 3 vlan. Through the MIB,you can get the detail information of each vlan,such as VLANID,encapsulated type,the statistics of the received and sent packets and so on.",
+    "lastupdated": "200308110900Z",
+    "name": "hwL3Vlan",
+    "oid": "1.3.6.1.4.1.2011.5.25.100",
+    "organization": "Huawei Technologies Co., Ltd."
+  },
+  "hwL3VlanCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-L3VLAN-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-L3VLAN-MIB",
+        "object": "hwSubIfVlanGroup"
+      }
+    ],
+    "name": "hwL3VlanCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.3.1.1",
+    "status": "current"
+  },
+  "hwL3VlanCompliances": {
+    "class": "objectidentity",
+    "name": "hwL3VlanCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.3.1"
+  },
+  "hwL3VlanConformance": {
+    "class": "objectidentity",
+    "name": "hwL3VlanConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.3"
+  },
+  "hwL3VlanGroups": {
+    "class": "objectidentity",
+    "name": "hwL3VlanGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.3.2"
+  },
+  "hwL3VlanMIBObjects": {
+    "class": "objectidentity",
+    "name": "hwL3VlanMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1"
+  },
+  "hwL3VlanTraps": {
+    "class": "objectidentity",
+    "name": "hwL3VlanTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.2"
+  },
+  "hwSubIfIndex": {
+    "class": "objecttype",
+    "description": "Interface index(es) of port(s) present on the device.",
+    "maxaccess": "not-accessible",
+    "name": "hwSubIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwSubIfVlanEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of a sub-interface vlan entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L3VLAN-MIB",
+        "object": "hwSubIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L3VLAN-MIB",
+        "object": "hwSubIfVlanId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSubIfVlanEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.1.1",
+    "status": "current"
+  },
+  "hwSubIfVlanGroup": {
+    "class": "objectgroup",
+    "description": "Standard sub-interface vlan group.",
+    "name": "hwSubIfVlanGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L3VLAN-MIB",
+        "object": "hwSubIfVlanType"
+      },
+      {
+        "module": "HUAWEI-L3VLAN-MIB",
+        "object": "hwSubIfVlanId"
+      },
+      {
+        "module": "HUAWEI-L3VLAN-MIB",
+        "object": "hwSubIfVlanStatus"
+      },
+      {
+        "module": "HUAWEI-L3VLAN-MIB",
+        "object": "hwSubIfVlanPolicyIfType"
+      },
+      {
+        "module": "HUAWEI-L3VLAN-MIB",
+        "object": "hwSubIfVlanPolicyVlanIdEnd"
+      },
+      {
+        "module": "HUAWEI-L3VLAN-MIB",
+        "object": "hwSubIfVlanPolicyType"
+      },
+      {
+        "module": "HUAWEI-L3VLAN-MIB",
+        "object": "hwSubIfVlanPolicyValue"
+      },
+      {
+        "module": "HUAWEI-L3VLAN-MIB",
+        "object": "hwSubIfVlanPolicyGroupId"
+      },
+      {
+        "module": "HUAWEI-L3VLAN-MIB",
+        "object": "hwSubIfVlanPolicyRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.100.3.2.1",
+    "status": "current"
+  },
+  "hwSubIfVlanId": {
+    "class": "objecttype",
+    "description": "This object specifies the vlan id encapsulated by the sub-interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwSubIfVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSubIfVlanPolicyEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of a sub-interface vlan policy entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L3VLAN-MIB",
+        "object": "hwSubIfVlanPolicyIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L3VLAN-MIB",
+        "object": "hwSubIfVlanPolicyVlanId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSubIfVlanPolicyEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.3.1",
+    "status": "current"
+  },
+  "hwSubIfVlanPolicyGroupId": {
+    "class": "objecttype",
+    "description": "Group-management id.",
+    "maxaccess": "read-create",
+    "name": "hwSubIfVlanPolicyGroupId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSubIfVlanPolicyIfIndex": {
+    "class": "objecttype",
+    "description": "Interface index(es) of port(s) present on the device.",
+    "maxaccess": "not-accessible",
+    "name": "hwSubIfVlanPolicyIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwSubIfVlanPolicyIfType": {
+    "class": "objecttype",
+    "description": "Indicates the sub-interface type as follows: dot1q(1): indicates vlan-type dot1q sub-interface. dot1qTerm(2): indicates dot1q termination sub-interface. stacking(3): indicates qinq stacking sub-interface. untagged(4): indicates untagged sub-interface. ",
+    "maxaccess": "read-create",
+    "name": "hwSubIfVlanPolicyIfType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1q": 1,
+          "dot1qTerm": 2,
+          "stacking": 3,
+          "untagged": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSubIfVlanPolicyRowStatus": {
+    "class": "objecttype",
+    "description": "This object specifies the status of the sub-interface vlan table.",
+    "maxaccess": "read-create",
+    "name": "hwSubIfVlanPolicyRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.3.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwSubIfVlanPolicyTable": {
+    "class": "objecttype",
+    "description": "This table contains the information of vlan and 8021P/DSCP/EtherType policy encapsulated by the sub-interfaces.",
+    "maxaccess": "not-accessible",
+    "name": "hwSubIfVlanPolicyTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.3",
+    "status": "current"
+  },
+  "hwSubIfVlanPolicyType": {
+    "class": "objecttype",
+    "description": "Indicates the type of vlan policy as follows: 8021p(1): indicates IEEE 802.1P encapsulation. dscp(2): indicates Differentiated Services CodePoint. eth-type(3): indicates EtherType,For example PPPOE. default(4):indicates the default policy. ",
+    "maxaccess": "read-create",
+    "name": "hwSubIfVlanPolicyType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 4,
+          "type8021P": 1,
+          "typeDSCP": 2,
+          "typeEtherType": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSubIfVlanPolicyValue": {
+    "class": "objecttype",
+    "description": "Indicates the information of vlan policy as follows: Each octet within this value specifies a set of eight priorities. When the policy type is 8021p, the first octet specifying 8021p priority 0 through 7; When the policy type is dscp, the first octet specifying dscp priority 0 through 7, the second octet specifying priority 8 through 15, etc; When the policy type is eth-type, the most significant bit of the first octet specifying EtherType PPPOE. Within each octet, the most significant bit represents the lowest numbered priority, and the least significant bit represents the highest numbered priority. Thus, each priority is represented by a single bit within the value of this object. If that bit has a value of \u00271\u0027 then that priority is included in the set of priorities; the priority is not included if its bit has a value of \u00270\u0027. ",
+    "maxaccess": "read-create",
+    "name": "hwSubIfVlanPolicyValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 8,
+            "min": 8
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSubIfVlanPolicyVlanId": {
+    "class": "objecttype",
+    "description": "This object specifies the vlan id encapsulated by the sub-interface. when the vlan id is zero it means to configure the interface as the untagged sub-interface, When configure vlan as a range, hwSubIfVlanPolicyVlanId is the start vlan id and hwSubIfVlanPolicyVlanIdEnd is the end vlan id.",
+    "maxaccess": "not-accessible",
+    "name": "hwSubIfVlanPolicyVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSubIfVlanPolicyVlanIdEnd": {
+    "class": "objecttype",
+    "description": "When configure vlan as a range, hwSubIfVlanPolicyVlanId is the start vlan id and hwSubIfVlanPolicyVlanIdEnd is the end vlan id.",
+    "maxaccess": "read-create",
+    "name": "hwSubIfVlanPolicyVlanIdEnd",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSubIfVlanStatus": {
+    "class": "objecttype",
+    "description": "This object specifies the status of the sub-interface vlan table.",
+    "maxaccess": "read-create",
+    "name": "hwSubIfVlanStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwSubIfVlanTable": {
+    "class": "objecttype",
+    "description": "This table contains the information of vlans encapsulated by the sub-interfaces.",
+    "maxaccess": "not-accessible",
+    "name": "hwSubIfVlanTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.1",
+    "status": "current"
+  },
+  "hwSubIfVlanType": {
+    "class": "objecttype",
+    "description": "This object specifies the vlan type encapsulated by the sub-interface.",
+    "maxaccess": "read-create",
+    "name": "hwSubIfVlanType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1q": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVLANMibClearVidStatistics": {
+    "class": "objecttype",
+    "description": "Setting the object to clear(1) will clear the counters of a row of the hwVLANMibRoutertVlanCountTable. When a clear action had been finished, or there is no clear action , the value of the object would be unavailable(0).",
+    "maxaccess": "read-write",
+    "name": "hwVLANMibClearVidStatistics",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "unavailable": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVLANMibRouterPort": {
+    "class": "objecttype",
+    "description": "Interface index(es) of trunk port(s) present on the device.",
+    "maxaccess": "read-only",
+    "name": "hwVLANMibRouterPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwVLANMibRouterVID": {
+    "class": "objecttype",
+    "description": "The vlan id.",
+    "maxaccess": "read-only",
+    "name": "hwVLANMibRouterVID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwVLANMibRouterVlanPacketSent": {
+    "class": "objecttype",
+    "description": "Number of packets sent by vlan",
+    "maxaccess": "read-only",
+    "name": "hwVLANMibRouterVlanPacketSent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwVLANMibRouterVlanPacketTran": {
+    "class": "objecttype",
+    "description": "The number of packets transmitted to vlan",
+    "maxaccess": "read-only",
+    "name": "hwVLANMibRouterVlanPacketTran",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwVLANMibRoutertVlanCountEntry": {
+    "class": "objecttype",
+    "description": "Entry of vLANMibRoutertVlanCountTable",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L3VLAN-MIB",
+        "object": "hwVLANMibRouterPort"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L3VLAN-MIB",
+        "object": "hwVLANMibRouterVID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVLANMibRoutertVlanCountEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.2.1",
+    "status": "current"
+  },
+  "hwVLANMibRoutertVlanCountTable": {
+    "class": "objecttype",
+    "description": "Per vid router statistics table includes the number of packets that each vlan is received and sent.",
+    "maxaccess": "not-accessible",
+    "name": "hwVLANMibRoutertVlanCountTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.100.1.2",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "Bits",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-L3VLAN-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:54 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-L3VLAN-MIB"
+  }
+}

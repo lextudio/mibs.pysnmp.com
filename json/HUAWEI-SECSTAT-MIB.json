@@ -1,0 +1,1845 @@
+{
+  "hwSECSTAT": {
+    "class": "objectidentity",
+    "name": "hwSECSTAT",
+    "oid": "1.3.6.1.4.1.2011.5.25.11"
+  },
+  "hwSECSTATCommon": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": " V1.00 The HUAWEI-SECSTAT-MIB contains objects to manage the security statistics for router and firewall product. ",
+    "lastupdated": "200304100900Z",
+    "name": "hwSECSTATCommon",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwSecStatAclDenyIcmpOcts": {
+    "class": "objecttype",
+    "description": "The total bytes of ICMP packets denied by acl rule.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatAclDenyIcmpOcts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.3.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatAclDenyIcmpPkts": {
+    "class": "objecttype",
+    "description": "The total number of ICMP packets denied by acl rule.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatAclDenyIcmpPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.3.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatAclDenyNonIcmpOcts": {
+    "class": "objecttype",
+    "description": "The total bytes of non ICMP packets denied for acl rule.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatAclDenyNonIcmpOcts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.3.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatAclDenyNonIcmpPkts": {
+    "class": "objecttype",
+    "description": "The total number of non ICMP packets denied for acl rule.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatAclDenyNonIcmpPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.3.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatAlgDropOcts": {
+    "class": "objecttype",
+    "description": "The total bytes of packets dropped by application layer gateway.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatAlgDropOcts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.3.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatAlgDropPkts": {
+    "class": "objecttype",
+    "description": "The total number of packets dropped by application layer gateway.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatAlgDropPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.3.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatAlteration": {
+    "class": "objecttype",
+    "description": "The proportion of change in the packets scale.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatAlteration",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.1.2.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 25,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatBlsDenyOcts": {
+    "class": "objecttype",
+    "description": "The total bytes of packets denied by blacklist.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatBlsDenyOcts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.3.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatBlsDenyPkts": {
+    "class": "objecttype",
+    "description": "The total number of packets denied by blacklist.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatBlsDenyPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.3.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatCalcTime": {
+    "class": "objecttype",
+    "description": "The period of packet scale statistics, the unit is minute.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatCalcTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.1.2.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 14400,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatCfgObjects": {
+    "class": "objectidentity",
+    "name": "hwSecStatCfgObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.1"
+  },
+  "hwSecStatClearGlobalAppInfo": {
+    "class": "objecttype",
+    "description": " Use this OID to clear the global application statistics information. When you want to clear the information, set this OID to 1. ",
+    "maxaccess": "read-write",
+    "name": "hwSecStatClearGlobalAppInfo",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.2.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatClearGlobalDropInfo": {
+    "class": "objecttype",
+    "description": " Use this OID to clear the global dropped packets statistics information. When you want to clear the information, set this OID to 1. ",
+    "maxaccess": "read-write",
+    "name": "hwSecStatClearGlobalDropInfo",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.3.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatClearGlobalSessFlowInfo": {
+    "class": "objecttype",
+    "description": " Use this OID to clear the global session flow statistics information. When you want to clear the information, set this OID to 1. ",
+    "maxaccess": "read-write",
+    "name": "hwSecStatClearGlobalSessFlowInfo",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.35",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatCompliance": {
+    "class": "objectidentity",
+    "name": "hwSecStatCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.3.1"
+  },
+  "hwSecStatConformance": {
+    "class": "objectidentity",
+    "name": "hwSecStatConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.3"
+  },
+  "hwSecStatFragTblNum": {
+    "class": "objecttype",
+    "description": "The number of entry in fragment table.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatFragTblNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatGlobalCfgGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwSecStatGlobalCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatTcpPktScale"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatUdpPktScale"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatIcmpPktScale"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatAlteration"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatCalcTime"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatTcpSessNumMax"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatTcpSessNumMin"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatUdpSessNumMax"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatGlobalSessSetDefault"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatIcmpSessNumMax"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatIcmpSessNumMin"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatTcpProxySessNumMax"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatTcpProxySessNumMin"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatPktScaleSetDefault"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatUdpSessNumMin"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatGlobalStatEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.3.2.1",
+    "status": "current"
+  },
+  "hwSecStatGlobalMonitorGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwSecStatGlobalMonitorGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonTotalSess"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonHalfConn"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonRcvIcmpPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonRcvIcmpOcts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonRcvTcpPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonRcvTcpOcts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonRcvUdpPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonRcvUdpOcts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonRcvEtcPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonRcvEtcOcts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonPassIcmpPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonPassIcmpOcts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonPassTcpPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonPassTcpOcts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonPassUdpPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonPassUdpOcts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonPassEtcPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonPassEtcOcts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonSynPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonFinPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonSynAckPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonRstPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonRcvFragPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonRcvFragOcts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonFtpSessions"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonRcvFtpPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonRcvFtpOcts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonSmtpSessions"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonRcvSmtpPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonRcvSmtpOcts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonHttpSessions"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonRcvHttpPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonRcvHttpOcts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonH323Sessions"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonRcvH323Pkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonRcvH323Octs"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonRtspSessions"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonRcvRtspPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonRcvRtspOcts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonJavaAtckNum"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatNoSessTblPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatNoSessTblOcts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatSeqErrPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatSeqErrOcts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatIcmpFloodDropPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatIcmpFloodDropOcts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatUdpFloodDropPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatUdpFloodDropOcts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatAlgDropPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatAlgDropOcts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatIPVerErrDropPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatIpCrcDropPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatIpTTLDropPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonCurSessSpeed"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonPeakSessSpeed"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonTotalBootConnNum"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatProtoErrDropPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatAclDenyNonIcmpPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatAclDenyNonIcmpOcts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatAclDenyIcmpPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatAclDenyIcmpOcts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatBlsDenyPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatClearGlobalDropInfo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatClearGlobalAppInfo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatClearGlobalSessFlowInfo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatBlsDenyOcts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonTcpSess"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonUdpSess"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonIcmpSess"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonSvrMapTblNum"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatFragTblNum"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonAllPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-MIB",
+        "object": "hwSecStatMonAllOcts"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.3.2.2",
+    "status": "current"
+  },
+  "hwSecStatGlobalPktScale": {
+    "class": "objectidentity",
+    "name": "hwSecStatGlobalPktScale",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.1.2"
+  },
+  "hwSecStatGlobalSessNum": {
+    "class": "objectidentity",
+    "name": "hwSecStatGlobalSessNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.1.3"
+  },
+  "hwSecStatGlobalSessSetDefault": {
+    "class": "objecttype",
+    "description": " This OID is used for setting the global session number configuration to default. When you want to set the value to default, set this OID to 1. ",
+    "maxaccess": "read-write",
+    "name": "hwSecStatGlobalSessSetDefault",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.1.3.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatGlobalStatEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "true"
+      }
+    },
+    "description": "The status indicate whether enable the global statistics.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatGlobalStatEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwSecStatIPVerErrDropPkts": {
+    "class": "objecttype",
+    "description": "The total number of packets dropped for IP version error.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPVerErrDropPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.3.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIcmpFloodDropOcts": {
+    "class": "objecttype",
+    "description": "The total bytes of packets dropped due to ICMP Flood attack.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIcmpFloodDropOcts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.3.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIcmpFloodDropPkts": {
+    "class": "objecttype",
+    "description": "The total number of packets dropped due to ICMP Flood attack.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIcmpFloodDropPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.3.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIcmpPktScale": {
+    "class": "objecttype",
+    "description": " The percent of ICMP packets. The hwSecStatTcpPktScale + hwSecStatUdpPktScale + hwSecStatIcmpPktScale must less than 100 ",
+    "maxaccess": "read-write",
+    "name": "hwSecStatIcmpPktScale",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.1.2.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatIcmpSessNumMax": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 500000
+      }
+    },
+    "description": "The maximun number of ICMP session allowed.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatIcmpSessNumMax",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.1.3.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 500000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatIcmpSessNumMin": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 500000
+      }
+    },
+    "description": " The minimum of ICMP session. when the number of ICMP session in one system arrive the maximum allowed, system would decrease the ICMP session by some method, once the number of ICMP session in one system arrive the minumim, system would stop decreasing the ICMP session. ",
+    "maxaccess": "read-write",
+    "name": "hwSecStatIcmpSessNumMin",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.1.3.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 500000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatIpCrcDropPkts": {
+    "class": "objecttype",
+    "description": "The total number of packets dropped for CRC error.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIpCrcDropPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.3.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIpTTLDropPkts": {
+    "class": "objecttype",
+    "description": "The total number of packets dropped for TTL error.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIpTTLDropPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.3.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMibGroups": {
+    "class": "objectidentity",
+    "name": "hwSecStatMibGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.3.2"
+  },
+  "hwSecStatMonAllOcts": {
+    "class": "objecttype",
+    "description": "The number of received bytes by the device.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonAllOcts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.34",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonAllPkts": {
+    "class": "objecttype",
+    "description": "The number of received packets by the device.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonAllPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonCurSessSpeed": {
+    "class": "objecttype",
+    "description": "The current speed of session establishing.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonCurSessSpeed",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonFinPkts": {
+    "class": "objecttype",
+    "description": "The total number of FIN packets arriving the system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonFinPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonFtpSessions": {
+    "class": "objecttype",
+    "description": "The total number of FTP sessions in the system currently.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonFtpSessions",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.2.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonH323Sessions": {
+    "class": "objecttype",
+    "description": "The total number of H323 sessions in the system currently.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonH323Sessions",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.2.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonHalfConn": {
+    "class": "objecttype",
+    "description": "The number of incomplete session in system currently.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonHalfConn",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonHttpSessions": {
+    "class": "objecttype",
+    "description": "The total number of HTTP sessions in the system currently.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonHttpSessions",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.2.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonIcmpSess": {
+    "class": "objecttype",
+    "description": "The current number of ICMP sessions.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonIcmpSess",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonJavaAtckNum": {
+    "class": "objecttype",
+    "description": "The number of JAVA attack detected by system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonJavaAtckNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.2.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonPassEtcOcts": {
+    "class": "objecttype",
+    "description": "The total bytes of other type packets pass the system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonPassEtcOcts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonPassEtcPkts": {
+    "class": "objecttype",
+    "description": "The total number of other type packets pass the system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonPassEtcPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonPassIcmpOcts": {
+    "class": "objecttype",
+    "description": "The total bytes of ICMP packets pass the system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonPassIcmpOcts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonPassIcmpPkts": {
+    "class": "objecttype",
+    "description": "The total number of ICMP packets pass the system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonPassIcmpPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonPassTcpOcts": {
+    "class": "objecttype",
+    "description": "The total bytes of TCP packets pass the system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonPassTcpOcts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonPassTcpPkts": {
+    "class": "objecttype",
+    "description": "The total number of TCP packets pass the system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonPassTcpPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonPassUdpOcts": {
+    "class": "objecttype",
+    "description": "The total bytes of UDP packets pass the system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonPassUdpOcts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonPassUdpPkts": {
+    "class": "objecttype",
+    "description": "The total number of UDP packets pass the system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonPassUdpPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonPeakSessSpeed": {
+    "class": "objecttype",
+    "description": "The maximun speed of session establishing since device startup.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonPeakSessSpeed",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonRcvEtcOcts": {
+    "class": "objecttype",
+    "description": "The total bytes of other type packets received by system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonRcvEtcOcts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonRcvEtcPkts": {
+    "class": "objecttype",
+    "description": "The total number of other type packets received by system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonRcvEtcPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonRcvFragOcts": {
+    "class": "objecttype",
+    "description": "The total bytes of fragment packets arriving the system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonRcvFragOcts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonRcvFragPkts": {
+    "class": "objecttype",
+    "description": "The total number of fragment packets arriving the system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonRcvFragPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonRcvFtpOcts": {
+    "class": "objecttype",
+    "description": "The total bytes of FTP packets received by system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonRcvFtpOcts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.2.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonRcvFtpPkts": {
+    "class": "objecttype",
+    "description": "The total number of FTP packets received by system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonRcvFtpPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.2.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonRcvH323Octs": {
+    "class": "objecttype",
+    "description": "The total bytes of H323 packets received by system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonRcvH323Octs",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.2.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonRcvH323Pkts": {
+    "class": "objecttype",
+    "description": "The total number of H323 packets received by system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonRcvH323Pkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.2.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonRcvHttpOcts": {
+    "class": "objecttype",
+    "description": "The total bytes of HTTP packets received by system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonRcvHttpOcts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.2.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonRcvHttpPkts": {
+    "class": "objecttype",
+    "description": "The total number of HTTP packets received by system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonRcvHttpPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.2.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonRcvIcmpOcts": {
+    "class": "objecttype",
+    "description": "The total bytes of ICMP packets received by system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonRcvIcmpOcts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonRcvIcmpPkts": {
+    "class": "objecttype",
+    "description": "The total number of ICMP packets received by system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonRcvIcmpPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonRcvRtspOcts": {
+    "class": "objecttype",
+    "description": "The total bytes of RTSP packets received by system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonRcvRtspOcts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.2.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonRcvRtspPkts": {
+    "class": "objecttype",
+    "description": "The total number of RTSP packets received by system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonRcvRtspPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.2.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonRcvSmtpOcts": {
+    "class": "objecttype",
+    "description": "The total bytes of SMTP packets received by system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonRcvSmtpOcts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.2.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonRcvSmtpPkts": {
+    "class": "objecttype",
+    "description": "The total number of SMTP packets received by system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonRcvSmtpPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.2.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonRcvTcpOcts": {
+    "class": "objecttype",
+    "description": "The total bytes of TCP packets received by system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonRcvTcpOcts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonRcvTcpPkts": {
+    "class": "objecttype",
+    "description": "The total number of TCP packets received by system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonRcvTcpPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonRcvUdpOcts": {
+    "class": "objecttype",
+    "description": "The total bytes of UDP packets received by system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonRcvUdpOcts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonRcvUdpPkts": {
+    "class": "objecttype",
+    "description": "The total number of UDP packets received by system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonRcvUdpPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonRstPkts": {
+    "class": "objecttype",
+    "description": "The total number of RESET packets arriving the system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonRstPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonRtspSessions": {
+    "class": "objecttype",
+    "description": "The total number of RTSP sessions in the system currently.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonRtspSessions",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.2.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonSmtpSessions": {
+    "class": "objecttype",
+    "description": "The total number of SMTP sessions in the system currently.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonSmtpSessions",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.2.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonSvrMapTblNum": {
+    "class": "objecttype",
+    "description": "The total number of server map.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonSvrMapTblNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonSynAckPkts": {
+    "class": "objecttype",
+    "description": "The total number of SYN-ACK packets arriving the system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonSynAckPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonSynPkts": {
+    "class": "objecttype",
+    "description": "The total number of SYN packets arriving the system.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonSynPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonTcpSess": {
+    "class": "objecttype",
+    "description": "The current number of TCP sessions.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonTcpSess",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonTotalBootConnNum": {
+    "class": "objecttype",
+    "description": " The total number of connection since device startup. This number is increased only. ",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonTotalBootConnNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonTotalSess": {
+    "class": "objecttype",
+    "description": "The total session in the system currently.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonTotalSess",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonUdpSess": {
+    "class": "objecttype",
+    "description": "The current number of UDP sessions.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatMonUdpSess",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMonitorGlobalAppInfo": {
+    "class": "objectidentity",
+    "name": "hwSecStatMonitorGlobalAppInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.2"
+  },
+  "hwSecStatMonitorGlobalDrop": {
+    "class": "objectidentity",
+    "name": "hwSecStatMonitorGlobalDrop",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.3"
+  },
+  "hwSecStatMonitorGlobalSessFlow": {
+    "class": "objectidentity",
+    "name": "hwSecStatMonitorGlobalSessFlow",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.1"
+  },
+  "hwSecStatMonitorObjects": {
+    "class": "objectidentity",
+    "name": "hwSecStatMonitorObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2"
+  },
+  "hwSecStatNoSessTblOcts": {
+    "class": "objecttype",
+    "description": "The total bytes of packets dropped for no session.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatNoSessTblOcts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.3.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatNoSessTblPkts": {
+    "class": "objecttype",
+    "description": "The total number of packets dropped for no session.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatNoSessTblPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.3.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatPktScaleSetDefault": {
+    "class": "objecttype",
+    "description": " This OID is used for setting the packet scale configuration to default. When you want to set the value to default, set this OID to 1. ",
+    "maxaccess": "read-write",
+    "name": "hwSecStatPktScaleSetDefault",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.1.2.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatProtoErrDropPkts": {
+    "class": "objecttype",
+    "description": "The total number of packets dropped for protocol error.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatProtoErrDropPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.3.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatSeqErrOcts": {
+    "class": "objecttype",
+    "description": "The total bytes of packets dropped for sequence number error.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatSeqErrOcts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.3.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatSeqErrPkts": {
+    "class": "objecttype",
+    "description": "The total number of packets dropped for sequence number error.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatSeqErrPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.3.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatTcpPktScale": {
+    "class": "objecttype",
+    "description": " The percent of TCP packets. The hwSecStatTcpPktScale + hwSecStatUdpPktScale + hwSecStatIcmpPktScale must less than 100 ",
+    "maxaccess": "read-write",
+    "name": "hwSecStatTcpPktScale",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.1.2.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatTcpProxySessNumMax": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 500000
+      }
+    },
+    "description": "The maximun number of TcpProxy session allowed.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatTcpProxySessNumMax",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.1.3.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 500000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatTcpProxySessNumMin": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 500000
+      }
+    },
+    "description": " The minimum of TcpProxy session. when the number of TcpProxy session in one system arrive the maximum allowed, system would decrease the TcpProxy session by some method, once the number of TcpProxy session in one system arrive the minumim, system would stop decreasing the TcpProxy session. ",
+    "maxaccess": "read-write",
+    "name": "hwSecStatTcpProxySessNumMin",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.1.3.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 500000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatTcpSessNumMax": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 500000
+      }
+    },
+    "description": "The maximun number of TCP session allowed.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatTcpSessNumMax",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.1.3.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 500000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatTcpSessNumMin": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 500000
+      }
+    },
+    "description": " The minimum of TCP session. when the number of TCP session in one system arrive the maximum allowed, system would decrease the TCP session by some method, once the number of tcp session in one system arrive the minumim, system would stop decreasing the TCP session. ",
+    "maxaccess": "read-write",
+    "name": "hwSecStatTcpSessNumMin",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.1.3.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 500000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatUdpFloodDropOcts": {
+    "class": "objecttype",
+    "description": "The total bytes of packets dropped due to UDP Flood attack.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatUdpFloodDropOcts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.3.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatUdpFloodDropPkts": {
+    "class": "objecttype",
+    "description": "The total number of packets dropped due to UDP Flood attack.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatUdpFloodDropPkts",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.2.3.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatUdpPktScale": {
+    "class": "objecttype",
+    "description": " The percent of UDP packets. The hwSecStatTcpPktScale + hwSecStatUdpPktScale + hwSecStatIcmpPktScale must less than 100 ",
+    "maxaccess": "read-write",
+    "name": "hwSecStatUdpPktScale",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.1.2.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatUdpSessNumMax": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 500000
+      }
+    },
+    "description": "The maximun number of UDP session allowed.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatUdpSessNumMax",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.1.3.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 500000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatUdpSessNumMin": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 500000
+      }
+    },
+    "description": " The minimum of UDP session. when the number of UDP session in one system arrive the maximum allowed, system would decrease the UDP session by some method, once the number of tcp session in one system arrive the minumim, system would stop decreasing the UDP session. ",
+    "maxaccess": "read-write",
+    "name": "hwSecStatUdpSessNumMin",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.1.1.3.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 500000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Counter64",
+      "iso",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-SECSTAT-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:54 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-SECSTAT-MIB"
+  }
+}

@@ -1,0 +1,878 @@
+{
+  "hwDatacomm": {
+    "class": "objectidentity",
+    "name": "hwDatacomm",
+    "oid": "1.3.6.1.4.1.2011.5.25"
+  },
+  "hwMcTrunkBfdSessId": {
+    "class": "objecttype",
+    "description": "The ID of a BFD session which is bound to the MC-Trunk. When the status of the BFD session is changed, BFD will notify the MC-Trunk.",
+    "maxaccess": "read-create",
+    "name": "hwMcTrunkBfdSessId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8191,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMcTrunkCompliances": {
+    "class": "objectidentity",
+    "name": "hwMcTrunkCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.3.1"
+  },
+  "hwMcTrunkConformance": {
+    "class": "objectidentity",
+    "name": "hwMcTrunkConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.3"
+  },
+  "hwMcTrunkEntry": {
+    "class": "objecttype",
+    "description": "MC-Trunk entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMcTrunkEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1",
+    "status": "current"
+  },
+  "hwMcTrunkFullCompliance": {
+    "class": "modulecompliance",
+    "description": "Description.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkGroup"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkMemberGroup"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkNotificationGroup"
+      }
+    ],
+    "name": "hwMcTrunkFullCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.3.1.1",
+    "status": "current"
+  },
+  "hwMcTrunkGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwMcTrunkGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkSystemId"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkPri"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkStatus"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkStatusReason"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkPeerIpAddr"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkSourceIpAddr"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkReceiveFailTimeMultiple"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkSendPeriod"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkPacketReceive"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkPacketSend"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkPacketRecDrop"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkPacketSndDrop"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkPeerSystemId"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkPeerPri"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkPeerReceiveFailTime"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkSecurityKeyType"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkSecurityKey"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkBfdSessId"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkResetCounter"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkRevertTime"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.178.3.2.1",
+    "status": "current"
+  },
+  "hwMcTrunkGroups": {
+    "class": "objectidentity",
+    "name": "hwMcTrunkGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.3.2"
+  },
+  "hwMcTrunkId": {
+    "class": "objecttype",
+    "description": "The index of the MC-Trunk.",
+    "maxaccess": "not-accessible",
+    "name": "hwMcTrunkId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMcTrunkMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "Contact-info.",
+    "description": "Description.",
+    "lastupdated": "200810211010Z",
+    "name": "hwMcTrunkMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.178",
+    "organization": "Organization."
+  },
+  "hwMcTrunkMemberEntry": {
+    "class": "objecttype",
+    "description": "Member Entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkMemberParentId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkMemberType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkMemberId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMcTrunkMemberEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1",
+    "status": "current"
+  },
+  "hwMcTrunkMemberGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwMcTrunkMemberGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkMemberStatus"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkMemberStatusReason"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkMemberWorkMode"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkMemberPhyStatus"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkMemberRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.178.3.2.2",
+    "status": "current"
+  },
+  "hwMcTrunkMemberId": {
+    "class": "objecttype",
+    "description": "The ID of the member.",
+    "maxaccess": "not-accessible",
+    "name": "hwMcTrunkMemberId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMcTrunkMemberParentId": {
+    "class": "objecttype",
+    "description": "The ID of the MC-Trunk to which the member belongs.",
+    "maxaccess": "not-accessible",
+    "name": "hwMcTrunkMemberParentId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMcTrunkMemberPhyStatus": {
+    "class": "objecttype",
+    "description": "The physical status of the member. 1:up. 2:down. ",
+    "maxaccess": "read-only",
+    "name": "hwMcTrunkMemberPhyStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMcTrunkMemberRowStatus": {
+    "class": "objecttype",
+    "description": "Current operation status of the row. It is used to manage the creation and deletion of conceptual rows.",
+    "maxaccess": "read-create",
+    "name": "hwMcTrunkMemberRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.50",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMcTrunkMemberStatus": {
+    "class": "objecttype",
+    "description": "The member status. 1:backup. 2:master. ",
+    "maxaccess": "read-only",
+    "name": "hwMcTrunkMemberStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backup": 1,
+          "master": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMcTrunkMemberStatusChange": {
+    "class": "notificationtype",
+    "description": "The trap is generated when the status of the memeber is changed or the status reason of the memeber is changed.",
+    "name": "hwMcTrunkMemberStatusChange",
+    "objects": [
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkMemberStatus"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkMemberStatusReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.178.2.2",
+    "status": "current"
+  },
+  "hwMcTrunkMemberStatusReason": {
+    "class": "objecttype",
+    "description": "The reason for the member being in the current status. forceBackup(1):The work mode of the member is force-backup. forceMaster(2):The work mode of the member is force-master. mctrunkInit(3):The work mode of the member is auto. The status of MC-Trunk is initialize. mctrunkBackup(4):The work mode of the member is auto. The status of MC-Trunk is backup. mctrunkMaster(5):The work mode of the member is auto. The status of MC-Trunk is master. peerMemberDown(6):The status of the member belonging to the peer MC-Trunk is down. peerMemberUp(7):The status of the member belonging to the peer MC-Trunk is up. ",
+    "maxaccess": "read-only",
+    "name": "hwMcTrunkMemberStatusReason",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forceBackup": 1,
+          "forceMaster": 2,
+          "mctrunkBackup": 4,
+          "mctrunkInit": 3,
+          "mctrunkMaster": 5,
+          "peerMemberDown": 6,
+          "peerMemberUp": 7
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMcTrunkMemberTable": {
+    "class": "objecttype",
+    "description": "The member table of the MC-Trunk.",
+    "maxaccess": "not-accessible",
+    "name": "hwMcTrunkMemberTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2",
+    "status": "current"
+  },
+  "hwMcTrunkMemberType": {
+    "class": "objecttype",
+    "description": "The type of the member. Now it is Eth-Trunk only. 1:EthTrunk",
+    "maxaccess": "not-accessible",
+    "name": "hwMcTrunkMemberType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMcTrunkMemberWorkMode": {
+    "class": "objecttype",
+    "description": "The work mode of the member. 1:auto. 2:forceBackup. 3:forceMaster. ",
+    "maxaccess": "read-create",
+    "name": "hwMcTrunkMemberWorkMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "forceBackup": 2,
+          "forceMaster": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMcTrunkNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "Description.",
+    "name": "hwMcTrunkNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkStatusChange"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkMemberStatusChange"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.178.3.2.3",
+    "status": "current"
+  },
+  "hwMcTrunkObjects": {
+    "class": "objectidentity",
+    "name": "hwMcTrunkObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1"
+  },
+  "hwMcTrunkPacketRecDrop": {
+    "class": "objecttype",
+    "description": "The number of the dropped packets when the packets are received.",
+    "maxaccess": "read-only",
+    "name": "hwMcTrunkPacketRecDrop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwMcTrunkPacketReceive": {
+    "class": "objecttype",
+    "description": "The number of received packets.",
+    "maxaccess": "read-only",
+    "name": "hwMcTrunkPacketReceive",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwMcTrunkPacketSend": {
+    "class": "objecttype",
+    "description": "The number of sent packets.",
+    "maxaccess": "read-only",
+    "name": "hwMcTrunkPacketSend",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwMcTrunkPacketSndDrop": {
+    "class": "objecttype",
+    "description": "The number of the dropped packets when the packets are sent.",
+    "maxaccess": "read-only",
+    "name": "hwMcTrunkPacketSndDrop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwMcTrunkPeerIpAddr": {
+    "class": "objecttype",
+    "description": "The peer IP address of the MC-Trunk.",
+    "maxaccess": "read-create",
+    "name": "hwMcTrunkPeerIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMcTrunkPeerPri": {
+    "class": "objecttype",
+    "description": "The priority of the peer MC-Trunk.",
+    "maxaccess": "read-only",
+    "name": "hwMcTrunkPeerPri",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 254,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMcTrunkPeerReceiveFailTime": {
+    "class": "objecttype",
+    "description": "The failure time for the peer MC-Trunk to receive packets. The unit is 100ms. ",
+    "maxaccess": "read-only",
+    "name": "hwMcTrunkPeerReceiveFailTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 5000,
+            "min": 15
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMcTrunkPeerSystemId": {
+    "class": "objecttype",
+    "description": "The system ID of the peer MC-Trunk. It is a physical address.",
+    "maxaccess": "read-only",
+    "name": "hwMcTrunkPeerSystemId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "PhysAddress"
+    }
+  },
+  "hwMcTrunkPri": {
+    "class": "objecttype",
+    "description": "The priority of the MC-Trunk. The default value is 100.",
+    "maxaccess": "read-create",
+    "name": "hwMcTrunkPri",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 254,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMcTrunkReceiveFailTimeMultiple": {
+    "class": "objecttype",
+    "description": "The detection time multiplier for failure detection. It is the multiple of the sending period.",
+    "maxaccess": "read-create",
+    "name": "hwMcTrunkReceiveFailTimeMultiple",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 50,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMcTrunkResetCounter": {
+    "class": "objecttype",
+    "description": "Reset hwMcTrunkPacketReceive,hwMcTrunkPacketSend,hwMcTrunkPacketRecDrop,hwMcTrunkPacketSndDrop.",
+    "maxaccess": "read-create",
+    "name": "hwMcTrunkResetCounter",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMcTrunkRevertTime": {
+    "class": "objecttype",
+    "description": "The delay time to revert. The unit is second. The default is 120. ",
+    "maxaccess": "read-create",
+    "name": "hwMcTrunkRevertTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMcTrunkRowStatus": {
+    "class": "objecttype",
+    "description": "Current operation status of the row. It is used to manage the creation and deletion of conceptual rows.",
+    "maxaccess": "read-create",
+    "name": "hwMcTrunkRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.50",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMcTrunkSecurityKey": {
+    "class": "objecttype",
+    "description": "This is the security key. It can be set to a string of 1 to 16 bytes. If hwMcTrunkSecurityKeyType is simple, you can get the key. If hwMcTrunkSecurityKeyType is cipher, the system returns a random string of 24 bytes.",
+    "maxaccess": "read-create",
+    "name": "hwMcTrunkSecurityKey",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 24,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMcTrunkSecurityKeyType": {
+    "class": "objecttype",
+    "description": "The type of the security key. 1:The simple encrypt type. 2:The cipher encrypt type. ",
+    "maxaccess": "read-create",
+    "name": "hwMcTrunkSecurityKeyType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cipher": 2,
+          "simple": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMcTrunkSendPeriod": {
+    "class": "objecttype",
+    "description": "The period for sending packets of the MC-Trunk. The unit is 100ms. ",
+    "maxaccess": "read-create",
+    "name": "hwMcTrunkSendPeriod",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 5
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMcTrunkSourceIpAddr": {
+    "class": "objecttype",
+    "description": "The source IP address of the MC-Trunk.",
+    "maxaccess": "read-create",
+    "name": "hwMcTrunkSourceIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMcTrunkStatus": {
+    "class": "objecttype",
+    "description": "The status of the MC-Trunk. 1:initialize. 2:backup. 3:master. ",
+    "maxaccess": "read-only",
+    "name": "hwMcTrunkStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backup": 2,
+          "initialize": 1,
+          "master": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMcTrunkStatusChange": {
+    "class": "notificationtype",
+    "description": "The trap is generated when the status of the MC-Trunk is changed or the status reason of the MC-Trunk is changed.",
+    "name": "hwMcTrunkStatusChange",
+    "objects": [
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkStatus"
+      },
+      {
+        "module": "HUAWEI-MC-TRUNK-MIB",
+        "object": "hwMcTrunkStatusReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.178.2.1",
+    "status": "current"
+  },
+  "hwMcTrunkStatusReason": {
+    "class": "objecttype",
+    "description": "The reason for the MC-Trunk being in the current status. pri(1):Priority calculation. timeout(2):The receiving timer timed out. bfdDown(3):BFD detected the control link between the PE and peer down. peerTimeout(4):The receiving timer of the peer timed out. peerBfdDown(5):BFD of the peer detected the control link between the PE and peer down. allMemberDown(6):All members of the MC-Trunk were down. init(7):Initiated the MC-Trunk. ",
+    "maxaccess": "read-only",
+    "name": "hwMcTrunkStatusReason",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allMemberDown": 6,
+          "bfdDown": 3,
+          "init": 7,
+          "peerBfdDown": 5,
+          "peerTimeout": 4,
+          "pri": 1,
+          "timeout": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMcTrunkSystemId": {
+    "class": "objecttype",
+    "description": "The system ID of the MC-Trunk. It is a physical address.",
+    "maxaccess": "read-only",
+    "name": "hwMcTrunkSystemId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "PhysAddress"
+    }
+  },
+  "hwMcTrunkTable": {
+    "class": "objecttype",
+    "description": "The MC-Trunk table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMcTrunkTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1",
+    "status": "current"
+  },
+  "hwMcTrunkTraps": {
+    "class": "objectidentity",
+    "name": "hwMcTrunkTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.2"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "huaweiMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Counter64",
+      "Bits",
+      "TimeTicks",
+      "MibIdentifier",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter32",
+      "iso",
+      "Integer32",
+      "Gauge32",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "PhysAddress",
+      "TruthValue",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-MC-TRUNK-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:11 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-MC-TRUNK-MIB"
+  }
+}

@@ -1,0 +1,750 @@
+{
+  "hwDHCP6RDUID": {
+    "class": "objecttype",
+    "description": "Config Dhcpv6 Duid.",
+    "maxaccess": "read-write",
+    "name": "hwDHCP6RDUID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 1,
+            "min": 1
+          },
+          {
+            "max": 28,
+            "min": 8
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDHCPArpProcessStatus": {
+    "class": "objecttype",
+    "description": "ARP process DHCP status. The value 1 means enable ARP process DHCP status. ",
+    "maxaccess": "read-write",
+    "name": "hwDHCPArpProcessStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwDHCPRDSCPEntry": {
+    "class": "objecttype",
+    "description": "An entry for configuring dhcp reply packet\u0027s Dscp value.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPRDSCPEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.22.1",
+    "status": "current"
+  },
+  "hwDHCPRDSCPTable": {
+    "class": "objecttype",
+    "description": "A table for configuring dhcp reply packet\u0027s Dscp value.",
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPRDSCPTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.22",
+    "status": "current"
+  },
+  "hwDHCPRIPAddr": {
+    "class": "objecttype",
+    "description": "Ip address for DHCP relay, The ip address means address of DHCP server.",
+    "maxaccess": "read-only",
+    "name": "hwDHCPRIPAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDHCPRIPEntry": {
+    "class": "objecttype",
+    "description": "An entry for configuring ip addresses for DHCP relay.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDHCPRIPAddr"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPRIPEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.1.1",
+    "status": "current"
+  },
+  "hwDHCPRIPRowStatus": {
+    "class": "objecttype",
+    "description": "This object is used to configuration new rows in this table, modify existing rows, and to delete existing rows.Only three actions are used: active(1), createAndGo(4), destroy(6).",
+    "maxaccess": "read-create",
+    "name": "hwDHCPRIPRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwDHCPRIPTable": {
+    "class": "objecttype",
+    "description": "A table for configuring ip addresses for DHCP relay, The ip address means address of DHCP server.",
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPRIPTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.1",
+    "status": "current"
+  },
+  "hwDHCPRRxBadPktNum": {
+    "class": "objecttype",
+    "description": "The total number of the bad packets received by DHCP relay.",
+    "maxaccess": "read-only",
+    "name": "hwDHCPRRxBadPktNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPRRxClientPktNum": {
+    "class": "objecttype",
+    "description": "The total number of the packets received form DHCP clients by DHCP relay.",
+    "maxaccess": "read-only",
+    "name": "hwDHCPRRxClientPktNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPRRxServerPktNum": {
+    "class": "objecttype",
+    "description": "The total number of the packets received from DHCP servers by DHCP relay module.",
+    "maxaccess": "read-only",
+    "name": "hwDHCPRRxServerPktNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPRSelectAllocateMode": {
+    "class": "objecttype",
+    "description": "Allocation mode of DHCP service. global(0) - allocation address from global interface(1)- allocation address from interface relay(2) - allocation address from dhcp server, the request is relayed to server none(3) - no allocation address mode globalAndRelay(4) - allocation address from global and relay interfaceAndRelay(5)- allocation address from interface and relay. ",
+    "maxaccess": "read-write",
+    "name": "hwDHCPRSelectAllocateMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "global": 0,
+          "globalAndRelay": 4,
+          "interface": 1,
+          "interfaceAndRelay": 5,
+          "none": 3,
+          "relay": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDHCPRSeletAllocateModeEntry": {
+    "class": "objecttype",
+    "description": "An entry for configuring the allocation mode of DHCP service.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPRSeletAllocateModeEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.2.1",
+    "status": "current"
+  },
+  "hwDHCPRSeletAllocateModeTable": {
+    "class": "objecttype",
+    "description": "A table for selecting allocation mode of dhcp service.",
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPRSeletAllocateModeTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.2",
+    "status": "current"
+  },
+  "hwDHCPRServerDetectStatus": {
+    "class": "objecttype",
+    "description": "This object indicates whether detection against the pseudo DHCP server is enabled. The default value is disabled(2).",
+    "maxaccess": "read-write",
+    "name": "hwDHCPRServerDetectStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwDHCPRTxClientBroPktNum": {
+    "class": "objecttype",
+    "description": "The total number of the brodcast packets transmited to DHCP clients by DHCP relay.",
+    "maxaccess": "read-only",
+    "name": "hwDHCPRTxClientBroPktNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPRTxClientPktNum": {
+    "class": "objecttype",
+    "description": "The total number of the packets transmited to DHCP clients by DHCP relay.",
+    "maxaccess": "read-only",
+    "name": "hwDHCPRTxClientPktNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPRTxClientUniPktNum": {
+    "class": "objecttype",
+    "description": "The total number of the unicast packets transmited to DHCP clients by DHCP relay.",
+    "maxaccess": "read-only",
+    "name": "hwDHCPRTxClientUniPktNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPRTxServerPktNum": {
+    "class": "objecttype",
+    "description": "The total number of the packets transmited to DHCP servers by DHCP relay module.",
+    "maxaccess": "read-only",
+    "name": "hwDHCPRTxServerPktNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPRelayAckPktNum": {
+    "class": "objecttype",
+    "description": "The total number of the DHCP Ack packets handled by DHCP relay.",
+    "maxaccess": "read-only",
+    "name": "hwDHCPRelayAckPktNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPRelayCycleStatus": {
+    "class": "objecttype",
+    "description": "Status of DHCP relay cycle mode, when the value is 0, cycle with the serveral DHCP servers addresses, when the value is 1, use one same DHCP server.",
+    "maxaccess": "read-write",
+    "name": "hwDHCPRelayCycleStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDHCPRelayDeclinePktNum": {
+    "class": "objecttype",
+    "description": "The total number of the DHCP Decline packets handled by DHCP relay.",
+    "maxaccess": "read-only",
+    "name": "hwDHCPRelayDeclinePktNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPRelayDiscoverPktNum": {
+    "class": "objecttype",
+    "description": "The total number of the DHCP Discover packets handled by DHCP relay.",
+    "maxaccess": "read-only",
+    "name": "hwDHCPRelayDiscoverPktNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPRelayInformPktNum": {
+    "class": "objecttype",
+    "description": "The total number of the DHCP Inform packets handled by DHCP relay.",
+    "maxaccess": "read-only",
+    "name": "hwDHCPRelayInformPktNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPRelayMIBCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting this module.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDHCPRelayMIBGroup"
+      }
+    ],
+    "name": "hwDHCPRelayMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.2.1.1",
+    "status": "current"
+  },
+  "hwDHCPRelayMIBCompliances": {
+    "class": "objectidentity",
+    "name": "hwDHCPRelayMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.2.1"
+  },
+  "hwDHCPRelayMIBConformance": {
+    "class": "objectidentity",
+    "name": "hwDHCPRelayMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.2"
+  },
+  "hwDHCPRelayMIBGroup": {
+    "class": "objectgroup",
+    "description": "The basic collection of objects providing management of DHCP realy.",
+    "name": "hwDHCPRelayMIBGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDHCPRIPAddr"
+      },
+      {
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDHCPRIPRowStatus"
+      },
+      {
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDHCPRSelectAllocateMode"
+      },
+      {
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDHCPRelayCycleStatus"
+      },
+      {
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDHCPRRxBadPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDHCPRRxServerPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDHCPRTxServerPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDHCPRRxClientPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDHCPRTxClientPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDHCPRTxClientUniPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDHCPRTxClientBroPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDHCPRelayDiscoverPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDHCPRelayRequestPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDHCPRelayDeclinePktNum"
+      },
+      {
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDHCPRelayReleasePktNum"
+      },
+      {
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDHCPRelayInformPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDHCPRelayOfferPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDHCPRelayAckPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDHCPRelayNakPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDHCPRelayStatisticsReset"
+      },
+      {
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDHCPArpProcessStatus"
+      },
+      {
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDHCPRServerDetectStatus"
+      },
+      {
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDhcpDscp"
+      },
+      {
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDhcpRenewReplyEnable"
+      },
+      {
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDhcpRenewReplyRowStatus"
+      },
+      {
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDHCP6RDUID"
+      },
+      {
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDHCPRelayReleaseLocalPktNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.7.1.2.2.1",
+    "status": "current"
+  },
+  "hwDHCPRelayMIBGroups": {
+    "class": "objectidentity",
+    "name": "hwDHCPRelayMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.2.2"
+  },
+  "hwDHCPRelayMib": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "This MIB describes objects used for managing DHCP relay, including configuring ip addresses for DHCP relay, selecting allocation mode of dhcp service, and some statistic information.",
+    "lastupdated": "201408120000Z",
+    "name": "hwDHCPRelayMib",
+    "oid": "1.3.6.1.4.1.2011.5.7.1",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "This version add the hwDHCPRelayReleaseLocalPktNum node.",
+        "revision": "2014-08-12 00:00"
+      },
+      {
+        "description": "V2.03 - V2.04 add the hwDHCP6RDUID node.",
+        "revision": "2013-10-17 00:00"
+      },
+      {
+        "description": "The initial revision of this MIB module.",
+        "revision": "2003-07-21 00:00"
+      },
+      {
+        "description": "Update the descriptions of these nodes: hwDHCPRTxClientPktNum, hwDHCPRTxClientUniPktNum and hwDHCPRTxClientBroPktNum.",
+        "revision": "2013-06-29 00:00"
+      },
+      {
+        "description": "The initial revision of this MIB module.",
+        "revision": "2003-02-12 00:00"
+      }
+    ]
+  },
+  "hwDHCPRelayMibObject": {
+    "class": "objectidentity",
+    "name": "hwDHCPRelayMibObject",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1"
+  },
+  "hwDHCPRelayNakPktNum": {
+    "class": "objecttype",
+    "description": "The total number of the DHCP Nak packets handled by DHCP relay.",
+    "maxaccess": "read-only",
+    "name": "hwDHCPRelayNakPktNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPRelayOfferPktNum": {
+    "class": "objecttype",
+    "description": "The total number of the DHCP Offer packets handled by DHCP server.",
+    "maxaccess": "read-only",
+    "name": "hwDHCPRelayOfferPktNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPRelayReleaseLocalPktNum": {
+    "class": "objecttype",
+    "description": "The total number of the DHCP local release packets handled by DHCP relay.",
+    "maxaccess": "read-only",
+    "name": "hwDHCPRelayReleaseLocalPktNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwDHCPRelayReleasePktNum": {
+    "class": "objecttype",
+    "description": "The total number of the DHCP Release packets handled by DHCP relay.",
+    "maxaccess": "read-only",
+    "name": "hwDHCPRelayReleasePktNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPRelayRequestPktNum": {
+    "class": "objecttype",
+    "description": "The total number of the DHCP Request packets handled by DHCP relay.",
+    "maxaccess": "read-only",
+    "name": "hwDHCPRelayRequestPktNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPRelayStatisticsReset": {
+    "class": "objecttype",
+    "description": "Reset the above statictics information of handled packets by DHCP relay. The value 1 means clear the statictics information. ",
+    "maxaccess": "read-write",
+    "name": "hwDHCPRelayStatisticsReset",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "reset": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpDscp": {
+    "class": "objecttype",
+    "description": "Dhcp reply packet\u0027s dscp value. \u003c0-63\u003e - Valid dscp value \u003c255\u003e - Set dscp value to default. ",
+    "maxaccess": "read-write",
+    "name": "hwDhcpDscp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.22.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 63,
+            "min": 0
+          },
+          {
+            "max": 255,
+            "min": 255
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpRenewReplyEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "Whether to enable dhcp renew-reply packet local-deal on this interface",
+    "maxaccess": "read-write",
+    "name": "hwDhcpRenewReplyEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.23.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpRenewReplyEntry": {
+    "class": "objecttype",
+    "description": "An entry for configuring dhcp renw-reply packet local deal.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCPR-MIB",
+        "object": "hwDhcpRenewReplyEnable"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpRenewReplyEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.23.1",
+    "status": "current"
+  },
+  "hwDhcpRenewReplyRowStatus": {
+    "class": "objecttype",
+    "description": "The dhcp renew-reply object is used to configuration new rows in this table, modify existing rows, and to delete existing rows.Only three actions are used: active(1), createAndGo(4), destroy(6).",
+    "maxaccess": "read-create",
+    "name": "hwDhcpRenewReplyRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.23.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwDhcpRenewReplyTable": {
+    "class": "objecttype",
+    "description": "A table for configuring dhcp renew-reply packet local deal.",
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpRenewReplyTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.7.1.1.23",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDhcp"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Gauge32",
+      "MibIdentifier",
+      "Bits",
+      "IpAddress",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-DHCPR-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:11 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-DHCPR-MIB"
+  }
+}

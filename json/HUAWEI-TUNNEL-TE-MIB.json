@@ -1,0 +1,3150 @@
+{
+  "hwAppliedCtFlowTemplateName": {
+    "class": "objecttype",
+    "description": "The name of CT-FLOW template.",
+    "maxaccess": "read-create",
+    "name": "hwAppliedCtFlowTemplateName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.10.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 60,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCt0Cos": {
+    "class": "objecttype",
+    "description": "The Value of class of service must be in \u0027be,af1,af2,af3,af4,ef,cs6,cs7\u0027.",
+    "maxaccess": "read-create",
+    "name": "hwCt0Cos",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "af1": 2,
+          "af2": 3,
+          "af3": 4,
+          "af4": 5,
+          "be": 1,
+          "cs6": 7,
+          "cs7": 8,
+          "ef": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCt0Scheduler": {
+    "class": "objecttype",
+    "description": "Scheduler name.",
+    "maxaccess": "read-create",
+    "name": "hwCt0Scheduler",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lpq": 3,
+          "pq": 1,
+          "wfq": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCt0Valid": {
+    "class": "objecttype",
+    "description": "The state of CT-FLOW templat row.",
+    "maxaccess": "read-create",
+    "name": "hwCt0Valid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 2,
+          "valid": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCt1Cos": {
+    "class": "objecttype",
+    "description": "The Value of class of service must be in \u0027be,af1,af2,af3,af4,ef,cs6,cs7\u0027.",
+    "maxaccess": "read-create",
+    "name": "hwCt1Cos",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "af1": 2,
+          "af2": 3,
+          "af3": 4,
+          "af4": 5,
+          "be": 1,
+          "cs6": 7,
+          "cs7": 8,
+          "ef": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCt1Scheduler": {
+    "class": "objecttype",
+    "description": "Scheduler name.",
+    "maxaccess": "read-create",
+    "name": "hwCt1Scheduler",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lpq": 3,
+          "pq": 1,
+          "wfq": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCt1Valid": {
+    "class": "objecttype",
+    "description": "The state of CT-FLOW templat row.",
+    "maxaccess": "read-create",
+    "name": "hwCt1Valid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 2,
+          "valid": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCt2Cos": {
+    "class": "objecttype",
+    "description": "The Value of class of service must be in \u0027be,af1,af2,af3,af4,ef,cs6,cs7\u0027.",
+    "maxaccess": "read-create",
+    "name": "hwCt2Cos",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "af1": 2,
+          "af2": 3,
+          "af3": 4,
+          "af4": 5,
+          "be": 1,
+          "cs6": 7,
+          "cs7": 8,
+          "ef": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCt2Scheduler": {
+    "class": "objecttype",
+    "description": "Scheduler name.",
+    "maxaccess": "read-create",
+    "name": "hwCt2Scheduler",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lpq": 3,
+          "pq": 1,
+          "wfq": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCt2Valid": {
+    "class": "objecttype",
+    "description": "The state of CT-FLOW templat row.",
+    "maxaccess": "read-create",
+    "name": "hwCt2Valid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 2,
+          "valid": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCt3Cos": {
+    "class": "objecttype",
+    "description": "The Value of class of service must be in \u0027be,af1,af2,af3,af4,ef,cs6,cs7\u0027.",
+    "maxaccess": "read-create",
+    "name": "hwCt3Cos",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "af1": 2,
+          "af2": 3,
+          "af3": 4,
+          "af4": 5,
+          "be": 1,
+          "cs6": 7,
+          "cs7": 8,
+          "ef": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCt3Scheduler": {
+    "class": "objecttype",
+    "description": "Scheduler name.",
+    "maxaccess": "read-create",
+    "name": "hwCt3Scheduler",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lpq": 3,
+          "pq": 1,
+          "wfq": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCt3Valid": {
+    "class": "objecttype",
+    "description": "The state of CT-FLOW templat row.",
+    "maxaccess": "read-create",
+    "name": "hwCt3Valid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 2,
+          "valid": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCt4Cos": {
+    "class": "objecttype",
+    "description": "The Value of class of service must be in \u0027be,af1,af2,af3,af4,ef,cs6,cs7\u0027.",
+    "maxaccess": "read-create",
+    "name": "hwCt4Cos",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "af1": 2,
+          "af2": 3,
+          "af3": 4,
+          "af4": 5,
+          "be": 1,
+          "cs6": 7,
+          "cs7": 8,
+          "ef": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCt4Scheduler": {
+    "class": "objecttype",
+    "description": "Scheduler name.",
+    "maxaccess": "read-create",
+    "name": "hwCt4Scheduler",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lpq": 3,
+          "pq": 1,
+          "wfq": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCt4Valid": {
+    "class": "objecttype",
+    "description": "The state of CT-FLOW templat row.",
+    "maxaccess": "read-create",
+    "name": "hwCt4Valid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 2,
+          "valid": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCt5Cos": {
+    "class": "objecttype",
+    "description": "The Value of class of service must be in \u0027be,af1,af2,af3,af4,ef,cs6,cs7\u0027.",
+    "maxaccess": "read-create",
+    "name": "hwCt5Cos",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "af1": 2,
+          "af2": 3,
+          "af3": 4,
+          "af4": 5,
+          "be": 1,
+          "cs6": 7,
+          "cs7": 8,
+          "ef": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCt5Scheduler": {
+    "class": "objecttype",
+    "description": "Scheduler name.",
+    "maxaccess": "read-create",
+    "name": "hwCt5Scheduler",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lpq": 3,
+          "pq": 1,
+          "wfq": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCt5Valid": {
+    "class": "objecttype",
+    "description": "The state of CT-FLOW templat row.",
+    "maxaccess": "read-create",
+    "name": "hwCt5Valid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 2,
+          "valid": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCt6Cos": {
+    "class": "objecttype",
+    "description": "The Value of class of service must be in \u0027be,af1,af2,af3,af4,ef,cs6,cs7\u0027.",
+    "maxaccess": "read-create",
+    "name": "hwCt6Cos",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "af1": 2,
+          "af2": 3,
+          "af3": 4,
+          "af4": 5,
+          "be": 1,
+          "cs6": 7,
+          "cs7": 8,
+          "ef": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCt6Scheduler": {
+    "class": "objecttype",
+    "description": "Scheduler name.",
+    "maxaccess": "read-create",
+    "name": "hwCt6Scheduler",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lpq": 3,
+          "pq": 1,
+          "wfq": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCt6Valid": {
+    "class": "objecttype",
+    "description": "The state of CT-FLOW templat row.",
+    "maxaccess": "read-create",
+    "name": "hwCt6Valid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 2,
+          "valid": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCt7Cos": {
+    "class": "objecttype",
+    "description": "The Value of class of service must be in \u0027be,af1,af2,af3,af4,ef,cs6,cs7\u0027.",
+    "maxaccess": "read-create",
+    "name": "hwCt7Cos",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "af1": 2,
+          "af2": 3,
+          "af3": 4,
+          "af4": 5,
+          "be": 1,
+          "cs6": 7,
+          "cs7": 8,
+          "ef": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCt7Scheduler": {
+    "class": "objecttype",
+    "description": "Scheduler name.",
+    "maxaccess": "read-create",
+    "name": "hwCt7Scheduler",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1.34",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lpq": 3,
+          "pq": 1,
+          "wfq": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCt7Valid": {
+    "class": "objecttype",
+    "description": "The state of CT-FLOW templat row.",
+    "maxaccess": "read-create",
+    "name": "hwCt7Valid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1.35",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 2,
+          "valid": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCtBandWidthShareCfg": {
+    "class": "objecttype",
+    "description": "The Value of Ct BandWidth configuration for DS-TE. That must be in \u0027Share,UnShare\u0027.",
+    "maxaccess": "read-create",
+    "name": "hwCtBandWidthShareCfg",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.10.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "share": 1,
+          "unshare": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCtConfigCtGroup": {
+    "class": "objectgroup",
+    "description": "Describes the CT configuration of the TE tunnel interface.",
+    "name": "hwCtConfigCtGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtConfigTunnelName"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtConfigTunnelCommit"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtConfigTemplateName"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtConfigTunnelCt0Band"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtConfigTunnelCt1Band"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtConfigTunnelCt2Band"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtConfigTunnelCt3Band"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtConfigTunnelCt4Band"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtConfigTunnelCt5Band"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtConfigTunnelCt6Band"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtConfigTunnelCt7Band"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.151.3.3.7",
+    "status": "current"
+  },
+  "hwCtConfigTemplateName": {
+    "class": "objecttype",
+    "description": "The CT template name.",
+    "maxaccess": "read-only",
+    "name": "hwCtConfigTemplateName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.7.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 19,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCtConfigTunnelCommit": {
+    "class": "objecttype",
+    "description": "The commit flag of the TE tunnel interface,1 indicates commit,0 indicates not commit.",
+    "maxaccess": "read-only",
+    "name": "hwCtConfigTunnelCommit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "commit": 2,
+          "notCommit": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCtConfigTunnelCt0Band": {
+    "class": "objecttype",
+    "description": "The CT0 bandwidth value of the TE tunnel interface.",
+    "maxaccess": "read-only",
+    "name": "hwCtConfigTunnelCt0Band",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.7.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwCtConfigTunnelCt1Band": {
+    "class": "objecttype",
+    "description": "The CT1 bandwidth value of the TE tunnel interface.",
+    "maxaccess": "read-only",
+    "name": "hwCtConfigTunnelCt1Band",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.7.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwCtConfigTunnelCt2Band": {
+    "class": "objecttype",
+    "description": "The CT2 bandwidth value of the TE tunnel interface.",
+    "maxaccess": "read-only",
+    "name": "hwCtConfigTunnelCt2Band",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.7.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwCtConfigTunnelCt3Band": {
+    "class": "objecttype",
+    "description": "The CT3 bandwidth value of the TE tunnel interface.",
+    "maxaccess": "read-only",
+    "name": "hwCtConfigTunnelCt3Band",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.7.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwCtConfigTunnelCt4Band": {
+    "class": "objecttype",
+    "description": "The CT4 bandwidth value of the TE tunnel interface.",
+    "maxaccess": "read-only",
+    "name": "hwCtConfigTunnelCt4Band",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.7.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwCtConfigTunnelCt5Band": {
+    "class": "objecttype",
+    "description": "The CT5 bandwidth value of the TE tunnel interface.",
+    "maxaccess": "read-only",
+    "name": "hwCtConfigTunnelCt5Band",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.7.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwCtConfigTunnelCt6Band": {
+    "class": "objecttype",
+    "description": "The CT6 bandwidth value of the TE tunnel interface.",
+    "maxaccess": "read-only",
+    "name": "hwCtConfigTunnelCt6Band",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.7.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwCtConfigTunnelCt7Band": {
+    "class": "objecttype",
+    "description": "The CT7 bandwidth value of the TE tunnel interface.",
+    "maxaccess": "read-only",
+    "name": "hwCtConfigTunnelCt7Band",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.7.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwCtConfigTunnelCtEntry": {
+    "class": "objecttype",
+    "description": "The table describes the CT configuration in the TE tunnel interface. The index of the table is hwCtConfigTunnelCtIfIndex.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtConfigTunnelCtIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwCtConfigTunnelCtEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.7.1",
+    "status": "current"
+  },
+  "hwCtConfigTunnelCtIfIndex": {
+    "class": "objecttype",
+    "description": "Uniquely identifies a set of tunnels between a pair of ingress and egress LSRs. Managers should obtain new values for row creation in this table by reading mplsTunnelIndexNext. When the MPLS signalling protocol is rsvp(2),this value should be equal to the value signalled in the tunnel ID of the session object. When the MPLS signalling protocol is crldp(3) this value should be equal to the value signalled in the LSP ID. Reference to MPLS-TE-STD-MIB.",
+    "maxaccess": "not-accessible",
+    "name": "hwCtConfigTunnelCtIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwCtConfigTunnelCtTable": {
+    "class": "objecttype",
+    "description": "The table describes the CT configuration in the TE tunnel interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwCtConfigTunnelCtTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.7",
+    "status": "current"
+  },
+  "hwCtConfigTunnelName": {
+    "class": "objecttype",
+    "description": "The name of the TE tunnel interface.",
+    "maxaccess": "read-only",
+    "name": "hwCtConfigTunnelName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCtFlowTemplateCommit": {
+    "class": "objecttype",
+    "description": "The state of CT-FLOW templat commit.",
+    "maxaccess": "read-create",
+    "name": "hwCtFlowTemplateCommit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1.36",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "commit": 1,
+          "nocommit": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCtFlowTemplateEntry": {
+    "class": "objecttype",
+    "description": "The table describes the CT-FLOW-Mapping template configuration on the device. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtFlowTemplateID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwCtFlowTemplateEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1",
+    "status": "current"
+  },
+  "hwCtFlowTemplateGroup": {
+    "class": "objectgroup",
+    "description": "The table describes the CT-FLOW-Mapping template configuration on the device.",
+    "name": "hwCtFlowTemplateGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtFlowTemplateName"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCt0Cos"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCt0Scheduler"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCt0Valid"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCt1Cos"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCt1Scheduler"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCt1Valid"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCt2Cos"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCt2Scheduler"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCt2Valid"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCt3Cos"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCt3Scheduler"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCt3Valid"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCt4Cos"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCt4Scheduler"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCt4Valid"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCt5Cos"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCt5Scheduler"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCt5Valid"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCt6Cos"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCt6Scheduler"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCt6Valid"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCt7Cos"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCt7Scheduler"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCt7Valid"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtFlowTemplateCommit"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtFlowTemplateRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.151.3.3.10",
+    "status": "current"
+  },
+  "hwCtFlowTemplateID": {
+    "class": "objecttype",
+    "description": "The index of CT-FLOW templat.",
+    "maxaccess": "not-accessible",
+    "name": "hwCtFlowTemplateID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCtFlowTemplateName": {
+    "class": "objecttype",
+    "description": "The name of CT-FLOW template.",
+    "maxaccess": "read-create",
+    "name": "hwCtFlowTemplateName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 60,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCtFlowTemplateRowStatus": {
+    "class": "objecttype",
+    "description": "The state of CT-FLOW templat.",
+    "maxaccess": "read-create",
+    "name": "hwCtFlowTemplateRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwCtFlowTemplateTable": {
+    "class": "objecttype",
+    "description": "The table describes max 8 of the CT-FLOW-Mapping template configuration on the device. ",
+    "maxaccess": "not-accessible",
+    "name": "hwCtFlowTemplateTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.9",
+    "status": "current"
+  },
+  "hwCtStatisticsCt0OutByteRate": {
+    "class": "objecttype",
+    "description": "It counts the rate in bytes/sec out from the CT0 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt0OutByteRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt0OutErrorPkt": {
+    "class": "objecttype",
+    "description": "It counts the error packets from the CT0 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt0OutErrorPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt0OutPkt": {
+    "class": "objecttype",
+    "description": "It counts the out packets from the CT0 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt0OutPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt0OutPktByte": {
+    "class": "objecttype",
+    "description": "It counts the out bytes from the CT0 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt0OutPktByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt0OutPktRate": {
+    "class": "objecttype",
+    "description": "It counts the rate in packets/sec out from the CT0 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt0OutPktRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt1OutByteRate": {
+    "class": "objecttype",
+    "description": "It counts the rate in bytes/sec out from CT1 the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt1OutByteRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt1OutErrorPkt": {
+    "class": "objecttype",
+    "description": "It counts the error packets from the CT1 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt1OutErrorPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt1OutPkt": {
+    "class": "objecttype",
+    "description": "It counts the out packets from the CT1 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt1OutPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt1OutPktByte": {
+    "class": "objecttype",
+    "description": "It counts the out packet bytes from the CT1 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt1OutPktByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt1OutPktRate": {
+    "class": "objecttype",
+    "description": "It counts the rate in packets/sec out from the CT0 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt1OutPktRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt2OutByteRate": {
+    "class": "objecttype",
+    "description": "It counts the rate in bytes/sec out from the CT2 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt2OutByteRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt2OutErrorPkt": {
+    "class": "objecttype",
+    "description": "It counts the error packets from the CT2 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt2OutErrorPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt2OutPkt": {
+    "class": "objecttype",
+    "description": "It counts the out packets from the CT2 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt2OutPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt2OutPktByte": {
+    "class": "objecttype",
+    "description": "It counts the out packet bytes from the CT2 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt2OutPktByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt2OutPktRate": {
+    "class": "objecttype",
+    "description": "It counts the rate in packets/sec out from the CT2 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt2OutPktRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt3OutByteRate": {
+    "class": "objecttype",
+    "description": "The CT3 out in bytes/sec out of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt3OutByteRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt3OutErrorPkt": {
+    "class": "objecttype",
+    "description": "It counts the error packets from the CT0 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt3OutErrorPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt3OutPkt": {
+    "class": "objecttype",
+    "description": "It counts the out packets from the CT3 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt3OutPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt3OutPktByte": {
+    "class": "objecttype",
+    "description": "It counts the out packet bytes from the CT3 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt3OutPktByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt3OutPktRate": {
+    "class": "objecttype",
+    "description": "It counts the rate in packets/sec out from the CT0 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt3OutPktRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt4OutByteRate": {
+    "class": "objecttype",
+    "description": "The CT4 out in bytes/sec out of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt4OutByteRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt4OutErrorPkt": {
+    "class": "objecttype",
+    "description": "It counts the error packets from the CT4 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt4OutErrorPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt4OutPkt": {
+    "class": "objecttype",
+    "description": "It counts the out packets from the CT4 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt4OutPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt4OutPktByte": {
+    "class": "objecttype",
+    "description": "It counts the out packet bytes from the CT4 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt4OutPktByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt4OutPktRate": {
+    "class": "objecttype",
+    "description": "It counts the rate in packets/sec out from the CT4 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt4OutPktRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt5OutByteRate": {
+    "class": "objecttype",
+    "description": "The CT5 out in bytes/sec out of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt5OutByteRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt5OutErrorPkt": {
+    "class": "objecttype",
+    "description": "It counts the error packets from the CT5 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt5OutErrorPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt5OutPkt": {
+    "class": "objecttype",
+    "description": "It counts the out packets from the CT5 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt5OutPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt5OutPktByte": {
+    "class": "objecttype",
+    "description": "It counts the out packet bytes from the CT5 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt5OutPktByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt5OutPktRate": {
+    "class": "objecttype",
+    "description": "It counts the rate in packets/sec out from the CT5 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt5OutPktRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt6OutByteRate": {
+    "class": "objecttype",
+    "description": "The CT6 out in bytes/sec out of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt6OutByteRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt6OutErrorPkt": {
+    "class": "objecttype",
+    "description": "It counts the error packets from the CT6 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt6OutErrorPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.37",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt6OutPkt": {
+    "class": "objecttype",
+    "description": "It counts the out packets from the CT6 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt6OutPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.35",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt6OutPktByte": {
+    "class": "objecttype",
+    "description": "It counts the out packet bytes from the CT6 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt6OutPktByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.36",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt6OutPktRate": {
+    "class": "objecttype",
+    "description": "It counts the rate in packets/sec out from the CT6 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt6OutPktRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.34",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt7OutByteRate": {
+    "class": "objecttype",
+    "description": "The CT7 out in bytes/sec out of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt7OutByteRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.38",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt7OutErrorPkt": {
+    "class": "objecttype",
+    "description": "It counts the error packets from the CT7 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt7OutErrorPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.42",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt7OutPkt": {
+    "class": "objecttype",
+    "description": "It counts the out packets from the CT7 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt7OutPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.40",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt7OutPktByte": {
+    "class": "objecttype",
+    "description": "It counts the out packet bytes from the CT7 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt7OutPktByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.41",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsCt7OutPktRate": {
+    "class": "objecttype",
+    "description": "It counts the rate in packets/sec out from the CT7 of the TE tunnel interface with VPN configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsCt7OutPktRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.39",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCtStatisticsEntry": {
+    "class": "objecttype",
+    "description": "The table describes the statistics in the TE tunnel interface with CT configuration. The index of the table is hwCtStatisticsIfIndex.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwCtStatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1",
+    "status": "current"
+  },
+  "hwCtStatisticsGroup": {
+    "class": "objectgroup",
+    "description": "Describes the CT of the TE tunnel interface.",
+    "name": "hwCtStatisticsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsTunnelName"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt0OutByteRate"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt0OutPktRate"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt0OutPkt"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt0OutPktByte"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt0OutErrorPkt"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt1OutByteRate"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt1OutPktRate"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt1OutPkt"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt1OutPktByte"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt1OutErrorPkt"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt2OutByteRate"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt2OutPktRate"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt2OutPkt"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt2OutPktByte"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt2OutErrorPkt"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt3OutByteRate"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt3OutPktRate"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt3OutPkt"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt3OutPktByte"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt3OutErrorPkt"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt4OutByteRate"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt4OutPktRate"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt4OutPkt"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt4OutPktByte"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt4OutErrorPkt"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt5OutByteRate"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt5OutPktRate"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt5OutPkt"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt5OutPktByte"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt5OutErrorPkt"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt6OutByteRate"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt6OutPktRate"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt6OutPkt"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt6OutPktByte"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt6OutErrorPkt"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt7OutByteRate"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt7OutPktRate"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt7OutPkt"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt7OutPktByte"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsCt7OutErrorPkt"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.151.3.3.8",
+    "status": "current"
+  },
+  "hwCtStatisticsIfIndex": {
+    "class": "objecttype",
+    "description": "Uniquely identifies a set of tunnels between a pair of ingress and egress LSRs. Managers should obtain new values for row creation in this table by reading mplsTunnelIndexNext. When the MPLS signalling protocol is rsvp(2),this value should be equal to the value signalled in the tunnel ID of the session object. When the MPLS signalling protocol is crldp(3) this value should be equal to the value signalled in the LSP ID. Reference to MPLS-TE-STD-MIB.",
+    "maxaccess": "not-accessible",
+    "name": "hwCtStatisticsIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwCtStatisticsTable": {
+    "class": "objecttype",
+    "description": "The table describes flow statistics of the TE tunnel interface VPN configuration.",
+    "maxaccess": "not-accessible",
+    "name": "hwCtStatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8",
+    "status": "current"
+  },
+  "hwCtStatisticsTunnelName": {
+    "class": "objecttype",
+    "description": "The name of the TE tunnel interface.",
+    "maxaccess": "read-only",
+    "name": "hwCtStatisticsTunnelName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.8.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCtTemplateCommit": {
+    "class": "objecttype",
+    "description": "The commit flag of the CT template,1 indicates commit,0 indicates not commit.",
+    "maxaccess": "read-create",
+    "name": "hwCtTemplateCommit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.6.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "commit": 2,
+          "notCommit": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCtTemplateCt0": {
+    "class": "objecttype",
+    "description": "The CT0 bandwidth of the CT template.",
+    "maxaccess": "read-create",
+    "name": "hwCtTemplateCt0",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwCtTemplateCt1": {
+    "class": "objecttype",
+    "description": "The CT1 bandwidth of the CT template.",
+    "maxaccess": "read-create",
+    "name": "hwCtTemplateCt1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwCtTemplateCt2": {
+    "class": "objecttype",
+    "description": "The CT2 bandwidth of the CT template.",
+    "maxaccess": "read-create",
+    "name": "hwCtTemplateCt2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwCtTemplateCt3": {
+    "class": "objecttype",
+    "description": "The CT3 bandwidth of the CT template.",
+    "maxaccess": "read-create",
+    "name": "hwCtTemplateCt3",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.6.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwCtTemplateCt4": {
+    "class": "objecttype",
+    "description": "The CT4 bandwidth of the CT template.",
+    "maxaccess": "read-create",
+    "name": "hwCtTemplateCt4",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.6.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwCtTemplateCt5": {
+    "class": "objecttype",
+    "description": "The CT5 bandwidth of the CT template.",
+    "maxaccess": "read-create",
+    "name": "hwCtTemplateCt5",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.6.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwCtTemplateCt6": {
+    "class": "objecttype",
+    "description": "The CT6 bandwidth of the CT template.",
+    "maxaccess": "read-create",
+    "name": "hwCtTemplateCt6",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.6.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwCtTemplateCt7": {
+    "class": "objecttype",
+    "description": "The CT7 bandwidth of the CT template.",
+    "maxaccess": "read-create",
+    "name": "hwCtTemplateCt7",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.6.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwCtTemplateEntry": {
+    "class": "objecttype",
+    "description": "The CT template configuration on the device. The index of the table is hwCtTemplateIndex.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtTemplateIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwCtTemplateEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.6.1",
+    "status": "current"
+  },
+  "hwCtTemplateGroup": {
+    "class": "objectgroup",
+    "description": "Describes CT template.",
+    "name": "hwCtTemplateGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtTemplateName"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtTemplateCt0"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtTemplateCt1"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtTemplateCt2"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtTemplateCt3"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtTemplateCt4"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtTemplateCt5"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtTemplateCt6"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtTemplateCt7"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtTemplateCommit"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtTemplateRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.151.3.3.6",
+    "status": "current"
+  },
+  "hwCtTemplateIndex": {
+    "class": "objecttype",
+    "description": "It uniquely identifies a set of CT templates. Managers should obtain new values for row creation in this table by reading hwCtTemplateIndex.",
+    "maxaccess": "not-accessible",
+    "name": "hwCtTemplateIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4096,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCtTemplateName": {
+    "class": "objecttype",
+    "description": "The CT template name.",
+    "maxaccess": "read-create",
+    "name": "hwCtTemplateName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 19,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCtTemplateRowStatus": {
+    "class": "objecttype",
+    "description": "This object is used to create and delete rows in the CT template.",
+    "maxaccess": "read-create",
+    "name": "hwCtTemplateRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.6.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwCtTemplateTable": {
+    "class": "objecttype",
+    "description": "The table describes the CT template configuration on the device.",
+    "maxaccess": "not-accessible",
+    "name": "hwCtTemplateTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.6",
+    "status": "current"
+  },
+  "hwDsteIfIndex": {
+    "class": "objecttype",
+    "description": "A unique value, greater than zero, for eachinterface. It is recommended that values are assigned contiguously starting from 1. The value for each interface sub-layer must remain constant at least from one re-initialization of the entity\u0027s network management system to the next re-initialization.",
+    "maxaccess": "not-accessible",
+    "name": "hwDsteIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.10.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwDsteInterfaceCfgEntry": {
+    "class": "objecttype",
+    "description": "The DS-TE configuration at interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwDsteIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDsteInterfaceCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.10.1",
+    "status": "current"
+  },
+  "hwDsteInterfaceCfgGroup": {
+    "class": "objectgroup",
+    "description": "The table describes the CT-FLOW-Mapping template configuration on the device.",
+    "name": "hwDsteInterfaceCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwAppliedCtFlowTemplateName"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtBandWidthShareCfg"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.151.3.3.11",
+    "status": "current"
+  },
+  "hwDsteInterfaceCfgTable": {
+    "class": "objecttype",
+    "description": "The DS-TE configuration at interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwDsteInterfaceCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.10",
+    "status": "current"
+  },
+  "hwMplsFqShortage": {
+    "class": "notificationtype",
+    "description": "This notification is generated when FQ (flow-queue) template resources are shortage.",
+    "name": "hwMplsFqShortage",
+    "objects": [
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtConfigTunnelName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.151.2.1",
+    "status": "obsolete"
+  },
+  "hwMplsHsbFqShortage": {
+    "class": "notificationtype",
+    "description": "This notification is generated when FQ (flow-queue) template resources in HSB are shortage.",
+    "name": "hwMplsHsbFqShortage",
+    "objects": [
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtConfigTunnelName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.151.2.4",
+    "status": "obsolete"
+  },
+  "hwMplsHsbSqBandwidthExceed": {
+    "class": "notificationtype",
+    "description": "This notification is generated when the total bandwidth of SQ (subscriber-queue) in HSB exceeds 10G bit/s in one LPU.",
+    "name": "hwMplsHsbSqBandwidthExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtConfigTunnelName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.151.2.6",
+    "status": "obsolete"
+  },
+  "hwMplsHsbSqShortage": {
+    "class": "notificationtype",
+    "description": "This notification is generated when SQ (subscriber-queue) resources in HSB are shortage.",
+    "name": "hwMplsHsbSqShortage",
+    "objects": [
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtConfigTunnelName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.151.2.5",
+    "status": "obsolete"
+  },
+  "hwMplsSqBandwidthExceed": {
+    "class": "notificationtype",
+    "description": "This notification is generated when the total bandwidth of SQ (subscriber-queue) exceeds 10G bit/s in one LPU.",
+    "name": "hwMplsSqBandwidthExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtConfigTunnelName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.151.2.3",
+    "status": "obsolete"
+  },
+  "hwMplsSqShortage": {
+    "class": "notificationtype",
+    "description": "This notification is generated when SQ (subscriber-queue) resources are shortage.",
+    "name": "hwMplsSqShortage",
+    "objects": [
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtConfigTunnelName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.151.2.2",
+    "status": "obsolete"
+  },
+  "hwTunnTeCounterDiscontinuityTime": {
+    "class": "objecttype",
+    "description": "The value of sysUpTime on the most recent occasion at which this interface\u0027s up/down transition counters suffered a discontinuity.",
+    "maxaccess": "read-only",
+    "name": "hwTunnTeCounterDiscontinuityTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeStamp"
+    }
+  },
+  "hwTunnelDiffServColor": {
+    "class": "objecttype",
+    "description": "Remarked color of packet in the ingress PE, the value must be green,yellow,red.The default color is invalidColor(255).",
+    "maxaccess": "read-only",
+    "name": "hwTunnelDiffServColor",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "green": 1,
+          "invalidColor": 255,
+          "red": 3,
+          "yellow": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwTunnelDiffServEntry": {
+    "class": "objecttype",
+    "description": "Interface different service mode attribute configuration.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnelDiffServIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelDiffServEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.1.1",
+    "status": "current"
+  },
+  "hwTunnelDiffServGroup": {
+    "class": "objectgroup",
+    "description": "Describes the different service mode of tunnel.",
+    "name": "hwTunnelDiffServGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnelDiffServMode"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnelDiffServServiceClass"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnelDiffServColor"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnelTeFlowQueue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.151.3.3.1",
+    "status": "current"
+  },
+  "hwTunnelDiffServIndex": {
+    "class": "objecttype",
+    "description": "Uniquely identifies a set of tunnel instances between a pair of ingress and egress LSRs. Managers should obtain new values for row creation in this table by reading mplsTunnelIndexNext. When the MPLS signalling protocol is rsvp(2),this value should be equal to the value signalled in the Tunnel ID of the session object. When the MPLS signalling protocol is crldp(3) this value should be equal to the value signalled in the LSP ID. Reference to MPLS-TE-STD-MIB.",
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelDiffServIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwTunnelDiffServMode": {
+    "class": "objecttype",
+    "description": "Different service mode of TE interface, default is uniform.",
+    "maxaccess": "read-only",
+    "name": "hwTunnelDiffServMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pipe": 1,
+          "uniform": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwTunnelDiffServServiceClass": {
+    "class": "objecttype",
+    "description": "PHB in the ingress PE, the value must be be,af1,af2,af3,af4,ef,cs6,cs7.The default class is invalidClass(255).",
+    "maxaccess": "read-only",
+    "name": "hwTunnelDiffServServiceClass",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "af1": 2,
+          "af2": 3,
+          "af3": 4,
+          "af4": 5,
+          "be": 1,
+          "cs6": 7,
+          "cs7": 8,
+          "ef": 6,
+          "invalidClass": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwTunnelDiffServTable": {
+    "class": "objecttype",
+    "description": "The table describes the different service mode of tunnel.",
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelDiffServTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.1",
+    "status": "current"
+  },
+  "hwTunnelDsTeTrap": {
+    "class": "objectidentity",
+    "name": "hwTunnelDsTeTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.2"
+  },
+  "hwTunnelTeCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for HUAWEI-TUNNEL-TE-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnelDiffServGroup"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnelTeVsiGroup"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnelTeVllGroup"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnelTeL3vpnGroup"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnelTeStatisticsGroup"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtTemplateGroup"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtConfigCtGroup"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtStatisticsGroup"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnelTeTrapGroup"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwCtFlowTemplateGroup"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwDsteInterfaceCfgGroup"
+      }
+    ],
+    "name": "hwTunnelTeCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.3.1.1",
+    "status": "current"
+  },
+  "hwTunnelTeCompliances": {
+    "class": "objectidentity",
+    "name": "hwTunnelTeCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.3.1"
+  },
+  "hwTunnelTeConformance": {
+    "class": "objectidentity",
+    "name": "hwTunnelTeConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.3"
+  },
+  "hwTunnelTeFlowQueue": {
+    "class": "objecttype",
+    "description": "Name of flow-queue template.",
+    "maxaccess": "read-only",
+    "name": "hwTunnelTeFlowQueue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwTunnelTeGroups": {
+    "class": "objectidentity",
+    "name": "hwTunnelTeGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.3.3"
+  },
+  "hwTunnelTeL3vpnCir": {
+    "class": "objecttype",
+    "description": "The Committed Information Rate of the L3VPN.",
+    "maxaccess": "read-only",
+    "name": "hwTunnelTeL3vpnCir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.4.1.3",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10000000,
+            "min": 100
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTunnelTeL3vpnEntry": {
+    "class": "objecttype",
+    "description": "The L3VPN binding configuration of tunnel interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnelTeL3vpnIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnelTeL3vpnName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelTeL3vpnEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.4.1",
+    "status": "obsolete"
+  },
+  "hwTunnelTeL3vpnFlowQueue": {
+    "class": "objecttype",
+    "description": "Name of flow-queue template.",
+    "maxaccess": "read-only",
+    "name": "hwTunnelTeL3vpnFlowQueue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.4.1.5",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwTunnelTeL3vpnGroup": {
+    "class": "objectgroup",
+    "description": "Describes the L3VPN binding of tunnel.",
+    "name": "hwTunnelTeL3vpnGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnelTeL3vpnCir"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnelTeL3vpnPir"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnelTeL3vpnFlowQueue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.151.3.3.4",
+    "status": "current"
+  },
+  "hwTunnelTeL3vpnIndex": {
+    "class": "objecttype",
+    "description": "Uniquely identifies a set of tunnel instances between a pair of ingress and egress LSRs. Managers should obtain new values for row creation in this table by reading mplsTunnelIndexNext. When the MPLS signalling protocol is rsvp(2),this value should be equal to the value signalled in the tunnel ID of the session object. When the MPLS signalling protocol is crldp(3) this value should be equal to the value signalled in the LSP ID. Reference to MPLS-TE-STD-MIB.",
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelTeL3vpnIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.4.1.1",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwTunnelTeL3vpnName": {
+    "class": "objecttype",
+    "description": "The name of VPN instance that the TE interface bind.",
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelTeL3vpnName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.4.1.2",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 47,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwTunnelTeL3vpnPir": {
+    "class": "objecttype",
+    "description": "The Peak Information Rate of the L3VPN.",
+    "maxaccess": "read-only",
+    "name": "hwTunnelTeL3vpnPir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.4.1.4",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10000000,
+            "min": 100
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTunnelTeL3vpnTable": {
+    "class": "objecttype",
+    "description": "The table describes the L3VPN binding of tunnel.",
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelTeL3vpnTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.4",
+    "status": "obsolete"
+  },
+  "hwTunnelTeMib": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "This MIB contains private managed object definitions for the binding information.",
+    "lastupdated": "201308281726Z",
+    "name": "hwTunnelTeMib",
+    "oid": "1.3.6.1.4.1.2011.5.25.151",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "V2.01, modify comment.",
+        "revision": "2013-08-28 17:26"
+      },
+      {
+        "description": "Initial version 2006/06/10,MPLS LSPM MIB GROUP.",
+        "revision": "2006-06-30 15:54"
+      }
+    ]
+  },
+  "hwTunnelTeMibObject": {
+    "class": "objectidentity",
+    "name": "hwTunnelTeMibObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1"
+  },
+  "hwTunnelTeStatisticsEntry": {
+    "class": "objecttype",
+    "description": "The up/down state transition counts of TE tunnel interface. The index of the table is hwTunnelTeStatisticsIfIndex.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnelTeStatisticsIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelTeStatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.5.1",
+    "status": "current"
+  },
+  "hwTunnelTeStatisticsGroup": {
+    "class": "objectgroup",
+    "description": "Describes the up/down count of the TE tunnel.",
+    "name": "hwTunnelTeStatisticsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnelTeUpDownStatistics"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnTeCounterDiscontinuityTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.151.3.3.5",
+    "status": "current"
+  },
+  "hwTunnelTeStatisticsIfIndex": {
+    "class": "objecttype",
+    "description": "Uniquely identifies a set of tunnel instances between a pair of ingress and egress LSRs. Managers should obtain new values for row creation in this table by reading mplsTunnelIndexNext.",
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelTeStatisticsIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwTunnelTeStatisticsTable": {
+    "class": "objecttype",
+    "description": "The table describes the up/down state transition counts of the TE tunnel interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelTeStatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.5",
+    "status": "current"
+  },
+  "hwTunnelTeTrapGroup": {
+    "class": "notificationgroup",
+    "description": "The HUAWEI Tunnel Te trap info.",
+    "name": "hwTunnelTeTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwMplsHsbSqBandwidthExceed"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwMplsHsbSqShortage"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwMplsHsbFqShortage"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwMplsSqBandwidthExceed"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwMplsSqShortage"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwMplsFqShortage"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.151.3.3.9",
+    "status": "current"
+  },
+  "hwTunnelTeUpDownStatistics": {
+    "class": "objecttype",
+    "description": "Describes the up/down transition counts of the TE tunnel interface.",
+    "maxaccess": "read-only",
+    "name": "hwTunnelTeUpDownStatistics",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwTunnelTeVllCir": {
+    "class": "objecttype",
+    "description": "The Committed Information Rate of the VLL.",
+    "maxaccess": "read-only",
+    "name": "hwTunnelTeVllCir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.3.1.3",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10000000,
+            "min": 100
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTunnelTeVllEntry": {
+    "class": "objecttype",
+    "description": "The VLL binding configuration of tunnel interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnelTeVllIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnelTeVllInterfaceName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelTeVllEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.3.1",
+    "status": "obsolete"
+  },
+  "hwTunnelTeVllFlowQueue": {
+    "class": "objecttype",
+    "description": "Name of flow-queue template.",
+    "maxaccess": "read-only",
+    "name": "hwTunnelTeVllFlowQueue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.3.1.5",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwTunnelTeVllGroup": {
+    "class": "objectgroup",
+    "description": "Describes the VLL binding of tunnel.",
+    "name": "hwTunnelTeVllGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnelTeVllCir"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnelTeVllPir"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnelTeVllFlowQueue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.151.3.3.3",
+    "status": "current"
+  },
+  "hwTunnelTeVllIndex": {
+    "class": "objecttype",
+    "description": "Uniquely identifies a set of tunnel instances between a pair of ingress and egress LSRs. Managers should obtain new values for row creation in this table by reading mplsTunnelIndexNext. When the MPLS signalling protocol is rsvp(2),this value should be equal to the value signalled in the tunnel ID of the session object. When the MPLS signalling protocol is crldp(3) this value should be equal to the value signalled in the LSP ID. Reference to MPLS-TE-STD-MIB.",
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelTeVllIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.3.1.1",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwTunnelTeVllInterfaceName": {
+    "class": "objecttype",
+    "description": "The interface name of VLL binding.",
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelTeVllInterfaceName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.3.1.2",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 47,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwTunnelTeVllPir": {
+    "class": "objecttype",
+    "description": "The Peak Information Rate of the VLL.",
+    "maxaccess": "read-only",
+    "name": "hwTunnelTeVllPir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.3.1.4",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10000000,
+            "min": 100
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTunnelTeVllTable": {
+    "class": "objecttype",
+    "description": "The table describes the VLL binding of tunnel.",
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelTeVllTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.3",
+    "status": "obsolete"
+  },
+  "hwTunnelTeVsiCir": {
+    "class": "objecttype",
+    "description": "The Committed Information Rate of the VSI.",
+    "maxaccess": "read-only",
+    "name": "hwTunnelTeVsiCir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.2.1.3",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10000000,
+            "min": 100
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTunnelTeVsiEntry": {
+    "class": "objecttype",
+    "description": "The L2VPN VSI binding configuration of tunnel interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnelTeVsiIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnelTeVsiName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelTeVsiEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.2.1",
+    "status": "obsolete"
+  },
+  "hwTunnelTeVsiFlowQueue": {
+    "class": "objecttype",
+    "description": "Name of flow-queue template.",
+    "maxaccess": "read-only",
+    "name": "hwTunnelTeVsiFlowQueue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.2.1.5",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwTunnelTeVsiGroup": {
+    "class": "objectgroup",
+    "description": "Describes the VSI binding of tunnel.",
+    "name": "hwTunnelTeVsiGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnelTeVsiCir"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnelTeVsiPir"
+      },
+      {
+        "module": "HUAWEI-TUNNEL-TE-MIB",
+        "object": "hwTunnelTeVsiFlowQueue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.151.3.3.2",
+    "status": "current"
+  },
+  "hwTunnelTeVsiIndex": {
+    "class": "objecttype",
+    "description": "Uniquely identifies a set of tunnel instances between a pair of ingress and egress LSRs. Managers should obtain new values for row creation in this table by reading mplsTunnelIndexNext. When the MPLS signalling protocol is rsvp(2),this value should be equal to the value signalled in the tunnel ID of the session object. When the MPLS signalling protocol is crldp(3) this value should be equal to the value signalled in the LSP ID. Reference to MPLS-TE-STD-MIB.",
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelTeVsiIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.2.1.1",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwTunnelTeVsiName": {
+    "class": "objecttype",
+    "description": "The name of VSI that the TE interface bind.",
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelTeVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.2.1.2",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 47,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwTunnelTeVsiPir": {
+    "class": "objecttype",
+    "description": "The Peak Information Rate of the VSI.",
+    "maxaccess": "read-only",
+    "name": "hwTunnelTeVsiPir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.2.1.4",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10000000,
+            "min": 100
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTunnelTeVsiTable": {
+    "class": "objecttype",
+    "description": "The table describes the VPN binding of Tunnel.",
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelTeVsiTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.151.1.2",
+    "status": "obsolete"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "MPLS-LSR-STD-MIB": [
+      "MplsIndexType"
+    ],
+    "MPLS-TC-STD-MIB": [
+      "MplsExtendedTunnelId",
+      "MplsTunnelInstanceIndex",
+      "MplsTunnelIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "BITS",
+      "Counter32",
+      "Gauge32",
+      "iso",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Integer32",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "DisplayString",
+      "TruthValue"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-TUNNEL-TE-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:14 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-TUNNEL-TE-MIB"
+  }
+}

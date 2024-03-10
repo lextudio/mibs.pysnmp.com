@@ -1,0 +1,2772 @@
+{
+  "hwOspfTrapEventGroup": {
+    "class": "notificationgroup",
+    "description": "These objects are used to monitor/manage changed OSPF private alarm parameters.",
+    "name": "hwOspfTrapEventGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfV2NeighborUnavailable"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfV2NeighborUnavailableClear"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2IntraAreaRouteridConflict"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2IntraAreaDRIpAddressConflict"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.155.32.2.8",
+    "status": "current"
+  },
+  "hwOspfV2NeighborUnavailable": {
+    "class": "notificationtype",
+    "description": "These objects are used to monitor/manage changed OSPF neighbor alarm parameters.",
+    "name": "hwOspfV2NeighborUnavailable",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfRouterId"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrIpAddr"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrAddressLessIndex"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrRtrId"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2SelfIfName"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2VpnName"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2NbrChgReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.155.31.1",
+    "status": "current"
+  },
+  "hwOspfV2NeighborUnavailableClear": {
+    "class": "notificationtype",
+    "description": "These objects are used to monitor/manage changed OSPF neighbor clear alarm parameters.",
+    "name": "hwOspfV2NeighborUnavailableClear",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfRouterId"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrIpAddr"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrAddressLessIndex"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrRtrId"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2SelfIfName"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2VpnName"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2NbrChgReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.155.31.2",
+    "status": "current"
+  },
+  "hwOspfv2ActualRouterId": {
+    "class": "objecttype",
+    "description": "This node is used to get actual router ID of process and it is a read-only node. If the node hwOspfv2ConfigRouterId is not set, the actual router ID should default to the value of one of the router\u0027s IP interface addresses. By default, the value is \u002700000000\u0027H.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv2ActualRouterId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwOspfv2AreaAreaRowStatus": {
+    "class": "objecttype",
+    "description": "This node is used to create and destroy rows. Because CreateAndWait is not supported, you can set this node to CreatAndGo to create a new area. If the area is created successfully, the value of this node changes to active.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2AreaAreaRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwOspfv2AreaAuthKeyId": {
+    "class": "objecttype",
+    "description": "Specify the authentication key ID for MD5 or HMAC-MD5 authentication mode. The value of the ID is an integer that ranges from 1 to 255. The default value 0 means no configuration.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2AreaAuthKeyId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwOspfv2AreaAuthModeType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "none"
+      }
+    },
+    "description": "The type of the OSPF area authentication mode. none(1): not configured. simple(2): indicates the simple authentication mode. md5(3): indicates the md5 cipher mode. hmd5(4): indicates the hmac-md5 cipher mode. keychain(5): indicates the keychain authentication mode. Note: If this value is set to simple(2), you should specify hwOspfv2AreaAuthPasswordType and hwOspfv2AreaAuthText, but cannot specify hwOspfv2AreaAuthKeyId. To configure the simple authentication mode with the authentication key being NULL, set hwOspfv2AreaAuthPasswordType to plainText(2) and set hwOspfv2AreaAuthText to a string of 0 characters. If this value is set to md5(3) or hmd5(4), you can specify hwOspfv2AreaAuthKeyId or not. Once you specify hwOspfv2AreaAuthKeyId, you should specify hwOspfv2AreaAuthPasswordType and hwOspfv2AreaAuthText at the same time. If this value is set to keychain(5), you should specify it and hwOspfv2AreaAuthText together, but should not specify hwOspfv2AreaAuthKeyId and hwOspfv2AreaAuthPasswordType.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2AreaAuthModeType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hmd5": 4,
+          "keychain": 5,
+          "md5": 3,
+          "none": 1,
+          "simple": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv2AreaAuthPasswordType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "none"
+      }
+    },
+    "description": "Specify the type of area authentication key. plaintext(2): If this node is set to plaintext(2), you can specify only the plain text authentication key on the node hwOspfAreaAuthText. When viewing the configuration file, display the password in plain mode. ciphertext(3): If this node is set to ciphertext(3), you can specify the cipher text authentication key or cipher text authentication key in node hwOspfv2AreaAuthText. When viewing the configuration file, display the password in cipher mode. Note: If you set this node to plaintext(2) or ciphertext(3), you should set the node hwOspfv2AreaAuthText at the same time.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2AreaAuthPasswordType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cipherText": 3,
+          "none": 1,
+          "plainText": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv2AreaAuthText": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "OctetString",
+        "format": "hex",
+        "value": ""
+      }
+    },
+    "description": "In simple authentication, this object indicates the authentication key. It\u0027s a string of 1 to 8 characters in plain text or 24 characters in cipher text. In MD5 or HMAC-MD5 authentication, this object also indicates the authentication key. It\u0027s a string of 1 to 255 characters in plain text or 20 to 392 characters in cipher text. In keychain authentication, this object indicates the keychain name. It\u0027s a string of 1 to 47 characters. When read, hwOspfv2AreaAuthText always returns an octet string of length zero.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2AreaAuthText",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwOspfv2AreaChange": {
+    "class": "objecttype",
+    "description": "This node is used to record the time ticks when hwOspfv2AreaTable changed last time.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv2AreaChange",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.2.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwOspfv2AreaDefCost": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "This node is used to specify the cost of the default routes that flush to stub area by the ABR. The value ranges from 0 to 16777214. The default value is -1.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2AreaDefCost",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 16777214,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwOspfv2AreaDescription": {
+    "class": "objecttype",
+    "description": "This node is used to specify the description of the area.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2AreaDescription",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 80,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwOspfv2AreaEntry": {
+    "class": "objecttype",
+    "description": " Information describes the configured parameters of the router\u0027s attached OSPF areas.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2ProcessIdIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaIdIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv2AreaEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4.1",
+    "status": "current"
+  },
+  "hwOspfv2AreaFilterExpAcl": {
+    "class": "objecttype",
+    "description": "This object indicates the number of basic ACL. The ACL number ranges from 2000 to 2999. The default value is 0, indicating no configuration. The object is used to filter the Summary LSAs that leave the area. It is incompatible with hwOspfv2AreaFilterExpAclName, hwOspfv2AreaFilterExpPrefix, and hwOspfv2AreaFilterExpPolicy. Only one object can be configured each time.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2AreaFilterExpAcl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 2999,
+            "min": 2000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwOspfv2AreaFilterExpAclName": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "OctetString",
+        "format": "hex",
+        "value": ""
+      }
+    },
+    "description": "This object indicates the ACL name. Note that the ACL can only be used as basic ACL. The object is used to filter the Summary LSAs that leave the area. It is incompatible with hwOspfv2AreaFilterExpAcl, hwOspfv2AreaFilterExpPrefix, and hwOspfv2AreaFilterExpPolicy. Only one object can be configured each time.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2AreaFilterExpAclName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwOspfv2AreaFilterExpPolicy": {
+    "class": "objecttype",
+    "description": "This object indicates the name of the routing policy. The name is a string of 1 to 40 characters. The object is used to filter the Summary LSAs that leave the area. It is incompatible with hwOspfv2AreaFilterExpAcl, hwOspfv2AreaFilterExpAclName, and hwOspfv2AreaFilterExpPrefix. Only one object can be configured each time.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2AreaFilterExpPolicy",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 40,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwOspfv2AreaFilterExpPrefix": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "OctetString",
+        "format": "hex",
+        "value": ""
+      }
+    },
+    "description": "This object indicates the name of the address prefix list. The name is a string of 1 to 169 characters. The object is used to filter the Summary LSAs that leave the area. It is incompatible with hwOspfv2AreaFilterExpAcl, hwOspfv2AreaFilterExpAclName, and hwOspfv2AreaFilterExpPolicy. Only one object can be configured each time.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2AreaFilterExpPrefix",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 169,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwOspfv2AreaFilterImpAcl": {
+    "class": "objecttype",
+    "description": "This object indicates the number of basic ACL. The value ranges from 2000 to 2999. The default value is 0, indicating no configuration. The object is used to filter the Summary LSAs that enter the area. It is incompatible with hwOspfv2AreaFilterImpAclName, hwOspfv2AreaFilterImpPrefix, and hwOspfv2AreaFilterImpPolicy. Only one object can be configured each time.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2AreaFilterImpAcl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 2999,
+            "min": 2000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwOspfv2AreaFilterImpAclName": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "OctetString",
+        "format": "hex",
+        "value": ""
+      }
+    },
+    "description": "This object indicates the ACL name. Note that the ACL can only be used as basic ACL. The object is used to filter the Summary LSAs that enter the area. It is incompatible with hwOspfv2AreaFilterImpAcl, hwOspfv2AreaFilterImpPrefix, and hwOspfv2AreaFilterImpPolicy. Only one object can be configured each time.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2AreaFilterImpAclName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwOspfv2AreaFilterImpPolicy": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "OctetString",
+        "format": "hex",
+        "value": ""
+      }
+    },
+    "description": "This object indicates the name of the routing policy. The name is a string of 1 to 40 characters. The object is used to filter the Summary LSAs that enter the area. It is incompatible with hwOspfv2AreaFilterImpAcl, hwOspfv2AreaFilterImpAclName and hwOspfv2AreaFilterImpPrefix. Only one node can be configured each time.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2AreaFilterImpPolicy",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 40,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwOspfv2AreaFilterImpPrefix": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "OctetString",
+        "format": "hex",
+        "value": ""
+      }
+    },
+    "description": "This object indicates the name of the address prefix list. The name is a string of 1 to 169 characters. The object is used to filter the Summary LSAs that enter the area. It is incompatible with hwOspfv2AreaFilterImpAcl, hwOspfv2AreaFilterImpAclName, and hwOspfv2AreaFilterImpPolicy. Only one node can be configured each time.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2AreaFilterImpPrefix",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 169,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwOspfv2AreaGroup": {
+    "class": "objectgroup",
+    "description": "These objects are used to monitor/manage OSPF area parameters.",
+    "name": "hwOspfv2AreaGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaType"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaNoSummary"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaNssaFlushTimer"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaNssaDefAdvertise"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaNssaNoImportRoute"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaNssaTransAlways"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaNssaTransTimer"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaNssaAllowFaZero"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaNssaSuppressFa"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaNssaSetNBit"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaDefCost"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaDescription"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaFilterExpAcl"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaFilterExpPrefix"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaFilterExpPolicy"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaFilterImpAcl"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaFilterImpPrefix"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaFilterImpPolicy"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaAuthModeType"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaAuthPasswordType"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaAuthKeyId"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaAuthText"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaMplsTe"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaAreaRowStatus"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaFilterExpAclName"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaFilterImpAclName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.155.32.2.4",
+    "status": "current"
+  },
+  "hwOspfv2AreaIdIndex": {
+    "class": "objecttype",
+    "description": "A 32-bit integer uniquely identifies an area. Area ID 0.0.0.0 is used for the OSPF backbone.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv2AreaIdIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwOspfv2AreaMplsTe": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "The node is used to enable the MPLS-TE capability. disable(1): no configuration. stdEnable(2): accepts only the LSAs in the standard format. That is, an LSA is rejected if it has more than one Top level TLV. stdDisable(3): accepts the LSAs not in the standard format.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2AreaMplsTe",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "stdDisable": 3,
+          "stdEnable": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv2AreaNoSummary": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "This node is used to reduce the number of LSAs that are transmitted to the NSSA or Stub area. You can configure this node as an ABR. This also prevents the ABR from transmitting Summary LSA (Type-3 LSA) to the NSSA or Stub area. Note: All nodes about NSSA property (hwOspfv2AreaType, hwOspfv2AreaNoSummary, hwOspfv2AreaNssaFlushTimer, hwOspfv2AreaNssaNoImportRoute, hwOspfv2AreaNssaDefAdvertise, hwOspfv2AreaNssaTransAlways, hwOspfv2AreaNssaTransTimer, hwOspfv2AreaNssaAllowFaZero, hwOspfv2AreaNssaSuppressFa, and hwOspfv2AreaNssaSetNBit) should be set together.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2AreaNoSummary",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwOspfv2AreaNssaAllowFaZero": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "When this node is set to true, the forwarding address of Type-7 LSAs can be filled with zero when the router generates Type-7 LSAs.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2AreaNssaAllowFaZero",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwOspfv2AreaNssaDefAdvertise": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "This node is used to decide whether default Type-7 LSAs should be originated. When this node is set to true, for ABR router it must originate Type-7 LSAs, while for ASBR router only if the route to 0.0.0.0 exists, it should originate Type-7 LSAs.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2AreaNssaDefAdvertise",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwOspfv2AreaNssaFlushTimer": {
+    "class": "objecttype",
+    "description": "The value of the flush timer. When configuring or undoing NSSA feature, flush self-originated Type-5 and Type-7 LSAs first. If the timer expires, stop flushing LSAs, and then reset the area. This timer is one-off. When flushing is finished, it recovers to 0. ",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2AreaNssaFlushTimer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 40,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwOspfv2AreaNssaNoImportRoute": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "This node is used to decide whether the external route is imported to NSSA area. On ASBR, if this node is set to true, the external route can not be advertised to the NSSA area.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2AreaNssaNoImportRoute",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwOspfv2AreaNssaSetNBit": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "When this node is set to true, N-bit should be set in the option when sending DD packets.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2AreaNssaSetNBit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwOspfv2AreaNssaSuppressFa": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "When this node is set to true, the forwarding address of Type-7 LSAs can be filled with zero when the ABR translates Type-7 LSAs into Type-5 LSAs.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2AreaNssaSuppressFa",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwOspfv2AreaNssaTransAlways": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "This node specifies whether or not an NSSA router will unconditionally translate Type-7 LSAs to Type-5 LSAs when acting as an NSSA border router. When hwOspfAreaNssaTranslateAlways is set to true, Type-7 LSAs are always translated regardless of the translator state of other NSSA border routers. When hwOspfAreaNssaTranslateAlways is set to false, an NSSA border router will participate in the translator election process. The router will translate Type-7 LSAs to Type-5 LSAs only after being selected.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2AreaNssaTransAlways",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwOspfv2AreaNssaTransTimer": {
+    "class": "objecttype",
+    "description": "This node is used to configure translator stability interval. This minimizes excessive flushing of translated Type-7 LSAs and provides a more stable translator transition. If the area type is not NSSA, the default value of the translator stability interval parameter is 0 seconds, and hwOspfv2AreaType is stub(2) or normal(3). If the type of the area is NSSA, the default value of the translator stability interval parameter is 40 seconds, and hwOspfv2AreaType is nssa(1).",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2AreaNssaTransTimer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 120,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwOspfv2AreaTable": {
+    "class": "objecttype",
+    "description": "Information describes the configured parameters of the router\u0027s attached OSPF areas.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv2AreaTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4",
+    "status": "current"
+  },
+  "hwOspfv2AreaType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "normal"
+      }
+    },
+    "description": "Specify the type of area: nssa(1), stub(2), normal(3).",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2AreaType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 3,
+          "nssa": 1,
+          "stub": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv2AseRouteMaxNumber": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5000000
+      }
+    },
+    "description": "The maximum number of ASE routes that are supported by OSPF.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2AseRouteMaxNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 5000000,
+            "min": 100
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwOspfv2BandwidthReference": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 100
+      }
+    },
+    "description": "The reference value that is used to calculate the link cost. If there is no explicit link cost, OSPF calculates the cost according to the bandwidth of the link (cost = reference value (M)/bandwidth).",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2BandwidthReference",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    },
+    "units": "Mbit/s"
+  },
+  "hwOspfv2ChangeGroup": {
+    "class": "objectgroup",
+    "description": "These objects are used to monitor/manage changed OSPF table parameters",
+    "name": "hwOspfv2ChangeGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2MIBObjectsChange"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2ProcessChange"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaChange"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2NetworkChange"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.155.32.2.7",
+    "status": "current"
+  },
+  "hwOspfv2ChangeTable": {
+    "class": "objectidentity",
+    "name": "hwOspfv2ChangeTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.2"
+  },
+  "hwOspfv2Compliances": {
+    "class": "objectidentity",
+    "name": "hwOspfv2Compliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.32.1"
+  },
+  "hwOspfv2ConfigRouterId": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "OctetString",
+        "format": "hex",
+        "value": "00000000"
+      }
+    },
+    "description": "A 32-bit integer uniquely identifies the router in the Autonomous System. OSPF private router ID can be configured through this node. The default value is 0.0.0.0. If the value of this node is 0.0.0.0, it means that no private router ID is set for this process. ",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2ConfigRouterId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwOspfv2Conformance": {
+    "class": "objectidentity",
+    "name": "hwOspfv2Conformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.32"
+  },
+  "hwOspfv2Description": {
+    "class": "objecttype",
+    "description": "The description of the OSPF process.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2Description",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 80,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwOspfv2FlushTimer": {
+    "class": "objecttype",
+    "description": "The value of the flush timer. When configuring or undoing OSPF process, flush self-originated LSAs first. If the timer expires, stop flushing LSAs, and then reset the process. This timer is one-off. When flushing is finished, it recovers to 0.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2FlushTimer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 40,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwOspfv2Groups": {
+    "class": "objectidentity",
+    "name": "hwOspfv2Groups",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.32.2"
+  },
+  "hwOspfv2IfChgReason": {
+    "class": "objecttype",
+    "description": "The reason of the OSPF interface state change.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwOspfv2IfChgReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.30.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarmCleared": 100,
+          "configureChange": 1,
+          "physicalInterfaceChange": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv2InterRouteMaxNumber": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1000000
+      }
+    },
+    "description": "The maximum number of inter-area routes that are supported by OSPF.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2InterRouteMaxNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000000,
+            "min": 100
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwOspfv2InterfaceEntry": {
+    "class": "objecttype",
+    "description": "Information describes the configured parameters of the OSPF interfaces.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2ProcessIdIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaIdIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2InterfaceIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv2InterfaceEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.7.1",
+    "status": "current"
+  },
+  "hwOspfv2InterfaceGroup": {
+    "class": "objectgroup",
+    "description": "These objects are used to monitor/manage changed OSPF interface parameters.",
+    "name": "hwOspfv2InterfaceGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2InterfaceName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.155.32.2.10",
+    "status": "current"
+  },
+  "hwOspfv2InterfaceIndex": {
+    "class": "objecttype",
+    "description": "A unique value for each interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv2InterfaceIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwOspfv2InterfaceName": {
+    "class": "objecttype",
+    "description": "The name of the OSPF interface.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv2InterfaceName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwOspfv2InterfaceTable": {
+    "class": "objecttype",
+    "description": "The Interface Table describes the interfaces from the viewpoint of OSPF.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv2InterfaceTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.7",
+    "status": "current"
+  },
+  "hwOspfv2IntraAreaDRIpAddressConflict": {
+    "class": "notificationtype",
+    "description": "The object is used to monitor conflicted IP addresses of DRs in an intra area.",
+    "name": "hwOspfv2IntraAreaDRIpAddressConflict",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2SelfRouterId"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2SelfIfIpAddress"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2SelfIfName"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfLsdbLsid"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfLsdbRouterId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.155.31.4",
+    "status": "current"
+  },
+  "hwOspfv2IntraAreaRouteridConflict": {
+    "class": "notificationtype",
+    "description": "The object is used to monitor router ID conflict in an intra area.",
+    "name": "hwOspfv2IntraAreaRouteridConflict",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2SelfRouterId"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2NbrRouterId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.155.31.3",
+    "status": "current"
+  },
+  "hwOspfv2IntraRouteMaxNumber": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 100000
+      }
+    },
+    "description": "The maximum number of intra-area routes that are supported by OSPF.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2IntraRouteMaxNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100000,
+            "min": 100
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwOspfv2LsaArriveHoldIntvl": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 500
+      }
+    },
+    "description": "This object indicates the Holdtime interval of intelligent-timer for receiving OSPF LSAs. After an intelligent timer is enabled, the interval for receiving LSAs is as follows: The initial interval for receiving LSAs is specified by the parameter start-interval. The interval for receiving LSAs for the nth (n\u003e2) time is equal to hold-interval*2(n-1). When the interval specified by hold-interval*2(n-1) reaches the maximum interval specified by max-interval, OSPF receives LSAs at the maximum interval for three consecutive times. Then, OSPF receives LSAs at the initial interval specified by start-interval. When hwOspfv2LsaArriveHoldIntvl is specified, you need also specify wOspfv2LsaArriveMaxIntvl and hwOspfv2LsaArriveStartIntvl, but you cannot specify hwOspfv2LsaArriveIntvl. Note that -1 is not a configurable value. Instead, by set the intelligent timer to default value, it will get back to default configuration.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2LsaArriveHoldIntvl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 5000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "millionSecond"
+  },
+  "hwOspfv2LsaArriveIntvl": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "To avoid wasting network resources due to network changes, OSPF defines that the interval for receiving LSAs is 1 second. In a stable network, if the fast speed of route convergence is required, you can cancel the interval of receiving LSAs by setting it to 0 seconds. Routers can thus detect changes of topology and route in time. This speeds up route convergence. By default, this object is -1, indicating that an intelligent timer is enabled instead. Note that -1 is not a configurable value. Instead, by set the intelligent timer (hwOspfv2LsaArriveMaxIntvl, hwOspfv2LsaArriveStartIntvl and hwOspfv2LsaArriveHoldIntvl) to default value, it will get back to default configuration.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2LsaArriveIntvl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 10000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "millionSecond"
+  },
+  "hwOspfv2LsaArriveMaxIntvl": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1000
+      }
+    },
+    "description": "This object indicates the maximum interval of intelligent-timer for receiving OSPF LSAs. When hwOspfv2LsaArriveMaxIntvl is specified, you need also specify hwOspfv2LsaArriveStartIntvl and hwOspfv2LsaArriveHoldIntvl, but you cannot specify hwOspfv2LsaArriveIntvl. Note that -1 is not a configurable value. Instead, by set the intelligent timer to default value, it will get back to default configuration.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2LsaArriveMaxIntvl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 10000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "millionSecond"
+  },
+  "hwOspfv2LsaArriveStartIntvl": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 500
+      }
+    },
+    "description": "This object indicates the initial interval of intelligent-timer for receiving OSPF LSAs. When hwOspfv2LsaArriveStartIntvl is specified, you need also specify hwOspfv2LsaArriveMaxIntvl and hwOspfv2LsaArriveHoldIntvl, but you cannot specify hwOspfv2LsaArriveIntvl. Note that -1 is not a configurable value. Instead, by set the intelligent timer to default value, it will get back to default configuration.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2LsaArriveStartIntvl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 1000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "millionSecond"
+  },
+  "hwOspfv2LsaOrigHoldIntvl": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1000
+      }
+    },
+    "description": "This object indicates the Holdtime interval of intelligent-timer for updating OSPF LSAs. After an intelligent timer is enabled, the interval for updating LSAs is as follows: The initial interval for updating LSAs is specified by the parameter start-interval. The interval for updating LSAs for the nth (n\u003e2) time is equal to hold-interval*2(n-1). When the interval specified by hold-interval*2(n-1) reaches the maximum interval specified by max-interval, OSPF updates LSAs at the maximum interval for three consecutive times. Then, OSPF updates LSAs at the initial interval specified by start-interval. When hwOspfv2LsaOrigHoldIntvl is specified, you need also specify hwOspfv2LsaOrigMaxIntvl and hwOspfv2LsaOrigStartIntvl, but you cannot specify hwOspfv2LsaOrigIntvl. Note that -1 is not a configurable value. Instead, by set the intelligent timer to default value, it will get back to default configuration.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2LsaOrigHoldIntvl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 5000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "millionSecond"
+  },
+  "hwOspfv2LsaOrigIntvl": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "To avoid wasting network source due to network changes, OSPF defines that the interval for updating LSAs is 5 seconds. In a stable network, if the speed of route convergence is required to be fast, you can cancel the interval for updating LSAs by setting it to 0 seconds. So, routers can detect changes of topology and route in time. This speeds up route convergence. By default, this object is -1, indicating that an intelligent timer is enabled instead. Note that -1 is not a configurable value. Instead, by set the intelligent timer (hwOspfv2LsaOrigMaxIntvl, hwOspfv2LsaOrigStartIntvl, and hwOspfv2LsaOrigHoldIntvl) to default value, it will get back to default configuration.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2LsaOrigIntvl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 0,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "millionSecond"
+  },
+  "hwOspfv2LsaOrigIntvlOtherType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": "This object indicates the interval for updating LSAs, excluding OSPF router LSAs and network LSAs. hwOspfv2LsaOrigIntvlOtherType and hwOspfv2LsaOrigIntvl cannot be specified together. Here -1 indicated that hwOspfv2LsaOrigIntvl is enabled instead. Note that -1 is not a configurable value. Instead, by set this node to default value, it will get back to default configuration. ",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2LsaOrigIntvlOtherType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 10,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "second"
+  },
+  "hwOspfv2LsaOrigMaxIntvl": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5000
+      }
+    },
+    "description": "This object indicates the maximum interval of intelligent-timer for updating OSPF LSAs. When hwOspfv2LsaOrigMaxIntvl is specified, you need also specify hwOspfv2LsaOrigStartIntvl and hwOspfv2LsaOrigHoldIntvl, but you cannot specify hwOspfv2LsaOrigIntvl. Note that -1 is not a configurable value. Instead, by set the intelligent timer to default value, it will get back to default configuration.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2LsaOrigMaxIntvl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 10000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "millionSecond"
+  },
+  "hwOspfv2LsaOrigStartIntvl": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 500
+      }
+    },
+    "description": "This object indicates the initial interval of intelligent-timer for updating OSPF LSAs. When hwOspfv2LsaOrigStartIntvl is specified, you need also specify hwOspfv2LsaOrigMaxIntvl and hwOspfv2LsaOrigHoldIntvl, but you cannot specify hwOspfv2LsaOrigIntvl. Note that -1 is not a configurable value. Instead, by set the intelligent timer to default value, it will get back to default configuration.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2LsaOrigStartIntvl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 1000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "millionSecond"
+  },
+  "hwOspfv2LsdbOverflowLimit": {
+    "class": "objecttype",
+    "description": "The maximum number of external LSAs in OSPF LSDB. When this node is set to 0, it means that no limits exist.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2LsdbOverflowLimit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwOspfv2MIB": {
+    "class": "moduleidentity",
+    "contactinfo": "R\u0026D BeiJing Huawei Technologies co., Ltd. Huawei Bld., NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China http://www.huawei.com Zip:100085 Http://www.huawei.com E-mail:support@huawei.com",
+    "description": "The HUAWEI-OSPFV2-MIB contains objects to manage the system configuration. It defines the model used to represent configuration data that exists elsewhere in the system and on peripheral devices. The MIB is proper for system configuration. There are no constraints on this MIB.",
+    "lastupdated": "201004221150Z",
+    "name": "hwOspfv2MIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.155",
+    "organization": "Huawei Technologies co., Ltd."
+  },
+  "hwOspfv2MIBBinding": {
+    "class": "objecttype",
+    "description": "The ID of OSPF process that is bound to OSPF public MIB and the process will respond to SNMP requests from OSPF public MIB. The default value 0 means that no process is bound to OSPF public MIB.",
+    "maxaccess": "read-write",
+    "name": "hwOspfv2MIBBinding",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwOspfv2MIBObjects": {
+    "class": "objectidentity",
+    "name": "hwOspfv2MIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.1"
+  },
+  "hwOspfv2MIBObjectsChange": {
+    "class": "objecttype",
+    "description": "This node is used to record the time ticks when hwOspfv2MIBObjectsTable changed last time.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv2MIBObjectsChange",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.2.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwOspfv2MIBObjectsGroup": {
+    "class": "objectgroup",
+    "description": "These objects are used to monitor/manage OSPF general parameters.",
+    "name": "hwOspfv2MIBObjectsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2MIBBinding"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.155.32.2.1",
+    "status": "current"
+  },
+  "hwOspfv2MaxLoadBalaNumber": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "bin",
+        "value": "0"
+      }
+    },
+    "description": "The maximum number of equal-cost routes to a destination in the routing table.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2MaxLoadBalaNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwOspfv2ModuleFullCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for entities implementing the Huawei OSPF MIB",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2MIBObjectsGroup"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaGroup"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2NetworkGroup"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2NeighborGroup"
+      }
+    ],
+    "name": "hwOspfv2ModuleFullCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.32.1.1",
+    "status": "current"
+  },
+  "hwOspfv2NbrAuthSequence": {
+    "class": "objecttype",
+    "description": "This object indicates the unsigned 32-bit non-decreasing sequence number. Used to guard against replay attacks. By default, the value is 0.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv2NbrAuthSequence",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.6.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwOspfv2NbrChgReason": {
+    "class": "objecttype",
+    "description": "The reason of the OSPF neighbor state change.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwOspfv2NbrChgReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.30.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "adjacencyHoldTimerExpired": 1,
+          "alarmCleared": 100,
+          "bfdSessionStateChange": 4,
+          "configureChange": 5,
+          "ospfProtocolReason": 3,
+          "peerRouterReason": 6,
+          "physicalInterfaceChange": 2,
+          "waitingForEstablishingNeighbor": 7
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv2NbrDeadTimeLeft": {
+    "class": "objecttype",
+    "description": "This object indicates the period (in seconds) after which this neighbor is declared dead.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv2NbrDeadTimeLeft",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.6.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 235926000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Gauge32"
+    }
+  },
+  "hwOspfv2NbrGrStatus": {
+    "class": "objecttype",
+    "description": "This object indicates whether the neighbor performs GR or functions as a GR helper. By default, the state is normal.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv2NbrGrStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.6.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "doingGR": 2,
+          "helper": 3,
+          "normal": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv2NbrIfBackupDesignatedRouter": {
+    "class": "objecttype",
+    "description": "This object indicates the IP address of the backup designated router which is obtained from the DD packets from this neighbor. By default, the value is \u002700000000\u0027H.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv2NbrIfBackupDesignatedRouter",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.6.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwOspfv2NbrIfDesignatedRouter": {
+    "class": "objecttype",
+    "description": "This object indicates the IP address of the designated router that is obtained from the DD packets from this neighbor. By default, the value is \u002700000000\u0027H.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv2NbrIfDesignatedRouter",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.6.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwOspfv2NbrIfMtu": {
+    "class": "objecttype",
+    "description": "This object indicates the size of the largest IP datagram that can be sent out the sending interface without fragmentation. It is obtained from the DD packets from this neighbor. By default, the value is 0. The MTU of the interface should be set to 0 in the DD packets when the MTU is not enabled on the OSPF interface.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv2NbrIfMtu",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.6.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwOspfv2NbrIpAddrIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the IP address of the OSPF neighbor.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv2NbrIpAddrIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwOspfv2NbrMode": {
+    "class": "objecttype",
+    "description": "This object indicates whether this neighbor is master or slave through the DD negotiation.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv2NbrMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.6.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv2NbrPriority": {
+    "class": "objecttype",
+    "description": "This object indicates the priority of this neighbor in the designated router election algorithm. The value 0 signifies that the neighbor is not eligible to become the designated router on this particular network. By default, the value is 1.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv2NbrPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.6.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwOspfv2NbrRouterId": {
+    "class": "objecttype",
+    "description": "This object indicates the router ID of this neighbor.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv2NbrRouterId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.6.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwOspfv2NbrState": {
+    "class": "objecttype",
+    "description": "This object indicates the state of the relationship with this neighbor. By default, the state is down.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv2NbrState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.6.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "attempt": 2,
+          "down": 1,
+          "exchange": 6,
+          "exchangeStart": 5,
+          "full": 8,
+          "init": 3,
+          "loading": 7,
+          "twoWay": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv2NbrUpTime": {
+    "class": "objecttype",
+    "description": "This object indicates the time (in seconds) since the state of this neighbor has been full.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv2NbrUpTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.6.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwOspfv2NeighborEntry": {
+    "class": "objecttype",
+    "description": "This object indicates the configured parameters of the OSPF neighbors attached to the router.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2ProcessIdIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaIdIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2SelfIfnetIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2NbrIpAddrIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv2NeighborEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.6.1",
+    "status": "current"
+  },
+  "hwOspfv2NeighborGroup": {
+    "class": "objectgroup",
+    "description": "These objects are used to monitor/manage changed OSPF neighbor parameters",
+    "name": "hwOspfv2NeighborGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2SelfRouterId"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2SelfIfIpAddress"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2SelfIfName"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2NbrIfDesignatedRouter"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2NbrIfBackupDesignatedRouter"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2NbrIfMtu"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2NbrRouterId"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2NbrState"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2NbrMode"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2NbrPriority"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2NbrUpTime"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2NbrAuthSequence"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2NbrDeadTimeLeft"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2NbrGrStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.155.32.2.6",
+    "status": "current"
+  },
+  "hwOspfv2NeighborTable": {
+    "class": "objecttype",
+    "description": "This object indicates the configured parameters of the OSPF neighbors attached to the router.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv2NeighborTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.6",
+    "status": "current"
+  },
+  "hwOspfv2NetworkChange": {
+    "class": "objecttype",
+    "description": "This node is used to record the time ticks when hwOspfv2NetworkTable changed last time.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv2NetworkChange",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.2.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwOspfv2NetworkEntry": {
+    "class": "objecttype",
+    "description": "Information describes the configured parameters of the router\u0027s attached OSPF networks.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2ProcessIdIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AreaIdIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2NetworkIpAddrIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2NetworkIpMaskIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv2NetworkEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.5.1",
+    "status": "current"
+  },
+  "hwOspfv2NetworkGroup": {
+    "class": "objectgroup",
+    "description": "These objects are used to monitor/manage OSPF network parameters.",
+    "name": "hwOspfv2NetworkGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2NetworkRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.155.32.2.5",
+    "status": "current"
+  },
+  "hwOspfv2NetworkIpAddrIndex": {
+    "class": "objecttype",
+    "description": "Network IP address: specifies the address of the network segment where the interface resides.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv2NetworkIpAddrIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwOspfv2NetworkIpMaskIndex": {
+    "class": "objecttype",
+    "description": "Network IP mask: specifies the wildcard mask of an IP address, which is similar to the reversed form of the mask of an IP address. \u00271\u0027 represents that the corresponding bit in the IP address is ignored and \u00270\u0027 represents that this bit must be reserved.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv2NetworkIpMaskIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwOspfv2NetworkRowStatus": {
+    "class": "objecttype",
+    "description": "This node is used to create and destroy rows. Because CreateAndWait is not supported, you can set this node to CreatAndGo to create a new network. If the network is created successfully, the value of this node changes to active.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2NetworkRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwOspfv2NetworkTable": {
+    "class": "objecttype",
+    "description": "Information describes the configured parameters of the router\u0027s attached OSPF networks.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv2NetworkTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.5",
+    "status": "current"
+  },
+  "hwOspfv2OpaqueCapability": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "It is used to enable opaque-LSAs capability. When the capability is enabled, then the OSPF process can generate opaque LSAs and process the opaque LSAs received from neighbors.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2OpaqueCapability",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwOspfv2ProcessChange": {
+    "class": "objecttype",
+    "description": "This node is used to record the time ticks when hwOspfv2ProcessTable changed last time.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv2ProcessChange",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.2.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwOspfv2ProcessEntry": {
+    "class": "objecttype",
+    "description": "Information describes the configured parameters of the router\u0027s attached OSPF processes.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2ProcessIdIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv2ProcessEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1",
+    "status": "current"
+  },
+  "hwOspfv2ProcessGroup": {
+    "class": "objectgroup",
+    "description": "These objects are used to monitor/manage OSPF process parameters.",
+    "name": "hwOspfv2ProcessGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2VpnName"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2ConfigRouterId"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2ActualRouterId"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2BandwidthReference"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2Description"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2LsdbOverflowLimit"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2MaxLoadBalaNumber"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2AseRouteMaxNumber"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2InterRouteMaxNumber"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2IntraRouteMaxNumber"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2RetransLimitMaxNumber"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2Rfc1583Compatibility"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2ShamHello"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2OpaqueCapability"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2TrafficAdjustment"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2TrafficAdvertise"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2FlushTimer"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2SpfSchHoldIntvl"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2SpfSchStartIntvl"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2SpfSchMaxIntvl"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2LsaOrigIntvlOtherType"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2LsaOrigHoldIntvl"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2LsaOrigStartIntvl"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2LsaOrigMaxIntvl"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2LsaArriveHoldIntvl"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2LsaArriveStartIntvl"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2LsaArriveMaxIntvl"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2LsaArriveIntvl"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2SpfSchIntvlUnit"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2SpfSchIntvlNumber"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2LsaOrigIntvl"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2ProcessRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.155.32.2.2",
+    "status": "current"
+  },
+  "hwOspfv2ProcessIdIndex": {
+    "class": "objecttype",
+    "description": "The process ID indicates the OSPF process number. The value ranges from 1 to 65535.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv2ProcessIdIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwOspfv2ProcessRowStatus": {
+    "class": "objecttype",
+    "description": "This node is used to create and destroy rows. Because CreateAndWait is not supported, you can set this node to CreatAndGo to create a new process. If the process is created successfully, the value of this node changes to active.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2ProcessRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwOspfv2ProcessTable": {
+    "class": "objecttype",
+    "description": "Information describes the configured parameters of the router\u0027s attached OSPF processes.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv2ProcessTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3",
+    "status": "current"
+  },
+  "hwOspfv2RetransLimitMaxNumber": {
+    "class": "objecttype",
+    "description": "The maximum count of retransmission. The value is an integer that ranges from 2 to 255. When the retransmission limit is disabled, the value is set to 0.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2RetransLimitMaxNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 255,
+            "min": 2
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwOspfv2Rfc1583Compatibility": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "true"
+      }
+    },
+    "description": "It is used to enable the routing rule for compatible RFC 1583.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2Rfc1583Compatibility",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwOspfv2SelfIfIpAddress": {
+    "class": "objecttype",
+    "description": "This object indicates the IP address of the OSPF interface associated with this neighbor.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv2SelfIfIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwOspfv2SelfIfName": {
+    "class": "objecttype",
+    "description": "The name of the OSPF interface associated with this neighbor.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv2SelfIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwOspfv2SelfIfnetIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the unique value for each interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv2SelfIfnetIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwOspfv2SelfRouterId": {
+    "class": "objecttype",
+    "description": "This object indicates the 32-bit integer that uniquely identifies the router in the Autonomous System. It is the router ID of itself.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv2SelfRouterId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwOspfv2ShamHello": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "It is used to enable the sham-hello feature of OSPF. After the feature is enabled, OSPF updates the timeout timer of the neighbor when receiving protocol packets of various types.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2ShamHello",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwOspfv2SpfSchHoldIntvl": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1000
+      }
+    },
+    "description": "This object indicates the Holdtime interval of intelligent timer for OSPF to perform the SPF calculation. After an intelligent timer is enabled, the interval for the SPF calculation is as follows: The initial interval for the SPF calculation is specified by the parameter start-interval. The interval for the SPF calculation for the nth (n\u003e2) time is equal to hold-interval*2(n-1). When the interval specified by hold-interval*2(n-1) reaches the maximum interval specified by max-interval, OSPF performs the SPF calculation at the maximum interval for three consecutive times. Then, OSPF performs the SPF calculation at the initial interval specified by start-interval. When hwOspfv2SpfSchHoldIntvl is specified, you need also specify hwOspfv2SpfSchMaxIntvl and hwOspfv2SpfSchStartIntvl, but you cannot specify hwOspfv2SpfSchIntvlUnit or hwOspfv2SpfSchIntvlNumber. Note that -1 is not a configurable value. Instead, by set the intelligent timer to default value, it will get back to default configuration.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2SpfSchHoldIntvl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 5000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "millionSecond"
+  },
+  "hwOspfv2SpfSchIntvlNumber": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "The value of the object identifies the interval for OSPF to calculate routes. This object must be specified together with hwOspfv2SpfSchIntervalUnit. By default, this object is -1, indicating that an intelligent timer is enabled instead. Note that -1 is not a configurable value. Instead, by set the intelligent timer (hwOspfv2SpfSchMaxIntvl, hwOspfv2SpfSchStartIntvl, and hwOspfv2SpfSchHoldIntvl) to default value, it will get back to default configuration.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2SpfSchIntvlNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 10000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwOspfv2SpfSchIntvlUnit": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "none"
+      }
+    },
+    "description": "The value of the object identifies the interval unit for OSPF to calculate routes. This object must be specified together with hwOspfv2SpfSchIntervalNumber. By default, this object is none, indicating that an intelligent timer is enabled instead. Note that none is not a configurable value. Instead, by set the intelligent timer (hwOspfv2SpfSchMaxIntvl, hwOspfv2SpfSchStartIntvl, and hwOspfv2SpfSchHoldIntvl) to default value, it will get back to default configuration.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2SpfSchIntvlUnit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "millionSecond": 2,
+          "none": 3,
+          "second": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv2SpfSchMaxIntvl": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 10000
+      }
+    },
+    "description": "This object indicates the maximum interval of intelligent timer for OSPF to perform the SPF calculation. When hwOspfv2SpfSchMaxIntvl is specified, you need also specify hwOspfv2SpfSchStartIntvl and hwOspfv2SpfSchHoldIntvl, but you cannot specify hwOspfv2SpfSchIntvlUnit or hwOspfv2SpfSchIntvlNumber. Note that -1 is not a configurable value. Instead, by set the intelligent timer to default value, it will get back to default configuration.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2SpfSchMaxIntvl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 20000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "millionSecond"
+  },
+  "hwOspfv2SpfSchStartIntvl": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 500
+      }
+    },
+    "description": "This object indicates the initial interval of intelligent timer for OSPF to perform the SPF calculation. When hwOspfv2SpfSchStartIntvl is specified, you need also specify hwOspfv2SpfSchMaxIntvl and hwOspfv2SpfSchHoldIntvl, but you cannot specify hwOspfv2SpfSchIntvlUnit or hwOspfv2SpfSchIntvlNumber. Note that -1 is not a configurable value. Instead, by set the intelligent timer to default value, it will get back to default configuration.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2SpfSchStartIntvl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 1000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "millionSecond"
+  },
+  "hwOspfv2TrafficAdjustment": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "It is used to enable IGP-shortcut feature. The value false means disable. Otherwise, the value true means enable. If you want to set this node to false, please check whether Local MT feature is disabled. When Local MT feature is enabled, this node cannot be set to false.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2TrafficAdjustment",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwOspfv2TrafficAdvertise": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "It is used to enable IGP-shortcut and Forwarding Adjacency feature.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2TrafficAdvertise",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwOspfv2Traps": {
+    "class": "objectidentity",
+    "name": "hwOspfv2Traps",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.31"
+  },
+  "hwOspfv2TrapsObjects": {
+    "class": "objectidentity",
+    "name": "hwOspfv2TrapsObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.30"
+  },
+  "hwOspfv2TrapsObjectsGroup": {
+    "class": "objectgroup",
+    "description": "The objects are used to monitor/manage the neighbor state change from full to others.",
+    "name": "hwOspfv2TrapsObjectsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2NbrChgReason"
+      },
+      {
+        "module": "HUAWEI-OSPFV2-MIB",
+        "object": "hwOspfv2IfChgReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.155.32.2.9",
+    "status": "current"
+  },
+  "hwOspfv2VpnName": {
+    "class": "objecttype",
+    "description": "The name of VPN instance to which the process belongs. The process instance needs to be specified when the process is created, and then cannot be changed.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv2VpnName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.155.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "OSPF-MIB": [
+      "ospfNbrIpAddr",
+      "ospfNbrRtrId",
+      "ospfLsdbLsid",
+      "ospfNbrState",
+      "ospfRouterId",
+      "ospfLsdbRouterId",
+      "ospfNbrAddressLessIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Counter32",
+      "MibIdentifier",
+      "TimeTicks",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-OSPFV2-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:35 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-OSPFV2-MIB"
+  }
+}

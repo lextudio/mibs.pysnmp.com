@@ -1,0 +1,301 @@
+{
+  "alarmNumber": {
+    "class": "objecttype",
+    "description": "The index number associated with the entry in the Alarm table. The range cannot be specified on the SYNTAX line since it will vary from agent to agent. The range will be 1 to the number specified by snmp540AlarmNumber.",
+    "maxaccess": "read-only",
+    "name": "alarmNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.498.8.4.10.5.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "description": {
+    "class": "objecttype",
+    "description": "The Description of the alarm generated.",
+    "maxaccess": "read-only",
+    "name": "description",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.498.8.4.10.5.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "imports": {
+    "SNMP540-MGMT-MIB": [
+      "snmp540"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Gauge32",
+      "iso",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Integer32",
+      "Bits",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "mask": {
+    "class": "objecttype",
+    "description": "The alarm masking control. When the value is mask(1), then the alarm is masked and will not be reported. When the value is unmask(2), then the alarm will be reported depending on the threshold configuration.",
+    "maxaccess": "read-write",
+    "name": "mask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.498.8.4.10.5.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mask": 1,
+          "unmask": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/SNMP540-ALARM-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 15:24:35 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "SNMP540-ALARM-MIB"
+  },
+  "pysmi_class": {
+    "class": "objecttype",
+    "description": "The class of the associated alarm in the Alarm table. The value general(1) indicates without the threshold or interval. The value threshold (2) indicates the alarm has threshold value only. The value countWindow (3) indicates the alarm has Count Window value only. The value thresholdInterval (4) indicates the alarm has both the interval and the Count Window also.",
+    "maxaccess": "read-only",
+    "name": "class",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.498.8.4.10.5.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "countWindow": 3,
+          "general": 1,
+          "threshold": 2,
+          "thresholdInterval": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "severityLevel": {
+    "class": "objecttype",
+    "description": "The severity level associated with the alarm in the Alarm table. The value critical(1) is critical for the enterprise functioning. The value major(1), minor(2), warniing(3) indicates otherwise as specified by enterprise.",
+    "maxaccess": "read-only",
+    "name": "severityLevel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.498.8.4.10.5.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "major": 2,
+          "minor": 3,
+          "warning": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "snmp540Alarm": {
+    "class": "objectidentity",
+    "name": "snmp540Alarm",
+    "oid": "1.3.6.1.4.1.498.8.4.10"
+  },
+  "snmp540AlarmEntry": {
+    "class": "objecttype",
+    "description": "An entry in the snmp540 alarm table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "SNMP540-ALARM-MIB",
+        "object": "alarmNumber"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "snmp540AlarmEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.498.8.4.10.5.1",
+    "status": "mandatory"
+  },
+  "snmp540AlarmMIBversion": {
+    "class": "objecttype",
+    "description": "Identifies the version of the MIB. The format of the version is x.yzT, where \u0027x\u0027 identifies the major revision number, \u0027y\u0027identifies the minor revision number, \u0027z\u0027 identifies the typographical revision, and T identifies the test revision. Acceptable values for the individual revision components are as follows x: 1 - 9 y: 0 - 9 z: 0 - 9 T: A - Z Upon formal release, no designation for the test revision will be present.",
+    "maxaccess": "read-only",
+    "name": "snmp540AlarmMIBversion",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.498.8.4.10.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 5,
+            "min": 5
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "snmp540AlarmNumber": {
+    "class": "objecttype",
+    "description": "The number of Alarms Currently being reported by SNMP540 Unit.",
+    "maxaccess": "read-only",
+    "name": "snmp540AlarmNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.498.8.4.10.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "snmp540AlarmStructure": {
+    "class": "objecttype",
+    "description": "The Alarm Structure configuration object. The default value GDCProprietarySCMStandard(1) uses the alarm reporting structure as compliant to the SCM and the GDC proprietary manager applications. The value GeneralAlarmStructure(2) uses a very general alarm structure suited for any Network manager applications .",
+    "maxaccess": "read-write",
+    "name": "snmp540AlarmStructure",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.498.8.4.10.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gdcProprietarySCMStandard": 1,
+          "generalAlarmStructure": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "snmp540AlarmTable": {
+    "class": "objecttype",
+    "description": "The GDC snmp540 Alarm Configuration Table.",
+    "maxaccess": "not-accessible",
+    "name": "snmp540AlarmTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.498.8.4.10.5",
+    "status": "mandatory"
+  },
+  "snmp540AlarmTrap": {
+    "class": "notificationtype",
+    "description": "The Enterprise specific Trap is sent whenever the alarm conditions are set in the network element. Each trap reported has a description of the alarm, the associated severity level with an active/clear status.",
+    "name": "snmp540AlarmTrap",
+    "objects": [
+      {
+        "module": "SNMP540-ALARM-MIB",
+        "object": "description"
+      },
+      {
+        "module": "SNMP540-ALARM-MIB",
+        "object": "severityLevel"
+      },
+      {
+        "module": "SNMP540-ALARM-MIB",
+        "object": "status"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.498.8.4.0.1"
+  },
+  "snmp540GeneralIntegrationTime": {
+    "class": "objecttype",
+    "description": "This is the DDS Alarm Threshold Interval. It specifies the amount of time, 1 to 15 minutes, in which the threshold setting is to be exceeded for the alarm to occur.",
+    "maxaccess": "read-write",
+    "name": "snmp540GeneralIntegrationTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.498.8.4.10.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "status": {
+    "class": "objecttype",
+    "description": "The current status of the alarm. The value inactive(1) indicates that this alarm is currently inactive. The value active(2) indicates that this alarm is currently active.",
+    "maxaccess": "read-only",
+    "name": "status",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.498.8.4.10.5.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 2,
+          "inactive": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "threshold": {
+    "class": "objecttype",
+    "description": "This function sets/reads the alarm threshold settings criteria. This threshold is used along with the alarm window to determine the number of instances in a given time frame for an alarm to occur before the alarm is considered active. Alarm Table Entry Range Default ------- ---------------- --------- -------- Jitter snmp540JitterAlm 0 to 99% 10% BPV\u0027s snmp540BpvAlm 0 to 99Count 10 Frm Loss snmp540FrameLossAlm 0 to 99Count 10 SNRatio snmp540SignalToNoiseAlm 0 to 50 0 Rx Low snmp540RxSignalLowAlm -50 to 6db -30dB",
+    "maxaccess": "read-write",
+    "name": "threshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.498.8.4.10.5.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 99,
+            "min": -50
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  }
+}

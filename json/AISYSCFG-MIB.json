@@ -1,0 +1,98 @@
+{
+  "aiSysCfg": {
+    "class": "moduleidentity",
+    "contactinfo": " Engineering MIB Administrator Postal: Applied Innovation Inc. 5800 Innovation Drive Dublin, Ohio 43017-3271 Tel: 614-798-2000 Fax: 614-798-1770 Email: snmp@aiinet.com",
+    "description": "MIB module for system parameters.",
+    "lastupdated": "0104301700Z",
+    "name": "aiSysCfg",
+    "oid": "1.3.6.1.4.1.539.32",
+    "organization": "Applied Innovation Inc."
+  },
+  "aiSysCfgFan": {
+    "class": "moduleidentity",
+    "contactinfo": " Engineering MIB Administrator Postal: Applied Innovation Inc. 5800 Innovation Drive Dublin, Ohio 43017-3271 Tel: 614-798-2000 Fax: 614-798-1770 Email: snmp@aiinet.com",
+    "description": "MIB module for fans.",
+    "lastupdated": "0104301700Z",
+    "name": "aiSysCfgFan",
+    "oid": "1.3.6.1.4.1.539.32.4",
+    "organization": "Applied Innovation Inc."
+  },
+  "aiSysCfgPower": {
+    "class": "moduleidentity",
+    "contactinfo": " Engineering MIB Administrator Postal: Applied Innovation Inc. 5800 Innovation Drive Dublin, Ohio 43017-3271 Tel: 614-798-2000 Fax: 614-798-1770 Email: snmp@aiinet.com",
+    "description": "MIB module for Power Supplies.",
+    "lastupdated": "0104301700Z",
+    "name": "aiSysCfgPower",
+    "oid": "1.3.6.1.4.1.539.32.3",
+    "organization": "Applied Innovation Inc."
+  },
+  "aiSysCfgSoftware": {
+    "class": "moduleidentity",
+    "contactinfo": " Engineering MIB Administrator Postal: Applied Innovation Inc. 5800 Innovation Drive Dublin, Ohio 43017-3271 Tel: 614-798-2000 Fax: 614-798-1770 Email: snmp@aiinet.com",
+    "description": "MIB module to describe software images. Any software/firmware image/load/package should be describable by entries in aiSCSoftwareTable. The set of (name, type, version, date) should uniquely identify any image loaded on an AI box.",
+    "lastupdated": "0104301700Z",
+    "name": "aiSysCfgSoftware",
+    "oid": "1.3.6.1.4.1.539.32.1",
+    "organization": "Applied Innovation Inc."
+  },
+  "aiSysCfgTemp": {
+    "class": "moduleidentity",
+    "contactinfo": " Engineering MIB Administrator Postal: Applied Innovation Inc. 5800 Innovation Drive Dublin, Ohio 43017-3271 Tel: 614-798-2000 Fax: 614-798-1770 Email: snmp@aiinet.com",
+    "description": "MIB module for Temperature Probes.",
+    "lastupdated": "0104301700Z",
+    "name": "aiSysCfgTemp",
+    "oid": "1.3.6.1.4.1.539.32.5",
+    "organization": "Applied Innovation Inc."
+  },
+  "aiSysCfgTime": {
+    "class": "moduleidentity",
+    "contactinfo": " Engineering MIB Administrator Postal: Applied Innovation Inc. 5800 Innovation Drive Dublin, Ohio 43017-3271 Tel: 614-798-2000 Fax: 614-798-1770 Email: snmp@aiinet.com",
+    "description": "MIB module for timekeeping.",
+    "lastupdated": "0104301700Z",
+    "name": "aiSysCfgTime",
+    "oid": "1.3.6.1.4.1.539.32.2",
+    "organization": "Applied Innovation Inc."
+  },
+  "aii": {
+    "class": "objectidentity",
+    "name": "aii",
+    "oid": "1.3.6.1.4.1.539"
+  },
+  "imports": {
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Gauge32",
+      "Unsigned32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Integer32",
+      "Counter32",
+      "enterprises",
+      "IpAddress",
+      "iso",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/AISYSCFG-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 13:45:45 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "AISYSCFG-MIB"
+  }
+}

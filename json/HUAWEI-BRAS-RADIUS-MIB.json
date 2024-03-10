@@ -1,0 +1,3268 @@
+{
+  "hwAcctRequestPacketNum": {
+    "class": "objecttype",
+    "description": "The number of attribute in accounting request packet. ",
+    "maxaccess": "read-only",
+    "name": "hwAcctRequestPacketNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.11.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAcctResponsePacketNum": {
+    "class": "objecttype",
+    "description": "The number of attribute in accounting response packet. ",
+    "maxaccess": "read-only",
+    "name": "hwAcctResponsePacketNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.11.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAttributeName": {
+    "class": "objecttype",
+    "description": "The attribute name. ",
+    "maxaccess": "read-only",
+    "name": "hwAttributeName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.11.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwAuthAcceptPacketNum": {
+    "class": "objecttype",
+    "description": "The number of attribute in authentication accept packet. ",
+    "maxaccess": "read-only",
+    "name": "hwAuthAcceptPacketNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.11.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAuthRejectPacketNum": {
+    "class": "objecttype",
+    "description": "The number of attribute in authentication reject packet. ",
+    "maxaccess": "read-only",
+    "name": "hwAuthRejectPacketNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.11.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAuthRequestPacketNum": {
+    "class": "objecttype",
+    "description": "The number of attribute in authentication request packet. ",
+    "maxaccess": "read-only",
+    "name": "hwAuthRequestPacketNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.11.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBRASRadius": {
+    "class": "moduleidentity",
+    "contactinfo": "The MIB contains objects of module COPS.",
+    "description": "Description.",
+    "lastupdated": "200504181334Z",
+    "name": "hwBRASRadius",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15",
+    "organization": " NanJing Institute,Huawei Technologies Co.,Ltd. HuiHong Mansion,No.91 BaiXia Rd. NanJing, P.R. of China Zipcode:210001 Http://www.huawei.com E-mail:support@huawei.com "
+  },
+  "hwCOAAcknowledgePacketNum": {
+    "class": "objecttype",
+    "description": "The number of attribute in COA acknowledge packet. ",
+    "maxaccess": "read-only",
+    "name": "hwCOAAcknowledgePacketNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.11.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCOARequestPacketNum": {
+    "class": "objecttype",
+    "description": "The number of attribute in COA request packet. ",
+    "maxaccess": "read-only",
+    "name": "hwCOARequestPacketNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.11.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDMAcknowledgePacketNum": {
+    "class": "objecttype",
+    "description": "The number of attribute in DM acknowledge packet. ",
+    "maxaccess": "read-only",
+    "name": "hwDMAcknowledgePacketNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.11.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDMRequestPacketNum": {
+    "class": "objecttype",
+    "description": "The number of attribute in DM request packet. ",
+    "maxaccess": "read-only",
+    "name": "hwDMRequestPacketNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.11.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEnableSourcePortsExtended": {
+    "class": "objecttype",
+    "description": "To enable one or more ports to be used as the source ports for sending out RADIUS requests,default is 2. ",
+    "maxaccess": "read-write",
+    "name": "hwEnableSourcePortsExtended",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwRadiusAcctServerDown": {
+    "class": "notificationtype",
+    "description": " 1 Notice/Trap name: Radius accounting server down 2 Notice/Trap generation cause: Radius accounting server down 3 Repair suggestions: Check radius accounting server status . ",
+    "name": "hwRadiusAcctServerDown",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwStateChangeServerIp"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwStateChangeServerVrf"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.2.2.1.4",
+    "status": "current"
+  },
+  "hwRadiusAcctServerUp": {
+    "class": "notificationtype",
+    "description": " 1 Notice/Trap name: Radius accounting server up 2 Notice/Trap generation cause: Radius accounting server up 3 Repair suggestions: Check radius accounting server status . ",
+    "name": "hwRadiusAcctServerUp",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwStateChangeServerIp"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwStateChangeServerVrf"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.2.2.1.3",
+    "status": "current"
+  },
+  "hwRadiusAlgorithm": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "masterbackup"
+      }
+    },
+    "description": "Packet sending algorithm of Radius server. ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusAlgorithm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "masterbackup": 1,
+          "shareloading": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRadiusAttrCountEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwAttributeName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRadiusAttrCountEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.11.1",
+    "status": "current"
+  },
+  "hwRadiusAttrCountTable": {
+    "class": "objecttype",
+    "description": "Radius attribute count table. ",
+    "maxaccess": "not-accessible",
+    "name": "hwRadiusAttrCountTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.11",
+    "status": "current"
+  },
+  "hwRadiusAttributeNoExistPolicy": {
+    "class": "objecttype",
+    "description": "Radius-attribute qos-profile no-exist-policy.",
+    "maxaccess": "read-write",
+    "name": "hwRadiusAttributeNoExistPolicy",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": 2,
+          "online": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRadiusAuthServerDown": {
+    "class": "notificationtype",
+    "description": " 1 Notice/Trap name: Radius authentication server down 2 Notice/Trap generation cause: Radius authentication server down 3 Repair suggestions: Check radius authentication server status . ",
+    "name": "hwRadiusAuthServerDown",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwStateChangeServerIp"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwStateChangeServerVrf"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.2.2.1.2",
+    "status": "current"
+  },
+  "hwRadiusAuthServerUp": {
+    "class": "notificationtype",
+    "description": " 1 Notice/Trap name: Radius authentication server up 2 Notice/Trap generation cause: Radius authentication server up 3 Repair suggestions: Check radius authentication server status . ",
+    "name": "hwRadiusAuthServerUp",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwStateChangeServerIp"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwStateChangeServerVrf"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.2.2.1.1",
+    "status": "current"
+  },
+  "hwRadiusAuthorServerEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAuthorServerIP"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAuthorServerVrf"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRadiusAuthorServerEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.4.1",
+    "status": "current"
+  },
+  "hwRadiusAuthorServerGroup": {
+    "class": "objectgroup",
+    "description": "The Radius Author Server group.",
+    "name": "hwRadiusAuthorServerGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAuthorServerIP"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAuthorServerVrf"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAuthorServerKey"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAuthorServerGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAuthorServerRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.3.2.4",
+    "status": "current"
+  },
+  "hwRadiusAuthorServerGroupName": {
+    "class": "objecttype",
+    "description": "Authorization Server group name. ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusAuthorServerGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRadiusAuthorServerIP": {
+    "class": "objecttype",
+    "description": "Authorization Server IP address. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusAuthorServerIP",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwRadiusAuthorServerKey": {
+    "class": "objecttype",
+    "description": "Authorization Server share key. ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusAuthorServerKey",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRadiusAuthorServerKeyType": {
+    "class": "objecttype",
+    "description": "Authorization Server share key type. ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusAuthorServerKeyType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cipher": 1,
+          "simple": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRadiusAuthorServerRowStatus": {
+    "class": "objecttype",
+    "description": "Authorization Server row status. ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusAuthorServerRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwRadiusAuthorServerTable": {
+    "class": "objecttype",
+    "description": "Configuration table of AUTHOR server. ",
+    "maxaccess": "not-accessible",
+    "name": "hwRadiusAuthorServerTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.4",
+    "status": "current"
+  },
+  "hwRadiusAuthorServerVrf": {
+    "class": "objecttype",
+    "description": "Authorization Server VPN instance. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusAuthorServerVrf",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRadiusClassASCar": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "RADIUS server regards CLASS as CAR parameter. ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusClassASCar",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwRadiusClientEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusClientIP"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusClientVrf"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRadiusClientEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.3.1",
+    "status": "current"
+  },
+  "hwRadiusClientGroup": {
+    "class": "objectgroup",
+    "description": "The Radius Client group.",
+    "name": "hwRadiusClientGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusClientIP"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusClientVrf"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusClientKey"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusClientGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusClientRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.3.2.3",
+    "status": "current"
+  },
+  "hwRadiusClientGroupName": {
+    "class": "objecttype",
+    "description": "Client group name. ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusClientGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRadiusClientIP": {
+    "class": "objecttype",
+    "description": "Client ip address. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusClientIP",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwRadiusClientKey": {
+    "class": "objecttype",
+    "description": "Client share key. ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusClientKey",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRadiusClientKeyType": {
+    "class": "objecttype",
+    "description": "Client share key type. ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusClientKeyType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cipher": 1,
+          "simple": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRadiusClientRowStatus": {
+    "class": "objecttype",
+    "description": "Client row status. ",
+    "maxaccess": "read-create",
+    "name": "hwRadiusClientRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwRadiusClientTable": {
+    "class": "objecttype",
+    "description": "Configuration table of server client end. ",
+    "maxaccess": "not-accessible",
+    "name": "hwRadiusClientTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.3",
+    "status": "current"
+  },
+  "hwRadiusClientVrf": {
+    "class": "objecttype",
+    "description": "Client vpn instance. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusClientVrf",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRadiusCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the this module.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusGroupGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusClientGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAuthorServerGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusSettingGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusTrapObjectGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusTrapsDefineGroup"
+      }
+    ],
+    "name": "hwRadiusCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.3.1.1",
+    "status": "current"
+  },
+  "hwRadiusCompliances": {
+    "class": "objectidentity",
+    "name": "hwRadiusCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.3.1"
+  },
+  "hwRadiusConformance": {
+    "class": "objectidentity",
+    "name": "hwRadiusConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.3"
+  },
+  "hwRadiusDomainInclude": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32"
+      }
+    },
+    "description": "Whether the domain of Radius server is included. ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusDomainInclude",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "includingDomain": 1,
+          "notIncludingDomain": 2,
+          "original": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRadiusGroupEntry": {
+    "class": "objecttype",
+    "description": "Radius Group Entry. Radius group table is used to configure the attribute of radius group including some public information of radius group. Radius group table is uniquely identified by Radius group name which is the key word entered when radius group table is created and cannot be changed. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusGroupName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRadiusGroupEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1",
+    "status": "current"
+  },
+  "hwRadiusGroupGroup": {
+    "class": "objectgroup",
+    "description": "The radius group.",
+    "name": "hwRadiusGroupGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerKey"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerProtType"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerRetransmit"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerTimeout"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerAttrTran"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusPacketUnit"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusDomainInclude"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusClassASCar"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAlgorithm"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerNasPortFmt"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusGroupRowStatus"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerSourceInterface"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerNasIpAddress"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerCallingStationId"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerCallingStationIdDelimiter"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAttributeNoExistPolicy"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.3.2.1",
+    "status": "current"
+  },
+  "hwRadiusGroupName": {
+    "class": "objecttype",
+    "description": "Radius Group name. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRadiusGroupObject": {
+    "class": "objectidentity",
+    "name": "hwRadiusGroupObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1"
+  },
+  "hwRadiusGroupRowStatus": {
+    "class": "objecttype",
+    "description": "Row admin status. Support add and delete.",
+    "maxaccess": "read-create",
+    "name": "hwRadiusGroupRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwRadiusGroupTable": {
+    "class": "objecttype",
+    "description": "Radius Group Table. ",
+    "maxaccess": "not-accessible",
+    "name": "hwRadiusGroupTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1",
+    "status": "current"
+  },
+  "hwRadiusGroups": {
+    "class": "objectidentity",
+    "name": "hwRadiusGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.3.2"
+  },
+  "hwRadiusMIBTrap": {
+    "class": "objectidentity",
+    "name": "hwRadiusMIBTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.2"
+  },
+  "hwRadiusPacketUnit": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "byte"
+      }
+    },
+    "description": "The packet unit of Radius server which is active when the Radius protocol is standard. ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusPacketUnit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "byte": 1,
+          "gbyte": 4,
+          "kbyte": 2,
+          "mbyte": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRadiusResetStatAll": {
+    "class": "objecttype",
+    "description": "Reset statistics information of radius sending and receiving packets. ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusResetStatAll",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRadiusServerAttrTran": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "Whether the function of Radius server attribute translation is enabled. 1 indicates that it is enabled. 2 indicates that it is disabled. ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusServerAttrTran",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwRadiusServerCallingStationId": {
+    "class": "objecttype",
+    "description": "Radius server Calling-station-id",
+    "maxaccess": "read-write",
+    "name": "hwRadiusServerCallingStationId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 47,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRadiusServerCallingStationIdDelimiter": {
+    "class": "objecttype",
+    "description": "Radius server Calling-station-id-Delimiter",
+    "maxaccess": "read-write",
+    "name": "hwRadiusServerCallingStationIdDelimiter",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 47,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRadiusServerDeadCount": {
+    "class": "objecttype",
+    "description": "Radius server dead count. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusServerDeadCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRadiusServerDeadInterval": {
+    "class": "objecttype",
+    "description": "Radius server dead interval. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusServerDeadInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRadiusServerDeadTime": {
+    "class": "objecttype",
+    "description": "Radius server dead time. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusServerDeadTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 60,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRadiusServerEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusGroupName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerType"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRadiusServerEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1",
+    "status": "current"
+  },
+  "hwRadiusServerGroup": {
+    "class": "objectgroup",
+    "description": "The Radius Server group.",
+    "name": "hwRadiusServerGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerType"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerVRF"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerIP"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerPort"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerWeight"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerSecretKey"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerRowStatus"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerPktSendNumber"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerPktSendInterval"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerSourceInterfaceEachServer"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerResponses"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerSecretKeyType"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerDeadCount"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerDeadTime"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusServerDeadInterval"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.3.2.2",
+    "status": "current"
+  },
+  "hwRadiusServerIP": {
+    "class": "objecttype",
+    "description": "IP address of authentication and accounting server which is unnecessary to configure. ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusServerIP",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwRadiusServerIndex": {
+    "class": "objecttype",
+    "description": "IP address index of authentication and accounting server, read-only. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusServerIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRadiusServerKey": {
+    "class": "objecttype",
+    "description": "Radius Server secret. ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusServerKey",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRadiusServerKeyType": {
+    "class": "objecttype",
+    "description": "Radius Server secret type.",
+    "maxaccess": "read-write",
+    "name": "hwRadiusServerKeyType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cipher": 1,
+          "simple": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRadiusServerNasIpAddress": {
+    "class": "objecttype",
+    "description": "Radius server NAS IP address",
+    "maxaccess": "read-write",
+    "name": "hwRadiusServerNasIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwRadiusServerNasPortFmt": {
+    "class": "objecttype",
+    "description": "Radius Nas port format string. ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusServerNasPortFmt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRadiusServerPktSendInterval": {
+    "class": "objecttype",
+    "description": "The interval for counting the number of sent packets(in sec) ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusServerPktSendInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRadiusServerPktSendNumber": {
+    "class": "objecttype",
+    "description": "The number of packets that can be sent ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusServerPktSendNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRadiusServerPort": {
+    "class": "objecttype",
+    "description": "Port number of authentication and accounting server. Use the default value, if it is not configured. ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusServerPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRadiusServerProtType": {
+    "class": "objecttype",
+    "description": "Radius protocol. ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusServerProtType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "radius": 1,
+          "radiusPlus10": 2,
+          "radiusPlus11": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRadiusServerResponses": {
+    "class": "objecttype",
+    "description": "The number of RADIUS packets received from this server. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusServerResponses",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusServerRetransmit": {
+    "class": "objecttype",
+    "description": "Max number of radius packet retransmission. ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusServerRetransmit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 5,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRadiusServerRowStatus": {
+    "class": "objecttype",
+    "description": "Row admin status,either Add or Del. Support add and delete. ",
+    "maxaccess": "read-create",
+    "name": "hwRadiusServerRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwRadiusServerSecretKey": {
+    "class": "objecttype",
+    "description": "Secret of authentication and accounting server. ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusServerSecretKey",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRadiusServerSecretKeyType": {
+    "class": "objecttype",
+    "description": "Secret key type of authentication and accounting server. ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusServerSecretKeyType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cipher": 1,
+          "simple": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRadiusServerSourceInterface": {
+    "class": "objecttype",
+    "description": "Radius server source interface name. ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusServerSourceInterface",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 47,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRadiusServerSourceInterfaceEachServer": {
+    "class": "objecttype",
+    "description": "Radius server source interface name ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusServerSourceInterfaceEachServer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 1023,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRadiusServerTable": {
+    "class": "objecttype",
+    "description": "Radius server group extend table. ",
+    "maxaccess": "not-accessible",
+    "name": "hwRadiusServerTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2",
+    "status": "current"
+  },
+  "hwRadiusServerTimeout": {
+    "class": "objecttype",
+    "description": "Radius packet retransmission interval. ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusServerTimeout",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 25,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRadiusServerTraps": {
+    "class": "objectidentity",
+    "name": "hwRadiusServerTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.2.2.1"
+  },
+  "hwRadiusServerType": {
+    "class": "objecttype",
+    "description": "Type of authentication and accounting server, read-only. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusServerType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acct": 2,
+          "auth": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRadiusServerVRF": {
+    "class": "objecttype",
+    "description": "VPN-instance of authentication and accounting server. ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusServerVRF",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRadiusServerWeight": {
+    "class": "objecttype",
+    "description": "Weight of authentication and accounting server, which is unnecessary to configure. ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusServerWeight",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRadiusSetting": {
+    "class": "objectidentity",
+    "name": "hwRadiusSetting",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.5"
+  },
+  "hwRadiusSettingEntry": {
+    "class": "objectidentity",
+    "name": "hwRadiusSettingEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.5.1"
+  },
+  "hwRadiusSettingGroup": {
+    "class": "objectgroup",
+    "description": "The common setting of Radius server.",
+    "name": "hwRadiusSettingGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwEnableSourcePortsExtended"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwSourcePortsExtendedStartPort"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwSourcePortsExtendedPortNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.3.2.5",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv4BadAuthenticators": {
+    "class": "objecttype",
+    "description": "Bad packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAcctIpv4BadAuthenticators",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAcctIpv4DroppedPackets": {
+    "class": "objecttype",
+    "description": "Dropped packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAcctIpv4DroppedPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAcctIpv4Entry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusStatAcctIpv4ServerIP"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusStatAcctIpv4Vrf"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRadiusStatAcctIpv4Entry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv4MalformedResponses": {
+    "class": "objecttype",
+    "description": "Malformed response packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAcctIpv4MalformedResponses",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAcctIpv4PendingRequests": {
+    "class": "objecttype",
+    "description": "Pending packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAcctIpv4PendingRequests",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAcctIpv4Requests": {
+    "class": "objecttype",
+    "description": "Request packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAcctIpv4Requests",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAcctIpv4Responses": {
+    "class": "objecttype",
+    "description": "Response packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAcctIpv4Responses",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAcctIpv4Retransmissions": {
+    "class": "objecttype",
+    "description": "Retransmission packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAcctIpv4Retransmissions",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAcctIpv4ServerIP": {
+    "class": "objecttype",
+    "description": "Radius server IP. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAcctIpv4ServerIP",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwRadiusStatAcctIpv4Table": {
+    "class": "objecttype",
+    "description": "Account packet statistics information for IPv4 radius server. ",
+    "maxaccess": "not-accessible",
+    "name": "hwRadiusStatAcctIpv4Table",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv4Timeouts": {
+    "class": "objecttype",
+    "description": "Timeout packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAcctIpv4Timeouts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAcctIpv4UnknownTypes": {
+    "class": "objecttype",
+    "description": "Unknown packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAcctIpv4UnknownTypes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAcctIpv4Vrf": {
+    "class": "objecttype",
+    "description": "VPN-instance name. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAcctIpv4Vrf",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRadiusStatAcctIpv6BadAuthenticators": {
+    "class": "objecttype",
+    "description": "Bad packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAcctIpv6BadAuthenticators",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAcctIpv6DroppedPackets": {
+    "class": "objecttype",
+    "description": "Dropped packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAcctIpv6DroppedPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAcctIpv6Entry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusStatAcctIpv6ServerIP"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRadiusStatAcctIpv6Entry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10.1",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv6MalformedResponses": {
+    "class": "objecttype",
+    "description": "Malformed response packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAcctIpv6MalformedResponses",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAcctIpv6PendingRequests": {
+    "class": "objecttype",
+    "description": "Pending packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAcctIpv6PendingRequests",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAcctIpv6Requests": {
+    "class": "objecttype",
+    "description": "Request packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAcctIpv6Requests",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAcctIpv6Responses": {
+    "class": "objecttype",
+    "description": "Response packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAcctIpv6Responses",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAcctIpv6Retransmissions": {
+    "class": "objecttype",
+    "description": "Retransmission packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAcctIpv6Retransmissions",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAcctIpv6ServerIP": {
+    "class": "objecttype",
+    "description": "Radius server IP. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAcctIpv6ServerIP",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Ipv6Address"
+    }
+  },
+  "hwRadiusStatAcctIpv6Table": {
+    "class": "objecttype",
+    "description": "Account packet statistics information for IPv4 radius server. ",
+    "maxaccess": "not-accessible",
+    "name": "hwRadiusStatAcctIpv6Table",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10",
+    "status": "current"
+  },
+  "hwRadiusStatAcctIpv6Timeouts": {
+    "class": "objecttype",
+    "description": "Timeout packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAcctIpv6Timeouts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAcctIpv6UnknownTypes": {
+    "class": "objecttype",
+    "description": "Unknown packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAcctIpv6UnknownTypes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.10.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthenIpv4Accepts": {
+    "class": "objecttype",
+    "description": "Accept packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthenIpv4Accepts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthenIpv4BadAuthenticators": {
+    "class": "objecttype",
+    "description": "Bad packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthenIpv4BadAuthenticators",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthenIpv4Challenges": {
+    "class": "objecttype",
+    "description": "Challenge packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthenIpv4Challenges",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthenIpv4DroppedPackets": {
+    "class": "objecttype",
+    "description": "Dropped packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthenIpv4DroppedPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthenIpv4Entry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusStatAuthenIpv4ServerIP"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusStatAuthenIpv4Vrf"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRadiusStatAuthenIpv4Entry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv4MalformedResponses": {
+    "class": "objecttype",
+    "description": "Malformed response packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthenIpv4MalformedResponses",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthenIpv4PendingRequests": {
+    "class": "objecttype",
+    "description": "Pending packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthenIpv4PendingRequests",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthenIpv4Rejects": {
+    "class": "objecttype",
+    "description": "Reject packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthenIpv4Rejects",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthenIpv4Requests": {
+    "class": "objecttype",
+    "description": "Request packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthenIpv4Requests",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthenIpv4Retransmissions": {
+    "class": "objecttype",
+    "description": "Retransmission packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthenIpv4Retransmissions",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthenIpv4ServerIP": {
+    "class": "objecttype",
+    "description": "Radius server IP. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthenIpv4ServerIP",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwRadiusStatAuthenIpv4Table": {
+    "class": "objecttype",
+    "description": "Authentication packet statistics information for IPv4 radius server. ",
+    "maxaccess": "not-accessible",
+    "name": "hwRadiusStatAuthenIpv4Table",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv4Timeouts": {
+    "class": "objecttype",
+    "description": "Timeout packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthenIpv4Timeouts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthenIpv4UnknownTypes": {
+    "class": "objecttype",
+    "description": "Unknown packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthenIpv4UnknownTypes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthenIpv4Vrf": {
+    "class": "objecttype",
+    "description": "VPN-instance name. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthenIpv4Vrf",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRadiusStatAuthenIpv6Accepts": {
+    "class": "objecttype",
+    "description": "Accept packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthenIpv6Accepts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthenIpv6BadAuthenticators": {
+    "class": "objecttype",
+    "description": "Bad packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthenIpv6BadAuthenticators",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthenIpv6Challenges": {
+    "class": "objecttype",
+    "description": "Challenge packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthenIpv6Challenges",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthenIpv6DroppedPackets": {
+    "class": "objecttype",
+    "description": "Dropped packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthenIpv6DroppedPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthenIpv6Entry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusStatAuthenIpv6ServerIP"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRadiusStatAuthenIpv6Entry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv6MalformedResponses": {
+    "class": "objecttype",
+    "description": "Malformed response packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthenIpv6MalformedResponses",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthenIpv6PendingRequests": {
+    "class": "objecttype",
+    "description": "Pending packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthenIpv6PendingRequests",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthenIpv6Rejects": {
+    "class": "objecttype",
+    "description": "Reject packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthenIpv6Rejects",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthenIpv6Requests": {
+    "class": "objecttype",
+    "description": "Request packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthenIpv6Requests",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthenIpv6Retransmissions": {
+    "class": "objecttype",
+    "description": "Retransmission packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthenIpv6Retransmissions",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthenIpv6ServerIP": {
+    "class": "objecttype",
+    "description": "Radius server IP. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthenIpv6ServerIP",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Ipv6Address"
+    }
+  },
+  "hwRadiusStatAuthenIpv6Table": {
+    "class": "objecttype",
+    "description": "Authentication packet statistics information for IPv4 radius server. ",
+    "maxaccess": "not-accessible",
+    "name": "hwRadiusStatAuthenIpv6Table",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9",
+    "status": "current"
+  },
+  "hwRadiusStatAuthenIpv6Timeouts": {
+    "class": "objecttype",
+    "description": "Timeout packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthenIpv6Timeouts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthenIpv6UnknownTypes": {
+    "class": "objecttype",
+    "description": "Unknown packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthenIpv6UnknownTypes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.9.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthorIpv4Accepts": {
+    "class": "objecttype",
+    "description": "Accept packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthorIpv4Accepts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.8.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthorIpv4BadAuthenticators": {
+    "class": "objecttype",
+    "description": "Bad packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthorIpv4BadAuthenticators",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.8.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthorIpv4DroppedPackets": {
+    "class": "objecttype",
+    "description": "Dropped packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthorIpv4DroppedPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.8.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthorIpv4Entry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusStatAuthorIpv4ServerType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusStatAuthorIpv4ServerIP"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusStatAuthorIpv4Vrf"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRadiusStatAuthorIpv4Entry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.8.1",
+    "status": "current"
+  },
+  "hwRadiusStatAuthorIpv4MalformedResponses": {
+    "class": "objecttype",
+    "description": "Malformed response packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthorIpv4MalformedResponses",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.8.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthorIpv4Rejects": {
+    "class": "objecttype",
+    "description": "Reject packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthorIpv4Rejects",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.8.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthorIpv4Requests": {
+    "class": "objecttype",
+    "description": "Request packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthorIpv4Requests",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.8.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthorIpv4Retransmissions": {
+    "class": "objecttype",
+    "description": "Retransmission packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthorIpv4Retransmissions",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.8.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthorIpv4ServerIP": {
+    "class": "objecttype",
+    "description": "Radius server IP. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthorIpv4ServerIP",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.8.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwRadiusStatAuthorIpv4ServerType": {
+    "class": "objecttype",
+    "description": "Radius server type. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthorIpv4ServerType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 1
+          },
+          {
+            "max": 2,
+            "min": 2
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRadiusStatAuthorIpv4Table": {
+    "class": "objecttype",
+    "description": "Authorization packet statistics information for IPv4 radius server. ",
+    "maxaccess": "not-accessible",
+    "name": "hwRadiusStatAuthorIpv4Table",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.8",
+    "status": "current"
+  },
+  "hwRadiusStatAuthorIpv4Timeouts": {
+    "class": "objecttype",
+    "description": "Timeout packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthorIpv4Timeouts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.8.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthorIpv4UnknownTypes": {
+    "class": "objecttype",
+    "description": "Unknown packets. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthorIpv4UnknownTypes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.8.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwRadiusStatAuthorIpv4Vrf": {
+    "class": "objecttype",
+    "description": "VPN-instance name. ",
+    "maxaccess": "read-only",
+    "name": "hwRadiusStatAuthorIpv4Vrf",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.8.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRadiusTotalDeadCount": {
+    "class": "objecttype",
+    "description": "Radius server total dead count. ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusTotalDeadCount",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.5.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRadiusTotalDeadInterval": {
+    "class": "objecttype",
+    "description": "Radius server total dead interval. ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusTotalDeadInterval",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.5.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRadiusTotalDeadTime": {
+    "class": "objecttype",
+    "description": "Radius server total dead time. ",
+    "maxaccess": "read-write",
+    "name": "hwRadiusTotalDeadTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.5.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 60,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRadiusTrapObject": {
+    "class": "objectidentity",
+    "name": "hwRadiusTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.2.1"
+  },
+  "hwRadiusTrapObjectGroup": {
+    "class": "objectgroup",
+    "description": "The Radius Trap Object group.",
+    "name": "hwRadiusTrapObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwStateChangeServerIp"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwStateChangeServerVrf"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.3.2.6",
+    "status": "current"
+  },
+  "hwRadiusTrapsDefine": {
+    "class": "objectidentity",
+    "name": "hwRadiusTrapsDefine",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.2.2"
+  },
+  "hwRadiusTrapsDefineGroup": {
+    "class": "notificationgroup",
+    "description": "The Radius Traps Define group.",
+    "name": "hwRadiusTrapsDefineGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAuthServerUp"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAuthServerDown"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAcctServerUp"
+      },
+      {
+        "module": "HUAWEI-BRAS-RADIUS-MIB",
+        "object": "hwRadiusAcctServerDown"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.3.2.7",
+    "status": "current"
+  },
+  "hwResetRadiusAttrCount": {
+    "class": "objecttype",
+    "description": "Reset RADIUS attribute count. ",
+    "maxaccess": "read-write",
+    "name": "hwResetRadiusAttrCount",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.5.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSourcePortsExtendedPortNum": {
+    "class": "objecttype",
+    "description": "The number of port to be used as the source ports for sending out RADIUS requests. ",
+    "maxaccess": "read-write",
+    "name": "hwSourcePortsExtendedPortNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSourcePortsExtendedStartPort": {
+    "class": "objecttype",
+    "description": "The start port to be used as the source ports for sending out RADIUS requests. ",
+    "maxaccess": "read-write",
+    "name": "hwSourcePortsExtendedStartPort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.1.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 55535,
+            "min": 5000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwStateChangeServerIp": {
+    "class": "objecttype",
+    "description": "IP address of authentication or accounting server which state is changed. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStateChangeServerIp",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwStateChangeServerVrf": {
+    "class": "objecttype",
+    "description": " VPN-instance of authentication or accounting server which state is changed. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStateChangeServerVrf",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.15.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwBRASMib"
+    ],
+    "IPV6-TC": [
+      "Ipv6Address"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-GROUP",
+      "Counter64",
+      "OBJECT-GROUP",
+      "IpAddress",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter32",
+      "TimeTicks",
+      "MODULE-COMPLIANCE",
+      "Unsigned32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus",
+      "TruthValue"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-BRAS-RADIUS-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:46:51 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-BRAS-RADIUS-MIB"
+  }
+}

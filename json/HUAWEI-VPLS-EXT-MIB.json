@@ -1,0 +1,4036 @@
+{
+  "HWEnableValue": {
+    "class": "textualconvention",
+    "description": "Represents a boolean value.",
+    "name": "HWEnableValue",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWL2VpnStateChangeReason": {
+    "class": "textualconvention",
+    "description": "The type indicates the reason of VC\u0027s or VSI\u0027s status change: Invalid reason type (1) VC Created (2) VC Deleted (3) LDP Session Down (4) LDP Session Up (5) LDP Same Mapping Received with different label or MTU (6) LDP Same Mapping Received Interface Parameter matching (7) LDP Mapping Received Inteface Parameter UnMatched(8) LDP Mapping Received UnPass CBit Check(9) LDP Mapping Received UnPass PW Loop Check(10) LDP New Mapping Received (11) LDP New Mapping Received but Remote VC Down(12) LDP Withdrawn Received (13) LDP Release Received (14) LDP Request Received (15) LDP GR End processing (16) RSVP message received (17) Interface Up (18) Interface Down (19) Interface encapsulation changed (20) Refresh (21) Download Again (22) Tunnel Up (23) Tunnel Down (24) VC state change when New RLB Received (25) RLB Deleted (26) VC created or turned to another remote CE (27) Out Interface in Invalid state (28) Out Interface in Valid now (29) LDP Notification Forwarding (30) LDP Notification Not-Forwarding (31) PW Restart (32) Download FTN\u0026ILM for EthernetTrunk(33) AC OAM Fault Detect Disable(34) Remote AC Fault(35) Remote AC Fault Resume(36) Local AC Fault(37) Local AC Fault Resume(38) Remote PSN Fault(39) Remote PSN Fault Resume(40) Local PSN Fault(41) Local PSN Fault Resume(42) BFD for PW State Change to:Down(43) BFD for PW State Change to:Up(44) BFD for PW State Change to:Admin Down(45) BFD for PW Disable(46) Manual Set Enable(47) Manual Set Disable(48) Delay Time Out(49) Resume Time Out(50) VRRP Master(51) VRRP Backup(52) VRRP Init(53) VRRP Delete(54) Track VRRP(55) Undo track VRRP(56) Lsp Ping Time Out(57) VC State Down when New RLB was Received(58) MTU Matched(59) MTU Unmatched(60) VSI was shuted(61) VSI was resumed(62) Set Admin VSI(63) Undo set Admin VSI(64) ",
+    "name": "HWL2VpnStateChangeReason",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acOamFaultDetectDisable": 34,
+          "bfdForPwDisable": 46,
+          "bfdForPwStateChangeToAdminDown": 45,
+          "bfdForPwStateChangeToDown": 43,
+          "bfdForPwStateChangeToUp": 44,
+          "delayTimeOut": 49,
+          "deletedRlb": 26,
+          "downloadAgain": 22,
+          "downloadFtnAndIlmForEthTrunk": 33,
+          "interfaceDown": 19,
+          "interfaceEncapChanged": 20,
+          "interfaceUp": 18,
+          "invalidReason": 1,
+          "ldpGrEndProcessing": 16,
+          "ldpNotifiForward": 30,
+          "ldpNotifiNotForward": 31,
+          "ldpSessionDown": 4,
+          "ldpSessionUp": 5,
+          "localAcFault": 37,
+          "localAcFaultResume": 38,
+          "localPsnFault": 41,
+          "localPsnFaultResume": 42,
+          "lspPingTimeOut": 57,
+          "manualSetDisable": 48,
+          "manualSetEnable": 47,
+          "mtuMatched": 59,
+          "mtuUnmatched": 60,
+          "outInterInInvalidState": 28,
+          "outInterInValidNow": 29,
+          "pwRestart": 32,
+          "receivedDifLabelOrMtu": 6,
+          "receivedIntfParaMatching": 7,
+          "receivedIntfParaUnMatched": 8,
+          "receivedLdpRelease": 14,
+          "receivedLdpRequest": 15,
+          "receivedNewMapping": 11,
+          "receivedNewMappingButRemoteVcDown": 12,
+          "receivedNewRlb": 25,
+          "receivedRsvpMessage": 17,
+          "receivedUnPassCbitCheck": 9,
+          "receivedUnPassPwLoopCheck": 10,
+          "receivedWithdrawn": 13,
+          "refresh": 21,
+          "remoteAcFault": 35,
+          "remoteAcFaultResume": 36,
+          "remotePsnFault": 39,
+          "remotePsnFaultResume": 40,
+          "resumeTimeOut": 50,
+          "setAdminVSI": 63,
+          "tunnelDown": 24,
+          "tunnelUp": 23,
+          "undoVrrpTrack": 56,
+          "undosetAdminVSI": 64,
+          "vcCreated": 2,
+          "vcCreatedOrTurnedToAnother": 27,
+          "vcDeleted": 3,
+          "vcDownWhenReceivedNewRLB": 58,
+          "vrrpBackup": 52,
+          "vrrpDelete": 54,
+          "vrrpInit": 53,
+          "vrrpMaster": 51,
+          "vrrpTrack": 55,
+          "vsiResume": 62,
+          "vsiShut": 61
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWL2VpnVcEncapsType": {
+    "class": "textualconvention",
+    "description": "An indication of the L2Vpn\u0027s VC encapsulation type: Frame Relay DLCI ( Martini Mode ) (1) ATM AAL5 SDU VCC transport (2) ATM transparent cell transport (3) Vlan (4) Ethernet (5) HDLC (6) PPP (7) SONET/SDH Circuit Emulation Service Over MPLS (CEM) (8) ATM n-to-one VCC cell transport (9) ATM n-to-one VPC cell transport (10) IP Layer2 Transport (11) ATM one-to-one VCC Cell Mode (12) ATM one-to-one VPC Cell Mode (13) ATM AAL5 PDU VCC transport (14) Frame-Relay Port mode (15) SONET/SDH Circuit Emulation over Packet (CEP) (16) Structure-agnostic E1 over Packet (SAE1oP) (17) Structure-agnostic T1 (DS1) over Packet (SAT1oP) (18) Structure-agnostic E3 over Packet (SAE3oP) (19) Structure-agnostic T3 (DS3) over Packet (SAT3oP) (20) CESoPSN basic mode (21) TDMoIP basic mode (22) CESoPSN TDM with CAS (23) TDMoIP TDM with CAS (24) Frame Relay DLCI (25) IP-interworking (64) unknown (255) ",
+    "name": "HWL2VpnVcEncapsType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "atmAal5PduVccTransport": 14,
+          "atmAal5SduVccTransport": 2,
+          "atmN2OneVccCellTransport": 9,
+          "atmN2OneVpcCellTransport": 10,
+          "atmOne2OneVccCellMode": 12,
+          "atmOne2OneVpcCellMode": 13,
+          "atmTransparentCellTransport": 3,
+          "cESoPsnBasicMode": 21,
+          "cem": 8,
+          "cep": 16,
+          "ethernet": 5,
+          "frameRelayDlci": 25,
+          "frameRelayDlciMartini": 1,
+          "frameRelayPortMode": 15,
+          "hdlc": 6,
+          "ipInterworking": 64,
+          "ipLayer2Transport": 11,
+          "l2VpnCESoPSNTDMwithCAS": 23,
+          "l2VpnTDMoIPTDMwithCAS": 24,
+          "ppp": 7,
+          "saE1oP": 17,
+          "saE3oP": 19,
+          "saT1oP": 18,
+          "saT3oP": 20,
+          "tDMoIPbasicMode": 22,
+          "unknown": 255,
+          "vlan": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwL2Vpn": {
+    "class": "objectidentity",
+    "name": "hwL2Vpn",
+    "oid": "1.3.6.1.4.1.2011.5.25.119"
+  },
+  "hwL2VpnVplsExt": {
+    "class": "moduleidentity",
+    "contactinfo": "R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com",
+    "description": "The HUAWEI-VPLS-EXT-MIB contains objects to manage VPLS.",
+    "lastupdated": "200704122100Z",
+    "name": "hwL2VpnVplsExt",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1",
+    "organization": "Huawei Technologies Co., Ltd."
+  },
+  "hwVplsAcEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of a AC entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVsiName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsAcIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVplsAcEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.3.1",
+    "status": "current"
+  },
+  "hwVplsAcGroup": {
+    "class": "objectgroup",
+    "description": "The VPLS\u0027s AC group.",
+    "name": "hwVplsAcGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsAcStatus"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsAcUpStartTime"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsAcUpSumTime"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsAcRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.3.2.3",
+    "status": "current"
+  },
+  "hwVplsAcIfIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the interface index. There is only one VSI that can be created in one interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsAcIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwVplsAcIsolateFlag": {
+    "class": "objecttype",
+    "description": "This object indicates whether the AC in the VSI is isolated",
+    "maxaccess": "read-create",
+    "name": "hwVplsAcIsolateFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwVplsAcRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus for this Table. Not support modifying configuration.",
+    "maxaccess": "read-create",
+    "name": "hwVplsAcRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.3.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwVplsAcStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the AC\u0027s status.",
+    "maxaccess": "read-only",
+    "name": "hwVplsAcStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVplsAcTable": {
+    "class": "objecttype",
+    "description": "This table is the configuration table of AC. Users can create or delete the AC of a VSI.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsAcTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.3",
+    "status": "current"
+  },
+  "hwVplsAcUpStartTime": {
+    "class": "objecttype",
+    "description": "Specifies the time this AC status has been Up(1).",
+    "maxaccess": "read-only",
+    "name": "hwVplsAcUpStartTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwVplsAcUpSumTime": {
+    "class": "objecttype",
+    "description": "Specifies the cumulate time this AC status has been Up(1).",
+    "maxaccess": "read-only",
+    "name": "hwVplsAcUpSumTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwVplsAdminStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the VSI\u0027s admin status.",
+    "maxaccess": "read-create",
+    "name": "hwVplsAdminStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVplsAdminVsiName": {
+    "class": "objecttype",
+    "description": "This object indicates the AdminVsi\u0027s name this VSI binding to",
+    "maxaccess": "read-create",
+    "name": "hwVplsAdminVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwVplsAgingTime": {
+    "class": "objecttype",
+    "description": "The aging time of the VSI MAC address.",
+    "maxaccess": "read-create",
+    "name": "hwVplsAgingTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.38",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwVplsBgpInfoEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of a BgpInfo entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVsiName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpInfoSiteID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVplsBgpInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.4.1",
+    "status": "current"
+  },
+  "hwVplsBgpInfoGroup": {
+    "class": "objectgroup",
+    "description": "The VPLS\u0027s BGP information group.",
+    "name": "hwVplsBgpInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpInfoRange"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpInfoOffset"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpInfoRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.3.2.4",
+    "status": "current"
+  },
+  "hwVplsBgpInfoOffset": {
+    "class": "objecttype",
+    "description": "Default original CE offset, default value is 0, calculate the VC in/out label.",
+    "maxaccess": "read-create",
+    "name": "hwVplsBgpInfoOffset",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwVplsBgpInfoRange": {
+    "class": "objecttype",
+    "description": "This object indicates the range.",
+    "maxaccess": "read-create",
+    "name": "hwVplsBgpInfoRange",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65534,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwVplsBgpInfoRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus for this Table. Restriction: Support creating only one entry currently. Before creating, the corresponding VSI\u0027s RD and signal type must be designated. The signal type must be BGP. Site can not be modified. Range can increase, but can\u0027t decrease.",
+    "maxaccess": "read-create",
+    "name": "hwVplsBgpInfoRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.4.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwVplsBgpInfoSiteID": {
+    "class": "objecttype",
+    "description": "This object indicates the site ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsBgpInfoSiteID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65534,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwVplsBgpInfoTable": {
+    "class": "objecttype",
+    "description": "This table is the configuration table of BGP information. Users can create or delete the BgpInfo entry.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsBgpInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.4",
+    "status": "current"
+  },
+  "hwVplsBgpStatEnable": {
+    "class": "objecttype",
+    "description": "This object indicates the enable sign of BGP VPLS-PW\u0027s traffic statistics.",
+    "maxaccess": "read-write",
+    "name": "hwVplsBgpStatEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.10.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwVplsBgpStatInBroadcastFrames": {
+    "class": "objecttype",
+    "description": "The total number of broadcast frames received on the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsBgpStatInBroadcastFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.10.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsBgpStatInBytes": {
+    "class": "objecttype",
+    "description": "The total number of bytes received on the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsBgpStatInBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.10.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsBgpStatInDiscardFrames": {
+    "class": "objecttype",
+    "description": "The total number of frames received and then discarded on the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsBgpStatInDiscardFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.10.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsBgpStatInErrorFrames": {
+    "class": "objecttype",
+    "description": "The total number of error frames received on the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsBgpStatInErrorFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.10.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsBgpStatInFrameRate": {
+    "class": "objecttype",
+    "description": "The rate of Frames received on the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsBgpStatInFrameRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.10.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsBgpStatInFrames": {
+    "class": "objecttype",
+    "description": "The total number of frames received on the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsBgpStatInFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.10.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsBgpStatInMulticastFrames": {
+    "class": "objecttype",
+    "description": "The total number of multicast frames received on the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsBgpStatInMulticastFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.10.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsBgpStatInTrafficRate": {
+    "class": "objecttype",
+    "description": "The traffic rate received on the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsBgpStatInTrafficRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.10.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsBgpStatInUnicastFrames": {
+    "class": "objecttype",
+    "description": "The total number of unicast frames received on the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsBgpStatInUnicastFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.10.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsBgpStatInUnknowFrames": {
+    "class": "objecttype",
+    "description": "The total number of unknown frames received on the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsBgpStatInUnknowFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.10.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsBgpStatOutBroadcastFrames": {
+    "class": "objecttype",
+    "description": "The total number of broadcast frames transmitted out of the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsBgpStatOutBroadcastFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.10.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsBgpStatOutBytes": {
+    "class": "objecttype",
+    "description": "The total number of bytes transmitted out of the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsBgpStatOutBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.10.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsBgpStatOutDiscardFrames": {
+    "class": "objecttype",
+    "description": "The total number of frames transmitted out and then discarded on the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsBgpStatOutDiscardFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.10.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsBgpStatOutErrorFrames": {
+    "class": "objecttype",
+    "description": "The total number of error frames transmitted out of the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsBgpStatOutErrorFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.10.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsBgpStatOutFrameRate": {
+    "class": "objecttype",
+    "description": "The rate of Frames transmitted out of the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsBgpStatOutFrameRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.10.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsBgpStatOutFrames": {
+    "class": "objecttype",
+    "description": "The total number of frames transmitted out of the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsBgpStatOutFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.10.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsBgpStatOutMulticastFrames": {
+    "class": "objecttype",
+    "description": "The total number of multicast frames transmitted out of the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsBgpStatOutMulticastFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.10.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsBgpStatOutTrafficRate": {
+    "class": "objecttype",
+    "description": "The traffic rate transmitted out of the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsBgpStatOutTrafficRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.10.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsBgpStatOutUnicastFrames": {
+    "class": "objecttype",
+    "description": "The total number of unicast frames transmitted out of the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsBgpStatOutUnicastFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.10.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsBgpStatRemoteIpAddr": {
+    "class": "objecttype",
+    "description": "This object indicates the IP address of the remote end.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsBgpStatRemoteIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.10.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwVplsBgpStatResetTime": {
+    "class": "objecttype",
+    "description": "Last time of clean out.",
+    "maxaccess": "read-only",
+    "name": "hwVplsBgpStatResetTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.10.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwVplsBgpStatSiteID": {
+    "class": "objecttype",
+    "description": "This object indicates the Site ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsBgpStatSiteID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.10.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwVplsBgpStatisticsEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of the VPLS-PW\u0027s Traffic Statistic.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVsiName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpStatSiteID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpStatRemoteIpAddr"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVplsBgpStatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.10.1",
+    "status": "current"
+  },
+  "hwVplsBgpStatisticsGroup": {
+    "class": "objectgroup",
+    "description": "The VPLS Bgp\u0027s Statistic group.",
+    "name": "hwVplsBgpStatisticsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpStatEnable"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpStatInTrafficRate"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpStatOutTrafficRate"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpStatInFrameRate"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpStatOutFrameRate"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpStatInBytes"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpStatOutBytes"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpStatInFrames"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpStatOutFrames"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpStatInUnicastFrames"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpStatOutUnicastFrames"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpStatInMulticastFrames"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpStatOutMulticastFrames"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpStatInBroadcastFrames"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpStatOutBroadcastFrames"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpStatInDiscardFrames"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpStatOutDiscardFrames"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpStatInErrorFrames"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpStatOutErrorFrames"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpStatInUnknowFrames"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpStatResetTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.3.2.11",
+    "status": "current"
+  },
+  "hwVplsBgpStatisticsTable": {
+    "class": "objecttype",
+    "description": "This table contains the VPLS-PW\u0027s Traffic Statistic.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsBgpStatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.10",
+    "status": "current"
+  },
+  "hwVplsDescription": {
+    "class": "objecttype",
+    "description": "This object indicates the description information.",
+    "maxaccess": "read-create",
+    "name": "hwVplsDescription",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwVplsDiffServColor": {
+    "class": "objecttype",
+    "description": "Remarked color of packet in the ingress PE, the value must be green,yellow,red.The default value is invalidColor(255).",
+    "maxaccess": "read-create",
+    "name": "hwVplsDiffServColor",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "green": 1,
+          "invalidColor": 255,
+          "red": 3,
+          "yellow": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVplsDiffServDSName": {
+    "class": "objecttype",
+    "description": "Name of different service domain",
+    "maxaccess": "read-create",
+    "name": "hwVplsDiffServDSName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 8,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwVplsDiffServMode": {
+    "class": "objecttype",
+    "description": "Different service mode of the interface binding of vsi , default is uniform.",
+    "maxaccess": "read-create",
+    "name": "hwVplsDiffServMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pipe": 1,
+          "shortpipe": 2,
+          "uniform": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVplsDiffServServiceClass": {
+    "class": "objecttype",
+    "description": "PHB in the ingress PE, the value must be be,f1,af2,af3,af4,ef,cs6,cs7.The default value is invalidClass(255).",
+    "maxaccess": "read-create",
+    "name": "hwVplsDiffServServiceClass",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "af1": 2,
+          "af2": 3,
+          "af3": 4,
+          "af4": 5,
+          "be": 1,
+          "cs6": 7,
+          "cs7": 8,
+          "ef": 6,
+          "invalidClass": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVplsDiscovery": {
+    "class": "objecttype",
+    "description": "This object indicates the discovery type. If the discovery type is static, the signal must be LDP. If the discovery type is auto, the signal must be BGP.",
+    "maxaccess": "read-create",
+    "name": "hwVplsDiscovery",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 2,
+          "static": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVplsEnableStatistic": {
+    "class": "objecttype",
+    "description": "The enable sign of VSI\u0027s traffic statistics.",
+    "maxaccess": "read-create",
+    "name": "hwVplsEnableStatistic",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.35",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwVplsEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of a VPLS entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVsiName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVplsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1",
+    "status": "current"
+  },
+  "hwVplsFlowLabel": {
+    "class": "objecttype",
+    "description": "The value of this object identifies whether the PW FlowLabel is enabled.",
+    "maxaccess": "read-create",
+    "name": "hwVplsFlowLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.40",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwVplsGroup": {
+    "class": "objectgroup",
+    "description": "The VPLS group.",
+    "name": "hwVplsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsSignal"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsRD"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVsiID"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVcType"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsStatus"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsMtu"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsTunnelPolicy"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsDescription"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLearnStyle"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsMacLearnEnable"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsMacLimitEnable"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsStatisticsEnable"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsUnknowMulticast"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsUnknowUnicast"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsPreference"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVsiType"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsAdminVsiName"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsAcIsolateFlag"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsDiffServMode"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsDiffServServiceClass"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsDiffServColor"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsDiffServDSName"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsInterfaceWithdraw"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsUpe2NpeWithdraw"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsUpe2UpeWithdraw"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsNpe2UpeWithdraw"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsDiscovery"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsMacWithdrawEnable"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVsiCir"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVsiPir"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVsiQosProfileName"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsAdminStatus"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsIgnoreAcState"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsEnableStatistic"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsResetStatistic"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsResetStatisticTime"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsAgingTime"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsUnknowUnicastMacLearning"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsFlowLabel"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsServiceName"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.3.2.1",
+    "status": "current"
+  },
+  "hwVplsIgnoreAcState": {
+    "class": "objecttype",
+    "description": "This object indicates the enable sign of the ignorer of AC state.",
+    "maxaccess": "read-create",
+    "name": "hwVplsIgnoreAcState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.34",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwVplsInBytes": {
+    "class": "objecttype",
+    "description": "The total number of bytes received on the VSI.",
+    "maxaccess": "read-only",
+    "name": "hwVplsInBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsInDiscardFrames": {
+    "class": "objecttype",
+    "description": "The total number of frames received and then discarded on the VSI.",
+    "maxaccess": "read-only",
+    "name": "hwVplsInDiscardFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsInFrames": {
+    "class": "objecttype",
+    "description": "The total number of frames received on the VSI.",
+    "maxaccess": "read-only",
+    "name": "hwVplsInFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsInterfaceWithdraw": {
+    "class": "objecttype",
+    "description": "Enable VSI send LDP mac-withdraw when VSI receive interface status changes event.",
+    "maxaccess": "read-create",
+    "name": "hwVplsInterfaceWithdraw",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwVplsLdpPeerCir": {
+    "class": "objecttype",
+    "description": "This object indicates the committed information rate, based on the LDP peer.",
+    "maxaccess": "read-create",
+    "name": "hwVplsLdpPeerCir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.11.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwVplsLdpPeerEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of a LDP peer entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVsiName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpPeerRouterID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpPeerPwId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVplsLdpPeerEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.11.1",
+    "status": "current"
+  },
+  "hwVplsLdpPeerGroup": {
+    "class": "objectgroup",
+    "description": "The VPLS LDP\u0027s peer group.",
+    "name": "hwVplsLdpPeerGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpPeerTnlPolicyName"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpPeerUpeType"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpPeerTransLable"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpPeerRecvLable"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpPeerVrrpIfIndex"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpPeerVirtualRouterId"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpPeerCir"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpPeerPir"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpPeerQosProfileName"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpPeerStatus"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpPeerPwName"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpPeerIgnoreStpLoopCheck"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpPeerRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.3.2.12",
+    "status": "current"
+  },
+  "hwVplsLdpPeerIgnoreStpLoopCheck": {
+    "class": "objecttype",
+    "description": "This object indicates the enable sign of the ignorer of STP loop check.",
+    "maxaccess": "read-create",
+    "name": "hwVplsLdpPeerIgnoreStpLoopCheck",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.11.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwVplsLdpPeerPir": {
+    "class": "objecttype",
+    "description": "This object indicates the peak information rate, based on the LDP peer.",
+    "maxaccess": "read-create",
+    "name": "hwVplsLdpPeerPir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.11.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwVplsLdpPeerPwId": {
+    "class": "objecttype",
+    "description": "This object indicates the PW ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsLdpPeerPwId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.11.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwVplsLdpPeerPwName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of PW.",
+    "maxaccess": "read-create",
+    "name": "hwVplsLdpPeerPwName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.11.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwVplsLdpPeerQosProfileName": {
+    "class": "objecttype",
+    "description": "This object indicates the QoS profile\u0027s name, based on the LDP peer.",
+    "maxaccess": "read-create",
+    "name": "hwVplsLdpPeerQosProfileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.11.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwVplsLdpPeerRecvLable": {
+    "class": "objecttype",
+    "description": "This object indicates the received label.",
+    "maxaccess": "read-create",
+    "name": "hwVplsLdpPeerRecvLable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.11.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwVplsLdpPeerRouterID": {
+    "class": "objecttype",
+    "description": "This object indicates the IP address of the LDP peer.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsLdpPeerRouterID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.11.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwVplsLdpPeerRowStatus": {
+    "class": "objecttype",
+    "description": "Row status for this Table.",
+    "maxaccess": "read-create",
+    "name": "hwVplsLdpPeerRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.11.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwVplsLdpPeerStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the LDP peer\u0027s status.",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpPeerStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.11.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backup": 4,
+          "down": 1,
+          "plugout": 3,
+          "up": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVplsLdpPeerTable": {
+    "class": "objecttype",
+    "description": "This table is the configuration table of VPLS\u0027s LDP peer. Users can create or delete the LDP peer entry.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsLdpPeerTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.11",
+    "status": "current"
+  },
+  "hwVplsLdpPeerTnlPolicyName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of tunnel policy.",
+    "maxaccess": "read-create",
+    "name": "hwVplsLdpPeerTnlPolicyName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.11.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 19,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwVplsLdpPeerTransLable": {
+    "class": "objecttype",
+    "description": "This object indicates the transmitted label.",
+    "maxaccess": "read-create",
+    "name": "hwVplsLdpPeerTransLable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.11.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwVplsLdpPeerUpeType": {
+    "class": "objecttype",
+    "description": "This object indicates the VPLS is UPE , static UPE or not.",
+    "maxaccess": "read-create",
+    "name": "hwVplsLdpPeerUpeType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.11.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "staticupe": 2,
+          "unknown": 3,
+          "upe": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVplsLdpPeerVirtualRouterId": {
+    "class": "objecttype",
+    "description": "This object indicates the virtual router ID this PW binding to.",
+    "maxaccess": "read-create",
+    "name": "hwVplsLdpPeerVirtualRouterId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.11.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwVplsLdpPeerVrrpIfIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the VRRP interface this PW binding to.",
+    "maxaccess": "read-create",
+    "name": "hwVplsLdpPeerVrrpIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.11.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwVplsLdpQosStatDiscardByteRate": {
+    "class": "objecttype",
+    "description": "Rate of discarded bytes for the last 30 seconds, based on LDP peer and QoS. Unit: bps",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpQosStatDiscardByteRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.12.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsLdpQosStatDiscardPacketRate": {
+    "class": "objecttype",
+    "description": "Rate of discarded packets for the last 30 seconds, based on LDP peer and QoS. Unit: pps",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpQosStatDiscardPacketRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.12.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsLdpQosStatPassByteRate": {
+    "class": "objecttype",
+    "description": "Rate of passed bytes for the last 30 seconds, based on LDP peer and QoS. Unit: bps",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpQosStatPassByteRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.12.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsLdpQosStatPassPacketRate": {
+    "class": "objecttype",
+    "description": "Rate of passed packets for the last 30 seconds, based on LDP peer and QoS. Unit: pps",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpQosStatPassPacketRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.12.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsLdpQosStatPwId": {
+    "class": "objecttype",
+    "description": "The PW ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsLdpQosStatPwId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.12.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwVplsLdpQosStatQueueId": {
+    "class": "objecttype",
+    "description": "The queue\u0027s ID. The value must be be,af1,af2,af3,af4,ef,cs6,cs7.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsLdpQosStatQueueId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.12.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "af1": 2,
+          "af2": 3,
+          "af3": 4,
+          "af4": 5,
+          "be": 1,
+          "cs6": 7,
+          "cs7": 8,
+          "ef": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVplsLdpQosStatRemoteIpAddr": {
+    "class": "objecttype",
+    "description": "The IP address of the remote end.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsLdpQosStatRemoteIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.12.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwVplsLdpQosStatTotalDiscardByte": {
+    "class": "objecttype",
+    "description": "Number of total discarded bytes, based on LDP peer and QoS.",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpQosStatTotalDiscardByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.12.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsLdpQosStatTotalDiscardPacket": {
+    "class": "objecttype",
+    "description": "Number of total discarded packets, based on LDP peer and QoS.",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpQosStatTotalDiscardPacket",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.12.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsLdpQosStatTotalPassByte": {
+    "class": "objecttype",
+    "description": "Number of total passed bytes, based on LDP peer and QoS.",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpQosStatTotalPassByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.12.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsLdpQosStatTotalPassPacket": {
+    "class": "objecttype",
+    "description": "Number of total passed packets, based on LDP peer and QoS.",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpQosStatTotalPassPacket",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.12.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsLdpQosStatisticEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of the VPLS LDP\u0027s traffic statistic.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVsiName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpQosStatPwId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpQosStatRemoteIpAddr"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpQosStatQueueId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVplsLdpQosStatisticEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.12.1",
+    "status": "current"
+  },
+  "hwVplsLdpQosStatisticGroup": {
+    "class": "objectgroup",
+    "description": "The VPLS\u0027s QoS statistic group.",
+    "name": "hwVplsLdpQosStatisticGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpQosStatTotalPassPacket"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpQosStatTotalPassByte"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpQosStatTotalDiscardPacket"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpQosStatTotalDiscardByte"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpQosStatPassPacketRate"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpQosStatPassByteRate"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpQosStatDiscardPacketRate"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpQosStatDiscardByteRate"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.3.2.13",
+    "status": "current"
+  },
+  "hwVplsLdpQosStatisticTable": {
+    "class": "objecttype",
+    "description": "This table contains the VPLS LDP\u0027s traffic statistic, based on VSI LDP\u0027s peer and QoS.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsLdpQosStatisticTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.12",
+    "status": "current"
+  },
+  "hwVplsLdpStatEnable": {
+    "class": "objecttype",
+    "description": "This object indicates the enable sign of LDP VPLS-PW\u0027s traffic statistics.",
+    "maxaccess": "read-write",
+    "name": "hwVplsLdpStatEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.9.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwVplsLdpStatInBroadcastFrames": {
+    "class": "objecttype",
+    "description": "The total number of broadcast frames received on the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpStatInBroadcastFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.9.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsLdpStatInBytes": {
+    "class": "objecttype",
+    "description": "The total number of bytes received on the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpStatInBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.9.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsLdpStatInDiscardFrames": {
+    "class": "objecttype",
+    "description": "The total number of frames received and then discarded on the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpStatInDiscardFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.9.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsLdpStatInErrorFrames": {
+    "class": "objecttype",
+    "description": "The total number of error frames received on the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpStatInErrorFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.9.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsLdpStatInFrameRate": {
+    "class": "objecttype",
+    "description": "The rate of Frames received on the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpStatInFrameRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.9.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsLdpStatInFrames": {
+    "class": "objecttype",
+    "description": "The total number of frames received on the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpStatInFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.9.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsLdpStatInMulticastFrames": {
+    "class": "objecttype",
+    "description": "The total number of multicast frames received on the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpStatInMulticastFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.9.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsLdpStatInTrafficRate": {
+    "class": "objecttype",
+    "description": "The traffic rate received on the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpStatInTrafficRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.9.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsLdpStatInUnicastFrames": {
+    "class": "objecttype",
+    "description": "The total number of unicast frames received on the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpStatInUnicastFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.9.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsLdpStatInUnknowFrames": {
+    "class": "objecttype",
+    "description": "The total number of unknown frames received on the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpStatInUnknowFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.9.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsLdpStatOutBroadcastFrames": {
+    "class": "objecttype",
+    "description": "The total number of broadcast frames transmitted out of the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpStatOutBroadcastFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.9.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsLdpStatOutBytes": {
+    "class": "objecttype",
+    "description": "The total number of bytes transmitted out of the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpStatOutBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.9.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsLdpStatOutDiscardFrames": {
+    "class": "objecttype",
+    "description": "The total number of frames transmitted out and then discarded on the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpStatOutDiscardFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.9.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsLdpStatOutErrorFrames": {
+    "class": "objecttype",
+    "description": "The total number of error frames transmitted out of the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpStatOutErrorFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.9.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsLdpStatOutFrameRate": {
+    "class": "objecttype",
+    "description": "The rate of Frames transmitted out of the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpStatOutFrameRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.9.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsLdpStatOutFrames": {
+    "class": "objecttype",
+    "description": "The total number of frames transmitted out of the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpStatOutFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.9.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsLdpStatOutMulticastFrames": {
+    "class": "objecttype",
+    "description": "The total number of multicast frames transmitted out of the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpStatOutMulticastFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.9.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsLdpStatOutTrafficRate": {
+    "class": "objecttype",
+    "description": "The traffic rate transmitted out of the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpStatOutTrafficRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.9.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsLdpStatOutUnicastFrames": {
+    "class": "objecttype",
+    "description": "The total number of unicast frames transmitted out of the PW.",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpStatOutUnicastFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.9.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsLdpStatPwID": {
+    "class": "objecttype",
+    "description": "This object indicates the PW ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsLdpStatPwID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.9.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwVplsLdpStatRemoteIpAddr": {
+    "class": "objecttype",
+    "description": "This object indicates the IP address of the remote end.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsLdpStatRemoteIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.9.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwVplsLdpStatResetStatistic": {
+    "class": "objecttype",
+    "description": "Reset traffic statistics of VSI\u0027s LDP peer.",
+    "maxaccess": "read-write",
+    "name": "hwVplsLdpStatResetStatistic",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.9.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "resetStatistic": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVplsLdpStatResetTime": {
+    "class": "objecttype",
+    "description": "Last time of clean out.",
+    "maxaccess": "read-only",
+    "name": "hwVplsLdpStatResetTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.9.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwVplsLdpStatisticsEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of the VPLS-PW\u0027s Traffic Statistic.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVsiName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpStatPwID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpStatRemoteIpAddr"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVplsLdpStatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.9.1",
+    "status": "current"
+  },
+  "hwVplsLdpStatisticsGroup": {
+    "class": "objectgroup",
+    "description": "The VPLS Ldp\u0027s Statistic group.",
+    "name": "hwVplsLdpStatisticsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpStatEnable"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpStatInTrafficRate"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpStatOutTrafficRate"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpStatInFrameRate"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpStatOutFrameRate"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpStatInBytes"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpStatOutBytes"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpStatInFrames"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpStatOutFrames"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpStatInUnicastFrames"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpStatOutUnicastFrames"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpStatInMulticastFrames"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpStatOutMulticastFrames"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpStatInBroadcastFrames"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpStatOutBroadcastFrames"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpStatInDiscardFrames"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpStatOutDiscardFrames"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpStatInErrorFrames"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpStatOutErrorFrames"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpStatInUnknowFrames"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpStatResetTime"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpStatResetStatistic"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.3.2.10",
+    "status": "current"
+  },
+  "hwVplsLdpStatisticsTable": {
+    "class": "objecttype",
+    "description": "This table contains the VPLS-PW\u0027s Traffic Statistic.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsLdpStatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.9",
+    "status": "current"
+  },
+  "hwVplsLearnStyle": {
+    "class": "objecttype",
+    "description": "This object indicates the style of learning the MAC address.",
+    "maxaccess": "read-create",
+    "name": "hwVplsLearnStyle",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qualify": 1,
+          "unqualify": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVplsMIBCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-VPLS-EXT-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsGroup"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsRtGroup"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsAcGroup"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpInfoGroup"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsPwGroup"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsStatisticsGroup"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsNotificationControlGroup"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsStateReasonGroup"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsNotificationGroup"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpStatisticsGroup"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsBgpStatisticsGroup"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpPeerGroup"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsLdpQosStatisticGroup"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsStatisticGroup"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsQosStatisticGroup"
+      }
+    ],
+    "name": "hwVplsMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.3.1.1",
+    "status": "current"
+  },
+  "hwVplsMIBCompliances": {
+    "class": "objectidentity",
+    "name": "hwVplsMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.3.1"
+  },
+  "hwVplsMIBConformance": {
+    "class": "objectidentity",
+    "name": "hwVplsMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.3"
+  },
+  "hwVplsMIBGroups": {
+    "class": "objectidentity",
+    "name": "hwVplsMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.3.2"
+  },
+  "hwVplsMIBObjects": {
+    "class": "objectidentity",
+    "name": "hwVplsMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1"
+  },
+  "hwVplsMIBTraps": {
+    "class": "objectidentity",
+    "name": "hwVplsMIBTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.2"
+  },
+  "hwVplsMacLearnEnable": {
+    "class": "objecttype",
+    "description": "This object indicates the enable sign of learning the MAC address.",
+    "maxaccess": "read-create",
+    "name": "hwVplsMacLearnEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwVplsMacLimitEnable": {
+    "class": "objecttype",
+    "description": "This object indicates the enable sign of the MAC addresses number limit.",
+    "maxaccess": "read-create",
+    "name": "hwVplsMacLimitEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwVplsMacWithdrawEnable": {
+    "class": "objecttype",
+    "description": "This object indicates the enable sign of the MAC address withdraw.",
+    "maxaccess": "read-create",
+    "name": "hwVplsMacWithdrawEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwVplsMtu": {
+    "class": "objecttype",
+    "description": "This object indicates the VPLS\u0027s MTU.The default value is 1500.",
+    "maxaccess": "read-create",
+    "name": "hwVplsMtu",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 328
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwVplsNotificationControlGroup": {
+    "class": "objectgroup",
+    "description": "The VPLS\u0027s Notification Control group.",
+    "name": "hwVplsNotificationControlGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsUpDownNotifEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.3.2.7",
+    "status": "current"
+  },
+  "hwVplsNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "The VPLS Notification group.",
+    "name": "hwVplsNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVcDown"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVcUp"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVsiDown"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVsiUp"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVcBackup"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVsiDeleted"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVcDeleted"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.3.2.9",
+    "status": "current"
+  },
+  "hwVplsNpe2UpeWithdraw": {
+    "class": "objecttype",
+    "description": "VSI forward message to all the UPE when VSI receive message from NPE.",
+    "maxaccess": "read-create",
+    "name": "hwVplsNpe2UpeWithdraw",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwVplsOutBytes": {
+    "class": "objecttype",
+    "description": "The total number of bytes transmitted out of the VSI.",
+    "maxaccess": "read-only",
+    "name": "hwVplsOutBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsOutFrames": {
+    "class": "objecttype",
+    "description": "The total number of frames transmitted out of the VSI.",
+    "maxaccess": "read-only",
+    "name": "hwVplsOutFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsPreference": {
+    "class": "objecttype",
+    "description": "This object indicates the preference.The default value is 0.",
+    "maxaccess": "read-create",
+    "name": "hwVplsPreference",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwVplsPwEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of a PW entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVsiName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsPwID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsPwRemoteIp"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVplsPwEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.5.1",
+    "status": "current"
+  },
+  "hwVplsPwGroup": {
+    "class": "objectgroup",
+    "description": "The VPLS\u0027s PW group.",
+    "name": "hwVplsPwGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsPwTnlPolicy"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsPwType"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsPwIsUpe"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsPwInboundLabel"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsPwOutboundLabel"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsPwStatus"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsPwVrIfIndex"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsPwVrID"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsPwUpStartTime"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsPwUpSumTime"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsPwRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.3.2.5",
+    "status": "current"
+  },
+  "hwVplsPwID": {
+    "class": "objecttype",
+    "description": "This object indicates the PW ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsPwID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwVplsPwInboundLabel": {
+    "class": "objecttype",
+    "description": "This object indicates the inbound label.",
+    "maxaccess": "read-create",
+    "name": "hwVplsPwInboundLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.5.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwVplsPwIsUpe": {
+    "class": "objecttype",
+    "description": "This object indicates the VPLS is UPE or not.",
+    "maxaccess": "read-create",
+    "name": "hwVplsPwIsUpe",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.5.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwVplsPwOutboundLabel": {
+    "class": "objecttype",
+    "description": "This object indicates the outbound label.",
+    "maxaccess": "read-create",
+    "name": "hwVplsPwOutboundLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.5.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwVplsPwRemoteIp": {
+    "class": "objecttype",
+    "description": "This object indicates the IP address of the remote end.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsPwRemoteIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwVplsPwRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus for this Table. Restriction: Not support creating or modifying entry currently. If the signal type is LDP, we can delete PW by deleting Peer. If the signal type is BGP, we can delete PW by configuring RD. If the signal type is LDP, we need import PW ID value. If the signal type is BGP, we can import 0 as PW ID value.",
+    "maxaccess": "read-create",
+    "name": "hwVplsPwRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.5.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwVplsPwStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the PW\u0027s status.",
+    "maxaccess": "read-only",
+    "name": "hwVplsPwStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.5.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backup": 4,
+          "down": 1,
+          "plugout": 3,
+          "up": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVplsPwTable": {
+    "class": "objecttype",
+    "description": "This table is the configuration table of PW. Users can create or delete the PW entry.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsPwTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.5",
+    "status": "current"
+  },
+  "hwVplsPwTnlPolicy": {
+    "class": "objecttype",
+    "description": "This object indicates the tunnel policy.",
+    "maxaccess": "read-create",
+    "name": "hwVplsPwTnlPolicy",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 19,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwVplsPwType": {
+    "class": "objecttype",
+    "description": "This object indicates the PW type.",
+    "maxaccess": "read-create",
+    "name": "hwVplsPwType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "other": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVplsPwUpStartTime": {
+    "class": "objecttype",
+    "description": "Specifies the time this PW status was Up(1).",
+    "maxaccess": "read-only",
+    "name": "hwVplsPwUpStartTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.5.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwVplsPwUpSumTime": {
+    "class": "objecttype",
+    "description": "Specifies the cumulate time this PW status has been Up(1).",
+    "maxaccess": "read-only",
+    "name": "hwVplsPwUpSumTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.5.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwVplsPwVrID": {
+    "class": "objecttype",
+    "description": "This object indicates the VrID this PW binding to.",
+    "maxaccess": "read-only",
+    "name": "hwVplsPwVrID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.5.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwVplsPwVrIfIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the VRRP interface this PW binding to.",
+    "maxaccess": "read-only",
+    "name": "hwVplsPwVrIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.5.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwVplsQosStatDiscardByteRate": {
+    "class": "objecttype",
+    "description": "Rate of discarded bytes for the last 30 seconds, based on VSI and QoS. Unit: bps",
+    "maxaccess": "read-only",
+    "name": "hwVplsQosStatDiscardByteRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.14.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsQosStatDiscardPacketRate": {
+    "class": "objecttype",
+    "description": "Rate of discarded packets for the last 30 seconds, based on VSI and QoS. Unit: pps",
+    "maxaccess": "read-only",
+    "name": "hwVplsQosStatDiscardPacketRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.14.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsQosStatPassByteRate": {
+    "class": "objecttype",
+    "description": "Rate of passed bytes for the last 30 seconds, based on VSI and QoS. Unit: bps",
+    "maxaccess": "read-only",
+    "name": "hwVplsQosStatPassByteRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.14.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsQosStatPassPacketRate": {
+    "class": "objecttype",
+    "description": "Rate of passed packets for the last 30 seconds, based on VSI and QoS. Unit: pps",
+    "maxaccess": "read-only",
+    "name": "hwVplsQosStatPassPacketRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.14.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsQosStatQueueId": {
+    "class": "objecttype",
+    "description": "The queue\u0027s ID. The value must be be,af1,af2,af3,af4,ef,cs6,cs7.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsQosStatQueueId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.14.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "af1": 2,
+          "af2": 3,
+          "af3": 4,
+          "af4": 5,
+          "be": 1,
+          "cs6": 7,
+          "cs7": 8,
+          "ef": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVplsQosStatTotalDiscardByte": {
+    "class": "objecttype",
+    "description": "Number of total discarded bytes, based on VSI and QoS.",
+    "maxaccess": "read-only",
+    "name": "hwVplsQosStatTotalDiscardByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.14.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsQosStatTotalDiscardPacket": {
+    "class": "objecttype",
+    "description": "Number of total discarded packets, based on VSI and QoS.",
+    "maxaccess": "read-only",
+    "name": "hwVplsQosStatTotalDiscardPacket",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.14.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsQosStatTotalPassByte": {
+    "class": "objecttype",
+    "description": "Number of total passed bytes, based on VSI and QoS.",
+    "maxaccess": "read-only",
+    "name": "hwVplsQosStatTotalPassByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.14.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsQosStatTotalPassPacket": {
+    "class": "objecttype",
+    "description": "Number of total passed packets, based on VSI and QoS.",
+    "maxaccess": "read-only",
+    "name": "hwVplsQosStatTotalPassPacket",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.14.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsQosStatisticEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of the VPLS\u0027s traffic statistics.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVsiName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsQosStatQueueId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVplsQosStatisticEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.14.1",
+    "status": "current"
+  },
+  "hwVplsQosStatisticGroup": {
+    "class": "objectgroup",
+    "description": "The VPLS\u0027s QoS statistic group.",
+    "name": "hwVplsQosStatisticGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsQosStatTotalPassPacket"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsQosStatTotalPassByte"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsQosStatTotalDiscardPacket"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsQosStatTotalDiscardByte"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsQosStatPassPacketRate"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsQosStatPassByteRate"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsQosStatDiscardPacketRate"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsQosStatDiscardByteRate"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.3.2.15",
+    "status": "current"
+  },
+  "hwVplsQosStatisticTable": {
+    "class": "objecttype",
+    "description": "This table contains the VPLS\u0027s traffic statistic, based on VSI and QoS.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsQosStatisticTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.14",
+    "status": "current"
+  },
+  "hwVplsRD": {
+    "class": "objecttype",
+    "description": "This object indicates the Route Distinguisher.",
+    "maxaccess": "read-create",
+    "name": "hwVplsRD",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 21,
+            "min": 3
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwVplsResetStatistic": {
+    "class": "objecttype",
+    "description": "Reset traffic statistics of VSI.",
+    "maxaccess": "read-create",
+    "name": "hwVplsResetStatistic",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.36",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "resetStatistic": 1,
+          "unknownStatus": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVplsResetStatisticTime": {
+    "class": "objecttype",
+    "description": "Last time of clean out.",
+    "maxaccess": "read-only",
+    "name": "hwVplsResetStatisticTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.37",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwVplsRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus for this Table. Restriction: After the signal type, VSI ID and RD are configured, the configuration can not be modify or delete.",
+    "maxaccess": "read-create",
+    "name": "hwVplsRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwVplsRtEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of a RT entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVsiName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsRtType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsRtName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVplsRtEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.2.1",
+    "status": "current"
+  },
+  "hwVplsRtGroup": {
+    "class": "objectgroup",
+    "description": "The VPLS\u0027s RT group.",
+    "name": "hwVplsRtGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsRtRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.3.2.2",
+    "status": "current"
+  },
+  "hwVplsRtName": {
+    "class": "objecttype",
+    "description": "This object indicates the RT.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsRtName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 21,
+            "min": 3
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwVplsRtRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus for this Table. The max number of entries supported is 16. Not support modifying configuration.",
+    "maxaccess": "read-create",
+    "name": "hwVplsRtRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.2.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwVplsRtTable": {
+    "class": "objecttype",
+    "description": "This table is the configuration table of VPN Target. Users can create or delete the VPN Target of a VSI.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsRtTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.2",
+    "status": "current"
+  },
+  "hwVplsRtType": {
+    "class": "objecttype",
+    "description": "This object indicates the VC\u0027s encapsulation type.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsRtType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "export": 2,
+          "import": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVplsServiceName": {
+    "class": "objecttype",
+    "description": "The service name of the VSI",
+    "maxaccess": "read-create",
+    "name": "hwVplsServiceName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.41",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwVplsSignal": {
+    "class": "objecttype",
+    "description": "This object indicates the signal type. If the signal type is LDP, VSI-ID must be designated. If the signal type is BGP, RD must be designated. The default value is unknown(255).",
+    "maxaccess": "read-create",
+    "name": "hwVplsSignal",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bgp": 2,
+          "ldp": 1,
+          "unknown": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVplsStatEnable": {
+    "class": "objecttype",
+    "description": "This object indicates the enable sign of VSI\u0027s traffic statistics.",
+    "maxaccess": "read-write",
+    "name": "hwVplsStatEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.13.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwVplsStatQosByte": {
+    "class": "objecttype",
+    "description": "The total number of bytes received on the VSI.",
+    "maxaccess": "read-only",
+    "name": "hwVplsStatQosByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.13.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsStatQosByteRate": {
+    "class": "objecttype",
+    "description": "The rate of bytes received on the VSI.",
+    "maxaccess": "read-only",
+    "name": "hwVplsStatQosByteRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.13.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsStatQosPacket": {
+    "class": "objecttype",
+    "description": "The total number of packets received on the VSI.",
+    "maxaccess": "read-only",
+    "name": "hwVplsStatQosPacket",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.13.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsStatQosPacketRate": {
+    "class": "objecttype",
+    "description": "The rate of packets received on the VSI.",
+    "maxaccess": "read-only",
+    "name": "hwVplsStatQosPacketRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.13.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwVplsStatResetStatistic": {
+    "class": "objecttype",
+    "description": "Reset traffic statistics of VSI.",
+    "maxaccess": "read-write",
+    "name": "hwVplsStatResetStatistic",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.13.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "resetStatistic": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVplsStatResetTime": {
+    "class": "objecttype",
+    "description": "Last time of clean out.",
+    "maxaccess": "read-only",
+    "name": "hwVplsStatResetTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.13.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwVplsStateChangeReason": {
+    "class": "objecttype",
+    "description": "This object indicates the reason of VC state change.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwVplsStateChangeReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWL2VpnStateChangeReason"
+    }
+  },
+  "hwVplsStateReasonGroup": {
+    "class": "objectgroup",
+    "description": "The VPLS\u0027s VC and VSI State Change Reason group.",
+    "name": "hwVplsStateReasonGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsStateChangeReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.3.2.8",
+    "status": "current"
+  },
+  "hwVplsStatisticEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of the VPLS\u0027s traffic statistic.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVsiName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVplsStatisticEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.13.1",
+    "status": "current"
+  },
+  "hwVplsStatisticGroup": {
+    "class": "objectgroup",
+    "description": "The VPLS\u0027s QoS statistic group.",
+    "name": "hwVplsStatisticGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsStatEnable"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsStatResetStatistic"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsStatResetTime"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsStatQosPacketRate"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsStatQosByteRate"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsStatQosPacket"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsStatQosByte"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.3.2.14",
+    "status": "current"
+  },
+  "hwVplsStatisticTable": {
+    "class": "objecttype",
+    "description": "This table contains the VPLS\u0027s traffic statistic, based on VSI.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsStatisticTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.13",
+    "status": "current"
+  },
+  "hwVplsStatisticsEnable": {
+    "class": "objecttype",
+    "description": "This object indicates the enable sign of statistics.",
+    "maxaccess": "read-create",
+    "name": "hwVplsStatisticsEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwVplsStatisticsEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of the VPLS\u0027s packets statistic.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVsiName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVplsStatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.6.1",
+    "status": "current"
+  },
+  "hwVplsStatisticsGroup": {
+    "class": "objectgroup",
+    "description": "The VPLS\u0027s Statistic group.",
+    "name": "hwVplsStatisticsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsOutFrames"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsInFrames"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsOutBytes"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsInBytes"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsInDiscardFrames"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.3.2.6",
+    "status": "current"
+  },
+  "hwVplsStatisticsTable": {
+    "class": "objecttype",
+    "description": "This table contains the VPLS\u0027s packets Statistic.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsStatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.6",
+    "status": "current"
+  },
+  "hwVplsStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the VPLS\u0027s status.",
+    "maxaccess": "read-only",
+    "name": "hwVplsStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "admindown": 3,
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVplsTable": {
+    "class": "objecttype",
+    "description": "This table is the VPLS\u0027s configuration table. Users can create or delete the VSI by it.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1",
+    "status": "current"
+  },
+  "hwVplsTunnelPolicy": {
+    "class": "objecttype",
+    "description": "This object indicates the tunnel policy.",
+    "maxaccess": "read-create",
+    "name": "hwVplsTunnelPolicy",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 19,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwVplsUnknowMulticast": {
+    "class": "objecttype",
+    "description": "This object indicates the processing mode when the multicast MAC entry not found in FDB.",
+    "maxaccess": "read-create",
+    "name": "hwVplsUnknowMulticast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "broadcast": 1,
+          "drop": 2,
+          "localHandle": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVplsUnknowUnicast": {
+    "class": "objecttype",
+    "description": "This object indicates the processing mode when the unicast MAC entry not found in FDB.",
+    "maxaccess": "read-create",
+    "name": "hwVplsUnknowUnicast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "broadcast": 1,
+          "drop": 2,
+          "localHandle": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVplsUnknowUnicastMacLearning": {
+    "class": "objecttype",
+    "description": "The value of this object identifies whether the MAC address learning function for the discarded unknown unicast packets is enabled.",
+    "maxaccess": "read-create",
+    "name": "hwVplsUnknowUnicastMacLearning",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.39",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwVplsUpDownNotifEnable": {
+    "class": "objecttype",
+    "description": "This object indicates the enable sign of VPLS notification. The default value is disable (2).",
+    "maxaccess": "read-write",
+    "name": "hwVplsUpDownNotifEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.7",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwVplsUpe2NpeWithdraw": {
+    "class": "objecttype",
+    "description": "VSI forward message to all the NPE when VSI receive message from UPE.",
+    "maxaccess": "read-create",
+    "name": "hwVplsUpe2NpeWithdraw",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwVplsUpe2UpeWithdraw": {
+    "class": "objecttype",
+    "description": "VSI forward message to all the other UPE when VSI receive message from UPE.",
+    "maxaccess": "read-create",
+    "name": "hwVplsUpe2UpeWithdraw",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwVplsVcBackup": {
+    "class": "notificationtype",
+    "description": "This notification indicates the VC\u0027s state changes to backup.",
+    "name": "hwVplsVcBackup",
+    "objects": [
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsPwType"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsStateChangeReason"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.2.5",
+    "status": "current"
+  },
+  "hwVplsVcDeleted": {
+    "class": "notificationtype",
+    "description": "This notification indicates the VC is deleted.",
+    "name": "hwVplsVcDeleted",
+    "objects": [
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsPwType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.2.7",
+    "status": "current"
+  },
+  "hwVplsVcDown": {
+    "class": "notificationtype",
+    "description": "This notification indicates the VC\u0027s state changes to down.",
+    "name": "hwVplsVcDown",
+    "objects": [
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsPwType"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsStateChangeReason"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsPwTnlPolicy"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.2.1",
+    "status": "current"
+  },
+  "hwVplsVcType": {
+    "class": "objecttype",
+    "description": "This object indicates the VC\u0027s encapsulation type.",
+    "maxaccess": "read-create",
+    "name": "hwVplsVcType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWL2VpnVcEncapsType"
+    }
+  },
+  "hwVplsVcUp": {
+    "class": "notificationtype",
+    "description": "This notification indicates the VC\u0027s state changes to up.",
+    "name": "hwVplsVcUp",
+    "objects": [
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsPwType"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsStateChangeReason"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsPwTnlPolicy"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.2.2",
+    "status": "current"
+  },
+  "hwVplsVsiCir": {
+    "class": "objecttype",
+    "description": "This object indicates the committed information rate, based on VSI.",
+    "maxaccess": "read-create",
+    "name": "hwVplsVsiCir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwVplsVsiDeleted": {
+    "class": "notificationtype",
+    "description": "This notification indicates the VSI is deleted.",
+    "name": "hwVplsVsiDeleted",
+    "objects": [
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVsiID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.2.6",
+    "status": "current"
+  },
+  "hwVplsVsiDown": {
+    "class": "notificationtype",
+    "description": "This notification indicates the VSI\u0027s state changes to down.",
+    "name": "hwVplsVsiDown",
+    "objects": [
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVsiID"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsStateChangeReason"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.2.3",
+    "status": "current"
+  },
+  "hwVplsVsiID": {
+    "class": "objecttype",
+    "description": "This object indicates the VSI id. The default value is 0.",
+    "maxaccess": "read-create",
+    "name": "hwVplsVsiID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwVplsVsiName": {
+    "class": "objecttype",
+    "description": "This object indicates the VSI\u0027s name.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwVplsVsiPir": {
+    "class": "objecttype",
+    "description": "This object indicates the peak information rate, based on VSI.",
+    "maxaccess": "read-create",
+    "name": "hwVplsVsiPir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwVplsVsiQosProfileName": {
+    "class": "objecttype",
+    "description": "This object indicates the QoS profile\u0027s name, based on VSI.",
+    "maxaccess": "read-create",
+    "name": "hwVplsVsiQosProfileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwVplsVsiType": {
+    "class": "objecttype",
+    "description": "This object indicates the VSI\u0027s type.",
+    "maxaccess": "read-create",
+    "name": "hwVplsVsiType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.1.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "adminVsi": 2,
+          "operationVsi": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVplsVsiUp": {
+    "class": "notificationtype",
+    "description": "This notification indicates the VSI\u0027s state changes to up.",
+    "name": "hwVplsVsiUp",
+    "objects": [
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVsiID"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsStateChangeReason"
+      },
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.1.2.4",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifName",
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysUpTime"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Integer32",
+      "Unsigned32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ],
+    "VRRP-MIB": [
+      "VrId"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-VPLS-EXT-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:01 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-VPLS-EXT-MIB"
+  }
+}

@@ -1,0 +1,948 @@
+{
+  "PortIndex": {
+    "class": "textualconvention",
+    "description": "Each port is uniquely identified by a port number. The port number ranges from 0 to 575.",
+    "name": "PortIndex",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 575,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDelayDownTimer": {
+    "class": "objecttype",
+    "description": "Global timeout of DelayDown timer. The value rangs from 1s to 5s, By default, the time is 1s.",
+    "maxaccess": "read-write",
+    "name": "hwDelayDownTimer",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 5,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDldpAdvertInterval": {
+    "class": "objecttype",
+    "description": "Global interval for sending advertisement packets for the DLDP configuration. By default, the interval is 5s.",
+    "maxaccess": "read-write",
+    "name": "hwDldpAdvertInterval",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDldpAuthenMode": {
+    "class": "objecttype",
+    "description": "Global authentication mode of the DLDP configuration. It has three authentication modes, including none, md5,and simple. By default the authentication mode is none.",
+    "maxaccess": "read-write",
+    "name": "hwDldpAuthenMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "md5": 2,
+          "none": 1,
+          "simple": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDldpCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for SNMP entities which implement the HUAWEI-DLDP-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpConfigGroup"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpStatisticsGroup"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpPortGroup"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpPortTrapGroup"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpTrapGroup"
+      }
+    ],
+    "name": "hwDldpCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.4.1.1",
+    "status": "current"
+  },
+  "hwDldpCompliances": {
+    "class": "objectidentity",
+    "name": "hwDldpCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.4.1"
+  },
+  "hwDldpConfigGroup": {
+    "class": "objectgroup",
+    "description": "The collection of objects which are used to configure the DLDP implementation behavior. This group is mandatory for agents which implement the DLDP.",
+    "name": "hwDldpConfigGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpEnable"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpUnidirectionalShutdown"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpWorkMode"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpAdvertInterval"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDelayDownTimer"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpAuthenMode"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpMd5Password"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpSimplePassword"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.173.4.2.1",
+    "status": "current"
+  },
+  "hwDldpConfiguration": {
+    "class": "objectidentity",
+    "name": "hwDldpConfiguration",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.1"
+  },
+  "hwDldpConformance": {
+    "class": "objectidentity",
+    "name": "hwDldpConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.4"
+  },
+  "hwDldpEnable": {
+    "class": "objecttype",
+    "description": "Globally enable or disable the DLDP configuration. If the hwDldpEnable is 1, DLDP is enabled. If the hwDldpEnable is 2, DLDP is disabled. By default, DLDP is disabled.",
+    "maxaccess": "read-write",
+    "name": "hwDldpEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwDldpGroups": {
+    "class": "objectidentity",
+    "name": "hwDldpGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.4.2"
+  },
+  "hwDldpLinkResume": {
+    "class": "notificationtype",
+    "description": "Notify the NMS that the DLDP detected that unidirectional link was resumed. The hwDldpTrapInterfaceIndex node is interface index.",
+    "name": "hwDldpLinkResume",
+    "objects": [
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpTrapInterfaceIndex"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpTrapIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.173.3.2",
+    "status": "current"
+  },
+  "hwDldpLoopDetect": {
+    "class": "notificationtype",
+    "description": "Notify the NMS that the DLDP detected Loop State. The hwDldpTrapInterfaceIndex node is the interface index.",
+    "name": "hwDldpLoopDetect",
+    "objects": [
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpTrapInterfaceIndex"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpTrapIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.173.3.3",
+    "status": "current"
+  },
+  "hwDldpLoopResume": {
+    "class": "notificationtype",
+    "description": "Notify the NMS that the DLDP detected Loop State was resumed. The hwDldpTrapInterfaceIndex node is interface index.",
+    "name": "hwDldpLoopResume",
+    "objects": [
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpTrapInterfaceIndex"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpTrapIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.173.3.4",
+    "status": "current"
+  },
+  "hwDldpMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "R\u0026D NanJing, Huawei Technologies co.,Ltd. High hope mansion, Baixia road, Nanjing city Zip:100085 Http://www.huawei.com E-mail:support@huawei.com Zip:100000 ",
+    "description": "This file is a DLDP-MIB. It provides the functions such as globally enabling or disabling the DLDP protocol, enabling the global alarm, clearing statistics on ports and configuring work mode.",
+    "lastupdated": "200807151430Z",
+    "name": "hwDldpMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.173",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwDldpMd5Password": {
+    "class": "objecttype",
+    "description": "Global md5 password for authentication when authentication is md5.",
+    "maxaccess": "read-write",
+    "name": "hwDldpMd5Password",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 24,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDldpNeighbourAgeTime": {
+    "class": "objecttype",
+    "description": "When the activated port detects a neighbor, it can record the aging time of the neighbor. The aging time is three times the interval for sending advertisement packets.",
+    "maxaccess": "read-only",
+    "name": "hwDldpNeighbourAgeTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.1.10.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 300,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDldpNeighbourEntry": {
+    "class": "objecttype",
+    "description": "Entries of the DLDP Neighbour configuration table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpPortIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpNeighbourMacAddr"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpNeighbourPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDldpNeighbourEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.1.10.1",
+    "status": "current"
+  },
+  "hwDldpNeighbourMacAddr": {
+    "class": "objecttype",
+    "description": "When the activated port detects a neighbor, it can record the neighbor information, including MAC address of neighbor. The port may detect multiple neighbors.",
+    "maxaccess": "not-accessible",
+    "name": "hwDldpNeighbourMacAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.1.10.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwDldpNeighbourPortIndex": {
+    "class": "objecttype",
+    "description": "When the activated port detects a neighbor, it can record the port index of the neighbour.",
+    "maxaccess": "not-accessible",
+    "name": "hwDldpNeighbourPortIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.1.10.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDldpNeighbourPortName": {
+    "class": "objecttype",
+    "description": "When the activated port detects a neighbor, it can record the port name of the neighbour.",
+    "maxaccess": "read-only",
+    "name": "hwDldpNeighbourPortName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.1.10.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDldpNeighbourState": {
+    "class": "objecttype",
+    "description": "When the activated port detects a neighbor, it can record the state of the neighbour, and its value includes unknown, one way, and two way.",
+    "maxaccess": "read-only",
+    "name": "hwDldpNeighbourState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.1.10.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oneWay": 2,
+          "twoWay": 3,
+          "unknown": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDldpNeighbourTable": {
+    "class": "objecttype",
+    "description": "DLDP Neighbour configuration table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDldpNeighbourTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.1.10",
+    "status": "current"
+  },
+  "hwDldpObjects": {
+    "class": "objectidentity",
+    "name": "hwDldpObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1"
+  },
+  "hwDldpPortEntry": {
+    "class": "objecttype",
+    "description": "Entries of the DLDP port configuration table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDldpPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.1.9.1",
+    "status": "current"
+  },
+  "hwDldpPortGroup": {
+    "class": "objectgroup",
+    "description": "The collection of objects indicates the information of port.",
+    "name": "hwDldpPortGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpPortStateReset"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpPortState"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpPortLinkState"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpResetStatistics"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpRowStatus"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpNeighbourPortName"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpNeighbourState"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpNeighbourAgeTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.173.4.2.3",
+    "status": "current"
+  },
+  "hwDldpPortIndex": {
+    "class": "objecttype",
+    "description": "It describes enabled DLDP port index. Each port is uniquely identified by a port number. It ranges from 0 to 575.",
+    "maxaccess": "not-accessible",
+    "name": "hwDldpPortIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.1.9.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "PortIndex"
+    }
+  },
+  "hwDldpPortLinkState": {
+    "class": "objecttype",
+    "description": "Port state has two modes, including up and down.",
+    "maxaccess": "read-only",
+    "name": "hwDldpPortLinkState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.1.9.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDldpPortState": {
+    "class": "objecttype",
+    "description": "Port state has seven states, including initial, inactive, active, advertisement, probe, disable, and delayDown.",
+    "maxaccess": "read-only",
+    "name": "hwDldpPortState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.1.9.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 3,
+          "advertisement": 4,
+          "delayDown": 7,
+          "disable": 6,
+          "inactive": 2,
+          "initial": 1,
+          "loop": 8,
+          "probe": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDldpPortStateReset": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "It describes the DLDP status of the reset port.",
+    "maxaccess": "read-create",
+    "name": "hwDldpPortStateReset",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.1.9.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwDldpPortStatisticsEntry": {
+    "class": "objecttype",
+    "description": "Entries of the table of the packets sent or received on the DLDP port.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDldpPortStatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.2.1.1",
+    "status": "current"
+  },
+  "hwDldpPortStatisticsRxAuthenFail": {
+    "class": "objecttype",
+    "description": "It describes the number of authentication failure packets received on the activated port.",
+    "maxaccess": "read-only",
+    "name": "hwDldpPortStatisticsRxAuthenFail",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.2.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwDldpPortStatisticsRxError": {
+    "class": "objecttype",
+    "description": "It describes the number of error packets received on the activated port.",
+    "maxaccess": "read-only",
+    "name": "hwDldpPortStatisticsRxError",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwDldpPortStatisticsRxLoop": {
+    "class": "objecttype",
+    "description": "It describes the number of loop packets received on the activated port.",
+    "maxaccess": "read-only",
+    "name": "hwDldpPortStatisticsRxLoop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwDldpPortStatisticsRxTotal": {
+    "class": "objecttype",
+    "description": "It describes the number of packets received on the activated port.",
+    "maxaccess": "read-only",
+    "name": "hwDldpPortStatisticsRxTotal",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwDldpPortStatisticsRxValid": {
+    "class": "objecttype",
+    "description": "It describes the number of valid packets received on the activated port.",
+    "maxaccess": "read-only",
+    "name": "hwDldpPortStatisticsRxValid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.2.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwDldpPortStatisticsTable": {
+    "class": "objecttype",
+    "description": "DLDP port statics configuration table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDldpPortStatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.2.1",
+    "status": "current"
+  },
+  "hwDldpPortStatisticsTx": {
+    "class": "objecttype",
+    "description": "It describes the number of packets sent on the activated port.",
+    "maxaccess": "read-only",
+    "name": "hwDldpPortStatisticsTx",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwDldpPortTable": {
+    "class": "objecttype",
+    "description": "DLDP port configuration table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDldpPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.1.9",
+    "status": "current"
+  },
+  "hwDldpPortTrapGroup": {
+    "class": "objectgroup",
+    "description": "The collection of objects indicates that the activated port index detected one way or found that two way is resumed.",
+    "name": "hwDldpPortTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpTrapInterfaceIndex"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpTrapIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.173.4.2.4",
+    "status": "current"
+  },
+  "hwDldpPortTrapObjects": {
+    "class": "objectidentity",
+    "name": "hwDldpPortTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.2"
+  },
+  "hwDldpResetStatistics": {
+    "class": "objecttype",
+    "description": "It clears the statistics of packets received and sent on the current port.",
+    "maxaccess": "read-create",
+    "name": "hwDldpResetStatistics",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.1.9.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwDldpRowStatus": {
+    "class": "objecttype",
+    "description": " Operation of CreateAndGo can be used to create a new instance, and operation of Destroy be used to destroy an existent index. But these operations will not take effect if they are not activated by running the command of activating or setting mib node of hwDldpEnable.",
+    "maxaccess": "read-create",
+    "name": "hwDldpRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.1.9.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwDldpSimplePassword": {
+    "class": "objecttype",
+    "description": "Global simple password for authentication when authentication is simple.",
+    "maxaccess": "read-write",
+    "name": "hwDldpSimplePassword",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDldpStatistics": {
+    "class": "objectidentity",
+    "name": "hwDldpStatistics",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.2"
+  },
+  "hwDldpStatisticsGroup": {
+    "class": "objectgroup",
+    "description": "The collection of objects which are used to represent DLDP statistics. This group is mandatory for agents which implement the DLDP and have the capability of receiving and transmitting DLDP frames.",
+    "name": "hwDldpStatisticsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpPortStatisticsTx"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpPortStatisticsRxTotal"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpPortStatisticsRxError"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpPortStatisticsRxLoop"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpPortStatisticsRxValid"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpPortStatisticsRxAuthenFail"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.173.4.2.2",
+    "status": "current"
+  },
+  "hwDldpTrapFaultReason": {
+    "class": "objecttype",
+    "description": "It describes the reason interface fault.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwDldpTrapFaultReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.2.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDldpTrapGroup": {
+    "class": "notificationgroup",
+    "description": "The collection of notifications used to indicate that the HUAWEI-DLDP-MIB data is consistent and indicate the general status information. This group is mandatory for agents which implement the DLDP and have the capability of receiving DLDP frames.",
+    "name": "hwDldpTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpUnidirectionalLink"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpLinkResume"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpLoopDetect"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpLoopResume"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.173.4.2.5",
+    "status": "current"
+  },
+  "hwDldpTrapIfName": {
+    "class": "objecttype",
+    "description": "It describes the interface name of the activated port that detected one way or found that two way is resumed.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwDldpTrapIfName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.2.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDldpTrapInterfaceIndex": {
+    "class": "objecttype",
+    "description": "It describes the interface index of the activated port that detected one way or found that two way is resumed.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwDldpTrapInterfaceIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.2.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwDldpTraps": {
+    "class": "objectidentity",
+    "name": "hwDldpTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.3"
+  },
+  "hwDldpUnidirectionalLink": {
+    "class": "notificationtype",
+    "description": "Notify the NMS that the DLDP detected one way. The hwDldpTrapInterfaceIndex node is the interface index.",
+    "name": "hwDldpUnidirectionalLink",
+    "objects": [
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpTrapInterfaceIndex"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpTrapIfName"
+      },
+      {
+        "module": "HUAWEI-DLDP-MIB",
+        "object": "hwDldpTrapFaultReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.173.3.1",
+    "status": "current"
+  },
+  "hwDldpUnidirectionalShutdown": {
+    "class": "objecttype",
+    "description": "When the device discovers a one-way link, the shutdown mode of port. The modes include auto and manual. By default, DLDP is auto.",
+    "maxaccess": "read-write",
+    "name": "hwDldpUnidirectionalShutdown",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "manual": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDldpWorkMode": {
+    "class": "objecttype",
+    "description": "It configures the work mode of the DLDP protocol, including normal and enhanced mode. By default, the mode is enhanced.",
+    "maxaccess": "read-write",
+    "name": "hwDldpWorkMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.173.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enhance": 2,
+          "normal": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-DLDP-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:14 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-DLDP-MIB"
+  }
+}

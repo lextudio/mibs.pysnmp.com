@@ -1,0 +1,183 @@
+{
+  "hwL2VirtualEthernetName": {
+    "class": "objecttype",
+    "description": "Name of a Layer 2 virtual Ethernet interface, such as Virtual-Ethernet 3/0/0.",
+    "maxaccess": "read-create",
+    "name": "hwL2VirtualEthernetName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.146.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwL3VirtualEthernetName": {
+    "class": "objecttype",
+    "description": "Name of a Layer 3 virtual Ethernet interface, such as Virtual-Ethernet 3/0/0.",
+    "maxaccess": "read-create",
+    "name": "hwL3VirtualEthernetName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.146.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwVe": {
+    "class": "moduleidentity",
+    "contactinfo": "VRP Team Huawei Technologies Co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China http://www.huawei.com Zip:100085 ",
+    "description": "The private mib file includes the general extent information of the device.hwDatacomm(146).hwVirtualEthernet",
+    "lastupdated": "200611221414Z",
+    "name": "hwVe",
+    "oid": "1.3.6.1.4.1.2011.5.25.146",
+    "organization": "Huawei Technologies Co.,Ltd."
+  },
+  "hwVirtualEthernetCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-VE-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-VE-MIB",
+        "object": "hwVirtualEthernetObjectGroup"
+      }
+    ],
+    "name": "hwVirtualEthernetCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.146.2.2.1",
+    "status": "current"
+  },
+  "hwVirtualEthernetCompliances": {
+    "class": "objectidentity",
+    "name": "hwVirtualEthernetCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.146.2.2"
+  },
+  "hwVirtualEthernetConformance": {
+    "class": "objectidentity",
+    "name": "hwVirtualEthernetConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.146.2"
+  },
+  "hwVirtualEthernetEntry": {
+    "class": "objecttype",
+    "description": "Binding entry of virutal Etherent interfaces that use ID as the index. Each entry has one Layer 2 virutal Ethernet interface and one Layer 3 virtual Ethernet interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VE-MIB",
+        "object": "hwVirtualEthernetGroupId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVirtualEthernetEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.146.1.1.1",
+    "status": "current"
+  },
+  "hwVirtualEthernetGroupId": {
+    "class": "objecttype",
+    "description": "Binding index of virtual Ethernet interface. The value ranges from 1 K to 8 K. The maximum value 8 K can be adjusted by using the .paf file",
+    "maxaccess": "not-accessible",
+    "name": "hwVirtualEthernetGroupId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.146.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVirtualEthernetGroupRowStatus": {
+    "class": "objecttype",
+    "description": "Create a Layer 2 or Layer 3 virtual Ethernet interface.",
+    "maxaccess": "read-create",
+    "name": "hwVirtualEthernetGroupRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.146.1.1.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwVirtualEthernetGroups": {
+    "class": "objectidentity",
+    "name": "hwVirtualEthernetGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.146.2.1"
+  },
+  "hwVirtualEthernetMibObjects": {
+    "class": "objectidentity",
+    "name": "hwVirtualEthernetMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.146.1"
+  },
+  "hwVirtualEthernetObjectGroup": {
+    "class": "objectgroup",
+    "description": "The VirtualEthernet attribute group.",
+    "name": "hwVirtualEthernetObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VE-MIB",
+        "object": "hwL2VirtualEthernetName"
+      },
+      {
+        "module": "HUAWEI-VE-MIB",
+        "object": "hwL3VirtualEthernetName"
+      },
+      {
+        "module": "HUAWEI-VE-MIB",
+        "object": "hwVirtualEthernetGroupRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.146.2.1.1",
+    "status": "current"
+  },
+  "hwVirtualEthernetTable": {
+    "class": "objecttype",
+    "description": "A binding relationship table of virutal Ethernet interfaces that use ID as the index.",
+    "maxaccess": "not-accessible",
+    "name": "hwVirtualEthernetTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.146.1.1",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "Counter64",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-VE-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:17 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-VE-MIB"
+  }
+}

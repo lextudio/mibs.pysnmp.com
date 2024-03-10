@@ -1,0 +1,428 @@
+{
+  "InterfaceIndex": {
+    "class": "textualconvention",
+    "description": "A unique value, greater than zero, for each interface or interface sub-layer in the managed system. It is recommended that values are assigned contiguously starting from 1. The value for each interface sub-layer must remain constant at least from one re-initialization of the entity\u0027s network management system to the next re-initialization.",
+    "displayhint": "d",
+    "name": "InterfaceIndex",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwGarpAppCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting this module.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-GARP-APP-MIB",
+        "object": "hwGarpAppGroup"
+      }
+    ],
+    "name": "hwGarpAppCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.213.3.1.1",
+    "status": "current"
+  },
+  "hwGarpAppCompliances": {
+    "class": "objectidentity",
+    "name": "hwGarpAppCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.213.3.1"
+  },
+  "hwGarpAppConformance": {
+    "class": "objectidentity",
+    "name": "hwGarpAppConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.213.3"
+  },
+  "hwGarpAppGroup": {
+    "class": "objectgroup",
+    "description": "The GARP\u0027s Configuration group.",
+    "name": "hwGarpAppGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-GARP-APP-MIB",
+        "object": "hwGarpAppLeaveAllTime"
+      },
+      {
+        "module": "HUAWEI-GARP-APP-MIB",
+        "object": "hwGarpAppSwitchGmrpRxPkt"
+      },
+      {
+        "module": "HUAWEI-GARP-APP-MIB",
+        "object": "hwGarpAppSwitchGvrpRxPkt"
+      },
+      {
+        "module": "HUAWEI-GARP-APP-MIB",
+        "object": "hwGarpAppSwitchGmrpTxPkt"
+      },
+      {
+        "module": "HUAWEI-GARP-APP-MIB",
+        "object": "hwGarpAppSwitchGvrpTxPkt"
+      },
+      {
+        "module": "HUAWEI-GARP-APP-MIB",
+        "object": "hwGarpAppSwitchDiscardedPkt"
+      },
+      {
+        "module": "HUAWEI-GARP-APP-MIB",
+        "object": "hwGarpAppSwitchGarpStatClear"
+      },
+      {
+        "module": "HUAWEI-GARP-APP-MIB",
+        "object": "hwGarpAppHoldTime"
+      },
+      {
+        "module": "HUAWEI-GARP-APP-MIB",
+        "object": "hwGarpAppTrunkGvrpRegistration"
+      },
+      {
+        "module": "HUAWEI-GARP-APP-MIB",
+        "object": "hwGarpAppTrunkPassListLow"
+      },
+      {
+        "module": "HUAWEI-GARP-APP-MIB",
+        "object": "hwGarpAppTrunkPassListHigh"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.213.3.2.1",
+    "status": "current"
+  },
+  "hwGarpAppGroups": {
+    "class": "objectidentity",
+    "name": "hwGarpAppGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.213.3.2"
+  },
+  "hwGarpAppHoldTime": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 10
+      }
+    },
+    "description": "HoldTime of the port.",
+    "maxaccess": "read-write",
+    "name": "hwGarpAppHoldTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.213.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32765,
+            "min": 10
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwGarpAppHoldTimeEntry": {
+    "augmention": {
+      "module": "HUAWEI-GARP-APP-MIB",
+      "name": "hwGarpAppHoldTimeEntry",
+      "object": "ifEntry"
+    },
+    "class": "objecttype",
+    "description": "A table for setting/getting the HoldTime of the port.",
+    "maxaccess": "not-accessible",
+    "name": "hwGarpAppHoldTimeEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.213.1.3.1",
+    "status": "current"
+  },
+  "hwGarpAppHoldTimeTable": {
+    "class": "objecttype",
+    "description": "A table for setting/getting the HoldTime of the port.",
+    "maxaccess": "not-accessible",
+    "name": "hwGarpAppHoldTimeTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.213.1.3",
+    "status": "current"
+  },
+  "hwGarpAppInfObject": {
+    "class": "objectidentity",
+    "name": "hwGarpAppInfObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.213.2"
+  },
+  "hwGarpAppLeaveAllTime": {
+    "class": "objecttype",
+    "description": "The GARP LeaveAll time, in centiseconds.",
+    "maxaccess": "read-write",
+    "name": "hwGarpAppLeaveAllTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.213.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeInterval"
+    }
+  },
+  "hwGarpAppMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Nanjing R\u0026D Center, 101 Software Avenue, Yuhua District, Nanjing, Jiangsu, PRC Zip:210012 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": "This MIB describes objects used for config GARP, and some statistic information.",
+    "lastupdated": "200909270000Z",
+    "name": "hwGarpAppMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.213",
+    "organization": "Huawei Technologies co., Ltd.",
+    "revisions": [
+      {
+        "description": "The initial revision of this MIB module.",
+        "revision": "2009-09-27 00:00"
+      }
+    ]
+  },
+  "hwGarpAppProtoObject": {
+    "class": "objectidentity",
+    "description": "This object describes objects used for config GARP, and some statistic information.",
+    "name": "hwGarpAppProtoObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.213.1",
+    "status": "current"
+  },
+  "hwGarpAppSwitchCountEntry": {
+    "augmention": {
+      "module": "HUAWEI-GARP-APP-MIB",
+      "name": "hwGarpAppSwitchCountEntry",
+      "object": "hwGarpAppTrunkStatusEntry"
+    },
+    "class": "objecttype",
+    "description": "A table containing statistics about various frames on the switch.",
+    "maxaccess": "not-accessible",
+    "name": "hwGarpAppSwitchCountEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.213.1.2.1",
+    "status": "current"
+  },
+  "hwGarpAppSwitchCountTable": {
+    "class": "objecttype",
+    "description": "A table containing statistics about various frames on the switch.",
+    "maxaccess": "not-accessible",
+    "name": "hwGarpAppSwitchCountTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.213.1.2",
+    "status": "current"
+  },
+  "hwGarpAppSwitchDiscardedPkt": {
+    "class": "objecttype",
+    "description": "Number of discarded frames.",
+    "maxaccess": "read-only",
+    "name": "hwGarpAppSwitchDiscardedPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.213.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwGarpAppSwitchGarpStatClear": {
+    "class": "objecttype",
+    "description": "Clear various Statistics viz. read operation not supported.",
+    "maxaccess": "read-write",
+    "name": "hwGarpAppSwitchGarpStatClear",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.213.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwGarpAppSwitchGmrpRxPkt": {
+    "class": "objecttype",
+    "description": "Number of GMRP frames received.",
+    "maxaccess": "read-only",
+    "name": "hwGarpAppSwitchGmrpRxPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.213.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwGarpAppSwitchGmrpTxPkt": {
+    "class": "objecttype",
+    "description": "Number of GMRP frames transmitted.",
+    "maxaccess": "read-only",
+    "name": "hwGarpAppSwitchGmrpTxPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.213.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwGarpAppSwitchGvrpRxPkt": {
+    "class": "objecttype",
+    "description": "Number of GVRP frames received.",
+    "maxaccess": "read-only",
+    "name": "hwGarpAppSwitchGvrpRxPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.213.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwGarpAppSwitchGvrpTxPkt": {
+    "class": "objecttype",
+    "description": "Number of GVRP frames transmitted.",
+    "maxaccess": "read-only",
+    "name": "hwGarpAppSwitchGvrpTxPkt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.213.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwGarpAppTrunkGvrpRegistration": {
+    "class": "objecttype",
+    "description": "GVRP registration information normal: This is the default configuration. Allow to create, register and unregister vlans dynamiclly at this port. fixed: Aallow to create and register vlan manually at this port. Prevent from unregistering vlans or registering known vlans of this port at another trunk port. forbidden: Unregister all vlans but vlan 1, forbid to create or register any other vlans at this port.",
+    "maxaccess": "read-write",
+    "name": "hwGarpAppTrunkGvrpRegistration",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.213.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixed": 2,
+          "forbidden": 3,
+          "normal": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwGarpAppTrunkIndex": {
+    "class": "objecttype",
+    "description": "Index number of the VLANTrunk interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwGarpAppTrunkIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.213.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwGarpAppTrunkPassListHigh": {
+    "class": "objecttype",
+    "description": "Each octet within this value specifies a set of eight VLANs, with the first octet specifying VLANs 2049 through 2056, the second octet specifying VLANs 2057 through 2064, etc. Within each octet, the most significant bit represents the highest numbered VLAN, and the least significant bit represents the lowest numbered VLAN. Thus, each actually passed VLAN of the trunk port is represented by a single bit within the value of this object. If that bit has a value of \u00271\u0027 then that VLAN is actually passed in the set of VLANs; the VLAN is not actually passed if its bit has a value of \u00270\u0027.",
+    "maxaccess": "read-only",
+    "name": "hwGarpAppTrunkPassListHigh",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.213.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwGarpAppTrunkPassListLow": {
+    "class": "objecttype",
+    "description": "Each octet within this value specifies a set of eight VLANs, with the first octet specifying VLANs 1 through 8, the second octet specifying VLANs 9 through 16, etc. Within each octet, the most significant bit represents the highest numbered VLAN, and the least significant bit represents the lowest numbered VLAN. Thus, each actually passed VLAN of the trunk port is represented by a single bit within the value of this object. If that bit has a value of \u00271\u0027 then that VLAN is actually passed in the set of VLANs; the VLAN is not actually passed if its bit has a value of \u00270\u0027.",
+    "maxaccess": "read-only",
+    "name": "hwGarpAppTrunkPassListLow",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.213.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwGarpAppTrunkStatusEntry": {
+    "class": "objecttype",
+    "description": "GVRP attributes on the VlanTrunk port.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-GARP-APP-MIB",
+        "object": "hwGarpAppTrunkIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwGarpAppTrunkStatusEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.213.2.1.1",
+    "status": "current"
+  },
+  "hwGarpAppTrunkStatusTable": {
+    "class": "objecttype",
+    "description": "GVRP attributes on the VlanTrunk port.",
+    "maxaccess": "not-accessible",
+    "name": "hwGarpAppTrunkStatusTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.213.2.1",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifEntry"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-GARP-APP-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:27 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-GARP-APP-MIB"
+  }
+}

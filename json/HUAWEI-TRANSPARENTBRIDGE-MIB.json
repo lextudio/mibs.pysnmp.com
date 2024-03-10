@@ -1,0 +1,832 @@
+{
+  "hhwTPBridgeStatGroup": {
+    "class": "objectgroup",
+    "description": " ",
+    "name": "hhwTPBridgeStatGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeStatInTotalPkts"
+      },
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeStatInBPDUPkts"
+      },
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeStatInUcastkts"
+      },
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeStatInMcastkts"
+      },
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeStatInBcastkts"
+      },
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeStatOutTotalPkts"
+      },
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeStatOutBPDUPkts"
+      },
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeStatOutUcastkts"
+      },
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeStatOutMcastkts"
+      },
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeStatOutBcastkts"
+      },
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeStatResetFlag"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.2.2.3",
+    "status": "current"
+  },
+  "hwTPBridgeAdminStatus": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "Value disable(2) indicates shutdown the bridge; enabled(1) indicates open the bridge.",
+    "maxaccess": "read-create",
+    "name": "hwTPBridgeAdminStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwTPBridgeApply": {
+    "class": "objectidentity",
+    "name": "hwTPBridgeApply",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.2"
+  },
+  "hwTPBridgeBase": {
+    "class": "objectidentity",
+    "name": "hwTPBridgeBase",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.1"
+  },
+  "hwTPBridgeBridgingIp": {
+    "class": "objecttype",
+    "description": "The value indicates which bridging ip function is opened. The value enabled(1) indicates bridging ip is allowed. Default value is enabled(1).",
+    "maxaccess": "read-create",
+    "name": "hwTPBridgeBridgingIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwTPBridgeBridgingOther": {
+    "class": "objecttype",
+    "description": "The value indicates which bridging other protocol function is opened. The value enabled(1) indicates bridging other protocol is allowed. Default value is enabled(1).",
+    "maxaccess": "read-create",
+    "name": "hwTPBridgeBridgingOther",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwTPBridgeCompliance": {
+    "class": "modulecompliance",
+    "description": "The core compliance statement for all implementations.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeGroup"
+      },
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeMemberGroup"
+      }
+    ],
+    "name": "hwTPBridgeCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.2.1.1",
+    "status": "current"
+  },
+  "hwTPBridgeCompliances": {
+    "class": "objectidentity",
+    "name": "hwTPBridgeCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.2.1"
+  },
+  "hwTPBridgeConformance": {
+    "class": "objectidentity",
+    "name": "hwTPBridgeConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.2"
+  },
+  "hwTPBridgeGroup": {
+    "class": "objectgroup",
+    "description": " ",
+    "name": "hwTPBridgeGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeMacLearn"
+      },
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeRoutingIp"
+      },
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeBridgingIp"
+      },
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeBridgingOther"
+      },
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeAdminStatus"
+      },
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.2.2.1",
+    "status": "current"
+  },
+  "hwTPBridgeGroups": {
+    "class": "objectidentity",
+    "name": "hwTPBridgeGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.2.2"
+  },
+  "hwTPBridgeId": {
+    "class": "objecttype",
+    "description": "The identifier of this bridge.",
+    "maxaccess": "not-accessible",
+    "name": "hwTPBridgeId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTPBridgeMIBEntry": {
+    "class": "objecttype",
+    "description": "Entries of TransparentBridge MIB table. The indexes of this entry is hwTPBridgeId.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTPBridgeMIBEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.1.1.1",
+    "status": "current"
+  },
+  "hwTPBridgeMIBTable": {
+    "class": "objecttype",
+    "description": "The table contains basic information for the bridge. The indexes of this table is hwTPBridgeId.",
+    "maxaccess": "not-accessible",
+    "name": "hwTPBridgeMIBTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.1.1",
+    "status": "current"
+  },
+  "hwTPBridgeMacLearn": {
+    "class": "objecttype",
+    "description": "The value indicates whether the MAC address learning is opened. The value enabled(1) indicates learning is allowed. Default value is enabled(1).",
+    "maxaccess": "read-create",
+    "name": "hwTPBridgeMacLearn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwTPBridgeMemberGroup": {
+    "class": "objectgroup",
+    "description": " ",
+    "name": "hwTPBridgeMemberGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeMemberVlanTransparent"
+      },
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeMemberRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.2.2.2",
+    "status": "current"
+  },
+  "hwTPBridgeMemberIfIndex": {
+    "class": "objecttype",
+    "description": "The IfIndex of this bridge member.",
+    "maxaccess": "not-accessible",
+    "name": "hwTPBridgeMemberIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwTPBridgeMemberMIBEntry": {
+    "class": "objecttype",
+    "description": "Entries of TransparentBridge member MIB table. The indexes of this entry are hwTPBridgeId, hwTPBridgeMemberIfIndex.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeMemberIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTPBridgeMemberMIBEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.1.2.1",
+    "status": "current"
+  },
+  "hwTPBridgeMemberMIBTable": {
+    "class": "objecttype",
+    "description": "The table contains basic information for the bridge membership. The indexes of this table are hwTPBridgeId, hwTPBridgeMemberIfIndex.",
+    "maxaccess": "not-accessible",
+    "name": "hwTPBridgeMemberMIBTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.1.2",
+    "status": "current"
+  },
+  "hwTPBridgeMemberRowStatus": {
+    "class": "objecttype",
+    "description": "Operation status.",
+    "maxaccess": "read-create",
+    "name": "hwTPBridgeMemberRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwTPBridgeMemberStatEntry": {
+    "class": "objecttype",
+    "description": "Entries of bridge member statistics table. The indexes of this entry is hwTPBridgeMemberStatIfIndex.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeMemberStatIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTPBridgeMemberStatEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.2.2.1",
+    "status": "current"
+  },
+  "hwTPBridgeMemberStatGroup": {
+    "class": "objectgroup",
+    "description": " ",
+    "name": "hwTPBridgeMemberStatGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeMemberStatInTotalPkts"
+      },
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeMemberStatInBPDUPkts"
+      },
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeMemberStatInUcastkts"
+      },
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeMemberStatInMcastkts"
+      },
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeMemberStatInBcastkts"
+      },
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeMemberStatOutTotalPkts"
+      },
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeMemberStatOutBPDUPkts"
+      },
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeMemberStatOutUcastkts"
+      },
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeMemberStatOutMcastkts"
+      },
+      {
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeMemberStatOutBcastkts"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.2.2.4",
+    "status": "current"
+  },
+  "hwTPBridgeMemberStatIfIndex": {
+    "class": "objecttype",
+    "description": "The IfIndex of this bridge member.",
+    "maxaccess": "not-accessible",
+    "name": "hwTPBridgeMemberStatIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.2.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwTPBridgeMemberStatInBPDUPkts": {
+    "class": "objecttype",
+    "description": "The number of BPDU packets received.",
+    "maxaccess": "read-only",
+    "name": "hwTPBridgeMemberStatInBPDUPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.2.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwTPBridgeMemberStatInBcastkts": {
+    "class": "objecttype",
+    "description": "The number of broadcast packets received.",
+    "maxaccess": "read-only",
+    "name": "hwTPBridgeMemberStatInBcastkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.2.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwTPBridgeMemberStatInMcastkts": {
+    "class": "objecttype",
+    "description": "The number of multicast packets received.",
+    "maxaccess": "read-only",
+    "name": "hwTPBridgeMemberStatInMcastkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.2.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwTPBridgeMemberStatInTotalPkts": {
+    "class": "objecttype",
+    "description": "The number of received packets.",
+    "maxaccess": "read-only",
+    "name": "hwTPBridgeMemberStatInTotalPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.2.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwTPBridgeMemberStatInUcastkts": {
+    "class": "objecttype",
+    "description": "The number of unicast packets received.",
+    "maxaccess": "read-only",
+    "name": "hwTPBridgeMemberStatInUcastkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.2.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwTPBridgeMemberStatOutBPDUPkts": {
+    "class": "objecttype",
+    "description": "The number of BPDU packets sent.",
+    "maxaccess": "read-only",
+    "name": "hwTPBridgeMemberStatOutBPDUPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.2.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwTPBridgeMemberStatOutBcastkts": {
+    "class": "objecttype",
+    "description": "The number of broadcast packets sent.",
+    "maxaccess": "read-only",
+    "name": "hwTPBridgeMemberStatOutBcastkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.2.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwTPBridgeMemberStatOutMcastkts": {
+    "class": "objecttype",
+    "description": "The number of multicast packets sent.",
+    "maxaccess": "read-only",
+    "name": "hwTPBridgeMemberStatOutMcastkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.2.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwTPBridgeMemberStatOutTotalPkts": {
+    "class": "objecttype",
+    "description": "The number of sent packets.",
+    "maxaccess": "read-only",
+    "name": "hwTPBridgeMemberStatOutTotalPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.2.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwTPBridgeMemberStatOutUcastkts": {
+    "class": "objecttype",
+    "description": "The number of unicast packets sent.",
+    "maxaccess": "read-only",
+    "name": "hwTPBridgeMemberStatOutUcastkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.2.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwTPBridgeMemberStatTable": {
+    "class": "objecttype",
+    "description": "The table contains statistics information for the member of bridge. The indexes of this table is hwTPBridgeMemberStatIfIndex.",
+    "maxaccess": "not-accessible",
+    "name": "hwTPBridgeMemberStatTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.2.2",
+    "status": "current"
+  },
+  "hwTPBridgeMemberVlanTransparent": {
+    "class": "objecttype",
+    "description": "The value indicates whether the VLAN transparent is opened. The value enabled(1) indicates VLAN transparent is allowed. Default value is disabled(2).",
+    "maxaccess": "read-create",
+    "name": "hwTPBridgeMemberVlanTransparent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwTPBridgeMngObjects": {
+    "class": "objectidentity",
+    "name": "hwTPBridgeMngObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1"
+  },
+  "hwTPBridgeRoutingIp": {
+    "class": "objecttype",
+    "description": "The value indicates which routing ip function is opened. The value enabled(1) indicates routing ip is allowed. Default value is disable(2).",
+    "maxaccess": "read-create",
+    "name": "hwTPBridgeRoutingIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwTPBridgeRowStatus": {
+    "class": "objecttype",
+    "description": "Operation status.",
+    "maxaccess": "read-create",
+    "name": "hwTPBridgeRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwTPBridgeStatBridgeId": {
+    "class": "objecttype",
+    "description": "The bridge-id.",
+    "maxaccess": "not-accessible",
+    "name": "hwTPBridgeStatBridgeId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTPBridgeStatEntry": {
+    "class": "objecttype",
+    "description": "Entries of bridge statistics table. The indexes of this entry is hwTPBridgeStatBridgeId.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-TRANSPARENTBRIDGE-MIB",
+        "object": "hwTPBridgeStatBridgeId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTPBridgeStatEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.2.1.1",
+    "status": "current"
+  },
+  "hwTPBridgeStatInBPDUPkts": {
+    "class": "objecttype",
+    "description": "The number of BPDU packets received.",
+    "maxaccess": "read-only",
+    "name": "hwTPBridgeStatInBPDUPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwTPBridgeStatInBcastkts": {
+    "class": "objecttype",
+    "description": "The number of broadcast packets received.",
+    "maxaccess": "read-only",
+    "name": "hwTPBridgeStatInBcastkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.2.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwTPBridgeStatInMcastkts": {
+    "class": "objecttype",
+    "description": "The number of multicast packets received.",
+    "maxaccess": "read-only",
+    "name": "hwTPBridgeStatInMcastkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.2.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwTPBridgeStatInTotalPkts": {
+    "class": "objecttype",
+    "description": "The number of received packets.",
+    "maxaccess": "read-only",
+    "name": "hwTPBridgeStatInTotalPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwTPBridgeStatInUcastkts": {
+    "class": "objecttype",
+    "description": "The number of unicast packets received.",
+    "maxaccess": "read-only",
+    "name": "hwTPBridgeStatInUcastkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwTPBridgeStatOutBPDUPkts": {
+    "class": "objecttype",
+    "description": "The number of BPDU packets sent.",
+    "maxaccess": "read-only",
+    "name": "hwTPBridgeStatOutBPDUPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.2.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwTPBridgeStatOutBcastkts": {
+    "class": "objecttype",
+    "description": "The number of broadcast packets sent.",
+    "maxaccess": "read-only",
+    "name": "hwTPBridgeStatOutBcastkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.2.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwTPBridgeStatOutMcastkts": {
+    "class": "objecttype",
+    "description": "The number of multicast packets sent.",
+    "maxaccess": "read-only",
+    "name": "hwTPBridgeStatOutMcastkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.2.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwTPBridgeStatOutTotalPkts": {
+    "class": "objecttype",
+    "description": "The number of sent packets.",
+    "maxaccess": "read-only",
+    "name": "hwTPBridgeStatOutTotalPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.2.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwTPBridgeStatOutUcastkts": {
+    "class": "objecttype",
+    "description": "The number of unicast packets sent.",
+    "maxaccess": "read-only",
+    "name": "hwTPBridgeStatOutUcastkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.2.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwTPBridgeStatResetFlag": {
+    "class": "objecttype",
+    "description": "The flag of reset.",
+    "maxaccess": "read-write",
+    "name": "hwTPBridgeStatResetFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.2.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwTPBridgeStatTable": {
+    "class": "objecttype",
+    "description": "The table contains statistics information for the bridge. The indexes of this table is hwTPBridgeStatBridgeId.",
+    "maxaccess": "not-accessible",
+    "name": "hwTPBridgeStatTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1.1.2.1",
+    "status": "current"
+  },
+  "hwTransparentBridge": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "The TransparentBridge MIB module is defined to manage TransparentBridge function of Huawei Technologies co.,Ltd.",
+    "lastupdated": "201505080000Z",
+    "name": "hwTransparentBridge",
+    "oid": "1.3.6.1.4.1.2011.5.25.242.1",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "Modify the value of the hwTPBridgeId and hwTPBridgeStatBridgeId.",
+        "revision": "2015-05-08 00:00"
+      }
+    ]
+  },
+  "hwTransparentBridgeMIB": {
+    "class": "objectidentity",
+    "name": "hwTransparentBridgeMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.242"
+  },
+  "imports": {
+    "HUAWEI-BASE-TRAP-MIB": [
+      "hwBaseTrapSeverity",
+      "hwBaseTrapProbableCause",
+      "hwBaseTrapEventType"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "iso",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter64",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "DisplayString",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-TRANSPARENTBRIDGE-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:12 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-TRANSPARENTBRIDGE-MIB"
+  }
+}

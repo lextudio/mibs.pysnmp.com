@@ -1,0 +1,758 @@
+{
+  "hwActionName": {
+    "class": "objecttype",
+    "description": "The object indicates the policy action. Operators can define different actions for clients request: forward packets, drop packets, load balance, sticky load balance.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwActionName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 32
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBackupGroup": {
+    "class": "objecttype",
+    "description": "The object indicates the backup group. In order to improve reliability, S9300 can bind master group and backup group together to provide load balance service, operators can config two load balance group one as master, the other as backup",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwBackupGroup",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 32
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBackupGroupActiveNum": {
+    "class": "objecttype",
+    "description": "The object indicates the active member number in the backup server group.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwBackupGroupActiveNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBackupGroupTotalNum": {
+    "class": "objecttype",
+    "description": "The object indicates the total number of in-service members in the backup group.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwBackupGroupTotalNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwConnectionNum": {
+    "class": "objecttype",
+    "description": "The object indicates the connection number of a group member, usually five-tuple is used to describe a connection(source IP, detination IP, source port, destination port, protocal).",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwConnectionNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4000000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCurWorkGroupName": {
+    "class": "objecttype",
+    "description": "The object indicates the current working group, the working group may be master group or backup group.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwCurWorkGroupName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 32
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwGroupName": {
+    "class": "objecttype",
+    "description": "The object indicates the group name of members, each group members may contain same services and typically reside in the same physical location in a data center. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwGroupName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 32
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwGroupStateSwitchover": {
+    "class": "notificationtype",
+    "description": "When there are members\u0027 state change, current work group may change from master group to backup group or from backup group to master group.",
+    "name": "hwGroupStateSwitchover",
+    "objects": [
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwActionName"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwMasterGroup"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwMasterGroupActiveNum"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwMasterGroupTotalNum"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwBackupGroup"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwBackupGroupActiveNum"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwBackupGroupTotalNum"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwCurWorkGroupName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.2.3",
+    "status": "current"
+  },
+  "hwIpAddress": {
+    "class": "objecttype",
+    "description": "The object indicates the IP address of a load balance member.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIpAddress",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMasterGroup": {
+    "class": "objecttype",
+    "description": "The object indicates the master group. In order to improve reliability, S9300 can bind master group and backup group together to provide load balance service, operators can config two load balance group: one as master, the other as backup",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMasterGroup",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 32
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMasterGroupActiveNum": {
+    "class": "objecttype",
+    "description": "The object indicates the active member number in the master server group.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMasterGroupActiveNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMasterGroupTotalNum": {
+    "class": "objecttype",
+    "description": "The object indicates the total number of in-service members in the master group.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMasterGroupTotalNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMemberConnectionFull": {
+    "class": "notificationtype",
+    "description": "The connections for the physical member attains threshold.",
+    "name": "hwMemberConnectionFull",
+    "objects": [
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwMemberName"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwConnectionNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.2.4",
+    "status": "current"
+  },
+  "hwMemberConnectionFullRestore": {
+    "class": "notificationtype",
+    "description": "The connections for the physical member restores to normal.",
+    "name": "hwMemberConnectionFullRestore",
+    "objects": [
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwMemberName"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwConnectionNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.2.5",
+    "status": "current"
+  },
+  "hwMemberInstanceConnectionFull": {
+    "class": "notificationtype",
+    "description": "The connections for the group member attains threshold.",
+    "name": "hwMemberInstanceConnectionFull",
+    "objects": [
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwGroupName"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwMemberName"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwConnectionNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.2.6",
+    "status": "current"
+  },
+  "hwMemberInstanceConnectionFullRestore": {
+    "class": "notificationtype",
+    "description": "The connections for the group member restores nomal.",
+    "name": "hwMemberInstanceConnectionFullRestore",
+    "objects": [
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwGroupName"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwMemberName"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwConnectionNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.2.7",
+    "status": "current"
+  },
+  "hwMemberInstanceStateDown": {
+    "class": "notificationtype",
+    "description": "Member state changes to down. S9300 will not select the member when clients\u0027 new requests come.",
+    "name": "hwMemberInstanceStateDown",
+    "objects": [
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwGroupName"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwMemberName"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwIpAddress"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwPort"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.2.2",
+    "status": "current"
+  },
+  "hwMemberInstanceStateUp": {
+    "class": "notificationtype",
+    "description": "Member state changes to up. S9300 will select the member to accept clients\u0027 new requests.",
+    "name": "hwMemberInstanceStateUp",
+    "objects": [
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwGroupName"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwMemberName"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwIpAddress"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwPort"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.2.1",
+    "status": "current"
+  },
+  "hwMemberName": {
+    "class": "objecttype",
+    "description": "The object indicates the member in a load balance group, each member in the load balance group will provide same services to clients, system will select one member to serve the clients\u0027 requests.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMemberName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 32
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPort": {
+    "class": "objecttype",
+    "description": "The TCP or UDP port number, the range can from 1 to 65535.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwPort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwProbeInstanceStateDown": {
+    "class": "notificationtype",
+    "description": "Probe is used to check load balance member health, when there are no expected response from load balance member, probe state will change to down.",
+    "name": "hwProbeInstanceStateDown",
+    "objects": [
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwGroupName"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwMemberName"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwProbeName"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwProbeType"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwIpAddress"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwPort"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.2.9",
+    "status": "current"
+  },
+  "hwProbeInstanceStateUp": {
+    "class": "notificationtype",
+    "description": "Probe is used to check load balance member health, when there are expected response from load balance member, probe state will change to up.",
+    "name": "hwProbeInstanceStateUp",
+    "objects": [
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwGroupName"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwMemberName"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwProbeName"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwProbeType"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwIpAddress"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwPort"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.2.8",
+    "status": "current"
+  },
+  "hwProbeName": {
+    "class": "objecttype",
+    "description": "The object indicates a probe that is used to detect failures for members in a group. When you initially configure a health probe, you should define its type and name.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwProbeName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 32
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwProbeType": {
+    "class": "objecttype",
+    "description": "The object indicates probe type. S9300 support ICMP, TCP, UDP, HTTP probe types.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwProbeType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "http": 4,
+          "icmp": 1,
+          "tcp": 2,
+          "udp": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSLBMIB": {
+    "class": "moduleidentity",
+    "contactinfo": " NanJing Institute,Huawei Technologies Co.,Ltd. HuiHong Mansion,No.91 BaiXia Rd. NanJing, P.R. of China Zipcode:210001 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": "The MIB describes Server Load Balance",
+    "lastupdated": "200911301200Z",
+    "name": "hwSLBMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.225",
+    "organization": "Huawei Technologies Co., Ltd.",
+    "revisions": [
+      {
+        "description": "Initial revision.",
+        "revision": "2009-11-30 12:00"
+      }
+    ]
+  },
+  "hwSlbCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for entities implementing Huawei server load balance MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwSlbTrapObjectsGroup"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwSlbNotificationsGroup"
+      }
+    ],
+    "name": "hwSlbCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.3.2.1",
+    "status": "current"
+  },
+  "hwSlbCompliances": {
+    "class": "objectidentity",
+    "name": "hwSlbCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.3.2"
+  },
+  "hwSlbConformance": {
+    "class": "objectidentity",
+    "name": "hwSlbConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.3"
+  },
+  "hwSlbGroups": {
+    "class": "objectidentity",
+    "name": "hwSlbGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.3.1"
+  },
+  "hwSlbMibObjects": {
+    "class": "objectidentity",
+    "name": "hwSlbMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1"
+  },
+  "hwSlbNotifications": {
+    "class": "objectidentity",
+    "name": "hwSlbNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.2"
+  },
+  "hwSlbNotificationsGroup": {
+    "class": "notificationgroup",
+    "description": "The group of objects that comprise SlbNotifications.",
+    "name": "hwSlbNotificationsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwMemberInstanceStateUp"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwMemberInstanceStateDown"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwGroupStateSwitchover"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwMemberInstanceConnectionFull"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwMemberInstanceConnectionFullRestore"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwProbeInstanceStateUp"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwProbeInstanceStateDown"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwMemberConnectionFull"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwMemberConnectionFullRestore"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.3.1.2",
+    "status": "current"
+  },
+  "hwSlbTrapObjects": {
+    "class": "objectidentity",
+    "name": "hwSlbTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.1"
+  },
+  "hwSlbTrapObjectsGroup": {
+    "class": "objectgroup",
+    "description": "The group of objects that comprise SlbTrapObjects.",
+    "name": "hwSlbTrapObjectsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwIpAddress"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwMemberName"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwGroupName"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwPort"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwProbeName"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwProbeType"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwConnectionNum"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwActionName"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwMasterGroup"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwMasterGroupActiveNum"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwMasterGroupTotalNum"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwBackupGroup"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwBackupGroupActiveNum"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwBackupGroupTotalNum"
+      },
+      {
+        "module": "HUAWEI-SLB-MIB",
+        "object": "hwCurWorkGroupName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.225.1.3.1.1",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "iso",
+      "Integer32",
+      "MibIdentifier",
+      "Bits",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-SLB-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:56 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-SLB-MIB"
+  }
+}

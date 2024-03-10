@@ -1,0 +1,2784 @@
+{
+  "HWMgmdCtlMsgState": {
+    "class": "textualconvention",
+    "description": "The PIM control message state. valid(1) The valid IGMP/MLD control message has been received. invalid(2) The invalid IGMP/MLD control message has been received. ignore(3) The IGMP/MLD control message has been ignored.",
+    "name": "HWMgmdCtlMsgState",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ignore": 3,
+          "invalid": 2,
+          "valid": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMcast": {
+    "class": "objectidentity",
+    "name": "hwMcast",
+    "oid": "1.3.6.1.4.1.2011.5.25.149"
+  },
+  "hwMgmdCtlMsgCountALLOW": {
+    "class": "objecttype",
+    "description": "The number of IGMP/MLD allow on this interface.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdCtlMsgCountALLOW",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdCtlMsgCountBLOCK": {
+    "class": "objecttype",
+    "description": "The number of IGMP/MLD block on this interface.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdCtlMsgCountBLOCK",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdCtlMsgCountEntry": {
+    "class": "objecttype",
+    "description": "An entry (conceptual row) representing an interface on which IGMP or MLD is enabled. Dynamically created row state is non-volatile, and upon agent reboot should be reinstantiated as a conceptual row. Any change in read-create objects should therefore be backed up by stable storage.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdCtlMsgCountIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdCtlMsgCountQuerierType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdCtlMsgCountState"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMgmdCtlMsgCountEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1",
+    "status": "current"
+  },
+  "hwMgmdCtlMsgCountISEX": {
+    "class": "objecttype",
+    "description": "The number of IGMP/MLD is_ex on this interface.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdCtlMsgCountISEX",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdCtlMsgCountISIN": {
+    "class": "objecttype",
+    "description": "The number of IGMP/MLD is_in on this interface.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdCtlMsgCountISIN",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdCtlMsgCountIfIndex": {
+    "class": "objecttype",
+    "description": "The ifIndex value of the interface for which IGMP or MLD is enabled. The table is indexed by the ifIndex value and the InetAddressType to allow for interfaces which may be configured in both IPv4 and IPv6 modes.",
+    "maxaccess": "not-accessible",
+    "name": "hwMgmdCtlMsgCountIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwMgmdCtlMsgCountLeaveASM": {
+    "class": "objecttype",
+    "description": "The number of IGMP/MLD leave with ASM group on this interface.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdCtlMsgCountLeaveASM",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdCtlMsgCountLeaveSSM": {
+    "class": "objecttype",
+    "description": "The number of IGMP/MLD leave with ASM group on this interface.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdCtlMsgCountLeaveSSM",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdCtlMsgCountOthers": {
+    "class": "objecttype",
+    "description": "The number of total IGMP/MLD others packet on this interface.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdCtlMsgCountOthers",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdCtlMsgCountQuerierType": {
+    "class": "objecttype",
+    "description": "The address type of this interface. This entry along with the ifIndex value acts as the index to the hwMgmdRouterInterface table. A physical interface may be configured in multiple modes concurrently, e.g. in IPv4 and IPv6 modes connected to the same interface, however the traffic is considered to be logically separate.",
+    "maxaccess": "not-accessible",
+    "name": "hwMgmdCtlMsgCountQuerierType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwMgmdCtlMsgCountQuery": {
+    "class": "objecttype",
+    "description": "The number of IGMP/MLD Query on this interface.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdCtlMsgCountQuery",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdCtlMsgCountReportASM": {
+    "class": "objecttype",
+    "description": "The number of IGMP/MLD report with ASM group on this interface.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdCtlMsgCountReportASM",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdCtlMsgCountReportSSM": {
+    "class": "objecttype",
+    "description": "The number of IGMP/MLD report with SSM group on this interface.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdCtlMsgCountReportSSM",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdCtlMsgCountSrcRecTotal": {
+    "class": "objecttype",
+    "description": "The number of total IGMP/MLD source record on this interface.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdCtlMsgCountSrcRecTotal",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdCtlMsgCountState": {
+    "class": "objecttype",
+    "description": "The IGMP/MLD control message state.",
+    "maxaccess": "not-accessible",
+    "name": "hwMgmdCtlMsgCountState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWMgmdCtlMsgState"
+    }
+  },
+  "hwMgmdCtlMsgCountTOEX": {
+    "class": "objecttype",
+    "description": "The number of IGMP/MLD to_ex on this interface.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdCtlMsgCountTOEX",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdCtlMsgCountTOIN": {
+    "class": "objecttype",
+    "description": "The number of IGMP/MLD to_in on this interface.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdCtlMsgCountTOIN",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdCtlMsgCountTable": {
+    "class": "objecttype",
+    "description": "The (conceptual) table used to list the control message counter on all the interfaces on which IGMP or MLD is enabled.",
+    "maxaccess": "not-accessible",
+    "name": "hwMgmdCtlMsgCountTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.11",
+    "status": "current"
+  },
+  "hwMgmdGMPGlobalLimit": {
+    "class": "notificationtype",
+    "description": "This object indicates that the number of global IGMP or MLD entries of the instance reaches the upper limit. This trap message is generated when IGMP or MLD fails to create membership because the number of global IGMP or MLD entries of the instance reaches the upper limit.",
+    "name": "hwMgmdGMPGlobalLimit",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroupAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitSource"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGlobalEntries"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInstanceName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.6",
+    "status": "current"
+  },
+  "hwMgmdGMPGlobalLimitClear": {
+    "class": "notificationtype",
+    "description": "This object indicates that the number of global IGMP or MLD entries of the instance falls blow the upper limit. This trap message is generated when IGMP or MLD delete an entry resulting in the number of global IGMP or MLD entries of the instance falls below the upper limit.",
+    "name": "hwMgmdGMPGlobalLimitClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroupAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitSource"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGlobalEntries"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInstanceName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.10",
+    "status": "current"
+  },
+  "hwMgmdGMPInterfaceLimit": {
+    "class": "notificationtype",
+    "description": "This object indicates that the number of IGMP or MLD entries on the interface reaches the upper limit. This trap message is generated when IGMP or MLD fails to create membership because the number of IGMP or MLD entries on the interface reaches the upper limit.",
+    "name": "hwMgmdGMPInterfaceLimit",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroupAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitSource"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdLimitInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInterfaceEntries"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInstanceName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.7",
+    "status": "current"
+  },
+  "hwMgmdGMPInterfaceLimitClear": {
+    "class": "notificationtype",
+    "description": "This object indicates that the number of IGMP or MLD entries on the interface falls below the upper limit. This trap message is generated when IGMP or MLD delete an entry resulting in the number of IGMP or MLD entries on the interface falls below the upper limit.",
+    "name": "hwMgmdGMPInterfaceLimitClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroupAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitSource"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdLimitInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInterfaceEntries"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInstanceName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.9",
+    "status": "current"
+  },
+  "hwMgmdGMPTotalLimit": {
+    "class": "notificationtype",
+    "description": "This object indicates that the number of IGMP or MLD entries of all instances reaches the upper limit. This trap message is generated when IGMP or MLD fails to create membership because the number of IGMP or MLD entries of all instances reaches the upper limit.",
+    "name": "hwMgmdGMPTotalLimit",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroupAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitSource"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalEntries"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.8",
+    "status": "current"
+  },
+  "hwMgmdGMPTotalLimitClear": {
+    "class": "notificationtype",
+    "description": "This object indicates that the number of IGMP or MLD entries of all instances falls below the upper limit. This trap message is generated when IGMP or MLD delete an entry resulting in the number of IGMP or MLD entries of all instances falls below the upper limit.",
+    "name": "hwMgmdGMPTotalLimitClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroupAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitSource"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalEntries"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.11",
+    "status": "current"
+  },
+  "hwMgmdGlobalEntries": {
+    "class": "objecttype",
+    "description": "The total number of IGMP or MLD entries of this instance.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdGlobalEntries",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdGlobalLimit": {
+    "class": "notificationtype",
+    "description": "A hwMgmdGlobalLimit notification signifies that an IGMP report has been limited for up to maximum entries of IGMP global routing-table. This notification is generated whenever an IGMP report failed to create membership as IGMP global routing-table limit.",
+    "name": "hwMgmdGlobalLimit",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdSource"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGlobalEntries"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.1",
+    "status": "obsolete"
+  },
+  "hwMgmdGmpInterfaceIfIndex": {
+    "class": "objecttype",
+    "description": "The ifIndex value of the interface for which IGMP or MLD is enabled. The table is indexed by the ifIndex value and the InetAddressType to allow for interfaces which may be configured in both IPv4 and IPv6 modes.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMgmdGmpInterfaceIfIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwMgmdGmpInterfaceName": {
+    "class": "objecttype",
+    "description": "The interface name of the interface for which IGMP or MLD is enabled.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMgmdGmpInterfaceName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwMgmdGmpJoin": {
+    "class": "notificationtype",
+    "description": "A hwMgmdGmpJoin notification signifies the IGMP or MLD join message was received.",
+    "name": "hwMgmdGmpJoin",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpJoinVersion"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpJoinSrcAddr"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpJoinGrpAddr"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpJoinSenderIp"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInstanceName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.4",
+    "status": "current"
+  },
+  "hwMgmdGmpJoinGrpAddr": {
+    "class": "objecttype",
+    "description": "The IGMP or MLD group address to join.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMgmdGmpJoinGrpAddr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwMgmdGmpJoinSenderIp": {
+    "class": "objecttype",
+    "description": "The host IP address for sending membership report.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMgmdGmpJoinSenderIp",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwMgmdGmpJoinSrcAddr": {
+    "class": "objecttype",
+    "description": "The IGMP or MLD source address to join.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMgmdGmpJoinSrcAddr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwMgmdGmpJoinVersion": {
+    "class": "objecttype",
+    "description": "The version of MGMD which is running on this interface. Value 1 applies to IGMPv1 and MLDv1 version. Value 2 applies to IGMPv2 and MLDv2 version, and value 3 applies to IGMPv3 version. This object can be used to configure a router capable of running either version. For IGMP and MLD to function correctly, all routers on a LAN must be configured to run the same version on that LAN. This object MAY be modified under any rowstatus condition. ???? DEFVAL { 2 }",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMgmdGmpJoinVersion",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 3,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdGmpLeave": {
+    "class": "notificationtype",
+    "description": "A hwMgmdGmpLeave notification signifies the IGMP or MLD group leaved.",
+    "name": "hwMgmdGmpLeave",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpJoinSrcAddr"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpJoinGrpAddr"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInstanceName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.5",
+    "status": "current"
+  },
+  "hwMgmdGmpLimitGroup": {
+    "class": "objecttype",
+    "description": "The multicast group address in the most recently sent IGMP or MLD limit trap. The InetAddressType is defined by the hwMgmdGmpLimitGroupAddressType object.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMgmdGmpLimitGroup",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 4,
+            "min": 4
+          },
+          {
+            "max": 8,
+            "min": 8
+          },
+          {
+            "max": 16,
+            "min": 16
+          },
+          {
+            "max": 20,
+            "min": 20
+          }
+        ]
+      },
+      "type": "InetAddress"
+    }
+  },
+  "hwMgmdGmpLimitGroupAddressType": {
+    "class": "objecttype",
+    "description": "The address type of the multicast group address in the most recently sent IGMP or MLD limit trap. If this router has not sent a limit trap, this object is set to 0.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMgmdGmpLimitGroupAddressType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwMgmdGmpLimitSource": {
+    "class": "objecttype",
+    "description": "The source address in the most recently sent IGMP or MLD limit trap. The InetAddressType is defined by the hwMgmdGmpLimitGroupAddressType object.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMgmdGmpLimitSource",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 4,
+            "min": 4
+          },
+          {
+            "max": 8,
+            "min": 8
+          },
+          {
+            "max": 16,
+            "min": 16
+          },
+          {
+            "max": 20,
+            "min": 20
+          }
+        ]
+      },
+      "type": "InetAddress"
+    }
+  },
+  "hwMgmdGroup": {
+    "class": "objecttype",
+    "description": "Group address of the entry.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdGroup",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.1",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMgmdHostNotificationGrpAddr": {
+    "class": "objecttype",
+    "description": "The multicast group address in the most recently sent IGMP or MLD proxy limit trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMgmdHostNotificationGrpAddr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 4,
+            "min": 4
+          },
+          {
+            "max": 8,
+            "min": 8
+          },
+          {
+            "max": 16,
+            "min": 16
+          },
+          {
+            "max": 20,
+            "min": 20
+          }
+        ]
+      },
+      "type": "InetAddress"
+    }
+  },
+  "hwMgmdHostNotificationSrcAddr": {
+    "class": "objecttype",
+    "description": "The source address in the most recently sent IGMP or MLD proxy limit trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMgmdHostNotificationSrcAddr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 4,
+            "min": 4
+          },
+          {
+            "max": 8,
+            "min": 8
+          },
+          {
+            "max": 16,
+            "min": 16
+          },
+          {
+            "max": 20,
+            "min": 20
+          }
+        ]
+      },
+      "type": "InetAddress"
+    }
+  },
+  "hwMgmdHostSGCurrentCount": {
+    "class": "objecttype",
+    "description": "The current number of IGMP or MLD proxy (S, G) entries of all instances.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMgmdHostSGCurrentCount",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdHostSGExceed": {
+    "class": "notificationtype",
+    "description": "A hwMgmdHostSGExceed notification signifies that IGMP or MLD proxy (S, G) entries can not be created because the limit of all instances is reached.",
+    "name": "hwMgmdHostSGExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostNotificationSrcAddr"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostNotificationGrpAddr"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGTotalCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInstanceName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.20",
+    "status": "current"
+  },
+  "hwMgmdHostSGExceedClear": {
+    "class": "notificationtype",
+    "description": "A hwMgmdHostSGExceedClear notification signifies that IGMP or MLD proxy (S, G) entries can be created because can be created because the number of IGMP or MLD (S, G) entries of all instances fell below the limit.",
+    "name": "hwMgmdHostSGExceedClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGTotalCount"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.21",
+    "status": "current"
+  },
+  "hwMgmdHostSGThreshold": {
+    "class": "objecttype",
+    "description": "The threshold value of IGMP or MLD proxy (S, G)entries uppper limit(%) of all instances.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMgmdHostSGThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdHostSGThresholdExceed": {
+    "class": "notificationtype",
+    "description": "A hwMgmdHostSGThresholdExceed notification signifies that IGMP or MLD proxy (S, G) entries count of all instances reached the upper threshold.",
+    "name": "hwMgmdHostSGThresholdExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGThreshold"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGTotalCount"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.18",
+    "status": "current"
+  },
+  "hwMgmdHostSGThresholdExceedClear": {
+    "class": "notificationtype",
+    "description": "A hwMgmdHostSGThresholdExceedClear notification signifies that IGMP or MLD proxy (S, G) entries count of all instances fell below the lower threshold.",
+    "name": "hwMgmdHostSGThresholdExceedClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGThreshold"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGTotalCount"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.19",
+    "status": "current"
+  },
+  "hwMgmdHostSGTotalCount": {
+    "class": "objecttype",
+    "description": "The total number of IGMP or MLD proxy (S, G) entries of all instances.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMgmdHostSGTotalCount",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdHostStarGCurrentCount": {
+    "class": "objecttype",
+    "description": "The current number of IGMP or MLD proxy (*, G) entries of all instances.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMgmdHostStarGCurrentCount",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdHostStarGExceed": {
+    "class": "notificationtype",
+    "description": "A hwMgmdHostStarGExceed notification signifies that IGMP or MLD proxy (*, G) entries can not be created because the limit is reached.",
+    "name": "hwMgmdHostStarGExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostNotificationSrcAddr"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostNotificationGrpAddr"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGTotalCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInstanceName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.16",
+    "status": "current"
+  },
+  "hwMgmdHostStarGExceedClear": {
+    "class": "notificationtype",
+    "description": "A hwMgmdHostStarGExceedClear notification signifies that IGMP or MLD proxy (*, G) entries can be created because can be created because the number of IGMP or MLD (*, G) entries fell below the limit.",
+    "name": "hwMgmdHostStarGExceedClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGTotalCount"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.17",
+    "status": "current"
+  },
+  "hwMgmdHostStarGThreshold": {
+    "class": "objecttype",
+    "description": "The threshold value of IGMP or MLD proxy (*, G) entries uppper limit(%) of all instances.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMgmdHostStarGThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdHostStarGThresholdExceed": {
+    "class": "notificationtype",
+    "description": "A hwMgmdHostStarGThresholdExceed notification signifies that IGMP or MLD proxy (*, G) entries count of all instances reached the upper threshold.",
+    "name": "hwMgmdHostStarGThresholdExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGThreshold"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGTotalCount"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.14",
+    "status": "current"
+  },
+  "hwMgmdHostStarGThresholdExceedClear": {
+    "class": "notificationtype",
+    "description": "A hwMgmdHostStarGThresholdExceedClear notification signifies that IGMP or MLD proxy (*, G) entries count of all instances fell below the lower threshold.",
+    "name": "hwMgmdHostStarGThresholdExceedClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGThreshold"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGTotalCount"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.15",
+    "status": "current"
+  },
+  "hwMgmdHostStarGTotalCount": {
+    "class": "objecttype",
+    "description": "The total number of IGMP or MLD proxy (*, G) entries of all instances.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMgmdHostStarGTotalCount",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdIgmpV1RouterMibCompliance": {
+    "class": "modulecompliance",
+    "description": "The version statement for routers running IGMPv1, RFC 1112 [4], and implementing the MGMD Mib. MGMDv1 applies to hosts and routers running IGMPv1 only. IGMPv1 routers must support the IPv4 address type ",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterBaseMibGroup"
+      }
+    ],
+    "name": "hwMgmdIgmpV1RouterMibCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.3.2",
+    "status": "current"
+  },
+  "hwMgmdIgmpV2RouterMibCompliance": {
+    "class": "modulecompliance",
+    "description": "The version statement for routers running IGMPv2, RFC 2236 [5], and implementing the MGMD Mib. MGMDv2 applies to hosts and routers running IGMPv2 or MLDv1. IGMPv2 routers must support the IPv4 address type ",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterBaseMibGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdV2RouterBaseMibGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdV2IgmpRouterMibGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdV2RouterOptMibGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdV2ProxyMibGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdMibNotificationObjects"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdMibNotificationGroup"
+      }
+    ],
+    "name": "hwMgmdIgmpV2RouterMibCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.3.4",
+    "status": "current"
+  },
+  "hwMgmdIgmpV3RouterMibCompliance": {
+    "class": "modulecompliance",
+    "description": "The version statement for routers running IGMPv3, RFC 3376 [6], and implementing the MGMD Mib. MGMDv3 applies to hosts and routers running IGMPv3 or MLDv2. IGMPv3 routers must support the IPv4 address type.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterBaseMibGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdV2RouterBaseMibGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdV2IgmpRouterMibGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdV3RouterMibGroup"
+      }
+    ],
+    "name": "hwMgmdIgmpV3RouterMibCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.3.8",
+    "status": "current"
+  },
+  "hwMgmdInstanceName": {
+    "class": "objecttype",
+    "description": "The instance name of the trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMgmdInstanceName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMgmdInterfaceEntries": {
+    "class": "objecttype",
+    "description": "The total number of IGMP or MLD entries on the interface.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdInterfaceEntries",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdInterfaceLimit": {
+    "class": "notificationtype",
+    "description": "A hwMgmdInterfaceLimit notification signifies that an IGMP report has been limited for up to maximum entries of IGMP interface routing-table. This notification is generated whenever an IGMP report failed to create membership as IGMP interface routing-table limit.",
+    "name": "hwMgmdInterfaceLimit",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdSource"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdLimitInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInterfaceEntries"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.2",
+    "status": "obsolete"
+  },
+  "hwMgmdInverseRouterCacheAddress": {
+    "class": "objecttype",
+    "description": "The IP multicast group address for which this entry contains information. The InetAddressType, e.g., IPv4 or IPv6, is identified by the hwMgmdInverseRouterCacheAddressType variable in the hwMgmdInverseRouterCache table.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdInverseRouterCacheAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.8.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 4,
+            "min": 4
+          },
+          {
+            "max": 16,
+            "min": 16
+          }
+        ]
+      },
+      "type": "InetAddress"
+    }
+  },
+  "hwMgmdInverseRouterCacheAddressType": {
+    "class": "objecttype",
+    "description": "The address type of the hwMgmdInverseRouterCacheTable entry.",
+    "maxaccess": "not-accessible",
+    "name": "hwMgmdInverseRouterCacheAddressType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.8.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwMgmdInverseRouterCacheEntry": {
+    "class": "objecttype",
+    "description": "An entry (conceptual row) in the hwMgmdInverseRouterCacheTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInverseRouterCacheIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInverseRouterCacheAddressType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInverseRouterCacheAddress"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMgmdInverseRouterCacheEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.8.1",
+    "status": "current"
+  },
+  "hwMgmdInverseRouterCacheIfIndex": {
+    "class": "objecttype",
+    "description": "The interface for which this entry contains information.",
+    "maxaccess": "not-accessible",
+    "name": "hwMgmdInverseRouterCacheIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwMgmdInverseRouterCacheTable": {
+    "class": "objecttype",
+    "description": "The (conceptual) table listing the interfaces that are members of a particular group. This is an inverse lookup table for entries in the hwMgmdRouterCacheTable.",
+    "maxaccess": "not-accessible",
+    "name": "hwMgmdInverseRouterCacheTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.8",
+    "status": "current"
+  },
+  "hwMgmdLimitInterfaceIfIndex": {
+    "class": "objecttype",
+    "description": "The interface from which an IGMP or a MLD limit trap is most recently sent. If this router has not sent a limit trap, this object is set to 0.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdLimitInterfaceIfIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwMgmdMibCompliance": {
+    "class": "objectidentity",
+    "name": "hwMgmdMibCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.3"
+  },
+  "hwMgmdMibConformance": {
+    "class": "objectidentity",
+    "name": "hwMgmdMibConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4"
+  },
+  "hwMgmdMibGeneralObjects": {
+    "class": "objectidentity",
+    "name": "hwMgmdMibGeneralObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2"
+  },
+  "hwMgmdMibGroups": {
+    "class": "objectidentity",
+    "name": "hwMgmdMibGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.4"
+  },
+  "hwMgmdMibNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "A collection of notifications for signaling MGMD notification management events.",
+    "name": "hwMgmdMibNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGlobalLimit"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInterfaceLimit"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalLimit"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpJoin"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLeave"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGMPGlobalLimit"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGMPInterfaceLimit"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGMPTotalLimit"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGMPInterfaceLimitClear"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGMPGlobalLimitClear"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGMPTotalLimitClear"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalLimitThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalLimitThresholdExceedClear"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGThresholdExceedClear"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGExceed"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGExceedClear"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGThresholdExceedClear"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGExceed"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGExceedClear"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.4.13",
+    "status": "current"
+  },
+  "hwMgmdMibNotificationObjects": {
+    "class": "objectgroup",
+    "description": "A collection of objects to support notification of MGMD notification network management events.",
+    "name": "hwMgmdMibNotificationObjects",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdSource"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdLimitInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGlobalEntries"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInterfaceEntries"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalEntries"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpJoinGrpAddr"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpJoinSrcAddr"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpJoinSenderIp"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpJoinVersion"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroupAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGmpLimitSource"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInstanceName"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalLimitCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalLimitThreshold"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGThreshold"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostStarGTotalCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostNotificationSrcAddr"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostNotificationGrpAddr"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGThreshold"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdHostSGTotalCount"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.4.12",
+    "status": "current"
+  },
+  "hwMgmdMibNotifications": {
+    "class": "objectidentity",
+    "name": "hwMgmdMibNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3"
+  },
+  "hwMgmdMibObjects": {
+    "class": "objectidentity",
+    "name": "hwMgmdMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1"
+  },
+  "hwMgmdMldV1RouterMibCompliance": {
+    "class": "modulecompliance",
+    "description": "The version statement for routers running MLDv1, RFC 2710 [7], and implementing the MGMD Mib. MGMDv2 applies to hosts and routers running IGMPv2 or MLDv1. MLDv1 routers must support the IPv6 address type.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterBaseMibGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdV2RouterBaseMibGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdV2RouterOptMibGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdV2ProxyMibGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdMibNotificationObjects"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdMibNotificationGroup"
+      }
+    ],
+    "name": "hwMgmdMldV1RouterMibCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.3.6",
+    "status": "current"
+  },
+  "hwMgmdMldV2RouterMibCompliance": {
+    "class": "modulecompliance",
+    "description": "The version statement for routers running MLDv2 [8] and implementing the MGMD Mib. MGMDv3 applies to hosts and routers running IGMPv3 or MLDv2. MLDv2 routers must support the IPv6 address type.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterBaseMibGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdV2RouterBaseMibGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdV3RouterMibGroup"
+      }
+    ],
+    "name": "hwMgmdMldV2RouterMibCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.3.10",
+    "status": "current"
+  },
+  "hwMgmdNotificationAddressType": {
+    "class": "objecttype",
+    "description": "The address type of the multicast group address in the most recently sent IGMP or MLD limit trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMgmdNotificationAddressType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwMgmdRouterBaseMibGroup": {
+    "class": "objectgroup",
+    "description": "The basic collection of objects providing management of MGMD version 1, 2 or 3 for Routers.",
+    "name": "hwMgmdRouterBaseMibGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceStatus"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterCacheUpTime"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterCacheExpiryTime"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceJoins"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceGroups"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterCacheLastReporter"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceQuerierUpTime"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceQuerierExpiryTime"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceQueryInterval"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.4.2",
+    "status": "current"
+  },
+  "hwMgmdRouterCacheAddress": {
+    "class": "objecttype",
+    "description": "The IP multicast group address for which this entry contains information. The InetAddressType, e.g., IPv4 or IPv6, is identified by the hwMgmdRouterCacheAddressType variable in the hwMgmdRouterCache table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMgmdRouterCacheAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 4,
+            "min": 4
+          },
+          {
+            "max": 16,
+            "min": 16
+          }
+        ]
+      },
+      "type": "InetAddress"
+    }
+  },
+  "hwMgmdRouterCacheAddressType": {
+    "class": "objecttype",
+    "description": "The address type of the hwMgmdRouterCacheTable entry. This value applies to both the hwMgmdRouterCacheAddress and the hwMgmdRouterCacheLastReporter entries.",
+    "maxaccess": "not-accessible",
+    "name": "hwMgmdRouterCacheAddressType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwMgmdRouterCacheEntry": {
+    "class": "objecttype",
+    "description": "An entry (conceptual row) in the hwMgmdRouterCacheTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterCacheAddressType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterCacheAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterCacheIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMgmdRouterCacheEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.6.1",
+    "status": "current"
+  },
+  "hwMgmdRouterCacheExcludeModeExpiryTimer": {
+    "class": "objecttype",
+    "description": "This value is applicable only to MGMDv3-compatible nodes and represents the time remaining before the interface EXCLUDE state expires and the interface state transitions to INCLUDE mode. This value can never be greater than hwMgmdRouterCacheExpiryTime.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdRouterCacheExcludeModeExpiryTimer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.6.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwMgmdRouterCacheExpiryTime": {
+    "class": "objecttype",
+    "description": "This value represents the time remaining before the Group Membership Interval state expires. The value must always be greater than or equal to 1.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdRouterCacheExpiryTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.6.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwMgmdRouterCacheIfIndex": {
+    "class": "objecttype",
+    "description": "The interface for which this entry contains information for an IP multicast group address.",
+    "maxaccess": "not-accessible",
+    "name": "hwMgmdRouterCacheIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwMgmdRouterCacheLastReporter": {
+    "class": "objecttype",
+    "description": "The IP address of the source of the last membership report received for this IP multicast group address on this interface. If no membership report has been received, this object has the value 0. The InetAddressType, e.g., IPv4 or IPv6, is identified by the hwMgmdRouterCacheAddressType variable in the hwMgmdRouterCache table.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdRouterCacheLastReporter",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwMgmdRouterCacheSourceFilterMode": {
+    "class": "objecttype",
+    "description": "The current cache state, applicable to MGMDv3 compatible nodes. The value indicates whether the state is INCLUDE or EXCLUDE.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdRouterCacheSourceFilterMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.6.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "exclude": 2,
+          "include": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMgmdRouterCacheTable": {
+    "class": "objecttype",
+    "description": "The (conceptual) table listing the IP multicast groups for which there are members on a particular router interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwMgmdRouterCacheTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.6",
+    "status": "current"
+  },
+  "hwMgmdRouterCacheUpTime": {
+    "class": "objecttype",
+    "description": "The time elapsed since this entry was created.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdRouterCacheUpTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwMgmdRouterCacheVersion1HostTimer": {
+    "class": "objecttype",
+    "description": "The time remaining until the local router will assume that there are no longer any MGMD version 1 members on the IP subnet attached to this interface. This entry only applies to IGMPv1 hosts, and is not implemented for MLD. Upon hearing any MGMDv1 Membership Report (IGMPv1 only), this value is reset to the group membership timer. While this time remaining is non-zero, the local router ignores any MGMDv2 Leave messages (IGMPv2 only) for this group that it receives on this interface.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdRouterCacheVersion1HostTimer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.6.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwMgmdRouterCacheVersion2HostTimer": {
+    "class": "objecttype",
+    "description": "The time remaining until the local router will assume that there are no longer any MGMD version 2 members on the IP subnet attached to this interface. This entry applies to both IGMP and MLD hosts. Upon hearing any MGMDv2 Membership Report, this value is reset to the group membership timer. Assuming no MGMDv1 hosts have been detected, the local router does not ignore any MGMDv2 Leave messages for this group that it receives on this interface.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdRouterCacheVersion2HostTimer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.6.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwMgmdRouterInterfaceEntry": {
+    "class": "objecttype",
+    "description": "An entry (conceptual row) representing an interface on which IGMP or MLD is enabled.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceQuerierType"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMgmdRouterInterfaceEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1",
+    "status": "current"
+  },
+  "hwMgmdRouterInterfaceGroups": {
+    "class": "objecttype",
+    "description": "The current number of entries for this interface in the RouterCache Table.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdRouterInterfaceGroups",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwMgmdRouterInterfaceIfIndex": {
+    "class": "objecttype",
+    "description": "The ifIndex value of the interface for which IGMP or MLD is enabled. The table is indexed by the ifIndex value and the InetAddressType to allow for interfaces that may be configured in both IPv4 and IPv6 modes.",
+    "maxaccess": "not-accessible",
+    "name": "hwMgmdRouterInterfaceIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwMgmdRouterInterfaceJoins": {
+    "class": "objecttype",
+    "description": "The number of times a group membership has been added on this interface, that is, the number of times an entry for this interface has been added to the Cache Table. This object can give an indication of the amount of activity between samples over time.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdRouterInterfaceJoins",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwMgmdRouterInterfaceLastMembQueryCount": {
+    "class": "objecttype",
+    "description": "Represents the number of group-specific and group-and- source-specific queries sent by the router before it assumes there are no local members.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdRouterInterfaceLastMembQueryCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdRouterInterfaceLastMembQueryIntvl": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 10
+      }
+    },
+    "description": "The Last Member Query Interval is the Max Query Response Interval inserted into group-specific queries sent in response to leave group messages, and is also the amount of time between group-specific query messages. This value may be tuned to modify the leave latency of the network. A reduced value results in reduced time to detect the loss of the last member of a group. The value of this object is irrelevant if hwMgmdRouterInterfaceVersion is 1.",
+    "maxaccess": "read-create",
+    "name": "hwMgmdRouterInterfaceLastMembQueryIntvl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 31744,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    },
+    "units": "tenths of seconds"
+  },
+  "hwMgmdRouterInterfaceProxyIfIndex": {
+    "class": "objecttype",
+    "description": "Some devices implement a form of IGMP or MLD proxying whereby memberships learned on the interface represented by this row cause Host Membership Reports to be sent on the interface whose ifIndex value is given by this object. Such a device would implement the hwMgmdV2RouterBaseMIBGroup only on its router interfaces (those interfaces with non-zero hwMgmdRouterInterfaceProxyIfIndex). Typically, the value of this object is 0, indicating that no proxying is being done.",
+    "maxaccess": "read-create",
+    "name": "hwMgmdRouterInterfaceProxyIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwMgmdRouterInterfaceQuerier": {
+    "class": "objecttype",
+    "description": "The address of the IGMP or MLD Querier on the IP subnet to which this interface is attached. The InetAddressType, e.g., IPv4 or IPv6, is identified by the hwMgmdRouterInterfaceQuerierType variable in the hwMgmdRouterInterface table.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdRouterInterfaceQuerier",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 4,
+            "min": 4
+          },
+          {
+            "max": 16,
+            "min": 16
+          }
+        ]
+      },
+      "type": "InetAddress"
+    }
+  },
+  "hwMgmdRouterInterfaceQuerierExpiryTime": {
+    "class": "objecttype",
+    "description": "The amount of time remaining before the Other Querier Present Timer expires. If the local system is the querier, the value of this object is zero.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdRouterInterfaceQuerierExpiryTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwMgmdRouterInterfaceQuerierType": {
+    "class": "objecttype",
+    "description": "The address type of this interface. This entry along with the ifIndex value acts as the index to the hwMgmdRouterInterface table. A physical interface may be configured in multiple modes concurrently, e.g., in IPv4 and IPv6 modes connected to the same interface; however, the traffic is considered to be logically separate.",
+    "maxaccess": "not-accessible",
+    "name": "hwMgmdRouterInterfaceQuerierType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwMgmdRouterInterfaceQuerierUpTime": {
+    "class": "objecttype",
+    "description": "The time since hwMgmdRouterInterfaceQuerier was last changed.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdRouterInterfaceQuerierUpTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwMgmdRouterInterfaceQueryInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 125
+      }
+    },
+    "description": "The frequency at which IGMP or MLD Host-Query packets are transmitted on this interface.",
+    "maxaccess": "read-create",
+    "name": "hwMgmdRouterInterfaceQueryInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 31744,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    },
+    "units": "seconds"
+  },
+  "hwMgmdRouterInterfaceQueryMaxResponseTime": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 100
+      }
+    },
+    "description": "The maximum query response interval advertised in MGMDv2 or IGMPv3 queries on this interface.",
+    "maxaccess": "read-create",
+    "name": "hwMgmdRouterInterfaceQueryMaxResponseTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.7",
+    "reference": "RFC 3810, Section 9.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 31744,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    },
+    "units": "tenths of seconds"
+  },
+  "hwMgmdRouterInterfaceRobustness": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "The Robustness Variable allows tuning for the expected packet loss on a subnet. If a subnet is expected to be lossy, the Robustness Variable may be increased. IGMP and MLD are robust to (Robustness Variable-1) packet losses.",
+    "maxaccess": "read-create",
+    "name": "hwMgmdRouterInterfaceRobustness",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdRouterInterfaceStartupQueryCount": {
+    "class": "objecttype",
+    "description": "Represents the number of Queries sent out on startup, separated by the Startup Query Interval.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdRouterInterfaceStartupQueryCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdRouterInterfaceStartupQueryInterval": {
+    "class": "objecttype",
+    "description": "This variable represents the interval between General Queries sent by a Querier on startup.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdRouterInterfaceStartupQueryInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 31744,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    },
+    "units": "seconds"
+  },
+  "hwMgmdRouterInterfaceStatus": {
+    "class": "objecttype",
+    "description": "The activation of a row enables the router side of IGMP or MLD on the interface. The destruction of a row disables the router side of IGMP or MLD on the interface.",
+    "maxaccess": "read-create",
+    "name": "hwMgmdRouterInterfaceStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMgmdRouterInterfaceTable": {
+    "class": "objecttype",
+    "description": "The (conceptual) table listing the interfaces on which IGMP or MLD is enabled.",
+    "maxaccess": "not-accessible",
+    "name": "hwMgmdRouterInterfaceTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4",
+    "status": "current"
+  },
+  "hwMgmdRouterInterfaceVersion": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "The version of MGMD that is running on this interface. Value 1 applies to IGMPv1 routers only. Value 2 applies to IGMPv2 and MLDv1 routers, and value 3 applies to IGMPv3 and MLDv2 routers. This object can be used to configure a router capable of running either version. For IGMP and MLD to function correctly, all routers on a LAN must be configured to run the same version on that LAN.",
+    "maxaccess": "read-create",
+    "name": "hwMgmdRouterInterfaceVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 3,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdRouterInterfaceWrongVersionQueries": {
+    "class": "objecttype",
+    "description": "The number of general queries received whose IGMP or MLD version does not match the equivalent hwMgmdRouterInterfaceVersion, over the lifetime of the row entry. Both IGMP and MLD require that all routers on a LAN be configured to run the same version. Thus, if any general queries are received with the wrong version, this indicates a configuration error.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdRouterInterfaceWrongVersionQueries",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.4.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwMgmdRouterSrcListAddress": {
+    "class": "objecttype",
+    "description": "The IP multicast group address for which this entry contains information.",
+    "maxaccess": "not-accessible",
+    "name": "hwMgmdRouterSrcListAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.10.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 4,
+            "min": 4
+          },
+          {
+            "max": 16,
+            "min": 16
+          }
+        ]
+      },
+      "type": "InetAddress"
+    }
+  },
+  "hwMgmdRouterSrcListAddressType": {
+    "class": "objecttype",
+    "description": "The address type of the InetAddress variables in this table. This value applies to the hwMgmdRouterSrcListHostAddress and hwMgmdRouterSrcListAddress entries.",
+    "maxaccess": "not-accessible",
+    "name": "hwMgmdRouterSrcListAddressType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.10.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwMgmdRouterSrcListEntry": {
+    "class": "objecttype",
+    "description": "An entry (conceptual row) in the hwMgmdRouterSrcListTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterSrcListAddressType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterSrcListAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterSrcListIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterSrcListHostAddress"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMgmdRouterSrcListEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.10.1",
+    "status": "current"
+  },
+  "hwMgmdRouterSrcListExpire": {
+    "class": "objecttype",
+    "description": "This value indicates the relevance of the SrcList entry, whereby a non-zero value indicates this is an INCLUDE state value, and a zero value indicates this to be an EXCLUDE state value.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdRouterSrcListExpire",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.10.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwMgmdRouterSrcListHostAddress": {
+    "class": "objecttype",
+    "description": "The host address to which this entry corresponds. The hwMgmdRouterCacheSourceFilterMode value for this group address and interface indicates whether this host address is included or excluded.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdRouterSrcListHostAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.10.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 4,
+            "min": 4
+          },
+          {
+            "max": 16,
+            "min": 16
+          }
+        ]
+      },
+      "type": "InetAddress"
+    }
+  },
+  "hwMgmdRouterSrcListIfIndex": {
+    "class": "objecttype",
+    "description": "The interface for which this entry contains information for an IP multicast group address.",
+    "maxaccess": "not-accessible",
+    "name": "hwMgmdRouterSrcListIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.10.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwMgmdRouterSrcListTable": {
+    "class": "objecttype",
+    "description": "The (conceptual) table listing the Source List entries corresponding to each interface and multicast group pair on a Router.",
+    "maxaccess": "not-accessible",
+    "name": "hwMgmdRouterSrcListTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.1.10",
+    "status": "current"
+  },
+  "hwMgmdSource": {
+    "class": "objecttype",
+    "description": "Source address of the entry.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdSource",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.2",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMgmdStdMib": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "The MIB module for MGMD Management. Huawei Technologies Co.,Ltd . Supplementary information may be available at: http://www.huawei.com",
+    "lastupdated": "201407090000Z",
+    "name": "hwMgmdStdMib",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "1.Add hwMgmdHostStarGThresholdExceed trap. 2.Add hwMgmdHostStarGThresholdExceedClear trap. 3.Add hwMgmdHostStarGExceed trap. 4.Add hwMgmdHostStarGExceedClear trap. 5.Add hwMgmdHostSGThreshodExceed trap. 6.Add hwMgmdHostSGThreshodExceedClear trap. 7.Add hwMgmdHostSGExceed trap. 8.Add hwMgmdHostSGExceedClear trap. ",
+        "revision": "2014-07-09 00:00"
+      },
+      {
+        "description": "1.Correct trap name hwMgmdTotalLimitThreshodExceed to hwMgmdTotalLimitThresholdExceed and modify the description. 2.Correct trap name hwMgmdTotalLimitThreshodExceedClear to hwMgmdTotalLimitThresholdExceedClear and modify the description. ",
+        "revision": "2014-07-01 00:00"
+      },
+      {
+        "description": "1.Add hwMgmdTotalLimitThreshodExceed trap. 2.Add hwMgmdTotalLimitThreshodExceedClear trap. ",
+        "revision": "2014-06-20 00:00"
+      },
+      {
+        "description": "Modify import mibs",
+        "revision": "2013-08-28 00:00"
+      },
+      {
+        "description": "The initial revision of this MIB module.",
+        "revision": "2007-04-16 00:00"
+      }
+    ]
+  },
+  "hwMgmdTotalEntries": {
+    "class": "objecttype",
+    "description": "The total number of IGMP or MLD entries of all instances.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdTotalEntries",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdTotalLimit": {
+    "class": "notificationtype",
+    "description": "A hwMgmdTotalLimit notification signifies that an IGMP report has been limited for up to maximum entries of IGMP total routing-table. This notification is generated whenever an IGMP report failed to create membership as IGMP total routing-table limit.",
+    "name": "hwMgmdTotalLimit",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdSource"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdGroup"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalEntries"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.3",
+    "status": "obsolete"
+  },
+  "hwMgmdTotalLimitCurrentCount": {
+    "class": "objecttype",
+    "description": "The current number of IGMP or MLD entries of all instances.",
+    "maxaccess": "read-only",
+    "name": "hwMgmdTotalLimitCurrentCount",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdTotalLimitThreshold": {
+    "class": "objecttype",
+    "description": "The threshold value of IGMP or MLD entries uppper limit(%) of all instances.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMgmdTotalLimitThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.2.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMgmdTotalLimitThresholdExceed": {
+    "class": "notificationtype",
+    "description": "A hwMgmdTotalLimitThresholdExceed notification signifies that IGMP or MLD entries count of all instances reached the upper threshold.",
+    "name": "hwMgmdTotalLimitThresholdExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalLimitCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalLimitThreshold"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalEntries"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.12",
+    "status": "current"
+  },
+  "hwMgmdTotalLimitThresholdExceedClear": {
+    "class": "notificationtype",
+    "description": "A hwMgmdTotalLimitThresholdExceedClear notification signifies that IGMP or MLD entries count of all instances fell below the lower threshold.",
+    "name": "hwMgmdTotalLimitThresholdExceedClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdNotificationAddressType"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalLimitCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalLimitThreshold"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdTotalEntries"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.3.13",
+    "status": "current"
+  },
+  "hwMgmdV2IgmpRouterMibGroup": {
+    "class": "objectgroup",
+    "description": "A collection of further objects required by IGMPv2 routers for MGMD version 2 compliance. ",
+    "name": "hwMgmdV2IgmpRouterMibGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterCacheVersion1HostTimer"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.4.7",
+    "status": "current"
+  },
+  "hwMgmdV2ProxyMibGroup": {
+    "class": "objectgroup",
+    "description": "A collection of additional objects for management of MGMD proxy devices.",
+    "name": "hwMgmdV2ProxyMibGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceProxyIfIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.4.8",
+    "status": "current"
+  },
+  "hwMgmdV2RouterBaseMibGroup": {
+    "class": "objectgroup",
+    "description": "A collection of additional objects for management of MGMD version 2 in routers.",
+    "name": "hwMgmdV2RouterBaseMibGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceVersion"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceQuerier"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceQueryMaxResponseTime"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceRobustness"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceWrongVersionQueries"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceLastMembQueryIntvl"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceLastMembQueryCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceStartupQueryCount"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterInterfaceStartupQueryInterval"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.4.6",
+    "status": "current"
+  },
+  "hwMgmdV2RouterOptMibGroup": {
+    "class": "objectgroup",
+    "description": "An additional optional object for management of MGMD version 2 in routers.",
+    "name": "hwMgmdV2RouterOptMibGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdInverseRouterCacheAddress"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.4.9",
+    "status": "current"
+  },
+  "hwMgmdV3RouterMibGroup": {
+    "class": "objectgroup",
+    "description": "A collection of additional objects for management of MGMD version 3 in routers.",
+    "name": "hwMgmdV3RouterMibGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterCacheSourceFilterMode"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterCacheVersion2HostTimer"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterCacheExcludeModeExpiryTimer"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterSrcListHostAddress"
+      },
+      {
+        "module": "HUAWEI-MGMD-STD-MIB",
+        "object": "hwMgmdRouterSrcListExpire"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.3.4.4.11",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter64",
+      "TimeTicks",
+      "Integer32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-MGMD-STD-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:16 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-MGMD-STD-MIB"
+  }
+}

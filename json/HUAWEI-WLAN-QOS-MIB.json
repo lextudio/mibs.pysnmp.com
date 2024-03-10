@@ -1,0 +1,2863 @@
+{
+  "hwQAPEDCABEACKPolicy": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "ACK policy. This attribute shall specify the policy of ACK that shall be used by an AP for AC_BE.",
+    "maxaccess": "read-create",
+    "name": "hwQAPEDCABEACKPolicy",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noack": 2,
+          "normal": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwQAPEDCABEAIFSN": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "Arbitration Inter Frame Spacing Number. This attribute shall specify the value of AIFSN that shall be used by an AP for AC_BE.",
+    "maxaccess": "read-create",
+    "name": "hwQAPEDCABEAIFSN",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQAPEDCABEECWmax": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 6
+      }
+    },
+    "description": "Exponent form of CWmax. This attribute shall specify the value of ECWmax that shall be used by an AP for AC_BE.",
+    "maxaccess": "read-create",
+    "name": "hwQAPEDCABEECWmax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQAPEDCABEECWmin": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 4
+      }
+    },
+    "description": "Exponent form of CWmin. This attribute shall specify the value of ECWmin that shall be used by an AP for AC_BE.",
+    "maxaccess": "read-create",
+    "name": "hwQAPEDCABEECWmin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQAPEDCABETXOPLimit": {
+    "class": "objecttype",
+    "description": "Transmission Opportunity Limit. This attribute shall specify the value of TXOPLimit that shall be used by an AP for AC_BE.",
+    "maxaccess": "read-create",
+    "name": "hwQAPEDCABETXOPLimit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQAPEDCABKACKPolicy": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "ACK policy. This attribute shall specify the policy of ACK that shall be used by an AP for AC_BK.",
+    "maxaccess": "read-create",
+    "name": "hwQAPEDCABKACKPolicy",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noack": 2,
+          "normal": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwQAPEDCABKAIFSN": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 7
+      }
+    },
+    "description": "Arbitration Inter Frame Spacing Number. This attribute shall specify the value of AIFSN that shall be used by an AP for AC_BK.",
+    "maxaccess": "read-create",
+    "name": "hwQAPEDCABKAIFSN",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQAPEDCABKECWmax": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 10
+      }
+    },
+    "description": "Exponent form of CWmax. This attribute shall specify the value of ECWmax that shall be used by an AP for AC_BK.",
+    "maxaccess": "read-create",
+    "name": "hwQAPEDCABKECWmax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQAPEDCABKECWmin": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 4
+      }
+    },
+    "description": "Exponent form of CWmin. This attribute shall specify the value of ECWmin that shall be used by an AP for AC_BK.",
+    "maxaccess": "read-create",
+    "name": "hwQAPEDCABKECWmin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQAPEDCABKTXOPLimit": {
+    "class": "objecttype",
+    "description": "Transmission Opportunity Limit. This attribute shall specify the value of TXOPLimit that shall be used by an AP for AC_BK.",
+    "maxaccess": "read-create",
+    "name": "hwQAPEDCABKTXOPLimit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQAPEDCAVideoACKPolicy": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "ACK policy. This attribute shall specify the policy of ACK that shall be used by an AP for AC_VI.",
+    "maxaccess": "read-create",
+    "name": "hwQAPEDCAVideoACKPolicy",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noack": 2,
+          "normal": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwQAPEDCAVideoAIFSN": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "Arbitration Inter Frame Spacing Number. This attribute shall specify the value of AIFSN that shall be used by an AP for AC_VI.",
+    "maxaccess": "read-create",
+    "name": "hwQAPEDCAVideoAIFSN",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQAPEDCAVideoECWmax": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 4
+      }
+    },
+    "description": "Exponent form of CWmax. This attribute shall specify the value of ECWmax that shall be used by an AP for AC_VI.",
+    "maxaccess": "read-create",
+    "name": "hwQAPEDCAVideoECWmax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQAPEDCAVideoECWmin": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "Exponent form of CWmin. This attribute shall specify the value of ECWmin that shall be used by an AP for AC_VI.",
+    "maxaccess": "read-create",
+    "name": "hwQAPEDCAVideoECWmin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQAPEDCAVideoTXOPLimit": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 94
+      }
+    },
+    "description": "Transmission Opportunity Limit. This attribute shall specify the value of TXOPLimit that shall be used by an AP for AC_VI.",
+    "maxaccess": "read-create",
+    "name": "hwQAPEDCAVideoTXOPLimit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQAPEDCAVoiceACKPolicy": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "ACK policy. This attribute shall specify the policy of ACK that shall be used by an AP for AC_VO.",
+    "maxaccess": "read-create",
+    "name": "hwQAPEDCAVoiceACKPolicy",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noack": 2,
+          "normal": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwQAPEDCAVoiceAIFSN": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "Arbitration Inter Frame Spacing Number. This attribute shall specify the value of AIFSN that shall be used by an AP for AC_VO.",
+    "maxaccess": "read-create",
+    "name": "hwQAPEDCAVoiceAIFSN",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQAPEDCAVoiceECWmax": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "Exponent form of CWmax. This attribute shall specify the value of ECWmax that shall be used by an AP for AC_VO.",
+    "maxaccess": "read-create",
+    "name": "hwQAPEDCAVoiceECWmax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQAPEDCAVoiceECWmin": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "Exponent form of CWmin. This attribute shall specify the value of ECWmin that shall be used by an AP for AC_VO.",
+    "maxaccess": "read-create",
+    "name": "hwQAPEDCAVoiceECWmin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQAPEDCAVoiceTXOPLimit": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 47
+      }
+    },
+    "description": "Transmission Opportunity Limit. This attribute shall specify the value of TXOPLimit that shall be used by an AP for AC_VO.",
+    "maxaccess": "read-create",
+    "name": "hwQAPEDCAVoiceTXOPLimit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQClientEDCABEAIFSN": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "Arbitration Inter Frame Spacing Number. This attribute shall specify the value of AIFSN that shall be used by a STA for AC_BE.",
+    "maxaccess": "read-create",
+    "name": "hwQClientEDCABEAIFSN",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.35",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQClientEDCABEECWmax": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 10
+      }
+    },
+    "description": "Exponent form of CWmax. This attribute shall specify the value of ECWmax that shall be used by a STA for AC_BE.",
+    "maxaccess": "read-create",
+    "name": "hwQClientEDCABEECWmax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQClientEDCABEECWmin": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 4
+      }
+    },
+    "description": "Exponent form of CWmin. This attribute shall specify the value of ECWmin that shall be used by a STA for AC_BE.",
+    "maxaccess": "read-create",
+    "name": "hwQClientEDCABEECWmin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.34",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQClientEDCABETXOPLimit": {
+    "class": "objecttype",
+    "description": "Transmission Opportunity Limit. This attribute shall specify the value of TXOPLimit that shall be used by a STA for AC_BE.",
+    "maxaccess": "read-create",
+    "name": "hwQClientEDCABETXOPLimit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.36",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQClientEDCABKAIFSN": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 7
+      }
+    },
+    "description": "Arbitration Inter Frame Spacing Number. This attribute shall specify the value of AIFSN that shall be used by a STA for AC_BK.",
+    "maxaccess": "read-create",
+    "name": "hwQClientEDCABKAIFSN",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.39",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQClientEDCABKECWmax": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 10
+      }
+    },
+    "description": "Exponent form of CWmax. This attribute shall specify the value of ECWmax that shall be used by a STA for AC_BK.",
+    "maxaccess": "read-create",
+    "name": "hwQClientEDCABKECWmax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.37",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQClientEDCABKECWmin": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 4
+      }
+    },
+    "description": "Exponent form of CWmin. This attribute shall specify the value of ECWmin that shall be used by a STA for AC_BK.",
+    "maxaccess": "read-create",
+    "name": "hwQClientEDCABKECWmin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.38",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQClientEDCABKTXOPLimit": {
+    "class": "objecttype",
+    "description": "Transmission Opportunity Limit. This attribute shall specify the value of TXOPLimit that shall be used by a STA for AC_BK.",
+    "maxaccess": "read-create",
+    "name": "hwQClientEDCABKTXOPLimit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.40",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQClientEDCAVideoAIFSN": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "Arbitration Inter Frame Spacing Number. This attribute shall specify the value of AIFSN that shall be used by a STA for AC_VI.",
+    "maxaccess": "read-create",
+    "name": "hwQClientEDCAVideoAIFSN",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQClientEDCAVideoECWmax": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 4
+      }
+    },
+    "description": "Exponent form of CWmax. This attribute shall specify the value of ECWmax that shall be used by a STA for AC_VI.",
+    "maxaccess": "read-create",
+    "name": "hwQClientEDCAVideoECWmax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQClientEDCAVideoECWmin": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "Exponent form of CWmin. This attribute shall specify the value of ECWmin that shall be used by a STA for AC_VI.",
+    "maxaccess": "read-create",
+    "name": "hwQClientEDCAVideoECWmin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQClientEDCAVideoTXOPLimit": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 94
+      }
+    },
+    "description": "Transmission Opportunity Limit. This attribute shall specify the value of TXOPLimit that shall be used by a STA for AC_VI.",
+    "maxaccess": "read-create",
+    "name": "hwQClientEDCAVideoTXOPLimit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQClientEDCAVoiceAIFSN": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "Arbitration Inter Frame Spacing Number. This attribute shall specify the value of AIFSN that shall be used by a STA for AC_VO.",
+    "maxaccess": "read-create",
+    "name": "hwQClientEDCAVoiceAIFSN",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQClientEDCAVoiceECWmax": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "Exponent form of CWmax. This attribute shall specify the value of ECWmax that shall be used by a STA for AC_VO.",
+    "maxaccess": "read-create",
+    "name": "hwQClientEDCAVoiceECWmax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQClientEDCAVoiceECWmin": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "Exponent form of CWmin. This attribute shall specify the value of ECWmin that shall be used by a STA for AC_VO.",
+    "maxaccess": "read-create",
+    "name": "hwQClientEDCAVoiceECWmin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQClientEDCAVoiceTXOPLimit": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 47
+      }
+    },
+    "description": "Transmission Opportunity Limit. This attribute shall specify the value of TXOPLimit that shall be used by a STA for AC_VO.",
+    "maxaccess": "read-create",
+    "name": "hwQClientEDCAVoiceTXOPLimit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwWlan8021p0MapUPValue": {
+    "class": "objecttype",
+    "description": "The mapping user-priority value from 802.1p priority value 0.",
+    "maxaccess": "read-create",
+    "name": "hwWlan8021p0MapUPValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwWlan8021p1MapUPValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "The mapping user-priority value from 802.1p priority value 1.",
+    "maxaccess": "read-create",
+    "name": "hwWlan8021p1MapUPValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwWlan8021p2MapUPValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "The mapping user-priority value from 802.1p priority value 2.",
+    "maxaccess": "read-create",
+    "name": "hwWlan8021p2MapUPValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwWlan8021p3MapUPValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "The mapping user-priority value from 802.1p priority value 3.",
+    "maxaccess": "read-create",
+    "name": "hwWlan8021p3MapUPValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwWlan8021p4MapUPValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 4
+      }
+    },
+    "description": "The mapping user-priority value from 802.1p priority value 4.",
+    "maxaccess": "read-create",
+    "name": "hwWlan8021p4MapUPValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwWlan8021p5MapUPValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": "The mapping user-priority value from 802.1p priority value 5.",
+    "maxaccess": "read-create",
+    "name": "hwWlan8021p5MapUPValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwWlan8021p6MapUPValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 6
+      }
+    },
+    "description": "The mapping user-priority value from 802.1p priority value 6.",
+    "maxaccess": "read-create",
+    "name": "hwWlan8021p6MapUPValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwWlan8021p7MapUPValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 7
+      }
+    },
+    "description": "The mapping user-priority value from 802.1p priority value 7.",
+    "maxaccess": "read-create",
+    "name": "hwWlan8021p7MapUPValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwWlan8021pMapMode": {
+    "class": "objecttype",
+    "description": "The mapping mode of user-priority to 802.1p, supporting mapping and designate.",
+    "maxaccess": "read-create",
+    "name": "hwWlan8021pMapMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "designate": 1,
+          "mapping": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWlan8021pSpecValue": {
+    "class": "objecttype",
+    "description": "Designate the 802.1p priority value.",
+    "maxaccess": "read-create",
+    "name": "hwWlan8021pSpecValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanBatchTrafficProfileGetNumber": {
+    "class": "objecttype",
+    "description": "The traffic-profile number that want to get in batch operation.This node is used with node hwWlanBatchTrafficProfileStartNumber, for example, hwWlanBatchTrafficProfileStartNumber is set to one, and hwWlanBatchTrafficProfileGetNumber is set to three, then get the node hwWlanBatchTrafficProfileReturnNumber, hwWlanBatchTrafficProfileName, that means start from the first traffic-profile, get three traffic-profile\u0027s name . if it dose not exist three traffic-profile, the hwWlanBatchTrafficProfileReturnNumber will be the real traffic-profile number, otherwise, it is equal to hwWlanBatchTrafficProfileGetNumber.",
+    "maxaccess": "read-write",
+    "name": "hwWlanBatchTrafficProfileGetNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwWlanBatchTrafficProfileName": {
+    "class": "objecttype",
+    "description": "The names of traffic-profiles which are determined by node hwWlanBatchTrafficProfileStartNumber and node hwWlanBatchTrafficProfileGetNumber. each traffic-profile name is divided by \u0027?\u0027.",
+    "maxaccess": "read-only",
+    "name": "hwWlanBatchTrafficProfileName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlanBatchTrafficProfileReturnNumber": {
+    "class": "objecttype",
+    "description": "The traffic-profile number get in batch operation.",
+    "maxaccess": "read-only",
+    "name": "hwWlanBatchTrafficProfileReturnNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanBatchTrafficProfileStartNumber": {
+    "class": "objecttype",
+    "description": "The traffic-profile start number in batch operation. This node is used with node hwWlanBatchTrafficProfileGetNumber, for example, hwWlanBatchTrafficProfileStartNumber is set to one, and hwWlanBatchTrafficProfileGetNumber is set to three, then get the node hwWlanBatchTrafficProfileReturnNumber, hwWlanBatchTrafficProfileName, that means start from the first traffic-profile, get three traffic-profile\u0027s name . if it dose not exist three traffic-profile, the hwWlanBatchTrafficProfileReturnNumber will be the real traffic-profile number, otherwise, it is equal to hwWlanBatchTrafficProfileGetNumber.",
+    "maxaccess": "read-write",
+    "name": "hwWlanBatchTrafficProfileStartNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwWlanBatchWmmProfileGetNumber": {
+    "class": "objecttype",
+    "description": "The wmm-profile number that want to get in batch operation.This node is used with node hwWlanBatchWmmProfileStartNumber, for example, hwWlanBatchWmmProfileStartNumber is set to one, and hwWlanBatchWmmProfileGetNumber is set to three, then get the node hwWlanBatchWmmProfileReturnNumber, hwWlanBatchWmmProfileName, that means start from the first wmm-profile, get three wmm-profile\u0027s name . if it dose not exist three wmm-profile, the hwWlanBatchWmmProfileReturnNumber will be the real wmm-profile number, otherwise, it is equal to hwWlanBatchWmmProfileGetNumber.",
+    "maxaccess": "read-write",
+    "name": "hwWlanBatchWmmProfileGetNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwWlanBatchWmmProfileName": {
+    "class": "objecttype",
+    "description": "The names of wmm-profiles which are determined by node hwWlanBatchWmmProfileStartNumber and node hwWlanBatchWmmProfileGetNumber. each wmm-profile name is divided by \u0027?\u0027.",
+    "maxaccess": "read-only",
+    "name": "hwWlanBatchWmmProfileName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlanBatchWmmProfileReturnNumber": {
+    "class": "objecttype",
+    "description": "The wmm-profile number get in batch operation.",
+    "maxaccess": "read-only",
+    "name": "hwWlanBatchWmmProfileReturnNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanBatchWmmProfileStartNumber": {
+    "class": "objecttype",
+    "description": "The wmm-profile start number in batch operation. This node is used with node hwWlanBatchWmmProfileGetNumber, for example, hwWlanBatchWmmProfileStartNumber is set to one, and hwWlanBatchWmmProfileGetNumber is set to three, then get the node hwWlanBatchWmmProfileReturnNumber, hwWlanBatchWmmProfileName, that means start from the first wmm-profile, get three wmm-profile\u0027s name . if it dose not exist three wmm-profile, the hwWlanBatchWmmProfileReturnNumber will be the real wmm-profile number, otherwise, it is equal to hwWlanBatchWmmProfileGetNumber.",
+    "maxaccess": "read-write",
+    "name": "hwWlanBatchWmmProfileStartNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwWlanClientDownLimitRate": {
+    "class": "objecttype",
+    "description": "The down limit rate of client.",
+    "maxaccess": "read-create",
+    "name": "hwWlanClientDownLimitRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.43",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWlanClientUpLimitRate": {
+    "class": "objecttype",
+    "description": "The up limit rate of client.",
+    "maxaccess": "read-create",
+    "name": "hwWlanClientUpLimitRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWlanDownTunnelPriorityMapMode": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 6
+      }
+    },
+    "description": "The mapping mode to down tunnel priority, supporting specDSCP and specCOS and dscp2dscp and dscp2cos and cos2cos and cos2dscp.",
+    "maxaccess": "read-create",
+    "name": "hwWlanDownTunnelPriorityMapMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cos2cos": 3,
+          "cos2dscp": 4,
+          "dscp2cos": 5,
+          "dscp2dscp": 6,
+          "specCOS": 1,
+          "specDSCP": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWlanDownTunnelPrioritySpecValue": {
+    "class": "objecttype",
+    "description": "Designate the down tunnel priority value.",
+    "maxaccess": "read-create",
+    "name": "hwWlanDownTunnelPrioritySpecValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.34",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanQosManagement": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "Wlan QoS management.",
+    "lastupdated": "201011100000Z",
+    "name": "hwWlanQosManagement",
+    "oid": "1.3.6.1.4.1.2011.6.139.5",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": " V1.02, for the hwWlanTrafficProfileTable, change the leaf nodes hwWlanClientLimitRate and hwWlanVAPLimitRate to hwWlanClientUpLimitRate and hwWlanVAPUpLimitRate, add leaf nodes hwWlanClientDownLimitRate and hwWlanClientDownLimitRate .",
+        "revision": "2010-10-12 10:00"
+      },
+      {
+        "description": " V1.00, The first Draft.",
+        "revision": "2010-06-01 10:00"
+      }
+    ]
+  },
+  "hwWlanQosManagementCompliance": {
+    "class": "modulecompliance",
+    "description": "Description.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanWmmProfileGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanTrafficProfileGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanQosManagementGroup"
+      }
+    ],
+    "name": "hwWlanQosManagementCompliance",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.12.1.1",
+    "status": "current"
+  },
+  "hwWlanQosManagementCompliances": {
+    "class": "objectidentity",
+    "name": "hwWlanQosManagementCompliances",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.12.1"
+  },
+  "hwWlanQosManagementConformance": {
+    "class": "objectidentity",
+    "name": "hwWlanQosManagementConformance",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.12"
+  },
+  "hwWlanQosManagementGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWlanQosManagementGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanBatchWmmProfileStartNumber"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanBatchWmmProfileGetNumber"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanBatchWmmProfileReturnNumber"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanBatchWmmProfileName"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanBatchTrafficProfileStartNumber"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanBatchTrafficProfileGetNumber"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanBatchTrafficProfileReturnNumber"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanBatchTrafficProfileName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.5.12.2.3",
+    "status": "current"
+  },
+  "hwWlanQosManagementObjectGroups": {
+    "class": "objectidentity",
+    "name": "hwWlanQosManagementObjectGroups",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.12.2"
+  },
+  "hwWlanQosManagementObjects": {
+    "class": "objectidentity",
+    "name": "hwWlanQosManagementObjects",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.11"
+  },
+  "hwWlanTos0MapUPValue": {
+    "class": "objecttype",
+    "description": "The mapping user-priority value from tos priority value 0.",
+    "maxaccess": "read-create",
+    "name": "hwWlanTos0MapUPValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.45",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwWlanTos1MapUPValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "The mapping user-priority value from tos priority value 1.",
+    "maxaccess": "read-create",
+    "name": "hwWlanTos1MapUPValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.46",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwWlanTos2MapUPValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "The mapping user-priority value from tos priority value 2.",
+    "maxaccess": "read-create",
+    "name": "hwWlanTos2MapUPValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.47",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwWlanTos3MapUPValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "The mapping user-priority value from tos priority value 3.",
+    "maxaccess": "read-create",
+    "name": "hwWlanTos3MapUPValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.48",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwWlanTos4MapUPValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 4
+      }
+    },
+    "description": "The mapping user-priority value from tos priority value 4.",
+    "maxaccess": "read-create",
+    "name": "hwWlanTos4MapUPValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.49",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwWlanTos5MapUPValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": "The mapping user-priority value from tos priority value 5.",
+    "maxaccess": "read-create",
+    "name": "hwWlanTos5MapUPValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.50",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwWlanTos6MapUPValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 6
+      }
+    },
+    "description": "The mapping user-priority value from tos priority value 6.",
+    "maxaccess": "read-create",
+    "name": "hwWlanTos6MapUPValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwWlanTos7MapUPValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 7
+      }
+    },
+    "description": "The mapping user-priority value from 802.1p priority value 7.",
+    "maxaccess": "read-create",
+    "name": "hwWlanTos7MapUPValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.52",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwWlanTrafficProfileEntry": {
+    "class": "objecttype",
+    "description": "Traffic profile management entity.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanTrafficProfileName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwWlanTrafficProfileEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1",
+    "status": "current"
+  },
+  "hwWlanTrafficProfileGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWlanTrafficProfileGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanTrafficProfileRowStatus"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanClientUpLimitRate"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanVAPUpLimitRate"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlan8021pMapMode"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlan8021pSpecValue"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanUP0Map8021p"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanUP1Map8021p"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanUP2Map8021p"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanUP3Map8021p"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanUP4Map8021p"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanUP5Map8021p"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanUP6Map8021p"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanUP7Map8021p"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlan8021p0MapUPValue"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlan8021p1MapUPValue"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlan8021p2MapUPValue"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlan8021p3MapUPValue"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlan8021p4MapUPValue"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlan8021p5MapUPValue"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlan8021p6MapUPValue"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlan8021p7MapUPValue"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanUpTunnelPriorityMapMode"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanUpTunnelPrioritySpecValue"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanValue0MapUpTunnelPriority"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanValue1MapUpTunnelPriority"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanValue2MapUpTunnelPriority"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanValue3MapUpTunnelPriority"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanValue4MapUpTunnelPriority"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanValue5MapUpTunnelPriority"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanValue6MapUpTunnelPriority"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanValue7MapUpTunnelPriority"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanDownTunnelPriorityMapMode"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanDownTunnelPrioritySpecValue"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanValue0MapDownTunnelPriority"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanValue1MapDownTunnelPriority"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanValue2MapDownTunnelPriority"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanValue3MapDownTunnelPriority"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanValue4MapDownTunnelPriority"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanValue5MapDownTunnelPriority"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanValue6MapDownTunnelPriority"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanValue7MapDownTunnelPriority"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanClientDownLimitRate"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanVAPDownLimitRate"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanTos0MapUPValue"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanTos1MapUPValue"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanTos2MapUPValue"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanTos3MapUPValue"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanTos4MapUPValue"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanTos5MapUPValue"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanTos6MapUPValue"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanTos7MapUPValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.5.12.2.2",
+    "status": "current"
+  },
+  "hwWlanTrafficProfileName": {
+    "class": "objecttype",
+    "description": "Traffic profile name.",
+    "maxaccess": "not-accessible",
+    "name": "hwWlanTrafficProfileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlanTrafficProfileRowStatus": {
+    "class": "objecttype",
+    "description": "Row status. Add or delete a table item.",
+    "maxaccess": "read-write",
+    "name": "hwWlanTrafficProfileRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwWlanTrafficProfileTable": {
+    "class": "objecttype",
+    "description": "Traffic profile management table.",
+    "maxaccess": "not-accessible",
+    "name": "hwWlanTrafficProfileTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2",
+    "status": "current"
+  },
+  "hwWlanUP0Map8021p": {
+    "class": "objecttype",
+    "description": "The mapping 802.1p priority value from user-priority 0.",
+    "maxaccess": "read-create",
+    "name": "hwWlanUP0Map8021p",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanUP1Map8021p": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "The mapping 802.1p priority value from user-priority 1.",
+    "maxaccess": "read-create",
+    "name": "hwWlanUP1Map8021p",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanUP2Map8021p": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "The mapping 802.1p priority value from user-priority 2.",
+    "maxaccess": "read-create",
+    "name": "hwWlanUP2Map8021p",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanUP3Map8021p": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "The mapping 802.1p priority value from user-priority 3.",
+    "maxaccess": "read-create",
+    "name": "hwWlanUP3Map8021p",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanUP4Map8021p": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 4
+      }
+    },
+    "description": "The mapping 802.1p priority value from user-priority 4.",
+    "maxaccess": "read-create",
+    "name": "hwWlanUP4Map8021p",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanUP5Map8021p": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": "The mapping 802.1p priority value from user-priority 5.",
+    "maxaccess": "read-create",
+    "name": "hwWlanUP5Map8021p",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanUP6Map8021p": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 6
+      }
+    },
+    "description": "The mapping 802.1p priority value from user-priority 6.",
+    "maxaccess": "read-create",
+    "name": "hwWlanUP6Map8021p",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanUP7Map8021p": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 7
+      }
+    },
+    "description": "The mapping 802.1p priority value from user-priority 7.",
+    "maxaccess": "read-create",
+    "name": "hwWlanUP7Map8021p",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanUpTunnelPriorityMapMode": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 6
+      }
+    },
+    "description": "The mapping mode to up tunnel priority, supporting specDSCP and specCOS and dscp2dscp and dscp2cos and cos2cos and cos2dscp.",
+    "maxaccess": "read-create",
+    "name": "hwWlanUpTunnelPriorityMapMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cos2cos": 3,
+          "cos2dscp": 4,
+          "dscp2cos": 5,
+          "dscp2dscp": 6,
+          "specCOS": 1,
+          "specDSCP": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWlanUpTunnelPrioritySpecValue": {
+    "class": "objecttype",
+    "description": "Designate the up tunnel priority value.",
+    "maxaccess": "read-create",
+    "name": "hwWlanUpTunnelPrioritySpecValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanVAPDownLimitRate": {
+    "class": "objecttype",
+    "description": "The down limit rate of VAP.",
+    "maxaccess": "read-create",
+    "name": "hwWlanVAPDownLimitRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.44",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWlanVAPUpLimitRate": {
+    "class": "objecttype",
+    "description": "The up limit rate of VAP.",
+    "maxaccess": "read-create",
+    "name": "hwWlanVAPUpLimitRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWlanValue0MapDownTunnelPriority": {
+    "class": "objecttype",
+    "description": "The mapping value of the down tunnel priority from priority value 0.",
+    "maxaccess": "read-create",
+    "name": "hwWlanValue0MapDownTunnelPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.35",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanValue0MapUpTunnelPriority": {
+    "class": "objecttype",
+    "description": "The mapping value of the up tunnel priority from priority value 0.",
+    "maxaccess": "read-create",
+    "name": "hwWlanValue0MapUpTunnelPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanValue1MapDownTunnelPriority": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "The mapping value of the down tunnel priority from priority value 1.",
+    "maxaccess": "read-create",
+    "name": "hwWlanValue1MapDownTunnelPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.36",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanValue1MapUpTunnelPriority": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "The mapping value of the up tunnel priority from priority value 1.",
+    "maxaccess": "read-create",
+    "name": "hwWlanValue1MapUpTunnelPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanValue2MapDownTunnelPriority": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "The mapping value of the down tunnel priority from priority value 2.",
+    "maxaccess": "read-create",
+    "name": "hwWlanValue2MapDownTunnelPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.37",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanValue2MapUpTunnelPriority": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "The mapping value of the up tunnel priority from priority value 2.",
+    "maxaccess": "read-create",
+    "name": "hwWlanValue2MapUpTunnelPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanValue3MapDownTunnelPriority": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 7
+      }
+    },
+    "description": "The mapping value of the down tunnel priority from priority value 3.",
+    "maxaccess": "read-create",
+    "name": "hwWlanValue3MapDownTunnelPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.38",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanValue3MapUpTunnelPriority": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "The mapping value of the up tunnel priority from priority value 3.",
+    "maxaccess": "read-create",
+    "name": "hwWlanValue3MapUpTunnelPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanValue4MapDownTunnelPriority": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 4
+      }
+    },
+    "description": "The mapping value of the down tunnel priority from priority value 4.",
+    "maxaccess": "read-create",
+    "name": "hwWlanValue4MapDownTunnelPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.39",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanValue4MapUpTunnelPriority": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 4
+      }
+    },
+    "description": "The mapping value of the up tunnel priority from priority value 4.",
+    "maxaccess": "read-create",
+    "name": "hwWlanValue4MapUpTunnelPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanValue5MapDownTunnelPriority": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": "The mapping value of the down tunnel priority from priority value 5.",
+    "maxaccess": "read-create",
+    "name": "hwWlanValue5MapDownTunnelPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.40",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanValue5MapUpTunnelPriority": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": "The mapping value of the up tunnel priority from priority value 5.",
+    "maxaccess": "read-create",
+    "name": "hwWlanValue5MapUpTunnelPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanValue6MapDownTunnelPriority": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 6
+      }
+    },
+    "description": "The mapping value of the down tunnel priority from priority value 6.",
+    "maxaccess": "read-create",
+    "name": "hwWlanValue6MapDownTunnelPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.41",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanValue6MapUpTunnelPriority": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 6
+      }
+    },
+    "description": "The mapping value of the up tunnel priority from priority value 6.",
+    "maxaccess": "read-create",
+    "name": "hwWlanValue6MapUpTunnelPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanValue7MapDownTunnelPriority": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 7
+      }
+    },
+    "description": "The mapping value of the down tunnel priority from priority value 7.",
+    "maxaccess": "read-create",
+    "name": "hwWlanValue7MapDownTunnelPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.42",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanValue7MapUpTunnelPriority": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 7
+      }
+    },
+    "description": "The mapping value of the up tunnel priority from priority value 7.",
+    "maxaccess": "read-create",
+    "name": "hwWlanValue7MapUpTunnelPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.2.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanWmmMandatorySwitch": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "The mandatory switch.",
+    "maxaccess": "read-create",
+    "name": "hwWlanWmmMandatorySwitch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWlanWmmProfileEntry": {
+    "class": "objecttype",
+    "description": "Wmm profile management entity.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanWmmProfileName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwWlanWmmProfileEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1",
+    "status": "current"
+  },
+  "hwWlanWmmProfileGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWlanWmmProfileGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanWmmSwitch"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanWmmMandatorySwitch"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwWlanWmmProfileRowStatus"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQAPEDCAVoiceECWmax"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQAPEDCAVoiceECWmin"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQAPEDCAVoiceAIFSN"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQAPEDCAVoiceTXOPLimit"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQAPEDCAVoiceACKPolicy"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQAPEDCAVideoECWmax"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQAPEDCAVideoECWmin"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQAPEDCAVideoAIFSN"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQAPEDCAVideoTXOPLimit"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQAPEDCAVideoACKPolicy"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQAPEDCABEECWmax"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQAPEDCABEECWmin"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQAPEDCABEAIFSN"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQAPEDCABETXOPLimit"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQAPEDCABEACKPolicy"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQAPEDCABKECWmax"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQAPEDCABKECWmin"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQAPEDCABKAIFSN"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQAPEDCABKTXOPLimit"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQAPEDCABKACKPolicy"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQClientEDCAVoiceECWmax"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQClientEDCAVoiceECWmin"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQClientEDCAVoiceAIFSN"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQClientEDCAVoiceTXOPLimit"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQClientEDCAVideoECWmax"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQClientEDCAVideoECWmin"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQClientEDCAVideoAIFSN"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQClientEDCAVideoTXOPLimit"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQClientEDCABEECWmax"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQClientEDCABEECWmin"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQClientEDCABEAIFSN"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQClientEDCABETXOPLimit"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQClientEDCABKECWmax"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQClientEDCABKECWmin"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQClientEDCABKAIFSN"
+      },
+      {
+        "module": "HUAWEI-WLAN-QOS-MIB",
+        "object": "hwQClientEDCABKTXOPLimit"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.5.12.2.1",
+    "status": "current"
+  },
+  "hwWlanWmmProfileName": {
+    "class": "objecttype",
+    "description": "Wmm profile name.",
+    "maxaccess": "not-accessible",
+    "name": "hwWlanWmmProfileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWlanWmmProfileRowStatus": {
+    "class": "objecttype",
+    "description": "Row status. Add or delete a table item.",
+    "maxaccess": "read-write",
+    "name": "hwWlanWmmProfileRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwWlanWmmProfileTable": {
+    "class": "objecttype",
+    "description": "Wmm profile management table.",
+    "maxaccess": "not-accessible",
+    "name": "hwWlanWmmProfileTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1",
+    "status": "current"
+  },
+  "hwWlanWmmSwitch": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "The wmm switch.",
+    "maxaccess": "read-create",
+    "name": "hwWlanWmmSwitch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.5.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "imports": {
+    "HUAWEI-WLAN-MIB": [
+      "hwWlan"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "iso",
+      "Counter64",
+      "Unsigned32",
+      "Integer32",
+      "Bits",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-WLAN-QOS-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:30 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-WLAN-QOS-MIB"
+  }
+}

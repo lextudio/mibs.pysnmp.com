@@ -1,0 +1,2563 @@
+{
+  "hwAlarmEntry": {
+    "class": "objecttype",
+    "description": " The Entry of the Alarm Table. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwAlarmSerialIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAlarmEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.3.7.1.1",
+    "status": "obsolete"
+  },
+  "hwAlarmInfo": {
+    "class": "objectidentity",
+    "name": "hwAlarmInfo",
+    "oid": "1.3.6.1.4.1.2011.6.3.7"
+  },
+  "hwAlarmOcurTime": {
+    "class": "objecttype",
+    "description": " The time when this Alarm occurred. ",
+    "maxaccess": "read-only",
+    "name": "hwAlarmOcurTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.7.1.1.3",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwAlarmSerialIndex": {
+    "class": "objecttype",
+    "description": " The Index of Alarms. Serial number. ",
+    "maxaccess": "read-only",
+    "name": "hwAlarmSerialIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.7.1.1.1",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAlarmTable": {
+    "class": "objecttype",
+    "description": " The table of Alarms which the device occurred. ",
+    "maxaccess": "not-accessible",
+    "name": "hwAlarmTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.3.7.1",
+    "status": "obsolete"
+  },
+  "hwAlarmType": {
+    "class": "objecttype",
+    "description": " The type of the Alarm. ",
+    "maxaccess": "read-only",
+    "name": "hwAlarmType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.7.1.1.2",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 1,
+          "event": 3,
+          "restore": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAvgDuty1min": {
+    "class": "objecttype",
+    "description": " The overall CPU duty percentage in the last 1 minute period. ",
+    "maxaccess": "read-only",
+    "name": "hwAvgDuty1min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAvgDuty5min": {
+    "class": "objecttype",
+    "description": " The overall CPU duty percentage in the last 5-minute period. ",
+    "maxaccess": "read-only",
+    "name": "hwAvgDuty5min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBoardAttrEntry": {
+    "class": "objecttype",
+    "description": " Narrow board attribute table entity ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBoardAttrEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.6.1.1",
+    "status": "current"
+  },
+  "hwBoardAttrTable": {
+    "class": "objecttype",
+    "description": " Inquiring or modifying A_ULaw, impedance and current of ASL, A32 and H511POTS ports. ",
+    "maxaccess": "not-accessible",
+    "name": "hwBoardAttrTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.6.1",
+    "status": "current"
+  },
+  "hwBoardAulaw": {
+    "class": "objecttype",
+    "description": " Coding method of voice signal when digitalizing. In different country or area it should be A law or u law. 1 -- A law 2 -- ulaw ",
+    "maxaccess": "read-write",
+    "name": "hwBoardAulaw",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.6.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBoardCurrent": {
+    "class": "objecttype",
+    "description": " Port current supported by the board. The value ranges from 1 to 8, which indicates the port current value supported under certain loopline impedence. 1 -- 25mA steady current 2 -- 16mA steady current 3 -- 35mA 2*200 ohm 4 -- 35mA 2*250 ohm 5 -- 35mA 2*400 ohm 6 -- 47mA 2*200 ohm 7 -- 47mA 2*250 ohm 8 -- 47mA 2*400 ohm ",
+    "maxaccess": "read-write",
+    "name": "hwBoardCurrent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.6.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBoardImpedance": {
+    "class": "objecttype",
+    "description": " Port impedance of the board. The following values indicates different impedance with different application circumstances. 1 -- Bureau machine in China(200+680|| 100nf) 2 -- User Machine in China(200+560|| 100nf) 3 -- 600 ohm Interface 4 -- Interface of russian(150+510|| 47nf) 5 -- (220+820|| 115nf ) 6 -- (220+820|| 120nf ) 7 -- 900 ohm Interface 8 -- Interface of Brazil(800|| 50nf) 255 -- Private definition ",
+    "maxaccess": "read-write",
+    "name": "hwBoardImpedance",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.6.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 1
+          },
+          {
+            "max": 255,
+            "min": 255
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBufferCurrentTotal": {
+    "class": "objecttype",
+    "description": " Contains the total number of hwBuffers currently. ",
+    "maxaccess": "read-only",
+    "name": "hwBufferCurrentTotal",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBufferCurrentUsed": {
+    "class": "objecttype",
+    "description": " Contains the number of used hwBuffers currently. ",
+    "maxaccess": "read-only",
+    "name": "hwBufferCurrentUsed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBufferEntry": {
+    "class": "objecttype",
+    "description": " The Entries of hwBufferTable. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwBufferModuleIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwBufferSize"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBufferEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.2.1",
+    "status": "current"
+  },
+  "hwBufferModuleIndex": {
+    "class": "objecttype",
+    "description": " Index of hwBufferTable. ",
+    "maxaccess": "not-accessible",
+    "name": "hwBufferModuleIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBufferSize": {
+    "class": "objecttype",
+    "description": " Contains the size of byte hwBuffers, in the unit of byte. ",
+    "maxaccess": "not-accessible",
+    "name": "hwBufferSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBufferTable": {
+    "class": "objecttype",
+    "description": " Buffer information table. ",
+    "maxaccess": "not-accessible",
+    "name": "hwBufferTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.2",
+    "status": "current"
+  },
+  "hwCliClientAdminStatus": {
+    "class": "objecttype",
+    "description": " admin status of client, can disconnect client. ",
+    "maxaccess": "read-write",
+    "name": "hwCliClientAdminStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.10.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disconnect": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCliClientEntry": {
+    "class": "objecttype",
+    "description": " CLI user parameters configuration table entity. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwCliClientID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwCliClientEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.3.10.2.1",
+    "status": "current"
+  },
+  "hwCliClientID": {
+    "class": "objecttype",
+    "description": " Client ID(1..5). ",
+    "maxaccess": "not-accessible",
+    "name": "hwCliClientID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.10.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 5,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCliClientIp": {
+    "class": "objecttype",
+    "description": " The IP address of client. ",
+    "maxaccess": "read-only",
+    "name": "hwCliClientIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.10.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwCliClientLoginTime": {
+    "class": "objecttype",
+    "description": " Login time of Client. ",
+    "maxaccess": "read-only",
+    "name": "hwCliClientLoginTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.10.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwCliClientTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "hwCliClientTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.3.10.2",
+    "status": "current"
+  },
+  "hwCliClientType": {
+    "class": "objecttype",
+    "description": " Type of client(1:serial,2:telnet). ",
+    "maxaccess": "read-only",
+    "name": "hwCliClientType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.10.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "serial": 1,
+          "telnet": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCliClientUserName": {
+    "class": "objecttype",
+    "description": " User name of client. ",
+    "maxaccess": "read-only",
+    "name": "hwCliClientUserName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.10.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 15,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCliUserDecr": {
+    "class": "objecttype",
+    "description": " Description of CLI user. ",
+    "maxaccess": "read-create",
+    "name": "hwCliUserDecr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.10.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 30,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCliUserLevel": {
+    "class": "objecttype",
+    "description": " Level of CLI user(1:common,2:operator,3:administrator). ",
+    "maxaccess": "read-create",
+    "name": "hwCliUserLevel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.10.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "administrator": 3,
+          "common": 1,
+          "operator": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCliUserLogins": {
+    "class": "objecttype",
+    "description": " The num of user can login in one time. ",
+    "maxaccess": "read-create",
+    "name": "hwCliUserLogins",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.10.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCliUserMgmt": {
+    "class": "objectidentity",
+    "name": "hwCliUserMgmt",
+    "oid": "1.3.6.1.4.1.2011.6.3.10"
+  },
+  "hwCliUserName": {
+    "class": "objecttype",
+    "description": " Name of the CLI user. ",
+    "maxaccess": "not-accessible",
+    "name": "hwCliUserName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.10.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 15,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCliUserParaEntry": {
+    "class": "objecttype",
+    "description": " CLI user parameters configuration table entity. ",
+    "indices": [
+      {
+        "implied": 1,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwCliUserName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwCliUserParaEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.3.10.1.1",
+    "status": "current"
+  },
+  "hwCliUserParaTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "hwCliUserParaTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.3.10.1",
+    "status": "current"
+  },
+  "hwCliUserPassword": {
+    "class": "objecttype",
+    "description": " password of the CLI user. ",
+    "maxaccess": "read-create",
+    "name": "hwCliUserPassword",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.10.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCliUserRowStatus": {
+    "class": "objecttype",
+    "description": " Operation status of CLI user,the CLI user can be added,deleted and modified. ",
+    "maxaccess": "read-create",
+    "name": "hwCliUserRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.10.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwCompatibleProductName": {
+    "class": "objecttype",
+    "description": " The compatible product name of new network element. ",
+    "maxaccess": "read-only",
+    "name": "hwCompatibleProductName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.3.11.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCompatibleSysOid": {
+    "class": "objecttype",
+    "description": " The compatible SYSOID of new network element. ",
+    "maxaccess": "read-only",
+    "name": "hwCompatibleSysOid",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.3.11.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OBJECT IDENTIFIER"
+    }
+  },
+  "hwCompatibleVRCB": {
+    "class": "objecttype",
+    "description": " The compatible VRCB of new network element. ",
+    "maxaccess": "read-only",
+    "name": "hwCompatibleVRCB",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.3.11.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCompatibleVersion": {
+    "class": "objecttype",
+    "description": " The compatible version of new network element. ",
+    "maxaccess": "read-only",
+    "name": "hwCompatibleVersion",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.3.11.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCpuDevDuty": {
+    "class": "objecttype",
+    "description": " The overall CPU duty percentage in the last 5-second period. ",
+    "maxaccess": "read-only",
+    "name": "hwCpuDevDuty",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCpuDevEntry": {
+    "class": "objecttype",
+    "description": " The Entries of hwCpuDevTable. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwCpuDevIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwCpuDevEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.3.4.1",
+    "status": "current"
+  },
+  "hwCpuDevIndex": {
+    "class": "objecttype",
+    "description": " Index of hwCpuDevTable. ",
+    "maxaccess": "not-accessible",
+    "name": "hwCpuDevIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCpuDevTable": {
+    "class": "objecttype",
+    "description": " A table of CPU statistics. ",
+    "maxaccess": "not-accessible",
+    "name": "hwCpuDevTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.3.4",
+    "status": "current"
+  },
+  "hwDev": {
+    "class": "moduleidentity",
+    "contactinfo": "Block 4, R\u0026D Building, Huawei Longgang Production Base, Shenzhen, P.R.C. http://www.huawei.com Zip:518057 ",
+    "description": "huawei device mib.",
+    "lastupdated": "200406280900Z",
+    "name": "hwDev",
+    "oid": "1.3.6.1.4.1.2011.6.3",
+    "organization": "Fix-Net Dept, Huawei Technologies Co.,Ltd."
+  },
+  "hwDevCompatibleTable": {
+    "class": "objectidentity",
+    "name": "hwDevCompatibleTable",
+    "oid": "1.3.6.1.4.1.2011.6.3.11"
+  },
+  "hwDevGeneralTraps": {
+    "class": "objectidentity",
+    "name": "hwDevGeneralTraps",
+    "oid": "1.3.6.1.4.1.2011.6.3.8.5.0"
+  },
+  "hwDevTrapVbOids": {
+    "class": "objectidentity",
+    "name": "hwDevTrapVbOids",
+    "oid": "1.3.6.1.4.1.2011.6.3.8.1"
+  },
+  "hwDevTraps": {
+    "class": "objectidentity",
+    "name": "hwDevTraps",
+    "oid": "1.3.6.1.4.1.2011.6.3.8"
+  },
+  "hwFlashDev": {
+    "class": "objectidentity",
+    "name": "hwFlashDev",
+    "oid": "1.3.6.1.4.1.2011.6.3.6"
+  },
+  "hwFlashDevEntry": {
+    "class": "objecttype",
+    "description": " The Entries of hwFlashDevTable. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFlashDevIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwFlashDevEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.3.6.1.1",
+    "status": "current"
+  },
+  "hwFlashDevEraseStatus": {
+    "class": "objecttype",
+    "description": "Status of current or last flash erasing. ",
+    "maxaccess": "read-only",
+    "name": "hwFlashDevEraseStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.6.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bufferAllocationFailure": 6,
+          "flashErasedFail": 3,
+          "flashErasedSuccessful": 2,
+          "flashErasing": 1,
+          "flashOpenFailure": 5,
+          "flashReadOnly": 4,
+          "noEraseAfterPowerOn": 7
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFlashDevEraseTime": {
+    "class": "objecttype",
+    "description": " The last time when Flash was erased after powerup. ",
+    "maxaccess": "read-only",
+    "name": "hwFlashDevEraseTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.6.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwFlashDevFree": {
+    "class": "objecttype",
+    "description": " Unused Size in Octets of Flash memory. ",
+    "maxaccess": "read-only",
+    "name": "hwFlashDevFree",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.6.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwFlashDevIndex": {
+    "class": "objecttype",
+    "description": " Index of hwFlashDevTable. ",
+    "maxaccess": "not-accessible",
+    "name": "hwFlashDevIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.6.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFlashDevSize": {
+    "class": "objecttype",
+    "description": " Total size in Octets of Flash memory, ",
+    "maxaccess": "read-only",
+    "name": "hwFlashDevSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.6.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwFlashDevStatus": {
+    "class": "objecttype",
+    "description": " Status of the availability of flash. ",
+    "maxaccess": "read-only",
+    "name": "hwFlashDevStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.6.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "available": 2,
+          "busy": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFlashDevTable": {
+    "class": "objecttype",
+    "description": " This table contains falsh information. ",
+    "maxaccess": "not-accessible",
+    "name": "hwFlashDevTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.3.6.1",
+    "status": "current"
+  },
+  "hwFrameAdminResult": {
+    "class": "objecttype",
+    "description": " Frame administration result. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwFrameAdminResult",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.3.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fail": 2,
+          "success": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFrameAdminResultTrap": {
+    "class": "notificationtype",
+    "description": " Frame administration result Trap report ",
+    "name": "hwFrameAdminResultTrap",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameAdminStatus"
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameAdminResult"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.3.8.5.0.1",
+    "status": "current"
+  },
+  "hwFrameAdminStatus": {
+    "class": "objecttype",
+    "description": "Frame administration status. It only describes the statuses in common use, including ",
+    "maxaccess": "read-create",
+    "name": "hwFrameAdminStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "confirm": 5,
+          "delete": 6,
+          "disable": 1,
+          "enable": 2,
+          "reset": 3,
+          "test": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFrameDesc": {
+    "class": "objecttype",
+    "description": " Frame description, the maximum length of the character string is 64. This table is used to describe some extra information. For example, to facilitate management, use it to describe the frame that is located in XX frame XX apparatus room. ",
+    "maxaccess": "read-create",
+    "name": "hwFrameDesc",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwFrameEntry": {
+    "class": "objecttype",
+    "description": " Frame description table entity. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwFrameEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.1.1",
+    "status": "current"
+  },
+  "hwFrameIndex": {
+    "class": "objecttype",
+    "description": " Frame Index,the number of the frame in the device. This table is also adopted by the case-shaped device with Agent (For example, the MA5105). There is no frame in this kind of device. Thus it is placed on the rack with other devices During implementation. The frame index is specified as 0. ",
+    "maxaccess": "read-only",
+    "name": "hwFrameIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFrameLinkEntry": {
+    "class": "objecttype",
+    "description": " The entry of the frame link table. There are the left and right node for a frame link. Each node is in the form of frame ID + slot ID + subslot + port. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameLinkIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwFrameLinkEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.5.2.1",
+    "status": "current"
+  },
+  "hwFrameLinkIndex": {
+    "class": "objecttype",
+    "description": " Index of the frame link. It is sequentially numerated and exclusively identified in the device. There is no restriction to the coding rule. ",
+    "maxaccess": "read-only",
+    "name": "hwFrameLinkIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.5.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFrameLinkLeftFrame": {
+    "class": "objecttype",
+    "description": " The ID of the left node linked to the frame, corresponding to the hwFrameIndex in the hwFrameTable ",
+    "maxaccess": "read-write",
+    "name": "hwFrameLinkLeftFrame",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.5.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwFrameLinkLeftPort": {
+    "class": "objecttype",
+    "description": " The ID of the left port linked to the frame, corresponding to the hwPortIndex in the hwPortTable. It indicates which port of the left node is the link entry. ",
+    "maxaccess": "read-write",
+    "name": "hwFrameLinkLeftPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.5.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwFrameLinkLeftSlot": {
+    "class": "objecttype",
+    "description": " The ID of the left slot linked to the frame, corresponding to the hwSlotIndex in the hwSlotTable. It indicates which slot of the left node is the link entry. ",
+    "maxaccess": "read-write",
+    "name": "hwFrameLinkLeftSlot",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.5.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwFrameLinkLeftSubSlot": {
+    "class": "objecttype",
+    "description": " Link the left subslot, corresponding to the hwSubSlotIndex in the hwSubTable. It indicates which subslot of the left node is the link entry. ",
+    "maxaccess": "read-write",
+    "name": "hwFrameLinkLeftSubSlot",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.5.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwFrameLinkNextIndex": {
+    "class": "objecttype",
+    "description": " The frame link table indicates adding the index value to be assigned by the new link. This leaf is used to access an index ID of the next frame link dynamically assigned by the host before delivering the adding link. To deliver the adding link, the value of the leaf shall be accessed, and be delivered together with the \u0027frame link table\u0027. Otherwise, the host can not execute the operation and will return the error. ",
+    "maxaccess": "read-only",
+    "name": "hwFrameLinkNextIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.5.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 254,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFrameLinkNumber": {
+    "class": "objecttype",
+    "description": " Number of frame Links, which refers to the number of links between the main frame and the standby frame of the presen device. If there are many frames, but the device cannot know the link relation of the frames, then the initial value of this node is 0. If a user manually adds the link between the frames later, then this node shall be renewed. ",
+    "maxaccess": "read-write",
+    "name": "hwFrameLinkNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.5.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwFrameLinkOperStatus": {
+    "class": "objecttype",
+    "description": "The running status of the link ",
+    "maxaccess": "read-only",
+    "name": "hwFrameLinkOperStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.5.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fault": 2,
+          "normal": 1,
+          "unknown": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFrameLinkRightFrame": {
+    "class": "objecttype",
+    "description": " The ID of the right node linked to the frame, corresponding to the hwFrameIndex of the hwFrameTable. ",
+    "maxaccess": "read-write",
+    "name": "hwFrameLinkRightFrame",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.5.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwFrameLinkRightPort": {
+    "class": "objecttype",
+    "description": " The ID of the right port linked to the frame, corresponding to the hwPortIndex in the hwPortTable. It indicates which port of the right port is the link entry. ",
+    "maxaccess": "read-write",
+    "name": "hwFrameLinkRightPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.5.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwFrameLinkRightSlot": {
+    "class": "objecttype",
+    "description": " The ID of the right slot linked the frame, corresponding to the hwSlotIndex of the hwSlotTable. It indicates which slot of the right node is the link entry. ",
+    "maxaccess": "read-write",
+    "name": "hwFrameLinkRightSlot",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.5.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwFrameLinkRightSubSlot": {
+    "class": "objecttype",
+    "description": " Link the right subslot, corresponding to the hwSubSlotIndex in the hwSubSlotTable. It indicates which subslot of the right node is the link entry. ",
+    "maxaccess": "read-write",
+    "name": "hwFrameLinkRightSubSlot",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.5.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwFrameLinkRowStatus": {
+    "class": "objecttype",
+    "description": " The row status of the frame link, used to add or delete a link. ",
+    "maxaccess": "read-write",
+    "name": "hwFrameLinkRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.5.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwFrameLinkTable": {
+    "class": "objecttype",
+    "description": " The frame link table. It describes the topology relation between the frames. For the device that can automatically discover the link relationship between the devices, this table can be implemented as read-only table. For the device whose inter-frame relation needs to be configured manually, this table shall support adding and deletion. All the links must locate on the two existing ports. ",
+    "maxaccess": "not-accessible",
+    "name": "hwFrameLinkTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.5.2",
+    "status": "current"
+  },
+  "hwFrameLinks": {
+    "class": "objectidentity",
+    "name": "hwFrameLinks",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.5"
+  },
+  "hwFrameOperStatus": {
+    "class": "objecttype",
+    "description": " Frame operation status. This variable is used to indicate whether the frame works in a normal status. ",
+    "maxaccess": "read-only",
+    "name": "hwFrameOperStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discovery": 4,
+          "fault": 2,
+          "normal": 1,
+          "other": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFrameRowStatus": {
+    "class": "objecttype",
+    "description": "Row status of the frame:mainly to support the offline configuration of addition and deletion. You can choose for various broadband products to support this function.Row status is used to manage the creation or deletion of the concept rows.The following shows six statuses. ",
+    "maxaccess": "read-create",
+    "name": "hwFrameRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwFrameTable": {
+    "class": "objecttype",
+    "description": " Frame description table that describes basic information of a frame. It includes the frame type, the number of slots in the frame, etc. The number of slots vary with the type of the frame where it is located. For example,, there are has 16 slots in MA5100 while 4 ones in MA5103. This table is also adopted for the case-shaped device with Agent (For example, the MA5105). There is no frame in this his kind of device. Thus, the device can be put on the rack with other ones during implementation. Its frame index is specified as 0. The frame type is imported from the relevant definition of the HW-TC table. ",
+    "maxaccess": "not-accessible",
+    "name": "hwFrameTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.1",
+    "status": "current"
+  },
+  "hwFrameType": {
+    "class": "objecttype",
+    "description": "Frame type,one kind of the frame types defined in HW-TC table. According to the private MIB standard of the company, the product must support read-only mode. In other words, you can query the frame type the NMS. You can choose for various broadband product to support read-write mode for the dynamic control of frame type. ",
+    "maxaccess": "read-create",
+    "name": "hwFrameType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWFrameType"
+    }
+  },
+  "hwMemoryDev": {
+    "class": "objectidentity",
+    "name": "hwMemoryDev",
+    "oid": "1.3.6.1.4.1.2011.6.3.5"
+  },
+  "hwMemoryDevEntry": {
+    "class": "objecttype",
+    "description": " The Entries of hwMemoryDevTable. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwMemoryDevModuleIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMemoryDevEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1.1",
+    "status": "current"
+  },
+  "hwMemoryDevFail": {
+    "class": "objecttype",
+    "description": " Count of memory allocation failures. ",
+    "maxaccess": "read-only",
+    "name": "hwMemoryDevFail",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMemoryDevFailNoMem": {
+    "class": "objecttype",
+    "description": " Count of the memory allocation ",
+    "maxaccess": "read-only",
+    "name": "hwMemoryDevFailNoMem",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMemoryDevFree": {
+    "class": "objecttype",
+    "description": " Indicates the free size of the memory, in the unit of byte. ",
+    "maxaccess": "read-only",
+    "name": "hwMemoryDevFree",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMemoryDevLargestFree": {
+    "class": "objecttype",
+    "description": " The maximum size of the memory that can be currently used, in the unit of byte. ",
+    "maxaccess": "read-only",
+    "name": "hwMemoryDevLargestFree",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMemoryDevModuleIndex": {
+    "class": "objecttype",
+    "description": " Index of hwMemoryDevTable. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMemoryDevModuleIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMemoryDevRawSliceUsed": {
+    "class": "objecttype",
+    "description": " Indicates the used size of the raw slice memory, in the unit of byte. ",
+    "maxaccess": "read-only",
+    "name": "hwMemoryDevRawSliceUsed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMemoryDevSize": {
+    "class": "objecttype",
+    "description": " Indicates the total size of the memory module which is on the managed object.Its unit is byte. ",
+    "maxaccess": "read-only",
+    "name": "hwMemoryDevSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMemoryDevTable": {
+    "class": "objecttype",
+    "description": " This table contains memory information. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMemoryDevTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1",
+    "status": "current"
+  },
+  "hwNarrowBoard": {
+    "class": "objectidentity",
+    "name": "hwNarrowBoard",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.6"
+  },
+  "hwNmsClass": {
+    "class": "objecttype",
+    "description": " Class of NMS station,default value is 3. ",
+    "maxaccess": "read-write",
+    "name": "hwNmsClass",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.2.1.10",
+    "status": "deprecated",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ro": 1,
+          "rw": 2,
+          "rwWithTrap": 3,
+          "trapOnly": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwNmsGetCommunity": {
+    "class": "objecttype",
+    "description": " Community authentication name used for SNMP protocol GET operation, default value: public. ",
+    "maxaccess": "read-write",
+    "name": "hwNmsGetCommunity",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwNmsIndex": {
+    "class": "objecttype",
+    "description": " Index(1..32),at most supports 32 NMSs,exclusively identifies a NMS. ",
+    "maxaccess": "read-only",
+    "name": "hwNmsIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwNmsIp": {
+    "class": "objecttype",
+    "description": " IP address of the NMS workstation that can be outband or inband address. ",
+    "maxaccess": "read-write",
+    "name": "hwNmsIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwNmsMaintainMode": {
+    "class": "objecttype",
+    "description": " Maintenance mode of NMS workstation,if the IP address of the NMS station is in-band, the mode must also be in-band. ",
+    "maxaccess": "read-write",
+    "name": "hwNmsMaintainMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.2.1.5",
+    "status": "deprecated",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inBandwidth": 1,
+          "outBandwidth": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwNmsMask": {
+    "class": "objecttype",
+    "description": " IP address mask of the NMS workstation. ",
+    "maxaccess": "read-write",
+    "name": "hwNmsMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.2.1.4",
+    "status": "deprecated",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwNmsName": {
+    "class": "objecttype",
+    "description": " Name of the NMS, which des not have to be consistent with that of the NMS workstation. ",
+    "maxaccess": "read-write",
+    "name": "hwNmsName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwNmsParaEntry": {
+    "class": "objecttype",
+    "description": " NMS parameters configuration table entity. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwNmsIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwNmsParaEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.3.2.1",
+    "status": "current"
+  },
+  "hwNmsParaTable": {
+    "class": "objecttype",
+    "description": " ",
+    "maxaccess": "not-accessible",
+    "name": "hwNmsParaTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.3.2",
+    "status": "current"
+  },
+  "hwNmsSetCommunity": {
+    "class": "objecttype",
+    "description": " Community authentication name used for SNMP protocol SET operation, default value: private. ",
+    "maxaccess": "read-write",
+    "name": "hwNmsSetCommunity",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwNmsSnmpPort": {
+    "class": "objecttype",
+    "description": " Snmp communication port of NMS workstation,default value:161. ",
+    "maxaccess": "read-write",
+    "name": "hwNmsSnmpPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.2.1.8",
+    "status": "deprecated",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwNmsStatus": {
+    "class": "objecttype",
+    "description": " Operation status of NMS station,the NMS station can be added,deleted and modified. ",
+    "maxaccess": "read-write",
+    "name": "hwNmsStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwNmsTrapPort": {
+    "class": "objecttype",
+    "description": " Trap receive Port of NMS workstation, default value:162. ",
+    "maxaccess": "read-write",
+    "name": "hwNmsTrapPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.2.1.9",
+    "status": "deprecated",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPortAdminResult": {
+    "class": "objecttype",
+    "description": " Port administration result. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwPortAdminResult",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.3.8.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fail": 2,
+          "success": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPortAdminResultTrap": {
+    "class": "notificationtype",
+    "description": " Port administration result Trap report ",
+    "name": "hwPortAdminResultTrap",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex"
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSubslotIndex"
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwPortIndex"
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwPortAdminStatus"
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwPortAdminResult"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.3.8.5.0.4",
+    "status": "current"
+  },
+  "hwPortAdminStatus": {
+    "class": "objecttype",
+    "description": " Port administration status. ",
+    "maxaccess": "read-write",
+    "name": "hwPortAdminStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "block": 3,
+          "confirm": 5,
+          "deactive": 2,
+          "delete": 6,
+          "innerLocalLoopback": 12,
+          "innerRemoteLoopback": 13,
+          "localLoopback": 8,
+          "remoteLoopback": 9,
+          "reset": 7,
+          "rtuLocalLoopback": 14,
+          "rtuRemoteLoopback": 15,
+          "stopLoopback": 11,
+          "unblock": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPortDesc": {
+    "class": "objecttype",
+    "description": " Port description, used to describe extra information of the port. For example, for a user access device it can be adopted to describe the information of the user who is connecting to the port. ",
+    "maxaccess": "read-write",
+    "name": "hwPortDesc",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPortEntry": {
+    "class": "objecttype",
+    "description": " Port configuration table entity. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSubslotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.4.1",
+    "status": "current"
+  },
+  "hwPortIndex": {
+    "class": "objecttype",
+    "description": " Port index, the index of this table, which exclusively determines all the ports in a subboard. ",
+    "maxaccess": "read-only",
+    "name": "hwPortIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPortOperStatus": {
+    "class": "objecttype",
+    "description": " Port operation status. ",
+    "maxaccess": "read-only",
+    "name": "hwPortOperStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "activing": 10,
+          "block": 12,
+          "deactive": 11,
+          "fault": 2,
+          "forbidden": 4,
+          "innerLocalLoopback": 14,
+          "innerRemoteLoopback": 15,
+          "localLoopback": 3,
+          "nolight": 13,
+          "normal": 1,
+          "remoteLoopback": 6,
+          "test": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPortSpeed": {
+    "class": "objecttype",
+    "description": " The speed of this port. ",
+    "maxaccess": "read-only",
+    "name": "hwPortSpeed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.4.1.4",
+    "status": "deprecated",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPortTable": {
+    "class": "objecttype",
+    "description": " Port configuration table that describes the detailed information of physical ports in the board, including the type, status and rate of the port.This table must be implemented. ",
+    "maxaccess": "not-accessible",
+    "name": "hwPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.4",
+    "status": "current"
+  },
+  "hwPortType": {
+    "class": "objecttype",
+    "description": " Port type. According to the private MIB standard of the company, the product must support read-only mode. In other words, you can query the frame type through the NMS. You can choose for various broadband product to support read-write mode for the dynamic control of subboard type. ",
+    "maxaccess": "read-only",
+    "name": "hwPortType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWPortType"
+    }
+  },
+  "hwSlotAdminResult": {
+    "class": "objecttype",
+    "description": " Slot administration result. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwSlotAdminResult",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.3.8.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fail": 2,
+          "success": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSlotAdminResultTrap": {
+    "class": "notificationtype",
+    "description": " Slot administration result Trap report ",
+    "name": "hwSlotAdminResultTrap",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex"
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotAdminStatus"
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotAdminResult"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.3.8.5.0.2",
+    "status": "current"
+  },
+  "hwSlotAdminStatus": {
+    "class": "objecttype",
+    "description": " Administration status of the board. ",
+    "maxaccess": "read-create",
+    "name": "hwSlotAdminStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "confirm": 5,
+          "delete": 7,
+          "disable": 1,
+          "enable": 2,
+          "forbidden": 8,
+          "reset": 3,
+          "switch": 6,
+          "test": 4,
+          "unforbidden": 9
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSlotConf": {
+    "class": "objectidentity",
+    "name": "hwSlotConf",
+    "oid": "1.3.6.1.4.1.2011.6.3.3"
+  },
+  "hwSlotDesc": {
+    "class": "objecttype",
+    "description": " Slot information description, used to describe extra information of the board. For example, it can be adopted for a user access device to describe the information of a user group connected to the slot. ",
+    "maxaccess": "read-create",
+    "name": "hwSlotDesc",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSlotEntry": {
+    "class": "objecttype",
+    "description": " Slot description table entity. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSlotEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.2.1",
+    "status": "current"
+  },
+  "hwSlotIndex": {
+    "class": "objecttype",
+    "description": " Slot index that identifies the physical position of a slot. The case-shaped device is treated as the one with only one slot whose index is always set as 0. If there are ports in the frame, all the ports on the frame must be virtualized as a fixed slot index (equal to the virtual slots which is the max slot index for the frame plus 1.) Their slot index is also fixedly set as 0. ",
+    "maxaccess": "read-only",
+    "name": "hwSlotIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSlotOperStatus": {
+    "class": "objecttype",
+    "description": "Operation status of the board. ",
+    "maxaccess": "read-only",
+    "name": "hwSlotOperStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "abnormal": 8,
+          "config": 6,
+          "discovery": 5,
+          "fault": 3,
+          "forbidden": 4,
+          "normal": 2,
+          "offline": 7,
+          "uninstall": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSlotPcbVersion": {
+    "class": "objecttype",
+    "description": " The PCB version information of the slot. It has been discarded in the fixed net MIB. The information of PCB version and other versions are described in the hwSlotVersion. ",
+    "maxaccess": "read-only",
+    "name": "hwSlotPcbVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.2.1.4",
+    "status": "deprecated",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSlotPhySerialNum": {
+    "class": "objecttype",
+    "description": "The vendor-specific serial number string for the physical entity. The preferred value is the serial number string actually printed on the component itself (if present). ",
+    "maxaccess": "read-only",
+    "name": "hwSlotPhySerialNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwSlotRowStatus": {
+    "class": "objecttype",
+    "description": " Row status:mainly to support the offline configuration of board addition and deletion. Various broadband products can be determined whether to support this function. ",
+    "maxaccess": "read-create",
+    "name": "hwSlotRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwSlotTable": {
+    "class": "objecttype",
+    "description": " Slot description table, which describes detailed information of all boards in each slot which is on the frame, including the number of subslots, the status of the board, the software of the board, the hardware version No., the working mode of the board, etc. This table must be implemented. ",
+    "maxaccess": "not-accessible",
+    "name": "hwSlotTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.2",
+    "status": "current"
+  },
+  "hwSlotType": {
+    "class": "objecttype",
+    "description": " Board type. The board type defined in HW-TC table is recommended. According to the private MIB standard of the company, all the products must support the read-only mode. In other words, you can query the slot type through the NMS. You can choose for various broadband products to support the read-write mode for the dynamic control of slot type. ",
+    "maxaccess": "read-create",
+    "name": "hwSlotType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWPCBType"
+    }
+  },
+  "hwSlotVersion": {
+    "class": "objecttype",
+    "description": " Board version information. Refer to the technical specifications of Huawei Technologies Co., Ltd. Use the new-line character \\n (ACSII 0x0A) to space various version information.If there is no corresponding version, the new-line character shall also be inserted to remain the order. Detailed order information: Hardware PCB version \\n Software version \\n Logic version \\n DSP version \\n Standby CPU software version \\n Chip version \\n Other software version of the chip with a software \\n Other version information \\n ",
+    "maxaccess": "read-only",
+    "name": "hwSlotVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 640,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSlotWorkMode": {
+    "class": "objecttype",
+    "description": " Board working mode that describes whether the board is working in main state or in standby state. ",
+    "maxaccess": "read-only",
+    "name": "hwSlotWorkMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "main": 1,
+          "other": 255,
+          "standby": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSlots": {
+    "class": "objecttype",
+    "description": " Slot number of the frame, refers to the physical slot number of the frame, which depends on the frame type and has nothing to do with the number of boards placed in the slots, whose number varies with the frame type. For example, there are 16 slots in MA5100 while 4 lots in MA5103. ",
+    "maxaccess": "read-only",
+    "name": "hwSlots",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSubSlotAdminResultTrap": {
+    "class": "notificationtype",
+    "description": " Subslot administration result Trap report ",
+    "name": "hwSubSlotAdminResultTrap",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex"
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSubslotIndex"
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSubslotAdminStatus"
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSubslotAdminResult"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.3.8.5.0.3",
+    "status": "current"
+  },
+  "hwSubSlotDesc": {
+    "class": "objecttype",
+    "description": " Subboard description. ",
+    "maxaccess": "read-create",
+    "name": "hwSubSlotDesc",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSubSlots": {
+    "class": "objecttype",
+    "description": "The number of the subslots. The subslot is used to plug the subboard in the board. The number subslots can be determined when the board\u0027s been made, whether the subboard has been inserted in the subslot. ",
+    "maxaccess": "read-only",
+    "name": "hwSubSlots",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSubslotAdminResult": {
+    "class": "objecttype",
+    "description": " Subslot administration result. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwSubslotAdminResult",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.3.8.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fail": 2,
+          "success": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSubslotAdminStatus": {
+    "class": "objecttype",
+    "description": " Administration status of the subboard in the subslot. The following only describes some statuses in common use. If there are some other statuses, just extend them. delete(6) - discard this node through hwSubSlotRowStatus. ",
+    "maxaccess": "read-create",
+    "name": "hwSubslotAdminStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "confirm": 5,
+          "delete": 6,
+          "disable": 1,
+          "enable": 2,
+          "reset": 3,
+          "test": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSubslotEntry": {
+    "class": "objecttype",
+    "description": " Subslot description table entity. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSubslotIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSubslotEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.3.1",
+    "status": "current"
+  },
+  "hwSubslotIndex": {
+    "class": "objecttype",
+    "description": " Subslot Index. The present subslot index is determined by its physical position in the board. ",
+    "maxaccess": "read-only",
+    "name": "hwSubslotIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSubslotOperStatus": {
+    "class": "objecttype",
+    "description": " Operation status of the subboard in the subslot. ",
+    "maxaccess": "read-only",
+    "name": "hwSubslotOperStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fault": 3,
+          "forbidden": 4,
+          "normal": 2,
+          "uninstall": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSubslotPorts": {
+    "class": "objecttype",
+    "description": " The number of physical ports owned by the subboard in the subslot. ",
+    "maxaccess": "read-only",
+    "name": "hwSubslotPorts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSubslotRowStatus": {
+    "class": "objecttype",
+    "description": " Row status:mainly to support the offline configuration of subboard addition and deletion.Each product can determine whether to offer this kind of function. ",
+    "maxaccess": "read-create",
+    "name": "hwSubslotRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwSubslotTable": {
+    "class": "objecttype",
+    "description": " Subslot description table that describes detailed information of each subslot attached to the board. ",
+    "maxaccess": "not-accessible",
+    "name": "hwSubslotTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.3",
+    "status": "current"
+  },
+  "hwSubslotType": {
+    "class": "objecttype",
+    "description": " Subboard type in the subslot,refer to HW-TC table. According to the private MIB standard of the company, the product must support read-only mode. In other words, you can query the subboard type through the NMS. You can choose for various broadband product to support read-write mode for the dynamic control of frame type. ",
+    "maxaccess": "read-create",
+    "name": "hwSubslotType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWSubPCBType"
+    }
+  },
+  "hwSubslotVersion": {
+    "class": "objecttype",
+    "description": " Subboard version information. Refer to the technical specifications of Huawei Technologies Co., Ltd. Use the new-line character \\n (ACSII 0x0A) to space various version information. ",
+    "maxaccess": "read-create",
+    "name": "hwSubslotVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.3.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 1024,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSysIpAddr": {
+    "class": "objecttype",
+    "description": " IP address of the system,IP address of the net port used for device maintenance.It\u0027d better not to modify this address when out-band NMS is used. ",
+    "maxaccess": "read-write",
+    "name": "hwSysIpAddr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwSysIpMask": {
+    "class": "objecttype",
+    "description": " IP address mask of the system. IP address of the net port used for device maintenance. It\u0027d be better not to IP address mask together with address mask. It will take no effect to separately configure IP address or address mask. It\u0027d when out-band NMS is used. ",
+    "maxaccess": "read-write",
+    "name": "hwSysIpMask",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwSysTime": {
+    "class": "objecttype",
+    "description": " The current date and time of the system. ",
+    "maxaccess": "read-write",
+    "name": "hwSysTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwSysVersion": {
+    "class": "objecttype",
+    "description": " The System Version is consistent with the specification of HUAWEI product. For example, MD5500 V100R001M30B01PXXXX. ",
+    "maxaccess": "read-only",
+    "name": "hwSysVersion",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSystemPara": {
+    "class": "objectidentity",
+    "name": "hwSystemPara",
+    "oid": "1.3.6.1.4.1.2011.6.3.1"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "huaweiUtility"
+    ],
+    "HUAWEI-TC-MIB": [
+      "HWFrameType",
+      "HWPCBType",
+      "HWSubPCBType",
+      "HWPortType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Unsigned32",
+      "Bits",
+      "MibIdentifier",
+      "Integer32",
+      "iso",
+      "IpAddress",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-DEVICE-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:05 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-DEVICE-MIB"
+  },
+  "trapObjectIdValue": {
+    "class": "objecttype",
+    "description": " The OID String of the trap. ",
+    "maxaccess": "read-only",
+    "name": "trapObjectIdValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.7.1.1.4",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  }
+}

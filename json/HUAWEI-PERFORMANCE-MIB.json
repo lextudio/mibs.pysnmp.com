@@ -1,0 +1,386 @@
+{
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwInternetProtocol"
+    ],
+    "IF-MIB": [
+      "OwnerString"
+    ],
+    "RMON-MIB": [
+      "EntryStatus"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-PERFORMANCE-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:37 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-PERFORMANCE-MIB"
+  },
+  "performance": {
+    "class": "objectidentity",
+    "name": "performance",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4"
+  },
+  "prialarmEntry": {
+    "class": "objecttype",
+    "description": "A list of parameters that set up a periodic checking for alarm conditions. For example, an instance of the alarmValue object might be named alarmValue.8",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PERFORMANCE-MIB",
+        "object": "prialarmIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "prialarmEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1",
+    "status": "mandatory"
+  },
+  "prialarmFallingEventIndex": {
+    "class": "objecttype",
+    "description": "The index of the eventEntry that is used when a falling threshold is crossed. The eventEntry identified by a particular value of this index is the same as identified by the same value of the eventIndex object. If there is no corresponding entry in the eventTable, then no association exists. In particular, if this value is zero, no associated event will be generated, as zero is not a valid event index. This object may not be modified if the associated alarmStatus object is equal to valid(1).",
+    "maxaccess": "read-create",
+    "name": "prialarmFallingEventIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "prialarmFallingThreshold": {
+    "class": "objecttype",
+    "description": "A threshold for the sampled statistic. When the current sampled value is less than or equal to this threshold, and the value at the last sampling interval was greater than this threshold, a single event will be generated. A single event will also be generated if the first sample after this entry becomes valid is less than or equal to this threshold and the associated alarmStartupAlarm is equal to fallingAlarm(2) or risingOrFallingAlarm(3). After a falling event is generated, another such event will not be generated until the sampled value rises above this threshold and reaches the alarmRisingThreshold. This object may not be modified if the associated alarmStatus object is equal to valid(1).",
+    "maxaccess": "read-create",
+    "name": "prialarmFallingThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "prialarmIndex": {
+    "class": "objecttype",
+    "description": "An index that uniquely identifies an entry in the alarm table. Each such entry defines a diagnostic sample at a particular interval for an object on the device.",
+    "maxaccess": "read-only",
+    "name": "prialarmIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "prialarmInterval": {
+    "class": "objecttype",
+    "description": "The interval in seconds over which the data is sampled and compared with the rising and falling thresholds. When setting this variable, care should be taken in the case of deltaValue sampling - the interval should be set short enough that the sampled variable is very unlikely to increase or decrease by more than 2^31 - 1 during a single sampling interval. This object may not be modified if the associated alarmStatus object is equal to valid(1).",
+    "maxaccess": "read-create",
+    "name": "prialarmInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "prialarmOwner": {
+    "class": "objecttype",
+    "description": "The entity that configured this entry and is therefore using the resources assigned to it.",
+    "maxaccess": "read-create",
+    "name": "prialarmOwner",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.14",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "OwnerString"
+    }
+  },
+  "prialarmRisingEventIndex": {
+    "class": "objecttype",
+    "description": "The index of the eventEntry that is used when a rising threshold is crossed. The eventEntry identified by a particular value of this index is the same as identified by the same value of the eventIndex object. If there is no corresponding entry in the eventTable, then no association exists. In particular, if this value is zero, no associated event will be generated, as zero is not a valid event index. This object may not be modified if the associated alarmStatus object is equal to valid(1).",
+    "maxaccess": "read-create",
+    "name": "prialarmRisingEventIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "prialarmRisingThreshold": {
+    "class": "objecttype",
+    "description": "A threshold for the sampled statistic. When the current sampled value is greater than or equal to this threshold, and the value at the last sampling interval was less than this threshold, a single event will be generated. A single event will also be generated if the first sample after this entry becomes valid is greater than or equal to this threshold and the associated alarmStartupAlarm is equal to risingAlarm(1) or risingOrFallingAlarm(3). After a rising event is generated, another such event will not be generated until the sampled value falls below this threshold and reaches the alarmFallingThreshold. This object may not be modified if the associated alarmStatus object is equal to valid(1).",
+    "maxaccess": "read-create",
+    "name": "prialarmRisingThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "prialarmSampleType": {
+    "class": "objecttype",
+    "description": "The method of sampling the selected variable and calculating the value to be compared against the thresholds. If the value of this object is absoluteValue(1), the value of the selected variable will be compared directly with the thresholds at the end of the sampling interval. If the value of this object is deltaValue(2), the value of the selected variable at the last sample will be subtracted from the current value, and the difference compared with the thresholds.If the value of this object is changeratioValue(3),the value of the selected variable will be the change ratio of the selected variable, which is that the value of the selected variable at the last sample will be substracted from the current value,and the difference divided by the sampling interval,and the result compared with the thresholds. This object may not be modified if the associated alarmStatus object is equal to valid(1).",
+    "maxaccess": "read-create",
+    "name": "prialarmSampleType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "absoluteValue": 1,
+          "changeratioValue": 3,
+          "deltaValue": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "prialarmStartupAlarm": {
+    "class": "objecttype",
+    "description": "The alarm that may be sent when this entry is first set to valid. If the first sample after this entry becomes valid is greater than or equal to the risingThreshold and alarmStartupAlarm is equal to risingAlarm(1) or risingOrFallingAlarm(3), then a single rising alarm will be generated. If the first sample after this entry becomes valid is less than or equal to the fallingThreshold and alarmStartupAlarm is equal to fallingAlarm(2) or risingOrFallingAlarm(3), then a single falling alarm will be generated. This object may not be modified if the associated alarmStatus object is equal to valid(1).",
+    "maxaccess": "read-create",
+    "name": "prialarmStartupAlarm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fallingAlarm": 2,
+          "risingAlarm": 1,
+          "risingOrFallingAlarm": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "prialarmStatCycle": {
+    "class": "objecttype",
+    "description": " The time alarm line exists. When the value of prialarmStatType is during(2),set prialarmStatCycle to decide how long the alarm line exists.",
+    "maxaccess": "read-create",
+    "name": "prialarmStatCycle",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "prialarmStatType": {
+    "class": "objecttype",
+    "description": "It expresses alarm state type.To choose forever(1) , the alarm line will exist forever. To choose during(2) , the alarm line will be deleted after the time setting for \u0027prialarmStatCycle\u0027.",
+    "maxaccess": "read-create",
+    "name": "prialarmStatType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.13",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "during": 2,
+          "forever": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "prialarmStatus": {
+    "class": "objecttype",
+    "description": "The status of this alarm entry.",
+    "maxaccess": "read-create",
+    "name": "prialarmStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.15",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "EntryStatus"
+    }
+  },
+  "prialarmSympol": {
+    "class": "objecttype",
+    "description": "The string which the alarm line described.",
+    "maxaccess": "read-create",
+    "name": "prialarmSympol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "prialarmTable": {
+    "class": "objecttype",
+    "description": "A list of alarm entries.",
+    "maxaccess": "not-accessible",
+    "name": "prialarmTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1",
+    "status": "mandatory"
+  },
+  "prialarmValue": {
+    "class": "objecttype",
+    "description": "The value of the statistic during the last sampling period. For example, if the sample type is deltaValue, this value will be the difference between the samples at the beginning and end of the period. If the sample type is absoluteValue, this value will be the sampled value at the end of the period. This is the value that is compared with the rising and falling thresholds. The value during the current sampling period is not made available until the period is completed and will remain available until the next period completes.",
+    "maxaccess": "read-only",
+    "name": "prialarmValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "prialarmVariable": {
+    "class": "objecttype",
+    "description": "The object identifier of the particular variable to be sampled. Only variables that resolve to an ASN.1 primitive type of INTEGER (INTEGER, Integer32, Counter32, Counter64, Gauge, or TimeTicks) may be sampled. Because SNMP access control is articulated entirely in terms of the contents of MIB views, no access control mechanism exists that can restrict the value of this object to identify only those objects that exist in a particular MIB view. Because there is thus no acceptable means of restricting the read access that could be obtained through the alarm mechanism, the probe must only grant write access to this object in those views that have read access to all objects on the probe. During a set operation, if the supplied variable name is not available in the selected MIB view, a badValue error must be returned. If at any time the variable name of an established alarmEntry is no longer available in the selected MIB view, the probe must change the status of this alarmEntry to invalid(4). This object may not be modified if the associated alarmStatus object is equal to valid(1).",
+    "maxaccess": "read-create",
+    "name": "prialarmVariable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.4.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "prifallingAlarm": {
+    "class": "notificationtype",
+    "description": "The SNMP trap that is generated when an alarm entry crosses its falling threshold and generates an event that is configured for sending SNMP traps.",
+    "name": "prifallingAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-PERFORMANCE-MIB",
+        "object": "prialarmIndex"
+      },
+      {
+        "module": "HUAWEI-PERFORMANCE-MIB",
+        "object": "prialarmSympol"
+      },
+      {
+        "module": "HUAWEI-PERFORMANCE-MIB",
+        "object": "prialarmSampleType"
+      },
+      {
+        "module": "HUAWEI-PERFORMANCE-MIB",
+        "object": "prialarmValue"
+      },
+      {
+        "module": "HUAWEI-PERFORMANCE-MIB",
+        "object": "prialarmFallingThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.1.3.4.0.2",
+    "status": "current"
+  },
+  "pririsingAlarm": {
+    "class": "notificationtype",
+    "description": "The SNMP trap that is generated when an alarm entry crosses its rising threshold and generates an event that is configured for sending SNMP traps.",
+    "name": "pririsingAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-PERFORMANCE-MIB",
+        "object": "prialarmIndex"
+      },
+      {
+        "module": "HUAWEI-PERFORMANCE-MIB",
+        "object": "prialarmSympol"
+      },
+      {
+        "module": "HUAWEI-PERFORMANCE-MIB",
+        "object": "prialarmSampleType"
+      },
+      {
+        "module": "HUAWEI-PERFORMANCE-MIB",
+        "object": "prialarmValue"
+      },
+      {
+        "module": "HUAWEI-PERFORMANCE-MIB",
+        "object": "prialarmRisingThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.1.3.4.0.1",
+    "status": "current"
+  },
+  "rmonExtend": {
+    "class": "objectidentity",
+    "name": "rmonExtend",
+    "oid": "1.3.6.1.4.1.2011.1.3.4"
+  },
+  "rmonExtendEventsV2": {
+    "class": "objectidentity",
+    "description": "Definition point for pri RMON notifications.",
+    "name": "rmonExtendEventsV2",
+    "oid": "1.3.6.1.4.1.2011.1.3.4.0",
+    "status": "current"
+  }
+}

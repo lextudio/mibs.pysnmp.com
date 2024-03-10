@@ -1,0 +1,6075 @@
+{
+  "VlanIndex": {
+    "class": "textualconvention",
+    "description": "A value used to index per-VLAN tables: values of 0 and 4095 are not permitted; if the value is between 1 and 4094 inclusive, it represents an IEEE 802.1Q VLAN-ID with global scope within a given bridged domain (see VlanId textual convention). If the value is greater than 4095 then it represents a VLAN with scope local to the particular agent, i.e. one without a global VLAN-ID assigned to it. Such VLANs are outside the scope of IEEE 802.1Q but it is convenient to be able to manage them in the same way using this MIB.",
+    "name": "VlanIndex",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwBaseTrapGroup": {
+    "class": "notificationgroup",
+    "description": "L2 MAC tap group.",
+    "name": "hwBaseTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacUsageRaisingThreshold"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacUsageFallingThreshold"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitNumRaisingThreshold"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitNumFallingThreshold"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwUntargetMacNumAlarm"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwPortSecRcvInsecurePktAlarm"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwPwMacLimitNumRaisingThreshold"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwPwMacLimitNumFallingThreshold"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwPortStickyReachMaxAlarm"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwRecIllegalMacPktAlarm"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitOverThresholdAlarm"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacFlappingAlarm"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwSlotMacLimitNumRaisingThreshold"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwSlotMacLimitNumFallingThreshold"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtocolTunnelDropThresholdRaising"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtocolTunnelDropThresholdFalling"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwVsiMacLimitNumRaisingThresholdAlarm"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwVsiMacLimitNumRaisingThresholdAlarmClear"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitOverThresholdAlarmResume"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwSlotMacNumRaisingThreshold"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwSlotMacNumFallingThreshold"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitRuleNumRaisingThreshold"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitRuleNumFallingThreshold"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwVplsOverGRENotSupportForwardRising"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwVplsOverGRENotSupportForwardRisingResume"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwIfInputUnucFlowRisingThreshold"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwIfInputUnucFlowFallingThreshold"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacHopAlarmRisingThreshold"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacHopAlarmFallingThreshold"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwPstBroadcastLostAlarm"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwPstBroadcastLostResume"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwBdMacLimitOverThresholdAlarm"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwBdMacLimitOverThresholdAlarmResume"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.2.3.2",
+    "status": "current"
+  },
+  "hwBdMacLimitBdId": {
+    "class": "objecttype",
+    "description": "The bd id which will be configured mac-limit.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwBdMacLimitBdId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.40",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBdMacLimitMaxMac": {
+    "class": "objecttype",
+    "description": "The maximum mac address. When the value is \u00270\u0027, the meaning is that there isn\u0027t limiting rule to the mac-address number.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwBdMacLimitMaxMac",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.41",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwBdMacLimitOverThresholdAlarm": {
+    "class": "notificationtype",
+    "description": "Beyond the mac limited learning number. ",
+    "name": "hwBdMacLimitOverThresholdAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwBdMacLimitBdId"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwBdMacLimitMaxMac"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.36",
+    "status": "current"
+  },
+  "hwBdMacLimitOverThresholdAlarmResume": {
+    "class": "notificationtype",
+    "description": "Less than the mac limited learning number. ",
+    "name": "hwBdMacLimitOverThresholdAlarmResume",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwBdMacLimitBdId"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwBdMacLimitMaxMac"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.37",
+    "status": "current"
+  },
+  "hwBridgeMacAgingTime": {
+    "class": "objecttype",
+    "description": "The interval that the hardware deletes any entry whose hit bit is cleared and clears the hit bit of the remaining entries.The default value is 300 seconds.\u00270\u0027means the MAC entries will be never aged.",
+    "maxaccess": "read-write",
+    "name": "hwBridgeMacAgingTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000000,
+            "min": 60
+          },
+          {
+            "max": 0,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCfgFdbAtmPort": {
+    "class": "objecttype",
+    "description": "The forwarding port. The port must be an atm port. ",
+    "maxaccess": "read-create",
+    "name": "hwCfgFdbAtmPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwCfgFdbCeDefault": {
+    "class": "objecttype",
+    "description": "The flag indicates whether the MAC address entry is configed according to ce-default-vlan. \u0027no-ce-default(0)\u0027 indicates no, \u0027ce-default(1)\u0027 indicates yes",
+    "maxaccess": "read-create",
+    "name": "hwCfgFdbCeDefault",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ceDefault": 1,
+          "noCeDefault": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCfgFdbMac": {
+    "class": "objecttype",
+    "description": "A unicast MAC address for which the device contains it\u0027s information in the mac-address table. The mac-address can\u0027t be a special address or multicast address.",
+    "maxaccess": "not-accessible",
+    "name": "hwCfgFdbMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwCfgFdbPort": {
+    "class": "objecttype",
+    "description": "The forwarding port. The port must be an ethernet port. And the port must be contained by the hwFdbVlanId or allow the hwFdbVlanId get across through itself.",
+    "maxaccess": "read-create",
+    "name": "hwCfgFdbPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwCfgFdbRowstatus": {
+    "class": "objecttype",
+    "description": "The operating state of the row.",
+    "maxaccess": "read-create",
+    "name": "hwCfgFdbRowstatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwCfgFdbType": {
+    "class": "objecttype",
+    "description": "The mac-address table item type of this entry. The meanings of the values are: static(2)- the mac-address is configured by user, doesn\u0027t aging out, and this entry doesn\u0027t lost after the device/FSU is reset or FSU is pulled out. blackhole(3)- the mac-address is configured by user for discarding frame which contains specific destination mac-address, doesn\u0027t aging out, and this entry doesn\u0027t lost after the device/FSU is reset or FSU is pulled out. When the type is dynamic ,the item can\u0027t be created.",
+    "maxaccess": "read-create",
+    "name": "hwCfgFdbType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blackhole": 3,
+          "static": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCfgFdbVci": {
+    "class": "objecttype",
+    "description": "The Virtual Connection Identifier.",
+    "maxaccess": "read-create",
+    "name": "hwCfgFdbVci",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2047,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCfgFdbVlanId": {
+    "class": "objecttype",
+    "description": "The VLAN name or other identifier referring to the VLAN which is correlative to the hwFdbMac.",
+    "maxaccess": "not-accessible",
+    "name": "hwCfgFdbVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "VlanIndex"
+    }
+  },
+  "hwCfgFdbVpi": {
+    "class": "objecttype",
+    "description": "The Virtual Path Identifier.",
+    "maxaccess": "read-create",
+    "name": "hwCfgFdbVpi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCfgFdbVsiName": {
+    "class": "objecttype",
+    "description": "The VSI-ID or other identifier referring to the VSI which is correlative to the hwFdbMac.",
+    "maxaccess": "not-accessible",
+    "name": "hwCfgFdbVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCfgMacAddrQueryAtmIfIndex": {
+    "class": "objecttype",
+    "description": "The ATM interface index for match item of layer 2 Configured mac-address query table.",
+    "maxaccess": "read-only",
+    "name": "hwCfgMacAddrQueryAtmIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.32.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwCfgMacAddrQueryBridgeId": {
+    "class": "objecttype",
+    "description": "The bridge ID for index of layer 2 Configured mac-address query table.",
+    "maxaccess": "not-accessible",
+    "name": "hwCfgMacAddrQueryBridgeId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.32.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCfgMacAddrQueryCeVlanId": {
+    "class": "objecttype",
+    "description": "The CE VLAN ID for match item of layer 2 Configured mac-address query table.",
+    "maxaccess": "read-only",
+    "name": "hwCfgMacAddrQueryCeVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.32.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrNone"
+    }
+  },
+  "hwCfgMacAddrQueryCedefaultFlag": {
+    "class": "objecttype",
+    "description": "The CE default flag for match item of layer 2 Configured mac-address query table.",
+    "maxaccess": "read-only",
+    "name": "hwCfgMacAddrQueryCedefaultFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.32.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cedefault": 1,
+          "nocedefault": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCfgMacAddrQueryConditionDigitA": {
+    "class": "objecttype",
+    "description": "Digit A (may be VLAN ID etc.) for query condition of layer 2 Configured mac-address query table.",
+    "maxaccess": "not-accessible",
+    "name": "hwCfgMacAddrQueryConditionDigitA",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.32.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwCfgMacAddrQueryConditionDigitB": {
+    "class": "objecttype",
+    "description": "Digit B (may be IF index etc.) for query condition of layer 2 Configured mac-address query table.",
+    "maxaccess": "not-accessible",
+    "name": "hwCfgMacAddrQueryConditionDigitB",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.32.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwCfgMacAddrQueryConditionDigitC": {
+    "class": "objecttype",
+    "description": "Digit C (other integer info) for query condition of layer 2 Configured mac-address query table.",
+    "maxaccess": "not-accessible",
+    "name": "hwCfgMacAddrQueryConditionDigitC",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.32.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwCfgMacAddrQueryConditionMode": {
+    "class": "objecttype",
+    "description": "Mode for query condition of layer 2 Configured mac-address query table.",
+    "maxaccess": "not-accessible",
+    "name": "hwCfgMacAddrQueryConditionMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.32.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "showall": 1,
+          "showbymac": 2,
+          "showbymacvlan": 3,
+          "showbymacvsi": 11,
+          "showbyport": 9,
+          "showbyportvlan": 10,
+          "showbyportvsi": 15,
+          "showbytype": 4,
+          "showbytypeport": 6,
+          "showbytypeportvlan": 7,
+          "showbytypeportvsi": 13,
+          "showbytypevlan": 5,
+          "showbytypevsi": 12,
+          "showbyvlan": 8,
+          "showbyvsi": 14
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCfgMacAddrQueryConditionStringA": {
+    "class": "objecttype",
+    "description": "String A (may be VSI or SI etc.) for query condition of layer 2 Configured mac-address query table.",
+    "maxaccess": "not-accessible",
+    "name": "hwCfgMacAddrQueryConditionStringA",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.32.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCfgMacAddrQueryConditionStringB": {
+    "class": "objecttype",
+    "description": "String B (may be MAC or MAC type etc.) for query condition of layer 2 Configured mac-address query table.",
+    "maxaccess": "not-accessible",
+    "name": "hwCfgMacAddrQueryConditionStringB",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.32.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCfgMacAddrQueryEntry": {
+    "class": "objecttype",
+    "description": "Match entries of layer 2 Configured mac-address forwarding table lookup.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgMacAddrQueryVlanId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgMacAddrQueryVsiName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgMacAddrQuerySiName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgMacAddrQueryBridgeId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgMacAddrQueryMacAddr"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgMacAddrQueryConditionMode"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgMacAddrQueryConditionStringA"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgMacAddrQueryConditionStringB"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgMacAddrQueryConditionDigitA"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgMacAddrQueryConditionDigitB"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgMacAddrQueryConditionDigitC"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwCfgMacAddrQueryEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.32.1",
+    "status": "current"
+  },
+  "hwCfgMacAddrQueryIfIndex": {
+    "class": "objecttype",
+    "description": "The interface index for match item of layer 2 Configured mac-address query table.",
+    "maxaccess": "read-only",
+    "name": "hwCfgMacAddrQueryIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.32.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwCfgMacAddrQueryMacAddr": {
+    "class": "objecttype",
+    "description": "A unicast MAC address for index of layer 2 Configured mac-address query table.",
+    "maxaccess": "not-accessible",
+    "name": "hwCfgMacAddrQueryMacAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.32.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwCfgMacAddrQueryMacTunnel": {
+    "class": "objecttype",
+    "description": "The MAC tunnel for match item of layer 2 Configured mac-address query table.",
+    "maxaccess": "read-only",
+    "name": "hwCfgMacAddrQueryMacTunnel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.32.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCfgMacAddrQueryPeVlanId": {
+    "class": "objecttype",
+    "description": "The PE VLAN ID for match item of layer 2 Configured mac-address query table.",
+    "maxaccess": "read-only",
+    "name": "hwCfgMacAddrQueryPeVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.32.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrNone"
+    }
+  },
+  "hwCfgMacAddrQuerySiName": {
+    "class": "objecttype",
+    "description": "The service instance name for index of layer 2 Configured mac-address query table.",
+    "maxaccess": "not-accessible",
+    "name": "hwCfgMacAddrQuerySiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.32.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCfgMacAddrQueryTable": {
+    "class": "objecttype",
+    "description": "The query table of layer 2 Configured mac-address forwarding table.",
+    "maxaccess": "not-accessible",
+    "name": "hwCfgMacAddrQueryTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.32",
+    "status": "current"
+  },
+  "hwCfgMacAddrQueryTableGroup": {
+    "class": "objectgroup",
+    "description": "A collection of items of layer 2 Configured mac-address query table.",
+    "name": "hwCfgMacAddrQueryTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgMacAddrQueryType"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgMacAddrQueryIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgMacAddrQueryPeVlanId"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgMacAddrQueryCeVlanId"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgMacAddrQueryCedefaultFlag"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgMacAddrQueryAtmIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgMacAddrQueryVpi"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgMacAddrQueryVci"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgMacAddrQueryMacTunnel"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.2.1.18",
+    "status": "current"
+  },
+  "hwCfgMacAddrQueryType": {
+    "class": "objecttype",
+    "description": "The entry type for match item of layer 2 Configured mac-address query table.",
+    "maxaccess": "read-only",
+    "name": "hwCfgMacAddrQueryType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.32.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCfgMacAddrQueryVci": {
+    "class": "objecttype",
+    "description": "The VCI for match item of layer 2 Configured mac-address query table.",
+    "maxaccess": "read-only",
+    "name": "hwCfgMacAddrQueryVci",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.32.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCfgMacAddrQueryVlanId": {
+    "class": "objecttype",
+    "description": "The VLAN ID for index of layer 2 Configured mac-address query table.",
+    "maxaccess": "not-accessible",
+    "name": "hwCfgMacAddrQueryVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.32.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrNone"
+    }
+  },
+  "hwCfgMacAddrQueryVpi": {
+    "class": "objecttype",
+    "description": "The VPI for match item of layer 2 Configured mac-address query table.",
+    "maxaccess": "read-only",
+    "name": "hwCfgMacAddrQueryVpi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.32.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCfgMacAddrQueryVsiName": {
+    "class": "objecttype",
+    "description": "The vsi name for index of layer 2 Configured mac-address query table.",
+    "maxaccess": "not-accessible",
+    "name": "hwCfgMacAddrQueryVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.32.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDiscardIllegalMacAlarm": {
+    "class": "objecttype",
+    "description": "When this object is set to \u0027enabled(1)\u0027 discard illegal MAC alarm is enabled else disabled.",
+    "maxaccess": "read-write",
+    "name": "hwDiscardIllegalMacAlarm",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwDiscardIllegalMacEnable": {
+    "class": "objecttype",
+    "description": "When this object is set to \u0027enabled(1)\u0027 illegal MAC will be discarded.",
+    "maxaccess": "read-write",
+    "name": "hwDiscardIllegalMacEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwDynFdbAtmPort": {
+    "class": "objecttype",
+    "description": "The forwarding port. The port must be an atm port. ",
+    "maxaccess": "read-create",
+    "name": "hwDynFdbAtmPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwDynFdbMac": {
+    "class": "objecttype",
+    "description": "A unicast MAC address for which the device contains it\u0027s information in the mac-address table. The mac-address can\u0027t be a special address or multicast address.",
+    "maxaccess": "not-accessible",
+    "name": "hwDynFdbMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwDynFdbPort": {
+    "class": "objecttype",
+    "description": "The forwarding port. The port must be an ethernet port. And the port must be contained by the hwFdbVlanId or allow the hwFdbVlanId get across through itself.",
+    "maxaccess": "read-create",
+    "name": "hwDynFdbPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwDynFdbRowstatus": {
+    "class": "objecttype",
+    "description": "The operating state of the row.",
+    "maxaccess": "read-create",
+    "name": "hwDynFdbRowstatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwDynFdbVci": {
+    "class": "objecttype",
+    "description": "The Virtual Connection Identifier.",
+    "maxaccess": "read-create",
+    "name": "hwDynFdbVci",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2047,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDynFdbVlanId": {
+    "class": "objecttype",
+    "description": "The VLAN name or other identifier referring to the VLAN which is correlative to the hwFdbMac.",
+    "maxaccess": "not-accessible",
+    "name": "hwDynFdbVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "VlanIndex"
+    }
+  },
+  "hwDynFdbVpi": {
+    "class": "objecttype",
+    "description": "The Virtual Path Identifier.",
+    "maxaccess": "read-create",
+    "name": "hwDynFdbVpi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDynFdbVsiName": {
+    "class": "objecttype",
+    "description": "The VSI-ID or other identifier referring to the VSI which is correlative to the hwFdbMac.",
+    "maxaccess": "not-accessible",
+    "name": "hwDynFdbVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDynMacAddrQueryAgingTime": {
+    "class": "objecttype",
+    "description": "The aging time for match item of layer 2 dynamic mac-address query table.",
+    "maxaccess": "read-only",
+    "name": "hwDynMacAddrQueryAgingTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.33.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDynMacAddrQueryAtmIfIndex": {
+    "class": "objecttype",
+    "description": "The ATM interface index for match item of layer 2 dynamic mac-address query table.",
+    "maxaccess": "read-only",
+    "name": "hwDynMacAddrQueryAtmIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.33.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwDynMacAddrQueryBridgeId": {
+    "class": "objecttype",
+    "description": "The bridge ID for index of layer 2 dynamic mac-address query table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDynMacAddrQueryBridgeId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.33.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDynMacAddrQueryCeVlanId": {
+    "class": "objecttype",
+    "description": "The CE VLAN ID for match item of layer 2 dynamic mac-address query table.",
+    "maxaccess": "read-only",
+    "name": "hwDynMacAddrQueryCeVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.33.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrNone"
+    }
+  },
+  "hwDynMacAddrQueryConditionDigitA": {
+    "class": "objecttype",
+    "description": "Digit A (may be VLAN ID etc.) for query condition of layer 2 dynamic mac-address query table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDynMacAddrQueryConditionDigitA",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.33.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwDynMacAddrQueryConditionDigitB": {
+    "class": "objecttype",
+    "description": "Digit B (may be IF index etc.) for query condition of layer 2 dynamic mac-address query table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDynMacAddrQueryConditionDigitB",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.33.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwDynMacAddrQueryConditionDigitC": {
+    "class": "objecttype",
+    "description": "Digit C (other integer info) for query condition of layer 2 dynamic mac-address query table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDynMacAddrQueryConditionDigitC",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.33.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwDynMacAddrQueryConditionMode": {
+    "class": "objecttype",
+    "description": "Mode for query condition of layer 2 dynamic mac-address query table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDynMacAddrQueryConditionMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.33.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "showall": 1,
+          "showbymac": 2,
+          "showbymacvlan": 3,
+          "showbymacvsi": 11,
+          "showbyport": 9,
+          "showbyportvlan": 10,
+          "showbyportvsi": 15,
+          "showbytype": 4,
+          "showbytypeport": 6,
+          "showbytypeportvlan": 7,
+          "showbytypeportvsi": 13,
+          "showbytypeslot": 17,
+          "showbytypeslotport": 20,
+          "showbytypeslotportvlan": 21,
+          "showbytypeslotportvsi": 23,
+          "showbytypeslotsourceslot": 18,
+          "showbytypeslotvlan": 19,
+          "showbytypeslotvsi": 22,
+          "showbytypeslotvsipw": 24,
+          "showbytypevlan": 5,
+          "showbytypevsi": 12,
+          "showbyvlan": 8,
+          "showbyvsi": 14,
+          "showbyvsipw": 16
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDynMacAddrQueryConditionStringA": {
+    "class": "objecttype",
+    "description": "String A (may be VSI or SI etc.) for query condition of layer 2 dynamic mac-address query table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDynMacAddrQueryConditionStringA",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.33.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDynMacAddrQueryConditionStringB": {
+    "class": "objecttype",
+    "description": "String B (may be MAC or MAC type etc.) for query condition of layer 2 dynamic mac-address query table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDynMacAddrQueryConditionStringB",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.33.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDynMacAddrQueryEntry": {
+    "class": "objecttype",
+    "description": "Match entries of layer 2 dynamic mac-address forwarding table lookup.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynMacAddrQueryVlanId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynMacAddrQueryVsiName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynMacAddrQuerySiName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynMacAddrQueryBridgeId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynMacAddrQueryMacAddr"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynMacAddrQueryConditionMode"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynMacAddrQueryConditionStringA"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynMacAddrQueryConditionStringB"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynMacAddrQueryConditionDigitA"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynMacAddrQueryConditionDigitB"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynMacAddrQueryConditionDigitC"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDynMacAddrQueryEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.33.1",
+    "status": "current"
+  },
+  "hwDynMacAddrQueryIfIndex": {
+    "class": "objecttype",
+    "description": "The interface index for match item of layer 2 dynamic mac-address query table.",
+    "maxaccess": "read-only",
+    "name": "hwDynMacAddrQueryIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.33.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwDynMacAddrQueryMacAddr": {
+    "class": "objecttype",
+    "description": "A unicast MAC address for index of layer 2 dynamic mac-address query table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDynMacAddrQueryMacAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.33.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwDynMacAddrQueryMacTunnel": {
+    "class": "objecttype",
+    "description": "The MAC tunnel for match item of layer 2 dynamic mac-address query table.",
+    "maxaccess": "read-only",
+    "name": "hwDynMacAddrQueryMacTunnel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.33.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDynMacAddrQueryPeVlanId": {
+    "class": "objecttype",
+    "description": "The PE VLAN ID for match item of layer 2 dynamic mac-address query table.",
+    "maxaccess": "read-only",
+    "name": "hwDynMacAddrQueryPeVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.33.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrNone"
+    }
+  },
+  "hwDynMacAddrQueryPeerIp": {
+    "class": "objecttype",
+    "description": "The peer ip address for match item of layer 2 dynamic mac-address query table.",
+    "maxaccess": "read-only",
+    "name": "hwDynMacAddrQueryPeerIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.33.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDynMacAddrQueryPwId": {
+    "class": "objecttype",
+    "description": "The PW ID for match item of layer 2 dynamic mac-address query table.",
+    "maxaccess": "read-only",
+    "name": "hwDynMacAddrQueryPwId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.33.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwDynMacAddrQuerySiName": {
+    "class": "objecttype",
+    "description": "The service instance name for index of layer 2 dynamic mac-address query table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDynMacAddrQuerySiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.33.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDynMacAddrQueryTable": {
+    "class": "objecttype",
+    "description": "The query table of layer 2 dynamic mac-address forwarding table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDynMacAddrQueryTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.33",
+    "status": "current"
+  },
+  "hwDynMacAddrQueryTableGroup": {
+    "class": "objectgroup",
+    "description": "A collection of items of layer 2 dynamic mac-address query table.",
+    "name": "hwDynMacAddrQueryTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynMacAddrQueryType"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynMacAddrQueryIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynMacAddrQueryPeVlanId"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynMacAddrQueryCeVlanId"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynMacAddrQueryAtmIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynMacAddrQueryVpi"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynMacAddrQueryVci"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynMacAddrQueryPeerIp"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynMacAddrQueryPwId"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynMacAddrQueryMacTunnel"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynMacAddrQueryAgingTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.2.1.19",
+    "status": "current"
+  },
+  "hwDynMacAddrQueryType": {
+    "class": "objecttype",
+    "description": "The entry type for match item of layer 2 dynamic mac-address query table.",
+    "maxaccess": "read-only",
+    "name": "hwDynMacAddrQueryType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.33.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDynMacAddrQueryVci": {
+    "class": "objecttype",
+    "description": "The VCI for match item of layer 2 dynamic mac-address query table.",
+    "maxaccess": "read-only",
+    "name": "hwDynMacAddrQueryVci",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.33.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDynMacAddrQueryVlanId": {
+    "class": "objecttype",
+    "description": "The VLAN ID for index of layer 2 dynamic mac-address query table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDynMacAddrQueryVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.33.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrNone"
+    }
+  },
+  "hwDynMacAddrQueryVpi": {
+    "class": "objecttype",
+    "description": "The VPI for match item of layer 2 dynamic mac-address query table.",
+    "maxaccess": "read-only",
+    "name": "hwDynMacAddrQueryVpi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.33.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDynMacAddrQueryVsiName": {
+    "class": "objecttype",
+    "description": "The vsi name for index of layer 2 dynamic mac-address query table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDynMacAddrQueryVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.33.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDynSecurityFdbToStaticEnable": {
+    "class": "objecttype",
+    "description": "When this object is set to \u0027Enable(1)\u0027,if port security is enabled , the dynamic mac will convert to static.",
+    "maxaccess": "read-create",
+    "name": "hwDynSecurityFdbToStaticEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnableValue"
+    }
+  },
+  "hwIfInputUnucFlowFallingThreshold": {
+    "class": "notificationtype",
+    "description": "Unknown unicast flow is fall behind the alarm threshold. ",
+    "name": "hwIfInputUnucFlowFallingThreshold",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwUNUCPortName"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwUNUCPortAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwUNUCPortRealFlow"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.29",
+    "status": "current"
+  },
+  "hwIfInputUnucFlowRisingThreshold": {
+    "class": "notificationtype",
+    "description": "Unknown unicast flow is beyond the alarm threshold. ",
+    "name": "hwIfInputUnucFlowRisingThreshold",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwUNUCPortName"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwUNUCPortAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwUNUCPortRealFlow"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.28",
+    "status": "current"
+  },
+  "hwL2MACTrapGroups": {
+    "class": "objectidentity",
+    "name": "hwL2MACTrapGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.2.3"
+  },
+  "hwL2MAM": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "This is the layer 2 mac-address management. It contains the layer 2 mac-address forwarding information currently operating on this device. And also contains the information of mac-limit rule. ",
+    "lastupdated": "201508250000Z",
+    "name": "hwL2MAM",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "Modify hwCfgFdbPort SYNTAX from InterfaceIndex to InterfaceIndexOrZero. ",
+        "revision": "2015-08-25 00:00"
+      },
+      {
+        "description": "Modify hwDynFdbPort of HwdbDynFdbEntry. ",
+        "revision": "2015-08-06 00:00"
+      },
+      {
+        "description": "Add alarm node hwBdMacLimitOverThresholdAlarm and hwBdMacLimitOverThresholdAlarmResume. ",
+        "revision": "2015-07-23 00:00"
+      },
+      {
+        "description": "Add alarm node hwPwMacSpoofingAttackAlarm and hwPwMacSpoofingAttackRecover. ",
+        "revision": "2014-12-19 23:43"
+      },
+      {
+        "description": "Delete hwMacHopPortName5-8 of hwMacHopAlarmTable . ",
+        "revision": "2014-07-25 09:45"
+      },
+      {
+        "description": "Add alarm node hwPstBroadcastLostAlarm and hwPstBroadcastLostAlarmResume. ",
+        "revision": "2014-06-16 09:45"
+      },
+      {
+        "description": "Delet alarm node hwVllByPassPWOverGRENotSupportForwardRising. ",
+        "revision": "2014-06-06 09:45"
+      },
+      {
+        "description": "Add hwMacHopPort of hwMacHopAlarmTable . ",
+        "revision": "2014-01-21 00:00"
+      },
+      {
+        "description": "Delete hwMacHopMac and hwMacHopSlotId of hwMacHopAlarmTable . ",
+        "revision": "2014-05-10 00:00"
+      },
+      {
+        "description": "Add hwMacHopAlarmTable and two traps hwMacHopAlarmRisingThreshold and hwMacHopAlarmFallingThreshold for Mac hop alram. ",
+        "revision": "2014-03-13 00:00"
+      },
+      {
+        "description": "Fix the errors checked by a tool.",
+        "revision": "2013-09-07 00:00"
+      },
+      {
+        "description": "Add alarm node hwVplsOverGRENotSupportForwardRising and hwVllByPassPWOverGRENotSupportForwardRising. ",
+        "revision": "2013-05-24 00:00"
+      },
+      {
+        "description": "Add alarm node hwMacLimitRuleNumRaisingThreshold and hwMacLimitRuleNumFallingThreshold . ",
+        "revision": "2013-05-14 00:00"
+      },
+      {
+        "description": " V1.00, Inital version. ",
+        "revision": "2004-06-08 00:00"
+      }
+    ]
+  },
+  "hwL2MAMCfgFdbGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing information about level 2 configured mac-address table.",
+    "name": "hwL2MAMCfgFdbGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgFdbPort"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgFdbType"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgFdbAtmPort"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgFdbVpi"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgFdbVci"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgFdbRowstatus"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgFdbCeDefault"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwUntargetMacNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.2.1.1",
+    "status": "current"
+  },
+  "hwL2MAMCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for device support of Level 2 Mac-address management.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2MAMCfgFdbGroup"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2MAMDynFdbGroup"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2MAMMacLimitGroup"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2MAMMacUsageGroup"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwdbCfg3tupleFdbGroup"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacIfStatisticsGroup"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacSlotStatisticsGroup"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacVlanStatisticsGroup"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacVsiStatisticsGroup"
+      }
+    ],
+    "name": "hwL2MAMCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.2.2.1",
+    "status": "current"
+  },
+  "hwL2MAMCompliances": {
+    "class": "objectidentity",
+    "name": "hwL2MAMCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.2.2"
+  },
+  "hwL2MAMConformance": {
+    "class": "objectidentity",
+    "name": "hwL2MAMConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.2"
+  },
+  "hwL2MAMDynFdbGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing information about level 2 Dynamic mac-address table.",
+    "name": "hwL2MAMDynFdbGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynFdbPort"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynFdbAtmPort"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynFdbVpi"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynFdbVci"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynFdbRowstatus"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynSecurityFdbToStaticEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.2.1.2",
+    "status": "current"
+  },
+  "hwL2MAMGroups": {
+    "class": "objectidentity",
+    "name": "hwL2MAMGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.2.1"
+  },
+  "hwL2MAMMacLimitGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing information about mac-address limit rules.",
+    "name": "hwL2MAMMacLimitGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitMaxMac"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitMaxRate"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitAction"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitAlarm"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitRowstatus"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2MaxMacLimit"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacAddressLearn"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacDynAddressLearnNum"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacSecureAddressLearnNum"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitRuleMaxMac"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitRuleMaxRate"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitRuleAction"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitRuleAlarm"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitRuleRowstatus"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacRuleDynAddressLearnNum"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitApplyRuleName"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitApplyRowstatus"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwPwMacLimitMaxMac"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwPwMacLimitMaxRate"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwPwMacLimitAction"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwPwMacLimitAlarm"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwPwMacLimitRowstatus"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwPwMacAddressLearn"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwPwMacDynAddressLearnNum"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwSlotMacLimitMaxMac"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwSlotMacLimitMaxRate"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwSlotMacLimitAction"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwSlotMacLimitAlarm"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwSlotMacLimitRowstatus"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwBridgeMacAgingTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.2.1.3",
+    "status": "current"
+  },
+  "hwL2MAMMacUsageGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing information about mac-address usage.",
+    "name": "hwL2MAMMacUsageGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacEntityUsage"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacEntityUsageThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.2.1.4",
+    "status": "current"
+  },
+  "hwL2MAMObjects": {
+    "class": "objectidentity",
+    "name": "hwL2MAMObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1"
+  },
+  "hwL2MAMObjectsGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing information about mac-address configuration.",
+    "name": "hwL2MAMObjectsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacAgingTime"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacRestrict"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacGlobalStatistics"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDiscardIllegalMacEnable"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDiscardIllegalMacAlarm"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacSpoofingDefend"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacflappingMac"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacFlappingVlan"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.2.1.6",
+    "status": "current"
+  },
+  "hwL2MacFlappingTrapObjects": {
+    "class": "objectidentity",
+    "name": "hwL2MacFlappingTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.24"
+  },
+  "hwL2MacTraps": {
+    "class": "objectidentity",
+    "name": "hwL2MacTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7"
+  },
+  "hwL2MaxMacLimit": {
+    "class": "objecttype",
+    "description": "The maximum of Mac-address limit rule.",
+    "maxaccess": "read-only",
+    "name": "hwL2MaxMacLimit",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwL2Mgmt": {
+    "class": "objectidentity",
+    "name": "hwL2Mgmt",
+    "oid": "1.3.6.1.4.1.2011.5.25.42"
+  },
+  "hwL2ProtclTnlCusEncapType": {
+    "class": "objecttype",
+    "description": "This object indicates encapsulation type of customize L2 protocol tunnel.",
+    "maxaccess": "read-create",
+    "name": "hwL2ProtclTnlCusEncapType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.28.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethernetii": 1,
+          "llc": 3,
+          "others": 4,
+          "snap": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwL2ProtclTnlCusEntry": {
+    "class": "objecttype",
+    "description": "This object indicates Group-MAC configuration table for customize L2 protocol tunnel.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtclTnlCusProtclName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL2ProtclTnlCusEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.28.1",
+    "status": "current"
+  },
+  "hwL2ProtclTnlCusGroupDefault": {
+    "class": "objecttype",
+    "description": "This object indicates default group-MAC(0100-0ccd-cdd0) of customize L2 protocol tunnel.",
+    "maxaccess": "read-create",
+    "name": "hwL2ProtclTnlCusGroupDefault",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.28.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwL2ProtclTnlCusGroupMacAddr": {
+    "class": "objecttype",
+    "description": "This object indicates group-MAC of customize L2 protocol tunnel.",
+    "maxaccess": "read-create",
+    "name": "hwL2ProtclTnlCusGroupMacAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.28.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwL2ProtclTnlCusPriority": {
+    "class": "objecttype",
+    "description": "This object indicates priority of customize L2 protocol tunnel.",
+    "maxaccess": "read-create",
+    "name": "hwL2ProtclTnlCusPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.28.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2ProtclTnlCusProtclGroup": {
+    "class": "objectgroup",
+    "description": "A collection of items of configuration table of customize L2 protocol tunnel.",
+    "name": "hwL2ProtclTnlCusProtclGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtclTnlCusProtclMacAddr"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtclTnlCusEncapType"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtclTnlCusProtclType"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtclTnlCusGroupMacAddr"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtclTnlCusGroupDefault"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtclTnlCusPriority"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtclTnlCusRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.2.1.15",
+    "status": "current"
+  },
+  "hwL2ProtclTnlCusProtclMacAddr": {
+    "class": "objecttype",
+    "description": "This object indicates protocol MAC-Address of customize L2 protocol tunnel.",
+    "maxaccess": "read-create",
+    "name": "hwL2ProtclTnlCusProtclMacAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.28.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwL2ProtclTnlCusProtclName": {
+    "class": "objecttype",
+    "description": "This object indicates protocol name of customize L2 protocol tunnel.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2ProtclTnlCusProtclName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.28.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2ProtclTnlCusProtclType": {
+    "class": "objecttype",
+    "description": "This object indicates protocol type of customize L2 protocol tunnel.",
+    "maxaccess": "read-create",
+    "name": "hwL2ProtclTnlCusProtclType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.28.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwL2ProtclTnlCusRowStatus": {
+    "class": "objecttype",
+    "description": "Used for controlling the creation and deletion of this row. All writeable objects in this row may be modified at any time. If a Network Management Application attempts to delete a conceptual row by setting this object to \u0027destroy\u0027 and there are one or more entries in hwQinQSubIfTermTable pointing to the row, the agent must also destroy the corresponding entries in hwL2ProtclTnlCusTable.",
+    "maxaccess": "read-create",
+    "name": "hwL2ProtclTnlCusRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.28.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwL2ProtclTnlCusTable": {
+    "class": "objecttype",
+    "description": "Group-MAC configuration table of customize L2 protocol tunnel.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2ProtclTnlCusTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.28",
+    "status": "current"
+  },
+  "hwL2ProtclTnlEnableDropthresholdRate": {
+    "class": "objecttype",
+    "description": "This object indicates drop threshold rate(packet per second) of port configuration of L2 protocol tunnel.",
+    "maxaccess": "read-write",
+    "name": "hwL2ProtclTnlEnableDropthresholdRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.29.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4096,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2ProtclTnlEnableEntry": {
+    "class": "objecttype",
+    "description": "This object indicates port configuration table of L2 protocol tunnel.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtclTnlEnableIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtclTnlEnableProtclName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL2ProtclTnlEnableEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.29.1",
+    "status": "current"
+  },
+  "hwL2ProtclTnlEnableGroup": {
+    "class": "objectgroup",
+    "description": "A collection of items of port configuration of L2 protocol tunnel.",
+    "name": "hwL2ProtclTnlEnableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtclTnlEnableTransMode"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtclTnlEnableTagListLow"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtclTnlEnableTagListHigh"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtclTnlEnableDropthresholdRate"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtclTnlEnableRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.2.1.16",
+    "status": "current"
+  },
+  "hwL2ProtclTnlEnableIfIndex": {
+    "class": "objecttype",
+    "description": "This object indicates interface index of port configuration of L2 protocol tunnel.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2ProtclTnlEnableIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.29.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwL2ProtclTnlEnableProtclName": {
+    "class": "objecttype",
+    "description": "This object indicates protocol name of port configuration of L2 protocol tunnel.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2ProtclTnlEnableProtclName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.29.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2ProtclTnlEnableRowStatus": {
+    "class": "objecttype",
+    "description": "Used for controlling the creation and deletion of this row. All writeable objects in this row may be modified at any time. If a Network Management Application attempts to delete a conceptual row by setting this object to \u0027destroy\u0027 and there are one or more entries in hwQinQSubIfTermTable pointing to the row, the agent must also destroy the corresponding entries in hwL2ProtclTnlEnableTable.",
+    "maxaccess": "read-create",
+    "name": "hwL2ProtclTnlEnableRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.29.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwL2ProtclTnlEnableTable": {
+    "class": "objecttype",
+    "description": "Port configuration table of L2 protocol tunnel.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2ProtclTnlEnableTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.29",
+    "status": "current"
+  },
+  "hwL2ProtclTnlEnableTagListHigh": {
+    "class": "objecttype",
+    "description": "This object indicates VLAN list high of port configuration of L2 protocol tunnel.",
+    "maxaccess": "read-create",
+    "name": "hwL2ProtclTnlEnableTagListHigh",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.29.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 256,
+            "min": 256
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2ProtclTnlEnableTagListLow": {
+    "class": "objecttype",
+    "description": "This object indicates VLAN list low of port configuration of L2 protocol tunnel.",
+    "maxaccess": "read-create",
+    "name": "hwL2ProtclTnlEnableTagListLow",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.29.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 256,
+            "min": 256
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2ProtclTnlEnableTransMode": {
+    "class": "objecttype",
+    "description": "This object indicates transparent mode of port configuration of L2 protocol tunnel.",
+    "maxaccess": "read-create",
+    "name": "hwL2ProtclTnlEnableTransMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.29.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tagged": 1,
+          "untagged": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwL2ProtclTnlStatisticsDropPkts": {
+    "class": "objecttype",
+    "description": "This object indicates the number of drop packets of statistics table of L2 protocol tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwL2ProtclTnlStatisticsDropPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.30.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwL2ProtclTnlStatisticsDropthrhldRate": {
+    "class": "objecttype",
+    "description": "This object indicates drop threshold rate(packets per second) of statistics table of L2 protocol tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwL2ProtclTnlStatisticsDropthrhldRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.30.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwL2ProtclTnlStatisticsEntry": {
+    "class": "objecttype",
+    "description": "This object indicates statistics table of L2 protocol tunnel.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtclTnlStatisticsIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtclTnlStatisticsProtclName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL2ProtclTnlStatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.30.1",
+    "status": "current"
+  },
+  "hwL2ProtclTnlStatisticsGroup": {
+    "class": "objectgroup",
+    "description": "A collection of items of port statistics of L2 protocol tunnel.",
+    "name": "hwL2ProtclTnlStatisticsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtclTnlStatisticsDropthrhldRate"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtclTnlStatisticsInputPkts"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtclTnlStatisticsOutputPkts"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtclTnlStatisticsDropPkts"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.2.1.17",
+    "status": "current"
+  },
+  "hwL2ProtclTnlStatisticsIfIndex": {
+    "class": "objecttype",
+    "description": "This object indicates interface index of statistics table of L2 protocol tunnel.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2ProtclTnlStatisticsIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.30.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwL2ProtclTnlStatisticsInputPkts": {
+    "class": "objecttype",
+    "description": "This object indicates the number of input packets of statistics table of L2 protocol tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwL2ProtclTnlStatisticsInputPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.30.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwL2ProtclTnlStatisticsOutputPkts": {
+    "class": "objecttype",
+    "description": "This object indicates the number of output packets of statistics table of L2 protocol tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwL2ProtclTnlStatisticsOutputPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.30.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwL2ProtclTnlStatisticsProtclName": {
+    "class": "objecttype",
+    "description": "This object indicates protocol name of statistics table of L2 protocol tunnel.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2ProtclTnlStatisticsProtclName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.30.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2ProtclTnlStatisticsTable": {
+    "class": "objecttype",
+    "description": "Statistics table of L2 protocol tunnel.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2ProtclTnlStatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.30",
+    "status": "current"
+  },
+  "hwL2ProtclTnlStdEncapType": {
+    "class": "objecttype",
+    "description": "This object indicates encapsulation type of standard L2 protocol tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwL2ProtclTnlStdEncapType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.27.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethernetii": 1,
+          "llc": 3,
+          "others": 4,
+          "snap": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwL2ProtclTnlStdEntry": {
+    "class": "objecttype",
+    "description": "This object indicates Group-MAC configuration table for standard L2 protocol tunnel.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtclTnlStdProtclName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL2ProtclTnlStdEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.27.1",
+    "status": "current"
+  },
+  "hwL2ProtclTnlStdGroupDefault": {
+    "class": "objecttype",
+    "description": "This object indicates default group-MAC(0100-0ccd-cdd0) of standard L2 protocol tunnel.",
+    "maxaccess": "read-write",
+    "name": "hwL2ProtclTnlStdGroupDefault",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.27.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwL2ProtclTnlStdGroupMacAddr": {
+    "class": "objecttype",
+    "description": "This object indicates group-MAC of standard L2 protocol tunnel.",
+    "maxaccess": "read-write",
+    "name": "hwL2ProtclTnlStdGroupMacAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.27.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwL2ProtclTnlStdPriority": {
+    "class": "objecttype",
+    "description": "This object indicates priority of standard L2 protocol tunnel.",
+    "maxaccess": "read-write",
+    "name": "hwL2ProtclTnlStdPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.27.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2ProtclTnlStdProtclGroup": {
+    "class": "objectgroup",
+    "description": "A collection of items of configuration table of standard L2 protocol tunnel.",
+    "name": "hwL2ProtclTnlStdProtclGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtclTnlStdProtclMacAddr"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtclTnlStdEncapType"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtclTnlStdProtclType"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtclTnlStdGroupMacAddr"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtclTnlStdGroupDefault"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtclTnlStdPriority"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.2.1.14",
+    "status": "current"
+  },
+  "hwL2ProtclTnlStdProtclMacAddr": {
+    "class": "objecttype",
+    "description": "This object indicates protocol MAC-Address of standard L2 protocol tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwL2ProtclTnlStdProtclMacAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.27.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwL2ProtclTnlStdProtclName": {
+    "class": "objecttype",
+    "description": "This object indicates protocol name of standard L2 protocol tunnel.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2ProtclTnlStdProtclName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.27.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2ProtclTnlStdProtclType": {
+    "class": "objecttype",
+    "description": "This object indicates protocol type of standard L2 protocol tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwL2ProtclTnlStdProtclType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.27.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwL2ProtclTnlStdTable": {
+    "class": "objecttype",
+    "description": "Group-MAC configuration table of standard L2 protocol tunnel.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2ProtclTnlStdTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.27",
+    "status": "current"
+  },
+  "hwL2ProtocolTunnelDropThresholdFalling": {
+    "class": "notificationtype",
+    "description": "The number of the protocol transmit on the port below the drop threshold.",
+    "name": "hwL2ProtocolTunnelDropThresholdFalling",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtocolTunnelTrapPortName"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtocolTunnelTrapProtocolName"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtocolTunnelTrapDropThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.16",
+    "status": "current"
+  },
+  "hwL2ProtocolTunnelDropThresholdRaising": {
+    "class": "notificationtype",
+    "description": "The number of the protocol transmit on the port reach the drop threshold.",
+    "name": "hwL2ProtocolTunnelDropThresholdRaising",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtocolTunnelTrapPortName"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtocolTunnelTrapProtocolName"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtocolTunnelTrapDropThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.15",
+    "status": "current"
+  },
+  "hwL2ProtocolTunnelTrapDropThreshold": {
+    "class": "objecttype",
+    "description": "The drop rangle of layer 2 protocol tunnel.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwL2ProtocolTunnelTrapDropThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.26.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4096,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2ProtocolTunnelTrapGroup": {
+    "class": "objectgroup",
+    "description": "A collection of items of objects information of L2 Protocol Tunnel Trap notify.",
+    "name": "hwL2ProtocolTunnelTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtocolTunnelTrapPortName"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtocolTunnelTrapProtocolName"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwL2ProtocolTunnelTrapDropThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.2.1.13",
+    "status": "current"
+  },
+  "hwL2ProtocolTunnelTrapObjects": {
+    "class": "objectidentity",
+    "name": "hwL2ProtocolTunnelTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.26"
+  },
+  "hwL2ProtocolTunnelTrapPortName": {
+    "class": "objecttype",
+    "description": "The port name for layer 2 protocol tunnel trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwL2ProtocolTunnelTrapPortName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.26.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2ProtocolTunnelTrapProtocolName": {
+    "class": "objecttype",
+    "description": "The protocol name for layer 2 protocol tunnel trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwL2ProtocolTunnelTrapProtocolName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.26.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMacAddressLearn": {
+    "class": "objecttype",
+    "description": "The flag of enable Mac address learn.",
+    "maxaccess": "read-create",
+    "name": "hwMacAddressLearn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.4.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMacAgingTime": {
+    "class": "objecttype",
+    "description": "The interval that the hardware deletes any entry whose hit bit is cleared and clears the hit bit of the remaining entries.The default value is 300 seconds.\u00270\u0027means the MAC entries will be never aged.",
+    "maxaccess": "read-write",
+    "name": "hwMacAgingTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000000,
+            "min": 10
+          },
+          {
+            "max": 0,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMacDynAddressLearnNum": {
+    "class": "objecttype",
+    "description": "The number of learned dynamic MAC address .",
+    "maxaccess": "read-only",
+    "name": "hwMacDynAddressLearnNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.4.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 131072,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMacEntityUsage": {
+    "class": "objecttype",
+    "description": "MAC usage in every IO board",
+    "maxaccess": "read-only",
+    "name": "hwMacEntityUsage",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMacEntityUsageThreshold": {
+    "class": "objecttype",
+    "description": "MAC usage range",
+    "maxaccess": "read-write",
+    "name": "hwMacEntityUsageThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMacFlappingAlarm": {
+    "class": "notificationtype",
+    "description": " Mac flapping alarm .",
+    "name": "hwMacFlappingAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapSeverity"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapProbableCause"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapEventType"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacflappingMac"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacFlappingVlan"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPortName"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPortName"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.12",
+    "status": "current"
+  },
+  "hwMacFlappingVlan": {
+    "class": "objecttype",
+    "description": "The vlan of flapping mac.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMacFlappingVlan",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.24.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMacGlobalStatistics": {
+    "class": "objecttype",
+    "description": "The number of the global mac-address items.",
+    "maxaccess": "read-only",
+    "name": "hwMacGlobalStatistics",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMacHopAlarmEntry": {
+    "class": "objecttype",
+    "description": "Entries of mac hop alarm information for interface table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacHopVlan"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacHopVsiName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacHopBdID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMacHopAlarmEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.38.1",
+    "status": "current"
+  },
+  "hwMacHopAlarmFallingThreshold": {
+    "class": "notificationtype",
+    "description": "Mac hop is fall behind the alarm threshold. ",
+    "name": "hwMacHopAlarmFallingThreshold",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacHopVlan"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacHopVsiName"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacHopBdID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.31",
+    "status": "current"
+  },
+  "hwMacHopAlarmRisingThreshold": {
+    "class": "notificationtype",
+    "description": "Mac hop is beyond the alarm threshold. ",
+    "name": "hwMacHopAlarmRisingThreshold",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacHopVlan"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacHopVsiName"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacHopBdID"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacHopPortName1"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacHopPortName2"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacHopPortName3"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacHopPortName4"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacHopPWInfo"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.30",
+    "status": "current"
+  },
+  "hwMacHopAlarmTable": {
+    "class": "objecttype",
+    "description": "A table containing the mac hop alarm information.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacHopAlarmTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.38",
+    "status": "current"
+  },
+  "hwMacHopBdID": {
+    "class": "objecttype",
+    "description": "The BD id of mac hop.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMacHopBdID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.38.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32768,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMacHopPWInfo": {
+    "class": "objecttype",
+    "description": "The PW info of Mac-hopping.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMacHopPWInfo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.38.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 512,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMacHopPortName1": {
+    "class": "objecttype",
+    "description": "The Port name of Mac-hopping.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMacHopPortName1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.38.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMacHopPortName2": {
+    "class": "objecttype",
+    "description": "The Port name of Mac-hopping.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMacHopPortName2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.38.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMacHopPortName3": {
+    "class": "objecttype",
+    "description": "The Port name of Mac-hopping.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMacHopPortName3",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.38.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMacHopPortName4": {
+    "class": "objecttype",
+    "description": "The Port name of Mac-hopping.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMacHopPortName4",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.38.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMacHopVlan": {
+    "class": "objecttype",
+    "description": "The VLAN ID of mac hop.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMacHopVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.38.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMacHopVsiName": {
+    "class": "objecttype",
+    "description": "The VSI of mac hop.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMacHopVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.38.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMacIfStatistics": {
+    "class": "objecttype",
+    "description": "The number of the mac-address items.",
+    "maxaccess": "read-only",
+    "name": "hwMacIfStatistics",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.15.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMacIfStatisticsEntry": {
+    "class": "objecttype",
+    "description": "Entries of the statistics of mac-address table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacIfStatisticsIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMacIfStatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.15.1",
+    "status": "current"
+  },
+  "hwMacIfStatisticsGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing information about mac-address statistics by interface index.",
+    "name": "hwMacIfStatisticsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacIfStatistics"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.2.1.8",
+    "status": "current"
+  },
+  "hwMacIfStatisticsIfIndex": {
+    "class": "objecttype",
+    "description": "The interface index which is correlative to the hwIfMacStatistics table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacIfStatisticsIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.15.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwMacIfStatisticsTable": {
+    "class": "objecttype",
+    "description": "A table showing the number of mac-address items by interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacIfStatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.15",
+    "status": "current"
+  },
+  "hwMacInfoQueryCapacity": {
+    "class": "objecttype",
+    "description": "The capacity for match condition of layer 2 mac-address database.",
+    "maxaccess": "read-only",
+    "name": "hwMacInfoQueryCapacity",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.34.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMacInfoQueryConditionDigitA": {
+    "class": "objecttype",
+    "description": "Digit A (may be VLAN ID etc.) for query condition of layer 2 mac-address database.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacInfoQueryConditionDigitA",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.34.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMacInfoQueryConditionDigitB": {
+    "class": "objecttype",
+    "description": "Digit B (may be IF index etc.) for query condition of layer 2 mac-address database.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacInfoQueryConditionDigitB",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.34.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMacInfoQueryConditionDigitC": {
+    "class": "objecttype",
+    "description": "Digit C (other integer info) for query condition of layer 2 mac-address database.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacInfoQueryConditionDigitC",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.34.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMacInfoQueryConditionMode": {
+    "class": "objecttype",
+    "description": "Mode for query condition of layer 2 dynamic mac-address query table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacInfoQueryConditionMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.34.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "showcapacity": 21,
+          "showtotalnumberbyall": 1,
+          "showtotalnumberbyport": 7,
+          "showtotalnumberbyportvlan": 8,
+          "showtotalnumberbyportvsi": 12,
+          "showtotalnumberbytype": 2,
+          "showtotalnumberbytypeport": 4,
+          "showtotalnumberbytypeportvlan": 5,
+          "showtotalnumberbytypeportvsi": 10,
+          "showtotalnumberbytypeslot": 14,
+          "showtotalnumberbytypeslotport": 16,
+          "showtotalnumberbytypeslotportvlan": 17,
+          "showtotalnumberbytypeslotportvsi": 19,
+          "showtotalnumberbytypeslotvlan": 15,
+          "showtotalnumberbytypeslotvsi": 18,
+          "showtotalnumberbytypeslotvsipw": 20,
+          "showtotalnumberbytypevlan": 3,
+          "showtotalnumberbytypevsi": 9,
+          "showtotalnumberbyvlan": 6,
+          "showtotalnumberbyvsi": 11,
+          "showtotalnumberbyvsipw": 13
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMacInfoQueryConditionStringA": {
+    "class": "objecttype",
+    "description": "String A (may be VSI or SI etc.) for query condition of layer 2 mac-address database.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacInfoQueryConditionStringA",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.34.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMacInfoQueryConditionStringB": {
+    "class": "objecttype",
+    "description": "String B (may be MAC or MAC type etc.) for query condition of layer 2 mac-address database.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacInfoQueryConditionStringB",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.34.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMacInfoQueryConditionStringC": {
+    "class": "objecttype",
+    "description": "String C (may be MAC tunnel etc.) for query condition of layer 2 mac-address database.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacInfoQueryConditionStringC",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.34.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMacInfoQueryEntry": {
+    "class": "objecttype",
+    "description": "Match information of layer 2 mac-address database.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacInfoQueryConditionMode"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacInfoQueryConditionStringA"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacInfoQueryConditionStringB"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacInfoQueryConditionStringC"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacInfoQueryConditionDigitA"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacInfoQueryConditionDigitB"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacInfoQueryConditionDigitC"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMacInfoQueryEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.34.1",
+    "status": "current"
+  },
+  "hwMacInfoQueryTable": {
+    "class": "objecttype",
+    "description": "The MAC address information of layer 2 mac-address database.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacInfoQueryTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.34",
+    "status": "current"
+  },
+  "hwMacInfoQueryTableGroup": {
+    "class": "objectgroup",
+    "description": "A collection of items of layer 2 mac-address database query.",
+    "name": "hwMacInfoQueryTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacInfoQueryTotalNumber"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacInfoQueryTotalLocalNumber"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacInfoQueryTotalRemoteNumber"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacInfoQueryCapacity"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.2.1.20",
+    "status": "current"
+  },
+  "hwMacInfoQueryTotalLocalNumber": {
+    "class": "objecttype",
+    "description": "The total local number for match condition of layer 2 mac-address database.",
+    "maxaccess": "read-only",
+    "name": "hwMacInfoQueryTotalLocalNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.34.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMacInfoQueryTotalNumber": {
+    "class": "objecttype",
+    "description": "The total number for match condition of layer 2 mac-address database.",
+    "maxaccess": "read-only",
+    "name": "hwMacInfoQueryTotalNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.34.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMacInfoQueryTotalRemoteNumber": {
+    "class": "objecttype",
+    "description": "The total remote number for match condition of layer 2 mac-address database.",
+    "maxaccess": "read-only",
+    "name": "hwMacInfoQueryTotalRemoteNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.34.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMacLimitAction": {
+    "class": "objecttype",
+    "description": "The mac-address limit action of this entry. The meanings of the values are: discard(1)- Discard packets forward(2)- Forward packets.",
+    "maxaccess": "read-create",
+    "name": "hwMacLimitAction",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discard": 1,
+          "forward": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMacLimitAlarm": {
+    "class": "objecttype",
+    "description": "The mac-limit alarm switch of this entry. The meanings of the values are: disable(1), enable(2)",
+    "maxaccess": "read-create",
+    "name": "hwMacLimitAlarm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMacLimitApplyPort": {
+    "class": "objecttype",
+    "description": "The port number which apply the global mac-address learning-limit rule.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacLimitApplyPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.13.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwMacLimitApplyRowstatus": {
+    "class": "objecttype",
+    "description": "The operating state of the row.",
+    "maxaccess": "read-create",
+    "name": "hwMacLimitApplyRowstatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.13.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMacLimitApplyRuleEntry": {
+    "class": "objecttype",
+    "description": "Entries of the global mac-address learning-limit rules and apply ports table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitApplyPort"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitApplyVlanId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMacLimitApplyRuleEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.13.1",
+    "status": "current"
+  },
+  "hwMacLimitApplyRuleName": {
+    "class": "objecttype",
+    "description": "The global mac-address learning-limit rule name.",
+    "maxaccess": "read-create",
+    "name": "hwMacLimitApplyRuleName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.13.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMacLimitApplyRuleTable": {
+    "class": "objecttype",
+    "description": "A table containing the global mac-address learning-limit rules and apply ports.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacLimitApplyRuleTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.13",
+    "status": "current"
+  },
+  "hwMacLimitApplyVlanId": {
+    "class": "objecttype",
+    "description": "The vlan id which apply the global mac-address learning-limit rule.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacLimitApplyVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.13.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMacLimitEntry": {
+    "class": "objecttype",
+    "description": "Entries of the mac-address learning-limit table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitPort"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitVlanId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitVsiName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMacLimitEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.4.1",
+    "status": "current"
+  },
+  "hwMacLimitGlobalRuleEntry": {
+    "class": "objecttype",
+    "description": "Entries of the global mac-address learning-limit rule table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitGlobalRuleName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMacLimitGlobalRuleEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.12.1",
+    "status": "current"
+  },
+  "hwMacLimitGlobalRuleName": {
+    "class": "objecttype",
+    "description": "The global mac-address learning-limit rule name.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacLimitGlobalRuleName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.12.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMacLimitGlobalRuleTable": {
+    "class": "objecttype",
+    "description": "A table containing the global mac-address learning-limit rules information for device.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacLimitGlobalRuleTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.12",
+    "status": "current"
+  },
+  "hwMacLimitMaxMac": {
+    "class": "objecttype",
+    "description": "The maximum mac address. When the value is \u00270\u0027, the meaning is that there isn\u0027t limiting rule to the mac-address number.",
+    "maxaccess": "read-create",
+    "name": "hwMacLimitMaxMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 131072,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMacLimitMaxRate": {
+    "class": "objecttype",
+    "description": "The max mac-address learning rate. When the valu e is \u00270\u0027, the meaning is that there isn\u0027t limiting rule to the learning rate.",
+    "maxaccess": "read-create",
+    "name": "hwMacLimitMaxRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMacLimitNumFallingThreshold": {
+    "class": "notificationtype",
+    "description": "Resume the alarm of Mac usage",
+    "name": "hwMacLimitNumFallingThreshold",
+    "objects": [
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapSeverity"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapProbableCause"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapEventType"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacDynAddressLearnNum"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitMaxMac"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPortName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.4",
+    "status": "current"
+  },
+  "hwMacLimitNumRaisingThreshold": {
+    "class": "notificationtype",
+    "description": "Beyond the mac limited learning number ",
+    "name": "hwMacLimitNumRaisingThreshold",
+    "objects": [
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapSeverity"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapProbableCause"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapEventType"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacDynAddressLearnNum"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitMaxMac"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPortName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.3",
+    "status": "current"
+  },
+  "hwMacLimitOverThresholdAlarm": {
+    "class": "notificationtype",
+    "description": "Beyond the mac limited learning number .",
+    "name": "hwMacLimitOverThresholdAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapSeverity"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapProbableCause"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapEventType"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacDynAddressLearnNum"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitMaxMac"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPortName"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitVlanId"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.11",
+    "status": "current"
+  },
+  "hwMacLimitOverThresholdAlarmResume": {
+    "class": "notificationtype",
+    "description": "Less than the mac limited learning number .",
+    "name": "hwMacLimitOverThresholdAlarmResume",
+    "objects": [
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapSeverity"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapProbableCause"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapEventType"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacDynAddressLearnNum"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitMaxMac"
+      },
+      {
+        "module": "HUAWEI-L2IF-MIB",
+        "object": "hwL2IfPortName"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitVlanId"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.19",
+    "status": "current"
+  },
+  "hwMacLimitPort": {
+    "class": "objecttype",
+    "description": "The port number which will be configured mac-limit.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacLimitPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwMacLimitRowstatus": {
+    "class": "objecttype",
+    "description": "The operating state of the row.",
+    "maxaccess": "read-create",
+    "name": "hwMacLimitRowstatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.4.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMacLimitRuleAction": {
+    "class": "objecttype",
+    "description": "The mac-address limit action of this entry. The meanings of the values are: discard(1)- Discard packets forward(2)- Forward packets.",
+    "maxaccess": "read-create",
+    "name": "hwMacLimitRuleAction",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.12.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discard": 1,
+          "forward": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMacLimitRuleAlarm": {
+    "class": "objecttype",
+    "description": "The mac-limit alarm switch of this entry. The meanings of the values are: disable(1), enable(2)",
+    "maxaccess": "read-create",
+    "name": "hwMacLimitRuleAlarm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.12.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMacLimitRuleMaxMac": {
+    "class": "objecttype",
+    "description": "The maximum mac address. When the value is \u00270\u0027, the meaning is that there isn\u0027t limiting rule to the mac-address number.",
+    "maxaccess": "read-create",
+    "name": "hwMacLimitRuleMaxMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.12.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 131072,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMacLimitRuleMaxRate": {
+    "class": "objecttype",
+    "description": "The max mac-address learning rate. When the valu e is \u00270\u0027, the meaning is that there isn\u0027t limiting rule to the learning rate.",
+    "maxaccess": "read-create",
+    "name": "hwMacLimitRuleMaxRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.12.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMacLimitRuleNumFallingThreshold": {
+    "class": "notificationtype",
+    "description": "Mac address is fall behind the threshold of the global mac limit rule. ",
+    "name": "hwMacLimitRuleNumFallingThreshold",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacRuleDynAddressLearnNum"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitRuleMaxMac"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.23",
+    "status": "current"
+  },
+  "hwMacLimitRuleNumRaisingThreshold": {
+    "class": "notificationtype",
+    "description": "Mac address is beyond the threshold of the global mac limit rule ",
+    "name": "hwMacLimitRuleNumRaisingThreshold",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacRuleDynAddressLearnNum"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitRuleMaxMac"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.22",
+    "status": "current"
+  },
+  "hwMacLimitRuleRowstatus": {
+    "class": "objecttype",
+    "description": "The operating state of the row.",
+    "maxaccess": "read-create",
+    "name": "hwMacLimitRuleRowstatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.12.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMacLimitTable": {
+    "class": "objecttype",
+    "description": "A table containing the mac-address learning-limit rule information for device. It can limit on ethernet interface,vlan,ethernet interface + vlan.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacLimitTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.4",
+    "status": "current"
+  },
+  "hwMacLimitVlanId": {
+    "class": "objecttype",
+    "description": "The vlan id which will be configured mac-limit.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMacLimitVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMacLimitVsiName": {
+    "class": "objecttype",
+    "description": "The vsi name which will be configured mac-limit.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMacLimitVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMacRestrict": {
+    "class": "objecttype",
+    "description": "This object indicates whether MAC address learning restrict has been enabled for the system.",
+    "maxaccess": "read-write",
+    "name": "hwMacRestrict",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMacRuleDynAddressLearnNum": {
+    "class": "objecttype",
+    "description": "The number of dynamic MAC address learned by the board.",
+    "maxaccess": "read-only",
+    "name": "hwMacRuleDynAddressLearnNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.12.1.52",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 131072,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMacSecureAddressLearnNum": {
+    "class": "objecttype",
+    "description": "The number of learned secure MAC address .",
+    "maxaccess": "read-only",
+    "name": "hwMacSecureAddressLearnNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.4.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 131072,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMacSlotStatistics": {
+    "class": "objecttype",
+    "description": "The number of the mac-address items by slot ID.",
+    "maxaccess": "read-only",
+    "name": "hwMacSlotStatistics",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.16.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMacSlotStatisticsEntry": {
+    "class": "objecttype",
+    "description": "Entries of the statistics of mac-address table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacSlotStatisticsSlotId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMacSlotStatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.16.1",
+    "status": "current"
+  },
+  "hwMacSlotStatisticsGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing information about mac-address statistics by slot ID.",
+    "name": "hwMacSlotStatisticsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacSlotStatistics"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacSlotStatisticsSpecify"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.2.1.9",
+    "status": "current"
+  },
+  "hwMacSlotStatisticsSlotId": {
+    "class": "objecttype",
+    "description": "The slot ID which is correlative to the hwMacSlotStatistics table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacSlotStatisticsSlotId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.16.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMacSlotStatisticsSpecify": {
+    "class": "objecttype",
+    "description": "The specify max number of the mac-address items by slot ID.",
+    "maxaccess": "read-only",
+    "name": "hwMacSlotStatisticsSpecify",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.16.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMacSlotStatisticsTable": {
+    "class": "objecttype",
+    "description": "A table showing the number of mac-address items by slot ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacSlotStatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.16",
+    "status": "current"
+  },
+  "hwMacSpoofingDefend": {
+    "class": "objecttype",
+    "description": "When this object is set to \u0027enabled(1)\u0027 MAC spoofing defend is enabled on global else disabled.",
+    "maxaccess": "read-write",
+    "name": "hwMacSpoofingDefend",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMacSpoofingDefendEnabled": {
+    "class": "objecttype",
+    "description": "When this object is set to \u0027enabled(1)\u0027 MAC spoofing defend is enabled on this port else disabled.",
+    "maxaccess": "read-write",
+    "name": "hwMacSpoofingDefendEnabled",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.20.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMacSpoofingDefendEntry": {
+    "class": "objecttype",
+    "description": "Entries of the MAC spoofing defend table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacSpoofingDefendPort"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMacSpoofingDefendEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.20.1",
+    "status": "current"
+  },
+  "hwMacSpoofingDefendGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing information about MAC spoofing defend.",
+    "name": "hwMacSpoofingDefendGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacSpoofingDefendEnabled"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.2.1.12",
+    "status": "current"
+  },
+  "hwMacSpoofingDefendPort": {
+    "class": "objecttype",
+    "description": "The port number which will be configured 1.1.1 MAC spoofing defend.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacSpoofingDefendPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.20.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwMacSpoofingDefendTable": {
+    "class": "objecttype",
+    "description": "A table enable the MAC spoofing defend.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacSpoofingDefendTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.20",
+    "status": "current"
+  },
+  "hwMacUsageEntry": {
+    "class": "objecttype",
+    "description": "MAC usage entry",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMacUsageEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.5.1",
+    "status": "current"
+  },
+  "hwMacUsageFallingThreshold": {
+    "class": "notificationtype",
+    "description": "Resume the alarm of Mac usage",
+    "name": "hwMacUsageFallingThreshold",
+    "objects": [
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapSeverity"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapProbableCause"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapEventType"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacEntityUsage"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacEntityUsageThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.2",
+    "status": "current"
+  },
+  "hwMacUsageRaisingThreshold": {
+    "class": "notificationtype",
+    "description": "Beyond the configurated Mac usage",
+    "name": "hwMacUsageRaisingThreshold",
+    "objects": [
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapSeverity"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapProbableCause"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapEventType"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacEntityUsage"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacEntityUsageThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.1",
+    "status": "current"
+  },
+  "hwMacUsageTable": {
+    "class": "objecttype",
+    "description": "MAC usage table",
+    "maxaccess": "not-accessible",
+    "name": "hwMacUsageTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.5",
+    "status": "current"
+  },
+  "hwMacVlanStatistics": {
+    "class": "objecttype",
+    "description": "The number of the mac-address items.",
+    "maxaccess": "read-only",
+    "name": "hwMacVlanStatistics",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.17.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMacVlanStatisticsEntry": {
+    "class": "objecttype",
+    "description": "Entries of the statistics of mac-address table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacVlanStatisticsVlanId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMacVlanStatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.17.1",
+    "status": "current"
+  },
+  "hwMacVlanStatisticsGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing information about mac-address statistics by VLAN ID.",
+    "name": "hwMacVlanStatisticsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacVlanStatistics"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.2.1.10",
+    "status": "current"
+  },
+  "hwMacVlanStatisticsTable": {
+    "class": "objecttype",
+    "description": "A table showing the number of mac-address items by VLAN ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacVlanStatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.17",
+    "status": "current"
+  },
+  "hwMacVlanStatisticsVlanId": {
+    "class": "objecttype",
+    "description": "The VLAN ID which is correlative to the hwMacVlanStatistics table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacVlanStatisticsVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.17.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwMacVsiStatistics": {
+    "class": "objecttype",
+    "description": "The number of the mac-address items.",
+    "maxaccess": "read-only",
+    "name": "hwMacVsiStatistics",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.18.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMacVsiStatisticsEntry": {
+    "class": "objecttype",
+    "description": "Entries of the statistics of mac-address table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacVsiStatisticsVsiName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMacVsiStatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.18.1",
+    "status": "current"
+  },
+  "hwMacVsiStatisticsGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing information about mac-address statistics by VSI name.",
+    "name": "hwMacVsiStatisticsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacVsiStatistics"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.2.1.11",
+    "status": "current"
+  },
+  "hwMacVsiStatisticsTable": {
+    "class": "objecttype",
+    "description": "A table showing the number of mac-address items by VSI name.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacVsiStatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.18",
+    "status": "current"
+  },
+  "hwMacVsiStatisticsVsiName": {
+    "class": "objecttype",
+    "description": "The VSI name which is correlative to the hwMacVsiStatistics table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacVsiStatisticsVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.18.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMacflappingMac": {
+    "class": "objecttype",
+    "description": "The flapping mac-address.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMacflappingMac",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.24.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPortSecRcvInsecurePktAlarm": {
+    "class": "notificationtype",
+    "description": "Alarm of port perform the protect action shutdown or restrict when receiving insecure mac packets in the interface.",
+    "name": "hwPortSecRcvInsecurePktAlarm",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwPortSecurityProtectAction"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.6",
+    "status": "current"
+  },
+  "hwPortSecurityAllDynToStaticEnable": {
+    "class": "objecttype",
+    "description": "When this object is set to \u0027enable(1)\u0027 all dynamic mac-address on the Port will convert to static.",
+    "maxaccess": "read-write",
+    "name": "hwPortSecurityAllDynToStaticEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.11.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnableValue"
+    }
+  },
+  "hwPortSecurityAllDynToStickyEnable": {
+    "class": "objecttype",
+    "description": "When this object is set to enable and port security is enabled, the dynamic MAC address entry will be changed to a sticky MAC address entry.",
+    "maxaccess": "read-write",
+    "name": "hwPortSecurityAllDynToStickyEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.11.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnableValue"
+    }
+  },
+  "hwPortSecurityEnabled": {
+    "class": "objecttype",
+    "description": "When this object is set to \u0027enabled(1)\u0027 Port security is enabled on this port else disabled.",
+    "maxaccess": "read-write",
+    "name": "hwPortSecurityEnabled",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.11.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwPortSecurityEntry": {
+    "class": "objecttype",
+    "description": "Entries of the port security table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwPortSecurityPort"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPortSecurityEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.11.1",
+    "status": "current"
+  },
+  "hwPortSecurityGroup": {
+    "class": "objectgroup",
+    "description": "A table containing the port security information for device. It can protect the port from unaccessible mac.",
+    "name": "hwPortSecurityGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwPortSecurityEnabled"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwPortSecurityProtectAction"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwPortSecurityAllDynToStaticEnable"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwPortSecurityAllDynToStickyEnable"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwPortSecurityMaxMacNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.2.1.7",
+    "status": "current"
+  },
+  "hwPortSecurityMaxMacNum": {
+    "class": "objecttype",
+    "description": "The maximum mac address can be learned based on the port.",
+    "maxaccess": "read-write",
+    "name": "hwPortSecurityMaxMacNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.11.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16384,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPortSecurityPort": {
+    "class": "objecttype",
+    "description": "The port number which will be configured port security.",
+    "maxaccess": "not-accessible",
+    "name": "hwPortSecurityPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.11.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwPortSecurityProtectAction": {
+    "class": "objecttype",
+    "description": "The port security protect action of this entry. The meanings of the values are: restrict(1)- shutdown the port protect(2)- discard the unknow source mac packets and not learn shutdown(3)- send trap noaction(4)- broadcast the packet .",
+    "maxaccess": "read-write",
+    "name": "hwPortSecurityProtectAction",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.11.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noaction": 4,
+          "protect": 2,
+          "restrict": 1,
+          "shutdown": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPortSecurityTable": {
+    "class": "objecttype",
+    "description": "A table containing the port security information for device. It can protect the port from inaccessible mac.",
+    "maxaccess": "not-accessible",
+    "name": "hwPortSecurityTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.11",
+    "status": "current"
+  },
+  "hwPortStickyReachMaxAlarm": {
+    "class": "notificationtype",
+    "description": "An alarm is generated when the number of sticky MAC address entries reaches the maximum value.",
+    "name": "hwPortStickyReachMaxAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.9",
+    "status": "current"
+  },
+  "hwPstBroadcastLostAlarm": {
+    "class": "notificationtype",
+    "description": "The board cannot receive pst broadcast packet from other boards in one minute.",
+    "name": "hwPstBroadcastLostAlarm",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.32",
+    "status": "current"
+  },
+  "hwPstBroadcastLostResume": {
+    "class": "notificationtype",
+    "description": "The board can receive pst broadcast packet from other boards in one minute.",
+    "name": "hwPstBroadcastLostResume",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.33",
+    "status": "current"
+  },
+  "hwPwMacAddressLearn": {
+    "class": "objecttype",
+    "description": "The object indicates whether MAC learning is enabled.",
+    "maxaccess": "read-create",
+    "name": "hwPwMacAddressLearn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.19.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwPwMacDynAddressLearnNum": {
+    "class": "objecttype",
+    "description": "The value of this object specifies the number of dynamic MAC addresses that are learnt.",
+    "maxaccess": "read-only",
+    "name": "hwPwMacDynAddressLearnNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.19.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 131072,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPwMacLimitAction": {
+    "class": "objecttype",
+    "description": "The value of this object specifies whether packets are forwarded or discarded after the number of MAC addresses that are learnt reaches the upper limit: 1: packets are discarded 2: packets are forwarded",
+    "maxaccess": "read-create",
+    "name": "hwPwMacLimitAction",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.19.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discard": 1,
+          "forward": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPwMacLimitAlarm": {
+    "class": "objecttype",
+    "description": "The value of this object specifies whether the alarm is enabled or disabled after the number of MAC addresses that are learnt reaches the upper limit: 1: alarm is enabled 2: alarm is disabled",
+    "maxaccess": "read-create",
+    "name": "hwPwMacLimitAlarm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.19.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwPwMacLimitEntry": {
+    "class": "objecttype",
+    "description": "Entries of a rule table for PW-based MAC learning limit.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwPwMacLimitVsiName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwPwMacLimitPwName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPwMacLimitEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.19.1",
+    "status": "current"
+  },
+  "hwPwMacLimitMaxMac": {
+    "class": "objecttype",
+    "description": "The value of this object specifies the maximum number of MAC addresses that can be learnt. 0 indicates no limit.",
+    "maxaccess": "read-create",
+    "name": "hwPwMacLimitMaxMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.19.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 131072,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPwMacLimitMaxRate": {
+    "class": "objecttype",
+    "description": "The value of this object specifies the maximum rate for MAC address learning. 0 indicates no limit.",
+    "maxaccess": "read-create",
+    "name": "hwPwMacLimitMaxRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.19.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPwMacLimitNumFallingThreshold": {
+    "class": "notificationtype",
+    "description": "The number of MAC addresses that are learnt based on the PW falls below the upper limit.",
+    "name": "hwPwMacLimitNumFallingThreshold",
+    "objects": [
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapSeverity"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapProbableCause"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapEventType"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwPwMacDynAddressLearnNum"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwPwMacLimitMaxMac"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.8",
+    "status": "current"
+  },
+  "hwPwMacLimitNumRaisingThreshold": {
+    "class": "notificationtype",
+    "description": "The number of MAC addresses that are learnt based on the PW reaches the upper limit.",
+    "name": "hwPwMacLimitNumRaisingThreshold",
+    "objects": [
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapSeverity"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapProbableCause"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapEventType"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwPwMacDynAddressLearnNum"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwPwMacLimitMaxMac"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.7",
+    "status": "current"
+  },
+  "hwPwMacLimitPwName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of the PW that is configured with PW-based MAC learning limit.",
+    "maxaccess": "not-accessible",
+    "name": "hwPwMacLimitPwName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.19.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPwMacLimitRowstatus": {
+    "class": "objecttype",
+    "description": "This object indicates the RowStatus of hwPwMacLimitTable.",
+    "maxaccess": "read-create",
+    "name": "hwPwMacLimitRowstatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.19.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwPwMacLimitTable": {
+    "class": "objecttype",
+    "description": "This is a rule table for PW-based MAC learning limit.",
+    "maxaccess": "not-accessible",
+    "name": "hwPwMacLimitTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.19",
+    "status": "current"
+  },
+  "hwPwMacLimitVsiName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of the VSI that is configured with PW-based MAC learning limit.",
+    "maxaccess": "not-accessible",
+    "name": "hwPwMacLimitVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.19.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPwMacSpoofingAttackAlarm": {
+    "class": "notificationtype",
+    "description": "A PW received MAC spoofing packets from an interface. ",
+    "name": "hwPwMacSpoofingAttackAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVsiName"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwPwMacSpoofingAttackMacAddr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.34",
+    "status": "current"
+  },
+  "hwPwMacSpoofingAttackAlarmClear": {
+    "class": "notificationtype",
+    "description": "The alarm indicating that a PW received MAC spoofing packets from an interface was cleared. ",
+    "name": "hwPwMacSpoofingAttackAlarmClear",
+    "objects": [
+      {
+        "module": "HUAWEI-VPLS-EXT-MIB",
+        "object": "hwVplsVsiName"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.35",
+    "status": "current"
+  },
+  "hwPwMacSpoofingAttackMacAddr": {
+    "class": "objecttype",
+    "description": "A unicast MAC address for PW mac spoofing.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwPwMacSpoofingAttackMacAddr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.39",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwRecIllegalMacPktAlarm": {
+    "class": "notificationtype",
+    "description": "The MAC addresses that received are illegal.",
+    "name": "hwRecIllegalMacPktAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.10",
+    "status": "current"
+  },
+  "hwRemoteIp": {
+    "class": "objecttype",
+    "description": "The remote ip address of the PW ID.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwRemoteIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.35.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwSlotMacLimitAction": {
+    "class": "objecttype",
+    "description": "The value of this object specifies whether packets are forwarded or discarded after the number of MAC addresses that are learnt reaches the upper limit: 1: packets are discarded 2: packets are forwarded",
+    "maxaccess": "read-create",
+    "name": "hwSlotMacLimitAction",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.25.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discard": 1,
+          "forward": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSlotMacLimitAlarm": {
+    "class": "objecttype",
+    "description": "The value of this object specifies whether the alarm is enabled or disabled after the number of MAC addresses that are learnt reaches the upper limit: 1: alarm is enabled 2: alarm is disabled",
+    "maxaccess": "read-create",
+    "name": "hwSlotMacLimitAlarm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.25.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSlotMacLimitEntry": {
+    "class": "objecttype",
+    "description": "Entries of a rule table for SLOT-based MAC learning limit.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwSlotMacLimitId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSlotMacLimitEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.25.1",
+    "status": "current"
+  },
+  "hwSlotMacLimitId": {
+    "class": "objecttype",
+    "description": "This object indicates id of the SLOT that is configured with SLOT-based MAC learning limit.",
+    "maxaccess": "not-accessible",
+    "name": "hwSlotMacLimitId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.25.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSlotMacLimitMaxMac": {
+    "class": "objecttype",
+    "description": "The value of this object specifies the maximum number of MAC addresses that can be learnt. 0 indicates no limit.",
+    "maxaccess": "read-create",
+    "name": "hwSlotMacLimitMaxMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.25.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSlotMacLimitMaxRate": {
+    "class": "objecttype",
+    "description": "The value of this object specifies the maximum rate for MAC address learning. 0 indicates no limit.",
+    "maxaccess": "read-create",
+    "name": "hwSlotMacLimitMaxRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.25.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSlotMacLimitNumFallingThreshold": {
+    "class": "notificationtype",
+    "description": "The number of MAC addresses that are learnt based on the SLOT falls below the upper limit.",
+    "name": "hwSlotMacLimitNumFallingThreshold",
+    "objects": [
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapSeverity"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapProbableCause"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapEventType"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacDynAddressLearnNum"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitMaxMac"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.14",
+    "status": "current"
+  },
+  "hwSlotMacLimitNumRaisingThreshold": {
+    "class": "notificationtype",
+    "description": "The number of MAC addresses that are learnt based on the SLOT reaches the upper limit.",
+    "name": "hwSlotMacLimitNumRaisingThreshold",
+    "objects": [
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapSeverity"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapProbableCause"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapEventType"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacDynAddressLearnNum"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitMaxMac"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.13",
+    "status": "current"
+  },
+  "hwSlotMacLimitRowstatus": {
+    "class": "objecttype",
+    "description": "This object indicates the RowStatus of hwSlotMacLimitTable.",
+    "maxaccess": "read-create",
+    "name": "hwSlotMacLimitRowstatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.25.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwSlotMacLimitTable": {
+    "class": "objecttype",
+    "description": "This is a rule table for SLOT-based MAC learning limit.",
+    "maxaccess": "not-accessible",
+    "name": "hwSlotMacLimitTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.25",
+    "status": "current"
+  },
+  "hwSlotMacNumFallingThreshold": {
+    "class": "notificationtype",
+    "description": "This notification indicates the MAC usage of the slot falling the threshold.",
+    "name": "hwSlotMacNumFallingThreshold",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacSlotStatistics"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacSlotStatisticsSpecify"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.21",
+    "status": "current"
+  },
+  "hwSlotMacNumRaisingThreshold": {
+    "class": "notificationtype",
+    "description": "This notification indicates the MAC usage of the slot raising the threshold.",
+    "name": "hwSlotMacNumRaisingThreshold",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacSlotStatistics"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacSlotStatisticsSpecify"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.20",
+    "status": "current"
+  },
+  "hwUNUCPortAlarmThreshold": {
+    "class": "objecttype",
+    "description": "The port alarm threshold which will be configured unknown unicast alarm.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUNUCPortAlarmThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.37.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUNUCPortIndex": {
+    "class": "objecttype",
+    "description": "The port index which will be configured unknown unicast alarm.",
+    "maxaccess": "not-accessible",
+    "name": "hwUNUCPortIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.37.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUNUCPortName": {
+    "class": "objecttype",
+    "description": "The Port name which will be configured unknown unicast alarm.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUNUCPortName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.37.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwUNUCPortRealFlow": {
+    "class": "objecttype",
+    "description": "The port real unuc flow.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUNUCPortRealFlow",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.37.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUntargetMacNum": {
+    "class": "objecttype",
+    "description": "The number of untarget mac-address.",
+    "maxaccess": "read-only",
+    "name": "hwUntargetMacNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwUntargetMacNumAlarm": {
+    "class": "notificationtype",
+    "description": "Warning of untarget mac-address numbers.",
+    "name": "hwUntargetMacNumAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapSeverity"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapProbableCause"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapEventType"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwUntargetMacNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.5",
+    "status": "current"
+  },
+  "hwUnucFlowAlarmEntry": {
+    "class": "objecttype",
+    "description": "Entries of unknown unicast alarm information for interface table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwUNUCPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwUnucFlowAlarmEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.37.1",
+    "status": "current"
+  },
+  "hwUnucFlowAlarmTable": {
+    "class": "objecttype",
+    "description": "A table containing the unknown unicast alarm information for interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwUnucFlowAlarmTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.37",
+    "status": "current"
+  },
+  "hwVLLACPortIndex": {
+    "class": "objecttype",
+    "description": "The port index which will be configured ByPass for VLL.",
+    "maxaccess": "not-accessible",
+    "name": "hwVLLACPortIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.36.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVLLACPortName": {
+    "class": "objecttype",
+    "description": "The Port name which will be configured ByPass for VLL.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwVLLACPortName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.36.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwVllByPassOverGreEntry": {
+    "class": "objecttype",
+    "description": "Entries of the ByPass PW for VLL over GRE table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwVLLACPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVllByPassOverGreEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.36.1",
+    "status": "current"
+  },
+  "hwVllByPassOverGreTable": {
+    "class": "objecttype",
+    "description": "A table containing the ByPass PW for VLL over GRE information for device.",
+    "maxaccess": "not-accessible",
+    "name": "hwVllByPassOverGreTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.36",
+    "status": "current"
+  },
+  "hwVplsOverGRENotSupportForwardRising": {
+    "class": "notificationtype",
+    "description": "The public network tunnel used to carry the VPLS PW is a GRE tunnel and the VPLS PW cannot forward traffic. ",
+    "name": "hwVplsOverGRENotSupportForwardRising",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwVplsOverGreVsiName"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwRemoteIp"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.24",
+    "status": "current"
+  },
+  "hwVplsOverGRENotSupportForwardRisingResume": {
+    "class": "notificationtype",
+    "description": "The public network tunnel used to carry the VPLS PW is a non-GRE tunnel and the VPLS PW can forward traffic again. ",
+    "name": "hwVplsOverGRENotSupportForwardRisingResume",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwVplsOverGreVsiName"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwRemoteIp"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.25",
+    "status": "current"
+  },
+  "hwVplsOverGreEntry": {
+    "class": "objecttype",
+    "description": "Entries of the VPLS over GRE table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwVplsOverGrePwId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVplsOverGreEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.35.1",
+    "status": "current"
+  },
+  "hwVplsOverGrePwId": {
+    "class": "objecttype",
+    "description": "The PW ID which will be configured over GRE.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsOverGrePwId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.35.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVplsOverGreTable": {
+    "class": "objecttype",
+    "description": "A table containing the VPLS over GRE information for device.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsOverGreTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.35",
+    "status": "current"
+  },
+  "hwVplsOverGreVsiName": {
+    "class": "objecttype",
+    "description": "The vsi name which will be configured over GRE.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwVplsOverGreVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.35.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwVsiMacLimitNumRaisingThresholdAlarm": {
+    "class": "notificationtype",
+    "description": "The vsi Beyond the mac limited learning number .",
+    "name": "hwVsiMacLimitNumRaisingThresholdAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapSeverity"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapProbableCause"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapEventType"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.17",
+    "status": "current"
+  },
+  "hwVsiMacLimitNumRaisingThresholdAlarmClear": {
+    "class": "notificationtype",
+    "description": "The vsi release from the mac limited learning number .",
+    "name": "hwVsiMacLimitNumRaisingThresholdAlarmClear",
+    "objects": [
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapSeverity"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapProbableCause"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapEventType"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacLimitVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.7.18",
+    "status": "current"
+  },
+  "hwdbCfg3tupleFdbEntry": {
+    "class": "objecttype",
+    "description": "Entries of The layer 2 mac-address forwarding table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwdbCfg3tupleFdbMac"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwdbCfg3tupleFdbVlanId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwdbCfg3tupleFdbInPort"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwdbCfg3tupleFdbEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.6.1",
+    "status": "current"
+  },
+  "hwdbCfg3tupleFdbGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing information about level 2 configured 3-tuple mac-address table.",
+    "name": "hwdbCfg3tupleFdbGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwdbCfg3tupleFdbOutPort"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwdbCfg3tupleFdbRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.2.1.5",
+    "status": "current"
+  },
+  "hwdbCfg3tupleFdbInPort": {
+    "class": "objecttype",
+    "description": "The input port. The port must be an ethernet port. And the port must be contained by the hwFdbVlanId or allow the hwFdbVlanId get across through itself.",
+    "maxaccess": "not-accessible",
+    "name": "hwdbCfg3tupleFdbInPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwdbCfg3tupleFdbMac": {
+    "class": "objecttype",
+    "description": "A unicast MAC address for which the device contains it\u0027s information in the mac-address table. The mac-address can\u0027t be a special address or multicast address.",
+    "maxaccess": "not-accessible",
+    "name": "hwdbCfg3tupleFdbMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwdbCfg3tupleFdbOutPort": {
+    "class": "objecttype",
+    "description": "The forwarding port. The port must be an ethernet port. And the port must be contained by the hwFdbVlanId or allow the hwFdbVlanId get across through itself.",
+    "maxaccess": "read-create",
+    "name": "hwdbCfg3tupleFdbOutPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwdbCfg3tupleFdbRowStatus": {
+    "class": "objecttype",
+    "description": "The operating state of the row.",
+    "maxaccess": "read-create",
+    "name": "hwdbCfg3tupleFdbRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwdbCfg3tupleFdbTable": {
+    "class": "objecttype",
+    "description": "The layer 2 configured mac-address forwarding table .The table that contains the layer 2 mac-address forwarding information currently operating on this device.",
+    "maxaccess": "not-accessible",
+    "name": "hwdbCfg3tupleFdbTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.6",
+    "status": "current"
+  },
+  "hwdbCfg3tupleFdbVlanId": {
+    "class": "objecttype",
+    "description": "The VLAN name or other identifier referring to the VLAN which is correlative to the hwFdbMac.",
+    "maxaccess": "not-accessible",
+    "name": "hwdbCfg3tupleFdbVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwdbCfgFdbEntry": {
+    "class": "objecttype",
+    "description": "Entries of The layer 2 mac-address forwarding table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgFdbMac"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgFdbVlanId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgFdbVsiName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwdbCfgFdbEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.2.1",
+    "status": "current"
+  },
+  "hwdbCfgFdbTable": {
+    "class": "objecttype",
+    "description": "The layer 2 Configured mac-address forwarding table .The table that contains the layer 2 mac-address forwarding information currently operating on this device.",
+    "maxaccess": "not-accessible",
+    "name": "hwdbCfgFdbTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.2",
+    "status": "current"
+  },
+  "hwdbDynFdbEntry": {
+    "class": "objecttype",
+    "description": "Entries of The layer 2 mac-address forwarding table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynFdbMac"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynFdbVlanId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwDynFdbVsiName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwdbDynFdbEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.3.1",
+    "status": "current"
+  },
+  "hwdbDynFdbTable": {
+    "class": "objecttype",
+    "description": "The layer 2 Dynamic (Leaned)mac-address forwarding table .The table that contains the layer 2 mac-address forwarding information currently operating on this device.",
+    "maxaccess": "not-accessible",
+    "name": "hwdbDynFdbTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.42.2.1.3",
+    "status": "current"
+  },
+  "imports": {
+    "ENTITY-MIB": [
+      "entPhysicalIndex",
+      "entPhysicalName",
+      "PhysicalIndex"
+    ],
+    "HUAWEI-BASE-TRAP-MIB": [
+      "hwBaseTrapSeverity",
+      "hwBaseTrapEventType",
+      "hwBaseTrapProbableCause"
+    ],
+    "HUAWEI-L2IF-MIB": [
+      "hwL2IfPortName"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "HUAWEI-VPLS-EXT-MIB": [
+      "hwVplsVsiName"
+    ],
+    "IF-MIB": [
+      "ifDescr",
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "NQA-MIB": [
+      "EnableValue"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIdOrNone",
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "iso",
+      "IpAddress",
+      "Integer32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-L2MAM-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:47 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-L2MAM-MIB"
+  }
+}

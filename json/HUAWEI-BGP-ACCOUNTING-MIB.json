@@ -1,0 +1,388 @@
+{
+  "AddressType": {
+    "class": "textualconvention",
+    "description": " invalid(0) source(1) destination(2) ",
+    "name": "AddressType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "destination": 2,
+          "invalid": 0,
+          "source": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "DirectionType": {
+    "class": "textualconvention",
+    "description": "invalid(0) inbound(1) outbound(2) inbound-and-outbound(3) ",
+    "name": "DirectionType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "inboundAndOutbound": 3,
+          "invalid": 0,
+          "outbound": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwBgpAcctCfgEntry": {
+    "class": "objecttype",
+    "description": "Each HwBgpAcctCfgEntry provides BGP accounting configuration for traffic of interest on an ingress and/or egress interface. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BGP-ACCOUNTING-MIB",
+        "object": "hwbgpAcctCfgIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBgpAcctCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.39.1.1.1",
+    "status": "current"
+  },
+  "hwBgpAcctCfgGroup": {
+    "class": "objectgroup",
+    "description": "Required objects to provide hwBgpAcctMIB objects configuration information. hwBgpAcctCfgGroup is optional.",
+    "name": "hwBgpAcctCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-ACCOUNTING-MIB",
+        "object": "hwbgpAcctCfgIfIndex"
+      },
+      {
+        "module": "HUAWEI-BGP-ACCOUNTING-MIB",
+        "object": "hwbgpAcctSrcOrDest"
+      },
+      {
+        "module": "HUAWEI-BGP-ACCOUNTING-MIB",
+        "object": "hwbgpAcctDirection"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.39.2.2.1",
+    "status": "current"
+  },
+  "hwBgpAcctCfgTable": {
+    "class": "objecttype",
+    "description": "The hwBgpAcctCfgTable provides the configuration of BGP Accounting.",
+    "maxaccess": "not-accessible",
+    "name": "hwBgpAcctCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.39.1.1",
+    "status": "current"
+  },
+  "hwBgpAcctCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for entities that implement ip bgp-accouting on a router.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-BGP-ACCOUNTING-MIB",
+        "object": "hwBgpAcctCfgGroup"
+      },
+      {
+        "module": "HUAWEI-BGP-ACCOUNTING-MIB",
+        "object": "hwBgpAcctStatGroup"
+      }
+    ],
+    "name": "hwBgpAcctCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.39.2.1.1",
+    "status": "current"
+  },
+  "hwBgpAcctCompliances": {
+    "class": "objectidentity",
+    "name": "hwBgpAcctCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.39.2.1"
+  },
+  "hwBgpAcctConformance": {
+    "class": "objectidentity",
+    "name": "hwBgpAcctConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.39.2"
+  },
+  "hwBgpAcctMIB": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": "The HUAWEI-BGP-ACCOUNTING-MIB contains objects to Manage configuration and Monitor running state for BGP Accounting feature.",
+    "lastupdated": "200705100000Z",
+    "name": "hwBgpAcctMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.39",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwBgpAcctMIBObjects": {
+    "class": "objectidentity",
+    "name": "hwBgpAcctMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.39.1"
+  },
+  "hwBgpAcctStatEntry": {
+    "class": "objecttype",
+    "description": "Each hwBgpAcctStatEntry provides statistics for traffic of interest on an ingress and/or egress interfaces. The statistics include ingress packet counts, ingress octet counts, egress packet counts and egress octet counts. Entries are created when traffic-type is configured on an interface. Entries are deleted automatically when the user removes the corresponding traffic-type configuration from an interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BGP-ACCOUNTING-MIB",
+        "object": "hwbgpAcctStatIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BGP-ACCOUNTING-MIB",
+        "object": "hwbgpAcctTrafficIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBgpAcctStatEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.39.1.2.1",
+    "status": "current"
+  },
+  "hwBgpAcctStatGroup": {
+    "class": "objectgroup",
+    "description": "Required objects to provide hwBgpAcctMIB objects configuration information. hwBgpAcctStatGroup is optional.",
+    "name": "hwBgpAcctStatGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BGP-ACCOUNTING-MIB",
+        "object": "hwbgpAcctStatIfIndex"
+      },
+      {
+        "module": "HUAWEI-BGP-ACCOUNTING-MIB",
+        "object": "hwbgpAcctTrafficIndex"
+      },
+      {
+        "module": "HUAWEI-BGP-ACCOUNTING-MIB",
+        "object": "hwbgpAcctInPacketCount"
+      },
+      {
+        "module": "HUAWEI-BGP-ACCOUNTING-MIB",
+        "object": "hwbgpAcctInOctetCount"
+      },
+      {
+        "module": "HUAWEI-BGP-ACCOUNTING-MIB",
+        "object": "hwbgpAcctOutPacketCount"
+      },
+      {
+        "module": "HUAWEI-BGP-ACCOUNTING-MIB",
+        "object": "hwbgpAcctOutOctetCount"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.39.2.2.2",
+    "status": "current"
+  },
+  "hwBgpAcctStatGroups": {
+    "class": "objectidentity",
+    "name": "hwBgpAcctStatGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.39.2.2"
+  },
+  "hwBgpAcctStatTable": {
+    "class": "objecttype",
+    "description": "The hwBgpAcctStatTable provides BGP accounting statistics for ingress and egress traffic on an interface. This data could be used for purposes like billing.",
+    "maxaccess": "not-accessible",
+    "name": "hwBgpAcctStatTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.39.1.2",
+    "status": "current"
+  },
+  "hwbgpAcctCfgIfIndex": {
+    "class": "objecttype",
+    "description": "Interface Index, equal to ifIndex.",
+    "maxaccess": "read-only",
+    "name": "hwbgpAcctCfgIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.39.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwbgpAcctCfgRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus. Three actions are used: active, createAndGo, destroy",
+    "maxaccess": "read-create",
+    "name": "hwbgpAcctCfgRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.39.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwbgpAcctDirection": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "An integer value greater than 0, that uniquely identifies BGP accounting the inbound traffic or outbound traffic. 1 is inbound ,2 is outbound, and 3 is both inbound and outbound",
+    "maxaccess": "read-create",
+    "name": "hwbgpAcctDirection",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.39.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DirectionType"
+    }
+  },
+  "hwbgpAcctInOctetCount": {
+    "class": "objecttype",
+    "description": "The total number of octets received for a particular traffic-type on an interface.",
+    "maxaccess": "read-only",
+    "name": "hwbgpAcctInOctetCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.39.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwbgpAcctInPacketCount": {
+    "class": "objecttype",
+    "description": "The total number of packets received for a particular traffic-type on an interface.",
+    "maxaccess": "read-only",
+    "name": "hwbgpAcctInPacketCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.39.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwbgpAcctOutOctetCount": {
+    "class": "objecttype",
+    "description": "The total number of octets transmitted for a particular traffic-type on an interface.",
+    "maxaccess": "read-only",
+    "name": "hwbgpAcctOutOctetCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.39.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwbgpAcctOutPacketCount": {
+    "class": "objecttype",
+    "description": "The total number of packets transmitted for a particular traffic-type on an interface.",
+    "maxaccess": "read-only",
+    "name": "hwbgpAcctOutPacketCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.39.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwbgpAcctSrcOrDest": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "An integer value greater than 0, that uniquely identifies BGP accounting based on source address or destination address. 1 is source ,2 is destination, and the defaule value is 2",
+    "maxaccess": "read-create",
+    "name": "hwbgpAcctSrcOrDest",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.39.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "AddressType"
+    }
+  },
+  "hwbgpAcctStatIfIndex": {
+    "class": "objecttype",
+    "description": "Interface Index, equal to ifIndex.",
+    "maxaccess": "read-only",
+    "name": "hwbgpAcctStatIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.39.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwbgpAcctTrafficIndex": {
+    "class": "objecttype",
+    "description": "An integer value greater than 0, that uniquely identifies a traffic-type. The traffic-type means the traffic coming into an interface can be differentiated into different types. It is up to the user to give meaning to and configure the various traffic-types on an interface.",
+    "maxaccess": "read-only",
+    "name": "hwbgpAcctTrafficIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.39.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter64",
+      "Counter32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "iso",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-BGP-ACCOUNTING-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:46:43 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-BGP-ACCOUNTING-MIB"
+  }
+}

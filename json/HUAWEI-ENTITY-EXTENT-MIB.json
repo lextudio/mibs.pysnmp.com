@@ -1,0 +1,4396 @@
+{
+  "HWLevelState": {
+    "class": "textualconvention",
+    "description": "The normal state of input line .",
+    "name": "HWLevelState",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "highLevel": 2,
+          "lowLevel": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HwAdminState": {
+    "class": "textualconvention",
+    "description": " Represents the various possible administrative states. A value of locked means the resource is administratively prohibited from use. A value of shuttingDown means that usage is administratively limited to current instances of use. A value of unlocked means the resource is not administratively prohibited from use. A value of up means that the port is not administratively shut down and a value of down is the oppsite. A value of loopback here means the port is working in the loopback local mode. When a port is both shut down and looped back, we user the vale of down.",
+    "name": "HwAdminState",
+    "reference": "ITU Recommendation X.731, \u0027Information Technology - Open Systems Interconnection - System Management: State Management Function\u0027, 1992",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 12,
+          "locked": 2,
+          "loopback": 13,
+          "notSupported": 1,
+          "shuttingDown": 3,
+          "unlocked": 4,
+          "up": 11
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HwAlarmStatus": {
+    "class": "textualconvention",
+    "description": "Represents the possible values of alarm status. When no bits of this attribute are set, then none of the status conditions described below are present. When the value of under repair is set, the resource is currently being repaired. When the value of critical is set, one or more critical alarms are active against the resource. When the value of major is set, one or more major alarms are active against the resource. When the value of minor is set, one or more minor alarms are active against the resource. When the value of warning is set, one or more warning alarms are active against the resource. When the value of indeterminate is set, one or more alarms of indeterminate severity are active against the resource. When the value of alarm outstanding is set, one or more alarms is active against the resource. The fault may or may not be disabling. ",
+    "name": "HwAlarmStatus",
+    "reference": "ITU Recommendation X.731, \u0027Information Technology - Open Systems Interconnection - System Management: State Management Function\u0027, 1992",
+    "status": "current",
+    "type": {
+      "bits": {
+        "alarmOutstanding": 5,
+        "critical": 2,
+        "indeterminate": 7,
+        "major": 3,
+        "minor": 4,
+        "notSupported": 0,
+        "underRepair": 1,
+        "warning": 6
+      },
+      "class": "type",
+      "type": "Bits"
+    }
+  },
+  "HwOperState": {
+    "class": "textualconvention",
+    "description": " Represents the possible values of operational states. A value of disabled means the resource is totally inoperable. A value of enabled means the resource is partially or fully operable. The values up(11),down(12) and connect(13) is used only for NE5000E BTB or it\u0027s extended system. A value of protocolUp means the port is available in the protocol lay or has already prepared for transmitting or receiving data. A value of linkUp means the port is only available in the physical lay. A value of linkDown means the port is not available physically.",
+    "name": "HwOperState",
+    "reference": "ITU Recommendation X.731, \u0027Information Technology - Open Systems Interconnection - System Management: State Management Function\u0027, 1992",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connect": 13,
+          "disabled": 2,
+          "down": 12,
+          "enabled": 3,
+          "linkDown": 17,
+          "linkUp": 16,
+          "notSupported": 1,
+          "offline": 4,
+          "protocolUp": 15,
+          "up": 11
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HwStandbyStatus": {
+    "class": "textualconvention",
+    "description": " Represents the possible values of standby status. A value of hotStandby means the resource is not providing service, but is will be immediately able to take over the role of the resource to be backed-up, without the need for initialization activity, and will contain the same information as the resource to be backed up. A value of coldStandy means that the resource is to back-up another resource, but will not be immediately able to take over the role of a resource to be backed up, and will require some initialization activity. A value of providingService means the resource is providing service.",
+    "name": "HwStandbyStatus",
+    "reference": "ITU Recommendation X.731, \u0027Information Technology - Open Systems Interconnection - System Management: State Management Function\u0027, 1992",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "coldStandby": 3,
+          "hotStandby": 2,
+          "notSupported": 1,
+          "providingService": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDevicePowerInfoGroup": {
+    "class": "objectgroup",
+    "description": "Collection of objects that display the power informations of device.",
+    "name": "hwDevicePowerInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwDevicePowerInfoTotalPower"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwDevicePowerInfoUsedPower"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.4.2.9",
+    "status": "current"
+  },
+  "hwDevicePowerInfoObjects": {
+    "class": "objectidentity",
+    "name": "hwDevicePowerInfoObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.3"
+  },
+  "hwDevicePowerInfoTotalPower": {
+    "class": "objecttype",
+    "description": "Device total power.",
+    "maxaccess": "read-only",
+    "name": "hwDevicePowerInfoTotalPower",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.3.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDevicePowerInfoUsedPower": {
+    "class": "objecttype",
+    "description": "Device used power.",
+    "maxaccess": "read-only",
+    "name": "hwDevicePowerInfoUsedPower",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.3.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDisposeCardId": {
+    "class": "objecttype",
+    "description": "This object indicates the card ID of predisposed subcard. ",
+    "maxaccess": "read-write",
+    "name": "hwDisposeCardId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.8.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDisposeEntPhysicalClass": {
+    "class": "objecttype",
+    "description": "An indication of the general hardware type of the predisposed physical entity.",
+    "maxaccess": "read-only",
+    "name": "hwDisposeEntPhysicalClass",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.8.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "PhysicalClass"
+    }
+  },
+  "hwDisposeEntPhysicalContainedIn": {
+    "class": "objecttype",
+    "description": "The value of \u0027entPhysicalContainedIn\u0027 for the predisposed physical entity.",
+    "maxaccess": "read-only",
+    "name": "hwDisposeEntPhysicalContainedIn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.8.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDisposeEntPhysicalDescr": {
+    "class": "objecttype",
+    "description": "A textual description of predisposed physical entity.This object should contain a string which identifies the manufacturer\u0027s name for the physical entity. ",
+    "maxaccess": "read-only",
+    "name": "hwDisposeEntPhysicalDescr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.8.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwDisposeEntPhysicalIndex": {
+    "class": "objecttype",
+    "description": "The index for this entry.",
+    "maxaccess": "not-accessible",
+    "name": "hwDisposeEntPhysicalIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.8.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "PhysicalIndex"
+    }
+  },
+  "hwDisposeEntPhysicalName": {
+    "class": "objecttype",
+    "description": "The textual name of the predisposed physical entity.",
+    "maxaccess": "read-only",
+    "name": "hwDisposeEntPhysicalName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.8.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwDisposeEntPhysicalParentRelPos": {
+    "class": "objecttype",
+    "description": "An indication of the relative position of this \u0027child\u0027 component among all its \u0027sibling\u0027 components.",
+    "maxaccess": "read-only",
+    "name": "hwDisposeEntPhysicalParentRelPos",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.8.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": -1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDisposeEntPhysicalVendorType": {
+    "class": "objecttype",
+    "description": "An indication of the vendor-specific hardware type of the predisposed physical entity. ",
+    "maxaccess": "read-only",
+    "name": "hwDisposeEntPhysicalVendorType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.8.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "AutonomousType"
+    }
+  },
+  "hwDisposeOperState": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the operation status. opSuccess(1): The operation succeeds. opInProgress(2): The operation is ongoing. opDevNotSupportPredispose(3): The device does not support predispose. opCardNotSupportPredispose(4): The type of card or subcard is not supported to be predisposed on this device. opAlreadyPredispose(5): The slot or subslot has already been predisposed. opCardConflict(6): The slot or subslot to be predisposed conflict with others. opDevOperationError(7): Other error occurs on the device.",
+    "maxaccess": "read-only",
+    "name": "hwDisposeOperState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.8.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "opAlreadyPredispose": 5,
+          "opCardConflict": 6,
+          "opCardNotSupportPredispose": 4,
+          "opDevNotSupportPredispose": 3,
+          "opDevOperationError": 7,
+          "opInProgress": 2,
+          "opSuccess": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDisposeRowStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the row status when config predispose. active(1) notInService(2) notReady(3) createAndGo(4) createAndWait(5) destroy(6)",
+    "maxaccess": "read-create",
+    "name": "hwDisposeRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.8.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwDisposeSbom": {
+    "class": "objecttype",
+    "description": "This object indicates the sbom information of predisposed board or subcard. ",
+    "maxaccess": "read-write",
+    "name": "hwDisposeSbom",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.8.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDisposeSlot": {
+    "class": "objecttype",
+    "description": "This object indicates the slot ID of predisposed board. ",
+    "maxaccess": "read-write",
+    "name": "hwDisposeSlot",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.8.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntPowerUsedInfoBoardName": {
+    "class": "objecttype",
+    "description": "Board name.",
+    "maxaccess": "read-only",
+    "name": "hwEntPowerUsedInfoBoardName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEntPowerUsedInfoBoardSlot": {
+    "class": "objecttype",
+    "description": "Board\u0027s slot number.",
+    "maxaccess": "read-only",
+    "name": "hwEntPowerUsedInfoBoardSlot",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntPowerUsedInfoBoardType": {
+    "class": "objecttype",
+    "description": "Board type.",
+    "maxaccess": "read-only",
+    "name": "hwEntPowerUsedInfoBoardType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEntPowerUsedInfoEntry": {
+    "class": "objecttype",
+    "description": "Entry of the table of information that displays the power use of entity.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEntPowerUsedInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.6.1",
+    "status": "current"
+  },
+  "hwEntPowerUsedInfoGroup": {
+    "class": "objectgroup",
+    "description": "Collection of objects that display the power informations of entity.",
+    "name": "hwEntPowerUsedInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntPowerUsedInfoBoardName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntPowerUsedInfoBoardType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntPowerUsedInfoBoardSlot"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntPowerUsedInfoPower"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.4.2.8",
+    "status": "current"
+  },
+  "hwEntPowerUsedInfoPower": {
+    "class": "objecttype",
+    "description": "Used power of board.",
+    "maxaccess": "read-only",
+    "name": "hwEntPowerUsedInfoPower",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntPowerUsedInfoTable": {
+    "class": "objecttype",
+    "description": "A table of information that displays the power use of entity .",
+    "maxaccess": "not-accessible",
+    "name": "hwEntPowerUsedInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.6",
+    "status": "current"
+  },
+  "hwEntityAdminStatus": {
+    "class": "objecttype",
+    "description": " The administrative state for this object, and it is possible to set the state when needed. ",
+    "maxaccess": "read-write",
+    "name": "hwEntityAdminStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HwAdminState"
+    }
+  },
+  "hwEntityAlarmLight": {
+    "class": "objecttype",
+    "description": " The alarm status for this entity. It does not include the severity of alarms raised on child components. On the condition, there are a alarm light on the entity, the object should have the same status with it.",
+    "maxaccess": "read-only",
+    "name": "hwEntityAlarmLight",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HwAlarmStatus"
+    }
+  },
+  "hwEntityArchivesInfoVersion": {
+    "class": "objecttype",
+    "description": "The Version of Archives Information. ",
+    "maxaccess": "read-only",
+    "name": "hwEntityArchivesInfoVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwEntityBoardClass": {
+    "class": "objecttype",
+    "description": " It describes the board type of the whole board.",
+    "maxaccess": "read-only",
+    "name": "hwEntityBoardClass",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ecu": 6,
+          "fan": 7,
+          "icu": 5,
+          "lcd": 9,
+          "lpu": 3,
+          "mpu": 2,
+          "notSupported": 1,
+          "power": 8,
+          "sfu": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEntityBoardPower": {
+    "class": "objecttype",
+    "description": "The board power for the entity. Unit: W",
+    "maxaccess": "read-only",
+    "name": "hwEntityBoardPower",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityBoardType": {
+    "class": "objecttype",
+    "description": "The type code for entity.",
+    "maxaccess": "read-only",
+    "name": "hwEntityBoardType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwEntityBomEnDesc": {
+    "class": "objecttype",
+    "description": "The English description of the Bill of Material about this replaceable unit. ",
+    "maxaccess": "read-only",
+    "name": "hwEntityBomEnDesc",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwEntityBomId": {
+    "class": "objecttype",
+    "description": "The identity of the Bill of Material about this replaceable unit which coded by vendor. This node is mapping to \u0027ITEM\u0027 in the information file. ",
+    "maxaccess": "read-only",
+    "name": "hwEntityBomId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwEntityBomLocalDesc": {
+    "class": "objecttype",
+    "description": "The local description of the Bill of Material about this replaceable unit. ",
+    "maxaccess": "read-only",
+    "name": "hwEntityBomLocalDesc",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.2.1.3",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwEntityCLEICode": {
+    "class": "objecttype",
+    "description": "The string code of CLEI which was granted by America. ",
+    "maxaccess": "read-only",
+    "name": "hwEntityCLEICode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwEntityCPUAvgUsage": {
+    "class": "objecttype",
+    "description": "Average CPU usage within a specified statistical interval.",
+    "maxaccess": "read-only",
+    "name": "hwEntityCPUAvgUsage",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.35",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityCPUType": {
+    "class": "objecttype",
+    "description": "CPU type.",
+    "maxaccess": "read-only",
+    "name": "hwEntityCPUType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwEntityCpuFrequency": {
+    "class": "objecttype",
+    "description": " The frequency of the entity. Unit: Hz",
+    "maxaccess": "read-only",
+    "name": "hwEntityCpuFrequency",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    },
+    "units": "bytes"
+  },
+  "hwEntityCpuMaxUsage": {
+    "class": "objecttype",
+    "description": " The Max CPU usage for this entity. Generally, the Max CPU usage will calculate the overall CPU usage on the entity, and it is not sensible with the number of CPU on the entity. ",
+    "maxaccess": "read-only",
+    "name": "hwEntityCpuMaxUsage",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityCpuUsage": {
+    "class": "objecttype",
+    "description": " The CPU usage for this entity. Generally, the CPU usage will calculate the overall CPU usage on the entity, and it is not sensible with the number of CPU on the entity. ",
+    "maxaccess": "read-only",
+    "name": "hwEntityCpuUsage",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEntityCpuUsageLowThreshold": {
+    "class": "objecttype",
+    "description": " The threshold for the CPU usage. When the CPU usage exceed the threshold, a notification will be sent. ",
+    "maxaccess": "read-write",
+    "name": "hwEntityCpuUsageLowThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEntityCpuUsageThreshold": {
+    "class": "objecttype",
+    "description": " The threshold for the CPU usage. When the CPU usage exceed the threshold, a notification will be sent. ",
+    "maxaccess": "read-write",
+    "name": "hwEntityCpuUsageThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEntityCurrent": {
+    "class": "objecttype",
+    "description": " The current for the entity. ",
+    "maxaccess": "read-only",
+    "name": "hwEntityCurrent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    },
+    "units": "A"
+  },
+  "hwEntityDuplex": {
+    "class": "objecttype",
+    "description": " Indicates the duplex mode of the Ethernet interface. An electrical Ethernet interface can work in half-duplex mode or full-duplex mode. An optical Ethernet can work only in full-duplex mode. ",
+    "maxaccess": "read-only",
+    "name": "hwEntityDuplex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "full": 2,
+          "half": 3,
+          "notSupported": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEntityExtCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI Entity extent MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityExtGroup"
+      }
+    ],
+    "name": "hwEntityExtCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.4.1.1",
+    "status": "current"
+  },
+  "hwEntityExtCompliances": {
+    "class": "objectidentity",
+    "name": "hwEntityExtCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.4.1"
+  },
+  "hwEntityExtConformance": {
+    "class": "objectidentity",
+    "name": "hwEntityExtConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.4"
+  },
+  "hwEntityExtCpuUsageLowThresholdNotfication": {
+    "class": "notificationtype",
+    "description": " The hwEntityExtCpuUsageThresholdNotfication indicates the entity is overload, and the service running in the entity will not get the performance it should because of CPU\u0027s performance. Anyway, the threshold should lower than the value that most service work fine. ",
+    "name": "hwEntityExtCpuUsageLowThresholdNotfication",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityCpuUsage"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityCpuUsageThreshold"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityTemperature"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityTemperatureThreshold"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityAdminStatus"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityAlarmLight"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.2.0.12",
+    "status": "current"
+  },
+  "hwEntityExtCpuUsageThresholdNotfication": {
+    "class": "notificationtype",
+    "description": " The hwEntityExtCpuUsageThresholdNotfication indicates the entity is overload, and the service running in the entity will not get the performance it should because of CPU\u0027s performance. Anyway, the threshold should lower than the value that most service work fine. ",
+    "name": "hwEntityExtCpuUsageThresholdNotfication",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityCpuUsage"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityCpuUsageThreshold"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityTemperature"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityTemperatureThreshold"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityAdminStatus"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityAlarmLight"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.2.0.4",
+    "status": "current"
+  },
+  "hwEntityExtGroup": {
+    "class": "objectgroup",
+    "description": "Standard HUAWEI Entity Extent group.",
+    "name": "hwEntityExtGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityAdminStatus"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityOperStatus"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityStandbyStatus"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityAlarmLight"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityCpuUsage"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityCpuUsageThreshold"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityMemUsage"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityMemUsageThreshold"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityMemSize"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityUpTime"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityTemperature"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityTemperatureThreshold"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityVoltage"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityVoltageLowThreshold"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityVoltageHighThreshold"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityTemperatureLowThreshold"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityOpticalPower"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityCurrent"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityMemSizeMega"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityPortType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityDuplex"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityOpticalPowerRx"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityCpuUsageLowThreshold"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityBoardPower"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityCpuFrequency"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntitySupportFlexCard"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityBoardClass"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwNseOpmStatus"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityCpuMaxUsage"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityServiceType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityCPUType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityMemoryType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityFlashSize"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityIfUpTimes"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityIfDownTimes"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityCPUAvgUsage"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityMemoryAvgUsage"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.4.2.1",
+    "status": "current"
+  },
+  "hwEntityExtGroups": {
+    "class": "objectidentity",
+    "name": "hwEntityExtGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.4.2"
+  },
+  "hwEntityExtMemUsageThresholdNotification": {
+    "class": "notificationtype",
+    "description": " The hwEntityExtMemUsageThresholdNotification indicates the entity is overload, and the service running in the entity will not get the performance it should because of lower memory. Anyway, the threshold should lower than the value that most service work fine. ",
+    "name": "hwEntityExtMemUsageThresholdNotification",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityMemUsage"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityMemUsageThreshold"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityMemSize"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityAdminStatus"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityAlarmLight"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.2.0.5",
+    "status": "current"
+  },
+  "hwEntityExtMonitorBoardAbnormalNotification": {
+    "class": "notificationtype",
+    "description": "The monitor board turns normal to abnormal.",
+    "name": "hwEntityExtMonitorBoardAbnormalNotification",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.2.0.8",
+    "status": "current"
+  },
+  "hwEntityExtMonitorBoardNormalNotification": {
+    "class": "notificationtype",
+    "description": "The monitor board turns abnormal to normal.",
+    "name": "hwEntityExtMonitorBoardNormalNotification",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.2.0.9",
+    "status": "current"
+  },
+  "hwEntityExtMonitorPortAbnormalNotification": {
+    "class": "notificationtype",
+    "description": "The monitor port turns normal to abnormal.",
+    "name": "hwEntityExtMonitorPortAbnormalNotification",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwMonitorInputState"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwMonitorInputName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.2.0.10",
+    "status": "current"
+  },
+  "hwEntityExtMonitorPortNormalNotification": {
+    "class": "notificationtype",
+    "description": "The monitor port turns abnormal to normal.",
+    "name": "hwEntityExtMonitorPortNormalNotification",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwMonitorInputState"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwMonitorInputName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.2.0.11",
+    "status": "current"
+  },
+  "hwEntityExtNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "Standard HUAWEI Entity Extent Notification group.",
+    "name": "hwEntityExtNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityExtTemperatureThresholdNotification"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityExtVoltageLowThresholdNotification"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityExtVoltageHighThresholdNotification"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityExtCpuUsageThresholdNotfication"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityExtMemUsageThresholdNotification"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityExtOperEnabled"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityExtOperDisabled"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityExtMonitorBoardAbnormalNotification"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityExtMonitorBoardNormalNotification"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityExtMonitorPortAbnormalNotification"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityExtMonitorPortNormalNotification"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityExtCpuUsageLowThresholdNotfication"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.4.2.2",
+    "status": "current"
+  },
+  "hwEntityExtObjects": {
+    "class": "objectidentity",
+    "name": "hwEntityExtObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1"
+  },
+  "hwEntityExtOldObjectsGroup": {
+    "class": "objectgroup",
+    "description": "Group for old objects that may be obsoleted.",
+    "name": "hwEntityExtOldObjectsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityBomLocalDesc"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityManufactureCode"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityUpdateLog"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.4.2.4",
+    "status": "obsolete"
+  },
+  "hwEntityExtOperDisabled": {
+    "class": "notificationtype",
+    "description": "The entity is operational. The entity this notification refers can be identified by extracting the entPhysicalIndex from one of the variable bindings.",
+    "name": "hwEntityExtOperDisabled",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityAdminStatus"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityAlarmLight"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.2.0.7",
+    "status": "current"
+  },
+  "hwEntityExtOperEnabled": {
+    "class": "notificationtype",
+    "description": "The entity is operational. The entity this notification refers can be identified by extracting the entPhysicalIndex from one of the variable bindings.",
+    "name": "hwEntityExtOperEnabled",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityAdminStatus"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityAlarmLight"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.2.0.6",
+    "status": "current"
+  },
+  "hwEntityExtTemperatureThresholdNotification": {
+    "class": "notificationtype",
+    "description": " The hwEntityEnvTemperatureThresholdNotification indicates the temperature have been exceed the threshold. In the condition, user should check the hardware and the environment of the entity, sometimes it happened because of the failture of air-condition. Anyway, the threshold should lower than the value that most service work fine. ",
+    "name": "hwEntityExtTemperatureThresholdNotification",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityTemperature"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityTemperatureThreshold"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityAdminStatus"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityAlarmLight"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.2.0.1",
+    "status": "current"
+  },
+  "hwEntityExtTraps": {
+    "class": "objectidentity",
+    "name": "hwEntityExtTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.2"
+  },
+  "hwEntityExtTrapsPrefix": {
+    "class": "objectidentity",
+    "name": "hwEntityExtTrapsPrefix",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.2.0"
+  },
+  "hwEntityExtVoltageHighThresholdNotification": {
+    "class": "notificationtype",
+    "description": " The hwEntityExtVoltageHighThresholdNotification indicates the voltage is higher than the threshold. This may decrease the usability of the entity. If the voltage is higher too much than the hardware needed, the entity may be destroyed by the high voltage. Anyway, the threshold should lower than the value that most service work fine. ",
+    "name": "hwEntityExtVoltageHighThresholdNotification",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityVoltage"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityVoltageHighThreshold"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityAdminStatus"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityAlarmLight"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.2.0.3",
+    "status": "current"
+  },
+  "hwEntityExtVoltageLowThresholdNotification": {
+    "class": "notificationtype",
+    "description": " The hwEntityExtVoltageLowThresholdNotification indicates the voltage is lower than the threshold. This may decrease the usability of the entity. If the voltage is lower too much than the hardware needed, the entity will stop working. Anyway, the threshold should higher than the value that most service work fine. ",
+    "name": "hwEntityExtVoltageLowThresholdNotification",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityVoltage"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityVoltageLowThreshold"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityAdminStatus"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityAlarmLight"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.2.0.2",
+    "status": "current"
+  },
+  "hwEntityExtentMIB": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": "The private mib file includes the general extent information of the device.",
+    "lastupdated": "201107151641Z",
+    "name": "hwEntityExtentMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.31",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwEntityFanPresent": {
+    "class": "objecttype",
+    "description": "This object indicates the present information of the fan.",
+    "maxaccess": "read-only",
+    "name": "hwEntityFanPresent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.10.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "absent": 2,
+          "present": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEntityFanReg": {
+    "class": "objecttype",
+    "description": "This object indicates whether the fan is registered.",
+    "maxaccess": "read-only",
+    "name": "hwEntityFanReg",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.10.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 2,
+          "yes": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEntityFanSlot": {
+    "class": "objecttype",
+    "description": "This object indicates the slot ID of a fan.",
+    "maxaccess": "read-only",
+    "name": "hwEntityFanSlot",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.10.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityFanSn": {
+    "class": "objecttype",
+    "description": "This object indicates the serial number of the fan in a certain slot.",
+    "maxaccess": "read-only",
+    "name": "hwEntityFanSn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.10.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityFanSpdAdjMode": {
+    "class": "objecttype",
+    "description": "This object indicates the speed adjustment mode of the fan.",
+    "maxaccess": "read-only",
+    "name": "hwEntityFanSpdAdjMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.10.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "manual": 2,
+          "unknown": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEntityFanSpeed": {
+    "class": "objecttype",
+    "description": "This object indicates the rotation speed (in percentage of the full speed) of the fan. ",
+    "maxaccess": "read-only",
+    "name": "hwEntityFanSpeed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.10.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityFanState": {
+    "class": "objecttype",
+    "description": "This object indicates the state of the fan.",
+    "maxaccess": "read-only",
+    "name": "hwEntityFanState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.10.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "abnormal": 2,
+          "normal": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEntityFlashSize": {
+    "class": "objecttype",
+    "description": "Flash size, in KB.",
+    "maxaccess": "read-only",
+    "name": "hwEntityFlashSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityGlobalPara": {
+    "class": "objectidentity",
+    "name": "hwEntityGlobalPara",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.11"
+  },
+  "hwEntityHeartbeatOnOff": {
+    "class": "objecttype",
+    "description": "Whether Heartbeat sending periodically enabled.",
+    "maxaccess": "read-write",
+    "name": "hwEntityHeartbeatOnOff",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 2,
+          "on": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEntityHeartbeatPeriod": {
+    "class": "objecttype",
+    "description": "Heartbeat sending period detected in the trap reporting channel, with the minimum value of 60 seconds.",
+    "maxaccess": "read-write",
+    "name": "hwEntityHeartbeatPeriod",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 86400,
+            "min": 60
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEntityHeartbeatTrap": {
+    "class": "notificationtype",
+    "description": "Heartbeat trap.",
+    "name": "hwEntityHeartbeatTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.7.2.1",
+    "status": "current"
+  },
+  "hwEntityIfDownTimes": {
+    "class": "objecttype",
+    "description": "Times that the interface goes Down.",
+    "maxaccess": "read-only",
+    "name": "hwEntityIfDownTimes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.34",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityIfUpTimes": {
+    "class": "objecttype",
+    "description": "Times that the interface goes Up.",
+    "maxaccess": "read-only",
+    "name": "hwEntityIfUpTimes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityIssueNum": {
+    "class": "objecttype",
+    "description": "The issue number for hardware change.",
+    "maxaccess": "read-only",
+    "name": "hwEntityIssueNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwEntityManufactureCode": {
+    "class": "objecttype",
+    "description": "The code of the place where this physical entity is Manufactured. ",
+    "maxaccess": "read-only",
+    "name": "hwEntityManufactureCode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.2.1.5",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityManufacturedDate": {
+    "class": "objecttype",
+    "description": "The date when this physical entity is Manufactured. ",
+    "maxaccess": "read-only",
+    "name": "hwEntityManufacturedDate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwEntityMemSize": {
+    "class": "objecttype",
+    "description": " The size of memory for the entity. ",
+    "maxaccess": "read-only",
+    "name": "hwEntityMemSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    },
+    "units": "bytes"
+  },
+  "hwEntityMemSizeMega": {
+    "class": "objecttype",
+    "description": " The size of SDRAM(Synchronous Dynamic Random Access Memory) memory for the entity. Unit: M bytes",
+    "maxaccess": "read-only",
+    "name": "hwEntityMemSizeMega",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    },
+    "units": "M bytes"
+  },
+  "hwEntityMemUsage": {
+    "class": "objecttype",
+    "description": " The memory usage for the entity. This object point out how many percent of memory has been used. ",
+    "maxaccess": "read-only",
+    "name": "hwEntityMemUsage",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEntityMemUsageThreshold": {
+    "class": "objecttype",
+    "description": " The threshold for the Memory usage, When the memory usage exceed the threshold, a notification will be sent. ",
+    "maxaccess": "read-write",
+    "name": "hwEntityMemUsageThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEntityMemoryAvgUsage": {
+    "class": "objecttype",
+    "description": "Average memory usage within a specified statistical interval.",
+    "maxaccess": "read-only",
+    "name": "hwEntityMemoryAvgUsage",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.36",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEntityMemoryType": {
+    "class": "objecttype",
+    "description": "Memory type.",
+    "maxaccess": "read-only",
+    "name": "hwEntityMemoryType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwEntityOpenBomId": {
+    "class": "objecttype",
+    "description": "The BomId for distribution. It is different from hwEntityBomId.",
+    "maxaccess": "read-only",
+    "name": "hwEntityOpenBomId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwEntityOperStatus": {
+    "class": "objecttype",
+    "description": " The operational state for this object. ",
+    "maxaccess": "read-only",
+    "name": "hwEntityOperStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HwOperState"
+    }
+  },
+  "hwEntityOpticalBiasCurrent": {
+    "class": "objecttype",
+    "description": "The bias current of the optical module. Unit: mA.",
+    "maxaccess": "read-only",
+    "name": "hwEntityOpticalBiasCurrent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityOpticalDirectionType": {
+    "class": "objecttype",
+    "description": "The direction type of the optical module.",
+    "maxaccess": "read-only",
+    "name": "hwEntityOpticalDirectionType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.3.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "oneFiberBidirection": 3,
+          "twoFiberBidirection": 2,
+          "twoFiberTwoPortBidirection": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEntityOpticalFiberType": {
+    "class": "objecttype",
+    "description": "The Fiber type of the optical module.",
+    "maxaccess": "read-only",
+    "name": "hwEntityOpticalFiberType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.3.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bnc-tnc": 4,
+          "coaxial-headers": 5,
+          "copper-pigtail": 21,
+          "fiberJack": 6,
+          "hssdcII": 20,
+          "lc": 7,
+          "mt-rj": 8,
+          "mu": 9,
+          "optical-pigtail": 11,
+          "sc": 1,
+          "sg": 10,
+          "style-1-copper-connector": 2,
+          "style-2-copper-connector": 3,
+          "unknown": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEntityOpticalMode": {
+    "class": "objecttype",
+    "description": "The mode of the optical module.",
+    "maxaccess": "read-only",
+    "name": "hwEntityOpticalMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "multiMode5": 3,
+          "multiMode6": 4,
+          "noValue": 5,
+          "notSupported": 1,
+          "singleMode": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEntityOpticalPlug": {
+    "class": "objecttype",
+    "description": "The optical module is plug-supported or not.",
+    "maxaccess": "read-only",
+    "name": "hwEntityOpticalPlug",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.3.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 2,
+          "notSupported": 0,
+          "true": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEntityOpticalPower": {
+    "class": "objecttype",
+    "description": "The optical power of the optical module. Unit: uW",
+    "maxaccess": "read-only",
+    "name": "hwEntityOpticalPower",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityOpticalPowerRx": {
+    "class": "objecttype",
+    "description": "The optical power(Rx) of the optical module. Unit: uW",
+    "maxaccess": "read-only",
+    "name": "hwEntityOpticalPowerRx",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityOpticalRxHighThreshold": {
+    "class": "objecttype",
+    "description": "The receive power high threshold of the optical module. Unit: dBm. the value is expanded 100 times,so the real value should be reduced 100 times ",
+    "maxaccess": "read-only",
+    "name": "hwEntityOpticalRxHighThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.3.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityOpticalRxHighWarnThreshold": {
+    "class": "objecttype",
+    "description": "The receive power high warning threshold of the optical module. Unit: dBm. the value is expanded 100 times,so the real value should be reduced 100 times ",
+    "maxaccess": "read-only",
+    "name": "hwEntityOpticalRxHighWarnThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.3.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityOpticalRxLowThreshold": {
+    "class": "objecttype",
+    "description": "The receive power low threshold of the optical module. Unit: dBm. the value is expanded 100 times,so the real value should be reduced 100 times ",
+    "maxaccess": "read-only",
+    "name": "hwEntityOpticalRxLowThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.3.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityOpticalRxLowWarnThreshold": {
+    "class": "objecttype",
+    "description": "The receive power low warning threshold of the optical module. Unit: dBm. the value is expanded 100 times,so the real value should be reduced 100 times ",
+    "maxaccess": "read-only",
+    "name": "hwEntityOpticalRxLowWarnThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.3.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityOpticalRxPower": {
+    "class": "objecttype",
+    "description": "The receive power of the optical module. Unit: dBm. the value is expanded 100 times,so the real value should be reduced 100 times ",
+    "maxaccess": "read-only",
+    "name": "hwEntityOpticalRxPower",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityOpticalTemperature": {
+    "class": "objecttype",
+    "description": "The current temperature of the optical module. Unit: C",
+    "maxaccess": "read-only",
+    "name": "hwEntityOpticalTemperature",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityOpticalTransBW": {
+    "class": "objecttype",
+    "description": "The Transceiver max BW of the optical module.Unit:M",
+    "maxaccess": "read-only",
+    "name": "hwEntityOpticalTransBW",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityOpticalTransDistance": {
+    "class": "objecttype",
+    "description": "The max transmission distance of the optical module. Unit: m.",
+    "maxaccess": "read-only",
+    "name": "hwEntityOpticalTransDistance",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityOpticalTxHighThreshold": {
+    "class": "objecttype",
+    "description": "The transmit power high threshold of the optical module. Unit: dBm. the value is expanded 100 times,so the real value should be reduced 100 times ",
+    "maxaccess": "read-only",
+    "name": "hwEntityOpticalTxHighThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.3.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityOpticalTxHighWarnThreshold": {
+    "class": "objecttype",
+    "description": "The transmit power high warning threshold of the optical module. Unit: dBm. the value is expanded 100 times,so the real value should be reduced 100 times ",
+    "maxaccess": "read-only",
+    "name": "hwEntityOpticalTxHighWarnThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.3.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityOpticalTxLowThreshold": {
+    "class": "objecttype",
+    "description": "The transmit power low threshold of the optical module. Unit: dBm. the value is expanded 100 times,so the real value should be reduced 100 times ",
+    "maxaccess": "read-only",
+    "name": "hwEntityOpticalTxLowThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.3.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityOpticalTxLowWarnThreshold": {
+    "class": "objecttype",
+    "description": "The transmit power low warning threshold of the optical module. Unit: dBm. the value is expanded 100 times,so the real value should be reduced 100 times ",
+    "maxaccess": "read-only",
+    "name": "hwEntityOpticalTxLowWarnThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.3.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityOpticalTxPower": {
+    "class": "objecttype",
+    "description": "The transmit power of the optical module. Unit: dBm. the value is expanded 100 times,so the real value should be reduced 100 times ",
+    "maxaccess": "read-only",
+    "name": "hwEntityOpticalTxPower",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityOpticalType": {
+    "class": "objecttype",
+    "description": "The type of the optical module.",
+    "maxaccess": "read-only",
+    "name": "hwEntityOpticalType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cfp": 9,
+          "copper": 5,
+          "esfp": 4,
+          "gbic": 2,
+          "sc": 1,
+          "sfp": 3,
+          "transponder": 8,
+          "unknown": 0,
+          "xenpak": 7,
+          "xfp": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEntityOpticalUserEeprom": {
+    "class": "objecttype",
+    "description": "The user writable EEPROM of the optical module.",
+    "maxaccess": "read-only",
+    "name": "hwEntityOpticalUserEeprom",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.3.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 120,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwEntityOpticalVendorSn": {
+    "class": "objecttype",
+    "description": "The vendor serial number (vendor SN) of the optical module. Length: 16 bytes.",
+    "maxaccess": "read-only",
+    "name": "hwEntityOpticalVendorSn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwEntityOpticalVoltage": {
+    "class": "objecttype",
+    "description": "The current voltage of the optical module. Unit: mV.",
+    "maxaccess": "read-only",
+    "name": "hwEntityOpticalVoltage",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityOpticalWaveLength": {
+    "class": "objecttype",
+    "description": "The wave length of the optical module. Unit: nm.",
+    "maxaccess": "read-only",
+    "name": "hwEntityOpticalWaveLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityPortType": {
+    "class": "objecttype",
+    "description": " Indicates the type of the Ethernet interface: an optical interface or an electrical interface. ",
+    "maxaccess": "read-only",
+    "name": "hwEntityPortType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "copper": 2,
+          "fiber100": 3,
+          "fiber1000": 4,
+          "fiber10000": 5,
+          "notSupported": 1,
+          "optical": 7,
+          "opticalnotExist": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEntityServiceType": {
+    "class": "objecttype",
+    "description": " It describes the service-type of spu board .",
+    "maxaccess": "read-only",
+    "name": "hwEntityServiceType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.11.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "firewall": 2,
+          "ipsec": 4,
+          "load-balance": 3,
+          "netstream": 5,
+          "sslvpn": 1,
+          "wlan": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEntitySoftwareName": {
+    "class": "objecttype",
+    "description": "System software name.",
+    "maxaccess": "read-only",
+    "name": "hwEntitySoftwareName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.6.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwEntitySoftwareVendor": {
+    "class": "objecttype",
+    "description": "Software vendor.",
+    "maxaccess": "read-only",
+    "name": "hwEntitySoftwareVendor",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.6.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwEntitySoftwareVersion": {
+    "class": "objecttype",
+    "description": "Software version number. ",
+    "maxaccess": "read-only",
+    "name": "hwEntitySoftwareVersion",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.6.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwEntityStandbyStatus": {
+    "class": "objecttype",
+    "description": " Some entity in a device can support standby mode, This object is used for monitoring standby status. ",
+    "maxaccess": "read-only",
+    "name": "hwEntityStandbyStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HwStandbyStatus"
+    }
+  },
+  "hwEntityState": {
+    "class": "objectidentity",
+    "name": "hwEntityState",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1"
+  },
+  "hwEntityStateEntry": {
+    "class": "objecttype",
+    "description": "Information about a particular physical entity. Each entry provides objects (entPhysicalDescr, entPhysicalVendorType, and entPhysicalClass) to help an NMS identify and characterize the entry, and objects (entPhysicalContainedIn and entPhysicalParentRelPos) to help an NMS relate the particular entry to other entries in this table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEntityStateEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1",
+    "status": "current"
+  },
+  "hwEntityStateTable": {
+    "class": "objecttype",
+    "description": "This table contains one row per physical entity, There is always at least one row for an \u0027overall\u0027 physical entity. The information in each row may be not include all the object in this table, because of the entity need not some of the information here. ",
+    "maxaccess": "not-accessible",
+    "name": "hwEntityStateTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1",
+    "status": "current"
+  },
+  "hwEntitySupportFlexCard": {
+    "class": "objecttype",
+    "description": " It describes whether the whole board supports flexible cards. When the board doesn\u0027t support flexible cards, the cards may be dummy ones whose ports will not be seen by the customer.",
+    "maxaccess": "read-only",
+    "name": "hwEntitySupportFlexCard",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dummy": 4,
+          "flexible": 2,
+          "notSupported": 1,
+          "unflexible": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEntitySystemHealthInterval": {
+    "class": "objecttype",
+    "description": "Statistical interval for average CPU and memory usage, in seconds (By default, the value is 300) .",
+    "maxaccess": "read-write",
+    "name": "hwEntitySystemHealthInterval",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.6.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 900,
+            "min": 5
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEntitySystemMacAddress": {
+    "class": "objecttype",
+    "description": "MAC address of the device.",
+    "maxaccess": "read-only",
+    "name": "hwEntitySystemMacAddress",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.6.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwEntitySystemModel": {
+    "class": "objecttype",
+    "description": "Device model.",
+    "maxaccess": "read-only",
+    "name": "hwEntitySystemModel",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.6.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwEntitySystemNEId": {
+    "class": "objecttype",
+    "description": "Systme NEId.",
+    "maxaccess": "read-write",
+    "name": "hwEntitySystemNEId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.6.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16777215,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEntitySystemNetID": {
+    "class": "objecttype",
+    "description": "Network element ID.",
+    "maxaccess": "read-write",
+    "name": "hwEntitySystemNetID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.6.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 16
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEntitySystemReset": {
+    "class": "objecttype",
+    "description": "System reset.",
+    "maxaccess": "read-write",
+    "name": "hwEntitySystemReset",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.6.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "restart": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEntitySystemTime": {
+    "class": "objecttype",
+    "description": "System time displayed on the device.",
+    "maxaccess": "read-write",
+    "name": "hwEntitySystemTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.6.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwEntityTempAddr": {
+    "class": "objecttype",
+    "description": "This object indicates the address of a temperature sensor.",
+    "maxaccess": "read-only",
+    "name": "hwEntityTempAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.8.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityTempChannel": {
+    "class": "objecttype",
+    "description": "This object indicates the channel of a temperature sensor. ",
+    "maxaccess": "read-only",
+    "name": "hwEntityTempChannel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.8.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityTempFatalAlmThreshold": {
+    "class": "objecttype",
+    "description": "This object indicates the threshold for a fatal alarm. The value can be set and ranges from 80% to 120% of the default value. The value is in Celsius. ",
+    "maxaccess": "read-write",
+    "name": "hwEntityTempFatalAlmThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.8.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityTempI2CId": {
+    "class": "objecttype",
+    "description": "This object indicates the I2CID of a temperature sensor. ",
+    "maxaccess": "read-only",
+    "name": "hwEntityTempI2CId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.8.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityTempMajorAlmThreshold": {
+    "class": "objecttype",
+    "description": "This object indicates the threshold for a major alarm. The value can be set and ranges from 80% to 120% of the default value. The value is in Celsius. ",
+    "maxaccess": "read-write",
+    "name": "hwEntityTempMajorAlmThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.8.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityTempMinorAlmThreshold": {
+    "class": "objecttype",
+    "description": "This object indicates the threshold for a minor alarm. The value can be set and ranges from 80% to 120% of the default value. The value is in Celsius. ",
+    "maxaccess": "read-write",
+    "name": "hwEntityTempMinorAlmThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.8.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityTempSlotId": {
+    "class": "objecttype",
+    "description": "This object indicates the slot ID of a temperature sensor. ",
+    "maxaccess": "read-only",
+    "name": "hwEntityTempSlotId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityTempStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the current status of a temperature sensor. ",
+    "maxaccess": "read-only",
+    "name": "hwEntityTempStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.8.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fatal": 4,
+          "major": 3,
+          "minor": 2,
+          "normal": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEntityTempValue": {
+    "class": "objecttype",
+    "description": "This object indicates the current value in Celsius of a temperature sensor.",
+    "maxaccess": "read-only",
+    "name": "hwEntityTempValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.8.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityTemperature": {
+    "class": "objecttype",
+    "description": " The temperature for the entity. ",
+    "maxaccess": "read-only",
+    "name": "hwEntityTemperature",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityTemperatureLowThreshold": {
+    "class": "objecttype",
+    "description": "The low-threshold of temperature. If the device temperature is lower than the threshold, an alarm is raised. ",
+    "maxaccess": "read-write",
+    "name": "hwEntityTemperatureLowThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityTemperatureThreshold": {
+    "class": "objecttype",
+    "description": " The threshold for the temperature. When the temperature exceed the threshold, a notification will be sent. ",
+    "maxaccess": "read-write",
+    "name": "hwEntityTemperatureThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityUpTime": {
+    "class": "objecttype",
+    "description": " The up time for the entity. The mean of up time is when the entity is up, and the value of the object will add one per seconds while the entity running. ",
+    "maxaccess": "read-only",
+    "name": "hwEntityUpTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    },
+    "units": "seconds"
+  },
+  "hwEntityUpdateLog": {
+    "class": "objecttype",
+    "description": "The maintenance log of this replaceable unit. ",
+    "maxaccess": "read-only",
+    "name": "hwEntityUpdateLog",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.2.1.7",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwEntityVolAddr": {
+    "class": "objecttype",
+    "description": "This object indicates the address of a voltage sensor. ",
+    "maxaccess": "read-only",
+    "name": "hwEntityVolAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.9.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityVolChannel": {
+    "class": "objecttype",
+    "description": "This object indicates the channel of a voltage sensor. ",
+    "maxaccess": "read-only",
+    "name": "hwEntityVolChannel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.9.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityVolCurValue": {
+    "class": "objecttype",
+    "description": "This object indicates the current value in millivolt of a voltage sensor.",
+    "maxaccess": "read-only",
+    "name": "hwEntityVolCurValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.9.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityVolHighAlmFatal": {
+    "class": "objecttype",
+    "description": "This object indicates the threshold for a fatal alarm of high voltage. The value can be set and ranges from 80% to 120% of the default value. The value is in millivolt. ",
+    "maxaccess": "read-write",
+    "name": "hwEntityVolHighAlmFatal",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.9.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityVolHighAlmMajor": {
+    "class": "objecttype",
+    "description": "This object indicates the threshold for a major alarm of high voltage. The value can be set and ranges from 80% to 120% of the default value. The value is in millivolt. ",
+    "maxaccess": "read-write",
+    "name": "hwEntityVolHighAlmMajor",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.9.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityVolI2CId": {
+    "class": "objecttype",
+    "description": "This object indicates the I2CID of a voltage sensor.",
+    "maxaccess": "read-only",
+    "name": "hwEntityVolI2CId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.9.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityVolLowAlmFatal": {
+    "class": "objecttype",
+    "description": "This object indicates the threshold for a fatal alarm of low voltage. The value can be set and ranges from 80% to 120% of the default value. The value is in millivolt. ",
+    "maxaccess": "read-write",
+    "name": "hwEntityVolLowAlmFatal",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.9.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityVolLowAlmMajor": {
+    "class": "objecttype",
+    "description": "This object indicates the threshold for a major alarm of low voltage. The value can be set and ranges from 80% to 120% of the default value. The value is in millivolt. ",
+    "maxaccess": "read-write",
+    "name": "hwEntityVolLowAlmMajor",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.9.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityVolRatio": {
+    "class": "objecttype",
+    "description": "This object indicates the voltage ratio of a voltage sensor.",
+    "maxaccess": "read-only",
+    "name": "hwEntityVolRatio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.9.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityVolRequired": {
+    "class": "objecttype",
+    "description": "This object indicates the nominal value in millivolt of a voltage sensor.",
+    "maxaccess": "read-only",
+    "name": "hwEntityVolRequired",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.9.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityVolSlot": {
+    "class": "objecttype",
+    "description": "This object indicates the slot ID of a voltage sensor.",
+    "maxaccess": "read-only",
+    "name": "hwEntityVolSlot",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.9.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityVolStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the current status of a voltage sensor.",
+    "maxaccess": "read-only",
+    "name": "hwEntityVolStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.9.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fatal": 3,
+          "major": 2,
+          "normal": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEntityVoltage": {
+    "class": "objecttype",
+    "description": " The voltage for the entity. ",
+    "maxaccess": "read-only",
+    "name": "hwEntityVoltage",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityVoltageHighThreshold": {
+    "class": "objecttype",
+    "description": " The high-threshold for the voltage. Generally, we have two threshold for the voltage, one is low-threshold, and the other is high-threshold. the normal status of voltage should be greater than the low-threshold, and lower than the high-threshold. When the voltage greater than the high-threshold, a notification will be sent. ",
+    "maxaccess": "read-write",
+    "name": "hwEntityVoltageHighThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEntityVoltageLowThreshold": {
+    "class": "objecttype",
+    "description": " The low-threshold for the voltage. Generally, we have two threshold for the voltage, one is low-threshold, and the other is high-threshold. the normal status of voltage should be greater than the low-threshold, and lower than the high-threshold. When the voltage low than the low-threshold, a notification will be sent. ",
+    "maxaccess": "read-write",
+    "name": "hwEntityVoltageLowThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwFanStatusEntry": {
+    "class": "objecttype",
+    "description": "Defines an entry in the hwFanStatusTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityFanSlot"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityFanSn"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwFanStatusEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.10.1",
+    "status": "current"
+  },
+  "hwFanStatusGroup": {
+    "class": "objectgroup",
+    "description": "fan state group.",
+    "name": "hwFanStatusGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityFanSlot"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityFanSn"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityFanReg"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityFanSpdAdjMode"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityFanSpeed"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityFanPresent"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityFanState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.4.2.13",
+    "status": "current"
+  },
+  "hwFanStatusTable": {
+    "class": "objecttype",
+    "description": "This table lists the status of fans. You can read the status of the fans on the device.",
+    "maxaccess": "not-accessible",
+    "name": "hwFanStatusTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.10",
+    "status": "current"
+  },
+  "hwFileGeneDestinationFile": {
+    "class": "objecttype",
+    "description": "This object indicates the target path storing the file, which does not need to be specified.",
+    "maxaccess": "read-write",
+    "name": "hwFileGeneDestinationFile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.5.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwFileGeneIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the operation index, which can be specified by the user. The value ranges from 1 to 2147483647.",
+    "maxaccess": "not-accessible",
+    "name": "hwFileGeneIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.5.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFileGeneOperState": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the operation status. opInProgress(1): The operation is ongoing. opSuccess(2): The operation succeeds. opGetFileError(3): Obtaining the file fails. opInvalidDestName(4): The specified storage path is invalid. opNoFlashSpace(5): The space in the flash memory is insufficient. opWriteFileError(6): Writing the file fails. opDestoryError(7): Deleting the file fails.",
+    "maxaccess": "read-only",
+    "name": "hwFileGeneOperState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.5.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "opDestoryError": 7,
+          "opGetFileError": 3,
+          "opInProgress": 1,
+          "opInvalidDestName": 4,
+          "opNoFlashSpace": 5,
+          "opSuccess": 2,
+          "opWriteFileError": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFileGeneResourceID": {
+    "class": "objecttype",
+    "description": "This object indicates the ID of the \u0027hardware capability file\u0027 to be obtained.",
+    "maxaccess": "read-write",
+    "name": "hwFileGeneResourceID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.5.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwFileGeneResourceType": {
+    "class": "objecttype",
+    "description": "This object indicates the type of the file to be obtained. pnpcard(1): board description file pnpcard(2): subcard description file pnphardcapability(3): hardware capability file pnpPreDisposeCapability(4): predispose capability file",
+    "maxaccess": "read-write",
+    "name": "hwFileGeneResourceType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.5.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pnpPreDisposeCapability": 4,
+          "pnpcard": 1,
+          "pnphardcapability": 3,
+          "pnpsubcard": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFileGeneRowStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the row status. active(1) notInService(2) notReady(3) createAndGo(4) createAndWait(5) destroy(6)",
+    "maxaccess": "read-create",
+    "name": "hwFileGeneRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.5.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwHardwareCapaChangeNotification": {
+    "class": "notificationtype",
+    "description": "This object indicates the change of the \u0027hardware capability file\u0027. An alarm is generated if the sequence number of the \u0027hardware capability file\u0027 in the current startup file is different from that in the last startup file.",
+    "name": "hwHardwareCapaChangeNotification",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwHardwareCapaSequenceNo"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.5.2.1",
+    "status": "current"
+  },
+  "hwHardwareCapaSequenceNo": {
+    "class": "objecttype",
+    "description": "This object indicates the sequence number of the \u0027hardware capability file\u0027.The value consists of the file version number and CRC code.",
+    "maxaccess": "read-only",
+    "name": "hwHardwareCapaSequenceNo",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwHeartbeatConfig": {
+    "class": "objectidentity",
+    "name": "hwHeartbeatConfig",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.7.1"
+  },
+  "hwHeartbeatGroup": {
+    "class": "objectgroup",
+    "description": "Heart beat group.",
+    "name": "hwHeartbeatGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityHeartbeatOnOff"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityHeartbeatPeriod"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityHeartbeatTrap"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.4.2.16",
+    "status": "current"
+  },
+  "hwHeartbeatObjects": {
+    "class": "objectidentity",
+    "name": "hwHeartbeatObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.7"
+  },
+  "hwHeartbeatTrapPrefix": {
+    "class": "objectidentity",
+    "name": "hwHeartbeatTrapPrefix",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.7.2"
+  },
+  "hwInsertDiffFromPreDisposed": {
+    "class": "notificationtype",
+    "description": "This object indicates the type of the inserted entity is different from that of pre-disposed entity on the slot.",
+    "name": "hwInsertDiffFromPreDisposed",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwDisposeEntPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwDisposeEntPhysicalVendorType"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalVendorType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.8.2.1",
+    "status": "current"
+  },
+  "hwMonitorInputEntry": {
+    "class": "objecttype",
+    "description": "This is a replaceable unit physical entity.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwMonitorInputIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMonitorInputEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.4.1",
+    "status": "current"
+  },
+  "hwMonitorInputGroup": {
+    "class": "objectgroup",
+    "description": "Standard HUAWEI Entity Extent group.",
+    "name": "hwMonitorInputGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwMonitorInputName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwMonitorInputState"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwMonitorInputStateEnable"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwMonitorInputRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.4.2.6",
+    "status": "current"
+  },
+  "hwMonitorInputIndex": {
+    "class": "objecttype",
+    "description": "Monitor port index. This is a number of input line,ranging from 1 to 4. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMonitorInputIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMonitorInputName": {
+    "class": "objecttype",
+    "description": "Monitor line name. ",
+    "maxaccess": "read-create",
+    "name": "hwMonitorInputName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMonitorInputRowStatus": {
+    "class": "objecttype",
+    "description": "Status of monitor input row. ",
+    "maxaccess": "read-create",
+    "name": "hwMonitorInputRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMonitorInputState": {
+    "class": "objecttype",
+    "description": "Monitor line status. The value is high or low. ",
+    "maxaccess": "read-create",
+    "name": "hwMonitorInputState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWLevelState"
+    }
+  },
+  "hwMonitorInputStateEnable": {
+    "class": "objecttype",
+    "description": "Enable monitor line. ",
+    "maxaccess": "read-create",
+    "name": "hwMonitorInputStateEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMonitorInputTable": {
+    "class": "objecttype",
+    "description": "This table contains one row per replaceable unit physical entity. This table is used to set the status of monitor port.",
+    "maxaccess": "not-accessible",
+    "name": "hwMonitorInputTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.4",
+    "status": "current"
+  },
+  "hwMonitorOutputEntry": {
+    "class": "objecttype",
+    "description": "This is a replaceable unit physical entity.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwMonitorOutputIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwMonitorOutputRuleIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMonitorOutputEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.5.1",
+    "status": "current"
+  },
+  "hwMonitorOutputGroup": {
+    "class": "objectgroup",
+    "description": "Standard HUAWEI Entity Extent group.",
+    "name": "hwMonitorOutputGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwMonitorOutputMask"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwMonitorOutputKey"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwMonitorOutputRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.4.2.7",
+    "status": "current"
+  },
+  "hwMonitorOutputIndex": {
+    "class": "objecttype",
+    "description": "Monitor output view index. Through this index ,you can turn into the output view. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMonitorOutputIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 3,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMonitorOutputKey": {
+    "class": "objecttype",
+    "description": "Normal level value of this output line. ",
+    "maxaccess": "read-create",
+    "name": "hwMonitorOutputKey",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMonitorOutputMask": {
+    "class": "objecttype",
+    "description": "Monitor output mask . This is used to matching the level of monitor input line. ",
+    "maxaccess": "read-create",
+    "name": "hwMonitorOutputMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMonitorOutputRowStatus": {
+    "class": "objecttype",
+    "description": "Status of monitor input row ",
+    "maxaccess": "read-create",
+    "name": "hwMonitorOutputRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.5.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMonitorOutputRuleIndex": {
+    "class": "objecttype",
+    "description": "Monitor output rule index. This is used to set the rules about all of the input line. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMonitorOutputRuleIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMonitorOutputTable": {
+    "class": "objecttype",
+    "description": "This table contains one row per replaceable unit physical entity. This table is used to create a output view.",
+    "maxaccess": "not-accessible",
+    "name": "hwMonitorOutputTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.5",
+    "status": "current"
+  },
+  "hwNseOpmStatus": {
+    "class": "objecttype",
+    "description": "OPM status. 0: pass, 1: bypass, 2: invalid",
+    "maxaccess": "read-only",
+    "name": "hwNseOpmStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.1.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwOpticalModuleInfoEntry": {
+    "class": "objecttype",
+    "description": "An entry in the table of optical module properties for each optical module.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwOpticalModuleInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.3.1",
+    "status": "current"
+  },
+  "hwOpticalModuleInfoGroup": {
+    "class": "objectgroup",
+    "description": "Collection of objects that display the fiber module working information.",
+    "name": "hwOpticalModuleInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityOpticalMode"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityOpticalWaveLength"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityOpticalTransDistance"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityOpticalVendorSn"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityOpticalTemperature"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityOpticalVoltage"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityOpticalBiasCurrent"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityOpticalRxPower"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityOpticalTxPower"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityOpticalType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityOpticalTransBW"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityOpticalFiberType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityOpticalRxLowThreshold"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityOpticalRxHighThreshold"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityOpticalTxLowThreshold"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityOpticalTxHighThreshold"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityOpticalPlug"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityOpticalDirectionType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityOpticalUserEeprom"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.4.2.5",
+    "status": "current"
+  },
+  "hwOpticalModuleInfoTable": {
+    "class": "objecttype",
+    "description": "Table of optical module properties.",
+    "maxaccess": "not-accessible",
+    "name": "hwOpticalModuleInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.3",
+    "status": "current"
+  },
+  "hwPhysicalPortBip8StatisticsBBE": {
+    "class": "objecttype",
+    "description": "BIP8 Statistics: BBE(Background Block Error).",
+    "maxaccess": "read-only",
+    "name": "hwPhysicalPortBip8StatisticsBBE",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.12.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPhysicalPortBip8StatisticsEB": {
+    "class": "objecttype",
+    "description": "BIP8 Statistics: EB(Errored Block).",
+    "maxaccess": "read-only",
+    "name": "hwPhysicalPortBip8StatisticsEB",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.12.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPhysicalPortBip8StatisticsES": {
+    "class": "objecttype",
+    "description": "BIP8 Statistics: ES(Errored Second).",
+    "maxaccess": "read-only",
+    "name": "hwPhysicalPortBip8StatisticsES",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.12.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPhysicalPortBip8StatisticsSES": {
+    "class": "objecttype",
+    "description": "BIP8 Statistics: SES(Severely Errored Second).",
+    "maxaccess": "read-only",
+    "name": "hwPhysicalPortBip8StatisticsSES",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.12.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPhysicalPortBip8StatisticsUAS": {
+    "class": "objecttype",
+    "description": "BIP8 Statistics: UAS(Unavailable Errored Second).",
+    "maxaccess": "read-only",
+    "name": "hwPhysicalPortBip8StatisticsUAS",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.12.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwPhysicalPortSpeed": {
+    "class": "objecttype",
+    "description": "An estimate of the interface\u0027s current bandwidth in 1000000 bits per second.",
+    "maxaccess": "read-only",
+    "name": "hwPhysicalPortSpeed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.12.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPnpGroup": {
+    "class": "objectgroup",
+    "description": "Pnp group.",
+    "name": "hwPnpGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwHardwareCapaSequenceNo"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwFileGeneIndex"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwFileGeneResourceType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwFileGeneResourceID"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwFileGeneDestinationFile"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwFileGeneOperState"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwFileGeneRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.4.2.14",
+    "status": "current"
+  },
+  "hwPnpInfo": {
+    "class": "objectidentity",
+    "name": "hwPnpInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.5.1"
+  },
+  "hwPnpObjects": {
+    "class": "objectidentity",
+    "name": "hwPnpObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.5"
+  },
+  "hwPnpOperateEntry": {
+    "class": "objecttype",
+    "description": " ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwFileGeneIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPnpOperateEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.5.3.1",
+    "status": "current"
+  },
+  "hwPnpOperateTable": {
+    "class": "objecttype",
+    "description": "This table describes the hardware functions. Using this table, you can obtain the specified \u0027hardware description file\u0027 or \u0027hardware capability file\u0027.",
+    "maxaccess": "not-accessible",
+    "name": "hwPnpOperateTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.5.3",
+    "status": "current"
+  },
+  "hwPnpTraps": {
+    "class": "objectidentity",
+    "name": "hwPnpTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.5.2"
+  },
+  "hwPortBip8StatisticsEntry": {
+    "class": "objecttype",
+    "description": "Indicates the BIP8 statistics. This table lists the various BIP8 statistics.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPortBip8StatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.12.1",
+    "status": "current"
+  },
+  "hwPortBip8StatisticsObjectGroup": {
+    "class": "objectgroup",
+    "description": "The BIP8 statistics group.",
+    "name": "hwPortBip8StatisticsObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwPhysicalPortBip8StatisticsEB"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwPhysicalPortBip8StatisticsES"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwPhysicalPortBip8StatisticsSES"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwPhysicalPortBip8StatisticsUAS"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwPhysicalPortBip8StatisticsBBE"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.4.2.17",
+    "status": "current"
+  },
+  "hwPortBip8StatisticsTable": {
+    "class": "objecttype",
+    "description": "Indicates the BIP8 statistics. This table lists the various BIP8 statistics.",
+    "maxaccess": "not-accessible",
+    "name": "hwPortBip8StatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.12",
+    "status": "current"
+  },
+  "hwPreDisposeConfigEntry": {
+    "class": "objecttype",
+    "description": "Entry of the table to predispose boards or flexible subcards.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwDisposeSlot"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwDisposeCardId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPreDisposeConfigEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.8.3.1",
+    "status": "current"
+  },
+  "hwPreDisposeConfigTable": {
+    "class": "objecttype",
+    "description": "Table of predisposing boards or flexible subcards.",
+    "maxaccess": "not-accessible",
+    "name": "hwPreDisposeConfigTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.8.3",
+    "status": "current"
+  },
+  "hwPreDisposeEntInfoEntry": {
+    "class": "objecttype",
+    "description": "Entry of the table to get the information of predisposed entitys.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwDisposeEntPhysicalIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPreDisposeEntInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.8.4.1",
+    "status": "current"
+  },
+  "hwPreDisposeEntInfoTable": {
+    "class": "objecttype",
+    "description": "This table is used to get the information of predisposed entitys.",
+    "maxaccess": "not-accessible",
+    "name": "hwPreDisposeEntInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.8.4",
+    "status": "current"
+  },
+  "hwPreDisposeInfo": {
+    "class": "objectidentity",
+    "name": "hwPreDisposeInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.8.1"
+  },
+  "hwPreDisposeObjects": {
+    "class": "objectidentity",
+    "name": "hwPreDisposeObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.8"
+  },
+  "hwPreDisposeSequenceNo": {
+    "class": "objecttype",
+    "description": "This object indicates the sequence number of the \u0027predispose capability file\u0027.The value consists of the file version number and CRC code.",
+    "maxaccess": "read-only",
+    "name": "hwPreDisposeSequenceNo",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwPreDisposedChangeNotification": {
+    "class": "notificationtype",
+    "description": "This object indicates the change of the \u0027predispose capability file\u0027. An alarm is generated if the sequence number of the \u0027predispose capability file\u0027 in the current startup file is different from that in the last startup file.",
+    "name": "hwPreDisposedChangeNotification",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwPreDisposeSequenceNo"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.8.2.2",
+    "status": "current"
+  },
+  "hwPreDisposedTraps": {
+    "class": "objectidentity",
+    "name": "hwPreDisposedTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.8.2"
+  },
+  "hwPredisposeGroup": {
+    "class": "objectgroup",
+    "description": "Pnp group.",
+    "name": "hwPredisposeGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwPreDisposeSequenceNo"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwDisposeSlot"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwDisposeCardId"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwDisposeSbom"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwDisposeRowStatus"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwDisposeOperState"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwDisposeEntPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwDisposeEntPhysicalDescr"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwDisposeEntPhysicalVendorType"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwDisposeEntPhysicalContainedIn"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwDisposeEntPhysicalClass"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwDisposeEntPhysicalParentRelPos"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwDisposeEntPhysicalName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.4.2.18",
+    "status": "current"
+  },
+  "hwRUModuleInfoEntry": {
+    "class": "objecttype",
+    "description": "Information about a replaceable unit physical entity. Each entry provides objects of a replaceable unit to help an NMS identify and characterize the entry in this table. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRUModuleInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.2.1",
+    "status": "current"
+  },
+  "hwRUModuleInfoGroup": {
+    "class": "objectgroup",
+    "description": "Standard HUAWEI Entity Extent group.",
+    "name": "hwRUModuleInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityBomId"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityBomEnDesc"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityManufacturedDate"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityCLEICode"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityArchivesInfoVersion"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityOpenBomId"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityIssueNum"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityBoardType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.4.2.3",
+    "status": "current"
+  },
+  "hwRUModuleInfoTable": {
+    "class": "objecttype",
+    "description": "This table contains one row per replaceable unit physical entity. The row with the field \u0027entPhysicalIsFRU\u0027 sets to \u0027true\u0027 in table \u0027entPhysicalTable\u0027 will be mapped to one row in this table.",
+    "maxaccess": "not-accessible",
+    "name": "hwRUModuleInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.2",
+    "status": "current"
+  },
+  "hwSystemGlobalGroup": {
+    "class": "objectgroup",
+    "description": "System global group.",
+    "name": "hwSystemGlobalGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntitySystemNetID"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntitySoftwareName"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntitySoftwareVersion"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntitySoftwareVendor"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntitySystemModel"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntitySystemTime"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntitySystemMacAddress"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntitySystemReset"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntitySystemHealthInterval"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntitySystemNEId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.4.2.15",
+    "status": "current"
+  },
+  "hwSystemGlobalObjects": {
+    "class": "objectidentity",
+    "name": "hwSystemGlobalObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.6"
+  },
+  "hwTemperatureThresholdEntry": {
+    "class": "objecttype",
+    "description": "Defines an entry in the hwTemperatureThresholdTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityTempSlotId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityTempI2CId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityTempAddr"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityTempChannel"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTemperatureThresholdEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.8.1",
+    "status": "current"
+  },
+  "hwTemperatureThresholdGroup": {
+    "class": "objectgroup",
+    "description": "Temperature threshold group.",
+    "name": "hwTemperatureThresholdGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityTempSlotId"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityTempI2CId"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityTempAddr"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityTempChannel"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityTempStatus"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityTempValue"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityTempMinorAlmThreshold"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityTempMajorAlmThreshold"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityTempFatalAlmThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.4.2.11",
+    "status": "current"
+  },
+  "hwTemperatureThresholdTable": {
+    "class": "objecttype",
+    "description": "This table lists the alarm thresholds of temperature sensors. You can read information about all the temperature sensors of the device. You can set the alarm threshold of a specified temperature sensor. ",
+    "maxaccess": "not-accessible",
+    "name": "hwTemperatureThresholdTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.8",
+    "status": "current"
+  },
+  "hwVirtualCableTestEntry": {
+    "class": "objecttype",
+    "description": "This is a replaceable unit physical entity.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwVirtualCableTestIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVirtualCableTestEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.7.1",
+    "status": "current"
+  },
+  "hwVirtualCableTestGroup": {
+    "class": "objectgroup",
+    "description": "Collection of objects that display the status of cable.",
+    "name": "hwVirtualCableTestGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwVirtualCableTestPairStatus"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwVirtualCableTestPairLength"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwVirtualCableTestOperation"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwVirtualCableTestLastTime"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwVirtualCableTestPairAStatus"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwVirtualCableTestPairBStatus"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwVirtualCableTestPairCStatus"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwVirtualCableTestPairDStatus"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwVirtualCableTestPairALength"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwVirtualCableTestPairBLength"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwVirtualCableTestPairCLength"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwVirtualCableTestPairDLength"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.4.2.10",
+    "status": "current"
+  },
+  "hwVirtualCableTestIfIndex": {
+    "class": "objecttype",
+    "description": "IfIndex of port that you want to test cable.",
+    "maxaccess": "not-accessible",
+    "name": "hwVirtualCableTestIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwVirtualCableTestLastTime": {
+    "class": "objecttype",
+    "description": "The last test time for the entity. The mean of last time is when the entity is tested, and the value of the object will add one per seconds until now.",
+    "maxaccess": "read-only",
+    "name": "hwVirtualCableTestLastTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.7.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVirtualCableTestOperation": {
+    "class": "objecttype",
+    "description": "VirtualCableTestOperation. This Operation of VirtualCableTest.",
+    "maxaccess": "read-write",
+    "name": "hwVirtualCableTestOperation",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.7.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "readyStartTest": 3,
+          "resetTestValue": 2,
+          "startTest": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVirtualCableTestPairALength": {
+    "class": "objecttype",
+    "description": "Pair A Length. This indicate the length of cable. ",
+    "maxaccess": "read-only",
+    "name": "hwVirtualCableTestPairALength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.7.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVirtualCableTestPairAStatus": {
+    "class": "objecttype",
+    "description": "Pair A status. This indicate the status of cable. ",
+    "maxaccess": "read-only",
+    "name": "hwVirtualCableTestPairAStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.7.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "abnormalCrossTalk": 5,
+          "abnormalOpen": 2,
+          "abnormalOpenShort": 4,
+          "abnormalShort": 3,
+          "normal": 1,
+          "notSupport": 7,
+          "unknown": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVirtualCableTestPairBLength": {
+    "class": "objecttype",
+    "description": "Pair B Length. This indicate the length of cable. ",
+    "maxaccess": "read-only",
+    "name": "hwVirtualCableTestPairBLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.7.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVirtualCableTestPairBStatus": {
+    "class": "objecttype",
+    "description": "Pair B status. This indicate the status of cable. ",
+    "maxaccess": "read-only",
+    "name": "hwVirtualCableTestPairBStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.7.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "abnormalCrossTalk": 5,
+          "abnormalOpen": 2,
+          "abnormalOpenShort": 4,
+          "abnormalShort": 3,
+          "normal": 1,
+          "notSupport": 7,
+          "unknown": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVirtualCableTestPairCLength": {
+    "class": "objecttype",
+    "description": "Pair C Length. This indicate the length of cable. ",
+    "maxaccess": "read-only",
+    "name": "hwVirtualCableTestPairCLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.7.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVirtualCableTestPairCStatus": {
+    "class": "objecttype",
+    "description": "Pair C status. This indicate the status of cable. ",
+    "maxaccess": "read-only",
+    "name": "hwVirtualCableTestPairCStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.7.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "abnormalCrossTalk": 5,
+          "abnormalOpen": 2,
+          "abnormalOpenShort": 4,
+          "abnormalShort": 3,
+          "normal": 1,
+          "notSupport": 7,
+          "unknown": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVirtualCableTestPairDLength": {
+    "class": "objecttype",
+    "description": "Pair D Length. This indicate the length of cable. ",
+    "maxaccess": "read-only",
+    "name": "hwVirtualCableTestPairDLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.7.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVirtualCableTestPairDStatus": {
+    "class": "objecttype",
+    "description": "Pair D status. This indicate the status of cable. ",
+    "maxaccess": "read-only",
+    "name": "hwVirtualCableTestPairDStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.7.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "abnormalCrossTalk": 5,
+          "abnormalOpen": 2,
+          "abnormalOpenShort": 4,
+          "abnormalShort": 3,
+          "normal": 1,
+          "notSupport": 7,
+          "unknown": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVirtualCableTestPairLength": {
+    "class": "objecttype",
+    "description": "Pair Length. This indicate the length of cable. ",
+    "maxaccess": "read-only",
+    "name": "hwVirtualCableTestPairLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVirtualCableTestPairStatus": {
+    "class": "objecttype",
+    "description": "Pair status. This indicate the status of cable. ",
+    "maxaccess": "read-only",
+    "name": "hwVirtualCableTestPairStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "abnormalCrossTalk": 5,
+          "abnormalOpen": 2,
+          "abnormalOpenShort": 4,
+          "abnormalShort": 3,
+          "normal": 1,
+          "notSupport": 7,
+          "unknown": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVirtualCableTestTable": {
+    "class": "objecttype",
+    "description": "This table contains one row per replaceable unit physical entity. This table is used to display VCT result.",
+    "maxaccess": "not-accessible",
+    "name": "hwVirtualCableTestTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.7",
+    "status": "current"
+  },
+  "hwVoltageInfoEntry": {
+    "class": "objecttype",
+    "description": "Defines an entry in the hwVoltageInfoTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityVolSlot"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityVolI2CId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityVolAddr"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityVolChannel"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVoltageInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.9.1",
+    "status": "current"
+  },
+  "hwVoltageInfoGroup": {
+    "class": "objectgroup",
+    "description": "Voltage info group.",
+    "name": "hwVoltageInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityVolSlot"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityVolI2CId"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityVolAddr"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityVolChannel"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityVolStatus"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityVolRequired"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityVolLowAlmMajor"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityVolLowAlmFatal"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityVolHighAlmMajor"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityVolHighAlmFatal"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityVolCurValue"
+      },
+      {
+        "module": "HUAWEI-ENTITY-EXTENT-MIB",
+        "object": "hwEntityVolRatio"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.31.4.2.12",
+    "status": "current"
+  },
+  "hwVoltageInfoTable": {
+    "class": "objecttype",
+    "description": "This table lists information about voltage sensors. You can read information about all the voltage sensors of the device. You can set the alarm threshold of a specified voltage sensor. ",
+    "maxaccess": "not-accessible",
+    "name": "hwVoltageInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.31.1.1.9",
+    "status": "current"
+  },
+  "imports": {
+    "ENTITY-MIB": [
+      "PhysicalIndex",
+      "entPhysicalIndex",
+      "entPhysicalVendorType",
+      "PhysicalClass"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "IpAddress",
+      "Integer32",
+      "TimeTicks",
+      "Counter32",
+      "MibIdentifier",
+      "BITS",
+      "Bits",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "AutonomousType",
+      "RowStatus",
+      "DateAndTime"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-ENTITY-EXTENT-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:17 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-ENTITY-EXTENT-MIB"
+  }
+}

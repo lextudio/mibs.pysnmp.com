@@ -1,0 +1,719 @@
+{
+  "hwBRASSrvcfgDevice": {
+    "class": "moduleidentity",
+    "contactinfo": " NanJing Institute,Huawei Technologies Co.,Ltd. HuiHong Mansion,No.91 BaiXia Rd. NanJing, P.R. of China Zipcode:210001 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": "The MIB contains objects of module SRVCFG.",
+    "lastupdated": "200403041608Z",
+    "name": "hwBRASSrvcfgDevice",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6",
+    "organization": "Huawei Technologies Co., Ltd. "
+  },
+  "hwDeviceQinQUserVlan": {
+    "class": "objecttype",
+    "description": "The QinQ vlan of device user.",
+    "maxaccess": "read-create",
+    "name": "hwDeviceQinQUserVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDeviceQinQUserVlanV2": {
+    "class": "objecttype",
+    "description": "The QinQ vlan of device user.(V2)",
+    "maxaccess": "read-create",
+    "name": "hwDeviceQinQUserVlanV2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDeviceUserDomain": {
+    "class": "objecttype",
+    "description": "The domain which device user was part of.",
+    "maxaccess": "read-create",
+    "name": "hwDeviceUserDomain",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 200,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwDeviceUserDomainV2": {
+    "class": "objecttype",
+    "description": "The domain which device user was part of.(V2)",
+    "maxaccess": "read-create",
+    "name": "hwDeviceUserDomainV2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwDeviceUserEndIpAddr": {
+    "class": "objecttype",
+    "description": "The end ip address of device user.",
+    "maxaccess": "read-create",
+    "name": "hwDeviceUserEndIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDeviceUserEndIpAddrV2": {
+    "class": "objecttype",
+    "description": "The end ip address of device user.(V2)",
+    "maxaccess": "read-create",
+    "name": "hwDeviceUserEndIpAddrV2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDeviceUserEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceUserStartIpAddr"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDeviceUserEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.1.1",
+    "status": "current"
+  },
+  "hwDeviceUserEntryV2": {
+    "class": "objecttype",
+    "description": "Description.(V2)",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceUserVrfNameV2"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceUserStartIpAddrV2"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDeviceUserEntryV2",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.2.1",
+    "status": "current"
+  },
+  "hwDeviceUserGroup": {
+    "class": "objectgroup",
+    "description": "The Device User group.",
+    "name": "hwDeviceUserGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceUserStartIpAddr"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceUserEndIpAddr"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceUserIfIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceUserIfName"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceUserVlan"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceUserVpi"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceUserVci"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceUserMac"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceUserDomain"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceUserStatus"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceUserRowStatus"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceQinQUserVlan"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.2.2.1",
+    "status": "current"
+  },
+  "hwDeviceUserGroups": {
+    "class": "objectidentity",
+    "name": "hwDeviceUserGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.2.2"
+  },
+  "hwDeviceUserIfIndex": {
+    "class": "objecttype",
+    "description": "The index of interface which device user was in.",
+    "maxaccess": "read-create",
+    "name": "hwDeviceUserIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwDeviceUserIfIndexV2": {
+    "class": "objecttype",
+    "description": "The index of interface which device user was in.(V2)",
+    "maxaccess": "read-create",
+    "name": "hwDeviceUserIfIndexV2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwDeviceUserIfName": {
+    "class": "objecttype",
+    "description": "The name of interface.",
+    "maxaccess": "read-only",
+    "name": "hwDeviceUserIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 47,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwDeviceUserIfNameV2": {
+    "class": "objecttype",
+    "description": "The name of interface.(V2)",
+    "maxaccess": "read-only",
+    "name": "hwDeviceUserIfNameV2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 47,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwDeviceUserMac": {
+    "class": "objecttype",
+    "description": "The MAC address of device user.",
+    "maxaccess": "read-create",
+    "name": "hwDeviceUserMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwDeviceUserMacV2": {
+    "class": "objecttype",
+    "description": "The MAC address of device user.(V2)",
+    "maxaccess": "read-create",
+    "name": "hwDeviceUserMacV2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwDeviceUserRowStatus": {
+    "class": "objecttype",
+    "description": "The row status of device user.",
+    "maxaccess": "read-write",
+    "name": "hwDeviceUserRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwDeviceUserRowStatusV2": {
+    "class": "objecttype",
+    "description": "The row status of device user.(V2)",
+    "maxaccess": "read-write",
+    "name": "hwDeviceUserRowStatusV2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwDeviceUserStartIpAddr": {
+    "class": "objecttype",
+    "description": "The start ip address of device user.",
+    "maxaccess": "read-only",
+    "name": "hwDeviceUserStartIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDeviceUserStartIpAddrV2": {
+    "class": "objecttype",
+    "description": "The start ip address of device user.(V2)",
+    "maxaccess": "read-only",
+    "name": "hwDeviceUserStartIpAddrV2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDeviceUserStatus": {
+    "class": "objecttype",
+    "description": "The status of device user.",
+    "maxaccess": "read-only",
+    "name": "hwDeviceUserStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deleting": 2,
+          "detecting": 1,
+          "online": 3,
+          "ready": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDeviceUserStatusV2": {
+    "class": "objecttype",
+    "description": "The status of device user.(V2)",
+    "maxaccess": "read-only",
+    "name": "hwDeviceUserStatusV2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deleting": 2,
+          "detecting": 1,
+          "online": 3,
+          "ready": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDeviceUserTable": {
+    "class": "objecttype",
+    "description": "The table of device user.",
+    "maxaccess": "not-accessible",
+    "name": "hwDeviceUserTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.1",
+    "status": "current"
+  },
+  "hwDeviceUserTableV2": {
+    "class": "objecttype",
+    "description": "The table of device user.(V2)",
+    "maxaccess": "not-accessible",
+    "name": "hwDeviceUserTableV2",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.2",
+    "status": "current"
+  },
+  "hwDeviceUserV2Group": {
+    "class": "objectgroup",
+    "description": "The Device User group.(V2)",
+    "name": "hwDeviceUserV2Group",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceUserStartIpAddrV2"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceUserEndIpAddrV2"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceUserIfIndexV2"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceUserIfNameV2"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceUserVlanV2"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceUserVpiV2"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceUserVciV2"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceUserMacV2"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceUserDomainV2"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceUserStatusV2"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceUserRowStatusV2"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceQinQUserVlanV2"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceUserVrfNameV2"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.2.2.2",
+    "status": "current"
+  },
+  "hwDeviceUserVci": {
+    "class": "objecttype",
+    "description": "The vci of device user.",
+    "maxaccess": "read-create",
+    "name": "hwDeviceUserVci",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65534,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDeviceUserVciV2": {
+    "class": "objecttype",
+    "description": "The vci of device user.(V2)",
+    "maxaccess": "read-create",
+    "name": "hwDeviceUserVciV2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65534,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDeviceUserVlan": {
+    "class": "objecttype",
+    "description": "The vlan of device user.",
+    "maxaccess": "read-create",
+    "name": "hwDeviceUserVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDeviceUserVlanV2": {
+    "class": "objecttype",
+    "description": "The vlan of device user.(V2)",
+    "maxaccess": "read-create",
+    "name": "hwDeviceUserVlanV2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDeviceUserVpi": {
+    "class": "objecttype",
+    "description": "The vpi of device user.",
+    "maxaccess": "read-create",
+    "name": "hwDeviceUserVpi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDeviceUserVpiV2": {
+    "class": "objecttype",
+    "description": "The vpi of device user.(V2)",
+    "maxaccess": "read-create",
+    "name": "hwDeviceUserVpiV2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDeviceUserVrfNameV2": {
+    "class": "objecttype",
+    "description": "The vpn instance of device user.(V2)",
+    "maxaccess": "read-only",
+    "name": "hwDeviceUserVrfNameV2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1.2.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwSrvcfgDeviceCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the this module.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceUserGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+        "object": "hwDeviceUserV2Group"
+      }
+    ],
+    "name": "hwSrvcfgDeviceCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.2.1.1",
+    "status": "current"
+  },
+  "hwSrvcfgDeviceCompliances": {
+    "class": "objectidentity",
+    "name": "hwSrvcfgDeviceCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.2.1"
+  },
+  "hwSrvcfgDeviceConformance": {
+    "class": "objectidentity",
+    "name": "hwSrvcfgDeviceConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.2"
+  },
+  "hwSrvcfgDeviceMibObjects": {
+    "class": "objectidentity",
+    "name": "hwSrvcfgDeviceMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.6.1"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwBRASMib"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "MPLS-VPN-MIB": [
+      "mplsVpnVrfName"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Bits",
+      "Counter64",
+      "Unsigned32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TruthValue"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-BRAS-SRVCFG-DEVICE-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:46:53 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-BRAS-SRVCFG-DEVICE-MIB"
+  }
+}

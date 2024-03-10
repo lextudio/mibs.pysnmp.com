@@ -1,0 +1,4974 @@
+{
+  "huaweiStackMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": " ",
+    "lastupdated": "201508070925Z",
+    "name": "huaweiStackMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.183",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2015-08-07 09:25"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2015-06-24 09:25"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2015-04-15 09:25"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2015-03-06 09:25"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2015-02-15 09:25"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2015-02-10 14:25"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2014-12-17 14:25"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2014-10-25 14:25"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2014-10-21 15:21"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2014-09-18 16:50"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2014-09-01 14:34"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2014-08-19 21:09"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2014-08-04 17:11"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2014-07-11 15:58"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2014-06-21 15:13"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2014-06-18 13:48"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2014-06-13 16:17"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2014-06-09 10:43"
+      },
+      {
+        "description": "Add hwStackSysOid",
+        "revision": "2014-04-14 00:00"
+      },
+      {
+        "description": "Updated to include support for MPUA",
+        "revision": "2014-03-18 17:30"
+      },
+      {
+        "description": "Updated to include support for MPUA",
+        "revision": "2014-03-04 15:10"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2014-02-24 18:31"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2014-02-22 10:24"
+      },
+      {
+        "description": "Add hwAddingPhyPortToFabricPortTable and hwFabricPortTable",
+        "revision": "2014-02-19 00:00"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2014-01-26 10:44"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2014-01-14 14:59"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2014-01-13 15:54"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2013-12-31 08:45"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2013-12-24 09:22"
+      },
+      {
+        "description": "Updated to include support for SRUA/SRUB",
+        "revision": "2013-12-10 11:22"
+      },
+      {
+        "description": "Updated to include support for MPUA",
+        "revision": "2013-12-06 13:00"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2013-11-08 15:36"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2013-11-06 19:38"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2013-11-05 15:37"
+      },
+      {
+        "description": "Updated to include support for MPUA",
+        "revision": "2013-10-11 09:31"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2013-04-20 17:03"
+      },
+      {
+        "description": "Updated to include support for STACK",
+        "revision": "2013-03-28 14:35"
+      },
+      {
+        "description": "Updated to include support for SRUC",
+        "revision": "2012-08-30 09:36"
+      }
+    ]
+  },
+  "hwAddingPhyPortToFabricPortEntry": {
+    "class": "objecttype",
+    "description": "Provide information of a fabric port\u0027s member port. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwEnabledStackModePortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAddingPhyPortToFabricPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.26.1",
+    "status": "current"
+  },
+  "hwAddingPhyPortToFabricPortTable": {
+    "class": "objecttype",
+    "description": "Table of a fabric port\u0027s member port. ",
+    "maxaccess": "not-accessible",
+    "name": "hwAddingPhyPortToFabricPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.26",
+    "status": "current"
+  },
+  "hwAddingPhyPortToStackPortEntry": {
+    "class": "objecttype",
+    "description": "Provide information of a stack port\u0027s member port. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwEnabledStackModePhyPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAddingPhyPortToStackPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.24.1",
+    "status": "current"
+  },
+  "hwAddingPhyPortToStackPortTable": {
+    "class": "objecttype",
+    "description": "Table of a stack port\u0027s member port. ",
+    "maxaccess": "not-accessible",
+    "name": "hwAddingPhyPortToStackPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.24",
+    "status": "current"
+  },
+  "hwConfigureFailedStackId": {
+    "class": "objecttype",
+    "description": "Slot id.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwConfigureFailedStackId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCssCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting this module.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssObjectGroup"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapObjectGroup"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssNotificationGroup"
+      }
+    ],
+    "name": "hwCssCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.101.1.1",
+    "status": "current"
+  },
+  "hwCssCompliances": {
+    "class": "objectidentity",
+    "name": "hwCssCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.101.1"
+  },
+  "hwCssConformance": {
+    "class": "objectidentity",
+    "name": "hwCssConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.101"
+  },
+  "hwCssConnectError": {
+    "class": "notificationtype",
+    "description": "CSS connect error trap message.",
+    "name": "hwCssConnectError",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapFrameId1"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapSlotId1"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapPortId1"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapFrameId2"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapSlotId2"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapPortId2"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapFrameId3"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapSlotId3"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapPortId3"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.4",
+    "status": "current"
+  },
+  "hwCssEnable": {
+    "class": "objecttype",
+    "description": "CSS enable status.",
+    "maxaccess": "read-write",
+    "name": "hwCssEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwCssEstablish": {
+    "class": "notificationtype",
+    "description": "CSS establish trap message.",
+    "name": "hwCssEstablish",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.6",
+    "status": "current"
+  },
+  "hwCssFastUpgradeFail": {
+    "class": "notificationtype",
+    "description": "CSS fast upgrade fail.",
+    "name": "hwCssFastUpgradeFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.7",
+    "status": "current"
+  },
+  "hwCssGlobalObject": {
+    "class": "objectidentity",
+    "name": "hwCssGlobalObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.1"
+  },
+  "hwCssGroups": {
+    "class": "objectidentity",
+    "name": "hwCssGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.101.1.2"
+  },
+  "hwCssLinkDown": {
+    "class": "notificationtype",
+    "description": "CSS link down trap message.",
+    "name": "hwCssLinkDown",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapFrameId1"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapSlotId1"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapPortId1"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.1",
+    "status": "current"
+  },
+  "hwCssLinkInfoEntry": {
+    "class": "objecttype",
+    "description": "Entry of CSS link information table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssLinkLocFrameId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssLinkLocSlotId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssLinkLocCardId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssLinkLocPortId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwCssLinkInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.5.1",
+    "status": "current"
+  },
+  "hwCssLinkInfoTable": {
+    "class": "objecttype",
+    "description": "Table of CSS link information.",
+    "maxaccess": "not-accessible",
+    "name": "hwCssLinkInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.5",
+    "status": "current"
+  },
+  "hwCssLinkLocCardId": {
+    "class": "objecttype",
+    "description": "Local card id of CSS link.",
+    "maxaccess": "not-accessible",
+    "name": "hwCssLinkLocCardId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCssLinkLocFrameId": {
+    "class": "objecttype",
+    "description": "Local frame id of CSS link.",
+    "maxaccess": "not-accessible",
+    "name": "hwCssLinkLocFrameId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCssLinkLocPortId": {
+    "class": "objecttype",
+    "description": "Local port id of CSS link.",
+    "maxaccess": "not-accessible",
+    "name": "hwCssLinkLocPortId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCssLinkLocPortName": {
+    "class": "objecttype",
+    "description": "Local port name of CSS link.",
+    "maxaccess": "read-only",
+    "name": "hwCssLinkLocPortName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.5.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCssLinkLocSlotId": {
+    "class": "objecttype",
+    "description": "Local slot id of CSS link.",
+    "maxaccess": "not-accessible",
+    "name": "hwCssLinkLocSlotId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCssLinkRemCardId": {
+    "class": "objecttype",
+    "description": "Remote card id of CSS link.",
+    "maxaccess": "read-only",
+    "name": "hwCssLinkRemCardId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.5.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCssLinkRemFrameId": {
+    "class": "objecttype",
+    "description": "Remote frame id of CSS link.",
+    "maxaccess": "read-only",
+    "name": "hwCssLinkRemFrameId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.5.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCssLinkRemPortId": {
+    "class": "objecttype",
+    "description": "Remote port id of CSS link.",
+    "maxaccess": "read-only",
+    "name": "hwCssLinkRemPortId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.5.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCssLinkRemPortName": {
+    "class": "objecttype",
+    "description": "Remote port name of CSS link.",
+    "maxaccess": "read-only",
+    "name": "hwCssLinkRemPortName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.5.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCssLinkRemSlotId": {
+    "class": "objecttype",
+    "description": "Remote slot id of CSS link.",
+    "maxaccess": "read-only",
+    "name": "hwCssLinkRemSlotId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.5.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCssLinkSpeed": {
+    "class": "objecttype",
+    "description": "Speed of CSS link.",
+    "maxaccess": "read-only",
+    "name": "hwCssLinkSpeed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.5.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCssLinkUp": {
+    "class": "notificationtype",
+    "description": "CSS link up trap message.",
+    "name": "hwCssLinkUp",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapFrameId1"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapSlotId1"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapPortId1"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.2",
+    "status": "current"
+  },
+  "hwCssLpuInvalidLicense": {
+    "class": "notificationtype",
+    "description": "The license of controlling Lpu-based CSS function is invalid.",
+    "name": "hwCssLpuInvalidLicense",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.9",
+    "status": "current"
+  },
+  "hwCssMemberConfigEnable": {
+    "class": "objecttype",
+    "description": "Configured enable status for CSS member.",
+    "maxaccess": "read-write",
+    "name": "hwCssMemberConfigEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1,
+          "unknown": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCssMemberConfigFrameId": {
+    "class": "objecttype",
+    "description": "Configured frame id for CSS member.",
+    "maxaccess": "read-write",
+    "name": "hwCssMemberConfigFrameId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCssMemberConfigMasterForce": {
+    "class": "objecttype",
+    "description": "Configured force master status CSS member.",
+    "maxaccess": "read-write",
+    "name": "hwCssMemberConfigMasterForce",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1,
+          "unknown": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCssMemberConfigPriority": {
+    "class": "objecttype",
+    "description": "Configured priority for CSS member.",
+    "maxaccess": "read-write",
+    "name": "hwCssMemberConfigPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCssMemberFrameId": {
+    "class": "objecttype",
+    "description": "Frame id for CSS member.",
+    "maxaccess": "read-only",
+    "name": "hwCssMemberFrameId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCssMemberInfoEntry": {
+    "class": "objecttype",
+    "description": "Entry of CSS member information table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssMemberFrameId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwCssMemberInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.2.1",
+    "status": "current"
+  },
+  "hwCssMemberInfoTable": {
+    "class": "objecttype",
+    "description": "Table of CSS member information.",
+    "maxaccess": "not-accessible",
+    "name": "hwCssMemberInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.2",
+    "status": "current"
+  },
+  "hwCssMemberMasterForce": {
+    "class": "objecttype",
+    "description": "Force master status for CSS member.",
+    "maxaccess": "read-only",
+    "name": "hwCssMemberMasterForce",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1,
+          "unknown": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCssMemberPriority": {
+    "class": "objecttype",
+    "description": "Priority for CSS member.",
+    "maxaccess": "read-only",
+    "name": "hwCssMemberPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCssMemberRole": {
+    "class": "objecttype",
+    "description": "CSS member\u0027s role define.",
+    "maxaccess": "read-only",
+    "name": "hwCssMemberRole",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "single": 4,
+          "slave": 3,
+          "standby": 2,
+          "unknown": 10
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCssNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "CSS mib group: notification.",
+    "name": "hwCssNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssLinkDown"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssLinkUp"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssSwitchOver"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssConnectError"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssSplit"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssEstablish"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssFastUpgradeFail"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssPhyCsuConnectError"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssLpuInvalidLicense"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssPortConfigureFailed"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssPortUpDownAlarm"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssPortCrcErrorAlarm"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssPortErrorDown"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssPortErrorDownRecover"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssPhyVs08ConnectError"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssStandbyError"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssStandbyErrorRestore"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssPortStateError"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssPhyCardConnectError"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.101.1.2.3",
+    "status": "current"
+  },
+  "hwCssObject": {
+    "class": "objectidentity",
+    "name": "hwCssObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3"
+  },
+  "hwCssObjectGroup": {
+    "class": "objectgroup",
+    "description": "CSS mib group: object.",
+    "name": "hwCssObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssMemberFrameId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssMemberConfigFrameId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssMemberPriority"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssMemberConfigPriority"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssMemberMasterForce"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssMemberConfigMasterForce"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssMemberConfigEnable"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssMemberRole"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.101.1.2.1",
+    "status": "current"
+  },
+  "hwCssPhyCardConnectError": {
+    "class": "notificationtype",
+    "description": "CSS connect error trap message.",
+    "name": "hwCssPhyCardConnectError",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPeerIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackConnectErrReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.19",
+    "status": "current"
+  },
+  "hwCssPhyCsuConnectError": {
+    "class": "notificationtype",
+    "description": "CSS connect error trap message.",
+    "name": "hwCssPhyCsuConnectError",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPeerIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackConnectErrReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.8",
+    "status": "current"
+  },
+  "hwCssPhyVs08ConnectError": {
+    "class": "notificationtype",
+    "description": "CSS connect error trap message.",
+    "name": "hwCssPhyVs08ConnectError",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPeerIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackConnectMethod"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.15",
+    "status": "current"
+  },
+  "hwCssPortAdminStatus": {
+    "class": "objecttype",
+    "description": "Admin status of CSS port.",
+    "maxaccess": "read-only",
+    "name": "hwCssPortAdminStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "shutdown": 1,
+          "undoshutdown": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCssPortCardId": {
+    "class": "objecttype",
+    "description": "Card id of CSS port.",
+    "maxaccess": "not-accessible",
+    "name": "hwCssPortCardId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCssPortConfigureFailed": {
+    "class": "notificationtype",
+    "description": "CSS port configure failed trap message.",
+    "name": "hwCssPortConfigureFailed",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapConfigureFailedSlotId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.10",
+    "status": "current"
+  },
+  "hwCssPortCrcErrorAlarm": {
+    "class": "notificationtype",
+    "description": "CSS port continuously receives CRC error packets message.",
+    "name": "hwCssPortCrcErrorAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapErrorPortId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.12",
+    "status": "current"
+  },
+  "hwCssPortErrorDown": {
+    "class": "notificationtype",
+    "description": "CSS port turn into error-down state message.",
+    "name": "hwCssPortErrorDown",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapErrorPortId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.13",
+    "status": "current"
+  },
+  "hwCssPortErrorDownRecover": {
+    "class": "notificationtype",
+    "description": "CSS port recovered from error-down state message.",
+    "name": "hwCssPortErrorDownRecover",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapErrorPortId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.14",
+    "status": "current"
+  },
+  "hwCssPortFrameId": {
+    "class": "objecttype",
+    "description": "Frame id of CSS port.",
+    "maxaccess": "not-accessible",
+    "name": "hwCssPortFrameId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCssPortInBcastPkts": {
+    "class": "objecttype",
+    "description": "The total number of broadcast packets received on the interface.",
+    "maxaccess": "read-only",
+    "name": "hwCssPortInBcastPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCssPortInCRCErrors": {
+    "class": "objecttype",
+    "description": "The number of inbound packets which were CRC error.",
+    "maxaccess": "read-only",
+    "name": "hwCssPortInCRCErrors",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCssPortInDiscards": {
+    "class": "objecttype",
+    "description": "The number of inbound packets which were discarded.",
+    "maxaccess": "read-only",
+    "name": "hwCssPortInDiscards",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCssPortInErrors": {
+    "class": "objecttype",
+    "description": "The number of inbound packets which were error.",
+    "maxaccess": "read-only",
+    "name": "hwCssPortInErrors",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCssPortInMcastPkts": {
+    "class": "objecttype",
+    "description": "The total number of multicast packets received on the interface.",
+    "maxaccess": "read-only",
+    "name": "hwCssPortInMcastPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCssPortInOctets": {
+    "class": "objecttype",
+    "description": "The total number of octets received on the interface.",
+    "maxaccess": "read-only",
+    "name": "hwCssPortInOctets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCssPortInUcastPkts": {
+    "class": "objecttype",
+    "description": "The total number of unicast packets received on the interface.",
+    "maxaccess": "read-only",
+    "name": "hwCssPortInUcastPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCssPortInfoEntry": {
+    "class": "objecttype",
+    "description": "Entry of CSS port information table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssPortFrameId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssPortSlotId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssPortCardId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssPortPortId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssPortName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwCssPortInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1",
+    "status": "current"
+  },
+  "hwCssPortInfoTable": {
+    "class": "objecttype",
+    "description": "Table of CSS port information.",
+    "maxaccess": "not-accessible",
+    "name": "hwCssPortInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4",
+    "status": "current"
+  },
+  "hwCssPortName": {
+    "class": "objecttype",
+    "description": "Port name of CSS port.",
+    "maxaccess": "read-only",
+    "name": "hwCssPortName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCssPortOperStatus": {
+    "class": "objecttype",
+    "description": "Oper status of CSS port.",
+    "maxaccess": "read-only",
+    "name": "hwCssPortOperStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCssPortOutBcastPkts": {
+    "class": "objecttype",
+    "description": "The total number of broadcast packets sent from the interface.",
+    "maxaccess": "read-only",
+    "name": "hwCssPortOutBcastPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCssPortOutDiscards": {
+    "class": "objecttype",
+    "description": "The number of outbound packets which were discarded.",
+    "maxaccess": "read-only",
+    "name": "hwCssPortOutDiscards",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCssPortOutErrors": {
+    "class": "objecttype",
+    "description": "The number of outbound packets which were error.",
+    "maxaccess": "read-only",
+    "name": "hwCssPortOutErrors",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCssPortOutMcastPkts": {
+    "class": "objecttype",
+    "description": "The total number of multicast packets sent from the interface.",
+    "maxaccess": "read-only",
+    "name": "hwCssPortOutMcastPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCssPortOutOctets": {
+    "class": "objecttype",
+    "description": "The total number of octets sent on the interface.",
+    "maxaccess": "read-only",
+    "name": "hwCssPortOutOctets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCssPortOutUcastPkts": {
+    "class": "objecttype",
+    "description": "The total number of unicast packets sent from the interface.",
+    "maxaccess": "read-only",
+    "name": "hwCssPortOutUcastPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCssPortPortId": {
+    "class": "objecttype",
+    "description": "Port id of CSS port.",
+    "maxaccess": "not-accessible",
+    "name": "hwCssPortPortId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCssPortSlotId": {
+    "class": "objecttype",
+    "description": "Slot id of CSS port.",
+    "maxaccess": "not-accessible",
+    "name": "hwCssPortSlotId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCssPortSpeed": {
+    "class": "objecttype",
+    "description": "Speed of CSS port.",
+    "maxaccess": "read-only",
+    "name": "hwCssPortSpeed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCssPortStateError": {
+    "class": "notificationtype",
+    "description": "CSS port error trap message.",
+    "name": "hwCssPortStateError",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapErrorPortId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.18",
+    "status": "current"
+  },
+  "hwCssPortUpDownAlarm": {
+    "class": "notificationtype",
+    "description": "CSS port link flapping repeatedly message.",
+    "name": "hwCssPortUpDownAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapErrorPortId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.11",
+    "status": "current"
+  },
+  "hwCssSplit": {
+    "class": "notificationtype",
+    "description": "CSS split trap message.",
+    "name": "hwCssSplit",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.5",
+    "status": "current"
+  },
+  "hwCssStandbyError": {
+    "class": "notificationtype",
+    "description": "The CSS enters the standby-no-MPU state trap message.",
+    "name": "hwCssStandbyError",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.16",
+    "status": "current"
+  },
+  "hwCssStandbyErrorRestore": {
+    "class": "notificationtype",
+    "description": "The CSS is recovered from the standby-no-MPU state trap message.",
+    "name": "hwCssStandbyErrorRestore",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.17",
+    "status": "current"
+  },
+  "hwCssSwitchOver": {
+    "class": "notificationtype",
+    "description": "CSS switch over trap message.",
+    "name": "hwCssSwitchOver",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapFrameId1"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2.3",
+    "status": "current"
+  },
+  "hwCssTrap": {
+    "class": "objectidentity",
+    "name": "hwCssTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3"
+  },
+  "hwCssTrapConfigureFailedSlotId": {
+    "class": "objecttype",
+    "description": "CSS configure failed trap message slot id parameter.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwCssTrapConfigureFailedSlotId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCssTrapErrorPortId": {
+    "class": "objecttype",
+    "description": "Error PortId.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwCssTrapErrorPortId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCssTrapFrameId1": {
+    "class": "objecttype",
+    "description": "CSS trap message frame id parameter.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwCssTrapFrameId1",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwCssTrapFrameId2": {
+    "class": "objecttype",
+    "description": "CSS trap message frame id parameter.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwCssTrapFrameId2",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwCssTrapFrameId3": {
+    "class": "objecttype",
+    "description": "CSS trap message frame id parameter.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwCssTrapFrameId3",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwCssTrapObjectGroup": {
+    "class": "objectgroup",
+    "description": "CSS mib group: trap.",
+    "name": "hwCssTrapObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapFrameId2"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapSlotId2"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapPortId2"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapFrameId3"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapSlotId3"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapPortId3"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapFrameId1"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapSlotId1"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapPortId1"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapConfigureFailedSlotId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.101.1.2.2",
+    "status": "current"
+  },
+  "hwCssTrapObjects": {
+    "class": "objectidentity",
+    "name": "hwCssTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.1"
+  },
+  "hwCssTrapPortId1": {
+    "class": "objecttype",
+    "description": "CSS trap message port id parameter.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwCssTrapPortId1",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwCssTrapPortId2": {
+    "class": "objecttype",
+    "description": "CSS trap message port id parameter.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwCssTrapPortId2",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwCssTrapPortId3": {
+    "class": "objecttype",
+    "description": "CSS trap message port id parameter.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwCssTrapPortId3",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwCssTrapSlotId1": {
+    "class": "objecttype",
+    "description": "CSS trap message slot id parameter.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwCssTrapSlotId1",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwCssTrapSlotId2": {
+    "class": "objecttype",
+    "description": "CSS trap message slot id parameter.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwCssTrapSlotId2",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwCssTrapSlotId3": {
+    "class": "objecttype",
+    "description": "CSS trap message slot id parameter.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwCssTrapSlotId3",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwCssTraps": {
+    "class": "objectidentity",
+    "name": "hwCssTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.3.3.2"
+  },
+  "hwEnableStackMode": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "no"
+      }
+    },
+    "description": "If enable stack mode. ",
+    "maxaccess": "read-write",
+    "name": "hwEnableStackMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.23.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 2,
+          "yes": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEnabledStackModePhyPortIndex": {
+    "class": "objecttype",
+    "description": "Enabled stack mode\u0027s physical name ",
+    "maxaccess": "read-only",
+    "name": "hwEnabledStackModePhyPortIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.24.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEnabledStackModePortIndex": {
+    "class": "objecttype",
+    "description": "Enabled stack mode\u0027s physical Index ",
+    "maxaccess": "read-only",
+    "name": "hwEnabledStackModePortIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.26.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFabricConfigForwardModel": {
+    "class": "objecttype",
+    "description": "The config forwarding model type of svf system",
+    "maxaccess": "read-write",
+    "name": "hwFabricConfigForwardModel",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "centralized": 2,
+          "distributed": 1,
+          "hybrid": 3,
+          "unknown": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFabricConfiguredLinkNum": {
+    "class": "objecttype",
+    "description": "The configured alarm threshold of minimum fabric link number. ",
+    "maxaccess": "read-write",
+    "name": "hwFabricConfiguredLinkNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.27.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFabricCurrentForwardModel": {
+    "class": "objecttype",
+    "description": "The current forwarding model type of svf system",
+    "maxaccess": "read-only",
+    "name": "hwFabricCurrentForwardModel",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "centralized": 2,
+          "distributed": 1,
+          "hybrid": 3,
+          "unknown": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFabricCurrentLinkNum": {
+    "class": "objecttype",
+    "description": " The current number of member port in Fabric-Port, which protocol state is up.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwFabricCurrentLinkNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwFabricExcludeLeafType": {
+    "class": "objecttype",
+    "description": "The spine exclude leaf type.",
+    "maxaccess": "read-write",
+    "name": "hwFabricExcludeLeafType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ce5810ei": 1,
+          "default": 0,
+          "unknown": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFabricLinkLimitAlarm": {
+    "class": "notificationtype",
+    "description": " When the number of fabric links has reached alarm threshold,send a SNMP trap to network manager.",
+    "name": "hwFabricLinkLimitAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackFabricPort"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricCurrentLinkNum"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricConfiguredLinkNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.30",
+    "status": "current"
+  },
+  "hwFabricLinkLimitAlarmResume": {
+    "class": "notificationtype",
+    "description": " When the number of fabric links is equal or more than alarm threshold, send a SNMP trap to network manager.",
+    "name": "hwFabricLinkLimitAlarmResume",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackFabricPort"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricCurrentLinkNum"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricConfiguredLinkNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.31",
+    "status": "current"
+  },
+  "hwFabricLinkProtocolAlarm": {
+    "class": "notificationtype",
+    "description": "When the fabric link protocol state of the fabric port is down, send an SNMP trap to the network manager.",
+    "name": "hwFabricLinkProtocolAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackFabricPort"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.35",
+    "status": "current"
+  },
+  "hwFabricLinkProtocolAlarmResume": {
+    "class": "notificationtype",
+    "description": "When the fabric link protocol state of the fabric port is up or the fabric port does not exist, send an SNMP trap to the network manager.",
+    "name": "hwFabricLinkProtocolAlarmResume",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackFabricPort"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.36",
+    "status": "current"
+  },
+  "hwFabricLoadBalance": {
+    "class": "objecttype",
+    "description": "The loadBalance of the fabric port: sourceMac(1):According to source MAC hash arithmetic. destinationMac(2):According to destination MAC hash arithmetic sourceAndDestinationMac(3):According to source/destination MAC hash arithmetic. sourceIp(4):According to source IP hash arithmetic. destinationIp(5):According to destination IP hash arithmetic. sourceAndDestinationIp(6):According to source/destination IP hash arithmetic.",
+    "maxaccess": "read-write",
+    "name": "hwFabricLoadBalance",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.27.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "destinationIp": 5,
+          "destinationMac": 2,
+          "sourceAndDestinationIp": 6,
+          "sourceAndDestinationMac": 3,
+          "sourceIp": 4,
+          "sourceMac": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFabricMemberID": {
+    "class": "objecttype",
+    "description": "Member device\u0027s ID of the fabric port. ",
+    "maxaccess": "read-write",
+    "name": "hwFabricMemberID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.27.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 254,
+            "min": 101
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFabricMemberPortProtocolAlarm": {
+    "class": "notificationtype",
+    "description": "When the fabric link protocol state of the member port is down, send an SNMP trap to the network manager.",
+    "name": "hwFabricMemberPortProtocolAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackFabricMemberPort"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.37",
+    "status": "current"
+  },
+  "hwFabricMemberPortProtocolAlarmResume": {
+    "class": "notificationtype",
+    "description": "When the fabric link protocol state of the member port is up or the fabric member port does not exist, send an SNMP trap to the network manager.",
+    "name": "hwFabricMemberPortProtocolAlarmResume",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackFabricMemberPort"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.38",
+    "status": "current"
+  },
+  "hwFabricPhyLinkEntry": {
+    "class": "objecttype",
+    "description": "Provide information of fabric physical link .",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwSpinePortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwFabricPhyLinkEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.28.1",
+    "status": "current"
+  },
+  "hwFabricPhyLinkTable": {
+    "class": "objecttype",
+    "description": "Table of fabric physical link information. ",
+    "maxaccess": "not-accessible",
+    "name": "hwFabricPhyLinkTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.28",
+    "status": "current"
+  },
+  "hwFabricPortEntry": {
+    "class": "objecttype",
+    "description": "Provide information of the fabric port. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwFabricPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.27.1",
+    "status": "current"
+  },
+  "hwFabricPortID": {
+    "class": "objecttype",
+    "description": "adding to which fabric port 0: did not add to any fabric port 1: added to fabric port 1",
+    "maxaccess": "read-write",
+    "name": "hwFabricPortID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.26.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFabricPortIndex": {
+    "class": "objecttype",
+    "description": "Index of the fabric port. ",
+    "maxaccess": "read-only",
+    "name": "hwFabricPortIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.27.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFabricPortTable": {
+    "class": "objecttype",
+    "description": "Table of fabric port. ",
+    "maxaccess": "not-accessible",
+    "name": "hwFabricPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.27",
+    "status": "current"
+  },
+  "hwFabricProtocolState": {
+    "class": "objecttype",
+    "description": "The protocol state of the fabric port. ",
+    "maxaccess": "read-only",
+    "name": "hwFabricProtocolState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.27.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLeafMaxNumber": {
+    "class": "objecttype",
+    "description": "The maximum number of leaf switches on the LPU.",
+    "maxaccess": "read-only",
+    "name": "hwLeafMaxNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwLeafMaxNumberExceededAlarm": {
+    "class": "notificationtype",
+    "description": "When the number of leaf switches connected to the LPU exceeds the maximum, send a SNMP trap to network manager.",
+    "name": "hwLeafMaxNumberExceededAlarm",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwLeafMaxNumber"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.39",
+    "status": "current"
+  },
+  "hwLeafMaxNumberExceededAlarmResume": {
+    "class": "notificationtype",
+    "description": "When the number of leaf switches connected to the LPU is recovered to be within the maximum, send a SNMP trap to network manager.",
+    "name": "hwLeafMaxNumberExceededAlarmResume",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwLeafMaxNumber"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.40",
+    "status": "current"
+  },
+  "hwLeafPortIndex": {
+    "class": "objecttype",
+    "description": "Leaf port physical index, and -1 indicates an invalid value. ",
+    "maxaccess": "read-only",
+    "name": "hwLeafPortIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.28.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwLeafPortName": {
+    "class": "objecttype",
+    "description": "Leaf port name, and null indicates an invalid value.",
+    "maxaccess": "read-only",
+    "name": "hwLeafPortName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.28.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLeafPortStatus": {
+    "class": "objecttype",
+    "description": "Protocol status of the leaf member port, and null indicates an invalid value.",
+    "maxaccess": "read-only",
+    "name": "hwLeafPortStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.28.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "null": 3,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLeafSingleHomedAlarmEnable": {
+    "class": "objecttype",
+    "description": "The single-homed alarm of leaf switches is enable or disable.",
+    "maxaccess": "read-write",
+    "name": "hwLeafSingleHomedAlarmEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1,
+          "unknown": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLeafStackId": {
+    "class": "objecttype",
+    "description": "Leaf device\u0027s ID, and -1 indicates an invalid value.",
+    "maxaccess": "read-only",
+    "name": "hwLeafStackId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.28.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 255,
+            "min": 101
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMemberConfigStackId": {
+    "class": "objecttype",
+    "description": "Set stack device stack ID. ",
+    "maxaccess": "read-write",
+    "name": "hwMemberConfigStackId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.20.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMemberCurrentStackId": {
+    "class": "objecttype",
+    "description": "Current stack ID. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMemberCurrentStackId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.20.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMemberStackDeviceType": {
+    "class": "objecttype",
+    "description": "Device type of the stack device. ",
+    "maxaccess": "read-only",
+    "name": "hwMemberStackDeviceType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.20.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMemberStackMacAddress": {
+    "class": "objecttype",
+    "description": "MAC address of the stack device. ",
+    "maxaccess": "read-only",
+    "name": "hwMemberStackMacAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.20.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMemberStackObjectId": {
+    "class": "objecttype",
+    "description": "The vendor\u0027s authoritative identification of the network management subsystem contained in the entity. This value is allocated within the SMI enterprises subtree (1.3.6.1.4.1) and provides an easy and unambiguous means for determining `what kind of box\u0027 is being managed. For example, if vendor `Flintstones, Inc.\u0027 was assigned the subtree 1.3.6.1.4.1.4242, it could assign the identifier 1.3.6.1.4.1.4242.1.1 to its `Fred Router\u0027.",
+    "maxaccess": "read-only",
+    "name": "hwMemberStackObjectId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.20.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OBJECT IDENTIFIER"
+    }
+  },
+  "hwMemberStackPriority": {
+    "class": "objecttype",
+    "description": "Stack member\u0027s priority. ",
+    "maxaccess": "read-write",
+    "name": "hwMemberStackPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.20.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": -1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMemberStackRole": {
+    "class": "objecttype",
+    "description": "The role of stack device in stack system. ",
+    "maxaccess": "read-only",
+    "name": "hwMemberStackRole",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.20.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 3,
+          "standby": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPhyStackPortErrorDown": {
+    "class": "notificationtype",
+    "description": "When the runts-error-down occured, send a SNMP trap to network manager.",
+    "name": "hwPhyStackPortErrorDown",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.41",
+    "status": "current"
+  },
+  "hwPhyStackPortErrorDownRecover": {
+    "class": "notificationtype",
+    "description": "When the runts-error-down recovered, send a SNMP trap to network manager.",
+    "name": "hwPhyStackPortErrorDownRecover",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackErrorDownRecoverReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.42",
+    "status": "current"
+  },
+  "hwPhyStackPortIsDown": {
+    "class": "notificationtype",
+    "description": " When the stack port link state is down,send a SNMP trap to network manager.",
+    "name": "hwPhyStackPortIsDown",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.11",
+    "status": "current"
+  },
+  "hwPhyStackPortIsUp": {
+    "class": "notificationtype",
+    "description": " When the stack port link state is up,send a SNMP trap to network manager.",
+    "name": "hwPhyStackPortIsUp",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.12",
+    "status": "current"
+  },
+  "hwSpinePortIndex": {
+    "class": "objecttype",
+    "description": "Spine port physical index. ",
+    "maxaccess": "not-accessible",
+    "name": "hwSpinePortIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.28.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSpinePortName": {
+    "class": "objecttype",
+    "description": "Spine stack port name. ",
+    "maxaccess": "read-only",
+    "name": "hwSpinePortName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.28.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSpinePortStatus": {
+    "class": "objecttype",
+    "description": "Protocol status of the spine member port. ",
+    "maxaccess": "read-only",
+    "name": "hwSpinePortStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.28.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSpineStackId": {
+    "class": "objecttype",
+    "description": "Spine stack device\u0027s ID.",
+    "maxaccess": "read-only",
+    "name": "hwSpineStackId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.28.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwStackCfgConflictStackId": {
+    "class": "objecttype",
+    "description": "Stack ID of the device whose stack configuration conflicts with that of the device sending alarms.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStackCfgConflictStackId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwStackChipSingleHomedAlarm": {
+    "class": "notificationtype",
+    "description": " In the dual-homing network, when two ports of any chip on the dual-chip leaf switch are connected to a spine switch, send a SNMP trap to network manager.",
+    "name": "hwStackChipSingleHomedAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLeafMemberId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.27",
+    "status": "current"
+  },
+  "hwStackChipSingleHomedAlarmResume": {
+    "class": "notificationtype",
+    "description": " In the dual-homing network, when two ports of any chip on the dual-chip leaf switch are not connected to a spine switch, send a SNMP trap to network manager.",
+    "name": "hwStackChipSingleHomedAlarmResume",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLeafMemberId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.28",
+    "status": "current"
+  },
+  "hwStackClearUnsupportCfg": {
+    "class": "objecttype",
+    "description": "Clear the config which is not support stack. ",
+    "maxaccess": "read-write",
+    "name": "hwStackClearUnsupportCfg",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwStackCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting this module.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackObjectGroup"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackNotificationGroup"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackTrapGroup"
+      }
+    ],
+    "name": "hwStackCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.100.1.1",
+    "status": "current"
+  },
+  "hwStackCompliances": {
+    "class": "objectidentity",
+    "name": "hwStackCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.100.1"
+  },
+  "hwStackConfigConflict": {
+    "class": "notificationtype",
+    "description": " When the stack configuration conflicts, send a SNMP trap to network manager.",
+    "name": "hwStackConfigConflict",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberCurrentStackId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackCfgConflictStackId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.17",
+    "status": "current"
+  },
+  "hwStackConfigDifferent": {
+    "class": "notificationtype",
+    "description": " When the stack configuration of the current startup is different from that of next startup, send a SNMP trap to the network manager.",
+    "name": "hwStackConfigDifferent",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.25",
+    "status": "current"
+  },
+  "hwStackConfigId": {
+    "class": "objecttype",
+    "description": "Set stack device stack ID. -1 indicates an invalid value.",
+    "maxaccess": "read-write",
+    "name": "hwStackConfigId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 254,
+            "min": -1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwStackConfigSwitchMode": {
+    "class": "objecttype",
+    "description": "The config switch mode type of the stack device.",
+    "maxaccess": "read-write",
+    "name": "hwStackConfigSwitchMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autoNegotiation": 1,
+          "leaf": 2,
+          "stack": 3,
+          "unknown": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwStackConfigUplinkPort": {
+    "class": "objecttype",
+    "description": "The config leaf Fabric-Port type of the stack device.",
+    "maxaccess": "read-write",
+    "name": "hwStackConfigUplinkPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autoNegotiation": 1,
+          "port2x40ge": 5,
+          "port4x10ge": 4,
+          "port4x40ge": 3,
+          "port8x10ge": 2,
+          "unknown": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwStackConformance": {
+    "class": "objectidentity",
+    "name": "hwStackConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.100"
+  },
+  "hwStackConnectErrReason": {
+    "class": "objecttype",
+    "description": "Connection error reason.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStackConnectErrReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStackConnectMethod": {
+    "class": "objecttype",
+    "description": "SRUC Vs08 Connect Suggest.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStackConnectMethod",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStackCurrentLinkNum": {
+    "class": "objecttype",
+    "description": " The current number of member port in Stack-Port, which protocol state is up.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStackCurrentLinkNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwStackCurrentSwitchMode": {
+    "class": "objecttype",
+    "description": "The current switch mode type of the stack device.",
+    "maxaccess": "read-only",
+    "name": "hwStackCurrentSwitchMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autoNegotiation": 1,
+          "leaf": 2,
+          "stack": 3,
+          "unknown": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwStackCurrentUplinkPort": {
+    "class": "objecttype",
+    "description": "The current leaf Fabric-Port type of the stack device. ",
+    "maxaccess": "read-only",
+    "name": "hwStackCurrentUplinkPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autoNegotiation": 1,
+          "port2x40ge": 5,
+          "port4x10ge": 4,
+          "port4x40ge": 3,
+          "port8x10ge": 2,
+          "unknown": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwStackDescription": {
+    "class": "objecttype",
+    "description": "Description of the stack device.",
+    "maxaccess": "read-write",
+    "name": "hwStackDescription",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 81,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStackDeviceType": {
+    "class": "objecttype",
+    "description": "Device type of the stack device. ",
+    "maxaccess": "read-only",
+    "name": "hwStackDeviceType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStackErrorDownRecoverReason": {
+    "class": "objecttype",
+    "description": " Error-down reason.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStackErrorDownRecoverReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStackEventsV2": {
+    "class": "objectidentity",
+    "name": "hwStackEventsV2",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22"
+  },
+  "hwStackFabricMemberPort": {
+    "class": "objecttype",
+    "description": " The fabric local interface name.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStackFabricMemberPort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStackFabricPort": {
+    "class": "objecttype",
+    "description": " Fabric port interface name.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStackFabricPort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStackFabricPortLinkErr": {
+    "class": "notificationtype",
+    "description": " When the interface Fabric-Port link is invalidly, send a SNMP trap to network manager.",
+    "name": "hwStackFabricPortLinkErr",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackFabricPort"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackFabricMemberPort"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.18",
+    "status": "current"
+  },
+  "hwStackFabricPortLinkErrResume": {
+    "class": "notificationtype",
+    "description": " When the interface Fabric-Port link is resumed, send a SNMP trap to network manager.",
+    "name": "hwStackFabricPortLinkErrResume",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackFabricPort"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackFabricMemberPort"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.19",
+    "status": "current"
+  },
+  "hwStackGroups": {
+    "class": "objectidentity",
+    "name": "hwStackGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.100.1.2"
+  },
+  "hwStackId": {
+    "class": "objecttype",
+    "description": "Current stack ID.",
+    "maxaccess": "read-only",
+    "name": "hwStackId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 254,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwStackIdIndex": {
+    "class": "objecttype",
+    "description": "Stack ID Index. ",
+    "maxaccess": "not-accessible",
+    "name": "hwStackIdIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 254,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwStackIsStackDevice": {
+    "class": "objecttype",
+    "description": "The value true(1) indicates that the device\u0027s stack function is enable and it is in a stack system. When false(2), the stack function is not enable or it is not in a stack system. ",
+    "maxaccess": "read-only",
+    "name": "hwStackIsStackDevice",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwStackLeafConfigConflict": {
+    "class": "notificationtype",
+    "description": " When configuration exists on the uplink port of the leaf switch, and this port cannot be used as the fabric port, send a SNMP trap to the network manager.",
+    "name": "hwStackLeafConfigConflict",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLeafPort"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.26",
+    "status": "current"
+  },
+  "hwStackLeafMemberAdd": {
+    "class": "notificationtype",
+    "description": " When a leaf member join in, send a SNMP trap to network manager. ",
+    "name": "hwStackLeafMemberAdd",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.29",
+    "status": "current"
+  },
+  "hwStackLeafMemberId": {
+    "class": "objecttype",
+    "description": " The leaf switch member ID.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStackLeafMemberId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 254,
+            "min": 101
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwStackLeafPort": {
+    "class": "objecttype",
+    "description": " The leaf switch interface name.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStackLeafPort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStackLeafSingleHomedAlarm": {
+    "class": "notificationtype",
+    "description": " When the leaf switch is only linked to one spine switch, send a SNMP trap to network manager.",
+    "name": "hwStackLeafSingleHomedAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLeafMemberId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.20",
+    "status": "current"
+  },
+  "hwStackLeafSingleHomedAlarmResume": {
+    "class": "notificationtype",
+    "description": " When the single-homed leaf switch leaves the stack system or turns to the dual-homed mode, send a SNMP trap to network manager.",
+    "name": "hwStackLeafSingleHomedAlarmResume",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLeafMemberId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.21",
+    "status": "current"
+  },
+  "hwStackLinkAlarmThreshold": {
+    "class": "objecttype",
+    "description": "The alarm threshold of stack link. ",
+    "maxaccess": "read-write",
+    "name": "hwStackLinkAlarmThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwStackLinkDown": {
+    "class": "notificationtype",
+    "description": "When the stack link turn to down status, send a SNMP trap to network manager.",
+    "name": "hwStackLinkDown",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortStackId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.2",
+    "status": "current"
+  },
+  "hwStackLinkLimitAlarm": {
+    "class": "notificationtype",
+    "description": " When the number of STACK links has reached alarm threshold,send a SNMP trap to network manager.",
+    "name": "hwStackLinkLimitAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackCurrentLinkNum"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLinkAlarmThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.15",
+    "status": "current"
+  },
+  "hwStackLinkLimitAlarmResume": {
+    "class": "notificationtype",
+    "description": " When the number of STACK links is equal or more than alarm threshold, send a SNMP trap to network manager.",
+    "name": "hwStackLinkLimitAlarmResume",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackCurrentLinkNum"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLinkAlarmThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.16",
+    "status": "current"
+  },
+  "hwStackLinkUp": {
+    "class": "notificationtype",
+    "description": "When the stack link turn to up status, send a SNMP trap to network manager.",
+    "name": "hwStackLinkUp",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortStackId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.1",
+    "status": "current"
+  },
+  "hwStackLocalIfName": {
+    "class": "objecttype",
+    "description": "Interface name.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStackLocalIfName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStackLogicStackPortLinkErr": {
+    "class": "notificationtype",
+    "description": " When the stack port connect error,send a SNMP trap to network manager.",
+    "name": "hwStackLogicStackPortLinkErr",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPeerIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.9",
+    "status": "current"
+  },
+  "hwStackLogicStackPortLinkErrResume": {
+    "class": "notificationtype",
+    "description": " When the wrong link in stack port resumed,send a SNMP trap to network manager.",
+    "name": "hwStackLogicStackPortLinkErrResume",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPeerIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.13",
+    "status": "current"
+  },
+  "hwStackMacAddress": {
+    "class": "objecttype",
+    "description": "MAC address of the stack device. ",
+    "maxaccess": "read-only",
+    "name": "hwStackMacAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwStackMacAddressAlarmTime": {
+    "class": "objecttype",
+    "description": "Stack system\u0027s MAC address inconsistence-alarm time. ",
+    "maxaccess": "read-write",
+    "name": "hwStackMacAddressAlarmTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 60,
+            "min": 0
+          },
+          {
+            "max": 255,
+            "min": 255
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwStackMacAddressSwitchTime": {
+    "class": "objecttype",
+    "description": "Stack system\u0027s MAC address switch time. ",
+    "maxaccess": "read-write",
+    "name": "hwStackMacAddressSwitchTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 60,
+            "min": 0
+          },
+          {
+            "max": 255,
+            "min": 255
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwStackMacInconsistence": {
+    "class": "notificationtype",
+    "description": "When the stack system\u0027s MAC address is not the manufacture MAC address of any member device, send a SNMP trap to network manager.",
+    "name": "hwStackMacInconsistence",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackSystemMac"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.33",
+    "status": "current"
+  },
+  "hwStackMacInconsistenceResume": {
+    "class": "notificationtype",
+    "description": "When the stack system\u0027s MAC address is the manufacture MAC address of a member device, send a SNMP trap to network manager.",
+    "name": "hwStackMacInconsistenceResume",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackSystemMac"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.34",
+    "status": "current"
+  },
+  "hwStackMemberAdd": {
+    "class": "notificationtype",
+    "description": " When a stack member join in, send a SNMP trap to network manager. ",
+    "name": "hwStackMemberAdd",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.23",
+    "status": "current"
+  },
+  "hwStackMemberExceedSpec": {
+    "class": "notificationtype",
+    "description": " The number of stack members exceeds the upper limit. ",
+    "name": "hwStackMemberExceedSpec",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberSpec"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.32",
+    "status": "current"
+  },
+  "hwStackMemberId": {
+    "class": "objecttype",
+    "description": " The stack member ID.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStackMemberId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 254,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwStackMemberInfoEntry": {
+    "class": "objecttype",
+    "description": "Provide information of stack member.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberCurrentStackId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwStackMemberInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.20.1",
+    "status": "current"
+  },
+  "hwStackMemberInfoTable": {
+    "class": "objecttype",
+    "description": "Table of stack member switches. ",
+    "maxaccess": "not-accessible",
+    "name": "hwStackMemberInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.20",
+    "status": "current"
+  },
+  "hwStackMemberInformationEntry": {
+    "class": "objecttype",
+    "description": "Provide information of stack member.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackIdIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwStackMemberInformationEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25.1",
+    "status": "current"
+  },
+  "hwStackMemberInformationTable": {
+    "class": "objecttype",
+    "description": "Table of stack member switches. ",
+    "maxaccess": "not-accessible",
+    "name": "hwStackMemberInformationTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25",
+    "status": "current"
+  },
+  "hwStackMemberLeave": {
+    "class": "notificationtype",
+    "description": " When a stack member leave, send a SNMP trap to the network manager.",
+    "name": "hwStackMemberLeave",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.24",
+    "status": "current"
+  },
+  "hwStackMemberLimit": {
+    "class": "notificationtype",
+    "description": " When the number of stack members has reached the upper limit and new members failed to join, send a SNMP trap to network manager.",
+    "name": "hwStackMemberLimit",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.22",
+    "status": "current"
+  },
+  "hwStackMemberPortEnableEntry": {
+    "class": "objecttype",
+    "description": "Provide information of the physical port. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwStackMemberPortEnableEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.23.1",
+    "status": "current"
+  },
+  "hwStackMemberPortEnableTable": {
+    "class": "objecttype",
+    "description": "Table of stack physical port. ",
+    "maxaccess": "not-accessible",
+    "name": "hwStackMemberPortEnableTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.23",
+    "status": "current"
+  },
+  "hwStackMemberSpec": {
+    "class": "objecttype",
+    "description": "Upper limit of the stack members.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStackMemberSpec",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwStackMemberThreshold": {
+    "class": "objecttype",
+    "description": "Maximum number of stack members.",
+    "maxaccess": "read-only",
+    "name": "hwStackMemberThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 256,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwStackMode": {
+    "class": "objecttype",
+    "description": "The mode of stack.",
+    "maxaccess": "read-write",
+    "name": "hwStackMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "card": 1,
+          "serviceport": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwStackNeighborInfo": {
+    "class": "objecttype",
+    "description": "Stack neighbor ID. ",
+    "maxaccess": "read-only",
+    "name": "hwStackNeighborInfo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.21.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStackNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "Enter the description of the created NOTIFICATION-GROUP.",
+    "name": "hwStackNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLinkUp"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLinkDown"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackStandbyChange"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackSwitchOver"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackSystemRestart"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackStackMemberAdd"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackStackMemberLeave"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackStackMacChange"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLogicStackPortLinkErr"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPhyStackPortLinkErr"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwPhyStackPortIsDown"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwPhyStackPortIsUp"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLogicStackPortLinkErrResume"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortConfigureFailed"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLinkLimitAlarm"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLinkLimitAlarmResume"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackConfigConflict"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackFabricPortLinkErr"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackFabricPortLinkErrResume"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLeafSingleHomedAlarm"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLeafSingleHomedAlarmResume"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberLimit"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberAdd"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberLeave"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackConfigDifferent"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLeafConfigConflict"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackChipSingleHomedAlarm"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackChipSingleHomedAlarmResume"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLeafMemberAdd"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricLinkLimitAlarm"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricLinkLimitAlarmResume"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberExceedSpec"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMacInconsistence"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMacInconsistenceResume"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricLinkProtocolAlarm"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricLinkProtocolAlarmResume"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricMemberPortProtocolAlarm"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricMemberPortProtocolAlarmResume"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwLeafMaxNumberExceededAlarm"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwLeafMaxNumberExceededAlarmResume"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwPhyStackPortErrorDown"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwPhyStackPortErrorDownRecover"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.100.1.2.2",
+    "status": "current"
+  },
+  "hwStackObject": {
+    "class": "objectidentity",
+    "name": "hwStackObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1"
+  },
+  "hwStackObjectGroup": {
+    "class": "objectgroup",
+    "description": " Enter the description of the created OBJECT-GROUP.",
+    "name": "hwStackObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackRun"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackTopoType"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMacAddressSwitchTime"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackSystemMac"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackIsStackDevice"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackReservedVlanId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackClearUnsupportCfg"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLinkAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberThreshold"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMode"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberSpec"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwLeafMaxNumber"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricCurrentForwardModel"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricConfigForwardModel"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwLeafSingleHomedAlarmEnable"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricExcludeLeafType"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberCurrentStackId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberStackPriority"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberStackRole"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberStackMacAddress"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberStackDeviceType"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberConfigStackId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberStackObjectId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPriority"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackRole"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMacAddress"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackDeviceType"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackConfigId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackSysOid"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackDescription"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackCurrentUplinkPort"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackConfigUplinkPort"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackCurrentSwitchMode"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackConfigSwitchMode"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwEnabledStackModePortIndex"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricPortID"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricPortIndex"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricMemberID"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricLoadBalance"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricProtocolState"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricConfiguredLinkNum"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwSpineStackId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwSpinePortName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwSpinePortStatus"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwLeafPortIndex"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwLeafStackId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwLeafPortName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwLeafPortStatus"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortStackId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackNeighborInfo"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortStatus"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeGrpType"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeGrpValue"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeFileType"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeFileInfo"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeFtpIp"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeFtpUserName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeFtpPassword"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeServerPort"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeFileSize"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeTransmitProtocol"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeRowStatus"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeResultMemberId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeResult"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeResultInProcess"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeResultFailReason"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMacAddressAlarmTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.100.1.2.1",
+    "status": "current"
+  },
+  "hwStackPeerIfName": {
+    "class": "objecttype",
+    "description": "The peer interface name.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStackPeerIfName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStackPhyStackPortLinkErr": {
+    "class": "notificationtype",
+    "description": " When the stack port connect error,send a SNMP trap to network manager.",
+    "name": "hwStackPhyStackPortLinkErr",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPeerIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.10",
+    "status": "current"
+  },
+  "hwStackPortConfigureFailed": {
+    "class": "notificationtype",
+    "description": " When failed to configure the stack port,send a SNMP trap to network manager.",
+    "name": "hwStackPortConfigureFailed",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwConfigureFailedStackId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.14",
+    "status": "current"
+  },
+  "hwStackPortEntry": {
+    "class": "objecttype",
+    "description": "Provide information of the stack port. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortStackId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPortId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwStackPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.21.1",
+    "status": "current"
+  },
+  "hwStackPortID": {
+    "class": "objecttype",
+    "description": "adding to which stack port 1: added to stack port 1 2: added to stack port 2 3: did not add to any stack port ",
+    "maxaccess": "read-write",
+    "name": "hwStackPortID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.24.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "port1": 1,
+          "port2": 2,
+          "unjoinable": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwStackPortId": {
+    "class": "objecttype",
+    "description": "Stack port ID. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStackPortId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.21.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwStackPortName": {
+    "class": "objecttype",
+    "description": "Stack port name. ",
+    "maxaccess": "read-only",
+    "name": "hwStackPortName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.21.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStackPortStackId": {
+    "class": "objecttype",
+    "description": "Stack device\u0027s ID. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStackPortStackId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.21.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwStackPortStatus": {
+    "class": "objecttype",
+    "description": "The status of the stack port. ",
+    "maxaccess": "read-only",
+    "name": "hwStackPortStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.21.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwStackPortTable": {
+    "class": "objecttype",
+    "description": "Table of stack port. ",
+    "maxaccess": "not-accessible",
+    "name": "hwStackPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.21",
+    "status": "current"
+  },
+  "hwStackPriority": {
+    "class": "objecttype",
+    "description": "Stack member\u0027s priority. -1 indicates an invalid value.",
+    "maxaccess": "read-write",
+    "name": "hwStackPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": -1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwStackReason": {
+    "class": "objecttype",
+    "description": " The reason for different stack configurations.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStackReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStackReservedVlanId": {
+    "class": "objecttype",
+    "description": "Stack reserved-vlanId. ",
+    "maxaccess": "read-write",
+    "name": "hwStackReservedVlanId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwStackRole": {
+    "class": "objecttype",
+    "description": "The role of stack device in stack system. ",
+    "maxaccess": "read-only",
+    "name": "hwStackRole",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "leaf": 4,
+          "master": 1,
+          "slave": 3,
+          "spine": 5,
+          "standby": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwStackRun": {
+    "class": "objecttype",
+    "description": "The state of stack function on the device. The value enabled(1) indicates this device\u0027s stack function is enabled. The value disabled(2) indicates this device\u0027s stack function is disabled.",
+    "maxaccess": "read-write",
+    "name": "hwStackRun",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwStackStackMacChange": {
+    "class": "notificationtype",
+    "description": " When the main stack device change, the stack system\u0027s MAC address should change also. And we can set the MAC address change time. When the MAC address change,send a SNMP trap to network manager.",
+    "name": "hwStackStackMacChange",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberStackMacAddress"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.8",
+    "status": "current"
+  },
+  "hwStackStackMemberAdd": {
+    "class": "notificationtype",
+    "description": " When a stack member join in, send a SNMP trap to network manager. ",
+    "name": "hwStackStackMemberAdd",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberCurrentStackId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.6",
+    "status": "current"
+  },
+  "hwStackStackMemberLeave": {
+    "class": "notificationtype",
+    "description": " When a stack member leave, send a SNMP trap to the network manager.",
+    "name": "hwStackStackMemberLeave",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberCurrentStackId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.7",
+    "status": "current"
+  },
+  "hwStackStandbyChange": {
+    "class": "notificationtype",
+    "description": "When the stack standby device change, send a SNMP trap to network manager.",
+    "name": "hwStackStandbyChange",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberCurrentStackId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.3",
+    "status": "current"
+  },
+  "hwStackSwitchOver": {
+    "class": "notificationtype",
+    "description": "When the stack main device change, send a SNMP trap to network manager.",
+    "name": "hwStackSwitchOver",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberCurrentStackId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.4",
+    "status": "current"
+  },
+  "hwStackSysOid": {
+    "class": "objecttype",
+    "description": "Sysoid of the stack device. ",
+    "maxaccess": "read-only",
+    "name": "hwStackSysOid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.25.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStackSystemMac": {
+    "class": "objecttype",
+    "description": "The stack system\u0027s MAC address, it always be the master device\u0027s MAC address. ",
+    "maxaccess": "read-only",
+    "name": "hwStackSystemMac",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwStackSystemRestart": {
+    "class": "notificationtype",
+    "description": "When the stack system restart, send a SNMP trap to network manager.",
+    "name": "hwStackSystemRestart",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwMemberCurrentStackId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.22.5",
+    "status": "current"
+  },
+  "hwStackTopoType": {
+    "class": "objecttype",
+    "description": "The topology of stack. ",
+    "maxaccess": "read-only",
+    "name": "hwStackTopoType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "link": 2,
+          "ring": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwStackTrapGroup": {
+    "class": "objectgroup",
+    "description": "Enter the description of the created OBJECT-GROUP.",
+    "name": "hwStackTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLocalIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackPeerIfName"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwConfigureFailedStackId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackConnectErrReason"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwCssTrapErrorPortId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackConnectMethod"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackCfgConflictStackId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackFabricPort"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackFabricMemberPort"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackMemberId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLeafMemberId"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackReason"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackLeafPort"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackCurrentLinkNum"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwFabricCurrentLinkNum"
+      },
+      {
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackErrorDownRecoverReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.183.100.1.2.3",
+    "status": "current"
+  },
+  "hwStackTrapObject": {
+    "class": "objectidentity",
+    "name": "hwStackTrapObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.32"
+  },
+  "hwStackUpgradeEntry": {
+    "class": "objecttype",
+    "description": "A flash copy operation entry. Each entry consists of a command, a source, and optional parameters such as protocol to be used, a destination, a server address, etc. A management station wishing to create an entry should first generate a pseudo-random serial number to be used as the index to this sparse table. The station should then create the associated instance of the row status object. It must also, either in the same or in successive PDUs, create the associated instance of the command and parameter objects. It should also modify the default values for any of the parameter objects if the defaults are not appropriate. Once the appropriate instances of all the command objects have been created, either by an explicit SNMP set request or by default, the row status should be set to active to initiate the operation. Note that this entire procedure may be initiated via a single set request which specifies a row status of createAndGo as well as specifies valid values for the non-defaulted parameter objects. Once an operation has been activated, it cannot be stopped. Once the operation completes, the management station should retrieve the value of the status object, and delete the entry. In order to prevent old entries from clogging the table, entries will be aged out, but an entry will never be deleted within 2 hours of completing.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwStackUpgradeEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.30.1",
+    "status": "current"
+  },
+  "hwStackUpgradeFileInfo": {
+    "class": "objecttype",
+    "description": "Path and type of the file to be upgraded.",
+    "maxaccess": "read-create",
+    "name": "hwStackUpgradeFileInfo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.30.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStackUpgradeFileSize": {
+    "class": "objecttype",
+    "description": "This object specifies the reserved space (in BYTE) guaranteed by a host. The value 0 indicates that no space need be reserved. This object is optional in the Set operation of file upload. The default value is 0. This object is unavailable in the Set operation of file download. ",
+    "maxaccess": "read-create",
+    "name": "hwStackUpgradeFileSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.30.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwStackUpgradeFileType": {
+    "class": "objecttype",
+    "description": "Type of the file to be upgraded.",
+    "maxaccess": "read-create",
+    "name": "hwStackUpgradeFileType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.30.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "patchFile": 2,
+          "startupFile": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwStackUpgradeFtpIp": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "OctetString",
+        "format": "hex",
+        "value": "FFFFFFFF"
+      }
+    },
+    "description": "The address of remote host acting as server for any operation. The default value of which is 255.255.255.255.",
+    "maxaccess": "read-create",
+    "name": "hwStackUpgradeFtpIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.30.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwStackUpgradeFtpPassword": {
+    "class": "objecttype",
+    "description": "Remote user password for copy via FTP protocol. ",
+    "maxaccess": "read-create",
+    "name": "hwStackUpgradeFtpPassword",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.30.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStackUpgradeFtpUserName": {
+    "class": "objecttype",
+    "description": "When use FTP to transfer files, the user name must be specified by this node.",
+    "maxaccess": "read-create",
+    "name": "hwStackUpgradeFtpUserName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.30.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStackUpgradeGrpType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "allMembers"
+      }
+    },
+    "description": "Type of stack grouping member switches.",
+    "maxaccess": "read-create",
+    "name": "hwStackUpgradeGrpType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.30.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allMembers": 1,
+          "memberIdList": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwStackUpgradeGrpValue": {
+    "class": "objecttype",
+    "description": "Details about stack grouping member switches for memberIdList. Optional, This object will be ignored for allMembers .",
+    "maxaccess": "read-create",
+    "name": "hwStackUpgradeGrpValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.30.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 18,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStackUpgradeIndex": {
+    "class": "objecttype",
+    "description": " Specifies the index of an entry. It is a random value when creating an entry.",
+    "maxaccess": "not-accessible",
+    "name": "hwStackUpgradeIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.30.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwStackUpgradeResult": {
+    "class": "objecttype",
+    "description": "Results of upgrade commands returned from stack member switches.",
+    "maxaccess": "read-only",
+    "name": "hwStackUpgradeResult",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.31.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failure": 2,
+          "running": 3,
+          "success": 1,
+          "timeout": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwStackUpgradeResultEntry": {
+    "class": "objecttype",
+    "description": "Provides the result of stack switchs upgrade entry. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeResultIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-STACK-MIB",
+        "object": "hwStackUpgradeResultMemberId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwStackUpgradeResultEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.31.1",
+    "status": "current"
+  },
+  "hwStackUpgradeResultFailReason": {
+    "class": "objecttype",
+    "description": "The status of operation. Only upgrade failure valid. The status of the specified operation can be one of the follows. opUpgradeSuccess(1): upgrade success. opMasterDiskNoSpace(2): flash of master device is no enough space. opNonmasterDiskNoSpace(3): flash of non-master device is no enough space. opInvalidFileInfo(4) :invalid source file name or path is specified. opInvalidFileType(5) :invalid file type. opInvalidServerAddress(6) :invalid server address is specified. opInvalidUserOrPassword(7):invalid server user or password. opDeviceBusy(8) :the device is in use and locked by another process opFileTransferError(9) :file transfer was unsuccessfull. opFileChecksumError(10) :file checksum in Flash si invalid. opNoMemory(11) :system is running in low on memory. opVersionFileNotMatch(12) : the version file does not match the device type. opUpgradeDeviceAbsent(13) : device absent. opUnknownFailure(14) :failure which is unknown. opUpgradeInvalidValue(15):invalid value. ",
+    "maxaccess": "read-only",
+    "name": "hwStackUpgradeResultFailReason",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.31.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "opDeviceBusy": 8,
+          "opFileChecksumError": 10,
+          "opFileTransferError": 9,
+          "opInvalidFileInfo": 4,
+          "opInvalidFileType": 5,
+          "opInvalidServerAddress": 6,
+          "opInvalidUserOrPassword": 7,
+          "opMasterDiskNoSpace": 2,
+          "opNoMemory": 11,
+          "opNonmasterDiskNoSpace": 3,
+          "opUnknownFailure": 14,
+          "opUpgradeDeviceAbsent": 13,
+          "opUpgradeInvalidValue": 15,
+          "opUpgradeSuccess": 1,
+          "opVersionFileNotMatch": 12
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwStackUpgradeResultInProcess": {
+    "class": "objecttype",
+    "description": "The upgrade is in process.",
+    "maxaccess": "read-only",
+    "name": "hwStackUpgradeResultInProcess",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.31.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwStackUpgradeResultIndex": {
+    "class": "objecttype",
+    "description": " Specifies the index of an entry. It is a random value when creating an entry.",
+    "maxaccess": "not-accessible",
+    "name": "hwStackUpgradeResultIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.31.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwStackUpgradeResultMemberId": {
+    "class": "objecttype",
+    "description": "Identifier of the stack member switch.",
+    "maxaccess": "read-only",
+    "name": "hwStackUpgradeResultMemberId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.31.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwStackUpgradeResultTable": {
+    "class": "objecttype",
+    "description": "Results of upgrade commands returned from stack member switches.",
+    "maxaccess": "not-accessible",
+    "name": "hwStackUpgradeResultTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.31",
+    "status": "current"
+  },
+  "hwStackUpgradeRowStatus": {
+    "class": "objecttype",
+    "description": "The status of this table entry. Only used createAndGo and destroy.",
+    "maxaccess": "read-create",
+    "name": "hwStackUpgradeRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.30.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwStackUpgradeServerPort": {
+    "class": "objecttype",
+    "description": " This object specifies the SFTP server port that is used for file transfer only SFTP is valid. The default SFTP server port is 22 if no port is specified. If the value of protocol is not SFTP, this object is ignored by the implementation.",
+    "maxaccess": "read-create",
+    "name": "hwStackUpgradeServerPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.30.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwStackUpgradeTable": {
+    "class": "objecttype",
+    "description": "A table of flash copy operation entries. Each entry represents a flash copy operation (to flash) that has been initiated.",
+    "maxaccess": "not-accessible",
+    "name": "hwStackUpgradeTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.30",
+    "status": "current"
+  },
+  "hwStackUpgradeTransmitProtocol": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "ftp"
+      }
+    },
+    "description": "Specifies the protocol used to transfer file. The default value of it is FTP.",
+    "maxaccess": "read-create",
+    "name": "hwStackUpgradeTransmitProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.183.1.30.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftp": 1,
+          "sftp": 2,
+          "tftp": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "imports": {
+    "ENTITY-MIB": [
+      "entPhysicalIndex",
+      "entPhysicalName"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "TimeTicks",
+      "MibIdentifier",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "MacAddress"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-STACK-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:01 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-STACK-MIB"
+  }
+}

@@ -1,0 +1,1095 @@
+{
+  "DivBy10": {
+    "class": "textualconvention",
+    "description": "Fixed point, one decimal",
+    "displayhint": "d-1",
+    "name": "DivBy10",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "analog": {
+    "class": "objectidentity",
+    "name": "analog",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2"
+  },
+  "carel": {
+    "class": "moduleidentity",
+    "contactinfo": "EPIECS epiecs.be Email: gregorybers@epiecs.be",
+    "description": "Custom MIB for Rittal LCP 3311 chillers connected to a pco web card",
+    "lastupdated": "202106290000Z",
+    "name": "carel",
+    "oid": "1.3.6.1.4.1.9839",
+    "organization": "Epiecs",
+    "revisions": [
+      {
+        "description": "First draft containing the values outlined in the 3311.320 docs https://www.rittal.com/imf/none/3_4342/3311320_Instructions_spec__EN",
+        "revision": "2021-06-29 00:00"
+      }
+    ]
+  },
+  "compressorDeltaPressureAlarm": {
+    "class": "objecttype",
+    "description": "Delta pressure too big to startup compressor ok (0), alarm (1)",
+    "maxaccess": "read-only",
+    "name": "compressorDeltaPressureAlarm",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.35",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 1,
+          "ok": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "compressorDischargePressure": {
+    "class": "objecttype",
+    "description": "Compressor discharge pressure",
+    "maxaccess": "read-only",
+    "name": "compressorDischargePressure",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DivBy10"
+    },
+    "units": "bar"
+  },
+  "compressorDischargePressureProbeAlarm": {
+    "class": "objecttype",
+    "description": "Compressor discharge pressure probe broken ok (0), alarm (1)",
+    "maxaccess": "read-only",
+    "name": "compressorDischargePressureProbeAlarm",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.47",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 1,
+          "ok": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "compressorDischargeTemperature": {
+    "class": "objecttype",
+    "description": "Compressor discharge temperature",
+    "maxaccess": "read-only",
+    "name": "compressorDischargeTemperature",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DivBy10"
+    },
+    "units": "C"
+  },
+  "compressorDischargeTemperatureProbeAlarm": {
+    "class": "objecttype",
+    "description": "Compressor discharge temperature probe broken ok (0), alarm (1)",
+    "maxaccess": "read-only",
+    "name": "compressorDischargeTemperatureProbeAlarm",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.45",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 1,
+          "ok": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "compressorEnvelopeAlarm": {
+    "class": "objecttype",
+    "description": "Compressor forced off working out envelope ok (0), alarm (1)",
+    "maxaccess": "read-only",
+    "name": "compressorEnvelopeAlarm",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 1,
+          "ok": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "compressorMotorCurrent": {
+    "class": "objecttype",
+    "description": "Compressor motor current",
+    "maxaccess": "read-only",
+    "name": "compressorMotorCurrent",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.46",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DivBy10"
+    },
+    "units": "A"
+  },
+  "compressorOverloadAlarm": {
+    "class": "objecttype",
+    "description": "Compressor overload alarm ok (0), alarm (1)",
+    "maxaccess": "read-only",
+    "name": "compressorOverloadAlarm",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 1,
+          "ok": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "compressorRotorSpeed": {
+    "class": "objecttype",
+    "description": "Compressor rotor speed",
+    "maxaccess": "read-only",
+    "name": "compressorRotorSpeed",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.45",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DivBy10"
+    },
+    "units": "rps"
+  },
+  "compressorRotorSpeedHz": {
+    "class": "objecttype",
+    "description": "Compressor rotor speed in Hz",
+    "maxaccess": "read-only",
+    "name": "compressorRotorSpeedHz",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 9999,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    },
+    "units": "Hz"
+  },
+  "compressorStartupFailureAlarm": {
+    "class": "objecttype",
+    "description": "Compressor startup failure alarm, reached max retries ok (0), alarm (1)",
+    "maxaccess": "read-only",
+    "name": "compressorStartupFailureAlarm",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 1,
+          "ok": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "compressorSuctionPressure": {
+    "class": "objecttype",
+    "description": "Compressor suction pressure",
+    "maxaccess": "read-only",
+    "name": "compressorSuctionPressure",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DivBy10"
+    },
+    "units": "bar"
+  },
+  "compressorSuctionPressureProbeAlarm": {
+    "class": "objecttype",
+    "description": "Compressor suction pressure probe broken ok (0), alarm (1)",
+    "maxaccess": "read-only",
+    "name": "compressorSuctionPressureProbeAlarm",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.48",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 1,
+          "ok": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "compressorSuctionTemperature": {
+    "class": "objecttype",
+    "description": "Compressor suction temperature",
+    "maxaccess": "read-only",
+    "name": "compressorSuctionTemperature",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DivBy10"
+    },
+    "units": "C"
+  },
+  "compressorSuctionTemperatureProbeAlarm": {
+    "class": "objecttype",
+    "description": "Compressor suction temperature probe broken ok (0), alarm (1)",
+    "maxaccess": "read-only",
+    "name": "compressorSuctionTemperatureProbeAlarm",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.46",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 1,
+          "ok": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "condensingTemperature": {
+    "class": "objecttype",
+    "description": "Condensing temperature from High pressure conversion",
+    "maxaccess": "read-only",
+    "name": "condensingTemperature",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DivBy10"
+    },
+    "units": "C"
+  },
+  "coolingCapacity": {
+    "class": "objecttype",
+    "description": "Actual EVD valve cooling capacity",
+    "maxaccess": "read-only",
+    "name": "coolingCapacity",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    },
+    "units": "%"
+  },
+  "currentErrorCode": {
+    "class": "objecttype",
+    "description": "Current error code",
+    "maxaccess": "read-only",
+    "name": "currentErrorCode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ALA02": 2,
+          "ALA03": 3,
+          "ALA04": 4,
+          "ALA05": 5,
+          "ALA06": 6,
+          "ALA07": 7,
+          "ALA08": 8,
+          "ALA09": 9,
+          "ALA10": 10,
+          "ALA11": 11,
+          "ALA12": 12,
+          "ALB01": 13,
+          "ALB02": 14,
+          "ALB03": 15,
+          "ALC01": 16,
+          "ALC03": 17,
+          "ALC04": 18,
+          "ALC05": 19,
+          "ALC06": 20,
+          "ALD02": 22,
+          "ALD03": 23,
+          "ALD04": 24,
+          "ALD05": 25,
+          "ALD06": 26,
+          "ALD07": 27,
+          "ALD08": 28,
+          "ALD09": 29,
+          "ALF01": 21,
+          "ALL01": 30,
+          "ALL02": 31,
+          "ALL99": 32,
+          "ALW04": 33,
+          "OK": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "dcBusVoltage": {
+    "class": "objecttype",
+    "description": "Power+ DC Voltage",
+    "maxaccess": "read-only",
+    "name": "dcBusVoltage",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DivBy10"
+    },
+    "units": "V"
+  },
+  "digital": {
+    "class": "objectidentity",
+    "name": "digital",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1"
+  },
+  "driveAlarm": {
+    "class": "objecttype",
+    "description": "Power+ drive off-line alarm ok (0), alarm (1)",
+    "maxaccess": "read-only",
+    "name": "driveAlarm",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 1,
+          "ok": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "driverPowerStatus": {
+    "class": "objecttype",
+    "description": "Driver power status stop (1), run (2), alarm (3)",
+    "maxaccess": "read-only",
+    "name": "driverPowerStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 3,
+          "run": 2,
+          "stop": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "driverTemperature": {
+    "class": "objecttype",
+    "description": "Driver Power+ Temperature",
+    "maxaccess": "read-only",
+    "name": "driverTemperature",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DivBy10"
+    },
+    "units": "C"
+  },
+  "envelopeZone": {
+    "class": "objecttype",
+    "description": "envelope zone ok (0), maximum compression ratio (1), maximum discharge power (2), current limit (3), maximum suction power(4), minimum compression ratio (5), minimum delta power (6), minimum discharge power(7), minimum suction power (8) ",
+    "maxaccess": "read-only",
+    "name": "envelopeZone",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "current-limit": 3,
+          "maximum-compression-ratio": 1,
+          "maximum-discharge-power": 2,
+          "maximum-suction-power": 4,
+          "minimum-compression-ratio": 5,
+          "minimum-delta-power": 6,
+          "minimum-discharge-power": 7,
+          "minimum-suction-power": 8,
+          "ok": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "evaporatorTemperature": {
+    "class": "objecttype",
+    "description": "Evaporator temperature from Low pressure conversion",
+    "maxaccess": "read-only",
+    "name": "evaporatorTemperature",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DivBy10"
+    },
+    "units": "C"
+  },
+  "evdValveOpening": {
+    "class": "objecttype",
+    "description": "Actual EVD valve opening",
+    "maxaccess": "read-only",
+    "name": "evdValveOpening",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    },
+    "units": "%"
+  },
+  "evdValveSteps": {
+    "class": "objecttype",
+    "description": "EVD valve steps position",
+    "maxaccess": "read-only",
+    "name": "evdValveSteps",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 540,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    },
+    "units": "steps"
+  },
+  "fanSpeedPercent": {
+    "class": "objecttype",
+    "description": "The fan speed percentage",
+    "maxaccess": "read-only",
+    "name": "fanSpeedPercent",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    },
+    "units": "%"
+  },
+  "fanSpeedRpm": {
+    "class": "objecttype",
+    "description": "The fan speed rpm",
+    "maxaccess": "read-only",
+    "name": "fanSpeedRpm",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 3700,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    },
+    "units": "rpm"
+  },
+  "generalAlarm": {
+    "class": "objecttype",
+    "description": "General alarm ok (0), alarm (1)",
+    "maxaccess": "read-only",
+    "name": "generalAlarm",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 1,
+          "ok": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "highPressureAlarm": {
+    "class": "objecttype",
+    "description": "High pressure alarm ok (0), alarm (1)",
+    "maxaccess": "read-only",
+    "name": "highPressureAlarm",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 1,
+          "ok": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "imports": {
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "Counter32",
+      "iso",
+      "Unsigned32",
+      "Integer32",
+      "TimeTicks",
+      "IpAddress",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "inputTemperatureAverage": {
+    "class": "objecttype",
+    "description": "Average input temperature in Celcius",
+    "maxaccess": "read-only",
+    "name": "inputTemperatureAverage",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DivBy10"
+    },
+    "units": "C"
+  },
+  "inputTemperatureBottomProbeAlarm": {
+    "class": "objecttype",
+    "description": "Bottom input temperature probe broken ok (0), alarm (1)",
+    "maxaccess": "read-only",
+    "name": "inputTemperatureBottomProbeAlarm",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.44",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 1,
+          "ok": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "inputTemperatureBottomSensor": {
+    "class": "objecttype",
+    "description": "Bottom sensor input temperature in Celcius",
+    "maxaccess": "read-only",
+    "name": "inputTemperatureBottomSensor",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DivBy10"
+    },
+    "units": "C"
+  },
+  "inputTemperatureMidProbeAlarm": {
+    "class": "objecttype",
+    "description": "Mid input temperature probe broken ok (0), alarm (1)",
+    "maxaccess": "read-only",
+    "name": "inputTemperatureMidProbeAlarm",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.43",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 1,
+          "ok": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "inputTemperatureMidSensor": {
+    "class": "objecttype",
+    "description": "Mid sensor input temperature in Celcius",
+    "maxaccess": "read-only",
+    "name": "inputTemperatureMidSensor",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DivBy10"
+    },
+    "units": "C"
+  },
+  "inputTemperatureTopProbeAlarm": {
+    "class": "objecttype",
+    "description": "Top input temperature probe broken ok (0), alarm (1)",
+    "maxaccess": "read-only",
+    "name": "inputTemperatureTopProbeAlarm",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.42",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 1,
+          "ok": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "inputTemperatureTopSensor": {
+    "class": "objecttype",
+    "description": "Top sensor input temperature in Celcius",
+    "maxaccess": "read-only",
+    "name": "inputTemperatureTopSensor",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DivBy10"
+    },
+    "units": "C"
+  },
+  "integer": {
+    "class": "objectidentity",
+    "name": "integer",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3"
+  },
+  "inverterAlarm": {
+    "class": "objecttype",
+    "description": "Inverter alarm ok (0), alarm (1)",
+    "maxaccess": "read-only",
+    "name": "inverterAlarm",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 1,
+          "ok": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "inverterOnOff": {
+    "class": "objecttype",
+    "description": "Inverter On/Off off (0), on (1)",
+    "maxaccess": "read-only",
+    "name": "inverterOnOff",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "lcpSetpoint": {
+    "class": "objecttype",
+    "description": "Main LCP setpoint",
+    "maxaccess": "read-write",
+    "name": "lcpSetpoint",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.48",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DivBy10"
+    },
+    "units": "C"
+  },
+  "maxDischargeTemperatureAlarm": {
+    "class": "objecttype",
+    "description": "Maximum discharge temperature has been reached ok (0), alarm (1)",
+    "maxaccess": "read-only",
+    "name": "maxDischargeTemperatureAlarm",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 1,
+          "ok": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/CAREL-RITTAL-LCP-3311-MIB.txt",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 13:58:20 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "CAREL-RITTAL-LCP-3311-MIB"
+  },
+  "motorVoltage": {
+    "class": "objecttype",
+    "description": "Motor Voltage",
+    "maxaccess": "read-only",
+    "name": "motorVoltage",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DivBy10"
+    },
+    "units": "V"
+  },
+  "oilReturnAlarm": {
+    "class": "objecttype",
+    "description": "Oil return alarm for when the compressor is running. Lubrication issue. ok (0), alarm (1)",
+    "maxaccess": "read-only",
+    "name": "oilReturnAlarm",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.36",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 1,
+          "ok": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "outputTemperatureAverage": {
+    "class": "objecttype",
+    "description": "Average output temperature in Celcius",
+    "maxaccess": "read-only",
+    "name": "outputTemperatureAverage",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DivBy10"
+    },
+    "units": "C"
+  },
+  "outputTemperatureBottomProbeAlarm": {
+    "class": "objecttype",
+    "description": "Bottom output temperature probe broken ok (0), alarm (1)",
+    "maxaccess": "read-only",
+    "name": "outputTemperatureBottomProbeAlarm",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.40",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 1,
+          "ok": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "outputTemperatureBottomSensor": {
+    "class": "objecttype",
+    "description": "Bottom sensor output temperature in Celcius",
+    "maxaccess": "read-only",
+    "name": "outputTemperatureBottomSensor",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DivBy10"
+    },
+    "units": "C"
+  },
+  "outputTemperatureMidProbeAlarm": {
+    "class": "objecttype",
+    "description": "Mid output temperature probe broken ok (0), alarm (1)",
+    "maxaccess": "read-only",
+    "name": "outputTemperatureMidProbeAlarm",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.39",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 1,
+          "ok": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "outputTemperatureMidSensor": {
+    "class": "objecttype",
+    "description": "Mid sensor output temperature in Celcius",
+    "maxaccess": "read-only",
+    "name": "outputTemperatureMidSensor",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DivBy10"
+    },
+    "units": "C"
+  },
+  "outputTemperatureTopProbeAlarm": {
+    "class": "objecttype",
+    "description": "Top output temperature probe broken ok (0), alarm (1)",
+    "maxaccess": "read-only",
+    "name": "outputTemperatureTopProbeAlarm",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.38",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 1,
+          "ok": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "outputTemperatureTopSensor": {
+    "class": "objecttype",
+    "description": "Top sensor output temperature in Celcius",
+    "maxaccess": "read-only",
+    "name": "outputTemperatureTopSensor",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.2.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DivBy10"
+    },
+    "units": "C"
+  },
+  "powerRequest": {
+    "class": "objecttype",
+    "description": "Request of power for inverter after envelop",
+    "maxaccess": "read-only",
+    "name": "powerRequest",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DivBy10"
+    },
+    "units": "%"
+  },
+  "reboot": {
+    "class": "objecttype",
+    "description": "Reboot the system no (0), yes (1)",
+    "maxaccess": "read-write",
+    "name": "reboot",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.100",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "remoteOnOff": {
+    "class": "objecttype",
+    "description": "Remote On/Off off (0), on (1)",
+    "maxaccess": "read-only",
+    "name": "remoteOnOff",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "resetAllAlarms": {
+    "class": "objecttype",
+    "description": "Reset all alarms no (0), yes (1)",
+    "maxaccess": "read-write",
+    "name": "resetAllAlarms",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "rittal": {
+    "class": "objectidentity",
+    "name": "rittal",
+    "oid": "1.3.6.1.4.1.9839.2606"
+  },
+  "rittalLCP3311": {
+    "class": "objectidentity",
+    "name": "rittalLCP3311",
+    "oid": "1.3.6.1.4.1.9839.2606.2"
+  },
+  "sensors": {
+    "class": "objectidentity",
+    "name": "sensors",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1"
+  },
+  "unitOnOff": {
+    "class": "objecttype",
+    "description": "Unit on/off state off (0), on (1), energy-save (2), auto (3) ",
+    "maxaccess": "read-write",
+    "name": "unitOnOff",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.9839.2606.2.1.3.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 3,
+          "energy-save": 2,
+          "off": 0,
+          "on": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  }
+}

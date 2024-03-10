@@ -1,0 +1,4673 @@
+{
+  "hwClockAlarmThresholdFrequencyOffset": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 92
+      }
+    },
+    "description": "The Threshold of clock alarm.",
+    "maxaccess": "read-write",
+    "name": "hwClockAlarmThresholdFrequencyOffset",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 92,
+            "min": 10
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "100ppb"
+  },
+  "hwClockAttribute2M1MaxOutSsm": {
+    "class": "objecttype",
+    "description": "The max ssm of 2msync-1 out put.",
+    "maxaccess": "read-write",
+    "name": "hwClockAttribute2M1MaxOutSsm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.9.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "prc": 2,
+          "sec": 11,
+          "ssua": 4,
+          "ssub": 8,
+          "unk": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockAttribute2M2MaxOutSsm": {
+    "class": "objecttype",
+    "description": "The max ssm of 2msync-2 out put.",
+    "maxaccess": "read-write",
+    "name": "hwClockAttribute2M2MaxOutSsm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.9.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "prc": 2,
+          "sec": 11,
+          "ssua": 4,
+          "ssub": 8,
+          "unk": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockAttributeChassisIndex": {
+    "class": "objecttype",
+    "description": "The chassis index.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockAttributeChassisIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.9.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "PhysicalIndex"
+    }
+  },
+  "hwClockAttributeEntry": {
+    "class": "objecttype",
+    "description": "The entry of clock Attribute table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockAttributeChassisIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwClockAttributeEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.9.1",
+    "status": "current"
+  },
+  "hwClockAttributeExtendSsmControl": {
+    "class": "objecttype",
+    "description": "The flag whether Extend SSM is concerned with the clock source selection.",
+    "maxaccess": "read-write",
+    "name": "hwClockAttributeExtendSsmControl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.9.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockAttributeFreqCheckEnable": {
+    "class": "objecttype",
+    "description": "The enable flag of frequency check.",
+    "maxaccess": "read-write",
+    "name": "hwClockAttributeFreqCheckEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.9.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwClockAttributeHoldOffTime": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1000
+      }
+    },
+    "description": "The holdoff-time when the system source is lost.",
+    "maxaccess": "read-write",
+    "name": "hwClockAttributeHoldOffTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.9.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1800,
+            "min": 300
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockAttributeInputThreshold": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 15
+      }
+    },
+    "description": "The squelch threshold of the external input source.",
+    "maxaccess": "read-write",
+    "name": "hwClockAttributeInputThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.9.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dnu": 15,
+          "prc": 2,
+          "sec": 11,
+          "ssua": 4,
+          "ssub": 8
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockAttributeInternalClockId": {
+    "class": "objecttype",
+    "description": "The internal clockid of the device.",
+    "maxaccess": "read-write",
+    "name": "hwClockAttributeInternalClockId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.9.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockAttributeLtiSquelch": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "The frequency signal output squelch flag upon the frequency loss.",
+    "maxaccess": "read-write",
+    "name": "hwClockAttributeLtiSquelch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.9.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwClockAttributeOutThreshold": {
+    "class": "objecttype",
+    "description": "The Threshold of out put.",
+    "maxaccess": "read-write",
+    "name": "hwClockAttributeOutThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.9.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dnu": 15,
+          "prc": 2,
+          "sec": 11,
+          "ssua": 4,
+          "ssub": 8
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockAttributeOutValue": {
+    "class": "objecttype",
+    "description": "The current output value.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwClockAttributeOutValue",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.7.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dnu": 15,
+          "prc": 2,
+          "sec": 11,
+          "ssua": 4,
+          "ssub": 8,
+          "unk": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockAttributeRetrieveMode": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "retrieve"
+      }
+    },
+    "description": "The retrieve mode of system clock.",
+    "maxaccess": "read-write",
+    "name": "hwClockAttributeRetrieveMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.9.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noRetrieve": 1,
+          "retrieve": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockAttributeSsmControl": {
+    "class": "objecttype",
+    "description": "The flag whether SSM is concerned with the clock source selection.",
+    "maxaccess": "read-write",
+    "name": "hwClockAttributeSsmControl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.9.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockAttributeSysClkLockMode": {
+    "class": "objecttype",
+    "description": "The Lock mode of system clock.",
+    "maxaccess": "read-only",
+    "name": "hwClockAttributeSysClkLockMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.9.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fastLock": 1,
+          "freeRun": 0,
+          "freeRunJudge": 16,
+          "hold": 3,
+          "holdJudge": 19,
+          "lock": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockAttributeSysClkRunMode": {
+    "class": "objecttype",
+    "description": "The run mode of system clock.",
+    "maxaccess": "read-write",
+    "name": "hwClockAttributeSysClkRunMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.9.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "freeRun": 1,
+          "hold": 2,
+          "normal": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockAttributeSysMaxOutSsm": {
+    "class": "objecttype",
+    "description": "The max ssm of system out put.",
+    "maxaccess": "read-write",
+    "name": "hwClockAttributeSysMaxOutSsm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.9.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "prc": 2,
+          "sec": 11,
+          "ssua": 4,
+          "ssub": 8,
+          "unk": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockAttributeTable": {
+    "class": "objecttype",
+    "description": "The clock Attribute table.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockAttributeTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.9",
+    "status": "current"
+  },
+  "hwClockAttributeTodProtocol": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "1pps bits tod protocol.",
+    "maxaccess": "read-write",
+    "name": "hwClockAttributeTodProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.9.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ccsa": 4,
+          "nmea": 1,
+          "none": 3,
+          "ubx": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockAttributeWtrTime": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": "The time waiting for retrieve.",
+    "maxaccess": "read-write",
+    "name": "hwClockAttributeWtrTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.9.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 12,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockBitsCfgBitsIndex": {
+    "class": "objecttype",
+    "description": "The index of BITS clock.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockBitsCfgBitsIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockBitsCfgBitsPortType": {
+    "class": "objecttype",
+    "description": "The BITS port type.",
+    "maxaccess": "read-only",
+    "name": "hwClockBitsCfgBitsPortType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "portRj45": 1,
+          "portSMB": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockBitsCfgBitsType": {
+    "class": "objecttype",
+    "description": "The BITS type.",
+    "maxaccess": "read-write",
+    "name": "hwClockBitsCfgBitsType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 4,
+          "type1544Mbps": 5,
+          "type1ppsTod": 3,
+          "type2Mbps": 0,
+          "type2Mhz": 1,
+          "typeDclsTime": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockBitsCfgChassisIndex": {
+    "class": "objecttype",
+    "description": "The index of the chassis whitch the clock source belongs to.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockBitsCfgChassisIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "PhysicalIndex"
+    }
+  },
+  "hwClockBitsCfgDirection": {
+    "class": "objecttype",
+    "description": "The direction of BITS.",
+    "maxaccess": "read-write",
+    "name": "hwClockBitsCfgDirection",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "in": 1,
+          "inAndOut": 3,
+          "none": 4,
+          "out": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockBitsCfgEntry": {
+    "class": "objecttype",
+    "description": "The entry of clock bits congfig table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockBitsCfgChassisIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockBitsCfgBitsIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwClockBitsCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.4.1",
+    "status": "current"
+  },
+  "hwClockBitsCfgForceOutS1": {
+    "class": "objecttype",
+    "description": "The S1 byte of forcing out.",
+    "maxaccess": "read-write",
+    "name": "hwClockBitsCfgForceOutS1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.4.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dnu": 15,
+          "prc": 2,
+          "sec": 11,
+          "ssua": 4,
+          "ssub": 8,
+          "unk": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockBitsCfgFrameFormat": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 4
+      }
+    },
+    "description": "Encoding type and frame check format of the extern clock port.",
+    "maxaccess": "read-write",
+    "name": "hwClockBitsCfgFrameFormat",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.4.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "pcm30crc": 2,
+          "pcm30nocrc": 1,
+          "pcm31crc": 4,
+          "pcm31nocrc": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockBitsCfgGroup": {
+    "class": "objectgroup",
+    "description": "The BITS clock source group.",
+    "name": "hwClockBitsCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockBitsCfgRecvSaBit"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockBitsCfgSendSaBit"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockBitsCfgForceOutS1"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockBitsCfgName"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockBitsCfgBitsType"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockBitsCfgDirection"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockBitsCfgSaBit"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockBitsCfgInputMode"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockBitsCfgOutputMode"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockBitsCfgSourceId"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockBitsCfgInvalidCond"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockBitsCfgBitsPortType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.10.2.14",
+    "status": "current"
+  },
+  "hwClockBitsCfgInputMode": {
+    "class": "objecttype",
+    "description": "The input mode of clock source.",
+    "maxaccess": "read-write",
+    "name": "hwClockBitsCfgInputMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.4.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clk2MBits": 0,
+          "clk2MHz": 1,
+          "dclsTime": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockBitsCfgInvalidCond": {
+    "class": "objecttype",
+    "description": "The invalid condition of clock source.",
+    "maxaccess": "read-write",
+    "name": "hwClockBitsCfgInvalidCond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.4.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ais": 2,
+          "lof": 3,
+          "no": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockBitsCfgName": {
+    "class": "objecttype",
+    "description": "The name of clock.",
+    "maxaccess": "read-only",
+    "name": "hwClockBitsCfgName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwClockBitsCfgOutputMode": {
+    "class": "objecttype",
+    "description": "The output mode of clock source.",
+    "maxaccess": "read-write",
+    "name": "hwClockBitsCfgOutputMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.4.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clk2MBits": 0,
+          "clk2MHz": 1,
+          "dclsTime": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockBitsCfgRecvSaBit": {
+    "class": "objecttype",
+    "description": "The received SA bit.",
+    "maxaccess": "read-write",
+    "name": "hwClockBitsCfgRecvSaBit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sa4": 4,
+          "sa5": 5,
+          "sa6": 6,
+          "sa7": 7,
+          "sa8": 8
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockBitsCfgSaBit": {
+    "class": "objecttype",
+    "description": "The SA bit of SSM information.",
+    "maxaccess": "read-write",
+    "name": "hwClockBitsCfgSaBit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.4.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sa4": 4,
+          "sa5": 5,
+          "sa6": 6,
+          "sa7": 7,
+          "sa8": 8
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockBitsCfgSendSaBit": {
+    "class": "objecttype",
+    "description": "The sent SA bit.",
+    "maxaccess": "read-write",
+    "name": "hwClockBitsCfgSendSaBit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.4.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sa4": 4,
+          "sa5": 5,
+          "sa6": 6,
+          "sa7": 7,
+          "sa8": 8
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockBitsCfgSourceId": {
+    "class": "objecttype",
+    "description": "The clock source ID.",
+    "maxaccess": "read-only",
+    "name": "hwClockBitsCfgSourceId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.4.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwClockBitsCfgTable": {
+    "class": "objecttype",
+    "description": "The clock bits congfig table.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockBitsCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.4",
+    "status": "current"
+  },
+  "hwClockBitsCfgTodSignal": {
+    "class": "objecttype",
+    "description": "The tod signal of clock source.",
+    "maxaccess": "read-write",
+    "name": "hwClockBitsCfgTodSignal",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.4.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nmea": 1,
+          "none": 3,
+          "ubx": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockCesAcrCard": {
+    "class": "objecttype",
+    "description": "The card ID of CES ACR clock source.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwClockCesAcrCard",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.7.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwClockCesAcrCfgCard": {
+    "class": "objecttype",
+    "description": "The card ID of CES ACR clock source.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockCesAcrCfgCard",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.13.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwClockCesAcrCfgClockId": {
+    "class": "objecttype",
+    "description": "The clockid of clock source. DEFVAL is 0.",
+    "maxaccess": "read-create",
+    "name": "hwClockCesAcrCfgClockId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.13.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockCesAcrCfgDescr": {
+    "class": "objecttype",
+    "description": "The description of clock source.",
+    "maxaccess": "read-only",
+    "name": "hwClockCesAcrCfgDescr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.13.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwClockCesAcrCfgDomain": {
+    "class": "objecttype",
+    "description": "The recovery domain value of CES ACR clock source.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockCesAcrCfgDomain",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.13.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockCesAcrCfgEntry": {
+    "class": "objecttype",
+    "description": "The entry of CES ACR clock source config table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrCfgSlot"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrCfgCard"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrCfgDomain"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwClockCesAcrCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.13.1",
+    "status": "current"
+  },
+  "hwClockCesAcrCfgFreqCheckResult": {
+    "class": "objecttype",
+    "description": "The result of CES ACR clock source frequency check.",
+    "maxaccess": "read-only",
+    "name": "hwClockCesAcrCfgFreqCheckResult",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.13.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "abnormal": 0,
+          "normal": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockCesAcrCfgRowStatus": {
+    "class": "objecttype",
+    "description": "The row status.",
+    "maxaccess": "read-create",
+    "name": "hwClockCesAcrCfgRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.13.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwClockCesAcrCfgSlot": {
+    "class": "objecttype",
+    "description": "The slot ID of CES ACR clock source.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockCesAcrCfgSlot",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.13.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwClockCesAcrCfgSourceState": {
+    "class": "objecttype",
+    "description": "The state of CES ACR clock source.",
+    "maxaccess": "read-only",
+    "name": "hwClockCesAcrCfgSourceState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.13.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "abnormal": 2,
+          "holdoff": 4,
+          "initial": 0,
+          "normal": 1,
+          "waitwtr": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockCesAcrCfgSsm": {
+    "class": "objecttype",
+    "description": "The SSM quality of CES ACR clock source.",
+    "maxaccess": "read-create",
+    "name": "hwClockCesAcrCfgSsm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.13.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dnu": 15,
+          "prc": 2,
+          "sec": 11,
+          "ssua": 4,
+          "ssub": 8,
+          "unk": 0,
+          "unknown": 16
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockCesAcrCfgSyncEnable": {
+    "class": "objecttype",
+    "description": "The enable flag of CES ACR clock source.",
+    "maxaccess": "read-create",
+    "name": "hwClockCesAcrCfgSyncEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.13.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwClockCesAcrCfgSystemPriority": {
+    "class": "objecttype",
+    "description": "The priority of system CES ACR clock source. DEFVAL is 0.",
+    "maxaccess": "read-create",
+    "name": "hwClockCesAcrCfgSystemPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.13.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockCesAcrCfgTable": {
+    "class": "objecttype",
+    "description": "The CES ACR clock source config table.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockCesAcrCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.13",
+    "status": "current"
+  },
+  "hwClockCesAcrChannelId": {
+    "class": "objecttype",
+    "description": "Indicates the channel ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockCesAcrChannelId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.12.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwClockCesAcrChannelType": {
+    "class": "objecttype",
+    "description": "Indicates the interface type. The type can be E1/CE1 or T1/CT1.",
+    "maxaccess": "read-create",
+    "name": "hwClockCesAcrChannelType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.12.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "e1": 2,
+          "t1": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockCesAcrDomain": {
+    "class": "objecttype",
+    "description": "The recovery domain value of CES ACR clock source.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwClockCesAcrDomain",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.7.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwClockCesAcrDomainInfoEntry": {
+    "class": "objecttype",
+    "description": "The entry of CES ACR domain infomation table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrDomianInfoSlot"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrDomianInfoCard"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrDomianInfoDomain"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwClockCesAcrDomainInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.14.1",
+    "status": "current"
+  },
+  "hwClockCesAcrDomainInfoTable": {
+    "class": "objecttype",
+    "description": "The CES ACR domain infomation table.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockCesAcrDomainInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.14",
+    "status": "current"
+  },
+  "hwClockCesAcrDomianInfoCard": {
+    "class": "objecttype",
+    "description": "The card ID of CES ACR clock source.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockCesAcrDomianInfoCard",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.14.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwClockCesAcrDomianInfoChannelId": {
+    "class": "objecttype",
+    "description": "Indicates the channel ID.",
+    "maxaccess": "read-only",
+    "name": "hwClockCesAcrDomianInfoChannelId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.14.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwClockCesAcrDomianInfoDomain": {
+    "class": "objecttype",
+    "description": "The recovery domain value of CES ACR clock source.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockCesAcrDomianInfoDomain",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.14.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockCesAcrDomianInfoMasterPwName": {
+    "class": "objecttype",
+    "description": "Port name.",
+    "maxaccess": "read-only",
+    "name": "hwClockCesAcrDomianInfoMasterPwName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.14.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwClockCesAcrDomianInfoSlot": {
+    "class": "objecttype",
+    "description": "The slot ID of CES ACR clock source.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockCesAcrDomianInfoSlot",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.14.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwClockCesAcrDomianInfoState": {
+    "class": "objecttype",
+    "description": "The state of CES ACR clock source.",
+    "maxaccess": "read-only",
+    "name": "hwClockCesAcrDomianInfoState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.14.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lock": 3,
+          "none": 1,
+          "wait": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockCesAcrIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockCesAcrIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.12.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwClockCesAcrLockFail": {
+    "class": "notificationtype",
+    "description": "CES ACR clock source lock fail.",
+    "name": "hwClockCesAcrLockFail",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrSlot"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrCard"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrDomain"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrLockState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.8.16",
+    "status": "current"
+  },
+  "hwClockCesAcrLockFailResume": {
+    "class": "notificationtype",
+    "description": "CES ACR clock source lock fail resume.",
+    "name": "hwClockCesAcrLockFailResume",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrSlot"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrCard"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrDomain"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrLockState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.8.17",
+    "status": "current"
+  },
+  "hwClockCesAcrLockState": {
+    "class": "objecttype",
+    "description": "The lock state of the CES ACR.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwClockCesAcrLockState",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.7.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwClockCesAcrMasterDomain": {
+    "class": "objecttype",
+    "description": "Indicates the clock master domain of the interface. DEFVAL is 0.",
+    "maxaccess": "read-create",
+    "name": "hwClockCesAcrMasterDomain",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.12.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockCesAcrMasterPwChange": {
+    "class": "notificationtype",
+    "description": "CES ACR master PW status change.",
+    "name": "hwClockCesAcrMasterPwChange",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrSlot"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrCard"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrDomain"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrOldMasterPwName"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrNewMasterPwName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.8.15",
+    "status": "current"
+  },
+  "hwClockCesAcrNewMasterPwName": {
+    "class": "objecttype",
+    "description": "The master pw SerialPort name of CES ACR new clock source.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwClockCesAcrNewMasterPwName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.7.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwClockCesAcrOldMasterPwName": {
+    "class": "objecttype",
+    "description": "The master pw SerialPort name of CES ACR old clock source.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwClockCesAcrOldMasterPwName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.7.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwClockCesAcrParentIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the index of the parent interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockCesAcrParentIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.12.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwClockCesAcrPortCfgEntry": {
+    "class": "objecttype",
+    "description": "The entry of CES ACR clock port config table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrParentIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrChannelId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwClockCesAcrPortCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.12.1",
+    "status": "current"
+  },
+  "hwClockCesAcrPortCfgRowStatus": {
+    "class": "objecttype",
+    "description": "The row status.",
+    "maxaccess": "read-create",
+    "name": "hwClockCesAcrPortCfgRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.12.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwClockCesAcrPortCfgTable": {
+    "class": "objecttype",
+    "description": "The CES ACR clock port config table.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockCesAcrPortCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.12",
+    "status": "current"
+  },
+  "hwClockCesAcrPortName": {
+    "class": "objecttype",
+    "description": "Port name.",
+    "maxaccess": "read-only",
+    "name": "hwClockCesAcrPortName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.12.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwClockCesAcrPwDomain": {
+    "class": "objecttype",
+    "description": "Indicates the clock PW domain of the interface. DEFVAL is 0.",
+    "maxaccess": "read-create",
+    "name": "hwClockCesAcrPwDomain",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.12.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockCesAcrRecoveryDomain": {
+    "class": "objecttype",
+    "description": "Indicates the clock recovery domain of the interface. DEFVAL is 0.",
+    "maxaccess": "read-create",
+    "name": "hwClockCesAcrRecoveryDomain",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.12.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockCesAcrSlot": {
+    "class": "objecttype",
+    "description": "The slot ID of CES ACR clock source.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwClockCesAcrSlot",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.7.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwClockCesAcrSourceMode": {
+    "class": "objecttype",
+    "description": "Indicates the clock mode of the interface. master: indicates that the clock works in master mode and uses the internal clock signal. slave: indicates that the clock works in slave mode and uses the line clock signal. recovery-domain: indicates that the clock works in slave mode and uses the recovery domain clock signal. ",
+    "maxaccess": "read-create",
+    "name": "hwClockCesAcrSourceMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.12.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "recoveryDomain": 3,
+          "slave": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockCesDcrCard": {
+    "class": "objecttype",
+    "description": "The card ID of CES DCR clock source.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwClockCesDcrCard",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.7.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwClockCesDcrDomain": {
+    "class": "objecttype",
+    "description": "The recovery domain value of CES DCR clock source.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwClockCesDcrDomain",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.7.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwClockCesDcrLockFail": {
+    "class": "notificationtype",
+    "description": "CES DCR clock source lock fail.",
+    "name": "hwClockCesDcrLockFail",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesDcrSlot"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesDcrCard"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesDcrDomain"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesDcrLockState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.8.29",
+    "status": "current"
+  },
+  "hwClockCesDcrLockFailResume": {
+    "class": "notificationtype",
+    "description": "CES DCR clock source lock fail resume.",
+    "name": "hwClockCesDcrLockFailResume",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesDcrSlot"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesDcrCard"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesDcrDomain"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesDcrLockState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.8.30",
+    "status": "current"
+  },
+  "hwClockCesDcrLockState": {
+    "class": "objecttype",
+    "description": "The lock state of the CES DCR.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwClockCesDcrLockState",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.7.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwClockCesDcrMasterPwChange": {
+    "class": "notificationtype",
+    "description": "CES DCR master PW status change.",
+    "name": "hwClockCesDcrMasterPwChange",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesDcrSlot"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesDcrCard"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesDcrDomain"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesDcrOldMasterPwName"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesDcrNewMasterPwName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.8.28",
+    "status": "current"
+  },
+  "hwClockCesDcrNewMasterPwName": {
+    "class": "objecttype",
+    "description": "The master pw SerialPort name of CES DCR new clock source.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwClockCesDcrNewMasterPwName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.7.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwClockCesDcrOldMasterPwName": {
+    "class": "objecttype",
+    "description": "The master pw SerialPort name of CES DCR old clock source.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwClockCesDcrOldMasterPwName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.7.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwClockCesDcrSlot": {
+    "class": "objecttype",
+    "description": "The slot ID of CES DCR clock source.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwClockCesDcrSlot",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.7.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwClockCesMode": {
+    "class": "objecttype",
+    "description": "Indicates the clock CES recovery mode of the interface. DEFVAL is 0.",
+    "maxaccess": "read-create",
+    "name": "hwClockCesMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.12.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acr": 1,
+          "dcr": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockCfgBadDetect": {
+    "class": "objecttype",
+    "description": "The enable status of clock source bad detecting.",
+    "maxaccess": "read-write",
+    "name": "hwClockCfgBadDetect",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwClockCfgBits0LockOut": {
+    "class": "objecttype",
+    "description": "The lock out of BITS0 clock source.",
+    "maxaccess": "read-write",
+    "name": "hwClockCfgBits0LockOut",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwClockCfgBits0Priority": {
+    "class": "objecttype",
+    "description": "The priority of BITS0 clock source.",
+    "maxaccess": "read-write",
+    "name": "hwClockCfgBits0Priority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": -1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockCfgBits1LockOut": {
+    "class": "objecttype",
+    "description": "The lock out of BITS1 clock source.",
+    "maxaccess": "read-write",
+    "name": "hwClockCfgBits1LockOut",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.3.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwClockCfgBits1Priority": {
+    "class": "objecttype",
+    "description": "The priority of BITS1 clock source.",
+    "maxaccess": "read-write",
+    "name": "hwClockCfgBits1Priority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": -1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockCfgChassisIndex": {
+    "class": "objecttype",
+    "description": "The index of the chassis whitch the clock source belongs to.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockCfgChassisIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "PhysicalIndex"
+    }
+  },
+  "hwClockCfgClkSourceType": {
+    "class": "objecttype",
+    "description": "The type of clock source.",
+    "maxaccess": "read-only",
+    "name": "hwClockCfgClkSourceType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.3.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bits": 1,
+          "inner": 3,
+          "line": 2,
+          "system": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockCfgExportEnableStatus": {
+    "class": "objecttype",
+    "description": "The enable status of clock source export.",
+    "maxaccess": "read-write",
+    "name": "hwClockCfgExportEnableStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.3.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwClockCfgFreqCheckResult": {
+    "class": "objecttype",
+    "description": "The result of frequency check, unit in 0.01ppm.",
+    "maxaccess": "read-write",
+    "name": "hwClockCfgFreqCheckResult",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.3.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwClockCfgHoldOffTime": {
+    "class": "objecttype",
+    "description": "The hold off time of clock, unit in 100ms.",
+    "maxaccess": "read-write",
+    "name": "hwClockCfgHoldOffTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.3.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 18,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockCfgPriRvtEnableStatus": {
+    "class": "objecttype",
+    "description": "The enable status of switch according priority.",
+    "maxaccess": "read-write",
+    "name": "hwClockCfgPriRvtEnableStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.3.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwClockCfgSourceDescr": {
+    "class": "objecttype",
+    "description": "The clock source description.",
+    "maxaccess": "read-only",
+    "name": "hwClockCfgSourceDescr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwClockCfgSourceId": {
+    "class": "objecttype",
+    "description": "The clock source ID.",
+    "maxaccess": "read-only",
+    "name": "hwClockCfgSourceId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwClockCfgSourceIndex": {
+    "class": "objecttype",
+    "description": "The clock source index.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockCfgSourceIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 20,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockCfgSourceS1Id": {
+    "class": "objecttype",
+    "description": "The S1 byte of the clock.",
+    "maxaccess": "read-only",
+    "name": "hwClockCfgSourceS1Id",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.3.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockCfgSourceSsm": {
+    "class": "objecttype",
+    "description": "The SSM quality of clock source.",
+    "maxaccess": "read-write",
+    "name": "hwClockCfgSourceSsm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.3.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ssmDnu": 5,
+          "ssmPrc": 1,
+          "ssmSec": 4,
+          "ssmSsul": 3,
+          "ssmSsut": 2,
+          "ssmUnknown": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockCfgSourceSsmSetMode": {
+    "class": "objecttype",
+    "description": "The set mode of SSM.",
+    "maxaccess": "read-write",
+    "name": "hwClockCfgSourceSsmSetMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.3.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 2,
+          "manual": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockCfgSourceState": {
+    "class": "objecttype",
+    "description": "The state of clock source.",
+    "maxaccess": "read-write",
+    "name": "hwClockCfgSourceState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.3.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "abnormal": 2,
+          "normal": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockCfgSsmThreshold": {
+    "class": "objecttype",
+    "description": "The SSM quality level threshold of clock source.",
+    "maxaccess": "read-write",
+    "name": "hwClockCfgSsmThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.3.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qlDnu": 1,
+          "qlPrc": 5,
+          "qlSec": 2,
+          "qlSsua": 4,
+          "qlSsub": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockCfgSwiEnableStatus": {
+    "class": "objecttype",
+    "description": "he enable status of clock source switch.",
+    "maxaccess": "read-write",
+    "name": "hwClockCfgSwiEnableStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.3.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwClockCfgSwitchCondition": {
+    "class": "objecttype",
+    "description": "The condition of clock switch.",
+    "maxaccess": "read-write",
+    "name": "hwClockCfgSwitchCondition",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.3.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noSwitch": 1,
+          "switch": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockCfgSystemLockOut": {
+    "class": "objecttype",
+    "description": "The lock out of system clock source.",
+    "maxaccess": "read-write",
+    "name": "hwClockCfgSystemLockOut",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwClockCfgSystemPriority": {
+    "class": "objecttype",
+    "description": "The priority of system clock source.",
+    "maxaccess": "read-write",
+    "name": "hwClockCfgSystemPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": -1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockCfgWtrTime": {
+    "class": "objecttype",
+    "description": "The waiting for restore time of clock source.",
+    "maxaccess": "read-write",
+    "name": "hwClockCfgWtrTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 12,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockChassisId": {
+    "class": "objecttype",
+    "description": "The chassis ID.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwClockChassisId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.7.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwClockClusterSyncType": {
+    "class": "objecttype",
+    "description": "The type of clock inter-chassis sync.",
+    "maxaccess": "read-only",
+    "name": "hwClockClusterSyncType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.15.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "frequency": 1,
+          "time": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockClusterTopoEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockClusterSyncType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockClusterTopoType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockClusterTopoLinkType"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwClockClusterTopoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.15.1",
+    "status": "current"
+  },
+  "hwClockClusterTopoFail": {
+    "class": "notificationtype",
+    "description": "Clock cluster inter-chassis synchronization topo compute failed.",
+    "name": "hwClockClusterTopoFail",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockClusterSyncType"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockClusterTopoType"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockClusterTopoLinkType"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockClusterTopoStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.8.22",
+    "status": "current"
+  },
+  "hwClockClusterTopoFailResume": {
+    "class": "notificationtype",
+    "description": "Clock inter-chassis synchronization topo compute successfully.",
+    "name": "hwClockClusterTopoFailResume",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockClusterSyncType"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockClusterTopoType"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockClusterTopoLinkType"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockClusterTopoStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.8.23",
+    "status": "current"
+  },
+  "hwClockClusterTopoLinkType": {
+    "class": "objecttype",
+    "description": "The type of clock inter-chassis link.",
+    "maxaccess": "read-only",
+    "name": "hwClockClusterTopoLinkType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.15.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bits": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockClusterTopoStatus": {
+    "class": "objecttype",
+    "description": "The status of clock inter-chassis topo.",
+    "maxaccess": "read-only",
+    "name": "hwClockClusterTopoStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.15.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fail": 1,
+          "success": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockClusterTopoTable": {
+    "class": "objecttype",
+    "description": "The CES ACR domain infomation table.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockClusterTopoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.15",
+    "status": "current"
+  },
+  "hwClockClusterTopoType": {
+    "class": "objecttype",
+    "description": "The type of clock inter-chassis topo..",
+    "maxaccess": "read-only",
+    "name": "hwClockClusterTopoType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.15.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interlink": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockConformance": {
+    "class": "objectidentity",
+    "name": "hwClockConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.10"
+  },
+  "hwClockCurSourceName": {
+    "class": "objecttype",
+    "description": "The current clock source name.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwClockCurSourceName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.7.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwClockExtTimeInputType": {
+    "class": "objecttype",
+    "description": "The input time type of clock extern time.",
+    "maxaccess": "read-write",
+    "name": "hwClockExtTimeInputType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "type1ppsTodGps": 3,
+          "type1ppsTodRs232": 2,
+          "typeDclsTime": 1,
+          "typeNone": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockExtTimeOutputType": {
+    "class": "objecttype",
+    "description": "The output time type of clock extern time.",
+    "maxaccess": "read-write",
+    "name": "hwClockExtTimeOutputType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "type1ppsTodGps": 3,
+          "type1ppsTodRs232": 2,
+          "typeDclsTime": 1,
+          "typeNone": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockFrequencyOffset": {
+    "class": "objecttype",
+    "description": "The current offset of clock frequency.",
+    "maxaccess": "read-only",
+    "name": "hwClockFrequencyOffset",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    },
+    "units": "ppb"
+  },
+  "hwClockFrequencyOffsetMax": {
+    "class": "objecttype",
+    "description": "The max offset of clock frequency.",
+    "maxaccess": "read-only",
+    "name": "hwClockFrequencyOffsetMax",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    },
+    "units": "ppb"
+  },
+  "hwClockFrequencyOffsetMean": {
+    "class": "objecttype",
+    "description": "The mean offset of clock frequency.",
+    "maxaccess": "read-only",
+    "name": "hwClockFrequencyOffsetMean",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    },
+    "units": "ppb"
+  },
+  "hwClockFrequencyOffsetMin": {
+    "class": "objecttype",
+    "description": "The min offset of clock frequency.",
+    "maxaccess": "read-only",
+    "name": "hwClockFrequencyOffsetMin",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    },
+    "units": "ppb"
+  },
+  "hwClockGlobalObjects": {
+    "class": "objectidentity",
+    "name": "hwClockGlobalObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.1"
+  },
+  "hwClockInLockedMode": {
+    "class": "notificationtype",
+    "description": "The work mode of system clock is in locked mode.",
+    "name": "hwClockInLockedMode",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockChassisId"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockAttributeSysClkLockMode"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.8.8",
+    "status": "current"
+  },
+  "hwClockLastSourceName": {
+    "class": "objecttype",
+    "description": "The last clock source name.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwClockLastSourceName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.7.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwClockLineCfgGroup": {
+    "class": "objectgroup",
+    "description": "The line clock group..",
+    "name": "hwClockLineCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockLineClkCfgRecvS1"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockLineClkCfgSendS1"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockLineClkCfgCardId"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockLineClkCfgPortId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.10.2.17",
+    "status": "current"
+  },
+  "hwClockLineCfgSoureId": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-create",
+    "name": "hwClockLineCfgSoureId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.6.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwClockLineClkCfgCardId": {
+    "class": "objecttype",
+    "description": "The card index witch is seleced to provide line clock.",
+    "maxaccess": "read-create",
+    "name": "hwClockLineClkCfgCardId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwClockLineClkCfgChassisIndex": {
+    "class": "objecttype",
+    "description": "The chassis index.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockLineClkCfgChassisIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "PhysicalIndex"
+    }
+  },
+  "hwClockLineClkCfgEntry": {
+    "class": "objecttype",
+    "description": "The entry of line clock config table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockLineClkCfgChassisIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockLineClkCfgSlotIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwClockLineClkCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.6.1",
+    "status": "current"
+  },
+  "hwClockLineClkCfgPortId": {
+    "class": "objecttype",
+    "description": "The port index witch is seleced to provide line clock.",
+    "maxaccess": "read-create",
+    "name": "hwClockLineClkCfgPortId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwClockLineClkCfgRecvS1": {
+    "class": "objecttype",
+    "description": "The S1 byte value received.",
+    "maxaccess": "read-only",
+    "name": "hwClockLineClkCfgRecvS1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwClockLineClkCfgSendS1": {
+    "class": "objecttype",
+    "description": "The S1 byte value sent.",
+    "maxaccess": "read-create",
+    "name": "hwClockLineClkCfgSendS1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.6.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwClockLineClkCfgSlotIndex": {
+    "class": "objecttype",
+    "description": "The slot index of the line clock.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockLineClkCfgSlotIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 200,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockLineClkCfgTable": {
+    "class": "objecttype",
+    "description": "The line clock config table.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockLineClkCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.6",
+    "status": "current"
+  },
+  "hwClockMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "The MIB contains objects of module clock management and 1588 interface.",
+    "lastupdated": "201411290000Z",
+    "name": "hwClockMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.186",
+    "organization": "Huawei Technologies Co.,Ltd. ",
+    "revisions": [
+      {
+        "description": "Modify alarm hwClockSourceInputBelowThreshold, hwClockSourceInputBelowThresholdResume.",
+        "revision": "2014-11-29 00:00"
+      },
+      {
+        "description": "Add alarm hwClockCesDcrMasterPwChange, hwClockCesDcrLockFail,hwClockCesDcrLockFailResume,hwClockSsmPktLos,hwClockSsmPktLosResume and add mib hwClockCesDcrSlot,hwClockCesDcrCard,hwClockCesDcrDomain,hwClockCesDcrOldMasterPwName,hwClockCesDcrNewMasterPwName,hwClockCesDcrLockState,hwClockCesMode",
+        "revision": "2014-11-03 00:00"
+      },
+      {
+        "description": "Add alarm hwClockSourceInputBelowThreshold, hwClockSourceInputBelowThresholdResume.",
+        "revision": "2014-08-13 00:00"
+      },
+      {
+        "description": "Add alarm hwClockClusterTopoFail, hwClockClusterTopoFailResume and table hwClockClusterTopoTable.",
+        "revision": "2014-04-21 00:00"
+      },
+      {
+        "description": "Edit the range of hwClockCesAcrDomianInfoDomain.",
+        "revision": "2014-01-07 00:00"
+      },
+      {
+        "description": "Add mib hwClockBitsCfgFrameFormat, hwClockAttributeLtiSquelch and hwClockAttributeInputThreshold.",
+        "revision": "2013-11-12 00:00"
+      },
+      {
+        "description": "Edit the range of hwClockCesAcrRecoveryDomain.",
+        "revision": "2013-10-31 00:00"
+      },
+      {
+        "description": "Re-edit the range of some nodes.",
+        "revision": "2013-05-23 00:00"
+      },
+      {
+        "description": "Re-edit the default values of hwClockAttributeTodProtocol node.",
+        "revision": "2013-05-14 00:00"
+      },
+      {
+        "description": "Some errors have been modified in current version and some nodes have been added into the current version.",
+        "revision": "2013-03-20 00:00"
+      }
+    ]
+  },
+  "hwClockManageObjects": {
+    "class": "objectidentity",
+    "name": "hwClockManageObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1"
+  },
+  "hwClockManageSysGroup": {
+    "class": "objectgroup",
+    "description": "The manage group.",
+    "name": "hwClockManageSysGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceSysClkWorkMode"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceFreqCheckEnable"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceHoldMode"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceSsmControl"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceFreqCheckRightRange"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceFreqCheckLeftRange"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceRetrieveMode"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceForceCloseEnableStatus"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceSsmUnknown"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockExtTimeOutputType"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockExtTimeInputType"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockTimeUsedSource"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceEthClkEnable"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockAlarmThresholdFrequencyOffset"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockFrequencyOffsetMax"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockFrequencyOffsetMin"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockFrequencyOffsetMean"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockFrequencyOffset"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.10.2.8",
+    "status": "current"
+  },
+  "hwClockNotInLockedMode": {
+    "class": "notificationtype",
+    "description": "The work mode of system clock is not in locked mode.",
+    "name": "hwClockNotInLockedMode",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockChassisId"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockAttributeSysClkLockMode"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.8.7",
+    "status": "current"
+  },
+  "hwClockNotifications": {
+    "class": "objectidentity",
+    "name": "hwClockNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.8"
+  },
+  "hwClockNotificationsGroup": {
+    "class": "notificationgroup",
+    "description": "This is the group of clock notification.",
+    "name": "hwClockNotificationsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceSwitch"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceStateChange"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceStateResume"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceFreqCheck"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceFreqCheckResume"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceOutputBelowThreshold"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceOutputBelowThresholdResume"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrLockFail"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrLockFailResume"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrMasterPwChange"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceValid"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockInLockedMode"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockClusterTopoFailResume"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockClusterTopoFail"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockNotInLockedMode"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceSysClkLockModeChange"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceFailed"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceInputBelowThreshold"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceInputBelowThresholdResume"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesDcrMasterPwChange"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesDcrLockFail"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesDcrLockFailResume"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSsmPktLos"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSsmPktLosResume"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.10.2.16",
+    "status": "current"
+  },
+  "hwClockOldSourceState": {
+    "class": "objecttype",
+    "description": "The old state of clock source.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwClockOldSourceState",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.7.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "abnormal": 2,
+          "holdoff": 4,
+          "initial": 0,
+          "normal": 1,
+          "wtr": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockPllId": {
+    "class": "objecttype",
+    "description": "The id of pll.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwClockPllId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.7.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sync2M1": 2,
+          "sync2M2": 3,
+          "system": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockPortCfgEntry": {
+    "class": "objecttype",
+    "description": "The entry of clock port config table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockPortCfgIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwClockPortCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.5.1",
+    "status": "current"
+  },
+  "hwClockPortCfgForceOutS1": {
+    "class": "objecttype",
+    "description": "The S1 byte of forcing out.",
+    "maxaccess": "read-write",
+    "name": "hwClockPortCfgForceOutS1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": -1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockPortCfgGroup": {
+    "class": "objectgroup",
+    "description": "The port config of clock source group.",
+    "name": "hwClockPortCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockPortCfgLeftFramePri"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockPortCfgRightFramePri"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockPortCfgForceOutS1"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.10.2.13",
+    "status": "current"
+  },
+  "hwClockPortCfgIfIndex": {
+    "class": "objecttype",
+    "description": "The interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockPortCfgIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwClockPortCfgLeftFramePri": {
+    "class": "objecttype",
+    "description": "The clock priority of left frame.",
+    "maxaccess": "read-write",
+    "name": "hwClockPortCfgLeftFramePri",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockPortCfgRightFramePri": {
+    "class": "objecttype",
+    "description": "The clock priority of right frame.",
+    "maxaccess": "read-write",
+    "name": "hwClockPortCfgRightFramePri",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockPortCfgTable": {
+    "class": "objecttype",
+    "description": "The clock port config table.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockPortCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.5",
+    "status": "current"
+  },
+  "hwClockSourceCfgEntry": {
+    "class": "objecttype",
+    "description": "The entry of clock source config table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCfgChassisIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCfgSourceIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwClockSourceCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.3.1",
+    "status": "current"
+  },
+  "hwClockSourceCfgGroup": {
+    "class": "objectgroup",
+    "description": "The clock source group.",
+    "name": "hwClockSourceCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCfgSourceId"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCfgPriRvtEnableStatus"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCfgSwitchCondition"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCfgWtrTime"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCfgBadDetect"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCfgSourceSsm"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCfgExportEnableStatus"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCfgSwiEnableStatus"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCfgSourceState"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCfgSourceDescr"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCfgFreqCheckResult"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCfgHoldOffTime"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCfgBits0Priority"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCfgBits1Priority"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCfgSystemPriority"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCfgSourceSsmSetMode"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCfgSourceS1Id"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCfgClkSourceType"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCfgSsmThreshold"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCfgSystemLockOut"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCfgBits0LockOut"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCfgBits1LockOut"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockBitsCfgTodSignal"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.10.2.10",
+    "status": "current"
+  },
+  "hwClockSourceCfgTable": {
+    "class": "objecttype",
+    "description": "The clock source config table.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockSourceCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.3",
+    "status": "current"
+  },
+  "hwClockSourceCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance of clock MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockManageSysGroup"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceCfgGroup"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockPortCfgGroup"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockBitsCfgGroup"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockNotificationsGroup"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSysSelGroup"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockTrapOidGroup"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockLineCfgGroup"
+      }
+    ],
+    "name": "hwClockSourceCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.10.1.1",
+    "status": "current"
+  },
+  "hwClockSourceCompliances": {
+    "class": "objectidentity",
+    "name": "hwClockSourceCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.10.1"
+  },
+  "hwClockSourceEthClkEnable": {
+    "class": "objecttype",
+    "description": "The flag indicates that the ethernet clock is globally enabled.",
+    "maxaccess": "read-write",
+    "name": "hwClockSourceEthClkEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwClockSourceFailed": {
+    "class": "notificationtype",
+    "description": "The state of clock source is failed.",
+    "name": "hwClockSourceFailed",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockChassisId"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCurSourceName"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSrcCfgSourceState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.8.11",
+    "status": "current"
+  },
+  "hwClockSourceForceCloseEnableStatus": {
+    "class": "objecttype",
+    "description": "The enable status of export forced close.",
+    "maxaccess": "read-write",
+    "name": "hwClockSourceForceCloseEnableStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwClockSourceFreqCheck": {
+    "class": "notificationtype",
+    "description": "The result of clock source frequnce check abnormal notification.",
+    "name": "hwClockSourceFreqCheck",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockChassisId"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSrcCfgSourceDescr"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSrcCfgFreqCheckResult"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.8.5",
+    "status": "current"
+  },
+  "hwClockSourceFreqCheckEnable": {
+    "class": "objecttype",
+    "description": "The enable flag of frequency check.",
+    "maxaccess": "read-write",
+    "name": "hwClockSourceFreqCheckEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwClockSourceFreqCheckLeftRange": {
+    "class": "objecttype",
+    "description": "The left range of frequency check, unit in 0.01ppm.",
+    "maxaccess": "read-write",
+    "name": "hwClockSourceFreqCheckLeftRange",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 50
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockSourceFreqCheckResume": {
+    "class": "notificationtype",
+    "description": "The result of clock source frequnce check normal notification.",
+    "name": "hwClockSourceFreqCheckResume",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockChassisId"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSrcCfgSourceDescr"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSrcCfgFreqCheckResult"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.8.13",
+    "status": "current"
+  },
+  "hwClockSourceFreqCheckRightRange": {
+    "class": "objecttype",
+    "description": "The right range of frequency check, unit in 0.01ppm.",
+    "maxaccess": "read-write",
+    "name": "hwClockSourceFreqCheckRightRange",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 50
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockSourceGroups": {
+    "class": "objectidentity",
+    "name": "hwClockSourceGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.10.2"
+  },
+  "hwClockSourceHoldMode": {
+    "class": "objecttype",
+    "description": "The hold mode of clock source.",
+    "maxaccess": "read-only",
+    "name": "hwClockSourceHoldMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hold24Hours": 1,
+          "holdForever": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockSourceInputBelowThreshold": {
+    "class": "notificationtype",
+    "description": "The SSM of input below threshold notification.",
+    "name": "hwClockSourceInputBelowThreshold",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockChassisId"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockPllId"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockAttributeInputThreshold"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSrcCfgSourceSsm"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.8.24",
+    "status": "current"
+  },
+  "hwClockSourceInputBelowThresholdResume": {
+    "class": "notificationtype",
+    "description": "The SSM of input above or equal threshold notification.",
+    "name": "hwClockSourceInputBelowThresholdResume",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockChassisId"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockPllId"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockAttributeInputThreshold"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSrcCfgSourceSsm"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.8.25",
+    "status": "current"
+  },
+  "hwClockSourceOldLockMode": {
+    "class": "objecttype",
+    "description": "The old lock mode of clock source.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwClockSourceOldLockMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.7.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fastLock": 1,
+          "freeRun": 0,
+          "freeRunJudge": 16,
+          "hold": 3,
+          "holdJudge": 19,
+          "lock": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockSourceOutputBelowThreshold": {
+    "class": "notificationtype",
+    "description": "The SSM of output below threshold notification.",
+    "name": "hwClockSourceOutputBelowThreshold",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockChassisId"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockPllId"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCurSourceName"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockAttributeOutThreshold"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockAttributeOutValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.8.6",
+    "status": "current"
+  },
+  "hwClockSourceOutputBelowThresholdResume": {
+    "class": "notificationtype",
+    "description": "The SSM of output above threshold notification.",
+    "name": "hwClockSourceOutputBelowThresholdResume",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockChassisId"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockPllId"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockAttributeOutThreshold"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockAttributeOutValue"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCurSourceName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.8.14",
+    "status": "current"
+  },
+  "hwClockSourceRetrieveMode": {
+    "class": "objecttype",
+    "description": "The retrieve mode of clock source.",
+    "maxaccess": "read-write",
+    "name": "hwClockSourceRetrieveMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noRetrieve": 2,
+          "retrieve": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockSourceSelChassisIndex": {
+    "class": "objecttype",
+    "description": "The chassis index.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockSourceSelChassisIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "PhysicalIndex"
+    }
+  },
+  "hwClockSourceSelEntry": {
+    "class": "objecttype",
+    "description": "The entry of system clock source selection table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceSelChassisIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceSelType"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwClockSourceSelEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.2.1",
+    "status": "current"
+  },
+  "hwClockSourceSelMode": {
+    "class": "objecttype",
+    "description": "The mode of clock source selection.",
+    "maxaccess": "read-create",
+    "name": "hwClockSourceSelMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "force": 3,
+          "manual": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockSourceSelSourceId": {
+    "class": "objecttype",
+    "description": "The source ID of the clock traced.",
+    "maxaccess": "read-create",
+    "name": "hwClockSourceSelSourceId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwClockSourceSelTable": {
+    "class": "objecttype",
+    "description": "The system clock source selection table.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockSourceSelTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.2",
+    "status": "current"
+  },
+  "hwClockSourceSelType": {
+    "class": "objecttype",
+    "description": "The select type.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockSourceSelType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockSourceSsmControl": {
+    "class": "objecttype",
+    "description": "The flag whether SSM is concerned with the clock source selection.",
+    "maxaccess": "read-write",
+    "name": "hwClockSourceSsmControl",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "extend": 3,
+          "off": 2,
+          "on": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockSourceSsmUnknown": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "dnu"
+      }
+    },
+    "description": "The quality level of unknown SSM.",
+    "maxaccess": "read-write",
+    "name": "hwClockSourceSsmUnknown",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dnu": 15,
+          "prc": 2,
+          "sec": 11,
+          "ssua": 4,
+          "ssub": 8
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockSourceStateChange": {
+    "class": "notificationtype",
+    "description": "The state of clock source change notification.",
+    "name": "hwClockSourceStateChange",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockChassisId"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCurSourceName"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockOldSourceState"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSrcCfgSourceState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.8.3",
+    "status": "current"
+  },
+  "hwClockSourceStateResume": {
+    "class": "notificationtype",
+    "description": "The state of clock source resume notification.",
+    "name": "hwClockSourceStateResume",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockChassisId"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCurSourceName"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockOldSourceState"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSrcCfgSourceState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.8.4",
+    "status": "current"
+  },
+  "hwClockSourceSwitch": {
+    "class": "notificationtype",
+    "description": "Clock source switch notification.",
+    "name": "hwClockSourceSwitch",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockChassisId"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockPllId"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockLastSourceName"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCurSourceName"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSrcSelMode"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.8.1",
+    "status": "current"
+  },
+  "hwClockSourceSysClkLockModeChange": {
+    "class": "notificationtype",
+    "description": "The lock mode of system clock source change notification.",
+    "name": "hwClockSourceSysClkLockModeChange",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockChassisId"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceOldLockMode"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockAttributeSysClkLockMode"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.8.2",
+    "status": "current"
+  },
+  "hwClockSourceSysClkWorkMode": {
+    "class": "objecttype",
+    "description": "The work mode of system clock.",
+    "maxaccess": "read-only",
+    "name": "hwClockSourceSysClkWorkMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "freeoscillate": 3,
+          "hold": 2,
+          "trace": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockSourceValid": {
+    "class": "notificationtype",
+    "description": "The state of clock source is valid.",
+    "name": "hwClockSourceValid",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockChassisId"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCurSourceName"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSrcCfgSourceState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.8.12",
+    "status": "current"
+  },
+  "hwClockSrcCfg2M1Priority": {
+    "class": "objecttype",
+    "description": "The priority of 2msync-1 clock source.",
+    "maxaccess": "read-create",
+    "name": "hwClockSrcCfg2M1Priority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.11.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockSrcCfg2M2Priority": {
+    "class": "objecttype",
+    "description": "The priority of 2msync-2 clock source.",
+    "maxaccess": "read-create",
+    "name": "hwClockSrcCfg2M2Priority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.11.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockSrcCfgChassisIndex": {
+    "class": "objecttype",
+    "description": "The chassis index.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockSrcCfgChassisIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.11.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "PhysicalIndex"
+    }
+  },
+  "hwClockSrcCfgClkEnable": {
+    "class": "objecttype",
+    "description": "The enable flag of clock source.",
+    "maxaccess": "read-create",
+    "name": "hwClockSrcCfgClkEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.11.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwClockSrcCfgClockId": {
+    "class": "objecttype",
+    "description": "The clockid of clock source.",
+    "maxaccess": "read-write",
+    "name": "hwClockSrcCfgClockId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.11.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockSrcCfgClockIdSetMode": {
+    "class": "objecttype",
+    "description": "The set mode of clockid.",
+    "maxaccess": "read-only",
+    "name": "hwClockSrcCfgClockIdSetMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.11.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 2,
+          "manual": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockSrcCfgEntry": {
+    "class": "objecttype",
+    "description": "The entry of clock source config table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSrcCfgChassisIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSrcCfgSourceTypeIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSrcCfgSourceIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwClockSrcCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.11.1",
+    "status": "current"
+  },
+  "hwClockSrcCfgFreqCheckResult": {
+    "class": "objecttype",
+    "description": "The result of frequency check.",
+    "maxaccess": "read-only",
+    "name": "hwClockSrcCfgFreqCheckResult",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.11.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "abnormal": 0,
+          "normal": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockSrcCfgFreqDeviation": {
+    "class": "objecttype",
+    "description": "Freqdeviation value of clock source.",
+    "maxaccess": "read-only",
+    "name": "hwClockSrcCfgFreqDeviation",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.11.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwClockSrcCfgNegotiationSlave": {
+    "class": "objecttype",
+    "description": "Set PHY clock state to slave.",
+    "maxaccess": "read-create",
+    "name": "hwClockSrcCfgNegotiationSlave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.11.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1,
+          "notSupport": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockSrcCfgOutClockId": {
+    "class": "objecttype",
+    "description": "Current output clockid.",
+    "maxaccess": "read-only",
+    "name": "hwClockSrcCfgOutClockId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.11.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clockid0": 0,
+          "clockid1": 1,
+          "clockid10": 10,
+          "clockid11": 11,
+          "clockid12": 12,
+          "clockid13": 13,
+          "clockid14": 14,
+          "clockid15": 15,
+          "clockid2": 2,
+          "clockid3": 3,
+          "clockid4": 4,
+          "clockid5": 5,
+          "clockid6": 6,
+          "clockid7": 7,
+          "clockid8": 8,
+          "clockid9": 9,
+          "notsupport": 99
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockSrcCfgOutSsm": {
+    "class": "objecttype",
+    "description": "Current output ssm.",
+    "maxaccess": "read-only",
+    "name": "hwClockSrcCfgOutSsm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.11.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dnu": 15,
+          "invalid": 99,
+          "prc": 2,
+          "sec": 11,
+          "ssua": 4,
+          "ssub": 8,
+          "unk": 0,
+          "unknown": 16
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockSrcCfgPhyState": {
+    "class": "objecttype",
+    "description": "The PHY clock state of ports.",
+    "maxaccess": "read-only",
+    "name": "hwClockSrcCfgPhyState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.11.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cardTypeNotSupport": 0,
+          "master": 2,
+          "portDown": 4,
+          "slave": 1,
+          "speedNotSupport": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockSrcCfgRowStatus": {
+    "class": "objecttype",
+    "description": "The row status.",
+    "maxaccess": "read-create",
+    "name": "hwClockSrcCfgRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.11.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwClockSrcCfgSabit": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 4
+      }
+    },
+    "description": "The SA bit of E1 Port SSM information.",
+    "maxaccess": "read-write",
+    "name": "hwClockSrcCfgSabit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.11.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 99,
+          "sa4": 4,
+          "sa5": 5,
+          "sa6": 6,
+          "sa7": 7,
+          "sa8": 8
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockSrcCfgSourceDescr": {
+    "class": "objecttype",
+    "description": "The description of clock source.",
+    "maxaccess": "read-only",
+    "name": "hwClockSrcCfgSourceDescr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.11.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwClockSrcCfgSourceIndex": {
+    "class": "objecttype",
+    "description": "The index of clock source.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockSrcCfgSourceIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.11.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwClockSrcCfgSourceSsm": {
+    "class": "objecttype",
+    "description": "The SSM quality of clock source.",
+    "maxaccess": "read-create",
+    "name": "hwClockSrcCfgSourceSsm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.11.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dnu": 15,
+          "prc": 2,
+          "sec": 11,
+          "ssua": 4,
+          "ssub": 8,
+          "unk": 0,
+          "unknown": 16
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockSrcCfgSourceState": {
+    "class": "objecttype",
+    "description": "The state of clock source.",
+    "maxaccess": "read-only",
+    "name": "hwClockSrcCfgSourceState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.11.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "abnormal": 2,
+          "holdoff": 4,
+          "initial": 0,
+          "normal": 1,
+          "waitwtr": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockSrcCfgSourceTypeIndex": {
+    "class": "objecttype",
+    "description": "The type of clock source.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwClockSrcCfgSourceTypeIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.11.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bits": 1,
+          "interface": 3,
+          "ptp": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockSrcCfgSsmInterval": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-create",
+    "name": "hwClockSrcCfgSsmInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.11.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8000,
+            "min": 512
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockSrcCfgSsmSetMode": {
+    "class": "objecttype",
+    "description": "The set mode of SSM.",
+    "maxaccess": "read-only",
+    "name": "hwClockSrcCfgSsmSetMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.11.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 2,
+          "manual": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockSrcCfgSsmTimeout": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-create",
+    "name": "hwClockSrcCfgSsmTimeout",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.11.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32000,
+            "min": 2000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockSrcCfgSystemPriority": {
+    "class": "objecttype",
+    "description": "The priority of system clock source.",
+    "maxaccess": "read-create",
+    "name": "hwClockSrcCfgSystemPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.11.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwClockSrcCfgTable": {
+    "class": "objecttype",
+    "description": "The clock source config table.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockSrcCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.11",
+    "status": "current"
+  },
+  "hwClockSrcSelChassisIndex": {
+    "class": "objecttype",
+    "description": "The chassis index.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockSrcSelChassisIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.10.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "PhysicalIndex"
+    }
+  },
+  "hwClockSrcSelEntry": {
+    "class": "objecttype",
+    "description": "The entry of system clock source selection table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSrcSelChassisIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSrcSelType"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwClockSrcSelEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.10.1",
+    "status": "current"
+  },
+  "hwClockSrcSelMode": {
+    "class": "objecttype",
+    "description": "The mode of clock source selection.",
+    "maxaccess": "read-write",
+    "name": "hwClockSrcSelMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.10.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 0,
+          "force": 2,
+          "manual": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockSrcSelSrcName": {
+    "class": "objecttype",
+    "description": "The name of clock source for selection.",
+    "maxaccess": "read-write",
+    "name": "hwClockSrcSelSrcName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.10.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwClockSrcSelTable": {
+    "class": "objecttype",
+    "description": "The system clock source selection table.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockSrcSelTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.10",
+    "status": "current"
+  },
+  "hwClockSrcSelType": {
+    "class": "objecttype",
+    "description": "The PLL Id.",
+    "maxaccess": "not-accessible",
+    "name": "hwClockSrcSelType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.10.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sync2M1": 2,
+          "sync2M2": 3,
+          "system": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockSrcTraceSrcName": {
+    "class": "objecttype",
+    "description": "The name of trace source.",
+    "maxaccess": "read-only",
+    "name": "hwClockSrcTraceSrcName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.10.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwClockSsmPktLos": {
+    "class": "notificationtype",
+    "description": "The ssm packet of clock source is lost.",
+    "name": "hwClockSsmPktLos",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCurSourceName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.8.26",
+    "status": "current"
+  },
+  "hwClockSsmPktLosResume": {
+    "class": "notificationtype",
+    "description": "The ssm packet of clock source is normal.",
+    "name": "hwClockSsmPktLosResume",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCurSourceName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.8.27",
+    "status": "current"
+  },
+  "hwClockSysSelGroup": {
+    "class": "objectgroup",
+    "description": "The system selection group.",
+    "name": "hwClockSysSelGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceSelMode"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceSelSourceId"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCurSourceName"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockLastSourceName"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockPllId"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceOldLockMode"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrOldMasterPwName"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrNewMasterPwName"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockAttributeOutValue"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrSlot"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrLockState"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrDomain"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesAcrCard"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesDcrSlot"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesDcrCard"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesDcrDomain"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesDcrOldMasterPwName"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesDcrNewMasterPwName"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCesDcrLockState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.10.2.9",
+    "status": "current"
+  },
+  "hwClockTimeUsedSource": {
+    "class": "objecttype",
+    "description": "The clock time used source.",
+    "maxaccess": "read-write",
+    "name": "hwClockTimeUsedSource",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "src1ppsTodBit0": 3,
+          "src1ppsTodBit1": 4,
+          "srcDclsTimeBit0": 1,
+          "srcDclsTimeBit1": 2,
+          "srcFreeRun": 6,
+          "srcPtp": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwClockTrapOid": {
+    "class": "objectidentity",
+    "name": "hwClockTrapOid",
+    "oid": "1.3.6.1.4.1.2011.5.25.186.1.7"
+  },
+  "hwClockTrapOidGroup": {
+    "class": "objectgroup",
+    "description": "The clock trap group.",
+    "name": "hwClockTrapOidGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockLastSourceName"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockCurSourceName"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockSourceOldLockMode"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockChassisId"
+      },
+      {
+        "module": "HUAWEI-CLOCK-MIB",
+        "object": "hwClockOldSourceState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.186.10.2.15",
+    "status": "current"
+  },
+  "imports": {
+    "ENTITY-MIB": [
+      "PhysicalIndex"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Gauge32",
+      "iso",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-CLOCK-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:03 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-CLOCK-MIB"
+  }
+}

@@ -1,0 +1,629 @@
+{
+  "hwBRASRui": {
+    "class": "moduleidentity",
+    "contactinfo": "The MIB contains objects of module RUI.",
+    "description": "Description.",
+    "lastupdated": "200504181334Z",
+    "name": "hwBRASRui",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19",
+    "organization": " NanJing Institute,Huawei Technologies Co.,Ltd. HuiHong Mansion,No.91 BaiXia Rd. NanJing, P.R. of China Zipcode:210001 Http://www.huawei.com E-mail:support@huawei.com "
+  },
+  "hwPeerBackupEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "Peer backup enable. ",
+    "maxaccess": "read-write",
+    "name": "hwPeerBackupEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "hotEnable": 2,
+          "warmEnable": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPeerBackupEnableEntry": {
+    "class": "objectidentity",
+    "name": "hwPeerBackupEnableEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.1.1"
+  },
+  "hwPeerBackupEnableGroup": {
+    "class": "objectgroup",
+    "description": "The RUI peer backup enable group.",
+    "name": "hwPeerBackupEnableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RUI-MIB",
+        "object": "hwPeerBackupEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.2.2.1",
+    "status": "current"
+  },
+  "hwPeerBackupEnableTable": {
+    "class": "objectidentity",
+    "name": "hwPeerBackupEnableTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.1"
+  },
+  "hwPeerBackupObject": {
+    "class": "objectidentity",
+    "name": "hwPeerBackupObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1"
+  },
+  "hwPeerBackupServerDetectInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 20
+      }
+    },
+    "description": "The interval of detecting tcp connection,default is 20 seconds. ",
+    "maxaccess": "read-create",
+    "name": "hwPeerBackupServerDetectInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 60,
+            "min": 10
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPeerBackupServerDetectRetransmit": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 8
+      }
+    },
+    "description": "Number of events re-transmitting the detect packet,default is 8. ",
+    "maxaccess": "read-create",
+    "name": "hwPeerBackupServerDetectRetransmit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 12,
+            "min": 2
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPeerBackupServerEntry": {
+    "class": "objecttype",
+    "description": "Peer backup server table. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-RUI-MIB",
+        "object": "hwPeerBackupServerPeerIp"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPeerBackupServerEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.2.1",
+    "status": "current"
+  },
+  "hwPeerBackupServerGroup": {
+    "class": "objectgroup",
+    "description": "The peer backup server group.",
+    "name": "hwPeerBackupServerGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RUI-MIB",
+        "object": "hwPeerBackupServerPeerIp"
+      },
+      {
+        "module": "HUAWEI-BRAS-RUI-MIB",
+        "object": "hwPeerBackupServerLocalIp"
+      },
+      {
+        "module": "HUAWEI-BRAS-RUI-MIB",
+        "object": "hwPeerBackupServerPort"
+      },
+      {
+        "module": "HUAWEI-BRAS-RUI-MIB",
+        "object": "hwPeerBackupServerDetectRetransmit"
+      },
+      {
+        "module": "HUAWEI-BRAS-RUI-MIB",
+        "object": "hwPeerBackupServerDetectInterval"
+      },
+      {
+        "module": "HUAWEI-BRAS-RUI-MIB",
+        "object": "hwPeerBackupServerRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.2.2.2",
+    "status": "current"
+  },
+  "hwPeerBackupServerLocalIp": {
+    "class": "objecttype",
+    "description": "IP address of the local backup server. ",
+    "maxaccess": "read-create",
+    "name": "hwPeerBackupServerLocalIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwPeerBackupServerPeerIp": {
+    "class": "objecttype",
+    "description": "IP address of the peer backup server. ",
+    "maxaccess": "read-only",
+    "name": "hwPeerBackupServerPeerIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwPeerBackupServerPort": {
+    "class": "objecttype",
+    "description": "Port of the TCP connection. ",
+    "maxaccess": "read-create",
+    "name": "hwPeerBackupServerPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 55535,
+            "min": 1024
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPeerBackupServerRowStatus": {
+    "class": "objecttype",
+    "description": "Row admin status,only Add or Del. ",
+    "maxaccess": "read-create",
+    "name": "hwPeerBackupServerRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwPeerBackupServerTable": {
+    "class": "objecttype",
+    "description": "Peer backup server table. ",
+    "maxaccess": "not-accessible",
+    "name": "hwPeerBackupServerTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.2",
+    "status": "current"
+  },
+  "hwRemoteBackupProfileBackupID": {
+    "class": "objecttype",
+    "description": "Configure BackupID in remote backup proflie ,need configure PeerIP first. ",
+    "maxaccess": "read-create",
+    "name": "hwRemoteBackupProfileBackupID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4095,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRemoteBackupProfileDomainName": {
+    "class": "objecttype",
+    "description": "Domain bound by remote backup profile, need bind ip pool first. ",
+    "maxaccess": "read-create",
+    "name": "hwRemoteBackupProfileDomainName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwRemoteBackupProfileEntry": {
+    "class": "objecttype",
+    "description": "Remote backup profile configuration table. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-RUI-MIB",
+        "object": "hwRemoteBackupProfileIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRemoteBackupProfileEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.3.1",
+    "status": "current"
+  },
+  "hwRemoteBackupProfileExtEntry": {
+    "class": "objecttype",
+    "description": "Remote backup profile configuration extend table. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-RUI-MIB",
+        "object": "hwRemoteBackupProfileIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-RUI-MIB",
+        "object": "hwRemoteBackupProfileIPPoolBindIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRemoteBackupProfileExtEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.4.1",
+    "status": "current"
+  },
+  "hwRemoteBackupProfileExtGroup": {
+    "class": "objectgroup",
+    "description": "The RUI peer backup enable extern group.",
+    "name": "hwRemoteBackupProfileExtGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RUI-MIB",
+        "object": "hwRemoteBackupProfileIPPoolBindIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-RUI-MIB",
+        "object": "hwRemoteBackupProfileIPPoolIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-RUI-MIB",
+        "object": "hwRemoteBackupProfileDomainName"
+      },
+      {
+        "module": "HUAWEI-BRAS-RUI-MIB",
+        "object": "hwRemoteBackupProfileExtRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.2.2.4",
+    "status": "current"
+  },
+  "hwRemoteBackupProfileExtRowStatus": {
+    "class": "objecttype",
+    "description": "Row admin status,only Add or Del. ",
+    "maxaccess": "read-create",
+    "name": "hwRemoteBackupProfileExtRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwRemoteBackupProfileExtTable": {
+    "class": "objecttype",
+    "description": "Remote backup profile configuration extend table. ",
+    "maxaccess": "not-accessible",
+    "name": "hwRemoteBackupProfileExtTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.4",
+    "status": "current"
+  },
+  "hwRemoteBackupProfileGroup": {
+    "class": "objectgroup",
+    "description": "The remote backup profile group.",
+    "name": "hwRemoteBackupProfileGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-RUI-MIB",
+        "object": "hwRemoteBackupProfileIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-RUI-MIB",
+        "object": "hwRemoteBackupProfileName"
+      },
+      {
+        "module": "HUAWEI-BRAS-RUI-MIB",
+        "object": "hwRemoteBackupProfilePeerIP"
+      },
+      {
+        "module": "HUAWEI-BRAS-RUI-MIB",
+        "object": "hwRemoteBackupProfileVrrpID"
+      },
+      {
+        "module": "HUAWEI-BRAS-RUI-MIB",
+        "object": "hwRemoteBackupProfileBackupID"
+      },
+      {
+        "module": "HUAWEI-BRAS-RUI-MIB",
+        "object": "hwRemoteBackupProfileRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.2.2.3",
+    "status": "current"
+  },
+  "hwRemoteBackupProfileIPPoolBindIndex": {
+    "class": "objecttype",
+    "description": "Ip pool bound Index. ",
+    "maxaccess": "read-only",
+    "name": "hwRemoteBackupProfileIPPoolBindIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRemoteBackupProfileIPPoolIndex": {
+    "class": "objecttype",
+    "description": "Ip pool bound by remote backup profile. ",
+    "maxaccess": "read-create",
+    "name": "hwRemoteBackupProfileIPPoolIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4096,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRemoteBackupProfileIndex": {
+    "class": "objecttype",
+    "description": "Remote backup profile index. ",
+    "maxaccess": "read-only",
+    "name": "hwRemoteBackupProfileIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4095,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRemoteBackupProfileName": {
+    "class": "objecttype",
+    "description": "Remote backup profile name. ",
+    "maxaccess": "read-create",
+    "name": "hwRemoteBackupProfileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwRemoteBackupProfilePeerIP": {
+    "class": "objecttype",
+    "description": "Configure peer IP address in remote backup profile. ",
+    "maxaccess": "read-create",
+    "name": "hwRemoteBackupProfilePeerIP",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwRemoteBackupProfileRowStatus": {
+    "class": "objecttype",
+    "description": "Row admin status,only Add or Del. ",
+    "maxaccess": "read-create",
+    "name": "hwRemoteBackupProfileRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwRemoteBackupProfileTable": {
+    "class": "objecttype",
+    "description": "Remote backup profile configuration table. ",
+    "maxaccess": "not-accessible",
+    "name": "hwRemoteBackupProfileTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.3",
+    "status": "current"
+  },
+  "hwRemoteBackupProfileVrrpID": {
+    "class": "objecttype",
+    "description": "Configure VrrpID in remote backup profile. ",
+    "maxaccess": "read-create",
+    "name": "hwRemoteBackupProfileVrrpID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRuiCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the this module.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-BRAS-RUI-MIB",
+        "object": "hwPeerBackupEnableGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-RUI-MIB",
+        "object": "hwPeerBackupServerGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-RUI-MIB",
+        "object": "hwRemoteBackupProfileGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-RUI-MIB",
+        "object": "hwRemoteBackupProfileExtGroup"
+      }
+    ],
+    "name": "hwRuiCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.2.1.1",
+    "status": "current"
+  },
+  "hwRuiCompliances": {
+    "class": "objectidentity",
+    "name": "hwRuiCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.2.1"
+  },
+  "hwRuiConformance": {
+    "class": "objectidentity",
+    "name": "hwRuiConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.2"
+  },
+  "hwRuiGroups": {
+    "class": "objectidentity",
+    "name": "hwRuiGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.19.2.2"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwBRASMib"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "IpAddress",
+      "iso",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "TruthValue",
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-BRAS-RUI-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:46:52 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-BRAS-RUI-MIB"
+  }
+}

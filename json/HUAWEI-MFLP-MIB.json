@@ -1,0 +1,1109 @@
+{
+  "hwMFlpMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "VRP Team Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China http://www.huawei.com Zip:100085 ",
+    "description": "Mac flapping management MIB.",
+    "lastupdated": "200801021629Z",
+    "name": "hwMFlpMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.160",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwMflpAcBlock": {
+    "class": "notificationtype",
+    "description": "This notification indicates the interface blocked.",
+    "name": "hwMflpAcBlock",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgAcName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgBlockTime"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgAlarmReason"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiDetectMAC"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.3",
+    "status": "current"
+  },
+  "hwMflpAcResume": {
+    "class": "notificationtype",
+    "description": "This notification indicates the interface resumed.",
+    "name": "hwMflpAcResume",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgAcName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgBlockTime"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgAlarmReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.4",
+    "status": "current"
+  },
+  "hwMflpCompliances": {
+    "class": "objectidentity",
+    "name": "hwMflpCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.4.1"
+  },
+  "hwMflpConformance": {
+    "class": "objectidentity",
+    "name": "hwMflpConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.4"
+  },
+  "hwMflpFullCompliance": {
+    "class": "modulecompliance",
+    "description": "Description.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgGroup"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgGroup"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpTrapEnableGroup"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpTrapGroup"
+      }
+    ],
+    "name": "hwMflpFullCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.4.1.1",
+    "status": "current"
+  },
+  "hwMflpGeneralObjects": {
+    "class": "objectidentity",
+    "name": "hwMflpGeneralObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.2"
+  },
+  "hwMflpGroups": {
+    "class": "objectidentity",
+    "name": "hwMflpGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.4.2"
+  },
+  "hwMflpIfBlock": {
+    "class": "notificationtype",
+    "description": "This notification indicates the interface blocked.",
+    "name": "hwMflpIfBlock",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgBlockTime"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgAlarmReason"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanDetectMAC"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.1",
+    "status": "current"
+  },
+  "hwMflpIfResume": {
+    "class": "notificationtype",
+    "description": "This notification indicates the interface resumed.",
+    "name": "hwMflpIfResume",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgBlockTime"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgAlarmReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.2",
+    "status": "current"
+  },
+  "hwMflpMIBTraps": {
+    "class": "objectidentity",
+    "name": "hwMflpMIBTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3"
+  },
+  "hwMflpMacAddrAlarm": {
+    "class": "notificationtype",
+    "description": "This notification indicates the MAC locked.",
+    "name": "hwMflpMacAddrAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgMacAddr"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgBlockTime"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgPreIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgAlarmReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.9",
+    "status": "current"
+  },
+  "hwMflpMacAddrResume": {
+    "class": "notificationtype",
+    "description": "This notification indicates the MAC resumed.",
+    "name": "hwMflpMacAddrResume",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgMacAddr"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgBlockTime"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgPreIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgAlarmReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.10",
+    "status": "current"
+  },
+  "hwMflpObjects": {
+    "class": "objectidentity",
+    "name": "hwMflpObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1"
+  },
+  "hwMflpPwBlock": {
+    "class": "notificationtype",
+    "description": "This notification indicates the PW blocked.",
+    "name": "hwMflpPwBlock",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgIpAddr"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgPwId"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgBlockTime"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgAlarmReason"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiDetectMAC"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.5",
+    "status": "current"
+  },
+  "hwMflpPwResume": {
+    "class": "notificationtype",
+    "description": "This notification indicates the PW resumed.",
+    "name": "hwMflpPwResume",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgIpAddr"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgPwId"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgBlockTime"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgAlarmReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.6",
+    "status": "current"
+  },
+  "hwMflpQuitVlanAlarm": {
+    "class": "notificationtype",
+    "description": "This notification indicates the interface leaved from vlan because mac move detected.",
+    "name": "hwMflpQuitVlanAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgAlarmReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.11",
+    "status": "current"
+  },
+  "hwMflpQuitVlanResume": {
+    "class": "notificationtype",
+    "description": "This notification indicates the Interface leaved from vlan resumed.",
+    "name": "hwMflpQuitVlanResume",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgAlarmReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.12",
+    "status": "current"
+  },
+  "hwMflpTrapEnable": {
+    "class": "objecttype",
+    "description": "This object indicates the enable sign of MFLP notification.",
+    "maxaccess": "read-write",
+    "name": "hwMflpTrapEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.2.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMflpTrapEnableGroup": {
+    "class": "objectgroup",
+    "description": "The Mflp trap enable group.",
+    "name": "hwMflpTrapEnableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpTrapEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.160.4.2.3",
+    "status": "current"
+  },
+  "hwMflpTrapGroup": {
+    "class": "notificationgroup",
+    "description": "Mflp Trap Group.",
+    "name": "hwMflpTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpIfBlock"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpIfResume"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpAcBlock"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpAcResume"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpPwBlock"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpPwResume"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanAlarm"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiAlarm"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpMacAddrAlarm"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpMacAddrResume"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpQuitVlanAlarm"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpQuitVlanResume"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.160.4.2.4",
+    "status": "current"
+  },
+  "hwMflpVlanAlarm": {
+    "class": "notificationtype",
+    "description": "This notification indicates alarm only when loop existed in vlan.",
+    "name": "hwMflpVlanAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgAlarmReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.7",
+    "status": "current"
+  },
+  "hwMflpVlanCfgAction": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "block"
+      }
+    },
+    "description": "The action switch of this entry. The meanings of the values are: block(1), alarmOnly(2)",
+    "maxaccess": "read-create",
+    "name": "hwMflpVlanCfgAction",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarmOnly": 2,
+          "block": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMflpVlanCfgAlarmReason": {
+    "class": "objecttype",
+    "description": "The alarm reason, only used for trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMflpVlanCfgAlarmReason",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMflpVlanCfgBlockTime": {
+    "class": "objecttype",
+    "description": "The blocked time of the interface. When the value of hwMflpAction is 1, value of hwMflpBlockTime should be between 10 and 65535.",
+    "maxaccess": "read-create",
+    "name": "hwMflpVlanCfgBlockTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMflpVlanCfgCycles": {
+    "class": "objecttype",
+    "description": "The number of interval.",
+    "maxaccess": "read-create",
+    "name": "hwMflpVlanCfgCycles",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMflpVlanCfgDetectCycle": {
+    "class": "objecttype",
+    "description": "The interval of detecting the mac move-times.",
+    "maxaccess": "read-create",
+    "name": "hwMflpVlanCfgDetectCycle",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 30,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMflpVlanCfgEntry": {
+    "class": "objecttype",
+    "description": "Entries of the mac flapping table in VLAN mode.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMflpVlanCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1.1",
+    "status": "current"
+  },
+  "hwMflpVlanCfgGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing information about mac flapping table.",
+    "name": "hwMflpVlanCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgLoopTimes"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgDetectCycle"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgCycles"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgRetryTimes"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgAction"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgBlockTime"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgIfName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgAlarmReason"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgRowstatus"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanDetectMAC"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgMacAddr"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVlanCfgPreIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.160.4.2.1",
+    "status": "current"
+  },
+  "hwMflpVlanCfgIfName": {
+    "class": "objecttype",
+    "description": "The interface name, only used for trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMflpVlanCfgIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMflpVlanCfgLoopTimes": {
+    "class": "objecttype",
+    "description": "The number of mac move-times.",
+    "maxaccess": "read-create",
+    "name": "hwMflpVlanCfgLoopTimes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMflpVlanCfgMacAddr": {
+    "class": "objecttype",
+    "description": "The MAC address, only used for trap.",
+    "maxaccess": "read-create",
+    "name": "hwMflpVlanCfgMacAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwMflpVlanCfgPreIfName": {
+    "class": "objecttype",
+    "description": "The interface name, only used for trap.",
+    "maxaccess": "read-create",
+    "name": "hwMflpVlanCfgPreIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMflpVlanCfgRetryTimes": {
+    "class": "objecttype",
+    "description": "The retry times of permanent interdiction.",
+    "maxaccess": "read-create",
+    "name": "hwMflpVlanCfgRetryTimes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 5,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMflpVlanCfgRowstatus": {
+    "class": "objecttype",
+    "description": "The operating state of the row.",
+    "maxaccess": "read-create",
+    "name": "hwMflpVlanCfgRowstatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMflpVlanCfgTable": {
+    "class": "objecttype",
+    "description": "The mac flapping table.The table that contains the mac flapping information currently operating in VLAN mode on this device.",
+    "maxaccess": "not-accessible",
+    "name": "hwMflpVlanCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1",
+    "status": "current"
+  },
+  "hwMflpVlanDetectMAC": {
+    "class": "objecttype",
+    "description": "The detect MAC, only used for trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMflpVlanDetectMAC",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMflpVlanId": {
+    "class": "objecttype",
+    "description": "The VLAN ID referring to the VLAN which is correlative to the hwMflpVlanCfg table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMflpVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwMflpVsiAlarm": {
+    "class": "notificationtype",
+    "description": "This notification indicates alarm only when loop existed in vsi.",
+    "name": "hwMflpVsiAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgAlarmReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.160.3.8",
+    "status": "current"
+  },
+  "hwMflpVsiCfgAcName": {
+    "class": "objecttype",
+    "description": "The AC interface name, only used for trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMflpVsiCfgAcName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMflpVsiCfgAction": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "block"
+      }
+    },
+    "description": "The action switch of this entry. The meanings of the values are: block(1), alarmOnly(2)",
+    "maxaccess": "read-create",
+    "name": "hwMflpVsiCfgAction",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarmOnly": 2,
+          "block": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMflpVsiCfgAlarmReason": {
+    "class": "objecttype",
+    "description": "The alarm reason, only used for trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMflpVsiCfgAlarmReason",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMflpVsiCfgBlockPolicy": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "default"
+      }
+    },
+    "description": "The block policy switch of this entry. The meanings of the values are: default(1), acFirst(2), pwFirst(3), acOnly(4)",
+    "maxaccess": "read-create",
+    "name": "hwMflpVsiCfgBlockPolicy",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acFirst": 2,
+          "acOnly": 4,
+          "default": 1,
+          "pwFirst": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMflpVsiCfgBlockTime": {
+    "class": "objecttype",
+    "description": "The blocked time of the interface. When the value of hwMflpAction is 1, value of hwMflpBlockTime should be between 10 and 65535.",
+    "maxaccess": "read-create",
+    "name": "hwMflpVsiCfgBlockTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMflpVsiCfgCycles": {
+    "class": "objecttype",
+    "description": "The number of detect-cycle.",
+    "maxaccess": "read-create",
+    "name": "hwMflpVsiCfgCycles",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMflpVsiCfgDetectCycle": {
+    "class": "objecttype",
+    "description": "The interval of detecting the loop-times.",
+    "maxaccess": "read-create",
+    "name": "hwMflpVsiCfgDetectCycle",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 30,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMflpVsiCfgEntry": {
+    "class": "objecttype",
+    "description": "Entries of The mac flapping table in VSI mode.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMflpVsiCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1",
+    "status": "current"
+  },
+  "hwMflpVsiCfgGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing information about mac flapping table.",
+    "name": "hwMflpVsiCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgLoopTimes"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgDetectCycle"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgCycles"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgRetryTimes"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgAction"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgBlockTime"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgBlockPolicy"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgAcName"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgAlarmReason"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgIpAddr"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgPwId"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiCfgRowstatus"
+      },
+      {
+        "module": "HUAWEI-MFLP-MIB",
+        "object": "hwMflpVsiDetectMAC"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.160.4.2.2",
+    "status": "current"
+  },
+  "hwMflpVsiCfgIpAddr": {
+    "class": "objecttype",
+    "description": "The peer IP address, only used for trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMflpVsiCfgIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMflpVsiCfgLoopTimes": {
+    "class": "objecttype",
+    "description": "The number of loop-times.",
+    "maxaccess": "read-create",
+    "name": "hwMflpVsiCfgLoopTimes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMflpVsiCfgPwId": {
+    "class": "objecttype",
+    "description": "The PW ID, only used for trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMflpVsiCfgPwId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMflpVsiCfgRetryTimes": {
+    "class": "objecttype",
+    "description": "The retry times of permanent interdiction.",
+    "maxaccess": "read-create",
+    "name": "hwMflpVsiCfgRetryTimes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 5,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMflpVsiCfgRowstatus": {
+    "class": "objecttype",
+    "description": "The operating state of the row.",
+    "maxaccess": "read-create",
+    "name": "hwMflpVsiCfgRowstatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMflpVsiCfgTable": {
+    "class": "objecttype",
+    "description": "The mac flapping table .The table that contains the mac flapping information currently operating in VSI mode on this device.",
+    "maxaccess": "not-accessible",
+    "name": "hwMflpVsiCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2",
+    "status": "current"
+  },
+  "hwMflpVsiDetectMAC": {
+    "class": "objecttype",
+    "description": "The detect MAC, only used for trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMflpVsiDetectMAC",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMflpVsiName": {
+    "class": "objecttype",
+    "description": "The VSI name referring to the VSI which is correlative to the hwMflpVsiCfg table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMflpVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.160.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Gauge32",
+      "IpAddress",
+      "TimeTicks",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "MibIdentifier"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-MFLP-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:15 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-MFLP-MIB"
+  }
+}

@@ -1,0 +1,6436 @@
+{
+  "hwAcl": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com",
+    "description": "The HUAWEI-ACL-MIB contains objects to configure ACL module, including ACL group, rule and acl accelerate, and query the current ACL configuration and status. This MIB module objects indicate hwAclNumGroupTable, hwAclBasicRuleTable, hwAclAdvanceRuleTable, hwAclIfRuleTable, hwAclEthernetFrameRuleTable, hwAclIpv6BasicRuleTable, hwAclIpv6AdvanceRuleTable, hwAclIpv6IfRuleTable, hwAclCompileEnableFlag, hwAclCompileNumGroupTable, hwAclIpv6NumGroupTable and acl trap. To filter data packets, a series of rules need to be configured on the device. These rules are defined by ACL (Access Control List), which are a series of sequential rules consisting of rule permit or deny statements. The rules are described by source address, destination address and port number of data packets. ACL classifies data packets through these device interface applied rules, by which the device decides which packets can be received and which should be rejected.",
+    "lastupdated": "201502272100Z",
+    "name": "hwAcl",
+    "oid": "1.3.6.1.4.1.2011.5.1",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "Add hwAclUserDestDomainName in hwAclUserRuleTable, and Add hwAclDomainNameConfigTable.",
+        "revision": "2015-02-27 21:00"
+      },
+      {
+        "description": "Add hwAclAdvancedTcpFlagMask in hwAclAdvancedRuleTable.",
+        "revision": "2015-02-07 21:00"
+      },
+      {
+        "description": "Add hwAclAdvancedPktLenOp, hwAclAdvancedPktLenBegin and hwAclAdvancedPktLenEnd in hwAclAdvancedRuleTable.",
+        "revision": "2014-10-28 21:00"
+      },
+      {
+        "description": "Add hwAclAdvancedVni, hwAclAdvancedIgmpType, hwAclAdvancedTtlOp, hwAclAdvancedTtlExpire, hwAclAdvancedTtlExpireEnd in hwAclAdvancedRuleTable.",
+        "revision": "2014-06-20 09:48"
+      },
+      {
+        "description": "Add hwAclUserSrcUserGroupNum, hwAclUserDstUserGroupNum in hwAclUserRuleTable.",
+        "revision": "2014-04-09 09:48"
+      },
+      {
+        "description": "Add hwAclResourceTrapsTable.",
+        "revision": "2014-03-26 09:26"
+      },
+      {
+        "description": "Add hwAclAdvancedProtocolNew, hwAclIpv6AdvancedProtocolNew in hwAclAdvancedRuleTable.",
+        "revision": "2014-01-17 13:38"
+      },
+      {
+        "description": "Change the range of hwAclNumGroupAclNum in hwAclNumGroupTable, hwAclBasicAclNum in hwAclBasicRuleTable, hwAclAdvancedAclNum in hwAclAdvancedRuleTable, hwAclIfAclNum in hwAclIfRuleTable, hwAclUserAclNum in hwAclUserRuleTable, hwAclIpv6BasicAclNum in hwAclIpv6BasicRuleTable, hwAclIpv6AdvancedAclNum in hwAclIpv6AdvancedRuleTable, hwAclEthernetFrameAclNum in hwAclEthernetFrameRuleTable, hwAclIpv6NumGroupAclNum ihwAclAdvancedSubitemn hwAclIpv6NumGroupTable, hwAclIpv6IfAclNum in hwAclIpv6IfRuleTable, hwAclMplsAclNum in hwAclMplsRuleTable.",
+        "revision": "2013-11-28 21:00"
+      },
+      {
+        "description": "Add hwAclAdvancedSrcPoolName, hwAclAdvancedDestPoolName in hwAclAdvancedRuleTable",
+        "revision": "2013-10-28 19:00"
+      },
+      {
+        "description": "Add hwAclIpv6BasicSrcMask in hwAclIpv6BasicRuleTable; Add hwAclIpv6AdvancedSrcMask, hwAclIpv6AdvancedDestMask in hwAclIpv6AdvancedRuleTable",
+        "revision": "2013-09-05 00:00"
+      },
+      {
+        "description": "Chang hwAclNumGroupAclName in hwAclIpv6NumGroupTable and hwAclIpv6NumGroupAclName in hwAclNumGroupTable value length",
+        "revision": "2014-08-05 16:06"
+      }
+    ]
+  },
+  "hwAclAdvancedAclNum": {
+    "class": "objecttype",
+    "description": "The index of advanced acl table, the index range is (100..199 | 3000..3999 | 42768..76535).",
+    "maxaccess": "read-only",
+    "name": "hwAclAdvancedAclNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAclAdvancedAct": {
+    "class": "objecttype",
+    "description": "The object indicates the action of an advanced acl rule. \u0027deny\u0027 means discarding the packets that meet the condition, \u0027permit\u0027 means permitting the packets that meet the condition.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedAct",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 2,
+          "permit": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclAdvancedCount": {
+    "class": "objecttype",
+    "description": "The object indicates the statistics of matched packets by the rule.",
+    "maxaccess": "read-only",
+    "name": "hwAclAdvancedCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwAclAdvancedDescription": {
+    "class": "objecttype",
+    "description": "The object indicates the description of this advanced rule. The object describes the usage of an ACL with a word or a sentence.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedDescription",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 127,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAclAdvancedDestIp": {
+    "class": "objecttype",
+    "description": "The object indicates the destination IP-address of an advanced acl rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedDestIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwAclAdvancedDestOp": {
+    "class": "objecttype",
+    "description": "The object indicates the destination Port operation symbol of an advanced acl group. It compares the port operators of destination address. \u0027lt\u0027 means less than, \u0027eq\u0027 means equal to, \u0027gt\u0027 means greater than, \u0027neq\u0027 means not equal to, \u0027range\u0027 means between, \u0027invalid\u0027 means this operation of the rule is invalid.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedDestOp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eq": 2,
+          "gt": 3,
+          "invalid": 0,
+          "lt": 1,
+          "neq": 4,
+          "range": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclAdvancedDestPoolName": {
+    "class": "objecttype",
+    "description": "The object indicates the destination pool name.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedDestPoolName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAclAdvancedDestPort1": {
+    "class": "objecttype",
+    "description": "The object indicates the fourth layer destination port1.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedDestPort1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAdvancedDestPort2": {
+    "class": "objecttype",
+    "description": "The object indicates the fourth layer destination port2.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedDestPort2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAdvancedDestWild": {
+    "class": "objecttype",
+    "description": "The object indicates the destination IP-address wild of an advanced acl rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedDestWild",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwAclAdvancedDscp": {
+    "class": "objecttype",
+    "description": "The object indicates the value of frame.The invalid value is 255.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedDscp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 63,
+            "min": 0
+          },
+          {
+            "max": 255,
+            "min": 255
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAdvancedEnable": {
+    "class": "objecttype",
+    "description": "The object indicates whether the rule is valid or invalid.",
+    "maxaccess": "read-only",
+    "name": "hwAclAdvancedEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAclAdvancedEstablish": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "The object indicates whether or not establishing.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedEstablish",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAclAdvancedFragments": {
+    "class": "objecttype",
+    "description": "The object indicates the type of the packet. 0: fragmentSubseq, indicating that the packet is a subsequent fragment 1: fragment, indicating that the packet is a fragment 2: nonFragment, indicating that the packet is not a fragment 3: nonSubseq, indicating that the packet is not a subsequent fragment 4: fragmentSpeFirst, indicating that the packet is the first fragment 255: none, invalid value This object cannot be modified once a rule is created.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedFragments",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fragment": 1,
+          "fragmentSpeFirst": 4,
+          "fragmentSubseq": 0,
+          "nonFragment": 2,
+          "nonSubseq": 3,
+          "none": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclAdvancedIcmpCode": {
+    "class": "objecttype",
+    "description": "The object indicates the code of ICMP packet. It filters ICMP packets according to the message code. The invalid value is 65535.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedIcmpCode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAdvancedIcmpType": {
+    "class": "objecttype",
+    "description": "The object indicates the type of ICMP packet. It filters ICMP packets according to the ICMP message type. The invalid value is 65535.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedIcmpType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAdvancedIgmpType": {
+    "class": "objecttype",
+    "description": "The object indicates the type of igmp, The invalid value is 65535.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedIgmpType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.34",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAdvancedLog": {
+    "class": "objecttype",
+    "description": "The object indicates whether to log the matched packets. The log contents include sequence number of ACL rule, packets passed or discarded, upper layer protocol type over IP, source/destination address, source/destination port number, and number of packets",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedLog",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAclAdvancedPktLenBegin": {
+    "class": "objecttype",
+    "description": "The object indicates the begin packet length value.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedPktLenBegin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.39",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAdvancedPktLenEnd": {
+    "class": "objecttype",
+    "description": "The object indicates the end packet length value.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedPktLenEnd",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.40",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAdvancedPktLenOp": {
+    "class": "objecttype",
+    "description": "The object indicates the packet length operation symbol of an advanced acl rule. \u0027lt\u0027 means less than, \u0027eq\u0027 means equal to, \u0027gt\u0027 means greater than, \u0027neq\u0027 means not equal to, \u0027range\u0027 means between, \u0027invalid\u0027 means this operation of the rule is invalid.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedPktLenOp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.38",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eq": 2,
+          "gt": 3,
+          "invalid": 0,
+          "lt": 1,
+          "neq": 4,
+          "range": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclAdvancedPrecedence": {
+    "class": "objecttype",
+    "description": "The object indicates the value of IP-packet\u0027s precedence, It filters packets according to precedence field.The invalid value is 255.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedPrecedence",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          },
+          {
+            "max": 255,
+            "min": 255
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAdvancedProtocol": {
+    "class": "objecttype",
+    "description": "The object indicates the protocol type of the rule. It specifies the protocol type over IP.The number of IP protocol is 0.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAdvancedProtocolNew": {
+    "class": "objecttype",
+    "description": "The object indicates the protocol type of the rule. It specifies the protocol type over IP.The number of IP protocol is 65535.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedProtocolNew",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAdvancedRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus, Now support three state:CreateAndGo,Active,Destroy.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAclAdvancedRuleEntry": {
+    "class": "objecttype",
+    "description": "Each entry contains a rule of advanced acl group.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedAclNum"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedSubitem"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAclAdvancedRuleEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1",
+    "status": "current"
+  },
+  "hwAclAdvancedRuleTable": {
+    "class": "objecttype",
+    "description": "Configure the rule for advanced acl group.",
+    "maxaccess": "not-accessible",
+    "name": "hwAclAdvancedRuleTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5",
+    "status": "current"
+  },
+  "hwAclAdvancedSrcIp": {
+    "class": "objecttype",
+    "description": "The object indicates the source IP-address of an advanced acl rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedSrcIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwAclAdvancedSrcOp": {
+    "class": "objecttype",
+    "description": "The object indicates the source Port operation symbol of an advanced acl rule. It compares the port operators of source address. \u0027lt\u0027 means less than, \u0027eq\u0027 means equal to, \u0027gt\u0027 means greater than, \u0027neq\u0027 means not equal to, \u0027range\u0027 means between, \u0027invalid\u0027 means this operation of the rule is invalid.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedSrcOp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eq": 2,
+          "gt": 3,
+          "invalid": 0,
+          "lt": 1,
+          "neq": 4,
+          "range": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclAdvancedSrcPoolName": {
+    "class": "objecttype",
+    "description": "The object indicates the source pool name.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedSrcPoolName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAclAdvancedSrcPort1": {
+    "class": "objecttype",
+    "description": "The object indicates the fourth layer sourec port 1. It specifies the source port information of UDP or TCP packets.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedSrcPort1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAdvancedSrcPort2": {
+    "class": "objecttype",
+    "description": "The object indicates the fourth layer source port2.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedSrcPort2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAdvancedSrcWild": {
+    "class": "objecttype",
+    "description": "The object indicates the source IP-address wild of an advanced acl rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedSrcWild",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwAclAdvancedSubitem": {
+    "class": "objecttype",
+    "description": "The object specifies the number of an advanced ACL rule. If the number specified has been assigned to an ACL rule, the new rule will overwrite the old one, which is equal to editing the old rule. If the number is not assigned, the system will define a rule with the number and insert it to the place corresponding to its number. If no number is specified, the system will define a rule, assign a number to it and add it into the ACL. It will be placed at the end of the ACL when configuration sequence is adopted; otherwise, it will be placed based on the \u0027Depth-first\u0027 principle. When ACL rules are following the \u0027Depth-first\u0027 principle, the number of an ACL rule must be given 0 ,but it will be assigned by step automatically;otherwise,this rule will not be created.",
+    "maxaccess": "read-only",
+    "name": "hwAclAdvancedSubitem",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwAclAdvancedTcpFlagMask": {
+    "class": "objecttype",
+    "description": "The object indicates the mask of tcp-flag. The invalid value is 0.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedTcpFlagMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.41",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAdvancedTcpSyncFlag": {
+    "class": "objecttype",
+    "description": "The object indicates the code of TCP Sync flag(0~63), The invalid value is -1.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedTcpSyncFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAdvancedTimeRangeIndex": {
+    "class": "objecttype",
+    "description": "The object indicates the time range of an advanced acl rule. When the current time is in the time range, the rule is valid. Zero value declares that the acl rule has no time range.The invalid value is 0.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedTimeRangeIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 256,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAdvancedTos": {
+    "class": "objecttype",
+    "description": "The object indicates the value of IP-packet\u0027s TOS, It filters packets according to type of service.The invalid value is 255.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedTos",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          },
+          {
+            "max": 255,
+            "min": 255
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAdvancedTtlExpire": {
+    "class": "objecttype",
+    "description": "The object indicates the begin ttl value. The invalid value is 0.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedTtlExpire",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.36",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAdvancedTtlExpireEnd": {
+    "class": "objecttype",
+    "description": "The object indicates the end ttl value. The invalid value is 0.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedTtlExpireEnd",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.37",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAdvancedTtlOp": {
+    "class": "objecttype",
+    "description": "The object indicates the ttl operation symbol of an advanced acl rule. \u0027lt\u0027 means less than, \u0027eq\u0027 means equal to, \u0027gt\u0027 means greater than, \u0027neq\u0027 means not equal to, \u0027range\u0027 means between, \u0027invalid\u0027 means this operation of the rule is invalid.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedTtlOp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.35",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eq": 2,
+          "gt": 3,
+          "invalid": 0,
+          "lt": 1,
+          "neq": 4,
+          "range": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclAdvancedVni": {
+    "class": "objecttype",
+    "description": "The object indicates the ID of VXLAN, The invalid value is 0.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedVni",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16777215,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAdvancedVrfName": {
+    "class": "objecttype",
+    "description": "The object indicates the VRF name of this rule, It specifies the VPN-instance to which the packet belongs.",
+    "maxaccess": "read-create",
+    "name": "hwAclAdvancedVrfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.5.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAclAppliedAclNum": {
+    "class": "objecttype",
+    "description": "The index of ACL group. Basic ACL in range 2000~2999; Advance ACL in range 3000~3999; Link ACL in range 4000~4999;",
+    "maxaccess": "not-accessible",
+    "name": "hwAclAppliedAclNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4999,
+            "min": 2000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAppliedAclNum2": {
+    "class": "objecttype",
+    "description": "The index of ACL group. 65535 means this field is valid.",
+    "maxaccess": "not-accessible",
+    "name": "hwAclAppliedAclNum2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 3999,
+            "min": 2000
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAppliedDirection": {
+    "class": "objecttype",
+    "description": "The direction acl apply on.",
+    "maxaccess": "not-accessible",
+    "name": "hwAclAppliedDirection",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "outbound": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclAppliedEntry": {
+    "class": "objecttype",
+    "description": "Each entry contains a applied ACL.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedOperation"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedScopeType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedScopeIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedDirection"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedAclNum"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedSubitem"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedAclNum2"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedSubitem2"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedIsIPv6Acl"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAclAppliedEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1",
+    "status": "current"
+  },
+  "hwAclAppliedIsIPv6Acl": {
+    "class": "objecttype",
+    "description": "The object indicates whether is IPv6 ACL.",
+    "maxaccess": "not-accessible",
+    "name": "hwAclAppliedIsIPv6Acl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAclAppliedLimitCbs": {
+    "class": "objecttype",
+    "description": "Committed burst size. Unit: byte. 0 is the default value.",
+    "maxaccess": "read-create",
+    "name": "hwAclAppliedLimitCbs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 16773120,
+            "min": 4096
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAppliedLimitCir": {
+    "class": "objecttype",
+    "description": "Committed information rate. Unit: kbps.",
+    "maxaccess": "read-create",
+    "name": "hwAclAppliedLimitCir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 10000000,
+            "min": 64
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAppliedLimitGreenAction": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "pass"
+      }
+    },
+    "description": "Green action.",
+    "maxaccess": "read-create",
+    "name": "hwAclAppliedLimitGreenAction",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 2,
+          "pass": 1,
+          "passRemark8021p": 4,
+          "passRemarkDscp": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclAppliedLimitGreenValue": {
+    "class": "objecttype",
+    "description": "The value is to remark When green action is remarking. For remarking DSCP, the range is 0~63; For remarking 8021p, the range is 0~7.",
+    "maxaccess": "read-create",
+    "name": "hwAclAppliedLimitGreenValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAppliedLimitPbs": {
+    "class": "objecttype",
+    "description": "Peak burst size. Unit: byte. 0 is the default value.",
+    "maxaccess": "read-create",
+    "name": "hwAclAppliedLimitPbs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 16773120,
+            "min": 4096
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAppliedLimitPir": {
+    "class": "objecttype",
+    "description": "Peak information rate. Unit: kbps. 0 is the default value.",
+    "maxaccess": "read-create",
+    "name": "hwAclAppliedLimitPir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 10000000,
+            "min": 64
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAppliedLimitRedAction": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "drop"
+      }
+    },
+    "description": "Red action.",
+    "maxaccess": "read-create",
+    "name": "hwAclAppliedLimitRedAction",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 2,
+          "pass": 1,
+          "passRemark8021p": 4,
+          "passRemarkDscp": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclAppliedLimitRedValue": {
+    "class": "objecttype",
+    "description": "The value is to remark When red action is remarking. For remarking DSCP, the range is 0~63; For remarking 8021p, the range is 0~7.",
+    "maxaccess": "read-create",
+    "name": "hwAclAppliedLimitRedValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAppliedLimitYellowAction": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "pass"
+      }
+    },
+    "description": "Yellow action.",
+    "maxaccess": "read-create",
+    "name": "hwAclAppliedLimitYellowAction",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 2,
+          "pass": 1,
+          "passRemark8021p": 4,
+          "passRemarkDscp": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclAppliedLimitYellowValue": {
+    "class": "objecttype",
+    "description": "The value is to remark When yellow action is remarking. For remarking DSCP, the range is 0~63; For remarking 8021p, the range is 0~7.",
+    "maxaccess": "read-create",
+    "name": "hwAclAppliedLimitYellowValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAppliedMirrObservedPort": {
+    "class": "objecttype",
+    "description": "The mirror observe port number.",
+    "maxaccess": "read-create",
+    "name": "hwAclAppliedMirrObservedPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAclAppliedMirrRspanVlan": {
+    "class": "objecttype",
+    "description": "The object specifies the RSPAN vlan. 0 means mirror to local port.",
+    "maxaccess": "read-create",
+    "name": "hwAclAppliedMirrRspanVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAppliedOperation": {
+    "class": "objecttype",
+    "description": "The actions taken when packets conforming or exceeding the configured.",
+    "maxaccess": "not-accessible",
+    "name": "hwAclAppliedOperation",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "filter": 1,
+          "limit": 2,
+          "mirror": 3,
+          "redirectCpu": 4,
+          "redirectInterface": 5,
+          "redirectIpNextHop": 6,
+          "redirectIpv6NextHop": 7,
+          "remark8021p": 8,
+          "remarkCVlanId": 13,
+          "remarkDestMac": 14,
+          "remarkDscp": 9,
+          "remarkIpPrecedence": 10,
+          "remarkLocalPrecedence": 11,
+          "remarkVlanId": 12,
+          "statistic": 15
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclAppliedRedirectIfIndex": {
+    "class": "objecttype",
+    "description": "The redirect output interface.",
+    "maxaccess": "read-create",
+    "name": "hwAclAppliedRedirectIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAclAppliedRedirectIpAddr": {
+    "class": "objecttype",
+    "description": "The redirect IP next hop address.",
+    "maxaccess": "read-create",
+    "name": "hwAclAppliedRedirectIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwAclAppliedRedirectIpv6Addr": {
+    "class": "objecttype",
+    "description": "The redirect IPv6 next hop address.",
+    "maxaccess": "read-create",
+    "name": "hwAclAppliedRedirectIpv6Addr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Ipv6Address"
+    }
+  },
+  "hwAclAppliedRemark8021p": {
+    "class": "objecttype",
+    "description": "The remarked 8021p value.",
+    "maxaccess": "read-create",
+    "name": "hwAclAppliedRemark8021p",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAppliedRemarkCVlan": {
+    "class": "objecttype",
+    "description": "The remarked ce-vlan ID.",
+    "maxaccess": "read-create",
+    "name": "hwAclAppliedRemarkCVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAppliedRemarkDscp": {
+    "class": "objecttype",
+    "description": "The remarked DSCP value.",
+    "maxaccess": "read-create",
+    "name": "hwAclAppliedRemarkDscp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAppliedRemarkIpPre": {
+    "class": "objecttype",
+    "description": "The remarked IP precedence value.",
+    "maxaccess": "read-create",
+    "name": "hwAclAppliedRemarkIpPre",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAppliedRemarkLocalPre": {
+    "class": "objecttype",
+    "description": "The remarked local precedence value.",
+    "maxaccess": "read-create",
+    "name": "hwAclAppliedRemarkLocalPre",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAppliedRemarkMacAddr": {
+    "class": "objecttype",
+    "description": "The remarked MAC address.",
+    "maxaccess": "read-create",
+    "name": "hwAclAppliedRemarkMacAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwAclAppliedRemarkVlan": {
+    "class": "objecttype",
+    "description": "The remarked vlan ID.",
+    "maxaccess": "read-create",
+    "name": "hwAclAppliedRemarkVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclAppliedRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus,Now support three state:CreateAndGo,Active,Destroy.",
+    "maxaccess": "read-create",
+    "name": "hwAclAppliedRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAclAppliedScopeIndex": {
+    "class": "objecttype",
+    "description": "When the scope is global, this field is invalid; When the scope is vlan, this field is vlan ID; When the scope is interface, this field is interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwAclAppliedScopeIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAclAppliedScopeType": {
+    "class": "objecttype",
+    "description": "The scope that ACL apply on.",
+    "maxaccess": "not-accessible",
+    "name": "hwAclAppliedScopeType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "global": 1,
+          "interface": 3,
+          "vlan": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclAppliedStatCount": {
+    "class": "objecttype",
+    "description": "The object indicates the statistics of matched packets by the policy. When action is statistic or limit, this field is valid.",
+    "maxaccess": "read-only",
+    "name": "hwAclAppliedStatCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwAclAppliedStatMode": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "byPackets"
+      }
+    },
+    "description": "The object specifies the mode of statistics. When action is statistic, this field is valid.",
+    "maxaccess": "read-create",
+    "name": "hwAclAppliedStatMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "byBytes": 2,
+          "byPackets": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclAppliedSubitem": {
+    "class": "objecttype",
+    "description": "The object specifies the number of an ACL rule.",
+    "maxaccess": "not-accessible",
+    "name": "hwAclAppliedSubitem",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAclAppliedSubitem2": {
+    "class": "objecttype",
+    "description": "The object specifies the number of an ACL rule.",
+    "maxaccess": "not-accessible",
+    "name": "hwAclAppliedSubitem2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAclAppliedTable": {
+    "class": "objecttype",
+    "description": "Configure the applied ACL.",
+    "maxaccess": "not-accessible",
+    "name": "hwAclAppliedTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.15",
+    "status": "current"
+  },
+  "hwAclBasicAclNum": {
+    "class": "objecttype",
+    "description": "The index of basic acl group, the index range is (1..99 | 2000..2999 | 42768..76535 ).",
+    "maxaccess": "read-only",
+    "name": "hwAclBasicAclNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAclBasicAct": {
+    "class": "objecttype",
+    "description": "The object indicates the action of a basic acl rule. \u0027deny\u0027 means discarding the packets that meet the condition, \u0027permit\u0027 means permitting the packets that meet the condition.",
+    "maxaccess": "read-create",
+    "name": "hwAclBasicAct",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 2,
+          "permit": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclBasicCount": {
+    "class": "objecttype",
+    "description": "The object indicates the statistics of matched packets by the rule.",
+    "maxaccess": "read-only",
+    "name": "hwAclBasicCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.4.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwAclBasicDescription": {
+    "class": "objecttype",
+    "description": "The object indicates the description of this basic rule. The object describes the usage of an ACL with a word or a sentence.",
+    "maxaccess": "read-create",
+    "name": "hwAclBasicDescription",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.4.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 127,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAclBasicEnable": {
+    "class": "objecttype",
+    "description": "The object indicates whether the rule is valid or invalid.",
+    "maxaccess": "read-only",
+    "name": "hwAclBasicEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.4.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAclBasicFragments": {
+    "class": "objecttype",
+    "description": "The object indicates the type of the packet. 0: fragmentSubseq, indicating that the packet is a subsequent fragment 1: fragment, indicating that the packet is a fragment 2: nonFragment, indicating that the packet is not a fragment 3: nonSubseq, indicating that the packet is not a subsequent fragment 4: fragmentSpeFirst, indicating that the packet is the first fragment 255: none, invalid value This object cannot be modified once a rule is created.",
+    "maxaccess": "read-create",
+    "name": "hwAclBasicFragments",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fragment": 1,
+          "fragmentSpeFirst": 4,
+          "fragmentSubseq": 0,
+          "nonFragment": 2,
+          "nonSubseq": 3,
+          "none": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclBasicLog": {
+    "class": "objecttype",
+    "description": "The object indicates whether to log the matched packets. The log contents include sequence number of ACL rule, packets passed or discarded, upper layer protocol type over IP, source/destination address, source/destination port number, and number of packets.",
+    "maxaccess": "read-create",
+    "name": "hwAclBasicLog",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.4.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAclBasicRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus, Now support three value:CreateAndGo,Active and Destroy.",
+    "maxaccess": "read-create",
+    "name": "hwAclBasicRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.4.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAclBasicRuleEntry": {
+    "class": "objecttype",
+    "description": "Each entry is a rule of basic acl.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclBasicAclNum"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclBasicSubitem"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAclBasicRuleEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.4.1",
+    "status": "current"
+  },
+  "hwAclBasicRuleTable": {
+    "class": "objecttype",
+    "description": "Configure the rule for basic acl group.",
+    "maxaccess": "not-accessible",
+    "name": "hwAclBasicRuleTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.4",
+    "status": "current"
+  },
+  "hwAclBasicSrcIp": {
+    "class": "objecttype",
+    "description": "The object indicates the source IP-address of a basic acl rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclBasicSrcIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwAclBasicSrcWild": {
+    "class": "objecttype",
+    "description": "The object indicates the source IP-address wild of a basic acl rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclBasicSrcWild",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwAclBasicSubitem": {
+    "class": "objecttype",
+    "description": "The objects specifies the number of an ACL rule. If the number specified has been assigned to an ACL rule, the new rule will overwrite the old one, which is equal to editing the old rule. If the number is not assigned, the system will define a rule with the number and insert it to the place corresponding to its number. If no number is specified, the system will define a rule, assign a number to it and add it into the ACL. It will be placed at the end of the ACL when configuration sequence is adopted; otherwise, it will be placed based on the \u0027Depth-first\u0027 principle. When ACL rules are following the \u0027Depth-first\u0027 principle, the number of an ACL rule must be given 0 ,but it will be assigned by step automatically;otherwise,this rule will not be created.",
+    "maxaccess": "read-only",
+    "name": "hwAclBasicSubitem",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwAclBasicTimeRangeIndex": {
+    "class": "objecttype",
+    "description": "The object indicates the time range of a basic acl rule. When the current time is in time range, the rule is valid. Zero value declares that the acl rule has no time range. The invalid value is 0.",
+    "maxaccess": "read-create",
+    "name": "hwAclBasicTimeRangeIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 256,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclBasicVrfName": {
+    "class": "objecttype",
+    "description": "The object indicates the VRF name of this rule. It specifies the VPN-instance to which the packet belongs.",
+    "maxaccess": "read-create",
+    "name": "hwAclBasicVrfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.4.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAclCompileEnableFlag": {
+    "class": "objecttype",
+    "description": "The object indicates whether acl compiler is enabled. when acl compiler is enabled, and ACL accelerate function is enabled, then matching packets by rule is efficient.",
+    "maxaccess": "read-write",
+    "name": "hwAclCompileEnableFlag",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAclCompileNumGroupEntry": {
+    "augmention": {
+      "module": "HUAWEI-ACL-MIB",
+      "name": "hwAclCompileNumGroupEntry",
+      "object": "hwAclNumGroupEntry"
+    },
+    "class": "objecttype",
+    "description": "The entry of Acl-number-group compiler extended table",
+    "maxaccess": "not-accessible",
+    "name": "hwAclCompileNumGroupEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.11.1",
+    "status": "current"
+  },
+  "hwAclCompileNumGroupStatus": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "notCompile"
+      }
+    },
+    "description": "The object indicates the status of Acl-number-group compiler. \u0027notCompile\u0027 means acl accelerate function is disabled, \u0027compiled\u0027 means acl accelerate function is enabled, \u0027changeAfterCompile\u0027 means acl is changed after compiled.",
+    "maxaccess": "read-write",
+    "name": "hwAclCompileNumGroupStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.11.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "changeAfterCompile": 3,
+          "compiled": 2,
+          "notCompile": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclCompileNumGroupTable": {
+    "class": "objecttype",
+    "description": "The ACL compiler table extending the Acl-number-group table",
+    "maxaccess": "not-accessible",
+    "name": "hwAclCompileNumGroupTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.11",
+    "status": "current"
+  },
+  "hwAclDomainID": {
+    "class": "objecttype",
+    "description": "The index of DomianName table, the index range is (0..31).",
+    "maxaccess": "not-accessible",
+    "name": "hwAclDomainID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.19.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAclDomainName": {
+    "class": "objecttype",
+    "description": "The domian name.",
+    "maxaccess": "read-write",
+    "name": "hwAclDomainName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.19.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 127,
+            "min": 3
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAclDomainNameConfigEntry": {
+    "class": "objecttype",
+    "description": "Each entry is a domain name.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclDomainID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAclDomainNameConfigEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.19.1",
+    "status": "current"
+  },
+  "hwAclDomainNameConfigRowStatus": {
+    "class": "objecttype",
+    "description": "Row status,Two actions are used: createAndGo(4), destroy(6).",
+    "maxaccess": "read-create",
+    "name": "hwAclDomainNameConfigRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.19.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAclDomainNameConfigTable": {
+    "class": "objecttype",
+    "description": "Configure the domain name.",
+    "maxaccess": "not-accessible",
+    "name": "hwAclDomainNameConfigTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.19",
+    "status": "current"
+  },
+  "hwAclEthernetFrameAclNum": {
+    "class": "objecttype",
+    "description": "The index of ethernet-frame-based acl group, the index range is (4000..4999 | 42768..76535).",
+    "maxaccess": "read-only",
+    "name": "hwAclEthernetFrameAclNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.14.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAclEthernetFrameAct": {
+    "class": "objecttype",
+    "description": "The object indicates the action of an ethernet-frame-based acl rule. \u0027deny\u0027 means discarding the packets that meet the condition, \u0027permit\u0027 means permitting the packets that meet the condition.",
+    "maxaccess": "read-create",
+    "name": "hwAclEthernetFrameAct",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.14.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 2,
+          "permit": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclEthernetFrameCVlanId": {
+    "class": "objecttype",
+    "description": "The object indicates the ce-vlan ID of rule. The invalid vlan ID is 0.",
+    "maxaccess": "read-create",
+    "name": "hwAclEthernetFrameCVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.14.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclEthernetFrameCVlanIdMask": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 4095
+      }
+    },
+    "description": "The object indicates the ce-vlan ID mask of rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclEthernetFrameCVlanIdMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.14.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4095,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclEthernetFrameCount": {
+    "class": "objecttype",
+    "description": "The object indicates the statistics of matched packets by rule.",
+    "maxaccess": "read-only",
+    "name": "hwAclEthernetFrameCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.14.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwAclEthernetFrameDescription": {
+    "class": "objecttype",
+    "description": "The object indicates the description of this ethernetframe rule. The object describes the usage of an ACL with a word or a sentence.",
+    "maxaccess": "read-create",
+    "name": "hwAclEthernetFrameDescription",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.14.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 127,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAclEthernetFrameDoubleTag": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "The object indicates two tags of rule. False value do not care the number of tags.",
+    "maxaccess": "read-create",
+    "name": "hwAclEthernetFrameDoubleTag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.14.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAclEthernetFrameDstMac": {
+    "class": "objecttype",
+    "description": "The object indicates the destination mac address of rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclEthernetFrameDstMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.14.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwAclEthernetFrameDstMacMask": {
+    "class": "objecttype",
+    "description": "The object indicates the destination mac mask of rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclEthernetFrameDstMacMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.14.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwAclEthernetFrameEnable": {
+    "class": "objecttype",
+    "description": "The object indicates whether the rule is valid or invalid.",
+    "maxaccess": "read-only",
+    "name": "hwAclEthernetFrameEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.14.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwAclEthernetFrameEncapType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "none"
+      }
+    },
+    "description": "The object indicates the encapsulation type of rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclEthernetFrameEncapType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.14.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ether2": 1,
+          "ieee802dot3": 2,
+          "none": 255,
+          "snap": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclEthernetFrameLog": {
+    "class": "objecttype",
+    "description": "The object indicates whether to log the matched packets. The log contents include sequence number of ACL rule, packets passed or discarded, source/destination mac addr, protocol of ethernet frame, and number of packets.",
+    "maxaccess": "read-create",
+    "name": "hwAclEthernetFrameLog",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.14.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAclEthernetFrameRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus,Now support three state:CreateAndGo,Active,Destroy.",
+    "maxaccess": "read-create",
+    "name": "hwAclEthernetFrameRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.14.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAclEthernetFrameRule8021p": {
+    "class": "objecttype",
+    "description": "The object indicates the 8021p value of S-tag.",
+    "maxaccess": "read-create",
+    "name": "hwAclEthernetFrameRule8021p",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.14.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          },
+          {
+            "max": 255,
+            "min": 255
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclEthernetFrameRuleCVlan8021p": {
+    "class": "objecttype",
+    "description": "The object indicates the 8021p value of C-tag.",
+    "maxaccess": "read-create",
+    "name": "hwAclEthernetFrameRuleCVlan8021p",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.14.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          },
+          {
+            "max": 255,
+            "min": 255
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclEthernetFrameRuleEntry": {
+    "class": "objecttype",
+    "description": "Each entry contains a rule of ethernet-frame-based acl group.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclEthernetFrameAclNum"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclEthernetFrameSubitem"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAclEthernetFrameRuleEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.14.1",
+    "status": "current"
+  },
+  "hwAclEthernetFrameRuleTable": {
+    "class": "objecttype",
+    "description": "Configure the rule for ethernet-frame-based acl group.",
+    "maxaccess": "not-accessible",
+    "name": "hwAclEthernetFrameRuleTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.14",
+    "status": "current"
+  },
+  "hwAclEthernetFrameSrcMac": {
+    "class": "objecttype",
+    "description": "The object indicates the source mac address of rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclEthernetFrameSrcMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.14.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwAclEthernetFrameSrcMacMask": {
+    "class": "objecttype",
+    "description": "The object indicates the source mac mask of rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclEthernetFrameSrcMacMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.14.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwAclEthernetFrameSubitem": {
+    "class": "objecttype",
+    "description": "The object specifies the number of an ACL rule. If the number specified has been assigned to an ACL rule, the new rule will overwrite the old one, which is equal to editing the old rule. If the number is not assigned, the system will define a rule with the number and insert it to the place corresponding to its number. If no number is specified, the system will define a rule, assign a number to it and add it into the ACL. It will be placed at the end of the ACL when configuration sequence is adopted; otherwise, it will be placed based on the \u0027Depth-first\u0027 principle. When ACL rules are following the \u0027Depth-first\u0027 principle, the number of an ACL rule must be given 0 ,but it will be assigned by step automatically;otherwise,this rule will not be created.",
+    "maxaccess": "read-only",
+    "name": "hwAclEthernetFrameSubitem",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.14.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwAclEthernetFrameTimeRangeIndex": {
+    "class": "objecttype",
+    "description": "The object indicates the time range of a ethernet frame acl rule. When the current time is in time range, the rule is valid. Zero value declares that the acl rule has no time range. The invalid value is 0.",
+    "maxaccess": "read-create",
+    "name": "hwAclEthernetFrameTimeRangeIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.14.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 256,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclEthernetFrameType": {
+    "class": "objecttype",
+    "description": "The object indicates the type of an ethernet frame. It specifies the interface information of the packets. The invalid ethernet frame type is 0.",
+    "maxaccess": "read-create",
+    "name": "hwAclEthernetFrameType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.14.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAclEthernetFrameTypeMask": {
+    "class": "objecttype",
+    "description": "The object indicates the mask of ethernet frame.",
+    "maxaccess": "read-create",
+    "name": "hwAclEthernetFrameTypeMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.14.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAclEthernetFrameVlanId": {
+    "class": "objecttype",
+    "description": "The object indicates the vlan ID of rule. The invalid vlan ID is 0.",
+    "maxaccess": "read-create",
+    "name": "hwAclEthernetFrameVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.14.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclEthernetFrameVlanIdMask": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 4095
+      }
+    },
+    "description": "The object indicates the vlan ID mask of rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclEthernetFrameVlanIdMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.14.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4095,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing mandatory acl information.",
+    "name": "hwAclGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclNumGroupMatchOrder"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclNumGroupSubitemNum"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclNumGroupAclName"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclBasicAct"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclBasicSrcIp"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclBasicSrcWild"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclBasicTimeRangeIndex"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclBasicFragments"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclBasicLog"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclBasicEnable"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclBasicCount"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclBasicRowStatus"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedAct"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedProtocol"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedSrcIp"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedSrcWild"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedSrcOp"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedSrcPort1"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedSrcPort2"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedDestIp"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedDestWild"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedDestOp"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedDestPort1"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedDestPort2"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedPrecedence"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedTos"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedDscp"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedEstablish"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedTimeRangeIndex"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedIcmpType"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedIcmpCode"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedFragments"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedLog"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedEnable"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedCount"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedRowStatus"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedTcpSyncFlag"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedSrcPoolName"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedDestPoolName"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedProtocolNew"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedVni"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedIgmpType"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedTtlOp"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedTtlExpire"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedTtlExpireEnd"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIfAct"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIfIndex"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIfAny"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIfTimeRangeIndex"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIfLog"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIfEnable"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIfCount"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIfRowStatus"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserAct"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserProtocol"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserSrcIp"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserSrcWild"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserSrcOp"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserSrcPort1"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserSrcPort2"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserDestIp"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserDestWild"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserDestOp"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserDestPort1"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserDestPort2"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserPrecedence"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserTos"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserDscp"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserEstablish"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserTimeRangeIndex"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserIcmpType"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserIcmpCode"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserFragments"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserLog"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserEnable"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserCount"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserSrcUserGroupName"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserDestUserGroupName"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserSrcModeType"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserDestModeType"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserRowStatus"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclCompileEnableFlag"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclNumGroupAclNum"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclBasicAclNum"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclBasicSubitem"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedAclNum"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedSubitem"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIfAclNum"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIfSubitem"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserAclNum"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserSubitem"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserVrfName"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserTcpSyncFlag"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclEthernetFrameEncapType"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclEthernetFrameDoubleTag"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclEthernetFrameVlanId"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclEthernetFrameVlanIdMask"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclEthernetFrameCVlanId"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclEthernetFrameCVlanIdMask"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedStatMode"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedStatCount"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedLimitCir"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedLimitPir"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedLimitCbs"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedLimitPbs"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedLimitGreenAction"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedLimitGreenValue"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedLimitYellowAction"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedLimitYellowValue"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedLimitRedAction"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedLimitRedValue"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedMirrObservedPort"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedMirrRspanVlan"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedRedirectIfIndex"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedRedirectIpAddr"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedRedirectIpv6Addr"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedRemarkVlan"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedRemarkCVlan"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedRemark8021p"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedRemarkDscp"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedRemarkIpPre"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedRemarkLocalPre"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedRemarkMacAddr"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAppliedRowStatus"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclCompileNumGroupStatus"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclNumGroupStep"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclNumGroupDescription"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclNumGroupCountClear"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclNumGroupRowStatus"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclBasicVrfName"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclAdvancedVrfName"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6BasicAct"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6BasicSrcIp"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6BasicSrcPrefix"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6BasicTimeRangeIndex"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6BasicFragment"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6BasicLog"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6BasicEnable"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6BasicCount"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6BasicVrfName"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6BasicRowStatus"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedAct"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedProtocol"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedSrcIp"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedSrcPrefix"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedSrcOp"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedSrcPort1"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedSrcPort2"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedDestIp"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedDestPrefix"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedDestOp"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedDestPort1"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedDestPort2"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedPrecedence"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedTos"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedDscp"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedEstablish"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedTimeRangeIndex"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedIcmpType"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedIcmpCode"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedFragment"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedLog"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedEnable"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedCount"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedVrfName"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedRowStatus"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedProtocolNew"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclEthernetFrameAct"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclEthernetFrameType"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclEthernetFrameTypeMask"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclEthernetFrameSrcMac"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclEthernetFrameSrcMacMask"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclEthernetFrameDstMac"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclEthernetFrameDstMacMask"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclEthernetFrameTimeRangeIndex"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclEthernetFrameLog"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclEthernetFrameEnable"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclEthernetFrameCount"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclEthernetFrameRowStatus"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclEthernetFrameRule8021p"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclEthernetFrameRuleCVlan8021p"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6NumGroupMatchOrder"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6NumGroupSubitemNum"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6NumGroupCountClear"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6NumGroupRowStatus"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6NumGroupAclName"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6IfAct"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6IfIndex"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6IfAny"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6IfTimeRangeIndex"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6IfLog"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6IfEnable"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6IfCount"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6IfRowStatus"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclMplsAct"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclMplsExp1"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclMplsExp2"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclMplsExp3"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclMplsExp4"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclMplsLabel1"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclMplsLabel2"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclMplsLabel3"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclMplsLabel4"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclMplsTTLOP1"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclMplsTTL1Begin"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclMplsTTL1End"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclMplsTTLOP2"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclMplsTTL2Begin"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclMplsTTL2End"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclMplsTTLOP3"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclMplsTTL3Begin"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclMplsTTL3End"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclMplsRowStatus"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclMplsCount"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6BasicSrcMask"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedSrcMask"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedDestMask"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.1.3.2.1",
+    "status": "current"
+  },
+  "hwAclIfAclNum": {
+    "class": "objecttype",
+    "description": "The index of interface-based acl group, the index range is (1000..1999 | 42768..76535).",
+    "maxaccess": "read-only",
+    "name": "hwAclIfAclNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAclIfAct": {
+    "class": "objecttype",
+    "description": "The object indicates the action of an interface-based acl rule. \u0027deny\u0027 means discarding the packets that meet the condition, \u0027permit\u0027 means permitting the packets that meet the condition.",
+    "maxaccess": "read-create",
+    "name": "hwAclIfAct",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 2,
+          "permit": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclIfAny": {
+    "class": "objecttype",
+    "description": "The object indicates whether or not matching any interface.",
+    "maxaccess": "read-create",
+    "name": "hwAclIfAny",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAclIfCount": {
+    "class": "objecttype",
+    "description": "The object indicates the statistics of matched packets by the rule.",
+    "maxaccess": "read-only",
+    "name": "hwAclIfCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.6.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwAclIfEnable": {
+    "class": "objecttype",
+    "description": "The object indicates whether the rule is valid or invalid.",
+    "maxaccess": "read-only",
+    "name": "hwAclIfEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.6.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAclIfIndex": {
+    "class": "objecttype",
+    "description": "The object indicates the index of an interface. It specifies the interface information of the packets.The invalid interface index is 0.",
+    "maxaccess": "read-create",
+    "name": "hwAclIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAclIfLog": {
+    "class": "objecttype",
+    "description": "The object indicates whether to log the matched packets. The log contents include sequence number of ACL rule, packets passed or discarded, upper layer protocol type over IP, source/destination address, source/destination port number, and number of packets.",
+    "maxaccess": "read-create",
+    "name": "hwAclIfLog",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.6.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAclIfRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus,Now support three state:CreateAndGo,Active,Destroy.",
+    "maxaccess": "read-create",
+    "name": "hwAclIfRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.6.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAclIfRuleEntry": {
+    "class": "objecttype",
+    "description": "Each entry contains a rule of interface-based acl group.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIfAclNum"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIfSubitem"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAclIfRuleEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.6.1",
+    "status": "current"
+  },
+  "hwAclIfRuleTable": {
+    "class": "objecttype",
+    "description": "Configure the rule for interface-based acl group.",
+    "maxaccess": "not-accessible",
+    "name": "hwAclIfRuleTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.6",
+    "status": "current"
+  },
+  "hwAclIfSubitem": {
+    "class": "objecttype",
+    "description": "The object specifies the number of an ACL rule. If the number specified has been assigned to an ACL rule, the new rule will overwrite the old one, which is equal to editing the old rule. If the number is not assigned, the system will define a rule with the number and insert it to the place corresponding to its number. If no number is specified, the system will define a rule, assign a number to it and add it into the ACL. It will be placed at the end of the ACL when configuration sequence is adopted; otherwise, it will be placed based on the \u0027Depth-first\u0027 principle. When ACL rules are following the \u0027Depth-first\u0027 principle, the number of an ACL rule must be given 0 ,but it will be assigned by step automatically;otherwise,this rule will not be created.",
+    "maxaccess": "read-only",
+    "name": "hwAclIfSubitem",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwAclIfTimeRangeIndex": {
+    "class": "objecttype",
+    "description": "The object indicates the time range of an interface-based acl rule. when the current time is in time range, the rule is valid. Zero value declares that the acl rule has no time range. The invalid value is 0.",
+    "maxaccess": "read-create",
+    "name": "hwAclIfTimeRangeIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.6.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 256,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclIpv6AdvancedAclNum": {
+    "class": "objecttype",
+    "description": "The index of ipv6 advanced acl table, the index range is (3000..3999 | 42768..75535).",
+    "maxaccess": "read-only",
+    "name": "hwAclIpv6AdvancedAclNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAclIpv6AdvancedAct": {
+    "class": "objecttype",
+    "description": "The object indicates the action of an ipv6 advanced acl rule. \u0027deny\u0027 means discarding the packets that meet the condition, \u0027permit\u0027 means permitting the packets that meet the condition.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6AdvancedAct",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 2,
+          "permit": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclIpv6AdvancedCount": {
+    "class": "objecttype",
+    "description": "The object indicates the statistics of matched packets by the rule.",
+    "maxaccess": "read-only",
+    "name": "hwAclIpv6AdvancedCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwAclIpv6AdvancedDescription": {
+    "class": "objecttype",
+    "description": "The object indicates the description of this IPv6 advanced rule. The object describes the usage of an IPv6 ACL with a word or a sentence.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6AdvancedDescription",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 127,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAclIpv6AdvancedDestIp": {
+    "class": "objecttype",
+    "description": "The object indicates the destination IPv6-address of an ipv6 advanced acl rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6AdvancedDestIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Ipv6Address"
+    }
+  },
+  "hwAclIpv6AdvancedDestMask": {
+    "class": "objecttype",
+    "description": "The object indicates the destination IPv6-address mask of an ipv6 advanced acl rule. Its mode is positive.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6AdvancedDestMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Ipv6Address"
+    }
+  },
+  "hwAclIpv6AdvancedDestOp": {
+    "class": "objecttype",
+    "description": "The object indicates the destination Port operation symbol of an ipv6 advanced acl group. It compares the port operators of destination address. \u0027lt\u0027 means less than, \u0027eq\u0027 means equal to, \u0027gt\u0027 means greater than, \u0027neq\u0027 means not equal to, \u0027range\u0027 means between, \u0027invalid\u0027 means this operation of the rule is invalid.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6AdvancedDestOp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eq": 2,
+          "gt": 3,
+          "invalid": 255,
+          "lt": 1,
+          "neq": 4,
+          "range": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclIpv6AdvancedDestPort1": {
+    "class": "objecttype",
+    "description": "The object indicates the fourth layer destination port1.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6AdvancedDestPort1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclIpv6AdvancedDestPort2": {
+    "class": "objecttype",
+    "description": "The object indicates the fourth layer destination port2.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6AdvancedDestPort2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclIpv6AdvancedDestPrefix": {
+    "class": "objecttype",
+    "description": "The object indicates the destination IPv6-address prefix length of an ipv6 advanced acl rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6AdvancedDestPrefix",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclIpv6AdvancedDscp": {
+    "class": "objecttype",
+    "description": "The object indicates the value of frame.The invalid value is 255.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6AdvancedDscp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 63,
+            "min": 0
+          },
+          {
+            "max": 255,
+            "min": 255
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclIpv6AdvancedEnable": {
+    "class": "objecttype",
+    "description": "The object indicates whether the rule is valid or invalid.",
+    "maxaccess": "read-only",
+    "name": "hwAclIpv6AdvancedEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwAclIpv6AdvancedEstablish": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "The object indicates whether or not establishing.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6AdvancedEstablish",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAclIpv6AdvancedFragment": {
+    "class": "objecttype",
+    "description": "The object indicates the type of the packet. 1: fragment, indicating that the packet is a fragment 255: none, invalid value This object cannot be modified once a rule is created.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6AdvancedFragment",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fragment": 1,
+          "fragmentSubseq": 0,
+          "none": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclIpv6AdvancedIcmpCode": {
+    "class": "objecttype",
+    "description": "The object indicates the code of ICMPv6 packet. It filters ICMPv6 packets according to the message code. The invalid value is 65535.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6AdvancedIcmpCode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclIpv6AdvancedIcmpType": {
+    "class": "objecttype",
+    "description": "The object indicates the type of ICMPv6 packet. It filters ICMP packets according to the ICMPv6 message type. The invalid value is 65535.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6AdvancedIcmpType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclIpv6AdvancedLog": {
+    "class": "objecttype",
+    "description": "The object indicates whether to log the matched packets. The log contents include sequence number of ACL rule, packets passed or discarded, upper layer protocol type over IP, source/destination address, source/destination port number, and number of packets",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6AdvancedLog",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAclIpv6AdvancedPrecedence": {
+    "class": "objecttype",
+    "description": "The object indicates the value of IPv6-packet\u0027s precedence, It filters packets according to precedence field. The invalid value is 255.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6AdvancedPrecedence",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          },
+          {
+            "max": 255,
+            "min": 255
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclIpv6AdvancedProtocol": {
+    "class": "objecttype",
+    "description": "The object indicates the protocol type of the rule. It specifies the protocol type over IP.The number of IPv6 protocol is 0.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6AdvancedProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclIpv6AdvancedProtocolNew": {
+    "class": "objecttype",
+    "description": "The object indicates the protocol type of the rule. It specifies the protocol type over IP.The number of IPv6 protocol is 65535.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6AdvancedProtocolNew",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclIpv6AdvancedRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus, Now support three state:CreateAndGo,Active,Destroy.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6AdvancedRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAclIpv6AdvancedRuleEntry": {
+    "class": "objecttype",
+    "description": "Each entry contains a rule of ipv6 advanced acl group.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedAclNum"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6AdvancedSubitem"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAclIpv6AdvancedRuleEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1",
+    "status": "current"
+  },
+  "hwAclIpv6AdvancedRuleTable": {
+    "class": "objecttype",
+    "description": "Configure the rule for ipv6 advanced acl group.",
+    "maxaccess": "not-accessible",
+    "name": "hwAclIpv6AdvancedRuleTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13",
+    "status": "current"
+  },
+  "hwAclIpv6AdvancedSrcIp": {
+    "class": "objecttype",
+    "description": "The object indicates the source IPv6-address of an ipv6 advanced acl rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6AdvancedSrcIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Ipv6Address"
+    }
+  },
+  "hwAclIpv6AdvancedSrcMask": {
+    "class": "objecttype",
+    "description": "The object indicates the source IPv6-address mask of an ipv6 advanced acl rule. Its mode is positive.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6AdvancedSrcMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Ipv6Address"
+    }
+  },
+  "hwAclIpv6AdvancedSrcOp": {
+    "class": "objecttype",
+    "description": "The object indicates the source Port operation symbol of an ipv6 advanced acl rule. It compares the port operators of source address. \u0027lt\u0027 means less than, \u0027eq\u0027 means equal to, \u0027gt\u0027 means greater than, \u0027neq\u0027 means not equal to, \u0027range\u0027 means between, \u0027invalid\u0027 means this operation of the rule is invalid.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6AdvancedSrcOp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eq": 2,
+          "gt": 3,
+          "invalid": 255,
+          "lt": 1,
+          "neq": 4,
+          "range": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclIpv6AdvancedSrcPort1": {
+    "class": "objecttype",
+    "description": "The object indicates the fourth layer sourec port 1. It specifies the source port information of UDP or TCP packets.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6AdvancedSrcPort1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclIpv6AdvancedSrcPort2": {
+    "class": "objecttype",
+    "description": "The object indicates the fourth layer source port2.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6AdvancedSrcPort2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclIpv6AdvancedSrcPrefix": {
+    "class": "objecttype",
+    "description": "The object indicates the source IPv6-address prefix length of an ipv6 advanced acl rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6AdvancedSrcPrefix",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclIpv6AdvancedSubitem": {
+    "class": "objecttype",
+    "description": "The object specifies the number of an ipv6 advanced ACL rule. If the number specified has been assigned to an ACL rule, the new rule will overwrite the old one, which is equal to editing the old rule. If the number is not assigned, the system will define a rule with the number and insert it to the place corresponding to its number. If no number is specified, the system will define a rule, assign a number to it and add it into the ACL. It will be placed at the end of the ACL when configuration sequence is adopted; otherwise, it will be placed based on the \u0027Depth-first\u0027 principle. When ACL rules are following the \u0027Depth-first\u0027 principle, the number of an ACL rule must be given 0 ,but it will be assigned automatically;otherwise,this rule will not be created.",
+    "maxaccess": "read-only",
+    "name": "hwAclIpv6AdvancedSubitem",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwAclIpv6AdvancedTimeRangeIndex": {
+    "class": "objecttype",
+    "description": "The object indicates the time range of an ipv6 advanced acl rule. When the current time is in the time range, the rule is valid. Zero value declares that the acl rule has no time range.The invalid value is 0.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6AdvancedTimeRangeIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 256,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclIpv6AdvancedTos": {
+    "class": "objecttype",
+    "description": "The object indicates the value of IPv6-packet\u0027s TOS, It filters packets according to type of service. The invalid value is 255.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6AdvancedTos",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          },
+          {
+            "max": 255,
+            "min": 255
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclIpv6AdvancedVrfName": {
+    "class": "objecttype",
+    "description": "The object indicates the VRF name of this rule, It specifies the VPN-instance to which the packet belongs.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6AdvancedVrfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.13.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAclIpv6BasicAclNum": {
+    "class": "objecttype",
+    "description": "The index of ipv6 basic acl group, the index range is (2000..2999 | 42768..75535).",
+    "maxaccess": "read-only",
+    "name": "hwAclIpv6BasicAclNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.12.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAclIpv6BasicAct": {
+    "class": "objecttype",
+    "description": "The object indicates the action of a ipv6 basic acl rule. \u0027deny\u0027 means discarding the packets that meet the condition, \u0027permit\u0027 means permitting the packets that meet the condition.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6BasicAct",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.12.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 2,
+          "permit": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclIpv6BasicCount": {
+    "class": "objecttype",
+    "description": "The object indicates the statistics of matched packets by the rule.",
+    "maxaccess": "read-only",
+    "name": "hwAclIpv6BasicCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.12.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwAclIpv6BasicDescription": {
+    "class": "objecttype",
+    "description": "The object indicates the description of this IPv6 basic rule. The object describes the usage of an IPv6 ACL with a word or a sentence.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6BasicDescription",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.12.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 127,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAclIpv6BasicEnable": {
+    "class": "objecttype",
+    "description": "The object indicates whether the rule is valid or invalid.",
+    "maxaccess": "read-only",
+    "name": "hwAclIpv6BasicEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.12.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwAclIpv6BasicFragment": {
+    "class": "objecttype",
+    "description": "The object indicates the type of the packet. 1: fragment, indicating that the packet is a fragment 255: none, invalid value This object cannot be modified once a rule is created.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6BasicFragment",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.12.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fragment": 1,
+          "fragmentSubseq": 0,
+          "none": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclIpv6BasicLog": {
+    "class": "objecttype",
+    "description": "The object indicates whether to log the matched packets. The log contents include sequence number of ACL rule, packets passed or discarded, upper layer protocol type over IP, source/destination address, source/destination port number, and number of packets.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6BasicLog",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.12.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAclIpv6BasicRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus, Now support three value: CreateAndGo, Active and Destroy.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6BasicRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.12.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAclIpv6BasicRuleEntry": {
+    "class": "objecttype",
+    "description": "Each entry is a rule of ipv6 basic acl.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6BasicAclNum"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6BasicSubitem"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAclIpv6BasicRuleEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.12.1",
+    "status": "current"
+  },
+  "hwAclIpv6BasicRuleTable": {
+    "class": "objecttype",
+    "description": "Configure the rule for ipv6 basic acl group.",
+    "maxaccess": "not-accessible",
+    "name": "hwAclIpv6BasicRuleTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.12",
+    "status": "current"
+  },
+  "hwAclIpv6BasicSrcIp": {
+    "class": "objecttype",
+    "description": "The object indicates the source IPv6-address of a ipv6 basic acl rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6BasicSrcIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.12.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Ipv6Address"
+    }
+  },
+  "hwAclIpv6BasicSrcMask": {
+    "class": "objecttype",
+    "description": "The object indicates the source IPv6-address mask of a ipv6 basic acl rule. Its mode is positive.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6BasicSrcMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.12.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Ipv6Address"
+    }
+  },
+  "hwAclIpv6BasicSrcPrefix": {
+    "class": "objecttype",
+    "description": "The object indicates the source IPv6-address prefix length of a ipv6 basic acl rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6BasicSrcPrefix",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.12.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclIpv6BasicSubitem": {
+    "class": "objecttype",
+    "description": "The objects specifies the number of an ACL rule. If the number specified has been assigned to an ACL rule, the new rule will overwrite the old one, which is equal to editing the old rule. If the number is not assigned, the system will define a rule with the number and insert it to the place corresponding to its number. If no number is specified, the system will define a rule, assign a number to it and add it into the ACL. It will be placed at the end of the ACL when configuration sequence is adopted; otherwise, it will be placed based on the \u0027Depth-first\u0027 principle. When ACL rules are following the \u0027Depth-first\u0027 principle, the number of an ACL rule must be given 0 ,but it will be assigned automatically; otherwise, this rule will not be created.",
+    "maxaccess": "read-only",
+    "name": "hwAclIpv6BasicSubitem",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.12.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwAclIpv6BasicTimeRangeIndex": {
+    "class": "objecttype",
+    "description": "The object indicates the time range of a ipv6 basic acl rule. When the current time is in time range, the rule is valid. Zero value declares that the acl rule has no time range. The invalid value is 0.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6BasicTimeRangeIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.12.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 256,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclIpv6BasicVrfName": {
+    "class": "objecttype",
+    "description": "The object indicates the VRF name of this rule. It specifies the VPN-instance to which the packet belongs.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6BasicVrfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.12.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAclIpv6IfAclNum": {
+    "class": "objecttype",
+    "description": "The index of interface-based acl6 group, the index range is (1000..1999 | 42768..75535).",
+    "maxaccess": "read-only",
+    "name": "hwAclIpv6IfAclNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.17.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAclIpv6IfAct": {
+    "class": "objecttype",
+    "description": "The object indicates the action of an interface-based acl6 rule. \u0027deny\u0027 means discarding the packets that meet the condition, \u0027permit\u0027 means permitting the packets that meet the condition.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6IfAct",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.17.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 2,
+          "permit": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclIpv6IfAny": {
+    "class": "objecttype",
+    "description": "The object indicates whether or not matching any interface.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6IfAny",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.17.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAclIpv6IfCount": {
+    "class": "objecttype",
+    "description": "The object indicates the statistics of matched packets by basic rule.",
+    "maxaccess": "read-only",
+    "name": "hwAclIpv6IfCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.17.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwAclIpv6IfEnable": {
+    "class": "objecttype",
+    "description": "The object indicates whether the rule is valid or invalid.",
+    "maxaccess": "read-only",
+    "name": "hwAclIpv6IfEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.17.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAclIpv6IfIndex": {
+    "class": "objecttype",
+    "description": "The object indicates the index of an interface. It specifies the interface information of the packets. The invalid interface index is 0.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6IfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.17.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAclIpv6IfLog": {
+    "class": "objecttype",
+    "description": "The object indicates whether to log the matched packets. The log contents include sequence number of ACL6 rule, packets passed or discarded, upper layer protocol type over IP, source/destination address, source/destination port number, and number of packets.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6IfLog",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.17.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAclIpv6IfRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus,Now support three state:CreateAndGo,Active,Destroy.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6IfRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.17.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAclIpv6IfRuleEntry": {
+    "class": "objecttype",
+    "description": "Each entry contains a rule of interface-based acl6 group.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6IfAclNum"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6IfSubitem"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAclIpv6IfRuleEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.17.1",
+    "status": "current"
+  },
+  "hwAclIpv6IfRuleTable": {
+    "class": "objecttype",
+    "description": "Configure the rule for interface-based acl6 group.",
+    "maxaccess": "not-accessible",
+    "name": "hwAclIpv6IfRuleTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.17",
+    "status": "current"
+  },
+  "hwAclIpv6IfSubitem": {
+    "class": "objecttype",
+    "description": "The object specifies the number of an ACL6 rule. If the number specified has been assigned to an ACL6 rule, the new rule will overwrite the old one, which is equal to editing the old rule. If the number is not assigned, the system will define a rule with the number and insert it to the place corresponding to its number. If no number is specified, the system will define a rule, assign a number to it and add it into the ACL6. It will be placed at the end of the ACL6 when configuration sequence is adopted; otherwise, it will be placed based on the \u0027Depth-first\u0027 principle. When ACL rules are following the \u0027Depth-first\u0027 principle, the number of an ACL6 rule must be given 0, but it will be assigned automatically;otherwise, this rule will not be created.",
+    "maxaccess": "read-only",
+    "name": "hwAclIpv6IfSubitem",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.17.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwAclIpv6IfTimeRangeIndex": {
+    "class": "objecttype",
+    "description": "The object indicates the time range of an interface-based acl6 rule. when the current time is in time range, the rule is valid. Zero value declares that the acl rule has no time range. The invalid value is 0.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6IfTimeRangeIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.17.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 256,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclIpv6NumGroupAclName": {
+    "class": "objecttype",
+    "description": "The object indicates the name of an acl6 group, The first character must be start with a to z or A to Z, and the length cannot exceed 64 character.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6NumGroupAclName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.16.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAclIpv6NumGroupAclNum": {
+    "class": "objecttype",
+    "description": "The index of IPv6 ACL group, identifying an IPv6 ACL.",
+    "maxaccess": "read-only",
+    "name": "hwAclIpv6NumGroupAclNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.16.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAclIpv6NumGroupAclType": {
+    "class": "objecttype",
+    "description": "The type of IPv6 ACL group.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6NumGroupAclType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.16.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "advanced": 2,
+          "basic": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclIpv6NumGroupCountClear": {
+    "class": "objecttype",
+    "description": "Reset the statistics of ACL6 group.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6NumGroupCountClear",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.16.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleared": 1,
+          "notUsed": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclIpv6NumGroupDescription": {
+    "class": "objecttype",
+    "description": "The object indicates the description of this acl6 group. The object describes the usage of an ACL6 with a word or a sentence.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6NumGroupDescription",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.16.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 127,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAclIpv6NumGroupEntry": {
+    "class": "objecttype",
+    "description": "An entry containing characters of an IPv6 ACL group.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclIpv6NumGroupAclNum"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAclIpv6NumGroupEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.16.1",
+    "status": "current"
+  },
+  "hwAclIpv6NumGroupMatchOrder": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "default"
+      }
+    },
+    "description": "The object indicates the match order of rules. \u0027config\u0027 means matching ACL rules in the configuration sequence, \u0027auto\u0027 means the ACL6 rules are matched following the \u0027Depth-first\u0027 principle.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6NumGroupMatchOrder",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.16.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 2,
+          "config": 1,
+          "default": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclIpv6NumGroupRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus, Now support three value:CreateAndGo,Active,Destroy.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6NumGroupRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.16.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAclIpv6NumGroupStep": {
+    "class": "objecttype",
+    "description": "The object indicates the step value of number IPv6 ACL. Step here refers to the difference between each ID. For instance, given the step is set to 5, the IDs are the multiples of 5 beginning with 5. The IPv6 ACL IDs change along with the step. When the step is 5, the IPv6 ACL IDs are 5, 10, and 15 and so on. However, when the step is set to 2, the IDs turn to 2, 4, and 6 and so on.",
+    "maxaccess": "read-create",
+    "name": "hwAclIpv6NumGroupStep",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.16.1.52",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 20,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclIpv6NumGroupSubitemNum": {
+    "class": "objecttype",
+    "description": "The total number of the rules in the ACL6 group.",
+    "maxaccess": "read-only",
+    "name": "hwAclIpv6NumGroupSubitemNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.16.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwAclIpv6NumGroupTable": {
+    "class": "objecttype",
+    "description": "The table of IPv6 ACL group information.",
+    "maxaccess": "not-accessible",
+    "name": "hwAclIpv6NumGroupTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.16",
+    "status": "current"
+  },
+  "hwAclMibCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for entities which implement the Huawei acl MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclGroup"
+      }
+    ],
+    "name": "hwAclMibCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.1.3.1.1",
+    "status": "current"
+  },
+  "hwAclMibCompliances": {
+    "class": "objectidentity",
+    "name": "hwAclMibCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.1.3.1"
+  },
+  "hwAclMibConformance": {
+    "class": "objectidentity",
+    "name": "hwAclMibConformance",
+    "oid": "1.3.6.1.4.1.2011.5.1.3"
+  },
+  "hwAclMibGroups": {
+    "class": "objectidentity",
+    "name": "hwAclMibGroups",
+    "oid": "1.3.6.1.4.1.2011.5.1.3.2"
+  },
+  "hwAclMibObjects": {
+    "class": "objectidentity",
+    "name": "hwAclMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.1.1"
+  },
+  "hwAclMibTrap": {
+    "class": "objectidentity",
+    "name": "hwAclMibTrap",
+    "oid": "1.3.6.1.4.1.2011.5.1.2"
+  },
+  "hwAclMplsAclNum": {
+    "class": "objecttype",
+    "description": "The index of mpls acl group, the index range is (10000..10999 | 42768..76535).",
+    "maxaccess": "read-only",
+    "name": "hwAclMplsAclNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.18.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAclMplsAct": {
+    "class": "objecttype",
+    "description": "The object indicates the action of a basic acl rule. \u0027deny\u0027 means discarding the packets that meet the condition, \u0027permit\u0027 means permitting the packets that meet the condition.",
+    "maxaccess": "read-create",
+    "name": "hwAclMplsAct",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.18.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 2,
+          "permit": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclMplsCount": {
+    "class": "objecttype",
+    "description": "The object indicates the statistics of matched packets by the rule.",
+    "maxaccess": "read-only",
+    "name": "hwAclMplsCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.18.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwAclMplsExp1": {
+    "class": "objecttype",
+    "description": "The object indicates the exp1 of a mpls acl rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclMplsExp1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.18.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          },
+          {
+            "max": 255,
+            "min": 255
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclMplsExp2": {
+    "class": "objecttype",
+    "description": "The object indicates the exp2 of a mpls acl rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclMplsExp2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.18.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          },
+          {
+            "max": 255,
+            "min": 255
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclMplsExp3": {
+    "class": "objecttype",
+    "description": "The object indicates the exp3 of a mpls acl rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclMplsExp3",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.18.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          },
+          {
+            "max": 255,
+            "min": 255
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclMplsExp4": {
+    "class": "objecttype",
+    "description": "The object indicates the exp4 of a mpls acl rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclMplsExp4",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.18.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          },
+          {
+            "max": 255,
+            "min": 255
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclMplsLabel1": {
+    "class": "objecttype",
+    "description": "The object indicates the label1 of a mpls acl rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclMplsLabel1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.18.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 1048575,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclMplsLabel2": {
+    "class": "objecttype",
+    "description": "The object indicates the label2 of a mpls acl rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclMplsLabel2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.18.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 1048575,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclMplsLabel3": {
+    "class": "objecttype",
+    "description": "The object indicates the label3 of a mpls acl rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclMplsLabel3",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.18.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 1048575,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclMplsLabel4": {
+    "class": "objecttype",
+    "description": "The object indicates the label4 of a mpls acl rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclMplsLabel4",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.18.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 1048575,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclMplsRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus, Now support three value:CreateAndGo,Active and Destroy.",
+    "maxaccess": "read-create",
+    "name": "hwAclMplsRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.18.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAclMplsRuleEntry": {
+    "class": "objecttype",
+    "description": "Each entry is a rule of mpls acl.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclMplsAclNum"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclMplsSubitem"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAclMplsRuleEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.18.1",
+    "status": "current"
+  },
+  "hwAclMplsRuleTable": {
+    "class": "objecttype",
+    "description": "Configure the rule for mpls acl group.",
+    "maxaccess": "not-accessible",
+    "name": "hwAclMplsRuleTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.18",
+    "status": "current"
+  },
+  "hwAclMplsSubitem": {
+    "class": "objecttype",
+    "description": "The objects specifies the number of an ACL rule. If the number specified has been assigned to an ACL rule, the new rule will overwrite the old one, which is equal to editing the old rule. If the number is not assigned, the system will define a rule with the number and insert it to the place corresponding to its number. If no number is specified, the system will define a rule, assign a number to it and add it into the ACL. It will be placed at the end of the ACL when configuration sequence is adopted; otherwise, it will be placed based on the \u0027Depth-first\u0027 principle. When ACL rules are following the \u0027Depth-first\u0027 principle, the number of an ACL rule must be given 0 ,but it will be assigned by step automatically;otherwise,this rule will not be created.",
+    "maxaccess": "read-only",
+    "name": "hwAclMplsSubitem",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.18.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwAclMplsTTL1Begin": {
+    "class": "objecttype",
+    "description": "The object indicates the begin value of a mpls ttl.",
+    "maxaccess": "read-create",
+    "name": "hwAclMplsTTL1Begin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.18.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclMplsTTL1End": {
+    "class": "objecttype",
+    "description": "The object indicates the end value of a mpls ttl.",
+    "maxaccess": "read-create",
+    "name": "hwAclMplsTTL1End",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.18.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclMplsTTL2Begin": {
+    "class": "objecttype",
+    "description": "The object indicates the begin value of a mpls ttl.",
+    "maxaccess": "read-create",
+    "name": "hwAclMplsTTL2Begin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.18.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclMplsTTL2End": {
+    "class": "objecttype",
+    "description": "The object indicates the end value of a mpls ttl.",
+    "maxaccess": "read-create",
+    "name": "hwAclMplsTTL2End",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.18.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclMplsTTL3Begin": {
+    "class": "objecttype",
+    "description": "The object indicates the begin value of a mpls ttl.",
+    "maxaccess": "read-create",
+    "name": "hwAclMplsTTL3Begin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.18.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclMplsTTL3End": {
+    "class": "objecttype",
+    "description": "The object indicates the end value of a mpls ttl.",
+    "maxaccess": "read-create",
+    "name": "hwAclMplsTTL3End",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.18.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclMplsTTLOP1": {
+    "class": "objecttype",
+    "description": "The object indicates the ttl operation symbol of a mpls acl rule. It compares the operators of ttl value. \u0027lt\u0027 means less than, \u0027eq\u0027 means equal to, \u0027gt\u0027 means greater than, \u0027range\u0027 means between, \u0027invalid\u0027 means this operation of the ttl is invalid.",
+    "maxaccess": "read-create",
+    "name": "hwAclMplsTTLOP1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.18.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "any": 255,
+          "eq": 2,
+          "gt": 3,
+          "invalid": 0,
+          "lt": 1,
+          "range": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclMplsTTLOP2": {
+    "class": "objecttype",
+    "description": "The object indicates the ttl operation symbol of a mpls acl rule. It compares the operators of ttl value. \u0027lt\u0027 means less than, \u0027eq\u0027 means equal to, \u0027gt\u0027 means greater than, \u0027range\u0027 means between, \u0027invalid\u0027 means this operation of the ttl is invalid.",
+    "maxaccess": "read-create",
+    "name": "hwAclMplsTTLOP2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.18.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "any": 255,
+          "eq": 2,
+          "gt": 3,
+          "invalid": 0,
+          "lt": 1,
+          "range": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclMplsTTLOP3": {
+    "class": "objecttype",
+    "description": "The object indicates the ttl operation symbol of a mpls acl rule. It compares the operators of ttl value. \u0027lt\u0027 means less than, \u0027eq\u0027 means equal to, \u0027gt\u0027 means greater than, \u0027range\u0027 means between, \u0027invalid\u0027 means this operation of the ttl is invalid.",
+    "maxaccess": "read-create",
+    "name": "hwAclMplsTTLOP3",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.18.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "any": 255,
+          "eq": 2,
+          "gt": 3,
+          "invalid": 0,
+          "lt": 1,
+          "range": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclNumGroupAclName": {
+    "class": "objecttype",
+    "description": "The object indicates the name of an acl group, The first character must be start with a to z or A to Z, and the length cannot exceed 64 character.",
+    "maxaccess": "read-create",
+    "name": "hwAclNumGroupAclName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAclNumGroupAclNum": {
+    "class": "objecttype",
+    "description": "The index of acl group, identifying an ACL. The object specifies the range of an ACL number. The basic ACL is represented by the number in the range 2000 through 2999. The advanced ACL is represented by the number in the range 3000 through 3999. The interface-based ACL is represented by the number in the range 1000 to 1999. The User Defined ACL is represented by the number in the range 5000 through 5999. The User ACL is represented by the number in the range 6000 through 9999. The Mpls ACL is represented by the number in the range 10000 through 10999. The name ACL is represented by the number in the range 42768 through 76535.",
+    "maxaccess": "read-only",
+    "name": "hwAclNumGroupAclNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAclNumGroupAclType": {
+    "class": "objecttype",
+    "description": "The type of ACL group.",
+    "maxaccess": "read-only",
+    "name": "hwAclNumGroupAclType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "advanced": 2,
+          "basic": 1,
+          "interface": 5,
+          "link": 3,
+          "mac": 7,
+          "mpls": 6,
+          "ucl": 8,
+          "user": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclNumGroupCountClear": {
+    "class": "objecttype",
+    "description": "Reset the statistics of ACL group.",
+    "maxaccess": "read-create",
+    "name": "hwAclNumGroupCountClear",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleared": 1,
+          "notUsed": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclNumGroupDescription": {
+    "class": "objecttype",
+    "description": "The object indicates the description of this acl group. The object describes the usage of an ACL with a word or a sentence.",
+    "maxaccess": "read-create",
+    "name": "hwAclNumGroupDescription",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 127,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAclNumGroupEntry": {
+    "class": "objecttype",
+    "description": "An entry containing characters of an acl group ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclNumGroupAclNum"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAclNumGroupEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.2.1",
+    "status": "current"
+  },
+  "hwAclNumGroupMatchOrder": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "config"
+      }
+    },
+    "description": "The object indicates the match order of rules. \u0027config\u0027 means matching ACL rules in the configuration sequence, \u0027auto\u0027 means the ACL rules are matched following the \u0027Depth-first\u0027 principle.",
+    "maxaccess": "read-create",
+    "name": "hwAclNumGroupMatchOrder",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 2,
+          "config": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclNumGroupRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus, Now support three value:CreateAndGo,Active,Destroy.",
+    "maxaccess": "read-create",
+    "name": "hwAclNumGroupRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAclNumGroupStep": {
+    "class": "objecttype",
+    "description": "The object indicates the step value of number acl. Step here refers to the difference between each ID. For instance, given the step is set to 5, the IDs are the multiples of 5 beginning with 5. The ACL IDs change along with the step. When the step is 5, the ACL IDs are 5, 10, and 15 and so on. However, when the step is set to 2, the IDs turn to 2, 4, and 6 and so on.",
+    "maxaccess": "read-create",
+    "name": "hwAclNumGroupStep",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 20,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclNumGroupSubitemNum": {
+    "class": "objecttype",
+    "description": "The total number of the rules in the acl group.",
+    "maxaccess": "read-only",
+    "name": "hwAclNumGroupSubitemNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwAclNumGroupTable": {
+    "class": "objecttype",
+    "description": "The table of ACL group information including match order, step, description and so on",
+    "maxaccess": "not-accessible",
+    "name": "hwAclNumGroupTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.2",
+    "status": "current"
+  },
+  "hwAclResLimit": {
+    "class": "objecttype",
+    "description": "The usage of rule resource.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwAclResLimit",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.1.2.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAclResSlotStr": {
+    "class": "objecttype",
+    "description": "The infomation of slot.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwAclResSlotStr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.1.2.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAclResStage": {
+    "class": "objecttype",
+    "description": "The stage where trap infomation exists.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwAclResStage",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.1.2.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAclResThresholdExceedClearTrap": {
+    "class": "notificationtype",
+    "description": "Acl resource lack clear trap",
+    "name": "hwAclResThresholdExceedClearTrap",
+    "objects": [
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclResLimit"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclResSlotStr"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclResStage"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.1.2.2.1.1.4.1",
+    "status": "current"
+  },
+  "hwAclResThresholdExceedTrap": {
+    "class": "notificationtype",
+    "description": "Acl resource lack trap",
+    "name": "hwAclResThresholdExceedTrap",
+    "objects": [
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclResLimit"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclResSlotStr"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclResStage"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.1.2.2.1.1.4.2",
+    "status": "current"
+  },
+  "hwAclResTotalCountExceedClearTrap": {
+    "class": "notificationtype",
+    "description": "Acl resource full clear trap",
+    "name": "hwAclResTotalCountExceedClearTrap",
+    "objects": [
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclResLimit"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclResSlotStr"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclResStage"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.1.2.2.1.1.4.3",
+    "status": "current"
+  },
+  "hwAclResTotalCountExceedTrap": {
+    "class": "notificationtype",
+    "description": "Acl resource full trap",
+    "name": "hwAclResTotalCountExceedTrap",
+    "objects": [
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclResLimit"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclResSlotStr"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclResStage"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.1.2.2.1.1.4.4",
+    "status": "current"
+  },
+  "hwAclResourceTrapsEntry": {
+    "class": "objectidentity",
+    "name": "hwAclResourceTrapsEntry",
+    "oid": "1.3.6.1.4.1.2011.5.1.2.2.1.1.4"
+  },
+  "hwAclResourceTrapsGroup": {
+    "class": "notificationgroup",
+    "description": "Group for all acl resource traps.",
+    "name": "hwAclResourceTrapsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclResThresholdExceedClearTrap"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclResThresholdExceedTrap"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclResTotalCountExceedClearTrap"
+      },
+      {
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclResTotalCountExceedTrap"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.1.2.2.1.1.5.1",
+    "status": "current"
+  },
+  "hwAclResourceTrapsGroups": {
+    "class": "objectidentity",
+    "name": "hwAclResourceTrapsGroups",
+    "oid": "1.3.6.1.4.1.2011.5.1.2.2.1.1.5"
+  },
+  "hwAclResourceTrapsTable": {
+    "class": "objectidentity",
+    "name": "hwAclResourceTrapsTable",
+    "oid": "1.3.6.1.4.1.2011.5.1.2.2.1.1"
+  },
+  "hwAclTrapOid": {
+    "class": "objectidentity",
+    "name": "hwAclTrapOid",
+    "oid": "1.3.6.1.4.1.2011.5.1.2.1"
+  },
+  "hwAclTraps": {
+    "class": "objectidentity",
+    "name": "hwAclTraps",
+    "oid": "1.3.6.1.4.1.2011.5.1.2.2.1"
+  },
+  "hwAclTrapsDefine": {
+    "class": "objectidentity",
+    "name": "hwAclTrapsDefine",
+    "oid": "1.3.6.1.4.1.2011.5.1.2.2"
+  },
+  "hwAclUserAclNum": {
+    "class": "objecttype",
+    "description": "The index of user acl table, the index range is (6000..9999).",
+    "maxaccess": "read-only",
+    "name": "hwAclUserAclNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAclUserAct": {
+    "class": "objecttype",
+    "description": "The object indicates the action of an User acl rule. \u0027deny\u0027 means discarding the packets that meet the condition, \u0027permit\u0027 means permitting the packets that meet the condition.",
+    "maxaccess": "read-create",
+    "name": "hwAclUserAct",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 2,
+          "permit": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclUserCount": {
+    "class": "objecttype",
+    "description": "The object indicates the statistics of matched packets by the rule.",
+    "maxaccess": "read-only",
+    "name": "hwAclUserCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwAclUserDestDomainName": {
+    "class": "objecttype",
+    "description": "The object indicates the destination domain name of this rule. if modetype destination is domain, null sting means any domain.",
+    "maxaccess": "read-only",
+    "name": "hwAclUserDestDomainName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.35",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 127,
+            "min": 3
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAclUserDestIp": {
+    "class": "objecttype",
+    "description": "The object indicates the destination IP-address of an User acl rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclUserDestIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwAclUserDestModeType": {
+    "class": "objecttype",
+    "description": "The object indicates ACL\u0027s mode type, Now support four state 0 Any match rule from any user group or any ip subnet or any doamin name, 1 NetAny match rule from any ip subnet, 2 UserAny match rule from any user group, 3 Net match rule from an ip subnet, 4 User match rule from a user group, 5 domain match rule from a domain name, 6 domainAny match rule from any doamin name",
+    "maxaccess": "read-create",
+    "name": "hwAclUserDestModeType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 6,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclUserDestOp": {
+    "class": "objecttype",
+    "description": "The object indicates the destination Port operation symbol of an User acl group. It compares the port operators of destination address. \u0027lt\u0027 means less than, \u0027eq\u0027 means equal to, \u0027gt\u0027 means greater than, \u0027neq\u0027 means not equal to, \u0027range\u0027 means between, \u0027invalid\u0027 means this operation of the rule is invalid.",
+    "maxaccess": "read-create",
+    "name": "hwAclUserDestOp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eq": 2,
+          "gt": 3,
+          "invalid": 0,
+          "lt": 1,
+          "neq": 4,
+          "range": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclUserDestPort1": {
+    "class": "objecttype",
+    "description": "The object indicates the fourth layer destination port1.",
+    "maxaccess": "read-create",
+    "name": "hwAclUserDestPort1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclUserDestPort2": {
+    "class": "objecttype",
+    "description": "The object indicates the fourth layer destination port2.",
+    "maxaccess": "read-create",
+    "name": "hwAclUserDestPort2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclUserDestUserGroupName": {
+    "class": "objecttype",
+    "description": "The object indicates the destination user group name of this rule. if modetype destination is user, null sting means any user",
+    "maxaccess": "read-create",
+    "name": "hwAclUserDestUserGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAclUserDestUserGroupNum": {
+    "class": "objecttype",
+    "description": "The object indicates the destination user group name of this rule. if modetype destination is user, null sting means any user",
+    "maxaccess": "read-create",
+    "name": "hwAclUserDestUserGroupNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.34",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64000,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclUserDestWild": {
+    "class": "objecttype",
+    "description": "The object indicates the destination IP-address wild of an User acl rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclUserDestWild",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwAclUserDscp": {
+    "class": "objecttype",
+    "description": "The object indicates the value of frame.The invalid value is 255.",
+    "maxaccess": "read-create",
+    "name": "hwAclUserDscp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 63,
+            "min": 0
+          },
+          {
+            "max": 255,
+            "min": 255
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclUserEnable": {
+    "class": "objecttype",
+    "description": "The object indicates whether the rule is valid or invalid.",
+    "maxaccess": "read-only",
+    "name": "hwAclUserEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAclUserEstablish": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "The object indicates whether or not establishing.",
+    "maxaccess": "read-create",
+    "name": "hwAclUserEstablish",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAclUserFragments": {
+    "class": "objecttype",
+    "description": "The object indicates whether or not matching fragmented packet, It specifies that this rule is only valid for the non-first fragment packets.",
+    "maxaccess": "read-create",
+    "name": "hwAclUserFragments",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAclUserIcmpCode": {
+    "class": "objecttype",
+    "description": "The object indicates the code of ICMP packet. It filters ICMP packets according to the message code. The invalid value is 65535.",
+    "maxaccess": "read-create",
+    "name": "hwAclUserIcmpCode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclUserIcmpType": {
+    "class": "objecttype",
+    "description": "The object indicates the type of ICMP packet. It filters ICMP packets according to the ICMP message type. The invalid value is 65535.",
+    "maxaccess": "read-create",
+    "name": "hwAclUserIcmpType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclUserLog": {
+    "class": "objecttype",
+    "description": "The object indicates whether to log the matched packets. The log contents include sequence number of ACL rule, packets passed or discarded, upper layer protocol type over IP, source/destination address, source/destination port number, and number of packets",
+    "maxaccess": "read-create",
+    "name": "hwAclUserLog",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAclUserPrecedence": {
+    "class": "objecttype",
+    "description": "The object indicates the value of IP-packet\u0027s precedence, It filters packets according to precedence field.The invalid value is 255.",
+    "maxaccess": "read-create",
+    "name": "hwAclUserPrecedence",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          },
+          {
+            "max": 255,
+            "min": 255
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclUserProtocol": {
+    "class": "objecttype",
+    "description": "The object indicates the protocol type of the rule. It specifies the protocol type over IP.The number of IP protocol is 0.",
+    "maxaccess": "read-create",
+    "name": "hwAclUserProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclUserRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus, Now support three state:CreateAndGo,Active,Destroy.",
+    "maxaccess": "read-create",
+    "name": "hwAclUserRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAclUserRuleEntry": {
+    "class": "objecttype",
+    "description": "Each entry contains a rule of user acl group.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserAclNum"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ACL-MIB",
+        "object": "hwAclUserSubitem"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAclUserRuleEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1",
+    "status": "current"
+  },
+  "hwAclUserRuleTable": {
+    "class": "objecttype",
+    "description": "Configure the rule for user acl group.",
+    "maxaccess": "not-accessible",
+    "name": "hwAclUserRuleTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7",
+    "status": "current"
+  },
+  "hwAclUserSrcIp": {
+    "class": "objecttype",
+    "description": "The object indicates the source IP-address of an User acl rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclUserSrcIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwAclUserSrcModeType": {
+    "class": "objecttype",
+    "description": "The object indicates ACL\u0027s mode type, Now support four state 0 Any match rule from any user group or any ip subnet, 1 NetAny match rule from any ip subnet, 2 UserAny match rule from any user group, 3 Net match rule from an ip subnet, 4 User match rule from a user group",
+    "maxaccess": "read-create",
+    "name": "hwAclUserSrcModeType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclUserSrcOp": {
+    "class": "objecttype",
+    "description": "The object indicates the source Port operation symbol of an User acl rule. It compares the port operators of source address. \u0027lt\u0027 means less than, \u0027eq\u0027 means equal to, \u0027gt\u0027 means greater than, \u0027neq\u0027 means not equal to, \u0027range\u0027 means between, \u0027invalid\u0027 means this operation of the rule is invalid.",
+    "maxaccess": "read-create",
+    "name": "hwAclUserSrcOp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eq": 2,
+          "gt": 3,
+          "invalid": 0,
+          "lt": 1,
+          "neq": 4,
+          "range": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAclUserSrcPort1": {
+    "class": "objecttype",
+    "description": "The object indicates the fourth layer sourec port 1. It specifies the source port information of UDP or TCP packets.",
+    "maxaccess": "read-create",
+    "name": "hwAclUserSrcPort1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclUserSrcPort2": {
+    "class": "objecttype",
+    "description": "The object indicates the fourth layer source port2.",
+    "maxaccess": "read-create",
+    "name": "hwAclUserSrcPort2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclUserSrcUserGroupName": {
+    "class": "objecttype",
+    "description": "The object indicates the source user group name of this rule. if modetype source is user, null sting means any user",
+    "maxaccess": "read-create",
+    "name": "hwAclUserSrcUserGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAclUserSrcUserGroupNum": {
+    "class": "objecttype",
+    "description": "The object indicates the source user group num of this rule. if modetype source is user, null sting means any user",
+    "maxaccess": "read-create",
+    "name": "hwAclUserSrcUserGroupNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64000,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclUserSrcWild": {
+    "class": "objecttype",
+    "description": "The object indicates the source IP-address wild of an User acl rule.",
+    "maxaccess": "read-create",
+    "name": "hwAclUserSrcWild",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwAclUserSubitem": {
+    "class": "objecttype",
+    "description": "The object specifies the number of an User ACL rule. If the number specified has been assigned to an ACL rule, the new rule will overwrite the old one, which is equal to editing the old rule. If the number is not assigned, the system will define a rule with the number and insert it to the place corresponding to its number. If no number is specified, the system will define a rule, assign a number to it and add it into the ACL. It will be placed at the end of the ACL when configuration sequence is adopted; otherwise, it will be placed based on the \u0027Depth-first\u0027 principle",
+    "maxaccess": "read-only",
+    "name": "hwAclUserSubitem",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwAclUserTcpSyncFlag": {
+    "class": "objecttype",
+    "description": "The object indicates the code of TCP Sync flag(0~63), The invalid value is -1.",
+    "maxaccess": "read-create",
+    "name": "hwAclUserTcpSyncFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": -1,
+            "min": -1
+          },
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclUserTimeRangeIndex": {
+    "class": "objecttype",
+    "description": "The object indicates the time range of an User acl rule. When the current time is in the time range, the rule is valid. Zero value declares that the acl rule has no time range.The invalid value is 0.",
+    "maxaccess": "read-create",
+    "name": "hwAclUserTimeRangeIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 256,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclUserTos": {
+    "class": "objecttype",
+    "description": "The object indicates the value of IP-packet\u0027s TOS, It filters packets according to type of service.The invalid value is 255.",
+    "maxaccess": "read-create",
+    "name": "hwAclUserTos",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          },
+          {
+            "max": 255,
+            "min": 255
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAclUserVrfName": {
+    "class": "objecttype",
+    "description": "The object indicates the VRF name of this rule, It specifies the VPN-instance to which the packet belongs.",
+    "maxaccess": "read-create",
+    "name": "hwAclUserVrfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.1.1.7.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "huaweiMgmt"
+    ],
+    "IPV6-TC": [
+      "Ipv6Address"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "TimeTicks",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Unsigned32",
+      "Counter32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-ACL-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:46:35 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-ACL-MIB"
+  }
+}

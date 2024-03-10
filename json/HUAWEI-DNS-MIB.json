@@ -1,0 +1,516 @@
+{
+  "hwDdnsConfigEntry": {
+    "class": "objecttype",
+    "description": "This table contains five rows, the first is the policy name which named hwDdnsPolicyName, the second is the interfece index which named hwDdnsIfindex, the third is the ddns service type which names hwService, and the fourth is the username thich named hwDdnsUserName and the last one is domain name which named hwDdnsFqdn.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DNS-MIB",
+        "object": "hwDdnsPolicyName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DNS-MIB",
+        "object": "hwDdnsIfindex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDdnsConfigEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.1.3.1",
+    "status": "current"
+  },
+  "hwDdnsConfigTable": {
+    "class": "objecttype",
+    "description": "This table is a list of ddns policy names ,username,domain and interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwDdnsConfigTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.1.3",
+    "status": "current"
+  },
+  "hwDdnsFqdn": {
+    "class": "objecttype",
+    "description": "Fqdn name.",
+    "maxaccess": "read-only",
+    "name": "hwDdnsFqdn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.1.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwDdnsIfindex": {
+    "class": "objecttype",
+    "description": "Ifindex of the interface which apply ddns policy.",
+    "maxaccess": "not-accessible",
+    "name": "hwDdnsIfindex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDdnsPolicyName": {
+    "class": "objecttype",
+    "description": "Ddns policy name.",
+    "maxaccess": "not-accessible",
+    "name": "hwDdnsPolicyName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwDdnsUserName": {
+    "class": "objecttype",
+    "description": "Ddns policy user name.",
+    "maxaccess": "read-only",
+    "name": "hwDdnsUserName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwDns6Alias": {
+    "class": "objecttype",
+    "description": "Dns6Alias indicates a IPv6 domain name alias.",
+    "maxaccess": "read-only",
+    "name": "hwDns6Alias",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwDns6DomainName": {
+    "class": "objecttype",
+    "description": "Dns6DomainName indicates the domain name of an IPv6 DNS.",
+    "maxaccess": "read-only",
+    "name": "hwDns6DomainName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwDns6HostsDynamicEntry": {
+    "class": "objecttype",
+    "description": "This table contains four rows, the first is the domain name which named Dns6DomainName, the second is the IP address of host which named Dns6Ipv6Address, the third is the DNS dynamic entry age time which names Dns6Ttl, and the last one is the host alias which named Dns6Alias.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DNS-MIB",
+        "object": "hwDns6DomainName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDns6HostsDynamicEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.1.2.1",
+    "status": "current"
+  },
+  "hwDns6HostsDynamicTable": {
+    "class": "objecttype",
+    "description": "This table is a list of domain names mapped to IPv6 address.",
+    "maxaccess": "not-accessible",
+    "name": "hwDns6HostsDynamicTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.1.2",
+    "status": "current"
+  },
+  "hwDns6Ipv6Address": {
+    "class": "objecttype",
+    "description": "Dns6Ipv6Address indicates an IPv6 address mapped to a domain name.",
+    "maxaccess": "read-only",
+    "name": "hwDns6Ipv6Address",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwDns6Ttl": {
+    "class": "objecttype",
+    "description": "Dns6Ttl values indicates the TTL of a mapping entry, which is a 32-bit integer,in seconds.",
+    "maxaccess": "read-only",
+    "name": "hwDns6Ttl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDnsAlias": {
+    "class": "objecttype",
+    "description": "DnsAlias indicates a domain name alias.",
+    "maxaccess": "read-only",
+    "name": "hwDnsAlias",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwDnsCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for SNMPv2 entities which implement the HUAWEI DNS MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-DNS-MIB",
+        "object": "hwDnsExtGroup"
+      }
+    ],
+    "name": "hwDnsCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.3.2.1",
+    "status": "current"
+  },
+  "hwDnsCompliances": {
+    "class": "objectidentity",
+    "name": "hwDnsCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.3.2"
+  },
+  "hwDnsConformance": {
+    "class": "objectidentity",
+    "name": "hwDnsConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.3"
+  },
+  "hwDnsDomainName": {
+    "class": "objecttype",
+    "description": "DnsDomainName indicates a domain name.",
+    "maxaccess": "read-only",
+    "name": "hwDnsDomainName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwDnsDomainSuffixEntry": {
+    "class": "objecttype",
+    "description": "This table contains one row, it is the domain suffix.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DNS-MIB",
+        "object": "hwDomainSuffix"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDnsDomainSuffixEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.1.5.1",
+    "status": "current"
+  },
+  "hwDnsDomainSuffixTable": {
+    "class": "objecttype",
+    "description": "This table is a list of domain suffix.",
+    "maxaccess": "not-accessible",
+    "name": "hwDnsDomainSuffixTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.1.5",
+    "status": "current"
+  },
+  "hwDnsExtGroup": {
+    "class": "objectgroup",
+    "description": "The HUAWEI DNS Table.",
+    "name": "hwDnsExtGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DNS-MIB",
+        "object": "hwDnsDomainName"
+      },
+      {
+        "module": "HUAWEI-DNS-MIB",
+        "object": "hwDnsIpAddress"
+      },
+      {
+        "module": "HUAWEI-DNS-MIB",
+        "object": "hwDnsTtl"
+      },
+      {
+        "module": "HUAWEI-DNS-MIB",
+        "object": "hwDnsAlias"
+      },
+      {
+        "module": "HUAWEI-DNS-MIB",
+        "object": "hwDns6DomainName"
+      },
+      {
+        "module": "HUAWEI-DNS-MIB",
+        "object": "hwDns6Ipv6Address"
+      },
+      {
+        "module": "HUAWEI-DNS-MIB",
+        "object": "hwDns6Ttl"
+      },
+      {
+        "module": "HUAWEI-DNS-MIB",
+        "object": "hwDns6Alias"
+      },
+      {
+        "module": "HUAWEI-DNS-MIB",
+        "object": "hwDdnsPolicyName"
+      },
+      {
+        "module": "HUAWEI-DNS-MIB",
+        "object": "hwDdnsIfindex"
+      },
+      {
+        "module": "HUAWEI-DNS-MIB",
+        "object": "hwService"
+      },
+      {
+        "module": "HUAWEI-DNS-MIB",
+        "object": "hwDdnsUserName"
+      },
+      {
+        "module": "HUAWEI-DNS-MIB",
+        "object": "hwDdnsFqdn"
+      },
+      {
+        "module": "HUAWEI-DNS-MIB",
+        "object": "hwServerAddr"
+      },
+      {
+        "module": "HUAWEI-DNS-MIB",
+        "object": "hwServerStatus"
+      },
+      {
+        "module": "HUAWEI-DNS-MIB",
+        "object": "hwDomainSuffix"
+      },
+      {
+        "module": "HUAWEI-DNS-MIB",
+        "object": "hwDnsProxyEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.194.3.1.1",
+    "status": "current"
+  },
+  "hwDnsGroups": {
+    "class": "objectidentity",
+    "name": "hwDnsGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.3.1"
+  },
+  "hwDnsHostsDynamicEntry": {
+    "class": "objecttype",
+    "description": "This table contains four rows, the first is the domain name which named DnsDomainName, the second is the IP address of host which named DnsIpAddress, the third is the DNS dynamic entry age time which names DnsTtl, and the last one is the host alias which named DnsAlias.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DNS-MIB",
+        "object": "hwDnsDomainName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDnsHostsDynamicEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.1.1.1",
+    "status": "current"
+  },
+  "hwDnsHostsDynamicTable": {
+    "class": "objecttype",
+    "description": "This table is a list of domain names mapped to IPv4 addresses.",
+    "maxaccess": "not-accessible",
+    "name": "hwDnsHostsDynamicTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.1.1",
+    "status": "current"
+  },
+  "hwDnsIpAddress": {
+    "class": "objecttype",
+    "description": "DnsIpAddress indicates an IP address mapped to a domain name.",
+    "maxaccess": "read-only",
+    "name": "hwDnsIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDnsMIB": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": "The private mib file includes the general extent information of the device.hwDatacomm(25).hwDnsMib(194)",
+    "lastupdated": "200904230000Z",
+    "name": "hwDnsMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.194",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwDnsObjects": {
+    "class": "objectidentity",
+    "name": "hwDnsObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.1"
+  },
+  "hwDnsProxyEnable": {
+    "class": "objecttype",
+    "description": "Globally enable or disable the DNS proxy configuration. If the hwDnsProxyEnable is 1, DNS proxy is enabled. If the hwDnsProxyEnable is 2, DNS proxy is disabled. By default, DNS proxy is disabled.",
+    "maxaccess": "read-only",
+    "name": "hwDnsProxyEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwDnsServerAddrEntry": {
+    "class": "objecttype",
+    "description": "This table contains two rows, the first is the server address, the second is the status of server address which include static and dynamic.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DNS-MIB",
+        "object": "hwServerAddr"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDnsServerAddrEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.1.4.1",
+    "status": "current"
+  },
+  "hwDnsServerAddrTable": {
+    "class": "objecttype",
+    "description": "This table is a list of server addresses.",
+    "maxaccess": "not-accessible",
+    "name": "hwDnsServerAddrTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.1.4",
+    "status": "current"
+  },
+  "hwDnsTtl": {
+    "class": "objecttype",
+    "description": "DnsTtl indicates the TTL of a mapping entry, which is a 32-bit integer,in seconds.",
+    "maxaccess": "read-only",
+    "name": "hwDnsTtl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDomainSuffix": {
+    "class": "objecttype",
+    "description": "hwDomainSuffix indicates a domain suffix.",
+    "maxaccess": "read-only",
+    "name": "hwDomainSuffix",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwServerAddr": {
+    "class": "objecttype",
+    "description": "hwServerAddr indicates a server address.",
+    "maxaccess": "not-accessible",
+    "name": "hwServerAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwServerStatus": {
+    "class": "objecttype",
+    "description": "hwServerStatus indicates the status of server address.",
+    "maxaccess": "read-only",
+    "name": "hwServerStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwService": {
+    "class": "objecttype",
+    "description": "Ddns Service type.",
+    "maxaccess": "read-only",
+    "name": "hwService",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.194.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "P-BRIDGE-MIB": [
+      "TEXTUAL-CONVENTION",
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "iso",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-DNS-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:14 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-DNS-MIB"
+  }
+}

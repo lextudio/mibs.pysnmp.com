@@ -1,0 +1,3465 @@
+{
+  "HWMatchMode": {
+    "class": "textualconvention",
+    "description": " The VLAN mode of DHCP packets matched in the snooping bind table. PVLAN(1), CVLAN(2), all(3) ",
+    "name": "HWMatchMode",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 3,
+          "cvlan": 2,
+          "pvlan": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWTransmitAction": {
+    "class": "textualconvention",
+    "description": " The action of specific color packet. discard (1) pass (2) ",
+    "name": "HWTransmitAction",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discard": 1,
+          "pass": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWVlanId": {
+    "class": "textualconvention",
+    "description": "A 12-bit VLAN ID used in the VLAN Tag header. When the value is 0, it means do not belong to a VLAN.",
+    "name": "HWVlanId",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwArpNomatchSnpBindTblPktAlarm": {
+    "class": "notificationtype",
+    "description": "Arp packets do not match the snooping bind table.",
+    "name": "hwArpNomatchSnpBindTblPktAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwArpNomatchSnpBindTblPktNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.2",
+    "status": "current"
+  },
+  "hwArpNomatchSnpBindTblPktAlarmResume": {
+    "class": "notificationtype",
+    "description": "The number of the discarded ARP packets that do not match the binding table descends to the threshold on the interface.",
+    "name": "hwArpNomatchSnpBindTblPktAlarmResume",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwArpNomatchSnpBindTblPktNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.25",
+    "status": "current"
+  },
+  "hwArpNomatchSnpBindTblPktNum": {
+    "class": "objecttype",
+    "description": "The false ARP packets match in snooping bind table count.",
+    "maxaccess": "read-only",
+    "name": "hwArpNomatchSnpBindTblPktNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.15.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwBdArpNomatchSnpBindTblPktAlarm": {
+    "class": "notificationtype",
+    "description": "Arp packets do not match the snooping bind table on the bridge domain.",
+    "name": "hwBdArpNomatchSnpBindTblPktAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdArpNomatchSnpBindTblPktNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.20",
+    "status": "current"
+  },
+  "hwBdArpNomatchSnpBindTblPktNum": {
+    "class": "objecttype",
+    "description": "The false ARP packets match in snooping bind table count of the bridge domain.",
+    "maxaccess": "read-only",
+    "name": "hwBdArpNomatchSnpBindTblPktNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.25.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwBdChaddrNomatchSrcMacDhcpPktNum": {
+    "class": "objecttype",
+    "description": "The false packets(chaddr in DHCP packets is not same with source Mac-address in Ethernet frame) count of the bridge domain.",
+    "maxaccess": "read-only",
+    "name": "hwBdChaddrNomatchSrcMacDhcpPktNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.25.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwBdDhcpSnpChaddrAlarm": {
+    "class": "notificationtype",
+    "description": "CHADDR in Dhcp packets do not match source Mac-address in Ethernet frame on the bridge domain.",
+    "name": "hwBdDhcpSnpChaddrAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdChaddrNomatchSrcMacDhcpPktNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.19",
+    "status": "current"
+  },
+  "hwBdIpNomatchSnpBindTblPktAlarm": {
+    "class": "notificationtype",
+    "description": "Ip packets do not match the snooping bind table on the bridge domain.",
+    "name": "hwBdIpNomatchSnpBindTblPktAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdIpNomatchSnpBindTblPktNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.21",
+    "status": "current"
+  },
+  "hwBdIpNomatchSnpBindTblPktNum": {
+    "class": "objecttype",
+    "description": "The false IP packets do not match snooping bind table count of the bridge domain.",
+    "maxaccess": "read-only",
+    "name": "hwBdIpNomatchSnpBindTblPktNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.25.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwBdNomatchSnpBindTblDhcpPktAlarm": {
+    "class": "notificationtype",
+    "description": "There are Dhcp request packets do not match the snooping bind table on the bridge domain.",
+    "name": "hwBdNomatchSnpBindTblDhcpPktAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdNomatchSnpBindTblDhcpPktNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.18",
+    "status": "current"
+  },
+  "hwBdNomatchSnpBindTblDhcpPktNum": {
+    "class": "objecttype",
+    "description": "The DHCP request packets do not match the snooping bind table of the bridge domain.",
+    "maxaccess": "read-only",
+    "name": "hwBdNomatchSnpBindTblDhcpPktNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.25.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwBdSnpBindingItemNum": {
+    "class": "objecttype",
+    "description": "The number of current binding-table items of the bridge domain.",
+    "maxaccess": "read-only",
+    "name": "hwBdSnpBindingItemNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.25.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwBdSnpCfgMaxUserNum": {
+    "class": "objecttype",
+    "description": "The limitation of the user number of the bridge domain.",
+    "maxaccess": "read-only",
+    "name": "hwBdSnpCfgMaxUserNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.25.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwBdSnpUserNumberAlarm": {
+    "class": "notificationtype",
+    "description": "The number of the binding items exceeds the threshold of user-limit on the bridge domain.",
+    "name": "hwBdSnpUserNumberAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdSnpCfgMaxUserNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.23",
+    "status": "current"
+  },
+  "hwBdUntrustedReplyPktAlarm": {
+    "class": "notificationtype",
+    "description": "Untrusted ports have received the Dhcp reply packets on the bridge domain.",
+    "name": "hwBdUntrustedReplyPktAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdUntrustedReplyPktNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.22",
+    "status": "current"
+  },
+  "hwBdUntrustedReplyPktNum": {
+    "class": "objecttype",
+    "description": "The distrusted port DHCP reply packets count of the bridge domain.",
+    "maxaccess": "read-only",
+    "name": "hwBdUntrustedReplyPktNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.25.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwChaddrNomatchSrcMacDhcpPktNum": {
+    "class": "objecttype",
+    "description": "The false packets(chaddr in DHCP packets is not same with source Mac-address in Ethernet frame) count.",
+    "maxaccess": "read-only",
+    "name": "hwChaddrNomatchSrcMacDhcpPktNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.15.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwDhcpArpAlarmEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "Whether to send Arp trap when its count beyond the threshold. ",
+    "maxaccess": "read-create",
+    "name": "hwDhcpArpAlarmEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpArpAlarmThreshold": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 100
+      }
+    },
+    "description": "The threshold of ARP check alarm. A trap can be sent when the false ARP packets discarded count beyond it. ",
+    "maxaccess": "read-create",
+    "name": "hwDhcpArpAlarmThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpArpCheck": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "Whether to enable check ARP packets with the snooping bind table. ",
+    "maxaccess": "read-create",
+    "name": "hwDhcpArpCheck",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpChaddrAlarmEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "Whether to send chaddr trap when its\u0027 count beyond the threshold. ",
+    "maxaccess": "read-create",
+    "name": "hwDhcpChaddrAlarmEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpChaddrAlarmThreshold": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 100
+      }
+    },
+    "description": "The threshold of Chaddr check alarm. A trap can be sent when the chaddr-false DHCP packets count beyond it.",
+    "maxaccess": "read-create",
+    "name": "hwDhcpChaddrAlarmThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpChaddrCheck": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "Whether to enable check Chaddr in DHCP packets with source Mac-address in Ethernet frame. ",
+    "maxaccess": "read-create",
+    "name": "hwDhcpChaddrCheck",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpIpAlarmEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "Whether to send IP trap when its count beyond the threshold. ",
+    "maxaccess": "read-create",
+    "name": "hwDhcpIpAlarmEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpIpAlarmThreshold": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 100
+      }
+    },
+    "description": "The threshold of IP check alarm. A trap can be sent when the false IP packets count beyond it. ",
+    "maxaccess": "read-create",
+    "name": "hwDhcpIpAlarmThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpIpCheck": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "Whether to enable check Ip packets with the snooping bind table. ",
+    "maxaccess": "read-create",
+    "name": "hwDhcpIpCheck",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpOption82Insert": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "Whether to insert Option82 to DHCP packets. ",
+    "maxaccess": "read-create",
+    "name": "hwDhcpOption82Insert",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpOption82Rebuild": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "Whether to rebuild the Option82 in DHCP packets. ",
+    "maxaccess": "read-create",
+    "name": "hwDhcpOption82Rebuild",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpPktIfRate": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 100
+      }
+    },
+    "description": "The area of DHCP packets received rate on the interface. ",
+    "maxaccess": "read-create",
+    "name": "hwDhcpPktIfRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpPktIfRateAlarmEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disabled"
+      }
+    },
+    "description": "Whether to send the DHCP packets rate alarm when the actual rate beyond the maximum rate configured and reach the rate threshold on the interface. ",
+    "maxaccess": "read-create",
+    "name": "hwDhcpPktIfRateAlarmEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.34",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwDhcpPktIfRateAlarmThreshold": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 100
+      }
+    },
+    "description": "The threshold of the DHCP packets rate Alarm on the interface. When the actual rate beyond the maximum rate configured and reach this threshold once, there will be a notification can be sent at the same time. ",
+    "maxaccess": "read-create",
+    "name": "hwDhcpPktIfRateAlarmThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpPktIfRateCheck": {
+    "class": "objecttype",
+    "description": "Whether to limit the rate of DHCP packets received on the interface. ",
+    "maxaccess": "read-create",
+    "name": "hwDhcpPktIfRateCheck",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwDhcpPktIfRateDiscardNum": {
+    "class": "objecttype",
+    "description": "DHCP packets that discarded for the rate limit on the interface. ",
+    "maxaccess": "read-only",
+    "name": "hwDhcpPktIfRateDiscardNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.15.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwDhcpPktRate": {
+    "class": "objecttype",
+    "description": "The area of Dhcp packets received rate,default is 100. ",
+    "maxaccess": "read-write",
+    "name": "hwDhcpPktRate",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpPktRateAlarm": {
+    "class": "notificationtype",
+    "description": "The rate of Dhcp packets received is too large.",
+    "name": "hwDhcpPktRateAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpPktRateDiscardNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.6",
+    "status": "current"
+  },
+  "hwDhcpPktRateAlarmEnable": {
+    "class": "objecttype",
+    "description": "Whether to send the DHCP packets rate alarm when the actual rate beyond the maximum rate configured and reach the rate threshold,default is disabling. ",
+    "maxaccess": "read-write",
+    "name": "hwDhcpPktRateAlarmEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpPktRateAlarmThreshold": {
+    "class": "objecttype",
+    "description": "The threshold of the DHCP packets rate Alarm. When the actual rate beyond the maximum rate configured and reach this threshold once, there will be a notification can be sent at the same time,default is 100. ",
+    "maxaccess": "read-write",
+    "name": "hwDhcpPktRateAlarmThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpPktRateCheck": {
+    "class": "objecttype",
+    "description": "Whether to check the rate of DHCP packets received,default is disabling. ",
+    "maxaccess": "read-write",
+    "name": "hwDhcpPktRateCheck",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpPktRateDiscardNum": {
+    "class": "objecttype",
+    "description": "DHCP packets that discarded for the rate limit. ",
+    "maxaccess": "read-only",
+    "name": "hwDhcpPktRateDiscardNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwDhcpSnpBdFalsePktEntry": {
+    "class": "objecttype",
+    "description": "An entry in the snooping false packets statistic information table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBdIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpBdFalsePktEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.25.1",
+    "status": "current"
+  },
+  "hwDhcpSnpBdFalsePktTable": {
+    "class": "objecttype",
+    "description": "The false packets statistic information table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpBdFalsePktTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.25",
+    "status": "current"
+  },
+  "hwDhcpSnpBdIndex": {
+    "class": "objecttype",
+    "description": "Bridge-domain ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpBdIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.25.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32768,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpSnpBdStatisticGroup": {
+    "class": "objectgroup",
+    "description": "The DHCPSNP\u0027s Statistic group on the bridge domain .",
+    "name": "hwDhcpSnpBdStatisticGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBdIndex"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdNomatchSnpBindTblDhcpPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdChaddrNomatchSrcMacDhcpPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdArpNomatchSnpBindTblPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdIpNomatchSnpBindTblPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdUntrustedReplyPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdSnpCfgMaxUserNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.3.1.5",
+    "status": "current"
+  },
+  "hwDhcpSnpBindCVlanId": {
+    "class": "objecttype",
+    "description": "The CVLAN Id.",
+    "maxaccess": "read-only",
+    "name": "hwDhcpSnpBindCVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwDhcpSnpBindCVlanIndex": {
+    "class": "objecttype",
+    "description": "Index: the C-VLAN of the bind table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpBindCVlanIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwDhcpSnpBindEntry": {
+    "class": "objecttype",
+    "description": "An entry in the snooping bind table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindIpIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindPVlanIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindCVlanIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindVRFIdIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindVsiIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpBindEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1",
+    "status": "current"
+  },
+  "hwDhcpSnpBindGroup": {
+    "class": "objectgroup",
+    "description": "The DHCPSNP\u0027s Bind group.",
+    "name": "hwDhcpSnpBindGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindPVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindCVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindVRFId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindMac"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindVsiId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindIp"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindStatus"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindLease"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.3.1.2",
+    "status": "current"
+  },
+  "hwDhcpSnpBindIfDescr": {
+    "class": "objecttype",
+    "description": "The description of the interfaces that bound.",
+    "maxaccess": "read-only",
+    "name": "hwDhcpSnpBindIfDescr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 47,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwDhcpSnpBindIp": {
+    "class": "objecttype",
+    "description": "Ip-address bind.",
+    "maxaccess": "read-only",
+    "name": "hwDhcpSnpBindIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDhcpSnpBindIpIndex": {
+    "class": "objecttype",
+    "description": "Index: the IP of the bind table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpBindIpIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDhcpSnpBindLease": {
+    "class": "objecttype",
+    "description": "The time of the dynamic bind lease to be end.",
+    "maxaccess": "read-only",
+    "name": "hwDhcpSnpBindLease",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpSnpBindMac": {
+    "class": "objecttype",
+    "description": "Mac-address bind. Value of hwDhcpSnpBindMac is optional, if you did not specify hwDhcpSnpBindMac any value when you created, invalid value 0 is returned after you perform Get operation of hwDhcpSnpBindMac.",
+    "maxaccess": "read-only",
+    "name": "hwDhcpSnpBindMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwDhcpSnpBindPVlanId": {
+    "class": "objecttype",
+    "description": "The PVLAN Id.",
+    "maxaccess": "read-only",
+    "name": "hwDhcpSnpBindPVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwDhcpSnpBindPVlanIndex": {
+    "class": "objecttype",
+    "description": "Index: the P-VLAN of the bind table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpBindPVlanIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwDhcpSnpBindRowStatus": {
+    "class": "objecttype",
+    "description": "The snooping bind table row status.",
+    "maxaccess": "read-create",
+    "name": "hwDhcpSnpBindRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwDhcpSnpBindStatus": {
+    "class": "objecttype",
+    "description": "The bind status:dynamic(1) or static(2).",
+    "maxaccess": "read-only",
+    "name": "hwDhcpSnpBindStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dynamic": 1,
+          "static": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpSnpBindTable": {
+    "class": "objecttype",
+    "description": "The snooping bind table.You must give out (1)one of the interface index, VLANID and VSIID at least (2)the Mac-address,ip-address,static type if you want to create a static bind row of the table, dynamic can not be created.",
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpBindTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14",
+    "status": "current"
+  },
+  "hwDhcpSnpBindTblAlarmEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "Whether to send the snooping bind table alarm when beyond its threshold. ",
+    "maxaccess": "read-create",
+    "name": "hwDhcpSnpBindTblAlarmEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpSnpBindTblAlarmThreshold": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 100
+      }
+    },
+    "description": "The threshold of DHCP request packets checking alarm with the snooping bind table. ",
+    "maxaccess": "read-create",
+    "name": "hwDhcpSnpBindTblAlarmThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpSnpBindTblAutosave": {
+    "class": "objecttype",
+    "description": "Whether to save snooping bind table,default is disabling . ",
+    "maxaccess": "read-write",
+    "name": "hwDhcpSnpBindTblAutosave",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpSnpBindTblAutosaveFilename": {
+    "class": "objecttype",
+    "description": "Auto save file name. Make sure the disk name have been given, and the file must be named with \u0027.tbl\u0027 postfixally. ",
+    "maxaccess": "read-write",
+    "name": "hwDhcpSnpBindTblAutosaveFilename",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 51,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwDhcpSnpBindTblCheck": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "Whether to check DHCP request packets with the snooping bind table. ",
+    "maxaccess": "read-create",
+    "name": "hwDhcpSnpBindTblCheck",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpSnpBindTblNomatchedArpAction": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "discard"
+      }
+    },
+    "description": "How to deal with the ARP packets that do not match the DHCP snooping bind table in port/VLAN view. ",
+    "maxaccess": "read-only",
+    "name": "hwDhcpSnpBindTblNomatchedArpAction",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discard": 1,
+          "forward": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpSnpBindTblNomatchedArpGlobalAction": {
+    "class": "objecttype",
+    "description": "How to deal with the ARP packets that do not match the DHCP snooping bind table in global view,default is forward. ",
+    "maxaccess": "read-write",
+    "name": "hwDhcpSnpBindTblNomatchedArpGlobalAction",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discard": 1,
+          "forward": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpSnpBindTblNomatchedIpAction": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "discard"
+      }
+    },
+    "description": "How to deal with the Ip packets that do not match the DHCP snooping bind table in port/VLAN view. ",
+    "maxaccess": "read-only",
+    "name": "hwDhcpSnpBindTblNomatchedIpAction",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discard": 1,
+          "forward": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpSnpBindTblNomatchedIpGlobalAction": {
+    "class": "objecttype",
+    "description": "How to deal with the Ip packets that do not match the DHCP snooping bind table in global view,default is forward. ",
+    "maxaccess": "read-write",
+    "name": "hwDhcpSnpBindTblNomatchedIpGlobalAction",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discard": 1,
+          "forward": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpSnpBindVRFId": {
+    "class": "objecttype",
+    "description": "The VRFID for L3VPN.",
+    "maxaccess": "read-only",
+    "name": "hwDhcpSnpBindVRFId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpSnpBindVRFIdIndex": {
+    "class": "objecttype",
+    "description": "Index: the VRFID of the bind table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpBindVRFIdIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpSnpBindVsiId": {
+    "class": "objecttype",
+    "description": "The VSI for L2VPN.",
+    "maxaccess": "read-only",
+    "name": "hwDhcpSnpBindVsiId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4095,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpSnpBindVsiIndex": {
+    "class": "objecttype",
+    "description": "Index: the VSI of the bind table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpBindVsiIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.14.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4095,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpSnpCaCbs": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 32768
+      }
+    },
+    "description": "Committed burst size.Unit:Byte",
+    "maxaccess": "read-create",
+    "name": "hwDhcpSnpCaCbs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.16.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 39314432,
+            "min": 64
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpSnpCarCfgEntry": {
+    "class": "objecttype",
+    "description": "An entry in the DHCP Snooping CAR table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpVlanIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpCarCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.16.1",
+    "status": "current"
+  },
+  "hwDhcpSnpCarCfgTable": {
+    "class": "objecttype",
+    "description": " The DHCP Snooping CAR table for control of the traffic. The CAR is based on IP and Mac, but configured with interface and VLAN.",
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpCarCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.16",
+    "status": "current"
+  },
+  "hwDhcpSnpCarCir": {
+    "class": "objecttype",
+    "description": "Committed infomation rate.Unit:kbps.",
+    "maxaccess": "read-create",
+    "name": "hwDhcpSnpCarCir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.16.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10000000,
+            "min": 100
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpSnpCarEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32"
+      }
+    },
+    "description": " Whether to apply CAR on the traffic of specific IP and Mac",
+    "maxaccess": "read-create",
+    "name": "hwDhcpSnpCarEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.16.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwDhcpSnpCarPbs": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 65536
+      }
+    },
+    "description": "Peak burst size.Unit:Byte",
+    "maxaccess": "read-create",
+    "name": "hwDhcpSnpCarPbs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.16.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 39314432,
+            "min": 64
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpSnpCarPir": {
+    "class": "objecttype",
+    "description": "Peak information rate.Unit:kbps.",
+    "maxaccess": "read-create",
+    "name": "hwDhcpSnpCarPir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.16.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10000000,
+            "min": 100
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpSnpCarRed": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "Red action: pass (1) discard (2)",
+    "maxaccess": "read-create",
+    "name": "hwDhcpSnpCarRed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.16.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWTransmitAction"
+    }
+  },
+  "hwDhcpSnpCarRowStatus": {
+    "class": "objecttype",
+    "description": "The DHCP Snooping CAR table row status.",
+    "maxaccess": "read-create",
+    "name": "hwDhcpSnpCarRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.16.1.50",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwDhcpSnpCarYellow": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "Yellow action: pass (1) discard (2)",
+    "maxaccess": "read-create",
+    "name": "hwDhcpSnpCarYellow",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.16.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWTransmitAction"
+    }
+  },
+  "hwDhcpSnpCfgEntry": {
+    "class": "objecttype",
+    "description": "An entry in the snooping configuration table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpVlanIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpVsiIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1",
+    "status": "current"
+  },
+  "hwDhcpSnpCfgGroup": {
+    "class": "objectgroup",
+    "description": "The DHCPSNP\u0027s Configuration group.",
+    "name": "hwDhcpSnpCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpGlobal"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpPktRateCheck"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpPktRate"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpPktRateAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpPktRateAlarmEnable"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindTblNomatchedArpGlobalAction"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindTblNomatchedIpGlobalAction"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindTblAutosaveFilename"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindTblAutosave"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpGlobalThreshold"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpEnable"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpTrusted"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpOption82Insert"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpOption82Rebuild"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpChaddrCheck"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpChaddrAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpChaddrAlarmEnable"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpArpCheck"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindTblNomatchedArpAction"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpArpAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpArpAlarmEnable"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpIpCheck"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindTblNomatchedIpAction"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpIpAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpIpAlarmEnable"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpUntrustReplyAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpUntrustReplyAlarmEnable"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindTblCheck"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindTblAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindTblAlarmEnable"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpMatchMode"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpDynamicItemCheck"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpMaxUserNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpUserLimitAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpUserLimitAlarmEnable"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpCfgTblRowStatus"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpPktIfRateCheck"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpPktIfRate"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpPktIfRateAlarmThreshold"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpPktIfRateAlarmEnable"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpIfVlanOption82RemoteId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpIfVlanOption82CircuitId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpCarEnable"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpCarCir"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpCarPir"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpCaCbs"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpCarPbs"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpCarYellow"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpCarRed"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpGlobalOption82Format"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpGlobalOption82PacketFormat"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpGlobalOption82RemoteId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpGlobalOption82RemoteIdSysName"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpGlobalOption82CircuitId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpGlobalOption82PktFormat"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpGlobalOption82DefString"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpCarRowStatus"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpServerDetectStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.3.1.1",
+    "status": "current"
+  },
+  "hwDhcpSnpCfgTable": {
+    "class": "objecttype",
+    "description": "The DHCP snooping configuration table. ",
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13",
+    "status": "current"
+  },
+  "hwDhcpSnpCfgTblRowStatus": {
+    "class": "objecttype",
+    "description": "The snooping configuration table row status.",
+    "maxaccess": "read-create",
+    "name": "hwDhcpSnpCfgTblRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwDhcpSnpChaddrAlarm": {
+    "class": "notificationtype",
+    "description": "CHADDR in Dhcp packets do not match source Mac-address in Ethernet frame. ",
+    "name": "hwDhcpSnpChaddrAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwChaddrNomatchSrcMacDhcpPktNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.1",
+    "status": "current"
+  },
+  "hwDhcpSnpChaddrAlarmResume": {
+    "class": "notificationtype",
+    "description": "The number of the discarded DHCP packets in which the CHADDR field is inconsistent with the source MAC address descends to the threshold on the interface.",
+    "name": "hwDhcpSnpChaddrAlarmResume",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwChaddrNomatchSrcMacDhcpPktNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.24",
+    "status": "current"
+  },
+  "hwDhcpSnpCompliance": {
+    "class": "objectidentity",
+    "name": "hwDhcpSnpCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.3"
+  },
+  "hwDhcpSnpDynamicItemCheck": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "ipMacInterface"
+      }
+    },
+    "description": "Check items of Dynamic DHCP snooping binding table by IP address or Mac-address or interface. ",
+    "maxaccess": "read-create",
+    "name": "hwDhcpSnpDynamicItemCheck",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "ipInterface": 3,
+          "ipMac": 2,
+          "ipMacInterface": 4,
+          "undo": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpSnpEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "Whether to enable snooping on this interface/VLAN. ",
+    "maxaccess": "read-create",
+    "name": "hwDhcpSnpEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpSnpFalsePktStatisticEntry": {
+    "class": "objecttype",
+    "description": "An entry in the snooping false packets statistic information table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpVlanIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpVsiIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpFalsePktStatisticEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.15.1",
+    "status": "current"
+  },
+  "hwDhcpSnpFalsePktStatisticTable": {
+    "class": "objecttype",
+    "description": "The false packets statistic information table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpFalsePktStatisticTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.15",
+    "status": "current"
+  },
+  "hwDhcpSnpGlobal": {
+    "class": "objecttype",
+    "description": "The Global Snooping. Enable this before you want to enable the port,vlan,other interfaces snooping,default is disable. ",
+    "maxaccess": "read-write",
+    "name": "hwDhcpSnpGlobal",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpSnpGlobalOption82CircuitId": {
+    "class": "objecttype",
+    "description": "Option82 global circuit ID.",
+    "maxaccess": "read-write",
+    "name": "hwDhcpSnpGlobalOption82CircuitId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 63,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwDhcpSnpGlobalOption82DefString": {
+    "class": "objecttype",
+    "description": "The content of the option when the format is user defined.",
+    "maxaccess": "read-write",
+    "name": "hwDhcpSnpGlobalOption82DefString",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.22.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwDhcpSnpGlobalOption82Format": {
+    "class": "objecttype",
+    "description": "The format type of Option82,default is hex. ",
+    "maxaccess": "read-write",
+    "name": "hwDhcpSnpGlobalOption82Format",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ascii": 2,
+          "hex": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpSnpGlobalOption82PacketFormat": {
+    "class": "objecttype",
+    "description": "The format mode of Option82,default is extended. ",
+    "maxaccess": "read-write",
+    "name": "hwDhcpSnpGlobalOption82PacketFormat",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "extended": 1,
+          "standard": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpSnpGlobalOption82PktFormat": {
+    "class": "objecttype",
+    "description": "The format of the option82",
+    "maxaccess": "read-write",
+    "name": "hwDhcpSnpGlobalOption82PktFormat",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.22.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "common": 1,
+          "default": 4,
+          "extend": 2,
+          "userdefined": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpSnpGlobalOption82PktFormatEntry": {
+    "class": "objecttype",
+    "description": "An entry about the packet format of option82.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpGlobalOption82Type"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpGlobalOption82PktFormatEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.22.1",
+    "status": "current"
+  },
+  "hwDhcpSnpGlobalOption82PktFormatTable": {
+    "class": "objecttype",
+    "description": "A table about the packet format of option82.",
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpGlobalOption82PktFormatTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.22",
+    "status": "current"
+  },
+  "hwDhcpSnpGlobalOption82RemoteId": {
+    "class": "objecttype",
+    "description": "Option82 global remote ID. ",
+    "maxaccess": "read-write",
+    "name": "hwDhcpSnpGlobalOption82RemoteId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 63,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwDhcpSnpGlobalOption82RemoteIdSysName": {
+    "class": "objecttype",
+    "description": "Config Option82 global remote ID as system name,default is disabled. ",
+    "maxaccess": "read-write",
+    "name": "hwDhcpSnpGlobalOption82RemoteIdSysName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwDhcpSnpGlobalOption82Type": {
+    "class": "objecttype",
+    "description": " The option of the option82",
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpGlobalOption82Type",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.22.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "circuitid": 1,
+          "remoteid": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpSnpGlobalThreshold": {
+    "class": "objecttype",
+    "description": "DHCP snooping global threshold,default is disabling. ",
+    "maxaccess": "read-write",
+    "name": "hwDhcpSnpGlobalThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpSnpIfIndex": {
+    "class": "objecttype",
+    "description": "The interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwDhcpSnpIfVlanOption82CircuitId": {
+    "class": "objecttype",
+    "description": "Specify the circuit ID in the Option 82 field.",
+    "maxaccess": "read-create",
+    "name": "hwDhcpSnpIfVlanOption82CircuitId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.36",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 63,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwDhcpSnpIfVlanOption82RemoteId": {
+    "class": "objecttype",
+    "description": "Specify the remote ID in the Option 82 field. ",
+    "maxaccess": "read-create",
+    "name": "hwDhcpSnpIfVlanOption82RemoteId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.35",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 63,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwDhcpSnpMatchMode": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": " Setting the VLAN mode of the dhcp packets matched in the bind table. PVLAN(1), CVLAN(2), all(3) ",
+    "maxaccess": "read-create",
+    "name": "hwDhcpSnpMatchMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWMatchMode"
+    }
+  },
+  "hwDhcpSnpMaxUserNum": {
+    "class": "objecttype",
+    "description": "MaxUserNumber: the limitation of the user number on the interface.",
+    "maxaccess": "read-create",
+    "name": "hwDhcpSnpMaxUserNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16384,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpSnpMib": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "This MIB describes objects used for DHCP Snooping.",
+    "lastupdated": "201407180000Z",
+    "name": "hwDhcpSnpMib",
+    "oid": "1.3.6.1.4.1.2011.5.25.112",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "This MIB describes objects used for DHCP Snooping.",
+        "revision": "2014-07-18 00:00"
+      },
+      {
+        "description": "This revision adds MIB trap of bridge domain.",
+        "revision": "2014-01-27 00:00"
+      },
+      {
+        "description": "This MIB describes objects used for DHCP Snooping,including configuring snooping,creating snooping bind table and collecting false packets\u0027 statistic information. When the system is attacked, some traps will be given.",
+        "revision": "2013-06-19 18:00"
+      },
+      {
+        "description": "The initial revision of this MIB module.",
+        "revision": "2006-09-16 18:00"
+      }
+    ]
+  },
+  "hwDhcpSnpMibGroups": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting this module.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpCfgGroup"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpBindGroup"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticGroup"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpTrapGroup"
+      }
+    ],
+    "name": "hwDhcpSnpMibGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.3.1",
+    "status": "current"
+  },
+  "hwDhcpSnpObjects": {
+    "class": "objectidentity",
+    "name": "hwDhcpSnpObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1"
+  },
+  "hwDhcpSnpServerDetectStatus": {
+    "class": "objecttype",
+    "description": "This object indicates whether detection against the pseudo DHCP server is enabled. The default value is disabled(2).",
+    "maxaccess": "read-write",
+    "name": "hwDhcpSnpServerDetectStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwDhcpSnpStaticBindCVlanIndex": {
+    "class": "objecttype",
+    "description": "Index: the C-VLAN of the bind table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpStaticBindCVlanIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.23.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwDhcpSnpStaticBindEntry": {
+    "class": "objecttype",
+    "description": "An entry in the snooping static bind table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStaticBindIpIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStaticBindMacIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStaticBindPVlanIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStaticBindCVlanIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStaticBindIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpStaticBindEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.23.1",
+    "status": "current"
+  },
+  "hwDhcpSnpStaticBindIfIndex": {
+    "class": "objecttype",
+    "description": "Index: the interface index of the bind table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpStaticBindIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.23.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwDhcpSnpStaticBindIpIndex": {
+    "class": "objecttype",
+    "description": "Index: the IP of the bind table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpStaticBindIpIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.23.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDhcpSnpStaticBindMacIndex": {
+    "class": "objecttype",
+    "description": "Index: the MAC of the bind table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpStaticBindMacIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.23.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwDhcpSnpStaticBindPVlanIndex": {
+    "class": "objecttype",
+    "description": "Index: the P-VLAN of the bind table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpStaticBindPVlanIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.23.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwDhcpSnpStaticBindRowStatus": {
+    "class": "objecttype",
+    "description": "The static snooping bind table row status.",
+    "maxaccess": "read-create",
+    "name": "hwDhcpSnpStaticBindRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.23.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwDhcpSnpStaticBindTable": {
+    "class": "objecttype",
+    "description": "The snooping static bind table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpStaticBindTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.23",
+    "status": "current"
+  },
+  "hwDhcpSnpStatisticGroup": {
+    "class": "objectgroup",
+    "description": "The DHCPSNP\u0027s Statistic group.",
+    "name": "hwDhcpSnpStatisticGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwChaddrNomatchSrcMacDhcpPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwArpNomatchSnpBindTblPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwIpNomatchSnpBindTblPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwNomatchSnpBindTblDhcpPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwUntrustedReplyPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpPktRateDiscardNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVsiId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpCfgMaxUserNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpPktIfRateDiscardNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.3.1.3",
+    "status": "current"
+  },
+  "hwDhcpSnpStatisticIfDescr": {
+    "class": "objecttype",
+    "description": "The description of the interfaces.",
+    "maxaccess": "read-only",
+    "name": "hwDhcpSnpStatisticIfDescr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.15.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 47,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwDhcpSnpStatisticVlanId": {
+    "class": "objecttype",
+    "description": "The VLAN Id.",
+    "maxaccess": "read-only",
+    "name": "hwDhcpSnpStatisticVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.15.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrNone"
+    }
+  },
+  "hwDhcpSnpStatisticVsiId": {
+    "class": "objecttype",
+    "description": "The VSI for L2VPN.",
+    "maxaccess": "read-only",
+    "name": "hwDhcpSnpStatisticVsiId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.15.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4095,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpSnpTrapGroup": {
+    "class": "notificationgroup",
+    "description": "The DHCPSNP\u0027s Notification group.",
+    "name": "hwDhcpSnpTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpChaddrAlarm"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwArpNomatchSnpBindTblPktAlarm"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwIpNomatchSnpBindTblPktAlarm"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwUntrustedReplyPktAlarm"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwNomatchSnpBindTblDhcpPktAlarm"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpPktRateAlarm"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpUserNumberAlarm"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpUserNumberAlarmIf"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpUserNumberAlarmIfResume"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpUserNumberAlarmVlan"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpUserNumberAlarmVlanResume"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpUserNumberAlarmGlobal"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpUserNumberAlarmGlobalResume"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwNdSnpUserNumberAlarmIf"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwNdSnpUserNumberAlarmIfResume"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwNdSnpUserNumberAlarmGlobal"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwNdSnpUserNumberAlarmGlobalResume"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdNomatchSnpBindTblDhcpPktAlarm"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdDhcpSnpChaddrAlarm"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdArpNomatchSnpBindTblPktAlarm"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdIpNomatchSnpBindTblPktAlarm"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdUntrustedReplyPktAlarm"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwBdSnpUserNumberAlarm"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpChaddrAlarmResume"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwArpNomatchSnpBindTblPktAlarmResume"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwIpNomatchSnpBindTblPktAlarmResume"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwUntrustedReplyPktAlarmResume"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwNomatchSnpBindTblDhcpPktAlarmResume"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpUserNumberAlarmResume"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.3.1.4",
+    "status": "current"
+  },
+  "hwDhcpSnpTraps": {
+    "class": "objectidentity",
+    "name": "hwDhcpSnpTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2"
+  },
+  "hwDhcpSnpUserLimitAlarmEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "Whether to send trap when the binding item number exceeds the threshold. ",
+    "maxaccess": "read-create",
+    "name": "hwDhcpSnpUserLimitAlarmEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpSnpUserLimitAlarmThreshold": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 100
+      }
+    },
+    "description": "The threshold of user-number limitation. A trap can be sent when the current binding-items exceed it.",
+    "maxaccess": "read-create",
+    "name": "hwDhcpSnpUserLimitAlarmThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpSnpVlanIndex": {
+    "class": "objecttype",
+    "description": " The VLAN-ID or other identifier referring to this VLAN.",
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpVlanIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrNone"
+    }
+  },
+  "hwDhcpSnpVsiIndex": {
+    "class": "objecttype",
+    "description": " The VSI ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSnpVsiIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4095,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpTrusted": {
+    "class": "objecttype",
+    "description": "This interface/VLAN is trusted or distrusted. When enabled the snooping, it turns to distrusted as default until be changed.",
+    "maxaccess": "read-create",
+    "name": "hwDhcpTrusted",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trusted": 1,
+          "untrusted": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpUntrustReplyAlarmEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "Whether to send distrust DHCP reply trap when its count beyond the threshold. ",
+    "maxaccess": "read-create",
+    "name": "hwDhcpUntrustReplyAlarmEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpUntrustReplyAlarmThreshold": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 100
+      }
+    },
+    "description": "The threshold of DHCP reply packets check alarm. A trap can be sent when the DHCP reply packets count on untrusted interface/VLAN beyond it. ",
+    "maxaccess": "read-create",
+    "name": "hwDhcpUntrustReplyAlarmThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.13.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpNomatchSnpBindTblPktAlarm": {
+    "class": "notificationtype",
+    "description": "Ip packets do not match the snooping bind table. ",
+    "name": "hwIpNomatchSnpBindTblPktAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwIpNomatchSnpBindTblPktNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.3",
+    "status": "current"
+  },
+  "hwIpNomatchSnpBindTblPktAlarmResume": {
+    "class": "notificationtype",
+    "description": "The number of the discarded IP packets that do not match the binding table descends to the threshold on the interface.",
+    "name": "hwIpNomatchSnpBindTblPktAlarmResume",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwIpNomatchSnpBindTblPktNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.26",
+    "status": "current"
+  },
+  "hwIpNomatchSnpBindTblPktNum": {
+    "class": "objecttype",
+    "description": "The false IP packets do not match snooping bind table count.",
+    "maxaccess": "read-only",
+    "name": "hwIpNomatchSnpBindTblPktNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.15.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwNdSnpUserNumberAlarmGlobal": {
+    "class": "notificationtype",
+    "description": "The number of ND global user exceeds alarm threshold.",
+    "name": "hwNdSnpUserNumberAlarmGlobal",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpCfgMaxUserNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.16",
+    "status": "current"
+  },
+  "hwNdSnpUserNumberAlarmGlobalResume": {
+    "class": "notificationtype",
+    "description": "The number of ND global user descends to alarm threshold.",
+    "name": "hwNdSnpUserNumberAlarmGlobalResume",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpCfgMaxUserNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.17",
+    "status": "current"
+  },
+  "hwNdSnpUserNumberAlarmIf": {
+    "class": "notificationtype",
+    "description": "The number of ND user on the interface exceeds alarm threshold.",
+    "name": "hwNdSnpUserNumberAlarmIf",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpCfgMaxUserNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.14",
+    "status": "current"
+  },
+  "hwNdSnpUserNumberAlarmIfResume": {
+    "class": "notificationtype",
+    "description": "The number of ND user on the interface descends to alarm threshold.",
+    "name": "hwNdSnpUserNumberAlarmIfResume",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpCfgMaxUserNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.15",
+    "status": "current"
+  },
+  "hwNomatchSnpBindTblDhcpPktAlarm": {
+    "class": "notificationtype",
+    "description": "There are Dhcp request packets do not match the snooping bind table.",
+    "name": "hwNomatchSnpBindTblDhcpPktAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwNomatchSnpBindTblDhcpPktNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.5",
+    "status": "current"
+  },
+  "hwNomatchSnpBindTblDhcpPktAlarmResume": {
+    "class": "notificationtype",
+    "description": "The number of the discarded DHCP request packets that do not match the binding table descends to the threshold on the interface.",
+    "name": "hwNomatchSnpBindTblDhcpPktAlarmResume",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwNomatchSnpBindTblDhcpPktNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.28",
+    "status": "current"
+  },
+  "hwNomatchSnpBindTblDhcpPktNum": {
+    "class": "objecttype",
+    "description": "The DHCP request packets do not match the snooping bind table.",
+    "maxaccess": "read-only",
+    "name": "hwNomatchSnpBindTblDhcpPktNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.15.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwSnpBindingItemNum": {
+    "class": "objecttype",
+    "description": "The number of current binding-table items.",
+    "maxaccess": "read-only",
+    "name": "hwSnpBindingItemNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.15.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwSnpCfgMaxUserNum": {
+    "class": "objecttype",
+    "description": "The limitation of the user number on the interface.",
+    "maxaccess": "read-only",
+    "name": "hwSnpCfgMaxUserNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.15.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwSnpUserNumberAlarm": {
+    "class": "notificationtype",
+    "description": "The number of the binding items exceeds the threshold of user-limit on the interface.",
+    "name": "hwSnpUserNumberAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpCfgMaxUserNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.7",
+    "status": "current"
+  },
+  "hwSnpUserNumberAlarmGlobal": {
+    "class": "notificationtype",
+    "description": "The number of DHCP global user exceeds alarm threshold.",
+    "name": "hwSnpUserNumberAlarmGlobal",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpCfgMaxUserNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.12",
+    "status": "current"
+  },
+  "hwSnpUserNumberAlarmGlobalResume": {
+    "class": "notificationtype",
+    "description": "The number of DHCP global user descends to alarm threshold.",
+    "name": "hwSnpUserNumberAlarmGlobalResume",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpCfgMaxUserNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.13",
+    "status": "current"
+  },
+  "hwSnpUserNumberAlarmIf": {
+    "class": "notificationtype",
+    "description": "The number of DHCP user on the interface exceeds alarm threshold.",
+    "name": "hwSnpUserNumberAlarmIf",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpCfgMaxUserNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.8",
+    "status": "current"
+  },
+  "hwSnpUserNumberAlarmIfResume": {
+    "class": "notificationtype",
+    "description": "The number of DHCP user on the interface descends to alarm threshold.",
+    "name": "hwSnpUserNumberAlarmIfResume",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpCfgMaxUserNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.9",
+    "status": "current"
+  },
+  "hwSnpUserNumberAlarmResume": {
+    "class": "notificationtype",
+    "description": "The number of the binding items descends to the threshold of user-limit on the interface.",
+    "name": "hwSnpUserNumberAlarmResume",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpCfgMaxUserNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.29",
+    "status": "current"
+  },
+  "hwSnpUserNumberAlarmVlan": {
+    "class": "notificationtype",
+    "description": "The number of DHCP user on the vlan exceeds alarm threshold.",
+    "name": "hwSnpUserNumberAlarmVlan",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpCfgMaxUserNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.10",
+    "status": "current"
+  },
+  "hwSnpUserNumberAlarmVlanResume": {
+    "class": "notificationtype",
+    "description": "The number of DHCP user on the vlan descends to alarm threshold.",
+    "name": "hwSnpUserNumberAlarmVlanResume",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpBindingItemNum"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwSnpCfgMaxUserNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.11",
+    "status": "current"
+  },
+  "hwUntrustedReplyPktAlarm": {
+    "class": "notificationtype",
+    "description": "Untrusted ports have received the Dhcp reply packets.",
+    "name": "hwUntrustedReplyPktAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwUntrustedReplyPktNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.4",
+    "status": "current"
+  },
+  "hwUntrustedReplyPktAlarmResume": {
+    "class": "notificationtype",
+    "description": "The number of the discarded DHCP reply packets on the untrusted interface descends to the threshold.",
+    "name": "hwUntrustedReplyPktAlarmResume",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticIfDescr"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwDhcpSnpStatisticVlanId"
+      },
+      {
+        "module": "HUAWEI-DHCP-SNOOPING-MIB",
+        "object": "hwUntrustedReplyPktNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.112.2.27",
+    "status": "current"
+  },
+  "hwUntrustedReplyPktNum": {
+    "class": "objecttype",
+    "description": "The distrusted port DHCP reply packets count.",
+    "maxaccess": "read-only",
+    "name": "hwUntrustedReplyPktNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.112.1.15.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId",
+      "VlanIdOrNone"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-DHCP-SNOOPING-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:10 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-DHCP-SNOOPING-MIB"
+  }
+}

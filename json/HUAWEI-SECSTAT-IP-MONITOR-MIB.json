@@ -1,0 +1,1026 @@
+{
+  "hwSECSTAT": {
+    "class": "objectidentity",
+    "name": "hwSECSTAT",
+    "oid": "1.3.6.1.4.1.2011.5.25.11"
+  },
+  "hwSecStatClearAllIPInfo": {
+    "class": "objecttype",
+    "description": " This OID is used for clearing the statistics information of All IP. When you want to clear the information, set this OID to 1. ",
+    "maxaccess": "read-write",
+    "name": "hwSecStatClearAllIPInfo",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatClearIPInInfo": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatClearIPInInfo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatClearIPOutInfo": {
+    "class": "objecttype",
+    "description": " This OID is used for clearing the statistics information of this IP. When you want to clear the information of this IP, set this OID to 1. ",
+    "maxaccess": "read-write",
+    "name": "hwSecStatClearIPOutInfo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatCompliance": {
+    "class": "objectidentity",
+    "name": "hwSecStatCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.3.1"
+  },
+  "hwSecStatConformance": {
+    "class": "objectidentity",
+    "name": "hwSecStatConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.3"
+  },
+  "hwSecStatIPAclDenyIcmpOctsFrom": {
+    "class": "objecttype",
+    "description": "The total bytes of dropped ICMP packets from this host by ACL",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPAclDenyIcmpOctsFrom",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPAclDenyIcmpOctsTo": {
+    "class": "objecttype",
+    "description": "The total bytes of dropped ICMP packets to this host by ACL",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPAclDenyIcmpOctsTo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPAclDenyIcmpPktsFrom": {
+    "class": "objecttype",
+    "description": "The total number of dropped ICMP packets from this host by ACL",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPAclDenyIcmpPktsFrom",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPAclDenyIcmpPktsTo": {
+    "class": "objecttype",
+    "description": "The total number of dropped ICMP packets to this host by ACL",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPAclDenyIcmpPktsTo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPAclDenyNonIcmpOctsFrom": {
+    "class": "objecttype",
+    "description": "The total bytes of dropped non ICMP packets from this host by ACL",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPAclDenyNonIcmpOctsFrom",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPAclDenyNonIcmpOctsTo": {
+    "class": "objecttype",
+    "description": "The total bytes of dropped non ICMP packets to this host by ACL",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPAclDenyNonIcmpOctsTo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPAclDenyNonIcmpPktsFrom": {
+    "class": "objecttype",
+    "description": "The total number of dropped non ICMP packets from this host by ACL",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPAclDenyNonIcmpPktsFrom",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPAclDenyNonIcmpPktsTo": {
+    "class": "objecttype",
+    "description": "The total number of dropped non ICMP packets to this host by ACL",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPAclDenyNonIcmpPktsTo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPAclDftDenyIcmpPktsFrom": {
+    "class": "objecttype",
+    "description": "The total number of dropped ICMP packets from this host by default ACL.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPAclDftDenyIcmpPktsFrom",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPAclDftDenyIcmpPktsTo": {
+    "class": "objecttype",
+    "description": "The total number of dropped ICMP packets to this host by default ACL.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPAclDftDenyIcmpPktsTo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPAclDftDenyPktsFrom": {
+    "class": "objecttype",
+    "description": "The total number of dropped packets from this host by default ACL.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPAclDftDenyPktsFrom",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPAclDftDenyPktsTo": {
+    "class": "objecttype",
+    "description": "The total number of dropped packets to this host by default ACL.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPAclDftDenyPktsTo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPBlsDenyPktsFrom": {
+    "class": "objecttype",
+    "description": "The total number of dropped packets from this host by blacklist.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPBlsDenyPktsFrom",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPBlsDenyPktsTo": {
+    "class": "objecttype",
+    "description": "The total number of dropped packets to this host by blacklist.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPBlsDenyPktsTo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPConnFrom": {
+    "class": "objecttype",
+    "description": "The number of session from this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPConnFrom",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPConnSpeedFrom": {
+    "class": "objecttype",
+    "description": "The establishing speed of session from this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPConnSpeedFrom",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPConnSpeedTo": {
+    "class": "objecttype",
+    "description": "The establishing speed of session to this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPConnSpeedTo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPConnTo": {
+    "class": "objecttype",
+    "description": "The number of session to this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPConnTo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPFtpPktsFrom": {
+    "class": "objecttype",
+    "description": "The number of FTP packets from this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPFtpPktsFrom",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPFtpPktsTo": {
+    "class": "objecttype",
+    "description": "The total number of FTP packets to this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPFtpPktsTo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPH323PktsFrom": {
+    "class": "objecttype",
+    "description": "The number of H323 packets from this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPH323PktsFrom",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPH323PktsTo": {
+    "class": "objecttype",
+    "description": "The total number of H323 packets to this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPH323PktsTo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPHalfConnFrom": {
+    "class": "objecttype",
+    "description": "The number of incomplete session from this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPHalfConnFrom",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPHalfConnSpeedFrom": {
+    "class": "objecttype",
+    "description": "The establishing speed of TCP incomplete session from this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPHalfConnSpeedFrom",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPHalfConnSpeedTo": {
+    "class": "objecttype",
+    "description": "The establishing speed of TCP incomplete session to this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPHalfConnSpeedTo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPHalfConnTo": {
+    "class": "objecttype",
+    "description": "The number of incomplete session to this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPHalfConnTo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPHttpPktsFrom": {
+    "class": "objecttype",
+    "description": "The number of HTTP packets from this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPHttpPktsFrom",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPHttpPktsTo": {
+    "class": "objecttype",
+    "description": "The total number of HTTP packets to this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPHttpPktsTo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPIcmpFloodDropPktsTo": {
+    "class": "objecttype",
+    "description": "The total number of dropped packets to this host for ICMP Flood attack.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPIcmpFloodDropPktsTo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPIcmpSessFrom": {
+    "class": "objecttype",
+    "description": "The number of ICMP session from this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPIcmpSessFrom",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPIcmpSessSpeedFrom": {
+    "class": "objecttype",
+    "description": "The establishing speed of ICMP session from this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPIcmpSessSpeedFrom",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPIcmpSessSpeedTo": {
+    "class": "objecttype",
+    "description": "The establishing speed of ICMP session to this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPIcmpSessSpeedTo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPIcmpSessTo": {
+    "class": "objecttype",
+    "description": "The number of ICMP session to this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPIcmpSessTo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPInInfoEntry": {
+    "class": "objecttype",
+    "description": "The statistic information of packets to the hosts.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPInInfoIpAddress"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSecStatIPInInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1",
+    "status": "current"
+  },
+  "hwSecStatIPInInfoIpAddress": {
+    "class": "objecttype",
+    "description": "The IP address of host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPInInfoIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwSecStatIPInInfoTable": {
+    "class": "objecttype",
+    "description": "The statistic information of packets to the hosts.",
+    "maxaccess": "not-accessible",
+    "name": "hwSecStatIPInInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2",
+    "status": "current"
+  },
+  "hwSecStatIPMonitor": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": " V1.00 The HUAWEI-SECSTAT-IP-MONITOR-MIB contains objects to monitor the statistics information for the hosts. ",
+    "lastupdated": "200304100900Z",
+    "name": "hwSecStatIPMonitor",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwSecStatIPMonitorGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwSecStatIPMonitorGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPTcpSessTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPUdpSessTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPIcmpSessTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPConnTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPHalfConnTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPTcpSessSpeedTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPUdpSessSpeedTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPIcmpSessSpeedTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPConnSpeedTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPHalfConnSpeedTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPAclDenyIcmpPktsTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPAclDenyIcmpOctsTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPAclDenyNonIcmpPktsTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPAclDenyNonIcmpOctsTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPAclDftDenyIcmpPktsTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPIcmpFloodDropPktsTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPUdpFloodDropPktsTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPFtpPktsTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPSmtpPktsTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPHttpPktsTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPH323PktsTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPRtspPktsTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPTcpSessFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPUdpSessFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPIcmpSessFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPConnFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPHalfConnFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPTcpSessSpeedFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPUdpSessSpeedFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPIcmpSessSpeedFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPConnSpeedFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPHalfConnSpeedFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPAclDenyIcmpPktsFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPAclDenyIcmpOctsFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPAclDenyNonIcmpPktsFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPAclDenyNonIcmpOctsFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPAclDftDenyIcmpPktsFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPFtpPktsFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPSmtpPktsFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPHttpPktsFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPH323PktsFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPOutInfoIpAddress"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPInInfoIpAddress"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatClearIPOutInfo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatClearIPInInfo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatClearAllIPInfo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPRtspPktsFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPBlsDenyPktsTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPAclDftDenyPktsTo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPBlsDenyPktsFrom"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPAclDftDenyPktsFrom"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.3.2.5",
+    "status": "current"
+  },
+  "hwSecStatIPOutInfoEntry": {
+    "class": "objecttype",
+    "description": "The statistic information of packets from the hosts.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB",
+        "object": "hwSecStatIPOutInfoIpAddress"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSecStatIPOutInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1",
+    "status": "current"
+  },
+  "hwSecStatIPOutInfoIpAddress": {
+    "class": "objecttype",
+    "description": "The IP address of host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPOutInfoIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwSecStatIPOutInfoTable": {
+    "class": "objecttype",
+    "description": "The statistic information of packets from the hosts.",
+    "maxaccess": "not-accessible",
+    "name": "hwSecStatIPOutInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3",
+    "status": "current"
+  },
+  "hwSecStatIPRtspPktsFrom": {
+    "class": "objecttype",
+    "description": "The number of RTSP packets from this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPRtspPktsFrom",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPRtspPktsTo": {
+    "class": "objecttype",
+    "description": "The total number of RTSP packets to this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPRtspPktsTo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPSmtpPktsFrom": {
+    "class": "objecttype",
+    "description": "The number of SMTP packets from this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPSmtpPktsFrom",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPSmtpPktsTo": {
+    "class": "objecttype",
+    "description": "The total number of SMTP packets to this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPSmtpPktsTo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPTcpSessFrom": {
+    "class": "objecttype",
+    "description": "The number of TCP session from this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPTcpSessFrom",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPTcpSessSpeedFrom": {
+    "class": "objecttype",
+    "description": "The establishing speed of TCP session from this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPTcpSessSpeedFrom",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPTcpSessSpeedTo": {
+    "class": "objecttype",
+    "description": "The establishing speed of TCP session to this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPTcpSessSpeedTo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPTcpSessTo": {
+    "class": "objecttype",
+    "description": "The number of TCP session to this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPTcpSessTo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPUdpFloodDropPktsTo": {
+    "class": "objecttype",
+    "description": "The total number of dropped packets to this host for UDP Flood attack.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPUdpFloodDropPktsTo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPUdpSessFrom": {
+    "class": "objecttype",
+    "description": "The number of UDP session from this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPUdpSessFrom",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPUdpSessSpeedFrom": {
+    "class": "objecttype",
+    "description": "The establishing speed of UDP session from this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPUdpSessSpeedFrom",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPUdpSessSpeedTo": {
+    "class": "objecttype",
+    "description": "The establishing speed of UDP session to this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPUdpSessSpeedTo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatIPUdpSessTo": {
+    "class": "objecttype",
+    "description": "The number of UDP session to this host.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatIPUdpSessTo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatMibGroups": {
+    "class": "objectidentity",
+    "name": "hwSecStatMibGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.3.2"
+  },
+  "hwSecStatMonitorObjects": {
+    "class": "objectidentity",
+    "name": "hwSecStatMonitorObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.4.1"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "Bits",
+      "TimeTicks",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-SECSTAT-IP-MONITOR-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:53 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-SECSTAT-IP-MONITOR-MIB"
+  }
+}

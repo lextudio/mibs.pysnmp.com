@@ -1,0 +1,2568 @@
+{
+  "EnabledStatus": {
+    "class": "textualconvention",
+    "description": "A simple status value for the object.",
+    "name": "EnabledStatus",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "VlanIdOrNone": {
+    "class": "textualconvention",
+    "description": "Description.",
+    "name": "VlanIdOrNone",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCurrentUtcOffsetValid": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "CurrentUtcOffsetValid.",
+    "maxaccess": "read-only",
+    "name": "hwCurrentUtcOffsetValid",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwPtpBitsClockAccuracy": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 32
+      }
+    },
+    "description": "BitsClockAccuracy.",
+    "maxaccess": "read-write",
+    "name": "hwPtpBitsClockAccuracy",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPtpBitsClockClass": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 6
+      }
+    },
+    "description": "BitsClockClass.",
+    "maxaccess": "read-write",
+    "name": "hwPtpBitsClockClass",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPtpBitsClockSourceEntry": {
+    "class": "objecttype",
+    "description": "An entry in hwPtpPortStatisticTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpBitsPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPtpBitsClockSourceEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.3.1",
+    "status": "current"
+  },
+  "hwPtpBitsClockSourceTable": {
+    "class": "objecttype",
+    "description": "BitsClockSourceTable.",
+    "maxaccess": "not-accessible",
+    "name": "hwPtpBitsClockSourceTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.3",
+    "status": "current"
+  },
+  "hwPtpBitsDirection": {
+    "class": "objecttype",
+    "description": "The direction of BITS.",
+    "maxaccess": "read-only",
+    "name": "hwPtpBitsDirection",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "both": 3,
+          "in": 1,
+          "none": 4,
+          "out": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpBitsNormalStatus": {
+    "class": "objecttype",
+    "description": "The normal status of BITS.",
+    "maxaccess": "read-only",
+    "name": "hwPtpBitsNormalStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "abnormal": 2,
+          "normal": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpBitsPortIndex": {
+    "class": "objecttype",
+    "description": "The BitsPortIndex.",
+    "maxaccess": "not-accessible",
+    "name": "hwPtpBitsPortIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPtpBitsPriority1": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 128
+      }
+    },
+    "description": "BitsPriority1.",
+    "maxaccess": "read-write",
+    "name": "hwPtpBitsPriority1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPtpBitsPriority2": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 128
+      }
+    },
+    "description": "BitsPriority2.",
+    "maxaccess": "read-write",
+    "name": "hwPtpBitsPriority2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPtpBitsSignal": {
+    "class": "objecttype",
+    "description": "The signal of BITS.",
+    "maxaccess": "read-only",
+    "name": "hwPtpBitsSignal",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dcls": 4,
+          "none": 5,
+          "oneppsandrs232": 1,
+          "twombps": 3,
+          "twomhz": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpBitsSwitch": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "off"
+      }
+    },
+    "description": "The switch status.",
+    "maxaccess": "read-write",
+    "name": "hwPtpBitsSwitch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpBitsTimeSource": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "gps"
+      }
+    },
+    "description": "BitsTimeSource.",
+    "maxaccess": "read-write",
+    "name": "hwPtpBitsTimeSource",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "atomicclock": 1,
+          "gps": 2,
+          "handset": 6,
+          "internaloscillator": 8,
+          "ntp": 5,
+          "other": 7,
+          "ptp": 4,
+          "terrestrialradio": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpCableLengthIfindex": {
+    "class": "objecttype",
+    "description": "The interface index.",
+    "maxaccess": "read-write",
+    "name": "hwPtpCableLengthIfindex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.4.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwPtpCableLengthMode": {
+    "class": "objecttype",
+    "description": "The mode of cable length.",
+    "maxaccess": "read-write",
+    "name": "hwPtpCableLengthMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.4.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "length": 0,
+          "time": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpCableLengthTable": {
+    "class": "objectidentity",
+    "name": "hwPtpCableLengthTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.4"
+  },
+  "hwPtpCableLengthTransDirect": {
+    "class": "objecttype",
+    "description": "The direction of transport.",
+    "maxaccess": "read-write",
+    "name": "hwPtpCableLengthTransDirect",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.4.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "receive": 0,
+          "send": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpCableLengthTransDistance": {
+    "class": "objecttype",
+    "description": "The distance of cable length.",
+    "maxaccess": "read-write",
+    "name": "hwPtpCableLengthTransDistance",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.4.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPtpCableTransIfindex": {
+    "class": "objecttype",
+    "description": "The interface index.",
+    "maxaccess": "read-write",
+    "name": "hwPtpCableTransIfindex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.5.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwPtpCableTransTable": {
+    "class": "objectidentity",
+    "name": "hwPtpCableTransTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.5"
+  },
+  "hwPtpCableTransWarpDirect": {
+    "class": "objecttype",
+    "description": "The direction of transport warp.",
+    "maxaccess": "read-write",
+    "name": "hwPtpCableTransWarpDirect",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.5.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "negative": 1,
+          "positive": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpCableTransWarpMode": {
+    "class": "objecttype",
+    "description": "The mode of transport warp.",
+    "maxaccess": "read-write",
+    "name": "hwPtpCableTransWarpMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.5.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "length": 0,
+          "time": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpCableTransWarpValue": {
+    "class": "objecttype",
+    "description": "The value of transport warp.",
+    "maxaccess": "read-write",
+    "name": "hwPtpCableTransWarpValue",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.5.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPtpClockSourceChange": {
+    "class": "notificationtype",
+    "description": "Clock source change notification.",
+    "name": "hwPtpClockSourceChange",
+    "objects": [
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpCurrentMasterClockId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.187.6.2",
+    "status": "current"
+  },
+  "hwPtpComliance": {
+    "class": "modulecompliance",
+    "description": "This is the PTP module compliance.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpGlobalObjectsGroup"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortObjectsGroup"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpNotificationsGroup"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpManageExtInterfaceGroup"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpManageCableLengthGroup"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpManageCableTransGroup"
+      }
+    ],
+    "name": "hwPtpComliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.7.1.1",
+    "status": "current"
+  },
+  "hwPtpCompliance": {
+    "class": "objectidentity",
+    "name": "hwPtpCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.7.1"
+  },
+  "hwPtpConformance": {
+    "class": "objectidentity",
+    "name": "hwPtpConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.7"
+  },
+  "hwPtpCurrentMasterClockId": {
+    "class": "objecttype",
+    "description": "Current grandmaster clock\u0027s clockId",
+    "maxaccess": "read-only",
+    "name": "hwPtpCurrentMasterClockId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPtpCurrentMasterClockReceivePort": {
+    "class": "objecttype",
+    "description": "The input port of current grandmaster clock\u0027s clock ID.",
+    "maxaccess": "read-only",
+    "name": "hwPtpCurrentMasterClockReceivePort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPtpCurrentMasterClockStepRemoved": {
+    "class": "objecttype",
+    "description": "Steps between current grandmaster clock device and the local clock device.",
+    "maxaccess": "read-only",
+    "name": "hwPtpCurrentMasterClockStepRemoved",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 127,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPtpCurrentUtcOffset": {
+    "class": "objecttype",
+    "description": "The offset between TAI and UTC. CurrentUtcOffset=TAI-UTC.",
+    "maxaccess": "read-write",
+    "name": "hwPtpCurrentUtcOffset",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPtpDeviceType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 99
+      }
+    },
+    "description": "PTP device\u0027s type attribute.",
+    "maxaccess": "read-write",
+    "name": "hwPtpDeviceType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bc": 2,
+          "e2etc": 4,
+          "e2etcoc": 6,
+          "invalid": 99,
+          "oc": 1,
+          "p2ptc": 3,
+          "p2ptcoc": 5,
+          "tcandbc": 7
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpDomain": {
+    "class": "objecttype",
+    "description": "PTP device\u0027s domain attribute,this attribute is used by PTP Device to join BMC compute.",
+    "maxaccess": "read-write",
+    "name": "hwPtpDomain",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPtpEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32"
+      }
+    },
+    "description": "Enable PTP function.",
+    "maxaccess": "read-write",
+    "name": "hwPtpEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwPtpExtInterfaceDirect": {
+    "class": "objecttype",
+    "description": "The direction of interface.",
+    "maxaccess": "read-create",
+    "name": "hwPtpExtInterfaceDirect",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "input": 1,
+          "output": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpExtInterfaceElectricLevel": {
+    "class": "objecttype",
+    "description": "The electric level of interface.",
+    "maxaccess": "read-create",
+    "name": "hwPtpExtInterfaceElectricLevel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rs232": 2,
+          "rs422": 3,
+          "ttl": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpExtInterfaceEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpExtInterfaceOperateIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPtpExtInterfaceEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.3.1",
+    "status": "current"
+  },
+  "hwPtpExtInterfaceIfIndex": {
+    "class": "objecttype",
+    "description": "The interface index.",
+    "maxaccess": "read-create",
+    "name": "hwPtpExtInterfaceIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwPtpExtInterfaceOperateIndex": {
+    "class": "objecttype",
+    "description": "The operation index of extern interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwPtpExtInterfaceOperateIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPtpExtInterfaceOperateType": {
+    "class": "objecttype",
+    "description": "The operation type of extern interface.",
+    "maxaccess": "read-create",
+    "name": "hwPtpExtInterfaceOperateType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setelectriclevel": 2,
+          "setprotocltype": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpExtInterfaceProtocoltype": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "dcls"
+      }
+    },
+    "description": "The protocol type of interface.",
+    "maxaccess": "read-create",
+    "name": "hwPtpExtInterfaceProtocoltype",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dcls": 1,
+          "j211": 3,
+          "time1pps": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpExtInterfaceTable": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwPtpExtInterfaceTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.3",
+    "status": "current"
+  },
+  "hwPtpFrequencyTraceable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "The frequency trace is enable.",
+    "maxaccess": "read-only",
+    "name": "hwPtpFrequencyTraceable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwPtpGlobalObjects": {
+    "class": "objectidentity",
+    "name": "hwPtpGlobalObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.1"
+  },
+  "hwPtpGlobalObjectsGroup": {
+    "class": "objectgroup",
+    "description": "This is the hwPtpGlobalObjectsGroups.",
+    "name": "hwPtpGlobalObjectsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpEnable"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpDomain"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpSlaveOnly"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpDeviceType"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpLocalClockId"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpLocalClockClass"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpLocalClockAccuracy"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpLocalClockPriority1"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpLocalClockPriority2"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpLocalClockTimeSource"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpUtc"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpCurrentUtcOffset"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpCurrentMasterClockId"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpCurrentMasterClockReceivePort"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpCurrentMasterClockStepRemoved"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpTimeSynchronizationStatus"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpTimeTraceable"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpTimeScale"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpVersion"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpLeapEmendationTime"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwCurrentUtcOffsetValid"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpLeap59orLeap61Valid"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpFrequencyTraceable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.187.7.2.1",
+    "status": "current"
+  },
+  "hwPtpGroups": {
+    "class": "objectidentity",
+    "name": "hwPtpGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.7.2"
+  },
+  "hwPtpLeap59orLeap61Valid": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "none"
+      }
+    },
+    "description": "Indicates Leap59OrLeap61Valid is valid or not.",
+    "maxaccess": "read-write",
+    "name": "hwPtpLeap59orLeap61Valid",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "leap59Valid": 1,
+          "leap61Valid": 2,
+          "none": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpLeapEmendationTime": {
+    "class": "objecttype",
+    "description": "Specify the time at which the leap action will be occurred. We will only take octet strings with length 8 for this object. ",
+    "maxaccess": "read-write",
+    "name": "hwPtpLeapEmendationTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 8,
+            "min": 8
+          }
+        ]
+      },
+      "type": "DateAndTime"
+    }
+  },
+  "hwPtpLocalClockAccuracy": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 49
+      }
+    },
+    "description": "PTP device\u0027s clock accuracy attribute.",
+    "maxaccess": "read-write",
+    "name": "hwPtpLocalClockAccuracy",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPtpLocalClockClass": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 187
+      }
+    },
+    "description": "PTP device\u0027s clock class attribute.",
+    "maxaccess": "read-write",
+    "name": "hwPtpLocalClockClass",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPtpLocalClockId": {
+    "class": "objecttype",
+    "description": "Local PTP device\u0027s ClockId.",
+    "maxaccess": "read-only",
+    "name": "hwPtpLocalClockId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPtpLocalClockPriority1": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 128
+      }
+    },
+    "description": "PTP device\u0027s clock priority1 attribute.",
+    "maxaccess": "read-write",
+    "name": "hwPtpLocalClockPriority1",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPtpLocalClockPriority2": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 128
+      }
+    },
+    "description": "PTP device\u0027s clock priority2 attribute.",
+    "maxaccess": "read-write",
+    "name": "hwPtpLocalClockPriority2",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPtpLocalClockTimeSource": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "internaloscillator"
+      }
+    },
+    "description": "PTP device\u0027s clock time source attribute.",
+    "maxaccess": "read-write",
+    "name": "hwPtpLocalClockTimeSource",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "atomicclock": 1,
+          "gps": 2,
+          "handset": 6,
+          "internaloscillator": 8,
+          "ntp": 5,
+          "other": 7,
+          "ptp": 4,
+          "terrestrialradio": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com",
+    "description": "The HUAWEI-PTP-MIB contains objects to manage PTP.",
+    "lastupdated": "200902111449Z",
+    "name": "hwPtpMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.187",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwPtpManageCableLengthGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwPtpManageCableLengthGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpCableLengthIfindex"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpCableLengthTransDirect"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpCableLengthMode"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpCableLengthTransDistance"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.187.7.2.5",
+    "status": "current"
+  },
+  "hwPtpManageCableTransGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwPtpManageCableTransGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpCableTransIfindex"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpCableTransWarpMode"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpCableTransWarpDirect"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpCableTransWarpValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.187.7.2.6",
+    "status": "current"
+  },
+  "hwPtpManageExtInterfaceGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwPtpManageExtInterfaceGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpExtInterfaceOperateType"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpExtInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpExtInterfaceDirect"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpExtInterfaceProtocoltype"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpExtInterfaceElectricLevel"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.187.7.2.4",
+    "status": "current"
+  },
+  "hwPtpNotifications": {
+    "class": "objectidentity",
+    "name": "hwPtpNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.6"
+  },
+  "hwPtpNotificationsGroup": {
+    "class": "notificationgroup",
+    "description": "Description.",
+    "name": "hwPtpNotificationsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortStatusChange"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpClockSourceChange"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpTimeSynchronizationStatusChange"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.187.7.2.3",
+    "status": "current"
+  },
+  "hwPtpPortAnnounceDrop": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32"
+      }
+    },
+    "description": "Enable AnnounceDrop function.",
+    "maxaccess": "read-create",
+    "name": "hwPtpPortAnnounceDrop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwPtpPortAnnounceInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 7
+      }
+    },
+    "description": "Interval of sending announce message.",
+    "maxaccess": "read-create",
+    "name": "hwPtpPortAnnounceInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 20,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpPortAnnounceReceipTimeout": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 10
+      }
+    },
+    "description": "Timeout of receiving announce message.",
+    "maxaccess": "read-create",
+    "name": "hwPtpPortAnnounceReceipTimeout",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 20,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpPortAsymmetryNegativeCorrection": {
+    "class": "objecttype",
+    "description": "Negtive asymmetry-correction value",
+    "maxaccess": "read-create",
+    "name": "hwPtpPortAsymmetryNegativeCorrection",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPtpPortAsymmetryPositiveCorrection": {
+    "class": "objecttype",
+    "description": "Positive asymmetry-correction value",
+    "maxaccess": "read-create",
+    "name": "hwPtpPortAsymmetryPositiveCorrection",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPtpPortCfgExtInterfaceMode": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "extclock"
+      }
+    },
+    "description": "The mode of interface.",
+    "maxaccess": "read-create",
+    "name": "hwPtpPortCfgExtInterfaceMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "extclock": 1,
+          "exttime": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpPortCfgLinkStatus": {
+    "class": "objecttype",
+    "description": "The link status of port.",
+    "maxaccess": "read-create",
+    "name": "hwPtpPortCfgLinkStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpPortCfgMsgFormat": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "ptpeth"
+      }
+    },
+    "description": "The format of massage.",
+    "maxaccess": "read-create",
+    "name": "hwPtpPortCfgMsgFormat",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ptpeth": 1,
+          "ptpip": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpPortDelayMechanism": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "The port delay mechanism.",
+    "maxaccess": "read-create",
+    "name": "hwPtpPortDelayMechanism",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delay": 2,
+          "none": 1,
+          "pdelay": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpPortDomain": {
+    "class": "objecttype",
+    "description": "This port\u0027s domain,only used in the PTP device type is tcandbc.",
+    "maxaccess": "read-create",
+    "name": "hwPtpPortDomain",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPtpPortEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32"
+      }
+    },
+    "description": "The port enable PTP function.",
+    "maxaccess": "read-create",
+    "name": "hwPtpPortEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwPtpPortEntry": {
+    "class": "objecttype",
+    "description": "An entry in hwPtpPortTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPtpPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1",
+    "status": "current"
+  },
+  "hwPtpPortIfIndex": {
+    "class": "objecttype",
+    "description": "Port ifIndex.",
+    "maxaccess": "not-accessible",
+    "name": "hwPtpPortIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwPtpPortMacEgressDestinationMac": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "OctetString",
+        "format": "hex",
+        "value": ""
+      }
+    },
+    "description": "MacEgress destination Mac.",
+    "maxaccess": "read-create",
+    "name": "hwPtpPortMacEgressDestinationMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwPtpPortMacEgressPacketPriority": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 7
+      }
+    },
+    "description": "MacEgress Packet Priority.",
+    "maxaccess": "read-create",
+    "name": "hwPtpPortMacEgressPacketPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPtpPortMacEgressVlanId": {
+    "class": "objecttype",
+    "description": "MacEgress VlanId.",
+    "maxaccess": "read-create",
+    "name": "hwPtpPortMacEgressVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrNone"
+    }
+  },
+  "hwPtpPortMinDelayReqInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 7
+      }
+    },
+    "description": "Interval of sending DelayReq message.",
+    "maxaccess": "read-create",
+    "name": "hwPtpPortMinDelayReqInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 20,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpPortMinPdelayReqInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 7
+      }
+    },
+    "description": "Interval of sending PdelayReq message.",
+    "maxaccess": "read-create",
+    "name": "hwPtpPortMinPdelayReqInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 20,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpPortObjects": {
+    "class": "objectidentity",
+    "name": "hwPtpPortObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2"
+  },
+  "hwPtpPortObjectsGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwPtpPortObjectsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortEnable"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortDelayMechanism"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortDomain"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortTcOcStaticClockId"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortAnnounceInterval"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortAnnounceReceipTimeout"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortSyncInterval"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortMinDelayReqInterval"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortMinPdelayReqInterval"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortAsymmetryNegativeCorrection"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortAsymmetryPositiveCorrection"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortMacEgressDestinationMac"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortMacEgressVlanId"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortMacEgressPacketPriority"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortUdpEgressSourceIp"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortUdpEgressDestinationIp"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortUdpEgressDestinationMac"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortUdpEgressDscp"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortUdpEgressVlanId"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortUdpEgressPacketPriority"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortAnnounceDrop"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortState"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortSourcePortClockId"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortRxPtpTrsprnsPktCnt"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortRxPtpDiscardTrsprnsPktCnt"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortRxPtpEndPktCnt"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortRxPtpDiscardEndPktCnt"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortRxPtpAnnouncePktCnt"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortRxPtpSyncPktCnt"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortTxPtpDiscardReqCnt"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortTxFifoDiscardPktCn"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpReceiveDelay"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpBitsDirection"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpBitsSignal"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpBitsSwitch"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpBitsNormalStatus"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpSendDelay"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortRowStatus"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortStaticPktReset"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortType"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpBitsClockAccuracy"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpBitsClockClass"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortCfgMsgFormat"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortCfgExtInterfaceMode"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortCfgLinkStatus"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortPortVlan"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpBitsPriority2"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpBitsPriority1"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpBitsTimeSource"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortTcOcStaticClockPortNum"
+      },
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortSourcePortNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.187.7.2.2",
+    "status": "current"
+  },
+  "hwPtpPortPortVlan": {
+    "class": "objecttype",
+    "description": "The VLAN of packet sent from port.",
+    "maxaccess": "read-create",
+    "name": "hwPtpPortPortVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPtpPortRowStatus": {
+    "class": "objecttype",
+    "description": "The row status.",
+    "maxaccess": "read-create",
+    "name": "hwPtpPortRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwPtpPortRxPtpAnnouncePktCnt": {
+    "class": "objecttype",
+    "description": "The number of the announce packets received in this port.",
+    "maxaccess": "read-only",
+    "name": "hwPtpPortRxPtpAnnouncePktCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPtpPortRxPtpDiscardEndPktCnt": {
+    "class": "objecttype",
+    "description": "The number of the PTP packets wrong ended in this port.",
+    "maxaccess": "read-only",
+    "name": "hwPtpPortRxPtpDiscardEndPktCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPtpPortRxPtpDiscardTrsprnsPktCnt": {
+    "class": "objecttype",
+    "description": "The number of the PTP packets dropped in this port.",
+    "maxaccess": "read-only",
+    "name": "hwPtpPortRxPtpDiscardTrsprnsPktCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPtpPortRxPtpEndPktCnt": {
+    "class": "objecttype",
+    "description": "The number of the PTP packets correct ended in this port.",
+    "maxaccess": "read-only",
+    "name": "hwPtpPortRxPtpEndPktCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPtpPortRxPtpSyncPktCnt": {
+    "class": "objecttype",
+    "description": "The number of the sync packets received in this port.",
+    "maxaccess": "read-only",
+    "name": "hwPtpPortRxPtpSyncPktCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPtpPortRxPtpTrsprnsPktCnt": {
+    "class": "objecttype",
+    "description": "The number of the PTP packets received in this port.",
+    "maxaccess": "read-only",
+    "name": "hwPtpPortRxPtpTrsprnsPktCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPtpPortSourcePortClockId": {
+    "class": "objecttype",
+    "description": "Indicates sourceportclockid of the port.",
+    "maxaccess": "read-only",
+    "name": "hwPtpPortSourcePortClockId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPtpPortSourcePortNum": {
+    "class": "objecttype",
+    "description": "Indicates sourceport number of the port.",
+    "maxaccess": "read-only",
+    "name": "hwPtpPortSourcePortNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPtpPortState": {
+    "class": "objecttype",
+    "description": "Indicates the port state.",
+    "maxaccess": "read-only",
+    "name": "hwPtpPortState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 8,
+          "faulty": 5,
+          "initializing": 6,
+          "listening": 4,
+          "master": 1,
+          "passive": 3,
+          "premaster": 7,
+          "slave": 2,
+          "uncalibrated": 9
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpPortStaticPktReset": {
+    "class": "objecttype",
+    "description": "Reset port PTP packets statistic.",
+    "maxaccess": "read-write",
+    "name": "hwPtpPortStaticPktReset",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.2.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "unused": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpPortStatisticEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortStatisticIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPtpPortStatisticEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.2.1",
+    "status": "current"
+  },
+  "hwPtpPortStatisticIfIndex": {
+    "class": "objecttype",
+    "description": "The PortStatisticIfIndex.",
+    "maxaccess": "not-accessible",
+    "name": "hwPtpPortStatisticIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwPtpPortStatisticTable": {
+    "class": "objecttype",
+    "description": "PortStatisticTable.",
+    "maxaccess": "not-accessible",
+    "name": "hwPtpPortStatisticTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.2",
+    "status": "current"
+  },
+  "hwPtpPortStatusChange": {
+    "class": "notificationtype",
+    "description": "Port status change notification.",
+    "name": "hwPtpPortStatusChange",
+    "objects": [
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpPortState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.187.6.1",
+    "status": "current"
+  },
+  "hwPtpPortSyncInterval": {
+    "class": "objecttype",
+    "description": "Interval of sending sync message.",
+    "maxaccess": "read-create",
+    "name": "hwPtpPortSyncInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 20,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpPortTable": {
+    "class": "objecttype",
+    "description": "PtpPortTable.",
+    "maxaccess": "not-accessible",
+    "name": "hwPtpPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1",
+    "status": "current"
+  },
+  "hwPtpPortTcOcStaticClockId": {
+    "class": "objecttype",
+    "description": "TcOc device sourceport clockId.",
+    "maxaccess": "read-create",
+    "name": "hwPtpPortTcOcStaticClockId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPtpPortTcOcStaticClockPortNum": {
+    "class": "objecttype",
+    "description": "TcOc device sourceport number.",
+    "maxaccess": "read-create",
+    "name": "hwPtpPortTcOcStaticClockPortNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPtpPortTxFifoDiscardPktCn": {
+    "class": "objecttype",
+    "description": "The number of the sync, req,announce packets dropped in this port because of the fifo fulled.",
+    "maxaccess": "read-only",
+    "name": "hwPtpPortTxFifoDiscardPktCn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPtpPortTxPtpDiscardReqCnt": {
+    "class": "objecttype",
+    "description": "The number of the PTP req packets dropped in this port.",
+    "maxaccess": "read-only",
+    "name": "hwPtpPortTxPtpDiscardReqCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPtpPortType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "none"
+      }
+    },
+    "description": "This port is tc type or bc type,only used in the PTP device type is tcandbc.",
+    "maxaccess": "read-create",
+    "name": "hwPtpPortType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bc": 3,
+          "none": 1,
+          "oc": 5,
+          "tc": 2,
+          "tcoc": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpPortUdpEgressDestinationIp": {
+    "class": "objecttype",
+    "description": "UdpEgress DestinationIp.",
+    "maxaccess": "read-create",
+    "name": "hwPtpPortUdpEgressDestinationIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwPtpPortUdpEgressDestinationMac": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "OctetString",
+        "format": "hex",
+        "value": ""
+      }
+    },
+    "description": "UdpEgress Destination Mac.",
+    "maxaccess": "read-create",
+    "name": "hwPtpPortUdpEgressDestinationMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwPtpPortUdpEgressDscp": {
+    "class": "objecttype",
+    "description": "UdpEgress Dscp.",
+    "maxaccess": "read-create",
+    "name": "hwPtpPortUdpEgressDscp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPtpPortUdpEgressPacketPriority": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 7
+      }
+    },
+    "description": "UdpEgress Packet Priority.",
+    "maxaccess": "read-create",
+    "name": "hwPtpPortUdpEgressPacketPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPtpPortUdpEgressSourceIp": {
+    "class": "objecttype",
+    "description": "UdpEgress SourceIp.",
+    "maxaccess": "read-create",
+    "name": "hwPtpPortUdpEgressSourceIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwPtpPortUdpEgressVlanId": {
+    "class": "objecttype",
+    "description": "UdpEgress VlanId.",
+    "maxaccess": "read-create",
+    "name": "hwPtpPortUdpEgressVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.1.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrNone"
+    }
+  },
+  "hwPtpReceiveDelay": {
+    "class": "objecttype",
+    "description": "The delay of receive.",
+    "maxaccess": "read-write",
+    "name": "hwPtpReceiveDelay",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPtpSendDelay": {
+    "class": "objecttype",
+    "description": "The delay of send.",
+    "maxaccess": "read-write",
+    "name": "hwPtpSendDelay",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.2.3.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1600,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPtpSlaveOnly": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "PTP device\u0027s SlaveOnly attribute.",
+    "maxaccess": "read-write",
+    "name": "hwPtpSlaveOnly",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwPtpTimeScale": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "ptp"
+      }
+    },
+    "description": "The time scale of PTP.",
+    "maxaccess": "read-only",
+    "name": "hwPtpTimeScale",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "arb": 2,
+          "ptp": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpTimeSynchronizationStatus": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "unsynchronization"
+      }
+    },
+    "description": "Indicates TimeSynchronizationStatus is synchronization or not.",
+    "maxaccess": "read-only",
+    "name": "hwPtpTimeSynchronizationStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "synchronization": 2,
+          "unsynchronization": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPtpTimeSynchronizationStatusChange": {
+    "class": "notificationtype",
+    "description": "Time synchronization status change notification.",
+    "name": "hwPtpTimeSynchronizationStatusChange",
+    "objects": [
+      {
+        "module": "HUAWEI-PTP-MIB",
+        "object": "hwPtpTimeSynchronizationStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.187.6.3",
+    "status": "current"
+  },
+  "hwPtpTimeTraceable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "The time trace is enable.",
+    "maxaccess": "read-only",
+    "name": "hwPtpTimeTraceable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwPtpUtc": {
+    "class": "objecttype",
+    "description": "Indicates current UTC.",
+    "maxaccess": "read-only",
+    "name": "hwPtpUtc",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPtpVersion": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "The version of PTP.",
+    "maxaccess": "read-only",
+    "name": "hwPtpVersion",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.187.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ieee1588v2": 1,
+          "invalid": 10
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "Counter32",
+      "Bits",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "MibIdentifier",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "RowStatus",
+      "MacAddress"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-PTP-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:43 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-PTP-MIB"
+  }
+}

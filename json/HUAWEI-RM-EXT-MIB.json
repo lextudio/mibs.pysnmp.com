@@ -1,0 +1,3387 @@
+{
+  "hwAcIndex": {
+    "class": "objecttype",
+    "description": "The object indicates the AC index of a PWE3.",
+    "maxaccess": "not-accessible",
+    "name": "hwAcIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwCurIpv4PrefixNum": {
+    "class": "objecttype",
+    "description": "This object indicates the current number of IPv4 prefix.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwCurIpv4PrefixNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.8.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwCurIpv6PrefixNum": {
+    "class": "objecttype",
+    "description": "This object indicates the current number of IPv6 prefix.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwCurIpv6PrefixNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.9.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwCurMacNum": {
+    "class": "objecttype",
+    "description": "This object indicates the current number of MAC addresses of the EVPN instance.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwCurMacNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.21.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwEvpnMacExceed": {
+    "class": "notificationtype",
+    "description": "This object indicates that the number of MAC addresses of the EVPN instance has exceeded the maximum value.",
+    "name": "hwEvpnMacExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwMacLimitEvpnName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurMacNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwEvpnMacLimitValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.22.1",
+    "status": "current"
+  },
+  "hwEvpnMacExceedClear": {
+    "class": "notificationtype",
+    "description": "This object indicates that the number of MAC addresses of the EVPN instance has resumed from exceeding the maximum value.",
+    "name": "hwEvpnMacExceedClear",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwMacLimitEvpnName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurMacNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwEvpnMacLimitValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.22.2",
+    "status": "current"
+  },
+  "hwEvpnMacLimitConformance": {
+    "class": "objectidentity",
+    "name": "hwEvpnMacLimitConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.23"
+  },
+  "hwEvpnMacLimitNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "The object indicates the alarm of MAC addresses of the EVPN instance.",
+    "name": "hwEvpnMacLimitNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwEvpnMacExceed"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwEvpnMacExceedClear"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwEvpnMacThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwEvpnMacThresholdExceedClear"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.23.1",
+    "status": "current"
+  },
+  "hwEvpnMacLimitObjectGroup": {
+    "class": "objectgroup",
+    "description": "The object indicates the number of MAC addresses of the EVPN instance.",
+    "name": "hwEvpnMacLimitObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwMacLimitEvpnName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurMacNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwEvpnMacUpperLimitValue"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwEvpnMacLowerLimitValue"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwEvpnMacLimitValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.23.2",
+    "status": "current"
+  },
+  "hwEvpnMacLimitTraps": {
+    "class": "objectidentity",
+    "name": "hwEvpnMacLimitTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.22"
+  },
+  "hwEvpnMacLimitValue": {
+    "class": "objecttype",
+    "description": "This object indicates the max value of MAC addresses of the EVPN instance.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEvpnMacLimitValue",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.21.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwEvpnMacLowerLimitValue": {
+    "class": "objecttype",
+    "description": "This object indicates the lower limit value of MAC addresses of the EVPN instance.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEvpnMacLowerLimitValue",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.21.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwEvpnMacObjects": {
+    "class": "objectidentity",
+    "name": "hwEvpnMacObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.21"
+  },
+  "hwEvpnMacThresholdExceed": {
+    "class": "notificationtype",
+    "description": "This object indicates that the number of MAC addresses of the EVPN instance has exceeded the threshold value.",
+    "name": "hwEvpnMacThresholdExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwMacLimitEvpnName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurMacNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwEvpnMacLimitValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.22.3",
+    "status": "current"
+  },
+  "hwEvpnMacThresholdExceedClear": {
+    "class": "notificationtype",
+    "description": "This object indicates that the number of MAC addresses of the EVPN instance has resumed from exceeding the threshold value.",
+    "name": "hwEvpnMacThresholdExceedClear",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwMacLimitEvpnName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurMacNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwEvpnMacLimitValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.22.4",
+    "status": "current"
+  },
+  "hwEvpnMacUpperLimitValue": {
+    "class": "objecttype",
+    "description": "This object indicates the upper limit value of MAC addresses of the EVPN instance.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEvpnMacUpperLimitValue",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.21.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwGresmTokenEntry": {
+    "class": "objecttype",
+    "description": "Gresm token table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenMode"
+      },
+      {
+        "implied": 0,
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwGresmTokenEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.14.1.1",
+    "status": "current"
+  },
+  "hwGresmTokenExceed": {
+    "class": "notificationtype",
+    "description": "The token count reaches the upper limit.",
+    "name": "hwGresmTokenExceed",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenUsedNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenMaxValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.15.1",
+    "status": "current"
+  },
+  "hwGresmTokenExceedClear": {
+    "class": "notificationtype",
+    "description": "The token count falls from the upper limit.",
+    "name": "hwGresmTokenExceedClear",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenUsedNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenMaxValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.15.2",
+    "status": "current"
+  },
+  "hwGresmTokenGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects for Token alarm.",
+    "name": "hwGresmTokenGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenMode"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenUsedNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenMaxValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.16.2",
+    "status": "current"
+  },
+  "hwGresmTokenMaxValue": {
+    "class": "objecttype",
+    "description": "This object indicates the max value of Token",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwGresmTokenMaxValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.14.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwGresmTokenMode": {
+    "class": "objecttype",
+    "description": "Specifies the aolloc mode of token. Options: 1. global1(1) -indicates that the global table 1 2. global2(2) -indicates that the global table 2 3. global3(3) -indicates that the global table 3 4. global4(4) -indicates that the global table 4 5. perborad(5) -indicates that the per borad",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwGresmTokenMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.14.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "global1": 1,
+          "global2": 2,
+          "global3": 3,
+          "global4": 4,
+          "perborad": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwGresmTokenNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "The object indicates alarm of Token.",
+    "name": "hwGresmTokenNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenExceed"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenExceedClear"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenThresholdExceedClear"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.16.1",
+    "status": "current"
+  },
+  "hwGresmTokenTable": {
+    "class": "objecttype",
+    "description": "Gresm token table.",
+    "maxaccess": "not-accessible",
+    "name": "hwGresmTokenTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.14.1",
+    "status": "current"
+  },
+  "hwGresmTokenThresholdExceed": {
+    "class": "notificationtype",
+    "description": "The token usage exceeds the threshold.",
+    "name": "hwGresmTokenThresholdExceed",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenUsedNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenMaxValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.15.3",
+    "status": "current"
+  },
+  "hwGresmTokenThresholdExceedClear": {
+    "class": "notificationtype",
+    "description": "The token usage falls from the threshold.",
+    "name": "hwGresmTokenThresholdExceedClear",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenUsedNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwGresmTokenMaxValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.15.4",
+    "status": "current"
+  },
+  "hwGresmTokenTrapConformance": {
+    "class": "objectidentity",
+    "name": "hwGresmTokenTrapConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.16"
+  },
+  "hwGresmTokenTraps": {
+    "class": "objectidentity",
+    "name": "hwGresmTokenTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.15"
+  },
+  "hwGresmTokenUsedNum": {
+    "class": "objecttype",
+    "description": "The object identifies the number of tokens used currently.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwGresmTokenUsedNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.14.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpv4PrefixExceed": {
+    "class": "notificationtype",
+    "description": "This notification is generated when the number of IPv4 prefixes exceeds or attempts to exceed the maximum allowed value as indicated by hwIpv4PrefixLimitValue.",
+    "name": "hwIpv4PrefixExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv4PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixLimitValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.10.1",
+    "status": "current"
+  },
+  "hwIpv4PrefixExceedClear": {
+    "class": "notificationtype",
+    "description": "This notification is generated when the number of IPv4 prefixes exceeds the value indicated by hwIpv4PrefixLimitValue, and then falls below this value. A single notification MUST be generated when this threshold is exceeded, and no other notifications of this type should be issued until the value of hwCurIpv4PrefixNum has fallen below that of hwIpv4PrefixLimitValue.",
+    "name": "hwIpv4PrefixExceedClear",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv4PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixLimitValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.10.2",
+    "status": "current"
+  },
+  "hwIpv4PrefixLimitConformance": {
+    "class": "objectidentity",
+    "name": "hwIpv4PrefixLimitConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.12"
+  },
+  "hwIpv4PrefixLimitNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "The object indicates alarm of ipv4 prefixs.",
+    "name": "hwIpv4PrefixLimitNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixExceed"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixExceedClear"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixThresholdExceedClear"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.12.1",
+    "status": "current"
+  },
+  "hwIpv4PrefixLimitObjectGroup": {
+    "class": "objectgroup",
+    "description": "The object indicates the number of ipv4 prefixs.",
+    "name": "hwIpv4PrefixLimitObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixLimitValue"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv4PrefixNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.12.2",
+    "status": "current"
+  },
+  "hwIpv4PrefixLimitTrapObjects": {
+    "class": "objectidentity",
+    "name": "hwIpv4PrefixLimitTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.8"
+  },
+  "hwIpv4PrefixLimitTraps": {
+    "class": "objectidentity",
+    "name": "hwIpv4PrefixLimitTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.10"
+  },
+  "hwIpv4PrefixLimitValue": {
+    "class": "objecttype",
+    "description": "This object indicates the maximum number of IPv4 prefix can be added.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIpv4PrefixLimitValue",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.8.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpv4PrefixNum": {
+    "class": "objecttype",
+    "description": "Total number of IPv4 prefix.",
+    "maxaccess": "read-only",
+    "name": "hwIpv4PrefixNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.6.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpv4PrefixThresholdExceed": {
+    "class": "notificationtype",
+    "description": "The number of IPv4 prefixes exceeded the threshold.",
+    "name": "hwIpv4PrefixThresholdExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv4PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixLimitValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.10.3",
+    "status": "current"
+  },
+  "hwIpv4PrefixThresholdExceedClear": {
+    "class": "notificationtype",
+    "description": "The number of IPv4 prefixes falls below the threshold. ",
+    "name": "hwIpv4PrefixThresholdExceedClear",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv4PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixLimitValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.10.4",
+    "status": "current"
+  },
+  "hwIpv6PrefixExceed": {
+    "class": "notificationtype",
+    "description": "This notification is generated when the number of IPv6 prefixes exceeds or attempts to exceed the maximum allowed value as indicated by hwIpv6PrefixLimitValue.",
+    "name": "hwIpv6PrefixExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv6PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.11.1",
+    "status": "current"
+  },
+  "hwIpv6PrefixExceedClear": {
+    "class": "notificationtype",
+    "description": "This notification is generated when the number of IPv6 prefixes exceeds the value indicated by hwIpv6PrefixLimitValue, and then falls below this value. A single notification MUST be generated when this threshold is exceeded, and no other notifications of this type should be issued until the value of hwCurIpv6PrefixNum has fallen below that of hwIpv6PrefixLimitValue.",
+    "name": "hwIpv6PrefixExceedClear",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv6PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.11.2",
+    "status": "current"
+  },
+  "hwIpv6PrefixLimitConformance": {
+    "class": "objectidentity",
+    "name": "hwIpv6PrefixLimitConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.13"
+  },
+  "hwIpv6PrefixLimitNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "The object indicates alarm of ipv4 prefixs.",
+    "name": "hwIpv6PrefixLimitNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixExceed"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixExceedClear"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixThresholdExceedClear"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.13.1",
+    "status": "current"
+  },
+  "hwIpv6PrefixLimitObjectGroup": {
+    "class": "objectgroup",
+    "description": "The object indicates the number of ipv6 prefixs.",
+    "name": "hwIpv6PrefixLimitObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitValue"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv6PrefixNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.13.2",
+    "status": "current"
+  },
+  "hwIpv6PrefixLimitTrapObjects": {
+    "class": "objectidentity",
+    "name": "hwIpv6PrefixLimitTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.9"
+  },
+  "hwIpv6PrefixLimitTraps": {
+    "class": "objectidentity",
+    "name": "hwIpv6PrefixLimitTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.11"
+  },
+  "hwIpv6PrefixLimitValue": {
+    "class": "objecttype",
+    "description": "This object indicates the maximum number of IPv6 prefix can be added.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIpv6PrefixLimitValue",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.9.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpv6PrefixLimitVpnName": {
+    "class": "objecttype",
+    "description": "The name of the IPv6 VPN instance for prefix limit.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIpv6PrefixLimitVpnName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.9.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIpv6PrefixNum": {
+    "class": "objecttype",
+    "description": "Total number of IPv6 prefix.",
+    "maxaccess": "read-only",
+    "name": "hwIpv6PrefixNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.6.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpv6PrefixThresholdExceed": {
+    "class": "notificationtype",
+    "description": "The number of IPv6 prefixes exceeded the threshold. ",
+    "name": "hwIpv6PrefixThresholdExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv6PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.11.3",
+    "status": "current"
+  },
+  "hwIpv6PrefixThresholdExceedClear": {
+    "class": "notificationtype",
+    "description": "The number of IPv6 prefixes falls below the threshold. ",
+    "name": "hwIpv6PrefixThresholdExceedClear",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv6PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.11.4",
+    "status": "current"
+  },
+  "hwIpv6RouteStatActive": {
+    "class": "objecttype",
+    "description": "Total number of active routes of a protocol.",
+    "maxaccess": "read-only",
+    "name": "hwIpv6RouteStatActive",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpv6RouteStatAdded": {
+    "class": "objecttype",
+    "description": "Total number of added routes of a protocol.",
+    "maxaccess": "read-only",
+    "name": "hwIpv6RouteStatAdded",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpv6RouteStatDeleted": {
+    "class": "objecttype",
+    "description": "Total number of deleted routes of a protocol.",
+    "maxaccess": "read-only",
+    "name": "hwIpv6RouteStatDeleted",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpv6RouteStatEntry": {
+    "class": "objecttype",
+    "description": "This entity is an IPv6 route statistics table. Supports the statistics of DIRECT/STATIC/BGP/OSPFv3/ISIS/RIPng routes. The indexes of this entry are hwIpv6RouteStatVpnName and hwIpv6RouteStatProtocolId. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6RouteStatVpnName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6RouteStatProtocolId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpv6RouteStatEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.3.1",
+    "status": "current"
+  },
+  "hwIpv6RouteStatFreed": {
+    "class": "objecttype",
+    "description": "Total number of released routes of a protocol.",
+    "maxaccess": "read-only",
+    "name": "hwIpv6RouteStatFreed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpv6RouteStatGroup": {
+    "class": "objectgroup",
+    "description": "Route statistic table group.",
+    "name": "hwIpv6RouteStatGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6RouteStatTotal"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6RouteStatActive"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6RouteStatAdded"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6RouteStatDeleted"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6RouteStatFreed"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.2.2.3",
+    "status": "current"
+  },
+  "hwIpv6RouteStatProtocolId": {
+    "class": "objecttype",
+    "description": "Specifies the protocol ID of the route. Options: 1. direct(1) -indicates the IPv6 direct route 2. static(2) -indicates the IPv6 static route 3. ospf(3) -indicates the IPv6 OSPF route 4. isis(6) -indicates the IPv6 IS-IS route 5. rip(7) -indicates the IPv6 RIP route 6. bgp(8) -indicates the IPv6 BGP route",
+    "maxaccess": "not-accessible",
+    "name": "hwIpv6RouteStatProtocolId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bgp": 8,
+          "direct": 1,
+          "isis": 6,
+          "ospf": 3,
+          "rip": 7,
+          "static": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIpv6RouteStatTable": {
+    "class": "objecttype",
+    "description": "This entity is an IPv6 route statistics table. Supports the statistics of DIRECT/STATIC/BGP/OSPFv3/ISIS/RIPng routes. The indexes of this table are hwIpv6RouteStatVpnName and hwIpv6RouteStatProtocolId.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpv6RouteStatTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.3",
+    "status": "current"
+  },
+  "hwIpv6RouteStatTotal": {
+    "class": "objecttype",
+    "description": "Total number of routes of a protocol.",
+    "maxaccess": "read-only",
+    "name": "hwIpv6RouteStatTotal",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpv6RouteStatVpnName": {
+    "class": "objecttype",
+    "description": "The name of the IPv6 VPN instance for static routes.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpv6RouteStatVpnName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIpv6StaticRouteBfdName": {
+    "class": "objecttype",
+    "description": "The name of a BFD session to which IPv6 static routes are to be bound.",
+    "maxaccess": "read-create",
+    "name": "hwIpv6StaticRouteBfdName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIpv6StaticRouteDescr": {
+    "class": "objecttype",
+    "description": "The description of an IPv6 static route.",
+    "maxaccess": "read-create",
+    "name": "hwIpv6StaticRouteDescr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 80,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIpv6StaticRouteDestIpAddr": {
+    "class": "objecttype",
+    "description": "The destination IPv6 address of this route.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpv6StaticRouteDestIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Ipv6Address"
+    }
+  },
+  "hwIpv6StaticRouteDestVpnName": {
+    "class": "objecttype",
+    "description": "The name of the destination VPN for IPv6 static route.",
+    "maxaccess": "read-create",
+    "name": "hwIpv6StaticRouteDestVpnName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIpv6StaticRouteEntry": {
+    "class": "objecttype",
+    "description": "This entity is an IPv6 static route table. Supports the create/destroy/modify/display operation on Ipv6 static routes and BFD session binding/unbinding with static routes. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6StaticRouteSourceVpnName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6StaticRouteDestIpAddr"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6StaticRoutePrefixLen"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6StaticRouteNextHop"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6StaticRouteOutIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpv6StaticRouteEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1",
+    "status": "current"
+  },
+  "hwIpv6StaticRouteGroup": {
+    "class": "objectgroup",
+    "description": "IPv6 static route table group.",
+    "name": "hwIpv6StaticRouteGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6StaticRouteDestVpnName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6StaticRouteBfdName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6StaticRoutePrefer"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6StaticRouteTag"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6StaticRouteRowStatus"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6StaticRouteNqaAdminName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6StaticRouteNqaTestName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6StaticRouteDescr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.2.2.5",
+    "status": "current"
+  },
+  "hwIpv6StaticRouteNextHop": {
+    "class": "objecttype",
+    "description": "The next hop of an IPv6 static route.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpv6StaticRouteNextHop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Ipv6Address"
+    }
+  },
+  "hwIpv6StaticRouteNqaAdminName": {
+    "class": "objecttype",
+    "description": "The admin name of a NQA to which IPv6 static routes are to be bound.",
+    "maxaccess": "read-create",
+    "name": "hwIpv6StaticRouteNqaAdminName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIpv6StaticRouteNqaTestName": {
+    "class": "objecttype",
+    "description": "The test name of a NQA to which IPv6 static routes are to be bound.",
+    "maxaccess": "read-create",
+    "name": "hwIpv6StaticRouteNqaTestName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIpv6StaticRouteOutIfIndex": {
+    "class": "objecttype",
+    "description": "The interface index of the outgoing interface of an IPv6 static route.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpv6StaticRouteOutIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpv6StaticRoutePrefer": {
+    "class": "objecttype",
+    "description": "The preference of an IPv6 static route.",
+    "maxaccess": "read-create",
+    "name": "hwIpv6StaticRoutePrefer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpv6StaticRoutePrefixLen": {
+    "class": "objecttype",
+    "description": "The mask length of the IPv6 address.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpv6StaticRoutePrefixLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpv6StaticRouteRowStatus": {
+    "class": "objecttype",
+    "description": "The operation for an IPv6 static route.",
+    "maxaccess": "read-create",
+    "name": "hwIpv6StaticRouteRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIpv6StaticRouteSourceVpnName": {
+    "class": "objecttype",
+    "description": "The name of source VPN for IPv6 static route.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpv6StaticRouteSourceVpnName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIpv6StaticRouteTable": {
+    "class": "objecttype",
+    "description": "This entity is an IPv6 static route table. Supports the create/destroy/modify/display operation on static routes and BFD session binding/unbinding with static routes. ",
+    "maxaccess": "not-accessible",
+    "name": "hwIpv6StaticRouteTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5",
+    "status": "current"
+  },
+  "hwIpv6StaticRouteTag": {
+    "class": "objecttype",
+    "description": "The tag of an IPv6 static route.",
+    "maxaccess": "read-create",
+    "name": "hwIpv6StaticRouteTag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.5.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwL3vpnIpv6PrefixExceed": {
+    "class": "notificationtype",
+    "description": "This object indicates that the vpn instance IPv6 prefixes has exceeded the maximum vlaue.",
+    "name": "hwL3vpnIpv6PrefixExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitVpnName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv6PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19.3.1",
+    "status": "current"
+  },
+  "hwL3vpnIpv6PrefixExceedClear": {
+    "class": "notificationtype",
+    "description": "This object indicates that the vpn instance IPv6 prefixes have resumed from exceeding the maximum vlaue.",
+    "name": "hwL3vpnIpv6PrefixExceedClear",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitVpnName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv6PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19.3.2",
+    "status": "current"
+  },
+  "hwL3vpnIpv6PrefixLimitGroup": {
+    "class": "objectidentity",
+    "name": "hwL3vpnIpv6PrefixLimitGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.20.2.3"
+  },
+  "hwL3vpnIpv6PrefixLimitNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "The object indicates alarm of ipv6 VPN instance prefixs.",
+    "name": "hwL3vpnIpv6PrefixLimitNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwL3vpnIpv6PrefixExceed"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwL3vpnIpv6PrefixExceedClear"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwL3vpnIpv6PrefixThresholdExceed"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.20.2.3.1",
+    "status": "current"
+  },
+  "hwL3vpnIpv6PrefixLimitObjectGroup": {
+    "class": "objectgroup",
+    "description": "The object indicates the number of ipv6 VPN instance prefixs.",
+    "name": "hwL3vpnIpv6PrefixLimitObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitVpnName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv6PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.20.2.3.2",
+    "status": "current"
+  },
+  "hwL3vpnIpv6PrefixLimitTraps": {
+    "class": "objectidentity",
+    "name": "hwL3vpnIpv6PrefixLimitTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19.3"
+  },
+  "hwL3vpnIpv6PrefixThresholdExceed": {
+    "class": "notificationtype",
+    "description": "This object indicates that the vpn instance IPv6 prefixes has exceeded the threshold. ",
+    "name": "hwL3vpnIpv6PrefixThresholdExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitVpnName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv6PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19.3.3",
+    "status": "current"
+  },
+  "hwL3vpnTnlId": {
+    "class": "objecttype",
+    "description": "The object indicates the tunnel ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwL3vpnTnlId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMacLimitEvpnName": {
+    "class": "objecttype",
+    "description": "The name of the EVPN instance for MAC limit.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMacLimitEvpnName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.21.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMasterSlaveFlag": {
+    "class": "objecttype",
+    "description": "The object indicates the master and slave flags of a PWE3.",
+    "maxaccess": "read-only",
+    "name": "hwMasterSlaveFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMultiHopPwe3PeerIp": {
+    "class": "objecttype",
+    "description": "The object indicates the peer IP address of a Multi-hop PWE3.",
+    "maxaccess": "read-only",
+    "name": "hwMultiHopPwe3PeerIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMultiHopPwe3TnlId": {
+    "class": "objecttype",
+    "description": "The object indicates the tunnel ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwMultiHopPwe3TnlId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMultiHopPwe3VcId": {
+    "class": "objecttype",
+    "description": "The object indicates the VC ID of a Multi-hop PWE3.",
+    "maxaccess": "not-accessible",
+    "name": "hwMultiHopPwe3VcId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMultiHopPwe3VcType": {
+    "class": "objecttype",
+    "description": "The object indicates the VC type of a Multi-hop PWE3.",
+    "maxaccess": "not-accessible",
+    "name": "hwMultiHopPwe3VcType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPublicIpv4PrefixExceed": {
+    "class": "notificationtype",
+    "description": "This object indicates that the public IPv4 prefixes has exceeded the maximum value.",
+    "name": "hwPublicIpv4PrefixExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv4PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixLimitValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19.1.1",
+    "status": "current"
+  },
+  "hwPublicIpv4PrefixExceedClear": {
+    "class": "notificationtype",
+    "description": "This object indicates that the public IPv4 prefixes have resumed from exceeding the maximum vlaue.",
+    "name": "hwPublicIpv4PrefixExceedClear",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv4PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixLimitValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19.1.2",
+    "status": "current"
+  },
+  "hwPublicIpv4PrefixLimitGroup": {
+    "class": "objectidentity",
+    "name": "hwPublicIpv4PrefixLimitGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.20.2.1"
+  },
+  "hwPublicIpv4PrefixLimitNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "The object indicates alarm of public ipv4 prefixs.",
+    "name": "hwPublicIpv4PrefixLimitNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPublicIpv4PrefixExceed"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPublicIpv4PrefixExceedClear"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPublicIpv4PrefixThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPublicIpv4PrefixThresholdExceedClear"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.20.2.1.1",
+    "status": "current"
+  },
+  "hwPublicIpv4PrefixLimitObjectGroup": {
+    "class": "objectgroup",
+    "description": "The object indicates the number of ipv4 prefixs.",
+    "name": "hwPublicIpv4PrefixLimitObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv4PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixLimitValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.20.2.1.2",
+    "status": "current"
+  },
+  "hwPublicIpv4PrefixLimitTraps": {
+    "class": "objectidentity",
+    "name": "hwPublicIpv4PrefixLimitTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19.1"
+  },
+  "hwPublicIpv4PrefixThresholdExceed": {
+    "class": "notificationtype",
+    "description": "This object indicates that the public IPv4 prefixes has exceeded the threshold.",
+    "name": "hwPublicIpv4PrefixThresholdExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv4PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixLimitValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19.1.3",
+    "status": "current"
+  },
+  "hwPublicIpv4PrefixThresholdExceedClear": {
+    "class": "notificationtype",
+    "description": "This object indicates that the public IPv4 prefixes have resumed from exceeding the threshold. ",
+    "name": "hwPublicIpv4PrefixThresholdExceedClear",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv4PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixLimitValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19.1.4",
+    "status": "current"
+  },
+  "hwPublicIpv6PrefixExceed": {
+    "class": "notificationtype",
+    "description": "This object indicates that the public IPv6 prefixes has exceeded the maximum vlaue.",
+    "name": "hwPublicIpv6PrefixExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv6PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19.2.1",
+    "status": "current"
+  },
+  "hwPublicIpv6PrefixExceedClear": {
+    "class": "notificationtype",
+    "description": "This object indicates that the public IPv6 prefixes have resumed from exceeding the maximum vlaue.",
+    "name": "hwPublicIpv6PrefixExceedClear",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv6PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19.2.2",
+    "status": "current"
+  },
+  "hwPublicIpv6PrefixLimitGroup": {
+    "class": "objectidentity",
+    "name": "hwPublicIpv6PrefixLimitGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.20.2.2"
+  },
+  "hwPublicIpv6PrefixLimitNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "The object indicates alarm of ipv6 prefixs.",
+    "name": "hwPublicIpv6PrefixLimitNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPublicIpv6PrefixExceed"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPublicIpv6PrefixExceedClear"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPublicIpv6PrefixThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPublicIpv6PrefixThresholdExceedClear"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.20.2.2.1",
+    "status": "current"
+  },
+  "hwPublicIpv6PrefixLimitObjectGroup": {
+    "class": "objectgroup",
+    "description": "The object indicates the number of ipv6 prefixs.",
+    "name": "hwPublicIpv6PrefixLimitObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv6PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.20.2.2.2",
+    "status": "current"
+  },
+  "hwPublicIpv6PrefixLimitTraps": {
+    "class": "objectidentity",
+    "name": "hwPublicIpv6PrefixLimitTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19.2"
+  },
+  "hwPublicIpv6PrefixThresholdExceed": {
+    "class": "notificationtype",
+    "description": "This object indicates that the public IPv6 prefixes has exceeded the threshold. ",
+    "name": "hwPublicIpv6PrefixThresholdExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv6PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19.2.3",
+    "status": "current"
+  },
+  "hwPublicIpv6PrefixThresholdExceedClear": {
+    "class": "notificationtype",
+    "description": "This object indicates that the public IPv6 prefixes have resumed from exceeding the threshold. ",
+    "name": "hwPublicIpv6PrefixThresholdExceedClear",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwCurIpv6PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixLimitValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19.2.4",
+    "status": "current"
+  },
+  "hwPwVcType": {
+    "class": "objecttype",
+    "description": "Specifies an indication of the L2Vpn\u0027s VC encapsulation type: Options: 1: frameRelayDlciMartini(1) -indicates that the encapsulation type is Frame Relay DLCI(Martini Mode). 2: atmAal5SduVccTransport(2) -indicates that the encapsulation type is ATM AAL5 SDU VCC transport. 3: atmTransparentCellTransport(3) -indicates that the encapsulation type is ATM transparent cell transport. 4: vlan(4) -indicates that the encapsulation type is Vlan. 5: ethernet(5) -indicates that the encapsulation type is Ethernet. 6: hdlc(6) -indicates that the encapsulation type is HDLC. 7: ppp(7) -indicates that the encapsulation type is PPP. 8: cem(8) -indicates that the encapsulation type is SONET/SDH Circuit Emulation Service Over MPLS(CEM). 9: atmN2OneVccCellTransport(9) -indicates that the encapsulation type is ATM n-to-one VCC cell transport. 10: atmN2OneVpcCellTransport(10) -indicates that the encapsulation type is ATM n-to-one VPC cell transport. 11: ipLayer2Transport(11) -indicates that the encapsulation type is IP Layer2 Transport. 12: atmOne2OneVccCellMode(12) -indicates that the encapsulation type is ATM one-to-one VCC Cell Mode. 13: atmOne2OneVpcCellMode(13) -indicates that the encapsulation type is ATM one-to-one VPC Cell Mode. 14: atmAal5PduVccTransport(14) -indicates that the encapsulation type is ATM AAL5 PDU VCC transport. 15: frameRelayPortMode(15) -indicates that the encapsulation type is Frame-Relay Port mode. 16: cep(16) -indicates that the encapsulation type is SONET/SDH Circuit Emulation over Packet (CEP). 17: saE1oP(17) -indicates that the encapsulation type is Structure-agnostic E1 over Packet (SAE1oP). 18: saT1oP(18) -indicates that the encapsulation type is Structure-agnostic T1 (DS1) over Packet (SAT1oP). 19: saE3oP(19) -indicates that the encapsulation type is Structure-agnostic E3 over Packet (SAE3oP). 20: saT3oP(20) -indicates that the encapsulation type is Structure-agnostic T3 (DS3) over Packet (SAT3oP). 21: cESoPsnBasicMode(21) -indicates that the encapsulation type is CESoPSN basic mode. 22: tDMoIPbasicMode(22) -indicates that the encapsulation type is TDMoIP basic mode. 23: l2VpnCESoPSNTDMwithCAS(23) -indicates that the encapsulation type is CESoPSN TDM with CAS. 24: l2VpnTDMoIPTDMwithCAS(24) -indicates that the encapsulation type is TDMoIP TDM with CAS. 25: frameRelayDlci(25) -indicates that the encapsulation type is Frame Relay DLCI. 26: ipInterworking(64) -indicates that the encapsulation type is IP-interworking. 27: unknown(255) -indicates the unknown encapsulation type. ",
+    "maxaccess": "read-only",
+    "name": "hwPwVcType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "atmAal5PduVccTransport": 14,
+          "atmAal5SduVccTransport": 2,
+          "atmN2OneVccCellTransport": 9,
+          "atmN2OneVpcCellTransport": 10,
+          "atmOne2OneVccCellMode": 12,
+          "atmOne2OneVpcCellMode": 13,
+          "atmTransparentCellTransport": 3,
+          "cESoPsnBasicMode": 21,
+          "cem": 8,
+          "cep": 16,
+          "ethernet": 5,
+          "frameRelayDlci": 25,
+          "frameRelayDlciMartini": 1,
+          "frameRelayPortMode": 15,
+          "hdlc": 6,
+          "ipInterworking": 64,
+          "ipLayer2Transport": 11,
+          "l2VpnCESoPSNTDMwithCAS": 23,
+          "l2VpnTDMoIPTDMwithCAS": 24,
+          "ppp": 7,
+          "saE1oP": 17,
+          "saE3oP": 19,
+          "saT1oP": 18,
+          "saT3oP": 20,
+          "tDMoIPbasicMode": 22,
+          "unknown": 255,
+          "vlan": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPwVllIfName": {
+    "class": "objecttype",
+    "description": "The object indicates the interface name of a PWE3.",
+    "maxaccess": "read-only",
+    "name": "hwPwVllIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPwVllPeerIp": {
+    "class": "objecttype",
+    "description": "The object indicates the peer IP address of a PWE3.",
+    "maxaccess": "read-only",
+    "name": "hwPwVllPeerIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwPwVllSvcFlag": {
+    "class": "objecttype",
+    "description": "This object indicates the type of a PWE3. Static PWs (1) Dynamic PWs (0)",
+    "maxaccess": "read-only",
+    "name": "hwPwVllSvcFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPwVllTnlId": {
+    "class": "objecttype",
+    "description": "The object indicates the tunnel ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwPwVllTnlId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPwVllVcId": {
+    "class": "objecttype",
+    "description": "The object indicates the VC ID of a PWE3.",
+    "maxaccess": "read-only",
+    "name": "hwPwVllVcId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwRmExt": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "This mib file is used for Manage the static route table configuration.",
+    "lastupdated": "201412110000Z",
+    "name": "hwRmExt",
+    "oid": "1.3.6.1.4.1.2011.5.25.145",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "Version: V2.06, modify hwEvpnMacLimitTrapObjects to hwEvpnMacObjects, modify hwEvpnMacLimitTraps, add hwEvpnMacUpperLimitValue, hwEvpnMacLowerLimitValue, hwEvpnMacLimitValue.",
+        "revision": "2014-12-11 00:00"
+      },
+      {
+        "description": "Version: V2.05, Add hwEvpnMacLimitTrapObjects, hwEvpnMacLimitTraps, hwEvpnMacLimitConformance.",
+        "revision": "2014-12-10 00:00"
+      },
+      {
+        "description": "updated the static-route description text , it\u0027s length change from 35 to 80.",
+        "revision": "2014-12-09 00:00"
+      },
+      {
+        "description": "golbal-\u003eglobal.",
+        "revision": "2014-06-30 00:00"
+      },
+      {
+        "description": "add hwRmInfo, hwIpv6PrefixLimitVpnName, hwL3vpnIpv6PrefixLimitTraps.",
+        "revision": "2014-06-20 00:00"
+      },
+      {
+        "description": "V1.4, destionation-\u003edestination.",
+        "revision": "2013-06-09 00:00"
+      },
+      {
+        "description": "V1.3, add IPv6 static route table mib.",
+        "revision": "2013-04-22 15:26"
+      },
+      {
+        "description": "V1.2, updated the description.",
+        "revision": "2010-11-25 00:00"
+      },
+      {
+        "description": "V1.1, modify format of enumerations and description.",
+        "revision": "2010-08-20 00:00"
+      },
+      {
+        "description": "V1.0, the first draft",
+        "revision": "2008-11-10 00:00"
+      }
+    ]
+  },
+  "hwRmExtCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for Route Management MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteGroup"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwRouteStatGroup"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteExtGroup"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6RouteStatGroup"
+      }
+    ],
+    "name": "hwRmExtCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.2.1.1",
+    "status": "current"
+  },
+  "hwRmExtCompliances": {
+    "class": "objectidentity",
+    "name": "hwRmExtCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.2.1"
+  },
+  "hwRmExtConformance": {
+    "class": "objectidentity",
+    "name": "hwRmExtConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.2"
+  },
+  "hwRmExtGroups": {
+    "class": "objectidentity",
+    "name": "hwRmExtGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.2.2"
+  },
+  "hwRmExtObjects": {
+    "class": "objectidentity",
+    "name": "hwRmExtObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1"
+  },
+  "hwRmExtRouteCompliances": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for HUAWEI-RM-EXT-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPublicIpv4PrefixLimitNotificationGroup"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPublicIpv4PrefixLimitObjectGroup"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPublicIpv6PrefixLimitNotificationGroup"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPublicIpv6PrefixLimitObjectGroup"
+      }
+    ],
+    "name": "hwRmExtRouteCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.20.1",
+    "status": "current"
+  },
+  "hwRmExtRouteConformance": {
+    "class": "objectidentity",
+    "name": "hwRmExtRouteConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.20"
+  },
+  "hwRmExtRouteGroup": {
+    "class": "objectidentity",
+    "name": "hwRmExtRouteGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.20.2"
+  },
+  "hwRmExtRouteObjects": {
+    "class": "objectidentity",
+    "name": "hwRmExtRouteObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.17"
+  },
+  "hwRmExtRouteTrapObjects": {
+    "class": "objectidentity",
+    "name": "hwRmExtRouteTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.18"
+  },
+  "hwRmExtRouteTraps": {
+    "class": "objectidentity",
+    "name": "hwRmExtRouteTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.19"
+  },
+  "hwRmGresmTokenObjects": {
+    "class": "objectidentity",
+    "name": "hwRmGresmTokenObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.14"
+  },
+  "hwRmInfo": {
+    "class": "objectidentity",
+    "name": "hwRmInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.6"
+  },
+  "hwRmInfoGroup": {
+    "class": "objectgroup",
+    "description": "Route resource group.",
+    "name": "hwRmInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv4PrefixNum"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwIpv6PrefixNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.2.2.6",
+    "status": "current"
+  },
+  "hwRouteStatActive": {
+    "class": "objecttype",
+    "description": "Total number of active routes of a protocol.",
+    "maxaccess": "read-only",
+    "name": "hwRouteStatActive",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwRouteStatAdded": {
+    "class": "objecttype",
+    "description": "Total number of added routes of a protocol.",
+    "maxaccess": "read-only",
+    "name": "hwRouteStatAdded",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwRouteStatDeleted": {
+    "class": "objecttype",
+    "description": "Total number of deleted routes of a protocol.",
+    "maxaccess": "read-only",
+    "name": "hwRouteStatDeleted",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwRouteStatEntry": {
+    "class": "objecttype",
+    "description": "This entity is a route statistics table. The indexes of this entry are hwRouteStatVpnName and hwRouteStatProtocolId.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwRouteStatVpnName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwRouteStatProtocolId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRouteStatEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.2.1",
+    "status": "current"
+  },
+  "hwRouteStatFreed": {
+    "class": "objecttype",
+    "description": "Total number of released routes of a protocol.",
+    "maxaccess": "read-only",
+    "name": "hwRouteStatFreed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwRouteStatGroup": {
+    "class": "objectgroup",
+    "description": "Route statistic table group.",
+    "name": "hwRouteStatGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwRouteStatTotal"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwRouteStatActive"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwRouteStatAdded"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwRouteStatDeleted"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwRouteStatFreed"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.2.2.2",
+    "status": "current"
+  },
+  "hwRouteStatProtocolId": {
+    "class": "objecttype",
+    "description": "Specifies the protocol ID of the route. Options: 1. direct(1) -indicates the direct route 2. static(2) -indicates the static route 3. ospf(3) -indicates the OSPF route 4. isis(6) -indicates the IS-IS route 5. rip(7) -indicates the RIP route 6. bgp(8) -indicates the BGP route",
+    "maxaccess": "not-accessible",
+    "name": "hwRouteStatProtocolId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bgp": 8,
+          "direct": 1,
+          "isis": 6,
+          "ospf": 3,
+          "rip": 7,
+          "static": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRouteStatTable": {
+    "class": "objecttype",
+    "description": "This entity is a route statistics table. The indexes of this table are hwRouteStatVpnName and hwRouteStatProtocolId.",
+    "maxaccess": "not-accessible",
+    "name": "hwRouteStatTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.2",
+    "status": "current"
+  },
+  "hwRouteStatTotal": {
+    "class": "objecttype",
+    "description": "Total number of routes of a protocol.",
+    "maxaccess": "read-only",
+    "name": "hwRouteStatTotal",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwRouteStatVpnName": {
+    "class": "objecttype",
+    "description": "The name of the VPN instance for static routes.",
+    "maxaccess": "not-accessible",
+    "name": "hwRouteStatVpnName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStaticRouteBfdName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of a BFD session to which static routes are to be bound.",
+    "maxaccess": "read-create",
+    "name": "hwStaticRouteBfdName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStaticRouteBfdNameExt": {
+    "class": "objecttype",
+    "description": "This object indicates the name of a BFD session to which static routes are to be bound.",
+    "maxaccess": "read-create",
+    "name": "hwStaticRouteBfdNameExt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStaticRouteDescrip": {
+    "class": "objecttype",
+    "description": "The description of the static routes.",
+    "maxaccess": "read-create",
+    "name": "hwStaticRouteDescrip",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 80,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStaticRouteDescripExt": {
+    "class": "objecttype",
+    "description": "The description of static route.",
+    "maxaccess": "read-create",
+    "name": "hwStaticRouteDescripExt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.4.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 80,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStaticRouteDestIpAddr": {
+    "class": "objecttype",
+    "description": "The destination IP address of this route.",
+    "maxaccess": "not-accessible",
+    "name": "hwStaticRouteDestIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwStaticRouteDestIpAddrExt": {
+    "class": "objecttype",
+    "description": "The destination IP address of this route.",
+    "maxaccess": "not-accessible",
+    "name": "hwStaticRouteDestIpAddrExt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwStaticRouteDestMaskAddr": {
+    "class": "objecttype",
+    "description": "Indicate the mask of the destination address.",
+    "maxaccess": "not-accessible",
+    "name": "hwStaticRouteDestMaskAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwStaticRouteDestMaskAddrExt": {
+    "class": "objecttype",
+    "description": "The mask of the destination address.",
+    "maxaccess": "not-accessible",
+    "name": "hwStaticRouteDestMaskAddrExt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwStaticRouteDestVpnName": {
+    "class": "objecttype",
+    "description": "The destination VPN for gateway address.",
+    "maxaccess": "not-accessible",
+    "name": "hwStaticRouteDestVpnName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStaticRouteDestVpnNameExt": {
+    "class": "objecttype",
+    "description": "The name of the destination VPN for gateway address.",
+    "maxaccess": "read-create",
+    "name": "hwStaticRouteDestVpnNameExt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStaticRouteEntry": {
+    "class": "objecttype",
+    "description": "The table is used for creating static routes. The indexes of this entry are hwStaticRouteSourceVpnName, hwStaticRouteDestIpAddr,hwStaticRouteDestMaskAddr, hwStaticRouteDestVpnName,hwStaticRouteNextHop,hwStaticRouteOutIfIndex.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteSourceVpnName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteDestIpAddr"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteDestMaskAddr"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteDestVpnName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteNextHop"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteOutIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwStaticRouteEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.1.1",
+    "status": "current"
+  },
+  "hwStaticRouteExtEntry": {
+    "class": "objecttype",
+    "description": "This entity is a static route table. Supports the create/destroy/modify/display operation on static routes and BFD session binding/unbinding with static routes. The indexes of this entry are hwStaticRouteSourceVpnNameExt, hwStaticRouteDestIpAddrExt, hwStaticRouteDestMaskAddrExt, hwStaticRouteNextHopExt, and hwStaticRouteOutIfIndexExt.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteSourceVpnNameExt"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteDestIpAddrExt"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteDestMaskAddrExt"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteNextHopExt"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteOutIfIndexExt"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwStaticRouteExtEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.4.1",
+    "status": "current"
+  },
+  "hwStaticRouteExtGroup": {
+    "class": "objectgroup",
+    "description": "Static route table group.",
+    "name": "hwStaticRouteExtGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteDestVpnNameExt"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteBfdNameExt"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRoutePreferExt"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteRowStatusExt"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteDescripExt"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRoutePermanentExt"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteLdpSyncExt"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.2.2.4",
+    "status": "current"
+  },
+  "hwStaticRouteExtTable": {
+    "class": "objecttype",
+    "description": "This entity is a static route table. Supports the create/destroy/modify/display operation on static routes and BFD session binding/unbinding with static routes. The indexes of this table are hwStaticRouteSourceVpnNameExt, hwStaticRouteDestIpAddrExt, hwStaticRouteDestMaskAddrExt, hwStaticRouteNextHopExt, and hwStaticRouteOutIfIndexExt. ",
+    "maxaccess": "not-accessible",
+    "name": "hwStaticRouteExtTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.4",
+    "status": "current"
+  },
+  "hwStaticRouteGroup": {
+    "class": "objectgroup",
+    "description": "Static routes table group.",
+    "name": "hwStaticRouteGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteBfdName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRoutePrefer"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteDescrip"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwStaticRouteRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.2.2.1",
+    "status": "current"
+  },
+  "hwStaticRouteLdpSyncExt": {
+    "class": "objecttype",
+    "description": "Specifies the LdpSync-Advertising attribute of the static route: Options: 1. none(0) -indicates that the LdpSync-Advertising attribute is not specified 2. ldpsync(1) -indicates that the LdpSync-Advertising attribute is specified",
+    "maxaccess": "read-create",
+    "name": "hwStaticRouteLdpSyncExt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.4.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ldpsync": 1,
+          "none": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwStaticRouteNextHop": {
+    "class": "objecttype",
+    "description": "The next hop of static routes.",
+    "maxaccess": "not-accessible",
+    "name": "hwStaticRouteNextHop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwStaticRouteNextHopExt": {
+    "class": "objecttype",
+    "description": "The next hop of static route.",
+    "maxaccess": "not-accessible",
+    "name": "hwStaticRouteNextHopExt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwStaticRouteOutIfIndex": {
+    "class": "objecttype",
+    "description": "The out interface ifnet index of static routes.",
+    "maxaccess": "not-accessible",
+    "name": "hwStaticRouteOutIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwStaticRouteOutIfIndexExt": {
+    "class": "objecttype",
+    "description": "The ifnet index of the outgoing interface of static route.",
+    "maxaccess": "not-accessible",
+    "name": "hwStaticRouteOutIfIndexExt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwStaticRoutePermanentExt": {
+    "class": "objecttype",
+    "description": "Specifies the permanent-Advertising attribute of the static route: Options: 1. none(0) -indicates that the permanent-Advertising attribute is not specified 2. permanent(1) -indicates that the permanent-Advertising attribute is specified",
+    "maxaccess": "read-create",
+    "name": "hwStaticRoutePermanentExt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.4.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "permanent": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwStaticRoutePrefer": {
+    "class": "objecttype",
+    "description": "The preference of static routes.",
+    "maxaccess": "read-create",
+    "name": "hwStaticRoutePrefer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwStaticRoutePreferExt": {
+    "class": "objecttype",
+    "description": "The preference of static route.",
+    "maxaccess": "read-create",
+    "name": "hwStaticRoutePreferExt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.4.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwStaticRouteRowStatus": {
+    "class": "objecttype",
+    "description": "Indicates the row status. Options: 1. active(1) -when this leaf is queried, the value is fixed to active(1) 2. createAndGo(4) -create a static route 3. destroy(6) -delete a static route ",
+    "maxaccess": "read-create",
+    "name": "hwStaticRouteRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwStaticRouteRowStatusExt": {
+    "class": "objecttype",
+    "description": "The operation for static route.",
+    "maxaccess": "read-create",
+    "name": "hwStaticRouteRowStatusExt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.4.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwStaticRouteSourceVpnName": {
+    "class": "objecttype",
+    "description": "The source VPN of static routes.",
+    "maxaccess": "not-accessible",
+    "name": "hwStaticRouteSourceVpnName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStaticRouteSourceVpnNameExt": {
+    "class": "objecttype",
+    "description": "The name of source VPN for static route.",
+    "maxaccess": "not-accessible",
+    "name": "hwStaticRouteSourceVpnNameExt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStaticRouteTable": {
+    "class": "objecttype",
+    "description": "The table is used for creating static routes. The indexes of this table are hwStaticRouteSourceVpnName, hwStaticRouteDestIpAddr,hwStaticRouteDestMaskAddr, hwStaticRouteDestVpnName,hwStaticRouteNextHop,hwStaticRouteOutIfIndex.",
+    "maxaccess": "not-accessible",
+    "name": "hwStaticRouteTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.1.1",
+    "status": "current"
+  },
+  "hwSvcReceiveLabel": {
+    "class": "objecttype",
+    "description": "This object indicates the inbound label.",
+    "maxaccess": "read-only",
+    "name": "hwSvcReceiveLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwSvcTransmitLabel": {
+    "class": "objecttype",
+    "description": "This object indicates the outbound label.",
+    "maxaccess": "read-only",
+    "name": "hwSvcTransmitLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwTnl2L3vpnEntry": {
+    "class": "objecttype",
+    "description": "This object indicates the tunnel ID and L3VPN table of this entity. The indexes of this entry are hwL3vpnTnlId and hwVpnIndex.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwL3vpnTnlId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwVpnIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTnl2L3vpnEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.1.1",
+    "status": "current"
+  },
+  "hwTnl2L3vpnGroup": {
+    "class": "objectgroup",
+    "description": "The object indicates the tunnel ID and L3VPN table group.",
+    "name": "hwTnl2L3vpnGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwVpnName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.4.2.1",
+    "status": "current"
+  },
+  "hwTnl2L3vpnTable": {
+    "class": "objecttype",
+    "description": "This object indicates the tunnel ID and L3VPN table of this entity. The indexes of this table are hwL3vpnTnlId and hwVpnIndex.",
+    "maxaccess": "not-accessible",
+    "name": "hwTnl2L3vpnTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.1",
+    "status": "current"
+  },
+  "hwTnl2MultiHopPwe3Entry": {
+    "class": "objecttype",
+    "description": "This object indicates the tunnel ID and Multi-hop PWE3 table of this entity. The indexes of this entry are hwMultiHopPwe3TnlId, hwMultiHopPwe3VcType, and hwMultiHopPwe3VcId.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwMultiHopPwe3TnlId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwMultiHopPwe3VcType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwMultiHopPwe3VcId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTnl2MultiHopPwe3Entry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.5.1",
+    "status": "current"
+  },
+  "hwTnl2MultiHopPwe3Group": {
+    "class": "objectgroup",
+    "description": "The object indicates the tunnel ID and Multi-hop PWE3 table group.",
+    "name": "hwTnl2MultiHopPwe3Group",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwMultiHopPwe3PeerIp"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.4.2.5",
+    "status": "current"
+  },
+  "hwTnl2MultiHopPwe3Table": {
+    "class": "objecttype",
+    "description": "This object indicates the tunnel ID and Multi-hop PWE3 table of this entity. The indexes of this table are hwMultiHopPwe3TnlId, hwMultiHopPwe3VcType, and hwMultiHopPwe3VcId.",
+    "maxaccess": "not-accessible",
+    "name": "hwTnl2MultiHopPwe3Table",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.5",
+    "status": "current"
+  },
+  "hwTnl2Pwe3VllEntry": {
+    "class": "objecttype",
+    "description": "The object indicates the tunnel ID and PWE3/VLL table of this entity. The indexes of this entry are hwPwVllTnlId and hwAcIndex.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPwVllTnlId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwAcIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTnl2Pwe3VllEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.3.1",
+    "status": "current"
+  },
+  "hwTnl2Pwe3VllGroup": {
+    "class": "objectgroup",
+    "description": "The object indicates the tunnel ID and PWE3/VLL table group.",
+    "name": "hwTnl2Pwe3VllGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwMasterSlaveFlag"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPwVllIfName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPwVllVcId"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPwVllSvcFlag"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPwVcType"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwSvcReceiveLabel"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwSvcTransmitLabel"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwPwVllPeerIp"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.4.2.3",
+    "status": "current"
+  },
+  "hwTnl2Pwe3VllTable": {
+    "class": "objecttype",
+    "description": "The object indicates the tunnel ID and PWE3/VLL table of this entity. The indexes of this table are hwPwVllTnlId and hwAcIndex.",
+    "maxaccess": "not-accessible",
+    "name": "hwTnl2Pwe3VllTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.3",
+    "status": "current"
+  },
+  "hwTnl2VplsEntry": {
+    "class": "objecttype",
+    "description": "The object indicates the tunnel ID and VPLS table of this entity. The indexes of this entry are hwVplsTnlId and hwVplsVcId.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwVplsTnlId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwVplsVcId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTnl2VplsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.2.1",
+    "status": "current"
+  },
+  "hwTnl2VplsGroup": {
+    "class": "objectgroup",
+    "description": "The object indicates the tunnel ID and VPLS table group.",
+    "name": "hwTnl2VplsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwVsiIndex"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwVsiId"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwVsiName"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwVplsVcType"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwVplsPeerIp"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.4.2.2",
+    "status": "current"
+  },
+  "hwTnl2VplsTable": {
+    "class": "objecttype",
+    "description": "The object indicates the tunnel ID and VPLS table of this entity. The indexes of this table are hwVplsTnlId and hwVplsVcId.",
+    "maxaccess": "not-accessible",
+    "name": "hwTnl2VplsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.2",
+    "status": "current"
+  },
+  "hwTnlDestination": {
+    "class": "objecttype",
+    "description": "The destination of the tunnel group.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwTnlDestination",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.5.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwTnlGroupNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "The object indicates the Up/Down state of the tunnel group.",
+    "name": "hwTnlGroupNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwTunnelGroupUp"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwTunnelGroupDown"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.7.1",
+    "status": "current"
+  },
+  "hwTnlGroupObjectGroup": {
+    "class": "objectgroup",
+    "description": "The object indicates the compliance statement for tunnel group trap.",
+    "name": "hwTnlGroupObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwTnlDestination"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwTnlPolicy"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.7.2",
+    "status": "current"
+  },
+  "hwTnlGroupTrapConformance": {
+    "class": "objectidentity",
+    "name": "hwTnlGroupTrapConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.7"
+  },
+  "hwTnlGroupTrapObjects": {
+    "class": "objectidentity",
+    "name": "hwTnlGroupTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.5"
+  },
+  "hwTnlGroupTraps": {
+    "class": "objectidentity",
+    "name": "hwTnlGroupTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.6"
+  },
+  "hwTnlIf2TnlIdEntry": {
+    "class": "objecttype",
+    "description": "This object indicates the tunnel interface and tunnel ID table of this entity. The index of this entry is hwTunnelIf.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwTunnelIf"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTnlIf2TnlIdEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.4.1",
+    "status": "current"
+  },
+  "hwTnlIf2TnlIdGroup": {
+    "class": "objectgroup",
+    "description": "The object indicates the tunnel interface name and tunnel ID table group.",
+    "name": "hwTnlIf2TnlIdGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwTunnelId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.4.2.4",
+    "status": "current"
+  },
+  "hwTnlIf2TnlIdTable": {
+    "class": "objecttype",
+    "description": "This object indicates the tunnel interface and tunnel ID table of this entity. The index of this table is hwTunnelIf.",
+    "maxaccess": "not-accessible",
+    "name": "hwTnlIf2TnlIdTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.4",
+    "status": "current"
+  },
+  "hwTnlPolicy": {
+    "class": "objecttype",
+    "description": "Tunnel policy name.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwTnlPolicy",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.5.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 39,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwTunnelExtCompliance": {
+    "class": "modulecompliance",
+    "description": "The object indicates the compliance statement for route management MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwTnl2L3vpnGroup"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwTnl2VplsGroup"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwTnl2Pwe3VllGroup"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwTnlIf2TnlIdGroup"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwTnl2MultiHopPwe3Group"
+      }
+    ],
+    "name": "hwTunnelExtCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.4.1.1",
+    "status": "current"
+  },
+  "hwTunnelExtCompliances": {
+    "class": "objectidentity",
+    "name": "hwTunnelExtCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.4.1"
+  },
+  "hwTunnelExtConformance": {
+    "class": "objectidentity",
+    "name": "hwTunnelExtConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.4"
+  },
+  "hwTunnelExtGroups": {
+    "class": "objectidentity",
+    "name": "hwTunnelExtGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.4.2"
+  },
+  "hwTunnelExtObjects": {
+    "class": "objectidentity",
+    "name": "hwTunnelExtObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3"
+  },
+  "hwTunnelGroupDown": {
+    "class": "notificationtype",
+    "description": "Tunnels selected by the applications are defined by the next hop and the tunnel policy. If any one of the tunnels used for load balancing is Up, this trap will be sent to the user. ",
+    "name": "hwTunnelGroupDown",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwTnlDestination"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwTnlPolicy"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.6.2",
+    "status": "current"
+  },
+  "hwTunnelGroupUp": {
+    "class": "notificationtype",
+    "description": "Tunnels selected by the applications are defined by the next hop and the tunnel policy. If all the tunnels used for load balancing are Down, this trap will be sent to the user.",
+    "name": "hwTunnelGroupUp",
+    "objects": [
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwTnlDestination"
+      },
+      {
+        "module": "HUAWEI-RM-EXT-MIB",
+        "object": "hwTnlPolicy"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.145.6.1",
+    "status": "current"
+  },
+  "hwTunnelId": {
+    "class": "objecttype",
+    "description": "The object indicates the tunnel ID.",
+    "maxaccess": "read-only",
+    "name": "hwTunnelId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwTunnelIf": {
+    "class": "objecttype",
+    "description": "The object indicates the tunnel interface name.",
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelIf",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwVplsPeerIp": {
+    "class": "objecttype",
+    "description": "The object indicates the peer IP address of a VPLS.",
+    "maxaccess": "read-only",
+    "name": "hwVplsPeerIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwVplsTnlId": {
+    "class": "objecttype",
+    "description": "The object indicates the tunnel ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsTnlId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwVplsVcId": {
+    "class": "objecttype",
+    "description": "The object indicates the VC ID of a VPLS.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsVcId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwVplsVcType": {
+    "class": "objecttype",
+    "description": "The object indicates the VC type of a VPLS.",
+    "maxaccess": "read-only",
+    "name": "hwVplsVcType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwVpnIndex": {
+    "class": "objecttype",
+    "description": "The object indicates the VRF index of a VPN.",
+    "maxaccess": "not-accessible",
+    "name": "hwVpnIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4096,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwVpnName": {
+    "class": "objecttype",
+    "description": "The object indicates the VPN name.",
+    "maxaccess": "read-only",
+    "name": "hwVpnName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwVsiId": {
+    "class": "objecttype",
+    "description": "The object indicates the VSI ID of a VPLS.",
+    "maxaccess": "read-only",
+    "name": "hwVsiId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwVsiIndex": {
+    "class": "objecttype",
+    "description": "The object indicates the VSI index of a VPLS.",
+    "maxaccess": "read-only",
+    "name": "hwVsiIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwVsiName": {
+    "class": "objecttype",
+    "description": "The object indicates the VSI name of a VPLS.",
+    "maxaccess": "read-only",
+    "name": "hwVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.145.3.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "imports": {
+    "ENTITY-MIB": [
+      "entPhysicalName",
+      "entPhysicalIndex"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IPV6-TC": [
+      "Ipv6Address"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "Bits",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Gauge32",
+      "iso",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-RM-EXT-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:49 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-RM-EXT-MIB"
+  }
+}

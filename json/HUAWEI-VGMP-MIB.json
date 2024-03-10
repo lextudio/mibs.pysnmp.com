@@ -1,0 +1,1372 @@
+{
+  "hwVGMPBFDSessionGroup": {
+    "class": "objectgroup",
+    "description": "The vrrp-group tracking BFD table\u0027s atributes.",
+    "name": "hwVGMPBFDSessionGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpTrackBFDReduceValue"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpTrackBFDPreeEnable"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpTrackBFDOperRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.122.4.1.1.3",
+    "status": "current"
+  },
+  "hwVGMPGlobalsGroup": {
+    "class": "objectgroup",
+    "description": "The vrrp-group global group.",
+    "name": "hwVGMPGlobalsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpTrapSnmpCtrl"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpStrictCheck"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.122.4.1.1.5",
+    "status": "current"
+  },
+  "hwVGMPGroAttrGroup": {
+    "class": "objectgroup",
+    "description": " Attributes of the vrrp-group configuration.",
+    "name": "hwVGMPGroAttrGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpGroupCfgEnable"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpGroupCfgPri"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpGroupCfgUseVrrpPri"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpGroupCfgPriPlusValue"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpGroupCfgPreemptEnable"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpGroupCfgPreemptDelayValue"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpGroupCfgHelloInterval"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpGroupCfgSendEnable"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpGroupCfgState"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpGroupCfgRunPri"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpGroupCfgCreateTime"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpGroupCfgLastChangeTime"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpGroupCfgPeerState"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpGroupCfgVrrpNum"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpGroupCfgReset"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpGroupCfgOperRowStatus"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpGroupCfgNextState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.122.4.1.1.1",
+    "status": "current"
+  },
+  "hwVGMPMIBCompliances": {
+    "class": "objectidentity",
+    "name": "hwVGMPMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.4.1"
+  },
+  "hwVGMPMIBGroups": {
+    "class": "objectidentity",
+    "name": "hwVGMPMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.4.1.1"
+  },
+  "hwVGMPMenAttrGroup": {
+    "class": "objectgroup",
+    "description": "The vrrp-group member table\u0027s atributes.",
+    "name": "hwVGMPMenAttrGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpMemberData"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpMemberTran"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpMemberVrrpOnline"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpMemberOperRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.122.4.1.1.2",
+    "status": "current"
+  },
+  "hwVGMPNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "The vrrp-group notification group.",
+    "name": "hwVGMPNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpOtherStateToMaster"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpMasterToOtherState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.122.4.1.1.6",
+    "status": "current"
+  },
+  "hwVGMPStaticGroup": {
+    "class": "objectgroup",
+    "description": "The vrrp-group packet\u0027s statistic info.",
+    "name": "hwVGMPStaticGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpStatisticCheckFailDropNum"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpStatisticDisableDropNum"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpStatisticModeTypeErrDropNum"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpStatisticAccHelloREQ"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpStatisticSendHelloREQ"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpStatisticAccHelloACK"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpStatisticSendHelloACK"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpStatisticAccMasterToSlaveREQ"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpStatisticSendMasterToSlaveREQ"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpStatisticAccMasterToSlaveACK"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpStatisticSendMasterToSlaveACK"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpStatisticAccMasterToSlaveNACK"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpStatisticSendMasterToSlaveNACK"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpStatisticAccSlaveToMasterREQ"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpStatisticSendSlaveToMasterREQ"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpStatisticAccSlaveToMasterACK"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpStatisticSendSlaveToMasterACK"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpStatisticAccSlaveToMasterNACK"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpStatisticSendSlaveToMasterNACK"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.122.4.1.1.4",
+    "status": "current"
+  },
+  "hwVgmpGroupCfgCreateTime": {
+    "class": "objecttype",
+    "description": "A span of the current time subtract the vrrp-group create time. This attribute is expressed as second.",
+    "maxaccess": "read-only",
+    "name": "hwVgmpGroupCfgCreateTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwVgmpGroupCfgEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "Whether to enable vrrp-group or not.",
+    "maxaccess": "read-create",
+    "name": "hwVgmpGroupCfgEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVgmpGroupCfgEntry": {
+    "class": "objecttype",
+    "description": "An entry in the vrrp-group configuration table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpGroupCfgID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVgmpGroupCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.1.1",
+    "status": "current"
+  },
+  "hwVgmpGroupCfgHelloInterval": {
+    "class": "objecttype",
+    "description": "The interval for the vrrp-group to send vgmp hello packets.",
+    "maxaccess": "read-create",
+    "name": "hwVgmpGroupCfgHelloInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 60000,
+            "min": 200
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "milli-seconds"
+  },
+  "hwVgmpGroupCfgID": {
+    "class": "objecttype",
+    "description": "The vrrp-group ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwVgmpGroupCfgID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwVgmpGroupCfgLastChangeTime": {
+    "class": "objecttype",
+    "description": "A span of the current time subtract the vrrp-group last change time. This attribute is expressed as second.",
+    "maxaccess": "read-only",
+    "name": "hwVgmpGroupCfgLastChangeTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwVgmpGroupCfgNextState": {
+    "class": "objecttype",
+    "description": "The next state of vrrp-Group. It provides for trap matching, you can get only unknown state.",
+    "maxaccess": "read-only",
+    "name": "hwVgmpGroupCfgNextState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "init": 2,
+          "master": 3,
+          "master2slave": 5,
+          "nouse": 1,
+          "slave": 4,
+          "slave2master": 6,
+          "unknown": 7
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVgmpGroupCfgOperRowStatus": {
+    "class": "objecttype",
+    "description": "The row status variable.",
+    "maxaccess": "read-create",
+    "name": "hwVgmpGroupCfgOperRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwVgmpGroupCfgPeerState": {
+    "class": "objecttype",
+    "description": "The vrrp-group peer state.",
+    "maxaccess": "read-only",
+    "name": "hwVgmpGroupCfgPeerState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": 2,
+          "online": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVgmpGroupCfgPreemptDelayValue": {
+    "class": "objecttype",
+    "description": "The delaying time of vrrp-group enters into new master state.",
+    "maxaccess": "read-create",
+    "name": "hwVgmpGroupCfgPreemptDelayValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 60000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "milli-seconds"
+  },
+  "hwVgmpGroupCfgPreemptEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "Whether to enable preempt switch or not.",
+    "maxaccess": "read-create",
+    "name": "hwVgmpGroupCfgPreemptEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVgmpGroupCfgPri": {
+    "class": "objecttype",
+    "description": "The priority of the vrrp-group. This attribute cannot be configured if attribute \u0027hwVgmpGroupCfgUseVrrpPri\u0027 is set to \u0027enable\u0027.",
+    "maxaccess": "read-create",
+    "name": "hwVgmpGroupCfgPri",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 254,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwVgmpGroupCfgPriPlusValue": {
+    "class": "objecttype",
+    "description": "The plus priority value after an interface added into a group. This attribute cannot be configured if attribute \u0027hwVgmpGroupCfgUseVrrpPri\u0027 is set to \u0027enable\u0027.",
+    "maxaccess": "read-create",
+    "name": "hwVgmpGroupCfgPriPlusValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 254,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwVgmpGroupCfgReset": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "unused"
+      }
+    },
+    "description": "A reset sign of vrrp-group statistics.",
+    "maxaccess": "read-create",
+    "name": "hwVgmpGroupCfgReset",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "unused": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVgmpGroupCfgRunPri": {
+    "class": "objecttype",
+    "description": "The vrrp-group current run priority, it is different from hwVgmpGroupCfgPri. The value calculates according as configured priority attribute.",
+    "maxaccess": "read-only",
+    "name": "hwVgmpGroupCfgRunPri",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwVgmpGroupCfgSendEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "Whether to enable vrrp-group group-send or not.",
+    "maxaccess": "read-create",
+    "name": "hwVgmpGroupCfgSendEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVgmpGroupCfgState": {
+    "class": "objecttype",
+    "description": "The state of the vrrp-group.",
+    "maxaccess": "read-only",
+    "name": "hwVgmpGroupCfgState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "init": 2,
+          "master": 3,
+          "master2slave": 5,
+          "max": 7,
+          "nouse": 1,
+          "slave": 4,
+          "slave2master": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVgmpGroupCfgTable": {
+    "class": "objecttype",
+    "description": "The vrrp-group configuration table. ",
+    "maxaccess": "not-accessible",
+    "name": "hwVgmpGroupCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.1",
+    "status": "current"
+  },
+  "hwVgmpGroupCfgUseVrrpPri": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "Whether using vrrp priority compute vrrp-group priority or not. This attribute is exclusive with attributes \u0027hwVgmpGroupCfgPri\u0027 and \u0027hwVgmpGroupCfgPriPlusValue\u0027, so it is suggested not to configure this attribute together with \u0027hwVgmpGroupCfgPri\u0027 or \u0027hwVgmpGroupCfgPriPlusValue\u0027. \u0027. ",
+    "maxaccess": "read-create",
+    "name": "hwVgmpGroupCfgUseVrrpPri",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVgmpGroupCfgVrrpNum": {
+    "class": "objecttype",
+    "description": "The vrrp-group member number.",
+    "maxaccess": "read-only",
+    "name": "hwVgmpGroupCfgVrrpNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwVgmpMasterToOtherState": {
+    "class": "notificationtype",
+    "description": "The status of the vrrp-group changes from master to other state.",
+    "name": "hwVgmpMasterToOtherState",
+    "objects": [
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpGroupCfgState"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpGroupCfgNextState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.122.1.2",
+    "status": "current"
+  },
+  "hwVgmpMemberData": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "It specifies the vrrp-group member\u0027s attributes. \u0027enable\u0027 indicates this is the vgmp data channel.",
+    "maxaccess": "read-create",
+    "name": "hwVgmpMemberData",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVgmpMemberEntry": {
+    "class": "objecttype",
+    "description": "An entry in the vrrp-group member configuration table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpMemberIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpGroupCfgID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpMemberVRID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVgmpMemberEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.2.1",
+    "status": "current"
+  },
+  "hwVgmpMemberIfIndex": {
+    "class": "objecttype",
+    "description": "The index of the member table.",
+    "maxaccess": "not-accessible",
+    "name": "hwVgmpMemberIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwVgmpMemberOperRowStatus": {
+    "class": "objecttype",
+    "description": "The row status variable.",
+    "maxaccess": "read-create",
+    "name": "hwVgmpMemberOperRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwVgmpMemberTable": {
+    "class": "objecttype",
+    "description": "The vrrp-group member configuration table.",
+    "maxaccess": "not-accessible",
+    "name": "hwVgmpMemberTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.2",
+    "status": "current"
+  },
+  "hwVgmpMemberTran": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "It identifiers a vrrp-group member\u0027s attribute, \u0027enable\u0027 indicates this is the vgmp data transfer-only channel. This attribute cannot be configured if attribute \u0027hwVgmpMemberData\u0027 is set to \u0027disable\u0027. ",
+    "maxaccess": "read-create",
+    "name": "hwVgmpMemberTran",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVgmpMemberVRID": {
+    "class": "objecttype",
+    "description": "The vrrp-group member\u0027s vitual router id.",
+    "maxaccess": "not-accessible",
+    "name": "hwVgmpMemberVRID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwVgmpMemberVrrpOnline": {
+    "class": "objecttype",
+    "description": "The vrrp-group member\u0027s peer state.",
+    "maxaccess": "read-only",
+    "name": "hwVgmpMemberVrrpOnline",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "peerDown": 2,
+          "up": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVgmpMib": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D Nanjing, Huawei Technologies co.,Ltd. Huihong Bld.,NO.91 Baixia Rd., Bai-Xia District Nanjing P.R. China Zip:210001 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": "This mib is used for VGMP.",
+    "lastupdated": "200701112100Z",
+    "name": "hwVgmpMib",
+    "oid": "1.3.6.1.4.1.2011.5.25.122",
+    "organization": "Huawei Technologies co., Ltd.",
+    "revisions": [
+      {
+        "description": "The initial revision of this MIB module.",
+        "revision": "2007-01-11 21:00"
+      }
+    ]
+  },
+  "hwVgmpOtherStateToMaster": {
+    "class": "notificationtype",
+    "description": "The status of the vrrp-group turns to master.",
+    "name": "hwVgmpOtherStateToMaster",
+    "objects": [
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpGroupCfgState"
+      },
+      {
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpGroupCfgNextState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.122.1.1",
+    "status": "current"
+  },
+  "hwVgmpStatisticAccHelloACK": {
+    "class": "objecttype",
+    "description": "The number of hello ACK packets received by the vrrp-group.",
+    "maxaccess": "read-only",
+    "name": "hwVgmpStatisticAccHelloACK",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.3.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVgmpStatisticAccHelloREQ": {
+    "class": "objecttype",
+    "description": "The number of hello REQ packets received by the vrrp-group.",
+    "maxaccess": "read-only",
+    "name": "hwVgmpStatisticAccHelloREQ",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.3.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVgmpStatisticAccMasterToSlaveACK": {
+    "class": "objecttype",
+    "description": "The number of MasterToSlave ACK packets received by the vrrp-group.",
+    "maxaccess": "read-only",
+    "name": "hwVgmpStatisticAccMasterToSlaveACK",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.3.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVgmpStatisticAccMasterToSlaveNACK": {
+    "class": "objecttype",
+    "description": "The number of MasterToSlave NACK packets received by the vrrp-group.",
+    "maxaccess": "read-only",
+    "name": "hwVgmpStatisticAccMasterToSlaveNACK",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.3.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVgmpStatisticAccMasterToSlaveREQ": {
+    "class": "objecttype",
+    "description": "The number of MasterToSlave REQ packets received by the vrrp-group.",
+    "maxaccess": "read-only",
+    "name": "hwVgmpStatisticAccMasterToSlaveREQ",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.3.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVgmpStatisticAccSlaveToMasterACK": {
+    "class": "objecttype",
+    "description": "The number of SlaveToMaster ACK packets received by the vrrp-group.",
+    "maxaccess": "read-only",
+    "name": "hwVgmpStatisticAccSlaveToMasterACK",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.3.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVgmpStatisticAccSlaveToMasterNACK": {
+    "class": "objecttype",
+    "description": "The number of SlaveToMaster NACK packets received by the vrrp-group.",
+    "maxaccess": "read-only",
+    "name": "hwVgmpStatisticAccSlaveToMasterNACK",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.3.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVgmpStatisticAccSlaveToMasterREQ": {
+    "class": "objecttype",
+    "description": "The number of SlaveToMaster REQ packets received by the vrrp-group.",
+    "maxaccess": "read-only",
+    "name": "hwVgmpStatisticAccSlaveToMasterREQ",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.3.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVgmpStatisticCheckFailDropNum": {
+    "class": "objecttype",
+    "description": "The number of dropped packets due to check failure.",
+    "maxaccess": "read-only",
+    "name": "hwVgmpStatisticCheckFailDropNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.3.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVgmpStatisticDisableDropNum": {
+    "class": "objecttype",
+    "description": "The number of dropped packets because the vrrp-group is disabled.",
+    "maxaccess": "read-only",
+    "name": "hwVgmpStatisticDisableDropNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.3.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVgmpStatisticEntry": {
+    "class": "objecttype",
+    "description": "An entry in the packets statistic information table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpGroupCfgID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVgmpStatisticEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.3.1.1",
+    "status": "current"
+  },
+  "hwVgmpStatisticModeTypeErrDropNum": {
+    "class": "objecttype",
+    "description": "The number of dropped packets because the vrrp-group mode or type is wrong.",
+    "maxaccess": "read-only",
+    "name": "hwVgmpStatisticModeTypeErrDropNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.3.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVgmpStatisticSendHelloACK": {
+    "class": "objecttype",
+    "description": "The vrrp-group sending hello ACK packets num.",
+    "maxaccess": "read-only",
+    "name": "hwVgmpStatisticSendHelloACK",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.3.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVgmpStatisticSendHelloREQ": {
+    "class": "objecttype",
+    "description": "The number of hello REQ packets sent by the vrrp-group.",
+    "maxaccess": "read-only",
+    "name": "hwVgmpStatisticSendHelloREQ",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.3.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVgmpStatisticSendMasterToSlaveACK": {
+    "class": "objecttype",
+    "description": "The number of MasterToSlave ACK packets sent by the vrrp-group.",
+    "maxaccess": "read-only",
+    "name": "hwVgmpStatisticSendMasterToSlaveACK",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.3.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVgmpStatisticSendMasterToSlaveNACK": {
+    "class": "objecttype",
+    "description": "The number of MasterToSlave NACK packets sent by the vrrp-group.",
+    "maxaccess": "read-only",
+    "name": "hwVgmpStatisticSendMasterToSlaveNACK",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.3.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVgmpStatisticSendMasterToSlaveREQ": {
+    "class": "objecttype",
+    "description": "The number of MasterToSlave REQ packets sent by the vrrp-group.",
+    "maxaccess": "read-only",
+    "name": "hwVgmpStatisticSendMasterToSlaveREQ",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.3.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVgmpStatisticSendSlaveToMasterACK": {
+    "class": "objecttype",
+    "description": "The number of SlaveToMaster ACK packets sent by the vrrp-group.",
+    "maxaccess": "read-only",
+    "name": "hwVgmpStatisticSendSlaveToMasterACK",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.3.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVgmpStatisticSendSlaveToMasterNACK": {
+    "class": "objecttype",
+    "description": "The number of SlaveToMaster NACK packets sent by the vrrp-group.",
+    "maxaccess": "read-only",
+    "name": "hwVgmpStatisticSendSlaveToMasterNACK",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.3.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVgmpStatisticSendSlaveToMasterREQ": {
+    "class": "objecttype",
+    "description": "The number of SlaveToMaster REQ packets sent by the vrrp-group.",
+    "maxaccess": "read-only",
+    "name": "hwVgmpStatisticSendSlaveToMasterREQ",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.3.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVgmpStatisticTable": {
+    "class": "objecttype",
+    "description": "The packets statistic information table.",
+    "maxaccess": "not-accessible",
+    "name": "hwVgmpStatisticTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.3.1",
+    "status": "current"
+  },
+  "hwVgmpStrictCheck": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disabled"
+      }
+    },
+    "description": "A switch decides whether the system carries out strict check or not.",
+    "maxaccess": "read-write",
+    "name": "hwVgmpStrictCheck",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.0.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVgmpTrackBFDEntry": {
+    "class": "objecttype",
+    "description": "An entry in the vrrp-group tracking BFD session table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpGroupCfgID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VGMP-MIB",
+        "object": "hwVgmpTrackBFDID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVgmpTrackBFDEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.3.1",
+    "status": "current"
+  },
+  "hwVgmpTrackBFDID": {
+    "class": "objecttype",
+    "description": "The session id of vrrp-group tracking BFD.",
+    "maxaccess": "not-accessible",
+    "name": "hwVgmpTrackBFDID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8191,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwVgmpTrackBFDOperRowStatus": {
+    "class": "objecttype",
+    "description": "The row status variable.",
+    "maxaccess": "read-create",
+    "name": "hwVgmpTrackBFDOperRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwVgmpTrackBFDPreeEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "Whether to enable track BFD slave preempt.",
+    "maxaccess": "read-create",
+    "name": "hwVgmpTrackBFDPreeEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVgmpTrackBFDReduceValue": {
+    "class": "objecttype",
+    "description": "The value which the system will subtract from priority, when a bfd session is down. You can\u0027t set zero.",
+    "maxaccess": "read-create",
+    "name": "hwVgmpTrackBFDReduceValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 254,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwVgmpTrackBFDTable": {
+    "class": "objecttype",
+    "description": "The vrrp-group tracking BFD session table.",
+    "maxaccess": "not-accessible",
+    "name": "hwVgmpTrackBFDTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2.3",
+    "status": "current"
+  },
+  "hwVgmpTrapSnmpCtrl": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disabled"
+      }
+    },
+    "description": "A switch decides whether the system sends trap info or not.",
+    "maxaccess": "read-write",
+    "name": "hwVgmpTrapSnmpCtrl",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.0.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "Gauge32",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Unsigned32",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-VGMP-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:17 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-VGMP-MIB"
+  },
+  "vgmpConformance": {
+    "class": "objectidentity",
+    "name": "vgmpConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.4"
+  },
+  "vgmpGlobalCtrl": {
+    "class": "objectidentity",
+    "name": "vgmpGlobalCtrl",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.0"
+  },
+  "vgmpNotifications": {
+    "class": "objectidentity",
+    "name": "vgmpNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.1"
+  },
+  "vgmpOperations": {
+    "class": "objectidentity",
+    "name": "vgmpOperations",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.2"
+  },
+  "vgmpStatistics": {
+    "class": "objectidentity",
+    "name": "vgmpStatistics",
+    "oid": "1.3.6.1.4.1.2011.5.25.122.3"
+  }
+}

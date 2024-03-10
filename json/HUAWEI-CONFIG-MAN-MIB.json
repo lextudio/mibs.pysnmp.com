@@ -1,0 +1,2217 @@
+{
+  "ConfigOperationType": {
+    "class": "textualconvention",
+    "description": "Specify operation types on configuration. Currently, following types of operation are provided: running2Startup(1):refresh the saved configuration file used currently with current configuration running in the system. The operation is the same as that of [save] command from command line.(running-\u003estartup) startup2Running(2):append the configration of the saved configuration file used currently to current configuration running in the system.(running\u003c-startup) running2Net(3):Send the current configuration running in the system to the network through a certain protocol.(running-\u003enetworkFile) net2Running(4):append the configration of a remote file from network to current configuration running in the system through a certain protocol.(running\u003c-networkFile) net2Startup(5):Download a remote file to the local system to be the saved configuration file used currently through a certain protocol.(startup\u003c-networkFile) startup2Net(6):Send the saved configuration file used currently to the network through a certain protocol. (startup -\u003enetworkFile)",
+    "name": "ConfigOperationType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "net2Running": 4,
+          "net2Startup": 5,
+          "running2Net": 3,
+          "running2Startup": 1,
+          "startup2Net": 6,
+          "startup2Running": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCfgB2SOperate": {
+    "class": "notificationtype",
+    "description": "When the system begin to backup current configuration to servers, this trap will generate.",
+    "name": "hwCfgB2SOperate",
+    "oid": "1.3.6.1.4.1.2011.6.10.2.6",
+    "status": "current"
+  },
+  "hwCfgB2STransferFail": {
+    "class": "notificationtype",
+    "description": "When the system failed to backup current configuration to specified server, this trap will generate to indicates the details information.",
+    "name": "hwCfgB2STransferFail",
+    "objects": [
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgBackupIndex"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgBackupServerIp"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgBackupProtocol"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.10.2.5",
+    "status": "current"
+  },
+  "hwCfgBackup2ServerEntry": {
+    "class": "objecttype",
+    "description": "An operate request entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgBackupIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwCfgBackup2ServerEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.7.1",
+    "status": "current"
+  },
+  "hwCfgBackup2ServerTable": {
+    "class": "objecttype",
+    "description": "A table of config-operation requests. ",
+    "maxaccess": "not-accessible",
+    "name": "hwCfgBackup2ServerTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.7",
+    "status": "current"
+  },
+  "hwCfgBackupIndex": {
+    "class": "objecttype",
+    "description": "The unique index value of a row in this table.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwCfgBackupIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCfgBackupPassword": {
+    "class": "objecttype",
+    "description": "The password can be plain text or encripted text. If the password is plain text, its length should range from 0 to 255. If the password is in cipher text, its length is 24 or from 32 to 392. When get the value of the field, the device will return a zero-length string. When set the field, its value cannot be a string that contains no character.",
+    "maxaccess": "read-create",
+    "name": "hwCfgBackupPassword",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.7.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 392,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCfgBackupProtocol": {
+    "class": "objecttype",
+    "description": "The protocol used to backup configuration to server automatically.",
+    "maxaccess": "read-create",
+    "name": "hwCfgBackupProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftp": 1,
+          "sftp": 3,
+          "tftp": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCfgBackupResult": {
+    "class": "objecttype",
+    "description": "This object is only for trap information, and does not support get and get-next operation.",
+    "maxaccess": "read-only",
+    "name": "hwCfgBackupResult",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.7.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwCfgBackupRowStatus": {
+    "class": "objecttype",
+    "description": "The status of this table entry.",
+    "maxaccess": "read-create",
+    "name": "hwCfgBackupRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.7.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwCfgBackupServerIp": {
+    "class": "objecttype",
+    "description": "The ip address of the FTP/TFTP/SFTP server to which to the device backup configuration automatically. Values of 0.0.0.0 or FF.FF.FF.FF are not permitted.",
+    "maxaccess": "read-create",
+    "name": "hwCfgBackupServerIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwCfgBackupServerPath": {
+    "class": "objecttype",
+    "description": "The length of the path in the backup server should range from 1 to 64.",
+    "maxaccess": "read-create",
+    "name": "hwCfgBackupServerPath",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.7.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwCfgBackupUser": {
+    "class": "objecttype",
+    "description": "The length of the user name should range from 1 to 64.",
+    "maxaccess": "read-create",
+    "name": "hwCfgBackupUser",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.7.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwCfgBackupVpnInstance": {
+    "class": "objecttype",
+    "description": "The VPN instance name that through which to transfer the file.",
+    "maxaccess": "read-create",
+    "name": "hwCfgBackupVpnInstance",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.7.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwCfgInconsistent": {
+    "class": "notificationtype",
+    "description": "When the system automatically detects that configurations of the AMB and the SMB are inconsistent, the trap is generated.",
+    "name": "hwCfgInconsistent",
+    "oid": "1.3.6.1.4.1.2011.6.10.2.3",
+    "status": "obsolete"
+  },
+  "hwCfgInconsistentResume": {
+    "class": "notificationtype",
+    "description": "When the system automatically detects that configurations of the AMB and the SMB change from inconsistent to consistent, the trap is generated.",
+    "name": "hwCfgInconsistentResume",
+    "oid": "1.3.6.1.4.1.2011.6.10.2.4",
+    "status": "obsolete"
+  },
+  "hwCfgLock": {
+    "class": "objectidentity",
+    "name": "hwCfgLock",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.4"
+  },
+  "hwCfgLog": {
+    "class": "objectidentity",
+    "name": "hwCfgLog",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1"
+  },
+  "hwCfgLogCfgBaselineTime": {
+    "class": "objecttype",
+    "description": "Specifies the time of system confiuration was baseline. ",
+    "maxaccess": "read-only",
+    "name": "hwCfgLogCfgBaselineTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.16",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 20,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwCfgLogCmdSrcAddress": {
+    "class": "objecttype",
+    "description": " The address from which a request comes when the value of hwCfgLogSrcCmd is \u0027snmp(2)\u0027. The ip address of the remote system connected when the value of hwCfgLogTerminalType is \u0027virtual\u0027. Otherwise, the value of the object is 0.0.0.0. ",
+    "maxaccess": "read-only",
+    "name": "hwCfgLogCmdSrcAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwCfgLogConfigChangeId": {
+    "class": "objecttype",
+    "description": "This is the sequence ID of configuration. When configuration is changed, ID is added. ",
+    "maxaccess": "read-only",
+    "name": "hwCfgLogConfigChangeId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.15",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967294,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwCfgLogDeletedEntries": {
+    "class": "objecttype",
+    "description": "The total number of rows deleted from hwCfgLogTable. ",
+    "maxaccess": "read-only",
+    "name": "hwCfgLogDeletedEntries",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwCfgLogDesData": {
+    "class": "objecttype",
+    "description": "The configuration data destination for the event. unknown unknown running operational data alive commandSource the command source itself startup what the system will use next reboot local local NVRAM or flash netFtp FTP network transfer hotPlugging board is inserted or pulled out on line",
+    "maxaccess": "read-only",
+    "name": "hwCfgLogDesData",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "commandSource": 3,
+          "hotPlugging": 7,
+          "local": 5,
+          "netkFtp": 6,
+          "runningData": 2,
+          "startupData": 4,
+          "unknown": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCfgLogEntry": {
+    "class": "objecttype",
+    "description": "Information about a configuration log in this system.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwCfgLogEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1",
+    "status": "current"
+  },
+  "hwCfgLogFile": {
+    "class": "objecttype",
+    "description": "The remote file name when hwCfgLogSrcData or hwCfgLogDesData has the value of \u0027netFtp\u0027. Otherwise, the value of the object is a zero length string. ",
+    "maxaccess": "read-only",
+    "name": "hwCfgLogFile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwCfgLogIndex": {
+    "class": "objecttype",
+    "description": " The index of hwCfgLogTable, which is a incremental integer. The maximum value of the node is 2147483647.The table should wrap the value to 1 and flush all the existing entries when the maximum value is reached.",
+    "maxaccess": "not-accessible",
+    "name": "hwCfgLogIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCfgLogLimitedEntries": {
+    "class": "objecttype",
+    "description": "The object shows the maximum number of rows in hwCfgLogTable. The value supported by the system is 10. ",
+    "maxaccess": "read-only",
+    "name": "hwCfgLogLimitedEntries",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCfgLogServerAddress": {
+    "class": "objecttype",
+    "description": "The remote server address when hwCfgLogSrcData or hwCfgLogDesData has the value of \u0027netFtp\u0027. Otherwise, the value of the object is 0.0.0.0. ",
+    "maxaccess": "read-only",
+    "name": "hwCfgLogServerAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwCfgLogSrcCmd": {
+    "class": "objecttype",
+    "description": "Specifies the source command resulting in the log. Currently we provide the types of source: 1.cmdLine(1):configuration log instigated by command line. 2.snmp(2):configuration log instigated by snmp. 3.other(3):configuration log instigated by other source unknown.",
+    "maxaccess": "read-only",
+    "name": "hwCfgLogSrcCmd",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cmdLine": 1,
+          "netconf": 3,
+          "other": 4,
+          "snmp": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCfgLogSrcData": {
+    "class": "objecttype",
+    "description": "The configuration data source for the event. erase erasing destination running operational data alive commandSource the command source itself startup what the system will use next reboot local local NVRAM or flash netFtp FTP network transfer hotPlugging board is inserted or pulled out on line ",
+    "maxaccess": "read-only",
+    "name": "hwCfgLogSrcData",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "commandSource": 3,
+          "erase": 1,
+          "hotPlugging": 7,
+          "local": 5,
+          "netFtp": 6,
+          "runningData": 2,
+          "startupData": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCfgLogTable": {
+    "class": "objecttype",
+    "description": "A table of configuration log on this device. ",
+    "maxaccess": "not-accessible",
+    "name": "hwCfgLogTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7",
+    "status": "current"
+  },
+  "hwCfgLogTerminalLocation": {
+    "class": "objecttype",
+    "description": "The available location of the terminal when hwCfgLogSrcCmd is \u0027cmdLine\u0027. Otherwise, it is a zero length string. ",
+    "maxaccess": "read-only",
+    "name": "hwCfgLogTerminalLocation",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwCfgLogTerminalNum": {
+    "class": "objecttype",
+    "description": "Specifies the terminal number. If hwCfgLogSrcCmd variable is not \u0027cmdLine\u0027(such as \u0027snmp\u0027or \u0027other\u0027), the value of the object is \u0027-1\u0027. If hwCfgLogSrcCmd variable is \u0027cmdLine\u0027, the value \u0027-1\u0027 means that it is not the active terminal user. ",
+    "maxaccess": "read-only",
+    "name": "hwCfgLogTerminalNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwCfgLogTerminalType": {
+    "class": "objecttype",
+    "description": "Specifies the terminal type. If hwCfgLogSrcData is not \u0027cmdLine\u0027, the value of the object is \u0027notApplicable\u0027. The value list: notApplicable(1): no meaning at this time. unknown(2): unknown terminal type. console(3): terminal(4) virtual(5) auxiliary(6)",
+    "maxaccess": "read-only",
+    "name": "hwCfgLogTerminalType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auxiliary": 6,
+          "console": 3,
+          "notApplicable": 1,
+          "terminal": 4,
+          "unknown": 2,
+          "virtual": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCfgLogTerminalUser": {
+    "class": "objecttype",
+    "description": " The name of a logging user which is available when hwCfgLogSrcCmd is \u0027cmdLine\u0027. When hwCfgLogTerminalType is \u0027virtual\u0027 and user login in authentication, the object will be the name of the user. Otherwise, it is a zero length string.",
+    "maxaccess": "read-only",
+    "name": "hwCfgLogTerminalUser",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 256,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwCfgLogTime": {
+    "class": "objecttype",
+    "description": "Specifies the sysUpTime when the configuration log was generated.",
+    "maxaccess": "read-only",
+    "name": "hwCfgLogTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwCfgLogUserName": {
+    "class": "objecttype",
+    "description": "The user name used when hwCfgLogSrcData or hwCfgLogDesData has the value of \u0027netFtp\u0027. Otherwise, the value of the object is a zero length string. ",
+    "maxaccess": "read-only",
+    "name": "hwCfgLogUserName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 256,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwCfgLogVirHost": {
+    "class": "objecttype",
+    "description": "The available host name of the remote system connected if hwCfgLogTerminalType has the value of \u0027virtual\u0027. Otherwise, the value of the object is a zero length string. ",
+    "maxaccess": "read-only",
+    "name": "hwCfgLogVirHost",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.7.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwCfgLogWantBackup": {
+    "class": "objecttype",
+    "description": "Decides whether or not to backup the configuration log information. If the value is true, the data of configuration log on the master will be sent to slave. Otherwise the data of log will be lost when master switches to slave. Default value is true.",
+    "maxaccess": "read-write",
+    "name": "hwCfgLogWantBackup",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwCfgManEventlog": {
+    "class": "notificationtype",
+    "description": "If the system configuration is changed, a notification is generated.",
+    "name": "hwCfgManEventlog",
+    "objects": [
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogSrcCmd"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogSrcData"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogDesData"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogTerminalUser"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogCmdSrcAddress"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogConfigChangeId"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogTime"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogCfgBaselineTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.10.2.1",
+    "status": "current"
+  },
+  "hwCfgManLogGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects configuration log group.",
+    "name": "hwCfgManLogGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgRunModifiedLast"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgRunSavedLast"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgStartModifiedLast"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogLimitedEntries"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogDeletedEntries"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogTime"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogSrcCmd"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogTerminalType"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogTerminalNum"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogTerminalUser"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogTerminalLocation"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogCmdSrcAddress"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogVirHost"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogServerAddress"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogFile"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogUserName"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogWantBackup"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogSrcData"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogDesData"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogConfigChangeId"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgLogCfgBaselineTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.10.3.2.1",
+    "status": "current"
+  },
+  "hwCfgManNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "Collection of notification objects.",
+    "name": "hwCfgManNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgManEventlog"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateCompletion"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgInconsistent"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgInconsistentResume"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgB2STransferFail"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgB2SOperate"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgRestoreFail"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwConfigInconsistent"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwConfigConsistent"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.10.3.2.3",
+    "status": "current"
+  },
+  "hwCfgModuleChangeTime": {
+    "class": "objecttype",
+    "description": "Time on changes of the module.",
+    "maxaccess": "read-only",
+    "name": "hwCfgModuleChangeTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.6.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwCfgModuleChangeTimeEntry": {
+    "class": "objecttype",
+    "description": "Time entity on changes of the configuration module.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgModuleId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwCfgModuleChangeTimeEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.6.1",
+    "status": "current"
+  },
+  "hwCfgModuleChangeTimeTable": {
+    "class": "objecttype",
+    "description": "Table on changes of configuration.",
+    "maxaccess": "not-accessible",
+    "name": "hwCfgModuleChangeTimeTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.6",
+    "status": "current"
+  },
+  "hwCfgModuleId": {
+    "class": "objecttype",
+    "description": "Module index. It is an integer without enumeration. This is because the enumeration may expose the classification methods of modules. In addition, this field is uncertain in the beginning stage and once the value is determined, it cannot be modified.",
+    "maxaccess": "not-accessible",
+    "name": "hwCfgModuleId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCfgOperate": {
+    "class": "objectidentity",
+    "name": "hwCfgOperate",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2"
+  },
+  "hwCfgOperateCompareConfig": {
+    "class": "objecttype",
+    "description": "compare configuration of the files",
+    "maxaccess": "read-write",
+    "name": "hwCfgOperateCompareConfig",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "different": 2,
+          "initial": 0,
+          "same": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCfgOperateCompletion": {
+    "class": "notificationtype",
+    "description": "When a configuration operation has been done, a notification may be generated.",
+    "name": "hwCfgOperateCompletion",
+    "objects": [
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateType"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateTime"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateState"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateEndTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.10.2.2",
+    "status": "current"
+  },
+  "hwCfgOperateEndNotificationSwitch": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "Specifies whether or not a notification should be issued on the completion of the operation.",
+    "maxaccess": "read-create",
+    "name": "hwCfgOperateEndNotificationSwitch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwCfgOperateEndTime": {
+    "class": "objecttype",
+    "description": "The value of sysUpTime when the configuration operation is finished.",
+    "maxaccess": "read-only",
+    "name": "hwCfgOperateEndTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.5.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwCfgOperateEntry": {
+    "class": "objecttype",
+    "description": "An operate request entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwCfgOperateEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1",
+    "status": "current"
+  },
+  "hwCfgOperateEntryAgeOutTime": {
+    "class": "objecttype",
+    "description": "This value indicates the primary reference time of the hwCfgOperateEntry saved in the hwCfgOperateTable.This value is not valid if there is extra space in the hwCfgOperateTable, that is, the hwCfgOperateEntry is not deleted periodically. If there is no space in the hwCfgOperateTable to save a new hwCfgOperateEntry, the expired hwCfgOperateEntry that is unactivated or the hwCfgOperateEntry that is processed may be deleted. Default value is 5.",
+    "maxaccess": "read-write",
+    "name": "hwCfgOperateEntryAgeOutTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 60,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "minute"
+  },
+  "hwCfgOperateErrorReason": {
+    "class": "objecttype",
+    "description": "The failure reason of configuration operation.",
+    "maxaccess": "read-only",
+    "name": "hwCfgOperateErrorReason",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.5.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwCfgOperateFileName": {
+    "class": "objecttype",
+    "description": "When the object of hwCfgOperateType has the value of net2Startup, net2Running or running2Net, the value must be specified. The file name may include the path if applicable. If the value of hwCfgOperateType is net2Startup or net2Running, this node specifies the source file name of transfers. If the value of hwCfgOperateType is running2Net, this node specifies the destination file name of transfers. If the value of hwCfgOperateType is running2Startup, this node specifies the saved file name of current running configuration. When hwCfgOperateType has the value of startup2Net or startup2Running, the object may not be created instead of using the file name of startup configuration file. ",
+    "maxaccess": "read-create",
+    "name": "hwCfgOperateFileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 128,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwCfgOperateGlobalEntryLimit": {
+    "class": "objecttype",
+    "description": "The maximum number of copy entries that may be held in hwCfgOperateTable. A particular setting does not guarantee that much data can be held. ",
+    "maxaccess": "read-only",
+    "name": "hwCfgOperateGlobalEntryLimit",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCfgOperateGroup": {
+    "class": "objectgroup",
+    "description": "A group of configuration operation.",
+    "name": "hwCfgOperateGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateGlobalEntryLimit"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateEntryAgeOutTime"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateType"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateProtocol"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateFileName"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateServerAddress"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateUserName"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateUserPassword"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateTime"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateEndNotificationSwitch"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateResultGlobalEntryLimit"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateState"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateRowStatus"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateServerPort"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateSourceAddress"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateSourceInterface"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateOnError"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateServerAddressType"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateServerAddressNet"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateVpnInstance"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateResultOptIndex"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateResultOpType"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateEndTime"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateTransferProgress"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateErrorReason"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgModuleChangeTime"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateLockConfigDataStore"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateLevelUsersSessionID"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateLevelUsersSessionDesc"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateLevelUsersName"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateLevelUsersLockedTime"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateLevelUsersIPAddr"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateLevelUsersLastCfgTime"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateLevelUsersTimeout"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateCompareConfig"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.10.3.2.2",
+    "status": "current"
+  },
+  "hwCfgOperateIndex": {
+    "class": "objecttype",
+    "description": "The unique index value of a row in this table.",
+    "maxaccess": "not-accessible",
+    "name": "hwCfgOperateIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCfgOperateLevelUsersEntry": {
+    "class": "objecttype",
+    "description": "Users entity on lock or level of the configuration module.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateLevelUsersSessionID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwCfgOperateLevelUsersEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.4.2.1",
+    "status": "current"
+  },
+  "hwCfgOperateLevelUsersIPAddr": {
+    "class": "objecttype",
+    "description": "IP Address of users who have the configuration level or have locked the configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCfgOperateLevelUsersIPAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.4.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwCfgOperateLevelUsersLastCfgTime": {
+    "class": "objecttype",
+    "description": "The last configurate Time of users who have the configuration level or have locked the configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCfgOperateLevelUsersLastCfgTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.4.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwCfgOperateLevelUsersLockedTime": {
+    "class": "objecttype",
+    "description": "LoginTime of users who have the configuration level or have locked the configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCfgOperateLevelUsersLockedTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.4.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwCfgOperateLevelUsersName": {
+    "class": "objecttype",
+    "description": "UserName of users who have the configuration level or have locked the configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCfgOperateLevelUsersName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.4.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwCfgOperateLevelUsersSessionDesc": {
+    "class": "objecttype",
+    "description": "Description of users who have the configuration level or have locked the configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCfgOperateLevelUsersSessionDesc",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.4.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwCfgOperateLevelUsersSessionID": {
+    "class": "objecttype",
+    "description": "SessionID of users who have the configuration level or have locked the configuration.",
+    "maxaccess": "read-only",
+    "name": "hwCfgOperateLevelUsersSessionID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.4.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": -1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCfgOperateLevelUsersTable": {
+    "class": "objecttype",
+    "description": "Table on users of configuration lock or level.",
+    "maxaccess": "not-accessible",
+    "name": "hwCfgOperateLevelUsersTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.4.2",
+    "status": "current"
+  },
+  "hwCfgOperateLevelUsersTimeout": {
+    "class": "objecttype",
+    "description": "Unlock without configuration seconds, 1-7200, the default is 30",
+    "maxaccess": "read-only",
+    "name": "hwCfgOperateLevelUsersTimeout",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.4.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7200,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCfgOperateLockConfigDataStore": {
+    "class": "objecttype",
+    "description": "Config data unit lock/unlock controller,if set active(2),the lock will be locked if no one locked it before. if set inactive(1),the lock will be unlocked if the currunt user locked it before. ",
+    "maxaccess": "read-write",
+    "name": "hwCfgOperateLockConfigDataStore",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.4.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 2,
+          "inactive": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCfgOperateOnError": {
+    "class": "objecttype",
+    "description": "This object specifies the action when a configuration command fails to be executed. continueOnError: skips the failed configuration command and continues to run other configuration commands. stopOnError: stops running the failed configuration command and does not run other configuration commands. rollbackOnError: rolls back the configuration to that before the configuration file is executed.",
+    "maxaccess": "read-create",
+    "name": "hwCfgOperateOnError",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "continueOnError": 1,
+          "rollbackOnError": 3,
+          "stopOnError": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCfgOperateProtocol": {
+    "class": "objecttype",
+    "description": "If the value of hwCfgOperateType is running2Net,net2Running,net2Startup or startup2net, this object specifies the protocol which is used for file transfer . The default protocol is ftp if no protocol is specified. And for other value of hwCfgOperateType , this object may be ignored by the implementation. When hwCfgOperateProtocol is specified as SFTP, only password authentication-type is valid. ",
+    "maxaccess": "read-create",
+    "name": "hwCfgOperateProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftp": 1,
+          "sftp": 3,
+          "tftp": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCfgOperateResultEntry": {
+    "class": "objecttype",
+    "description": "The result entries of configuration operation requests.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateResultIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwCfgOperateResultEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.5.1",
+    "status": "current"
+  },
+  "hwCfgOperateResultGlobalEntryLimit": {
+    "class": "objecttype",
+    "description": "The maximum number of copy entries that may be held in hwCfgOperateResultTable. A particular setting does not guarantee that much data can be held. Default value is 5. ",
+    "maxaccess": "read-write",
+    "name": "hwCfgOperateResultGlobalEntryLimit",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 50,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCfgOperateResultIndex": {
+    "class": "objecttype",
+    "description": " The index of Table, which is an incremental integer. The maximum value of the node is 2147483647.The agent should wrap the value to 1 and flush all the existing entries when the maximum value is reached.",
+    "maxaccess": "not-accessible",
+    "name": "hwCfgOperateResultIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCfgOperateResultOpType": {
+    "class": "objecttype",
+    "description": "The operation type in the hwCfgOperateTable.",
+    "maxaccess": "read-only",
+    "name": "hwCfgOperateResultOpType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "ConfigOperationType"
+    }
+  },
+  "hwCfgOperateResultOptIndex": {
+    "class": "objecttype",
+    "description": "The operation index in the hwCfgOperateTable.",
+    "maxaccess": "read-only",
+    "name": "hwCfgOperateResultOptIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCfgOperateResultTable": {
+    "class": "objecttype",
+    "description": "A table of config-operation requests result.",
+    "maxaccess": "not-accessible",
+    "name": "hwCfgOperateResultTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.5",
+    "status": "current"
+  },
+  "hwCfgOperateRowStatus": {
+    "class": "objecttype",
+    "description": "The status of this table entry. When the status is active : (1) In the situation that the specified transfer operation by ftp/tftp is in progress, the transfer operation will be aborted if the status is set to notInService. (2) In any other situations, the specified operation will not be aborted even if the status is set to notInService. ",
+    "maxaccess": "read-create",
+    "name": "hwCfgOperateRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwCfgOperateServerAddress": {
+    "class": "objecttype",
+    "description": "When the operation type is running2Net,net2Running,net2Startup or startup2net , the ip address of the FTP/TFTP/SFTP server from/to which to download/upload must be specified. Values of 0.0.0.0 or FF.FF.FF.FF are not permitted.",
+    "maxaccess": "read-create",
+    "name": "hwCfgOperateServerAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwCfgOperateServerAddressNet": {
+    "class": "objecttype",
+    "description": "Address or host name of the FTP/TFTP/SFTP server from/to which to download/upload must be specified. ",
+    "maxaccess": "read-create",
+    "name": "hwCfgOperateServerAddressNet",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwCfgOperateServerAddressType": {
+    "class": "objecttype",
+    "description": "The ip address type of the FTP/TFTP/SFTP server from/to which to download/upload must be specified. 1 is used for ipv4, 2 is used for ipv6.",
+    "maxaccess": "read-create",
+    "name": "hwCfgOperateServerAddressType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwCfgOperateServerPort": {
+    "class": "objecttype",
+    "description": "This object specifies the SFTP/FTP server port that is used for file transfer only if the value of hwCfgOperateProtocol is sftp/ftp. The default SFTP server port is 22 if no port is specified. The default FTP server port is 21 if no port is specified. If the value of hwCfgOperateProtocol is not sftp/ftp, this object is ignored by the implementation. ",
+    "maxaccess": "read-create",
+    "name": "hwCfgOperateServerPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCfgOperateSourceAddress": {
+    "class": "objecttype",
+    "description": "The source IP address. When the operation type is running2Net, net2Running, net2Startup or startup2net, the source IP address of the client may be specified or not. Default is 0.0.0.0 . If the source type is set to both of IP address and interface, the former has the priority.",
+    "maxaccess": "read-create",
+    "name": "hwCfgOperateSourceAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwCfgOperateSourceInterface": {
+    "class": "objecttype",
+    "description": "The name of the interface.When the operation type is running2Net, net2Running,net2Startup or startup2net, the source interface of the FTP/TFTP client may be specified or not. If the source type is set to both of IP address and interface,the former has the priority.",
+    "maxaccess": "read-create",
+    "name": "hwCfgOperateSourceInterface",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 47,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCfgOperateState": {
+    "class": "objecttype",
+    "description": "The status of the specified operation. opInProgress : specified operation is active opOperationSuccess : specified operation is supported and completed successfully opInvalidOperation : command invalid or command/protocol/device combination unsupported opInvalidProtocol : invalid protocol specified opInvalidSourceName : invalid source file name specified. opInvalidDestName : invalid target name specified. opInvalidServerAddress : invalid server address specified opDeviceBusy : specified device is in use and locked by another process opDeviceOpenError : invalid device name opDeviceError : device read, write or erase error opDeviceNotProgrammable : device is read-only but a write or erase operation was specified opDeviceFull : device is filled to capacity opFileOpenError : invalid file name; file not found in partition opFileTransferError : file transfer was unsuccessfull; network failure opFileChecksumError : file checksum in Flash failed opNoMemory : system running low on memory opAuthFail: invalid user name or password opTimeOut : file transfer was timeout opUnknownFailure : failure unknown opAbort : transfer operation has been aborted opInvalidSourceAdress : invalid source address specified. opInvalidSourceInterface : invalid source interface specified. opCmdExecuteFail : execute command return error. ",
+    "maxaccess": "read-only",
+    "name": "hwCfgOperateState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "opAbort": 20,
+          "opAuthFail": 17,
+          "opCmdExecuteFail": 23,
+          "opDeviceBusy": 8,
+          "opDeviceError": 10,
+          "opDeviceFull": 12,
+          "opDeviceNotProgrammable": 11,
+          "opDeviceOpenError": 9,
+          "opFileChecksumError": 15,
+          "opFileOpenError": 13,
+          "opFileTransferError": 14,
+          "opInProgress": 1,
+          "opInvalidDestName": 6,
+          "opInvalidOperation": 3,
+          "opInvalidProtocol": 4,
+          "opInvalidServerAddress": 7,
+          "opInvalidSourceAddress": 21,
+          "opInvalidSourceInterface": 22,
+          "opInvalidSourceName": 5,
+          "opNoMemory": 16,
+          "opSuccess": 2,
+          "opTimeOut": 18,
+          "opUnknownFailure": 19
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCfgOperateTable": {
+    "class": "objecttype",
+    "description": "A table of config-operation requests. ",
+    "maxaccess": "not-accessible",
+    "name": "hwCfgOperateTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4",
+    "status": "current"
+  },
+  "hwCfgOperateTime": {
+    "class": "objecttype",
+    "description": "Records the time taken for the operation. This object will be like a stopwatch, starting when the operation starts, and stopping when the operation completes.",
+    "maxaccess": "read-only",
+    "name": "hwCfgOperateTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.5.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwCfgOperateTransferProgress": {
+    "class": "objecttype",
+    "description": "This object indicates progress of file transfer in the hwCfgOperateTable. When hwCfgOperateProtocol is specified as 2(tftp) or 3(sftp), and hwCfgOperateType is specified as net2Running or net2Startup, this object will be set as 65535, which indicates the progress can not be calculated. ",
+    "maxaccess": "read-only",
+    "name": "hwCfgOperateTransferProgress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.5.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCfgOperateType": {
+    "class": "objecttype",
+    "description": "Specifies the type of an operation on configuration. For detailed information, please see the ConfigOperationType definition. ",
+    "maxaccess": "read-create",
+    "name": "hwCfgOperateType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "ConfigOperationType"
+    }
+  },
+  "hwCfgOperateUserName": {
+    "class": "objecttype",
+    "description": "When the operation type is running2Net,net2Running,net2Startup or startup2net , the user name for the FTP/SFTP server from/to which to download/upload should be specified. The object must be created if hwCfgOperateProtocol has the value of \u0027ftp\u0027. ",
+    "maxaccess": "read-create",
+    "name": "hwCfgOperateUserName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 40,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwCfgOperateUserPassword": {
+    "class": "objecttype",
+    "description": "When the operation type is running2Net,net2Running,net2Startup or startup2net , the user password for the FTP/SFTP server from/to which to download/upload should be specified. The object must be created if hwCfgOperateProtocol has the value of \u0027ftp\u0027. When get the value of the field, the device will return a zero-length string. When set the field, its value cannot be a string that contains no character.",
+    "maxaccess": "read-create",
+    "name": "hwCfgOperateUserPassword",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 40,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwCfgOperateVpnInstance": {
+    "class": "objecttype",
+    "description": "The VPN instance name that through which to transfer the file.",
+    "maxaccess": "read-create",
+    "name": "hwCfgOperateVpnInstance",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.4.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwCfgRestoreErrCode": {
+    "class": "objecttype",
+    "description": "ErrorCode: cause of an alarm.(1:Failed to restore some configurations. 2:Failed to restore all configurations because of a failure to open the configuration file. 3:Failed to restore all configurations because of the nonexistent configuration file. 4:Failed to restore all configurations because of the nonexistent configuration file. 5: Failed to restore all configurations because of other reasons.)",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwCfgRestoreErrCode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.2.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fileNotExist": 3,
+          "fileOpenFail": 2,
+          "fileVerifyFail": 4,
+          "other": 5,
+          "warnning": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCfgRestoreFail": {
+    "class": "notificationtype",
+    "description": "When configuration restoration fails, this trap is generated.",
+    "name": "hwCfgRestoreFail",
+    "objects": [
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgRestoreErrCode"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.10.2.7",
+    "status": "current"
+  },
+  "hwCfgRunModifiedLast": {
+    "class": "objecttype",
+    "description": "The object records the value of sysUpTime when the current configuration running in the system was last modified.",
+    "maxaccess": "read-only",
+    "name": "hwCfgRunModifiedLast",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwCfgRunSavedLast": {
+    "class": "objecttype",
+    "description": "The object records the value of sysUpTime when the current configuration running in the system was last saved. If the value of the object is smaller than hwCfgRunModifiedLast, the current configuration has been modified but not saved.",
+    "maxaccess": "read-only",
+    "name": "hwCfgRunSavedLast",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwCfgSave": {
+    "class": "objectidentity",
+    "name": "hwCfgSave",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3"
+  },
+  "hwCfgSaveAutoCpuLimit": {
+    "class": "objecttype",
+    "description": "This object indicates the upper limit of the CPU usage when configurations are automatically saved.If the function of saving configuration automatically is not enabled, the value is insignificant. Default value is 50.",
+    "maxaccess": "read-write",
+    "name": "hwCfgSaveAutoCpuLimit",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 60,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCfgSaveAutoDelay": {
+    "class": "objecttype",
+    "description": "This object indicates the delay minute after some configurations change happens then configurations are automatically saved.If the function of saving configuration automatically is not enabled, the value is insignificant. Default value is 5.",
+    "maxaccess": "read-write",
+    "name": "hwCfgSaveAutoDelay",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 60,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCfgSaveAutoInterval": {
+    "class": "objecttype",
+    "description": "The object records the interval minute of saving configuration automatically. the function of saving configuration automatically is disable when the interval is zero, else it is enable(the default is 30 minutes). ",
+    "maxaccess": "read-write",
+    "name": "hwCfgSaveAutoInterval",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 43200,
+            "min": 30
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCfgSaveAutoNoCfgInterval": {
+    "class": "objecttype",
+    "description": "This object indicates the interval from the time configurations are automatically saved to now.If the function of saving configuration automatically is not enabled, the value is insignificant. Default value is 30.",
+    "maxaccess": "read-write",
+    "name": "hwCfgSaveAutoNoCfgInterval",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.5",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 43200,
+            "min": 30
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCfgSaveAutoTime": {
+    "class": "objecttype",
+    "description": "The object records the latest date and time when the current configurations were saved automatically in the system.",
+    "maxaccess": "read-only",
+    "name": "hwCfgSaveAutoTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwCfgSaveGroup": {
+    "class": "objectgroup",
+    "description": "A group of configuration operation.",
+    "name": "hwCfgSaveGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgSaveAutoInterval"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgSaveAutoTime"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgSaveManualTime"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgSaveAutoCpuLimit"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgSaveAutoNoCfgInterval"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgSaveAutoDelay"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgRestoreErrCode"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.10.3.2.4",
+    "status": "current"
+  },
+  "hwCfgSaveManualTime": {
+    "class": "objecttype",
+    "description": "The object records the latest date and time when the current configurations were saved manually in the system.",
+    "maxaccess": "read-only",
+    "name": "hwCfgSaveManualTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.3.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwCfgStartModifiedLast": {
+    "class": "objecttype",
+    "description": "The object records the value of sysUpTime when the saved configuration used currently was last modified. It may have been changed by a save of the current configuration running in the system or other methods such as copy.",
+    "maxaccess": "read-only",
+    "name": "hwCfgStartModifiedLast",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.10.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwConfig": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "The HUAWEI-CONFIG-MAN-MIB contains objects to manage the system configuration. It defines the model used to represent configuration data that exists elsewhere in the system and in peripheral devices. The MIB is proper for system configuration. NMS can query configuration change log information and operate configuration. There are no constraints on this MIB.",
+    "lastupdated": "201504271402Z",
+    "name": "hwConfig",
+    "oid": "1.3.6.1.4.1.2011.6.10",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "add trap node hwConfigInconsistent and hwConfigConsistent.",
+        "revision": "2015-04-27 14:02"
+      },
+      {
+        "description": "modified trap node hwCfgRestoreFail, and MIB node hwCfgRestoreErrCode for hwCfgRestoreFail.",
+        "revision": "2015-04-13 11:19"
+      },
+      {
+        "description": "Add new trap node hwCfgRestoreFail, and new MIB node hwCfgRestoreErrCode for hwCfgRestoreFail.",
+        "revision": "2015-02-02 23:00"
+      },
+      {
+        "description": "Modify the length and description of hwCfgBackupPassword.",
+        "revision": "2014-09-18 22:00"
+      },
+      {
+        "description": "Modify the description of hwCfgOperateFileName.",
+        "revision": "2014-09-16 10:20"
+      },
+      {
+        "description": "Modify the length and description of hwCfgBackupPassword.",
+        "revision": "2014-08-21 16:02"
+      },
+      {
+        "description": "Modify the length range of hwCfgLogTerminalUser.",
+        "revision": "2014-05-29 22:30"
+      },
+      {
+        "description": "Modify the length range of hwCfgLogTerminalUser.",
+        "revision": "2014-05-26 22:30"
+      },
+      {
+        "description": "Add new mib node hwCfgOperateVpnInstance of hwCfgOperateEntry.",
+        "revision": "2013-09-03 22:30"
+      },
+      {
+        "description": "Add new mib node hwCfgOperateServerAddressType and hwCfgOperateServerAddressNet of hwCfgOperateEntry.",
+        "revision": "2013-08-30 22:30"
+      },
+      {
+        "description": "Add new mib node hwCfgBackupVpnInstance of table HwCfgBackup2ServerEntry.",
+        "revision": "2006-08-22 22:30"
+      },
+      {
+        "description": "Modify the description of hwCfgBackupProtocol.",
+        "revision": "2006-08-22 22:30"
+      },
+      {
+        "description": "Modify the description of hwCfgBackupPassword And hwCfgOperateUserPassword.",
+        "revision": "2006-08-22 22:30"
+      },
+      {
+        "description": "The initial revision of this MIB module .",
+        "revision": "2006-08-22 22:30"
+      }
+    ]
+  },
+  "hwConfigConsistent": {
+    "class": "notificationtype",
+    "description": "When system automatically detects that configurations of the main board and the slave board change from inconsistent to consistent, this trap is generated.",
+    "name": "hwConfigConsistent",
+    "oid": "1.3.6.1.4.1.2011.6.10.2.9",
+    "status": "current"
+  },
+  "hwConfigInconsistent": {
+    "class": "notificationtype",
+    "description": "When system automatically detects that configurations of the main board and the slave board are inconsistent, this trap is generated.",
+    "name": "hwConfigInconsistent",
+    "oid": "1.3.6.1.4.1.2011.6.10.2.8",
+    "status": "current"
+  },
+  "hwConfigManCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for entities implementing the Huawei Configuration Management MIB",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgManLogGroup"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgOperateGroup"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgManNotificationGroup"
+      },
+      {
+        "module": "HUAWEI-CONFIG-MAN-MIB",
+        "object": "hwCfgSaveGroup"
+      }
+    ],
+    "name": "hwConfigManCompliance",
+    "oid": "1.3.6.1.4.1.2011.6.10.3.1.1",
+    "status": "current"
+  },
+  "hwConfigManCompliances": {
+    "class": "objectidentity",
+    "name": "hwConfigManCompliances",
+    "oid": "1.3.6.1.4.1.2011.6.10.3.1"
+  },
+  "hwConfigManConformance": {
+    "class": "objectidentity",
+    "name": "hwConfigManConformance",
+    "oid": "1.3.6.1.4.1.2011.6.10.3"
+  },
+  "hwConfigManGroups": {
+    "class": "objectidentity",
+    "name": "hwConfigManGroups",
+    "oid": "1.3.6.1.4.1.2011.6.10.3.2"
+  },
+  "hwConfigManNotifications": {
+    "class": "objectidentity",
+    "name": "hwConfigManNotifications",
+    "oid": "1.3.6.1.4.1.2011.6.10.2"
+  },
+  "hwConfigManObjects": {
+    "class": "objectidentity",
+    "name": "hwConfigManObjects",
+    "oid": "1.3.6.1.4.1.2011.6.10.1"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "huaweiUtility"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "IpAddress",
+      "Counter32",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-CONFIG-MAN-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:04 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-CONFIG-MAN-MIB"
+  }
+}

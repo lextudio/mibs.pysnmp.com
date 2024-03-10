@@ -1,0 +1,1199 @@
+{
+  "hwL3vpn": {
+    "class": "moduleidentity",
+    "contactinfo": "R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China http://www.huawei.com Zip:100085 ",
+    "description": "The HUAWEI-L3VPN-EXT-MIB contains objects to statistic L3VPN\u0027s traffic.",
+    "lastupdated": "200902171659Z",
+    "name": "hwL3vpn",
+    "oid": "1.3.6.1.4.1.2011.5.25.150",
+    "organization": "Huawei Technologies Co., Ltd."
+  },
+  "hwL3vpnCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for HUAWEI-L3VPN-EXT-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatisticsGroup"
+      }
+    ],
+    "name": "hwL3vpnCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.2.2.1",
+    "status": "current"
+  },
+  "hwL3vpnCompliances": {
+    "class": "objectidentity",
+    "name": "hwL3vpnCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.2.2"
+  },
+  "hwL3vpnConformance": {
+    "class": "objectidentity",
+    "name": "hwL3vpnConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.2"
+  },
+  "hwL3vpnGroups": {
+    "class": "objectidentity",
+    "name": "hwL3vpnGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.2.1"
+  },
+  "hwL3vpnPeerQosStatDiscardBytes": {
+    "class": "objecttype",
+    "description": "Number of total discarded bytes, based on peer of the vpn instance.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnPeerQosStatDiscardBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnPeerQosStatDiscardBytesRate": {
+    "class": "objecttype",
+    "description": "Rate of discarded bytes for the past 30 seconds, based on peer of the vpn instance. Unit: bps",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnPeerQosStatDiscardBytesRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.4.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnPeerQosStatDiscardPackets": {
+    "class": "objecttype",
+    "description": "Number of total discarded packets, based on peer of the vpn instance.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnPeerQosStatDiscardPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnPeerQosStatDiscardPacketsRate": {
+    "class": "objecttype",
+    "description": "Rate of discarded packets for the past 30 seconds, based on peer of the vpn instance. Unit: pps",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnPeerQosStatDiscardPacketsRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.4.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnPeerQosStatPassBytes": {
+    "class": "objecttype",
+    "description": "Number of total passed bytes, based on peer of the vpn instance.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnPeerQosStatPassBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnPeerQosStatPassBytesRate": {
+    "class": "objecttype",
+    "description": "Rate of passed bytes for the past 30 seconds, based on peer of the vpn instance. Unit: bps",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnPeerQosStatPassBytesRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.4.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnPeerQosStatPassPackets": {
+    "class": "objecttype",
+    "description": "Number of total passed packets, based on peer of the vpn instance.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnPeerQosStatPassPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnPeerQosStatPassPacketsRate": {
+    "class": "objecttype",
+    "description": "Rate of passed packets for the past 30 seconds, based on peer of the vpn instance. Unit: pps",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnPeerQosStatPassPacketsRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.4.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnPeerQosStatPeerAddress": {
+    "class": "objecttype",
+    "description": "The peer IP address of L3vpn instance.",
+    "maxaccess": "not-accessible",
+    "name": "hwL3vpnPeerQosStatPeerAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL3vpnPeerQosStatQueueID": {
+    "class": "objecttype",
+    "description": "This object indicates the queue\u0027s ID. The value must be be,af1,af2,af3,af4,ef,cs6,cs7.",
+    "maxaccess": "not-accessible",
+    "name": "hwL3vpnPeerQosStatQueueID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "af1": 2,
+          "af2": 3,
+          "af3": 4,
+          "af4": 5,
+          "be": 1,
+          "cs6": 7,
+          "cs7": 8,
+          "ef": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwL3vpnPeerQosStatVrfIndex": {
+    "class": "objecttype",
+    "description": "Index of the vpn instance.",
+    "maxaccess": "not-accessible",
+    "name": "hwL3vpnPeerQosStatVrfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwL3vpnPeerQosStatisticsEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of the L3VPN Peer\u0027s Qos traffic statistics.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerQosStatVrfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerQosStatPeerAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerQosStatQueueID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL3vpnPeerQosStatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.4.1",
+    "status": "current"
+  },
+  "hwL3vpnPeerQosStatisticsGroup": {
+    "class": "objectgroup",
+    "description": "The L3vpn Qos Statistics Group.",
+    "name": "hwL3vpnPeerQosStatisticsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerQosStatPassPackets"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerQosStatPassBytes"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerQosStatDiscardPackets"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerQosStatDiscardBytes"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerQosStatPassPacketsRate"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerQosStatPassBytesRate"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerQosStatDiscardPacketsRate"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerQosStatDiscardBytesRate"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.150.2.1.4",
+    "status": "current"
+  },
+  "hwL3vpnPeerQosStatisticsTable": {
+    "class": "objecttype",
+    "description": "This table contains the L3vpn Peer\u0027s Qos traffic statistics.",
+    "maxaccess": "not-accessible",
+    "name": "hwL3vpnPeerQosStatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.4",
+    "status": "current"
+  },
+  "hwL3vpnPeerStatEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32"
+      }
+    },
+    "description": "This object indicates the enable sign of L3VPN peer\u0027s traffic statistics.",
+    "maxaccess": "read-write",
+    "name": "hwL3vpnPeerStatEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwL3vpnPeerStatPeerAddress": {
+    "class": "objecttype",
+    "description": "The peer IP address of L3vpn instance.",
+    "maxaccess": "not-accessible",
+    "name": "hwL3vpnPeerStatPeerAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL3vpnPeerStatQosBytes": {
+    "class": "objecttype",
+    "description": "The total number of bytes transmitted out.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnPeerStatQosBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnPeerStatQosBytesRate": {
+    "class": "objecttype",
+    "description": "Average bytes of the traffic transmitted out per second .",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnPeerStatQosBytesRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnPeerStatQosPackets": {
+    "class": "objecttype",
+    "description": "The total number of Packets transmitted out.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnPeerStatQosPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnPeerStatQosPacketsRate": {
+    "class": "objecttype",
+    "description": "Average packets of the traffic transmitted out per second.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnPeerStatQosPacketsRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnPeerStatResetStatistic": {
+    "class": "objecttype",
+    "description": "Reset traffic statistics for peer of the L3vpn instance.",
+    "maxaccess": "read-write",
+    "name": "hwL3vpnPeerStatResetStatistic",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "resetStatistic": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwL3vpnPeerStatResetTime": {
+    "class": "objecttype",
+    "description": "Last time of clean out.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnPeerStatResetTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwL3vpnPeerStatisticsEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of the L3VPN Peer\u0027s Traffic Statistic.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerVrfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerStatPeerAddress"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL3vpnPeerStatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.3.1",
+    "status": "current"
+  },
+  "hwL3vpnPeerStatisticsGroup": {
+    "class": "objectgroup",
+    "description": "The L3vpn Statistics Group.",
+    "name": "hwL3vpnPeerStatisticsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerStatEnable"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerStatResetStatistic"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerVrfName"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerStatResetTime"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerStatQosPacketsRate"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerStatQosBytesRate"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerStatQosPackets"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnPeerStatQosBytes"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.150.2.1.3",
+    "status": "current"
+  },
+  "hwL3vpnPeerStatisticsTable": {
+    "class": "objecttype",
+    "description": "This table contains the L3VPN\u0027s Traffic Statistic.",
+    "maxaccess": "not-accessible",
+    "name": "hwL3vpnPeerStatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.3",
+    "status": "current"
+  },
+  "hwL3vpnPeerVrfIndex": {
+    "class": "objecttype",
+    "description": "The index of L3vpn instance.",
+    "maxaccess": "not-accessible",
+    "name": "hwL3vpnPeerVrfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwL3vpnPeerVrfName": {
+    "class": "objecttype",
+    "description": "This object indicates the VRF\u0027s name.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnPeerVrfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwL3vpnQosStatDiscardBytes": {
+    "class": "objecttype",
+    "description": "Number of total discarded bytes, based on the vpn instance.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnQosStatDiscardBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnQosStatDiscardBytesRate": {
+    "class": "objecttype",
+    "description": "Rate of discarded bytes for the past 30 seconds, based on the vpn instance. Unit: bps",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnQosStatDiscardBytesRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnQosStatDiscardPackets": {
+    "class": "objecttype",
+    "description": "Number of total discarded packets, based on the vpn instance.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnQosStatDiscardPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnQosStatDiscardPacketsRate": {
+    "class": "objecttype",
+    "description": "Rate of discarded packets for the past 30 seconds, based on the vpn instance. Unit: pps",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnQosStatDiscardPacketsRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnQosStatPassBytes": {
+    "class": "objecttype",
+    "description": "Number of total passed bytes, based on the vpn instance.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnQosStatPassBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnQosStatPassBytesRate": {
+    "class": "objecttype",
+    "description": "Rate of passed bytes for the past 30 seconds, based on the vpn instance. Unit: bps",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnQosStatPassBytesRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnQosStatPassPackets": {
+    "class": "objecttype",
+    "description": "Number of total passed packets, based on the vpn instance.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnQosStatPassPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnQosStatPassPacketsRate": {
+    "class": "objecttype",
+    "description": "Rate of passed packets for the past 30 seconds, based on the vpn instance. Unit: pps",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnQosStatPassPacketsRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnQosStatQueueID": {
+    "class": "objecttype",
+    "description": "This object indicates the queue\u0027s ID. The value must be be,af1,af2,af3,af4,ef,cs6,cs7.",
+    "maxaccess": "not-accessible",
+    "name": "hwL3vpnQosStatQueueID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "af1": 2,
+          "af2": 3,
+          "af3": 4,
+          "af4": 5,
+          "be": 1,
+          "cs6": 7,
+          "cs7": 8,
+          "ef": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwL3vpnQosStatVrfIndex": {
+    "class": "objecttype",
+    "description": "Index of the vpn instance.",
+    "maxaccess": "not-accessible",
+    "name": "hwL3vpnQosStatVrfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwL3vpnQosStatisticsEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of the L3VPN\u0027s Qos traffic statistics.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnQosStatVrfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnQosStatQueueID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL3vpnQosStatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.2.1",
+    "status": "current"
+  },
+  "hwL3vpnQosStatisticsGroup": {
+    "class": "objectgroup",
+    "description": "The L3vpn Qos Statistics Group.",
+    "name": "hwL3vpnQosStatisticsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnQosStatPassPackets"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnQosStatPassBytes"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnQosStatDiscardPackets"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnQosStatDiscardBytes"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnQosStatPassPacketsRate"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnQosStatPassBytesRate"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnQosStatDiscardPacketsRate"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnQosStatDiscardBytesRate"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.150.2.1.2",
+    "status": "current"
+  },
+  "hwL3vpnQosStatisticsTable": {
+    "class": "objecttype",
+    "description": "This table contains the L3VPN\u0027s Qos traffic statistics.",
+    "maxaccess": "not-accessible",
+    "name": "hwL3vpnQosStatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.2",
+    "status": "current"
+  },
+  "hwL3vpnStatEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32"
+      }
+    },
+    "description": "This object indicates the enable sign of L3VPN\u0027s traffic statistics.",
+    "maxaccess": "read-write",
+    "name": "hwL3vpnStatEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwL3vpnStatInBroadcastPackets": {
+    "class": "objecttype",
+    "description": "The total number of broadcast Packets received.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnStatInBroadcastPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnStatInBytes": {
+    "class": "objecttype",
+    "description": "The total number of bytes received.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnStatInBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnStatInMulticastPackets": {
+    "class": "objecttype",
+    "description": "The total number of multicast Packets received.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnStatInMulticastPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnStatInPackets": {
+    "class": "objecttype",
+    "description": "The total number of Packets received.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnStatInPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnStatInPacketsRate": {
+    "class": "objecttype",
+    "description": "Average packets of the traffic received per second.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnStatInPacketsRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwL3vpnStatInTrafficRate": {
+    "class": "objecttype",
+    "description": "Average bytes of the traffic received per second.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnStatInTrafficRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwL3vpnStatInUnicastPackets": {
+    "class": "objecttype",
+    "description": "The total number of unicast Packets received.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnStatInUnicastPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnStatMapEntry": {
+    "class": "objecttype",
+    "description": "Provides the mapping information of the L3vpn name and L3vpn index.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatMapVrfName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL3vpnStatMapEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.5.1",
+    "status": "current"
+  },
+  "hwL3vpnStatMapGroup": {
+    "class": "objectgroup",
+    "description": "The L3vpn Stat Map Group.",
+    "name": "hwL3vpnStatMapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatMapVrfIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.150.2.1.5",
+    "status": "current"
+  },
+  "hwL3vpnStatMapTable": {
+    "class": "objecttype",
+    "description": "This table contains the map of L3vpn name and index.",
+    "maxaccess": "not-accessible",
+    "name": "hwL3vpnStatMapTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.5",
+    "status": "current"
+  },
+  "hwL3vpnStatMapVrfIndex": {
+    "class": "objecttype",
+    "description": "Index of the vpn instance.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnStatMapVrfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwL3vpnStatMapVrfName": {
+    "class": "objecttype",
+    "description": "This object indicates the vpn instance\u0027s name.",
+    "maxaccess": "not-accessible",
+    "name": "hwL3vpnStatMapVrfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwL3vpnStatMibObjects": {
+    "class": "objectidentity",
+    "name": "hwL3vpnStatMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1"
+  },
+  "hwL3vpnStatOutBroadcastPackets": {
+    "class": "objecttype",
+    "description": "The total number of broadcast Packets transmitted out.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnStatOutBroadcastPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnStatOutBytes": {
+    "class": "objecttype",
+    "description": "The total number of bytes transmitted out.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnStatOutBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnStatOutMulticastPackets": {
+    "class": "objecttype",
+    "description": "The total number of multicast Packets transmitted out.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnStatOutMulticastPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnStatOutPackets": {
+    "class": "objecttype",
+    "description": "The total number of Packets transmitted out.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnStatOutPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnStatOutPacketsRate": {
+    "class": "objecttype",
+    "description": "Average packets of the traffic transmitted out per second.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnStatOutPacketsRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwL3vpnStatOutTrafficRate": {
+    "class": "objecttype",
+    "description": "Average bytes of the traffic transmitted out per second .",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnStatOutTrafficRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwL3vpnStatOutUnicastPackets": {
+    "class": "objecttype",
+    "description": "The total number of unicast Packets transmitted out.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnStatOutUnicastPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwL3vpnStatResetStatistic": {
+    "class": "objecttype",
+    "description": "Reset traffic statistics of the vpn instance.",
+    "maxaccess": "read-write",
+    "name": "hwL3vpnStatResetStatistic",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "resetStatistic": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwL3vpnStatResetTime": {
+    "class": "objecttype",
+    "description": "Last time of clean out.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnStatResetTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwL3vpnStatisticsEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of the L3VPN\u0027s Traffic Statistic.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnVrfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL3vpnStatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1",
+    "status": "current"
+  },
+  "hwL3vpnStatisticsGroup": {
+    "class": "objectgroup",
+    "description": "The L3vpn Statistics Group.",
+    "name": "hwL3vpnStatisticsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatEnable"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnVrfName"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatInTrafficRate"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatOutTrafficRate"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatInPacketsRate"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatOutPacketsRate"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatInBytes"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatOutBytes"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatInPackets"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatOutPackets"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatInUnicastPackets"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatOutUnicastPackets"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatInMulticastPackets"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatOutMulticastPackets"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatInBroadcastPackets"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatOutBroadcastPackets"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatResetTime"
+      },
+      {
+        "module": "HUAWEI-L3VPN-EXT-MIB",
+        "object": "hwL3vpnStatResetStatistic"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.150.2.1.1",
+    "status": "current"
+  },
+  "hwL3vpnStatisticsTable": {
+    "class": "objecttype",
+    "description": "This table contains the L3VPN\u0027s Traffic Statistic.",
+    "maxaccess": "not-accessible",
+    "name": "hwL3vpnStatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1",
+    "status": "current"
+  },
+  "hwL3vpnVrfIndex": {
+    "class": "objecttype",
+    "description": "The index of L3vpn instance.",
+    "maxaccess": "not-accessible",
+    "name": "hwL3vpnVrfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwL3vpnVrfName": {
+    "class": "objecttype",
+    "description": "This object indicates the VRF\u0027s name.",
+    "maxaccess": "read-only",
+    "name": "hwL3vpnVrfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.150.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "MibIdentifier",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "IpAddress",
+      "Bits",
+      "Counter64",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-L3VPN-EXT-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:54 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-L3VPN-EXT-MIB"
+  }
+}

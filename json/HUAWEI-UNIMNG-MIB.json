@@ -1,0 +1,6916 @@
+{
+  "AlarmStatus": {
+    "class": "textualconvention",
+    "description": "Represents the possible values of alarm status. When no bits of this attribute are set, then none of the status conditions described below are present. When the value of under repair is set, the resource is currently being repaired. When the value of critical is set, one or more critical alarms are active against the resource. When the value of major is set, one or more major alarms are active against the resource. When the value of minor is set, one or more minor alarms are active against the resource. When the value of warning is set, one or more warning alarms are active against the resource. When the value of indeterminate is set, one or more alarms of indeterminate severity are active against the resource. When the value of alarm outstanding is set, one or more alarms is active against the resource. The fault may or may not be disabling. ",
+    "name": "AlarmStatus",
+    "reference": "ITU Recommendation X.731, \u0027Information Technology - Open Systems Interconnection - System Management: State Management Function\u0027, 1992",
+    "status": "current",
+    "type": {
+      "bits": {
+        "alarmOutstanding": 5,
+        "critical": 2,
+        "indeterminate": 7,
+        "major": 3,
+        "minor": 4,
+        "notSupported": 0,
+        "underRepair": 1,
+        "warning": 6
+      },
+      "class": "type",
+      "type": "Bits"
+    }
+  },
+  "hwASBoardFail": {
+    "class": "notificationtype",
+    "description": "Board become failure for some reason.",
+    "name": "hwASBoardFail",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapEntFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.3.1",
+    "status": "current"
+  },
+  "hwASBoardFailResume": {
+    "class": "notificationtype",
+    "description": "Board resume from failure.",
+    "name": "hwASBoardFailResume",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapEntFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.3.2",
+    "status": "current"
+  },
+  "hwASBoardTrap": {
+    "class": "objectidentity",
+    "name": "hwASBoardTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.3"
+  },
+  "hwASBrdTempAlarm": {
+    "class": "notificationtype",
+    "description": "Temperature rise over or fall below the warning alarm threshold.",
+    "name": "hwASBrdTempAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdType"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdEntValue"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdEntCurrent"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapEntFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.2.1",
+    "status": "current"
+  },
+  "hwASBrdTempResume": {
+    "class": "notificationtype",
+    "description": "Temperature back to normal level.",
+    "name": "hwASBrdTempResume",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdType"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdEntValue"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdEntCurrent"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapEntFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.2.2",
+    "status": "current"
+  },
+  "hwASCPUTrap": {
+    "class": "objectidentity",
+    "name": "hwASCPUTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.8"
+  },
+  "hwASCPUUtilizationResume": {
+    "class": "notificationtype",
+    "description": "CPU utilization back to normal level.",
+    "name": "hwASCPUUtilizationResume",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdType"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdEntValue"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdEntCurrent"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapEntFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.8.2",
+    "status": "current"
+  },
+  "hwASCPUUtilizationRising": {
+    "class": "notificationtype",
+    "description": "CPU utilization overrun.",
+    "name": "hwASCPUUtilizationRising",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdType"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdEntValue"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdEntCurrent"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapEntFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.8.1",
+    "status": "current"
+  },
+  "hwASCommunicateError": {
+    "class": "notificationtype",
+    "description": "Communication error has been detected.",
+    "name": "hwASCommunicateError",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapEntFaultID"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapCommunicateType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.7.1",
+    "status": "current"
+  },
+  "hwASCommunicateResume": {
+    "class": "notificationtype",
+    "description": "Resume from communication error situation.",
+    "name": "hwASCommunicateResume",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapEntFaultID"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapCommunicateType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.7.2",
+    "status": "current"
+  },
+  "hwASCommunicateTrap": {
+    "class": "objectidentity",
+    "name": "hwASCommunicateTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.7"
+  },
+  "hwASEnvironmentTrap": {
+    "class": "objectidentity",
+    "name": "hwASEnvironmentTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.2"
+  },
+  "hwASFanInsert": {
+    "class": "notificationtype",
+    "description": "Fan has been inserted.",
+    "name": "hwASFanInsert",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapEntFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.6.2",
+    "status": "current"
+  },
+  "hwASFanInvalid": {
+    "class": "notificationtype",
+    "description": "Fan is invalid for some reason.",
+    "name": "hwASFanInvalid",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapEntFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.6.3",
+    "status": "current"
+  },
+  "hwASFanInvalidResume": {
+    "class": "notificationtype",
+    "description": "Fan resume from invalid situation.",
+    "name": "hwASFanInvalidResume",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapEntFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.6.4",
+    "status": "current"
+  },
+  "hwASFanRemove": {
+    "class": "notificationtype",
+    "description": "Fan has been removed.",
+    "name": "hwASFanRemove",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapEntFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.6.1",
+    "status": "current"
+  },
+  "hwASFanTrap": {
+    "class": "objectidentity",
+    "name": "hwASFanTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.6"
+  },
+  "hwASMadConflictDetect": {
+    "class": "notificationtype",
+    "description": "Notify the NMS that dual-active scenario is detected.",
+    "name": "hwASMadConflictDetect",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.10.1",
+    "status": "current"
+  },
+  "hwASMadConflictResume": {
+    "class": "notificationtype",
+    "description": "Notify the NMS that dual-active scenario is merged.",
+    "name": "hwASMadConflictResume",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.10.2",
+    "status": "current"
+  },
+  "hwASMadTrap": {
+    "class": "objectidentity",
+    "name": "hwASMadTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.10"
+  },
+  "hwASMemUtilizationResume": {
+    "class": "notificationtype",
+    "description": "Memory utilization back to normal level.",
+    "name": "hwASMemUtilizationResume",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdType"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdEntValue"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdEntCurrent"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapEntFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.9.2",
+    "status": "current"
+  },
+  "hwASMemUtilizationRising": {
+    "class": "notificationtype",
+    "description": "Memory utilization overrun.",
+    "name": "hwASMemUtilizationRising",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdType"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdEntValue"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdEntCurrent"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapEntFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.9.1",
+    "status": "current"
+  },
+  "hwASMemoryTrap": {
+    "class": "objectidentity",
+    "name": "hwASMemoryTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.9"
+  },
+  "hwASOpticalInvalid": {
+    "class": "notificationtype",
+    "description": "Optical Module is invalid for some reason.",
+    "name": "hwASOpticalInvalid",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapEntFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.4.1",
+    "status": "current"
+  },
+  "hwASOpticalInvalidResume": {
+    "class": "notificationtype",
+    "description": "Optical Module resume from invalid situation.",
+    "name": "hwASOpticalInvalidResume",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapEntFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.4.2",
+    "status": "current"
+  },
+  "hwASOpticalTrap": {
+    "class": "objectidentity",
+    "name": "hwASOpticalTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.4"
+  },
+  "hwASPowerInsert": {
+    "class": "notificationtype",
+    "description": "Power has been inserted.",
+    "name": "hwASPowerInsert",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapEntFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.5.2",
+    "status": "current"
+  },
+  "hwASPowerInvalid": {
+    "class": "notificationtype",
+    "description": "Power is invalid for some reason.",
+    "name": "hwASPowerInvalid",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapEntFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.5.3",
+    "status": "current"
+  },
+  "hwASPowerInvalidResume": {
+    "class": "notificationtype",
+    "description": "Power resume from invalid situation.",
+    "name": "hwASPowerInvalidResume",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapEntFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.5.4",
+    "status": "current"
+  },
+  "hwASPowerRemove": {
+    "class": "notificationtype",
+    "description": "Power has been removed.",
+    "name": "hwASPowerRemove",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapEntFaultID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.5.1",
+    "status": "current"
+  },
+  "hwASPowerTrap": {
+    "class": "objectidentity",
+    "name": "hwASPowerTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2.5"
+  },
+  "hwAsAccessUser": {
+    "class": "objecttype",
+    "description": "The access user number of AS.",
+    "maxaccess": "read-create",
+    "name": "hwAsAccessUser",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAsAddOffLineNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when added an AS offline.",
+    "name": "hwAsAddOffLineNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSysName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsModel"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsMac"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.2.3",
+    "status": "current"
+  },
+  "hwAsAuthMode": {
+    "class": "objecttype",
+    "description": "The authentication mode of AS.",
+    "maxaccess": "read-write",
+    "name": "hwAsAuthMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.5.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auth": 1,
+          "noAuth": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAsAutoReplaceEnable": {
+    "class": "objecttype",
+    "description": "The enable status of auto replace.",
+    "maxaccess": "read-write",
+    "name": "hwAsAutoReplaceEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.5.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAsBoardAddNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when a slot is added.",
+    "name": "hwAsBoardAddNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSysName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsModel"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSlotId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.2.13",
+    "status": "current"
+  },
+  "hwAsBoardDeleteNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when a slot is deleted.",
+    "name": "hwAsBoardDeleteNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSysName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsModel"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSlotId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.2.14",
+    "status": "current"
+  },
+  "hwAsBoardPlugInNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when a slot is plugged in.",
+    "name": "hwAsBoardPlugInNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSysName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsModel"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSlotId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.2.15",
+    "status": "current"
+  },
+  "hwAsBoardPlugOutNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when a slot is pulled out.",
+    "name": "hwAsBoardPlugOutNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSysName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsModel"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSlotId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.2.16",
+    "status": "current"
+  },
+  "hwAsComboPortTypeChangeNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when combo type change.",
+    "name": "hwAsComboPortTypeChangeNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIfIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSysName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIfName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIfType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.2.19",
+    "status": "current"
+  },
+  "hwAsCpuUseage": {
+    "class": "objecttype",
+    "description": "The cpu usage of AS.",
+    "maxaccess": "read-create",
+    "name": "hwAsCpuUseage",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAsDelOffLineNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when deleted an AS offline.",
+    "name": "hwAsDelOffLineNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSysName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsModel"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsMac"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.2.4",
+    "status": "current"
+  },
+  "hwAsDns": {
+    "class": "objecttype",
+    "description": "The DNS of AS.",
+    "maxaccess": "read-create",
+    "name": "hwAsDns",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwAsEntityAdminStatus": {
+    "class": "objecttype",
+    "description": "The administrative state for this object.",
+    "maxaccess": "read-only",
+    "name": "hwAsEntityAdminStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.9.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 12,
+          "locked": 2,
+          "loopback": 13,
+          "notSupported": 1,
+          "shuttingDown": 3,
+          "unlocked": 4,
+          "up": 11
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAsEntityAlarmLight": {
+    "class": "objecttype",
+    "description": "The alarm status for this entity.",
+    "maxaccess": "read-only",
+    "name": "hwAsEntityAlarmLight",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.9.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "AlarmStatus"
+    }
+  },
+  "hwAsEntityAliasMappingEntry": {
+    "class": "objecttype",
+    "description": "The entry of table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsEntityPhysicalIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsEntryAliasLogicalIndexOrZero"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAsEntityAliasMappingEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.10.1",
+    "status": "current"
+  },
+  "hwAsEntityAliasMappingTable": {
+    "class": "objecttype",
+    "description": "The entity alias mapping table.",
+    "maxaccess": "not-accessible",
+    "name": "hwAsEntityAliasMappingTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.10",
+    "status": "current"
+  },
+  "hwAsEntityOperStatus": {
+    "class": "objecttype",
+    "description": "The operational state for this object.",
+    "maxaccess": "read-only",
+    "name": "hwAsEntityOperStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.9.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connect": 13,
+          "disabled": 2,
+          "down": 12,
+          "enabled": 3,
+          "linkDown": 17,
+          "linkUp": 16,
+          "notSupported": 1,
+          "offline": 4,
+          "protocolUp": 15,
+          "up": 11
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAsEntityPhysicalClass": {
+    "class": "objecttype",
+    "description": "An indication of the general hardware type of the physical entity.",
+    "maxaccess": "read-only",
+    "name": "hwAsEntityPhysicalClass",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.8.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backplane": 4,
+          "chassis": 3,
+          "container": 5,
+          "fan": 7,
+          "module": 9,
+          "other": 1,
+          "port": 10,
+          "powerSupply": 6,
+          "sensor": 8,
+          "stack": 11,
+          "unknown": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAsEntityPhysicalContainedIn": {
+    "class": "objecttype",
+    "description": "The value of hwAsEntityPhysicalIndex for the physical entity which \u0027contains\u0027 this physical entity. ",
+    "maxaccess": "read-only",
+    "name": "hwAsEntityPhysicalContainedIn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.8.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAsEntityPhysicalDescr": {
+    "class": "objecttype",
+    "description": "A textual description of physical entity. ",
+    "maxaccess": "read-only",
+    "name": "hwAsEntityPhysicalDescr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.8.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAsEntityPhysicalEntry": {
+    "class": "objecttype",
+    "description": "The entry of table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsEntityPhysicalIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAsEntityPhysicalEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.8.1",
+    "status": "current"
+  },
+  "hwAsEntityPhysicalFirmwareRev": {
+    "class": "objecttype",
+    "description": "The vendor-specific firmware revision string for the physical entity.",
+    "maxaccess": "read-only",
+    "name": "hwAsEntityPhysicalFirmwareRev",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.8.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAsEntityPhysicalHardwareRev": {
+    "class": "objecttype",
+    "description": "The vendor-specific hardware revision string for the physical entity. ",
+    "maxaccess": "read-only",
+    "name": "hwAsEntityPhysicalHardwareRev",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.8.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAsEntityPhysicalIndex": {
+    "class": "objecttype",
+    "description": "The physical index of AS.",
+    "maxaccess": "not-accessible",
+    "name": "hwAsEntityPhysicalIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAsEntityPhysicalMfgName": {
+    "class": "objecttype",
+    "description": "The name of the manufacturer of this physical component.",
+    "maxaccess": "read-only",
+    "name": "hwAsEntityPhysicalMfgName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.8.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAsEntityPhysicalName": {
+    "class": "objecttype",
+    "description": "The textual name of the physical entity. ",
+    "maxaccess": "read-only",
+    "name": "hwAsEntityPhysicalName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.8.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAsEntityPhysicalParentRelPos": {
+    "class": "objecttype",
+    "description": "An indication of the relative position of this \u0027child\u0027 component among all its \u0027sibling\u0027 components.",
+    "maxaccess": "read-only",
+    "name": "hwAsEntityPhysicalParentRelPos",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.8.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAsEntityPhysicalSerialNum": {
+    "class": "objecttype",
+    "description": "The vendor-specific serial number string for the physical entity.",
+    "maxaccess": "read-only",
+    "name": "hwAsEntityPhysicalSerialNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.8.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAsEntityPhysicalSoftwareRev": {
+    "class": "objecttype",
+    "description": "The vendor-specific software revision string for the physical entity.",
+    "maxaccess": "read-only",
+    "name": "hwAsEntityPhysicalSoftwareRev",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.8.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAsEntityPhysicalTable": {
+    "class": "objecttype",
+    "description": "The physical table of AS.",
+    "maxaccess": "not-accessible",
+    "name": "hwAsEntityPhysicalTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.8",
+    "status": "current"
+  },
+  "hwAsEntityPhysicalVendorType": {
+    "class": "objecttype",
+    "description": "An indication of the vendor-specific hardware type of the physical entity. ",
+    "maxaccess": "read-only",
+    "name": "hwAsEntityPhysicalVendorType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.8.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "AutonomousType"
+    }
+  },
+  "hwAsEntityPortType": {
+    "class": "objecttype",
+    "description": "Indicates the type of the Ethernet interface.",
+    "maxaccess": "read-only",
+    "name": "hwAsEntityPortType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.9.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "copper": 2,
+          "fiber100": 3,
+          "fiber1000": 4,
+          "fiber10000": 5,
+          "notSupported": 1,
+          "optical": 7,
+          "opticalnotExist": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAsEntityStandbyStatus": {
+    "class": "objecttype",
+    "description": "This object is used for monitoring standby status.",
+    "maxaccess": "read-only",
+    "name": "hwAsEntityStandbyStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.9.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "coldStandby": 3,
+          "hotStandby": 2,
+          "notSupported": 1,
+          "providingService": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAsEntityStateEntry": {
+    "class": "objecttype",
+    "description": "The entry of table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsEntityPhysicalIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAsEntityStateEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.9.1",
+    "status": "current"
+  },
+  "hwAsEntityStateTable": {
+    "class": "objecttype",
+    "description": "The entity state table.",
+    "maxaccess": "not-accessible",
+    "name": "hwAsEntityStateTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.9",
+    "status": "current"
+  },
+  "hwAsEntry": {
+    "class": "objecttype",
+    "description": "The entry of AS table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.1.1",
+    "status": "current"
+  },
+  "hwAsEntryAliasLogicalIndexOrZero": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the logical entity.",
+    "maxaccess": "not-accessible",
+    "name": "hwAsEntryAliasLogicalIndexOrZero",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.10.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAsEntryAliasMappingIdentifier": {
+    "class": "objecttype",
+    "description": "The value of this object identifies a particular conceptual row associated with the indicated entPhysicalIndex and logical index pair.",
+    "maxaccess": "read-only",
+    "name": "hwAsEntryAliasMappingIdentifier",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.10.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "AutonomousType"
+    }
+  },
+  "hwAsFaultNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when AS become fault.",
+    "name": "hwAsFaultNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSysName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsModel"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsMac"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsFaultTimes"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.2.1",
+    "status": "current"
+  },
+  "hwAsFullNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when the model of a slot is different from other slots.",
+    "name": "hwAsFullNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSysName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsModel"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsMac"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsPermitNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.2.11",
+    "status": "current"
+  },
+  "hwAsGatewayIp": {
+    "class": "objecttype",
+    "description": "The gateway\u0027s IP address of AS.",
+    "maxaccess": "read-create",
+    "name": "hwAsGatewayIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwAsHardwareVersion": {
+    "class": "objecttype",
+    "description": "The hardware version of AS.",
+    "maxaccess": "read-create",
+    "name": "hwAsHardwareVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAsIfAdminStatus": {
+    "class": "objecttype",
+    "description": "The administration stauts of AS interface.",
+    "maxaccess": "read-write",
+    "name": "hwAsIfAdminStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAsIfAlias": {
+    "class": "objecttype",
+    "description": "This object is an \u0027alias\u0027 name for the AS\u0027s interface as specified by a network manager, and provides a non-volatile \u0027handle\u0027 for the interface.",
+    "maxaccess": "read-write",
+    "name": "hwAsIfAlias",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAsIfAsId": {
+    "class": "objecttype",
+    "description": "The ID of AS.",
+    "maxaccess": "read-only",
+    "name": "hwAsIfAsId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAsIfDescr": {
+    "class": "objecttype",
+    "description": "The interface description of AS.",
+    "maxaccess": "read-only",
+    "name": "hwAsIfDescr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAsIfEntry": {
+    "class": "objecttype",
+    "description": "The entry of AS If table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAsIfEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.2.1",
+    "status": "current"
+  },
+  "hwAsIfHCInOctets": {
+    "class": "objecttype",
+    "description": "The total number of octets received on the interface of AS.",
+    "maxaccess": "read-only",
+    "name": "hwAsIfHCInOctets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwAsIfHCOutOctets": {
+    "class": "objecttype",
+    "description": "The total number of octets sent on the interface of AS.",
+    "maxaccess": "read-only",
+    "name": "hwAsIfHCOutOctets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwAsIfHighSpeed": {
+    "class": "objecttype",
+    "description": "An estimate of the as interface\u0027s current bandwidth in units of 1,000,000 bits per second.",
+    "maxaccess": "read-only",
+    "name": "hwAsIfHighSpeed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAsIfInBroadcastPkts": {
+    "class": "objecttype",
+    "description": "The number of broadcast packets received on the interface of AS. ",
+    "maxaccess": "read-only",
+    "name": "hwAsIfInBroadcastPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwAsIfInMulticastPkts": {
+    "class": "objecttype",
+    "description": "The number of multicast packets received on the interface of AS. ",
+    "maxaccess": "read-only",
+    "name": "hwAsIfInMulticastPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwAsIfInUcastPkts": {
+    "class": "objecttype",
+    "description": "The number of unicast packets received on the interface of AS. ",
+    "maxaccess": "read-only",
+    "name": "hwAsIfInUcastPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwAsIfIndex": {
+    "class": "objecttype",
+    "description": "The interface index of AS.",
+    "maxaccess": "read-only",
+    "name": "hwAsIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAsIfLinkUpDownTrapEnable": {
+    "class": "objecttype",
+    "description": "Indicates whether linkUp/linkDown traps should be generated for this as interface.",
+    "maxaccess": "read-write",
+    "name": "hwAsIfLinkUpDownTrapEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAsIfMtu": {
+    "class": "objecttype",
+    "description": "The interface MTU of AS.",
+    "maxaccess": "read-write",
+    "name": "hwAsIfMtu",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAsIfName": {
+    "class": "objecttype",
+    "description": "The name of AS interface.",
+    "maxaccess": "read-only",
+    "name": "hwAsIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAsIfOperStatus": {
+    "class": "objecttype",
+    "description": "The operation stauts of AS interface.",
+    "maxaccess": "read-only",
+    "name": "hwAsIfOperStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAsIfOutBroadcastPkts": {
+    "class": "objecttype",
+    "description": "The number of broadcast packets sent on the interface of AS. ",
+    "maxaccess": "read-only",
+    "name": "hwAsIfOutBroadcastPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwAsIfOutMulticastPkts": {
+    "class": "objecttype",
+    "description": "The number of multicast packets sent on the interface of AS. ",
+    "maxaccess": "read-only",
+    "name": "hwAsIfOutMulticastPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwAsIfOutUcastPkts": {
+    "class": "objecttype",
+    "description": "The number of unicast packets sent on the interface of AS. ",
+    "maxaccess": "read-only",
+    "name": "hwAsIfOutUcastPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwAsIfPhysAddress": {
+    "class": "objecttype",
+    "description": "The physical address of AS interface.",
+    "maxaccess": "read-only",
+    "name": "hwAsIfPhysAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAsIfSpeed": {
+    "class": "objecttype",
+    "description": "An estimate of the as interface\u0027s current bandwidth in bits per second.",
+    "maxaccess": "read-only",
+    "name": "hwAsIfSpeed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwAsIfTable": {
+    "class": "objecttype",
+    "description": "AS interface table entry.",
+    "maxaccess": "not-accessible",
+    "name": "hwAsIfTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.2",
+    "status": "current"
+  },
+  "hwAsIfType": {
+    "class": "objecttype",
+    "description": "The interface type of AS.",
+    "maxaccess": "read-only",
+    "name": "hwAsIfType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAsIfXEntry": {
+    "class": "objecttype",
+    "description": "The entry of table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAsIfXEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.3.1",
+    "status": "current"
+  },
+  "hwAsIfXTable": {
+    "class": "objecttype",
+    "description": "The extent table of AS.",
+    "maxaccess": "not-accessible",
+    "name": "hwAsIfXTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.3",
+    "status": "current"
+  },
+  "hwAsInBlacklistNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when AS is in blacklist.",
+    "name": "hwAsInBlacklistNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSysName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsModel"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsMac"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.2.17",
+    "status": "current"
+  },
+  "hwAsIndex": {
+    "class": "objecttype",
+    "description": "AS index.",
+    "maxaccess": "read-only",
+    "name": "hwAsIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAsIpAddress": {
+    "class": "objecttype",
+    "description": "The ip address of AS.",
+    "maxaccess": "read-create",
+    "name": "hwAsIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwAsIpNetMask": {
+    "class": "objecttype",
+    "description": "The ip net mask of AS.",
+    "maxaccess": "read-create",
+    "name": "hwAsIpNetMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwAsMac": {
+    "class": "objecttype",
+    "description": "The MAC address of AS.",
+    "maxaccess": "read-create",
+    "name": "hwAsMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwAsMacBlacklistEntry": {
+    "class": "objecttype",
+    "description": "The entry of table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsMacBlacklistMacAddr"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAsMacBlacklistEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.7.1",
+    "status": "current"
+  },
+  "hwAsMacBlacklistMacAddr": {
+    "class": "objecttype",
+    "description": "The MAC address of black list.",
+    "maxaccess": "not-accessible",
+    "name": "hwAsMacBlacklistMacAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwAsMacBlacklistRowStatus": {
+    "class": "objecttype",
+    "description": "The RowStatus of table.",
+    "maxaccess": "read-create",
+    "name": "hwAsMacBlacklistRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAsMacBlacklistTable": {
+    "class": "objecttype",
+    "description": "The table of blacklist.",
+    "maxaccess": "not-accessible",
+    "name": "hwAsMacBlacklistTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.7",
+    "status": "current"
+  },
+  "hwAsMacWhitelistEntry": {
+    "class": "objecttype",
+    "description": "The entry of table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsMacWhitelistMacAddr"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAsMacWhitelistEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.6.1",
+    "status": "current"
+  },
+  "hwAsMacWhitelistMacAddr": {
+    "class": "objecttype",
+    "description": "The MAC address of white list.",
+    "maxaccess": "not-accessible",
+    "name": "hwAsMacWhitelistMacAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwAsMacWhitelistRowStatus": {
+    "class": "objecttype",
+    "description": "The RowStatus of table.",
+    "maxaccess": "read-create",
+    "name": "hwAsMacWhitelistRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAsMacWhitelistTable": {
+    "class": "objecttype",
+    "description": "The table of whitelist.",
+    "maxaccess": "not-accessible",
+    "name": "hwAsMacWhitelistTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.6",
+    "status": "current"
+  },
+  "hwAsMemoryUseage": {
+    "class": "objecttype",
+    "description": "The memory usage of AS.",
+    "maxaccess": "read-create",
+    "name": "hwAsMemoryUseage",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAsModel": {
+    "class": "objecttype",
+    "description": "The model of AS. ",
+    "maxaccess": "read-create",
+    "name": "hwAsModel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 23,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAsModelNotMatchNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when the model of AS is mismatch.",
+    "name": "hwAsModelNotMatchNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSysName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsMac"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsModel"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsActualeType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.2.7",
+    "status": "current"
+  },
+  "hwAsNameConflictNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when the name of AS is conflicted.",
+    "name": "hwAsNameConflictNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSysName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsMac"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAddedAsMac"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.2.9",
+    "status": "current"
+  },
+  "hwAsNormalNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when AS become normal.",
+    "name": "hwAsNormalNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSysName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsModel"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsMac"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.2.2",
+    "status": "current"
+  },
+  "hwAsOnlineFailNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when AS online failed.",
+    "name": "hwAsOnlineFailNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSysName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsModel"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsMac"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsOnlineFailReasonId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsOnlineFailReasonDesc"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.2.20",
+    "status": "current"
+  },
+  "hwAsOnlineTime": {
+    "class": "objecttype",
+    "description": "The online time of AS.",
+    "maxaccess": "read-create",
+    "name": "hwAsOnlineTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAsPortStateChangeToDownNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when port status changed to DOWN.",
+    "name": "hwAsPortStateChangeToDownNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIfIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSysName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsModel"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsMac"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIfName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIfAdminStatus"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIfOperStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.2.5",
+    "status": "current"
+  },
+  "hwAsPortStateChangeToUpNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when port status changed to UP.",
+    "name": "hwAsPortStateChangeToUpNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIfIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSysName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsModel"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsMac"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIfName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIfAdminStatus"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIfOperStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.2.6",
+    "status": "current"
+  },
+  "hwAsRowstatus": {
+    "class": "objecttype",
+    "description": "The RowStatus of this table.",
+    "maxaccess": "read-create",
+    "name": "hwAsRowstatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.1.1.50",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAsRunState": {
+    "class": "objecttype",
+    "description": "The run state of AS.",
+    "maxaccess": "read-create",
+    "name": "hwAsRunState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fault": 3,
+          "idle": 1,
+          "normal": 4,
+          "versionMismatch": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAsSlotEntry": {
+    "class": "objecttype",
+    "description": "The entry of table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsSlotId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAsSlotEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.4.1",
+    "status": "current"
+  },
+  "hwAsSlotId": {
+    "class": "objecttype",
+    "description": "The ID of AS slot.",
+    "maxaccess": "not-accessible",
+    "name": "hwAsSlotId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAsSlotIdInvalidNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when the slot ID of AS is invalid.",
+    "name": "hwAsSlotIdInvalidNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSysName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsModel"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSlotId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.2.21",
+    "status": "current"
+  },
+  "hwAsSlotModelNotMatchNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when the slot model of AS is mismatch.",
+    "name": "hwAsSlotModelNotMatchNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSysName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsModel"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSlotId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAddedAsSlotType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.2.10",
+    "status": "current"
+  },
+  "hwAsSlotRowStatus": {
+    "class": "objecttype",
+    "description": "The RowStatus of this table.",
+    "maxaccess": "read-create",
+    "name": "hwAsSlotRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.4.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAsSlotState": {
+    "class": "objecttype",
+    "description": "The state of AS slot.",
+    "maxaccess": "read-create",
+    "name": "hwAsSlotState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAsSlotTable": {
+    "class": "objecttype",
+    "description": "The slot table of AS.",
+    "maxaccess": "not-accessible",
+    "name": "hwAsSlotTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.4",
+    "status": "current"
+  },
+  "hwAsSn": {
+    "class": "objecttype",
+    "description": "The SN of AS.",
+    "maxaccess": "read-create",
+    "name": "hwAsSn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAsSoftwareVersion": {
+    "class": "objecttype",
+    "description": "The software version of AS.",
+    "maxaccess": "read-create",
+    "name": "hwAsSoftwareVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAsStackEnable": {
+    "class": "objecttype",
+    "description": "Whether AS is stack enable or disable.",
+    "maxaccess": "read-create",
+    "name": "hwAsStackEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAsSysMac": {
+    "class": "objecttype",
+    "description": "The system MAC address of AS.",
+    "maxaccess": "read-create",
+    "name": "hwAsSysMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwAsSysName": {
+    "class": "objecttype",
+    "description": "The Name of AS.",
+    "maxaccess": "read-create",
+    "name": "hwAsSysName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAsSysmacSwitchCfgErrNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when the configuration of system MAC address switching delay is error.",
+    "name": "hwAsSysmacSwitchCfgErrNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSysName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.2.22",
+    "status": "current"
+  },
+  "hwAsTable": {
+    "class": "objecttype",
+    "description": "AS table entry. ",
+    "maxaccess": "not-accessible",
+    "name": "hwAsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.1",
+    "status": "current"
+  },
+  "hwAsUnconfirmedNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when AS is not confirmed.",
+    "name": "hwAsUnconfirmedNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSysName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsModel"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsMac"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.2.18",
+    "status": "current"
+  },
+  "hwAsVersionNotMatchNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when the version of AS is mismatch.",
+    "name": "hwAsVersionNotMatchNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSysName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsVersion"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapParentVersion"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.2.8",
+    "status": "current"
+  },
+  "hwAsVpnInstance": {
+    "class": "objecttype",
+    "description": "The VPN instance of AS.",
+    "maxaccess": "read-only",
+    "name": "hwAsVpnInstance",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAsmngAsGroup": {
+    "class": "objectgroup",
+    "description": "The as table group.",
+    "name": "hwAsmngAsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsHardwareVersion"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIpAddress"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIpNetMask"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsAccessUser"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsMac"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsSn"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsSysName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsRunState"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsSoftwareVersion"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsDns"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsOnlineTime"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsCpuUseage"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsMemoryUseage"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsSysMac"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsStackEnable"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsGatewayIp"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsRowstatus"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsModel"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsVpnInstance"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.2.1.2",
+    "status": "current"
+  },
+  "hwAsmngAsIfGroup": {
+    "class": "objectgroup",
+    "description": "The as table group.",
+    "name": "hwAsmngAsIfGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIfDescr"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIfType"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIfMtu"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIfSpeed"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIfPhysAddress"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIfAdminStatus"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIfInUcastPkts"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIfOutUcastPkts"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIfOperStatus"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIfIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.2.1.3",
+    "status": "current"
+  },
+  "hwAsmngAsIfXGroup": {
+    "class": "objectgroup",
+    "description": "The as table group.",
+    "name": "hwAsmngAsIfXGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIfLinkUpDownTrapEnable"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIfHighSpeed"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIfAlias"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIfInUcastPkts"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIfOutUcastPkts"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIfHCOutOctets"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIfInMulticastPkts"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIfInBroadcastPkts"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIfOutMulticastPkts"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIfOutBroadcastPkts"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIfHCInOctets"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIfAsId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.2.1.4",
+    "status": "current"
+  },
+  "hwAsmngCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for SNMP entities supporting asmng.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngObjectsGroup"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngAsGroup"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngAsIfGroup"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngAsIfXGroup"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapObjectsGroup"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapsGroup"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngGlobalObjectsGroup"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngMacWhitelistGroup"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngMacBlacklistGroup"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngEntityPhysicalGroup"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngEntityStateGroup"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngEntityAliasMappingGroup"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngSlotGroup"
+      }
+    ],
+    "name": "hwAsmngCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.2.1",
+    "status": "current"
+  },
+  "hwAsmngCompliances": {
+    "class": "objectidentity",
+    "name": "hwAsmngCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.2"
+  },
+  "hwAsmngEntityAliasMappingGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwAsmngEntityAliasMappingGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsEntryAliasMappingIdentifier"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.2.1.12",
+    "status": "current"
+  },
+  "hwAsmngEntityPhysicalGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwAsmngEntityPhysicalGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsEntityPhysicalDescr"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsEntityPhysicalVendorType"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsEntityPhysicalContainedIn"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsEntityPhysicalClass"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsEntityPhysicalParentRelPos"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsEntityPhysicalName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsEntityPhysicalHardwareRev"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsEntityPhysicalFirmwareRev"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsEntityPhysicalSoftwareRev"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsEntityPhysicalSerialNum"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsEntityPhysicalMfgName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.2.1.10",
+    "status": "current"
+  },
+  "hwAsmngEntityStateGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwAsmngEntityStateGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsEntityAdminStatus"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsEntityOperStatus"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsEntityStandbyStatus"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsEntityAlarmLight"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsEntityPortType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.2.1.11",
+    "status": "current"
+  },
+  "hwAsmngGlobalObjects": {
+    "class": "objectidentity",
+    "name": "hwAsmngGlobalObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2.5"
+  },
+  "hwAsmngGlobalObjectsGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwAsmngGlobalObjectsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsAutoReplaceEnable"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsAuthMode"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.2.1.7",
+    "status": "current"
+  },
+  "hwAsmngMacBlacklistGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwAsmngMacBlacklistGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsMacBlacklistRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.2.1.9",
+    "status": "current"
+  },
+  "hwAsmngMacWhitelistGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwAsmngMacWhitelistGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsMacWhitelistRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.2.1.8",
+    "status": "current"
+  },
+  "hwAsmngObjects": {
+    "class": "objectidentity",
+    "name": "hwAsmngObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.2"
+  },
+  "hwAsmngObjectsGroup": {
+    "class": "objectgroup",
+    "description": "The AS management objects group.",
+    "name": "hwAsmngObjectsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniMngEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.2.1.1",
+    "status": "current"
+  },
+  "hwAsmngSlotGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwAsmngSlotGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsSlotState"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsSlotRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.2.1.13",
+    "status": "current"
+  },
+  "hwAsmngTrap": {
+    "class": "objectidentity",
+    "name": "hwAsmngTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2"
+  },
+  "hwAsmngTrapAddedAsMac": {
+    "class": "objecttype",
+    "description": "The MAC address of added AS.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwAsmngTrapAddedAsMac",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwAsmngTrapAddedAsSlotType": {
+    "class": "objecttype",
+    "description": "The slot type of added AS.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwAsmngTrapAddedAsSlotType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAsmngTrapAsActualeType": {
+    "class": "objecttype",
+    "description": "The actual type of AS.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwAsmngTrapAsActualeType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAsmngTrapAsFaultTimes": {
+    "class": "objecttype",
+    "description": "The fault times of AS.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwAsmngTrapAsFaultTimes",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAsmngTrapAsIfAdminStatus": {
+    "class": "objecttype",
+    "description": "AS interface adminnistrator status.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwAsmngTrapAsIfAdminStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAsmngTrapAsIfIndex": {
+    "class": "objecttype",
+    "description": "The interface index of AS.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwAsmngTrapAsIfIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAsmngTrapAsIfName": {
+    "class": "objecttype",
+    "description": "The name of AS.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwAsmngTrapAsIfName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAsmngTrapAsIfOperStatus": {
+    "class": "objecttype",
+    "description": "The operation stauts of AS.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwAsmngTrapAsIfOperStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAsmngTrapAsIfType": {
+    "class": "objecttype",
+    "description": "The interface type of AS.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwAsmngTrapAsIfType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAsmngTrapAsIndex": {
+    "class": "objecttype",
+    "description": "The AS index.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwAsmngTrapAsIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAsmngTrapAsMac": {
+    "class": "objecttype",
+    "description": "The MAC address of AS.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwAsmngTrapAsMac",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwAsmngTrapAsModel": {
+    "class": "objecttype",
+    "description": "The model of AS.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwAsmngTrapAsModel",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAsmngTrapAsOnlineFailReasonDesc": {
+    "class": "objecttype",
+    "description": "The description of AS online failed.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwAsmngTrapAsOnlineFailReasonDesc",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAsmngTrapAsOnlineFailReasonId": {
+    "class": "objecttype",
+    "description": "The reason ID of AS online failed.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwAsmngTrapAsOnlineFailReasonId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAsmngTrapAsPermitNum": {
+    "class": "objecttype",
+    "description": "The maxium number of permitted AS.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwAsmngTrapAsPermitNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAsmngTrapAsSlotId": {
+    "class": "objecttype",
+    "description": "The slot ID of AS.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwAsmngTrapAsSlotId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAsmngTrapAsSn": {
+    "class": "objecttype",
+    "description": "The SN of AS.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwAsmngTrapAsSn",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAsmngTrapAsSysName": {
+    "class": "objecttype",
+    "description": "The name of AS.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwAsmngTrapAsSysName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAsmngTrapAsUnimngMode": {
+    "class": "objecttype",
+    "description": "The UNI-MNG mode of AS.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwAsmngTrapAsUnimngMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAsmngTrapAsVersion": {
+    "class": "objecttype",
+    "description": "The version of AS.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwAsmngTrapAsVersion",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAsmngTrapObjects": {
+    "class": "objectidentity",
+    "name": "hwAsmngTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.1"
+  },
+  "hwAsmngTrapObjectsGroup": {
+    "class": "objectgroup",
+    "description": "The AS management trap objects group.",
+    "name": "hwAsmngTrapObjectsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsModel"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSysName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsMac"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSn"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIfIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIfOperStatus"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsFaultTimes"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIfAdminStatus"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIfName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsActualeType"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsVersion"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapParentVersion"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAddedAsMac"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSlotId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAddedAsSlotType"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsPermitNum"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsUnimngMode"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapParentUnimngMode"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsIfType"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsOnlineFailReasonId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsOnlineFailReasonDesc"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.2.1.5",
+    "status": "current"
+  },
+  "hwAsmngTrapParentUnimngMode": {
+    "class": "objecttype",
+    "description": "The UNI-MNG mode of parent.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwAsmngTrapParentUnimngMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAsmngTrapParentVersion": {
+    "class": "objecttype",
+    "description": "The version of parent.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwAsmngTrapParentVersion",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwAsmngTraps": {
+    "class": "objectidentity",
+    "name": "hwAsmngTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.2"
+  },
+  "hwAsmngTrapsGroup": {
+    "class": "notificationgroup",
+    "description": "The AS management notification objects group.",
+    "name": "hwAsmngTrapsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsFaultNotify"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsNormalNotify"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsAddOffLineNotify"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsDelOffLineNotify"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsPortStateChangeToDownNotify"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsPortStateChangeToUpNotify"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsModelNotMatchNotify"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsVersionNotMatchNotify"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsNameConflictNotify"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsSlotModelNotMatchNotify"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsFullNotify"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUnimngModeNotMatchNotify"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsBoardAddNotify"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsBoardDeleteNotify"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsBoardPlugInNotify"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsBoardPlugOutNotify"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsInBlacklistNotify"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsUnconfirmedNotify"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsComboPortTypeChangeNotify"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsOnlineFailNotify"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsSlotIdInvalidNotify"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsSysmacSwitchCfgErrNotify"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.2.1.6",
+    "status": "current"
+  },
+  "hwMbrCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for SNMP entities supporting mbrmng.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwMbrTrapObjectsGroup"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwMbrTrapsGroup"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwMbrFabricPortGroup"
+      }
+    ],
+    "name": "hwMbrCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.3.1",
+    "status": "current"
+  },
+  "hwMbrCompliances": {
+    "class": "objectidentity",
+    "name": "hwMbrCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.3"
+  },
+  "hwMbrFabricPortGroup": {
+    "class": "objectgroup",
+    "description": "The mbrmng fabric port group.",
+    "name": "hwMbrFabricPortGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwMbrMngFabricPortMemberIfName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwMbrMngFabricPortDirection"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwMbrMngFabricPortIndirectFlag"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwMbrMngFabricPortDescription"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.3.1.3",
+    "status": "current"
+  },
+  "hwMbrMngASId": {
+    "class": "objecttype",
+    "description": "AS index, is used to specify thd AS. 65535 represents the parent node.",
+    "maxaccess": "not-accessible",
+    "name": "hwMbrMngASId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.4.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMbrMngFabricPortDescription": {
+    "class": "objecttype",
+    "description": "The description of Fabric-port.",
+    "maxaccess": "read-only",
+    "name": "hwMbrMngFabricPortDescription",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.4.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMbrMngFabricPortDirection": {
+    "class": "objecttype",
+    "description": "The direction of Fabric-port.",
+    "maxaccess": "read-only",
+    "name": "hwMbrMngFabricPortDirection",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.4.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "downDirection": 1,
+          "upDirection": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMbrMngFabricPortEntry": {
+    "class": "objecttype",
+    "description": "The entry of the table of fabric port information.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwMbrMngASId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwMbrMngFabricPortId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMbrMngFabricPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.4.2.1",
+    "status": "current"
+  },
+  "hwMbrMngFabricPortId": {
+    "class": "objecttype",
+    "description": "The Fabric-port index.",
+    "maxaccess": "not-accessible",
+    "name": "hwMbrMngFabricPortId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.4.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMbrMngFabricPortIndirectFlag": {
+    "class": "objecttype",
+    "description": "The indirect flag of Fabric-port.",
+    "maxaccess": "read-only",
+    "name": "hwMbrMngFabricPortIndirectFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.4.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "direct": 2,
+          "indirect": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMbrMngFabricPortMemberIfName": {
+    "class": "objecttype",
+    "description": "Interface name of the Fabric-port\u0027s member.",
+    "maxaccess": "read-only",
+    "name": "hwMbrMngFabricPortMemberIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.4.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMbrMngFabricPortTable": {
+    "class": "objecttype",
+    "description": "The table of fabric port information.",
+    "maxaccess": "not-accessible",
+    "name": "hwMbrMngFabricPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.4.2",
+    "status": "current"
+  },
+  "hwMbrTrapObjectsGroup": {
+    "class": "objectgroup",
+    "description": "The mbrmng trap objects group.",
+    "name": "hwMbrTrapObjectsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniMbrLinkStatTrapLocalMac"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniMbrLinkStatTrapLocalPortName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniMbrLinkStatTrapChangeType"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniMbrTrapConnectErrorReason"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniMbrTrapReceivePktRate"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniMbrTrapAsIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniMbrTrapAsSysName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniMbrParaSynFailReason"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniMbrTrapIllegalConfigReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.3.1.1",
+    "status": "current"
+  },
+  "hwMbrTrapsGroup": {
+    "class": "notificationgroup",
+    "description": "The mbrmng notification objects group.",
+    "name": "hwMbrTrapsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniMbrConnectError"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniMbrASDiscoverAttack"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniMbrFabricPortMemberDelete"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniMbrIllegalFabricConfig"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.3.1.2",
+    "status": "current"
+  },
+  "hwMbrmngObjects": {
+    "class": "objectidentity",
+    "name": "hwMbrmngObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.4"
+  },
+  "hwTopoLocalHop": {
+    "class": "objecttype",
+    "description": "The topoloy hop.",
+    "maxaccess": "not-accessible",
+    "name": "hwTopoLocalHop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.3.11.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTopoLocalMac": {
+    "class": "objecttype",
+    "description": "The local device ID, defined by 6 bytes of MAC.",
+    "maxaccess": "not-accessible",
+    "name": "hwTopoLocalMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.3.11.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwTopoLocalPortName": {
+    "class": "objecttype",
+    "description": "The port name of local device, same as ifName (defined in IETF RFC 2863).",
+    "maxaccess": "read-only",
+    "name": "hwTopoLocalPortName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.3.11.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwTopoLocalRole": {
+    "class": "objecttype",
+    "description": "The role of local topology node.",
+    "maxaccess": "read-only",
+    "name": "hwTopoLocalRole",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.3.11.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "roleAP": 3,
+          "roleAS": 2,
+          "roleUC": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwTopoLocalTrunkId": {
+    "class": "objecttype",
+    "description": "The trunk ID of local port, 65535 identify the local port is not in trunk.",
+    "maxaccess": "read-only",
+    "name": "hwTopoLocalTrunkId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.3.11.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTopoPeerDeviceIndex": {
+    "class": "objecttype",
+    "description": "The index of neighbor device.",
+    "maxaccess": "not-accessible",
+    "name": "hwTopoPeerDeviceIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.3.11.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTopoPeerMac": {
+    "class": "objecttype",
+    "description": "The neighbor device ID, defined by 6 bytes of MAC.",
+    "maxaccess": "read-only",
+    "name": "hwTopoPeerMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.3.11.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwTopoPeerPortName": {
+    "class": "objecttype",
+    "description": "The port name of neighbor device, same as ifName (defined in IETF RFC 2863).",
+    "maxaccess": "read-only",
+    "name": "hwTopoPeerPortName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.3.11.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwTopoPeerRole": {
+    "class": "objecttype",
+    "description": "The role of neighbor topology node.",
+    "maxaccess": "read-only",
+    "name": "hwTopoPeerRole",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.3.11.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "roleAP": 3,
+          "roleAS": 2,
+          "roleUC": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwTopoPeerTrunkId": {
+    "class": "objecttype",
+    "description": "The trunk ID of neighbor port, 65535 identify the neighbor port is not in trunk.",
+    "maxaccess": "read-only",
+    "name": "hwTopoPeerTrunkId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.3.11.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTopomngCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for SNMP entities supporting topomng.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngObjectsGroup"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngTopoGroup"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngTrapObjectsGroup"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngTrapsGroup"
+      }
+    ],
+    "name": "hwTopomngCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.1.1",
+    "status": "current"
+  },
+  "hwTopomngCompliances": {
+    "class": "objectidentity",
+    "name": "hwTopomngCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.1"
+  },
+  "hwTopomngExploreTime": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 10
+      }
+    },
+    "description": "Topology collect time in minutes.",
+    "maxaccess": "read-write",
+    "name": "hwTopomngExploreTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.3.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1440,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTopomngLastCollectDuration": {
+    "class": "objecttype",
+    "description": "Duration of the latest topology collection, measured in milliseconds.",
+    "maxaccess": "read-only",
+    "name": "hwTopomngLastCollectDuration",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.3.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwTopomngLinkAbnormal": {
+    "class": "notificationtype",
+    "description": "The notification of topology link abnormal.",
+    "name": "hwTopomngLinkAbnormal",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngTrapLocalMac"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngTrapLocalPortName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngTrapLocalTrunkId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngTrapPeerMac"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngTrapPeerPortName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngTrapPeerTrunkId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngTrapReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.1.2.2",
+    "status": "current"
+  },
+  "hwTopomngLinkNormal": {
+    "class": "notificationtype",
+    "description": "The notification of topology link normal.",
+    "name": "hwTopomngLinkNormal",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngTrapLocalMac"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngTrapLocalPortName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngTrapLocalTrunkId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngTrapPeerMac"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngTrapPeerPortName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngTrapPeerTrunkId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngTrapReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.1.2.1",
+    "status": "current"
+  },
+  "hwTopomngObjects": {
+    "class": "objectidentity",
+    "name": "hwTopomngObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.3"
+  },
+  "hwTopomngObjectsGroup": {
+    "class": "objectgroup",
+    "description": "The topomng objects group.",
+    "name": "hwTopomngObjectsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngExploreTime"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngLastCollectDuration"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.1.1.1",
+    "status": "current"
+  },
+  "hwTopomngTopoEntry": {
+    "class": "objecttype",
+    "description": "The entry of topology table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopoLocalHop"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopoLocalMac"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopoPeerDeviceIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTopomngTopoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.3.11.1",
+    "status": "current"
+  },
+  "hwTopomngTopoGroup": {
+    "class": "objectgroup",
+    "description": "The topology table group.",
+    "name": "hwTopomngTopoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopoPeerMac"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopoLocalPortName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopoPeerPortName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopoLocalTrunkId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopoPeerTrunkId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopoLocalRole"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopoPeerRole"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.1.1.2",
+    "status": "current"
+  },
+  "hwTopomngTopoTable": {
+    "class": "objecttype",
+    "description": "The topology table.",
+    "maxaccess": "not-accessible",
+    "name": "hwTopomngTopoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.3.11",
+    "status": "current"
+  },
+  "hwTopomngTrap": {
+    "class": "objectidentity",
+    "name": "hwTopomngTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.1"
+  },
+  "hwTopomngTrapLocalMac": {
+    "class": "objecttype",
+    "description": "Topomng trap message local MAC, defined as the device ID.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwTopomngTrapLocalMac",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwTopomngTrapLocalPortName": {
+    "class": "objecttype",
+    "description": "Topomng trap message local port name.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwTopomngTrapLocalPortName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwTopomngTrapLocalTrunkId": {
+    "class": "objecttype",
+    "description": "Topomng trap message local trunk ID, 65535 defines a phy port.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwTopomngTrapLocalTrunkId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTopomngTrapObjects": {
+    "class": "objectidentity",
+    "name": "hwTopomngTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.1.1"
+  },
+  "hwTopomngTrapObjectsGroup": {
+    "class": "objectgroup",
+    "description": "The topomng trap objects group.",
+    "name": "hwTopomngTrapObjectsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngTrapLocalMac"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngTrapLocalPortName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngTrapLocalTrunkId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngTrapPeerMac"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngTrapPeerPortName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngTrapPeerTrunkId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngTrapReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.1.1.3",
+    "status": "current"
+  },
+  "hwTopomngTrapPeerMac": {
+    "class": "objecttype",
+    "description": "Topomng trap message peer MAC, defined as the device ID.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwTopomngTrapPeerMac",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwTopomngTrapPeerPortName": {
+    "class": "objecttype",
+    "description": "Topomng trap message peer port name.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwTopomngTrapPeerPortName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwTopomngTrapPeerTrunkId": {
+    "class": "objecttype",
+    "description": "Topomng trap message peer trunk ID, 65535 defines a phy port.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwTopomngTrapPeerTrunkId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTopomngTrapReason": {
+    "class": "objecttype",
+    "description": "Topomng trap message Reason.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwTopomngTrapReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwTopomngTraps": {
+    "class": "objectidentity",
+    "name": "hwTopomngTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.1.2"
+  },
+  "hwTopomngTrapsGroup": {
+    "class": "notificationgroup",
+    "description": "The topomng notification objects group.",
+    "name": "hwTopomngTrapsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngLinkNormal"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTopomngLinkAbnormal"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.1.1.4",
+    "status": "current"
+  },
+  "hwTplmASASGroupName": {
+    "class": "objecttype",
+    "description": "The name of AS group which the AS belongs to.",
+    "maxaccess": "read-create",
+    "name": "hwTplmASASGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.12.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwTplmASAdminProfileName": {
+    "class": "objecttype",
+    "description": "The name of AS group\u0027s admin profile.",
+    "maxaccess": "read-create",
+    "name": "hwTplmASAdminProfileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.11.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwTplmASEntry": {
+    "class": "objecttype",
+    "description": "The entry of AS table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmASId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTplmASEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.12.1",
+    "status": "current"
+  },
+  "hwTplmASGoup": {
+    "class": "objectgroup",
+    "description": "The group of as.",
+    "name": "hwTplmASGoup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmASASGroupName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmASRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.5.1.2",
+    "status": "current"
+  },
+  "hwTplmASGroupEntry": {
+    "class": "objecttype",
+    "description": "The entry of AS group table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmASGroupIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTplmASGroupEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.11.1",
+    "status": "current"
+  },
+  "hwTplmASGroupGoup": {
+    "class": "objectgroup",
+    "description": "The group of as group.",
+    "name": "hwTplmASGroupGoup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmASGroupName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmASAdminProfileName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmASGroupProfileStatus"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmASGroupRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.5.1.1",
+    "status": "current"
+  },
+  "hwTplmASGroupIndex": {
+    "class": "objecttype",
+    "description": "The index of AS group table.",
+    "maxaccess": "not-accessible",
+    "name": "hwTplmASGroupIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.11.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTplmASGroupName": {
+    "class": "objecttype",
+    "description": "The name of AS group.",
+    "maxaccess": "read-create",
+    "name": "hwTplmASGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.11.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwTplmASGroupProfileStatus": {
+    "class": "objecttype",
+    "description": "The status of AS group\u0027s admin profile.",
+    "maxaccess": "read-create",
+    "name": "hwTplmASGroupProfileStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.11.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwTplmASGroupRowStatus": {
+    "class": "objecttype",
+    "description": "The row status of as group table.",
+    "maxaccess": "read-create",
+    "name": "hwTplmASGroupRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.11.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwTplmASGroupTable": {
+    "class": "objecttype",
+    "description": "The table of template management with AS group.",
+    "maxaccess": "not-accessible",
+    "name": "hwTplmASGroupTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.11",
+    "status": "current"
+  },
+  "hwTplmASId": {
+    "class": "objecttype",
+    "description": "AS index.",
+    "maxaccess": "not-accessible",
+    "name": "hwTplmASId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.12.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTplmASRowStatus": {
+    "class": "objecttype",
+    "description": "The row status of as table.",
+    "maxaccess": "read-create",
+    "name": "hwTplmASRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.12.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwTplmASTable": {
+    "class": "objecttype",
+    "description": "The table of template management with AS.",
+    "maxaccess": "not-accessible",
+    "name": "hwTplmASTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.12",
+    "status": "current"
+  },
+  "hwTplmCmdExecuteFailedNotify": {
+    "class": "notificationtype",
+    "description": "The notification of command execution failure.",
+    "name": "hwTplmCmdExecuteFailedNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmTrapASName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmTrapFailedReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.5.2.1",
+    "status": "current"
+  },
+  "hwTplmCmdExecuteSuccessfulNotify": {
+    "class": "notificationtype",
+    "description": "The notification of command execution failure cleared.",
+    "name": "hwTplmCmdExecuteSuccessfulNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmTrapASName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.5.2.2",
+    "status": "current"
+  },
+  "hwTplmCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance of template management.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngObjectsGroup"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngUpgradeInfoGroup"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngAsTypeCfgInfoGroup"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngTrapsGroup"
+      }
+    ],
+    "name": "hwTplmCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.5.1",
+    "status": "current"
+  },
+  "hwTplmCompliances": {
+    "class": "objectidentity",
+    "name": "hwTplmCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.5"
+  },
+  "hwTplmConfigCommitAll": {
+    "class": "objecttype",
+    "description": "Apply configuration of template management to all ASs.",
+    "maxaccess": "read-write",
+    "name": "hwTplmConfigCommitAll",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.15.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "commit": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwTplmConfigManagement": {
+    "class": "objectidentity",
+    "name": "hwTplmConfigManagement",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.15"
+  },
+  "hwTplmConfigManagementASId": {
+    "class": "objecttype",
+    "description": "AS index.",
+    "maxaccess": "not-accessible",
+    "name": "hwTplmConfigManagementASId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.15.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTplmConfigManagementCommit": {
+    "class": "objecttype",
+    "description": "Apply configuration of template management to the specified AS.",
+    "maxaccess": "read-write",
+    "name": "hwTplmConfigManagementCommit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.15.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "commit": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwTplmConfigManagementEntry": {
+    "class": "objecttype",
+    "description": "The entry of committing table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmConfigManagementASId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTplmConfigManagementEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.15.2.1",
+    "status": "current"
+  },
+  "hwTplmConfigManagementGoup": {
+    "class": "objectgroup",
+    "description": "The group of configuration management.",
+    "name": "hwTplmConfigManagementGoup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmConfigCommitAll"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmConfigManagementCommit"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.5.1.5",
+    "status": "current"
+  },
+  "hwTplmConfigManagementTable": {
+    "class": "objecttype",
+    "description": "The table of committing configuration of template management.",
+    "maxaccess": "not-accessible",
+    "name": "hwTplmConfigManagementTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.15.2",
+    "status": "current"
+  },
+  "hwTplmDirectCmdRecoverFail": {
+    "class": "notificationtype",
+    "description": "The notification of direct command recovery failure.",
+    "name": "hwTplmDirectCmdRecoverFail",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmTrapASName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.5.2.3",
+    "status": "current"
+  },
+  "hwTplmObjects": {
+    "class": "objectidentity",
+    "name": "hwTplmObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6"
+  },
+  "hwTplmPortEntry": {
+    "class": "objecttype",
+    "description": "The entry of port table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmPortIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTplmPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.14.1",
+    "status": "current"
+  },
+  "hwTplmPortGoup": {
+    "class": "objectgroup",
+    "description": "The group of port.",
+    "name": "hwTplmPortGoup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmPortPortGroupName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmPortRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.5.1.4",
+    "status": "current"
+  },
+  "hwTplmPortGroupEntry": {
+    "class": "objecttype",
+    "description": "The entry of port group table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmPortGroupIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTplmPortGroupEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.13.1",
+    "status": "current"
+  },
+  "hwTplmPortGroupGoup": {
+    "class": "objectgroup",
+    "description": "The group of port group.",
+    "name": "hwTplmPortGroupGoup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmPortGroupName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmPortGroupType"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmPortGroupNetworkBasicProfile"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmPortGroupNetworkEnhancedProfile"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmPortGroupUserAccessProfile"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmPortGroupProfileStatus"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmPortGroupRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.5.1.3",
+    "status": "current"
+  },
+  "hwTplmPortGroupIndex": {
+    "class": "objecttype",
+    "description": "The index of port group table.",
+    "maxaccess": "not-accessible",
+    "name": "hwTplmPortGroupIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.13.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 257,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTplmPortGroupName": {
+    "class": "objecttype",
+    "description": "The name of port group.",
+    "maxaccess": "read-create",
+    "name": "hwTplmPortGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.13.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwTplmPortGroupNetworkBasicProfile": {
+    "class": "objecttype",
+    "description": "The name of port group\u0027s network basic profile.",
+    "maxaccess": "read-create",
+    "name": "hwTplmPortGroupNetworkBasicProfile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.13.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwTplmPortGroupNetworkEnhancedProfile": {
+    "class": "objecttype",
+    "description": "The name of port group\u0027s network enhanced profile.",
+    "maxaccess": "read-create",
+    "name": "hwTplmPortGroupNetworkEnhancedProfile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.13.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwTplmPortGroupProfileStatus": {
+    "class": "objecttype",
+    "description": "The status of port group\u0027s profile.",
+    "maxaccess": "read-create",
+    "name": "hwTplmPortGroupProfileStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.13.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwTplmPortGroupRowStatus": {
+    "class": "objecttype",
+    "description": "The row status of port group table.",
+    "maxaccess": "read-create",
+    "name": "hwTplmPortGroupRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.13.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwTplmPortGroupTable": {
+    "class": "objecttype",
+    "description": "The table of template management with port group.",
+    "maxaccess": "not-accessible",
+    "name": "hwTplmPortGroupTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.13",
+    "status": "current"
+  },
+  "hwTplmPortGroupType": {
+    "class": "objecttype",
+    "description": "The type of port group.",
+    "maxaccess": "read-create",
+    "name": "hwTplmPortGroupType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.13.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ap": 2,
+          "service": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwTplmPortGroupUserAccessProfile": {
+    "class": "objecttype",
+    "description": "The name of port group\u0027s user access profile.",
+    "maxaccess": "read-create",
+    "name": "hwTplmPortGroupUserAccessProfile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.13.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwTplmPortIfIndex": {
+    "class": "objecttype",
+    "description": "The interface index of AS\u0027s port.",
+    "maxaccess": "not-accessible",
+    "name": "hwTplmPortIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.14.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwTplmPortPortGroupName": {
+    "class": "objecttype",
+    "description": "The name of port group which the AS\u0027s port belongs to.",
+    "maxaccess": "read-create",
+    "name": "hwTplmPortPortGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.14.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwTplmPortRowStatus": {
+    "class": "objecttype",
+    "description": "The row status of port table.",
+    "maxaccess": "read-create",
+    "name": "hwTplmPortRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.14.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwTplmPortTable": {
+    "class": "objecttype",
+    "description": "The table of template management with AS\u0027s port.",
+    "maxaccess": "not-accessible",
+    "name": "hwTplmPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.6.14",
+    "status": "current"
+  },
+  "hwTplmTrap": {
+    "class": "objectidentity",
+    "name": "hwTplmTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.5"
+  },
+  "hwTplmTrapASName": {
+    "class": "objecttype",
+    "description": "The name of AS.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwTplmTrapASName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwTplmTrapFailedReason": {
+    "class": "objecttype",
+    "description": "The reason of failure.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwTplmTrapFailedReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwTplmTrapObjects": {
+    "class": "objectidentity",
+    "name": "hwTplmTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.5.1"
+  },
+  "hwTplmTrapObjectsGroup": {
+    "class": "objectgroup",
+    "description": "The tplm trap objects group.",
+    "name": "hwTplmTrapObjectsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmTrapASName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmTrapFailedReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.5.1.6",
+    "status": "current"
+  },
+  "hwTplmTraps": {
+    "class": "objectidentity",
+    "name": "hwTplmTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.5.2"
+  },
+  "hwTplmTrapsGroup": {
+    "class": "notificationgroup",
+    "description": "The tplm notification objects group.",
+    "name": "hwTplmTrapsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmCmdExecuteFailedNotify"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmCmdExecuteSuccessfulNotify"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwTplmDirectCmdRecoverFail"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.5.1.7",
+    "status": "current"
+  },
+  "hwUniAsBaseAsId": {
+    "class": "objecttype",
+    "description": "AS id.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniAsBaseAsId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUniAsBaseAsName": {
+    "class": "objecttype",
+    "description": "The name of AS.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniAsBaseAsName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwUniAsBaseEntPhysicalContainedIn": {
+    "class": "objecttype",
+    "description": "The value of entPhysicalIndex for the physical entity which contains this physical entity.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniAsBaseEntPhysicalContainedIn",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUniAsBaseEntPhysicalIndex": {
+    "class": "objecttype",
+    "description": "The index of AS physical.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniAsBaseEntPhysicalIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUniAsBaseEntPhysicalName": {
+    "class": "objecttype",
+    "description": "The textual name of the physical entity.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniAsBaseEntPhysicalName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwUniAsBaseEntityPhysicalIndex": {
+    "class": "objecttype",
+    "description": "The index of AS physical.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniAsBaseEntityPhysicalIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUniAsBaseEntityTrapCommunicateType": {
+    "class": "objecttype",
+    "description": "The communicate type.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniAsBaseEntityTrapCommunicateType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUniAsBaseEntityTrapEntFaultID": {
+    "class": "objecttype",
+    "description": "To describe the fault id of trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniAsBaseEntityTrapEntFaultID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUniAsBaseEntityTrapEntType": {
+    "class": "objecttype",
+    "description": "The entity type.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniAsBaseEntityTrapEntType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUniAsBaseReasonDescription": {
+    "class": "objecttype",
+    "description": "Reason description.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniAsBaseReasonDescription",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwUniAsBaseRelativeResource": {
+    "class": "objecttype",
+    "description": "This object may contain a key word to indicate the relative resource of an entity.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniAsBaseRelativeResource",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwUniAsBaseThresholdEntCurrent": {
+    "class": "objecttype",
+    "description": "The current value that been measured.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniAsBaseThresholdEntCurrent",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUniAsBaseThresholdEntValue": {
+    "class": "objecttype",
+    "description": "The threshold value.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniAsBaseThresholdEntValue",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUniAsBaseThresholdHighCritical": {
+    "class": "objecttype",
+    "description": "The critical alarm threshold for rising alarm.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniAsBaseThresholdHighCritical",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUniAsBaseThresholdHighWarning": {
+    "class": "objecttype",
+    "description": "The normal warning threshold for rising alarm.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniAsBaseThresholdHighWarning",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUniAsBaseThresholdHwBaseThresholdIndex": {
+    "class": "objecttype",
+    "description": "The index of base threshold.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniAsBaseThresholdHwBaseThresholdIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUniAsBaseThresholdHwBaseThresholdType": {
+    "class": "objecttype",
+    "description": "The type of base threshold.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniAsBaseThresholdHwBaseThresholdType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUniAsBaseThresholdLowCritical": {
+    "class": "objecttype",
+    "description": "The critical alarm threshold for falling alarm.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniAsBaseThresholdLowCritical",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUniAsBaseThresholdLowWarning": {
+    "class": "objecttype",
+    "description": "The normal warning threshold for falling alarm.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniAsBaseThresholdLowWarning",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUniAsBaseThresholdType": {
+    "class": "objecttype",
+    "description": "The index to indicate the type of threshold for an entry.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniAsBaseThresholdType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUniAsBaseThresholdUnit": {
+    "class": "objecttype",
+    "description": "The unit for this threshold value.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniAsBaseThresholdUnit",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUniAsBaseThresholdValue": {
+    "class": "objecttype",
+    "description": "The current value that been measured.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniAsBaseThresholdValue",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUniAsBaseTrap": {
+    "class": "objectidentity",
+    "name": "hwUniAsBaseTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6"
+  },
+  "hwUniAsBaseTrapEventType": {
+    "class": "objecttype",
+    "description": "To describe the type of trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniAsBaseTrapEventType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUniAsBaseTrapObjects": {
+    "class": "objectidentity",
+    "name": "hwUniAsBaseTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.1"
+  },
+  "hwUniAsBaseTrapProbableCause": {
+    "class": "objecttype",
+    "description": "To describe the probable cause of trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniAsBaseTrapProbableCause",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUniAsBaseTrapSeverity": {
+    "class": "objecttype",
+    "description": "To describe the level of trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniAsBaseTrapSeverity",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUniAsBaseTraps": {
+    "class": "objectidentity",
+    "name": "hwUniAsBaseTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.6.2"
+  },
+  "hwUniBaseTrapCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for SNMP entities supporting unimng base trap.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniBaseTrapObjectsGroup"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniBaseTrapsGroup"
+      }
+    ],
+    "name": "hwUniBaseTrapCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.6.1",
+    "status": "current"
+  },
+  "hwUniBaseTrapCompliances": {
+    "class": "objectidentity",
+    "name": "hwUniBaseTrapCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.6"
+  },
+  "hwUniBaseTrapObjectsGroup": {
+    "class": "objectgroup",
+    "description": "The unimng base trap objects group.",
+    "name": "hwUniBaseTrapObjectsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseAsId"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseTrapSeverity"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseTrapProbableCause"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseTrapEventType"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalContainedIn"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseRelativeResource"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseReasonDescription"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdType"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdValue"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdUnit"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdHighWarning"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdHighCritical"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdLowWarning"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdLowCritical"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapEntType"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapEntFaultID"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntityTrapCommunicateType"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdEntValue"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdEntCurrent"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseEntPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdHwBaseThresholdType"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniAsBaseThresholdHwBaseThresholdIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.6.1.1",
+    "status": "current"
+  },
+  "hwUniBaseTrapsGroup": {
+    "class": "notificationgroup",
+    "description": "The unimng base notification objects group.",
+    "name": "hwUniBaseTrapsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwASBoardFail"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwASBoardFailResume"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwASOpticalInvalid"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwASOpticalInvalidResume"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwASPowerRemove"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwASPowerInsert"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwASPowerInvalid"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwASPowerInvalidResume"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwASFanRemove"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwASFanInsert"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwASFanInvalid"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwASFanInvalidResume"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwASCommunicateError"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwASCommunicateResume"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwASCPUUtilizationRising"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwASCPUUtilizationResume"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwASMemUtilizationRising"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwASMemUtilizationResume"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwASMadConflictDetect"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwASMadConflictResume"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwASBrdTempAlarm"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwASBrdTempResume"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.6.1.2",
+    "status": "current"
+  },
+  "hwUniMbrASDiscoverAttack": {
+    "class": "notificationtype",
+    "description": "An AS discover packet attack is detected.",
+    "name": "hwUniMbrASDiscoverAttack",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniMbrTrapAsSysName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniMbrTrapAsIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniMbrLinkStatTrapLocalPortName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniMbrTrapReceivePktRate"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.3.2.2",
+    "status": "current"
+  },
+  "hwUniMbrConnectError": {
+    "class": "notificationtype",
+    "description": "The notification of fabric-port connect error.",
+    "name": "hwUniMbrConnectError",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniMbrTrapConnectErrorReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.3.2.1",
+    "status": "current"
+  },
+  "hwUniMbrFabricPortMemberDelete": {
+    "class": "notificationtype",
+    "description": "The notification of deleting member of fabric port.",
+    "name": "hwUniMbrFabricPortMemberDelete",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniMbrTrapAsSysName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniMbrTrapAsIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniMbrLinkStatTrapLocalPortName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.3.2.3",
+    "status": "current"
+  },
+  "hwUniMbrIllegalFabricConfig": {
+    "class": "notificationtype",
+    "description": "The notification of IllegalFabricConfig.",
+    "name": "hwUniMbrIllegalFabricConfig",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniMbrTrapAsSysName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniMbrTrapAsIndex"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwUniMbrTrapIllegalConfigReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.3.2.4",
+    "status": "current"
+  },
+  "hwUniMbrLinkStatTrapChangeType": {
+    "class": "objecttype",
+    "description": "UNIMBR trap message changing type of link state.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniMbrLinkStatTrapChangeType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down2up": 2,
+          "up2down": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwUniMbrLinkStatTrapLocalMac": {
+    "class": "objecttype",
+    "description": "UNIMBR trap message local mac.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniMbrLinkStatTrapLocalMac",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwUniMbrLinkStatTrapLocalPortName": {
+    "class": "objecttype",
+    "description": "UNIMBR trap message local port name.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniMbrLinkStatTrapLocalPortName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwUniMbrParaSynFailReason": {
+    "class": "objecttype",
+    "description": "The reason of UNIMBR parameter synchronization failed.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniMbrParaSynFailReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwUniMbrTrap": {
+    "class": "objectidentity",
+    "name": "hwUniMbrTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.3"
+  },
+  "hwUniMbrTrapAsIndex": {
+    "class": "objecttype",
+    "description": "AS index.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniMbrTrapAsIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUniMbrTrapAsSysName": {
+    "class": "objecttype",
+    "description": "Name of AS.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniMbrTrapAsSysName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwUniMbrTrapConnectErrorReason": {
+    "class": "objecttype",
+    "description": "The reason of UNIMBR fabric-port connect error.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniMbrTrapConnectErrorReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwUniMbrTrapIllegalConfigReason": {
+    "class": "objecttype",
+    "description": "The reason of UNIMBR illegal configuration.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniMbrTrapIllegalConfigReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwUniMbrTrapObjects": {
+    "class": "objectidentity",
+    "name": "hwUniMbrTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.3.1"
+  },
+  "hwUniMbrTrapReceivePktRate": {
+    "class": "objecttype",
+    "description": "AS Discover packet rate.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUniMbrTrapReceivePktRate",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwUniMbrTraps": {
+    "class": "objectidentity",
+    "name": "hwUniMbrTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.3.2"
+  },
+  "hwUniMngEnable": {
+    "class": "objecttype",
+    "description": "Unimng enable status.",
+    "maxaccess": "read-write",
+    "name": "hwUniMngEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwUnimngConformance": {
+    "class": "objectidentity",
+    "name": "hwUnimngConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50"
+  },
+  "hwUnimngMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com",
+    "description": "This MIB contains private managed object definitions for Unified Man agement Framework.",
+    "lastupdated": "201507091407Z",
+    "name": "hwUnimngMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.327",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "Add new node hwAsVpnInstance ",
+        "revision": "2015-07-09 14:07"
+      },
+      {
+        "description": "Add new trap node hwTplmDirectCmdRecoverFail LSWCCB-9570",
+        "revision": "2015-01-09 14:07"
+      },
+      {
+        "description": "Modify node description LSWV2R7-9213 at 2014-11-18",
+        "revision": "2014-11-18 15:30"
+      },
+      {
+        "description": "Modify node description LSWCCB-8222 at 2014-10-29",
+        "revision": "2014-10-29 16:57"
+      },
+      {
+        "description": "Modify as entity trap at 2014-10-23",
+        "revision": "2014-10-23 15:30"
+      },
+      {
+        "description": "Add new trap node at 2014-9-11",
+        "revision": "2014-09-11 15:30"
+      },
+      {
+        "description": "Modify node description LSWCCB-6116 LSWCCB-6553 LSWCCB-6908 at 2014-8-19",
+        "revision": "2014-08-19 15:30"
+      },
+      {
+        "description": "Add trap node hwTplmCmdExecuteSuccessfulNotify at 2014-7-10",
+        "revision": "2014-07-10 12:50"
+      },
+      {
+        "description": "Create mib.",
+        "revision": "2014-03-03 20:00"
+      }
+    ]
+  },
+  "hwUnimngModeNotMatchNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when the UNI-MNG mode of AS is different parent\u0027s.",
+    "name": "hwUnimngModeNotMatchNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSysName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsModel"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsMac"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsUnimngMode"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapParentUnimngMode"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.2.2.12",
+    "status": "current"
+  },
+  "hwUnimngNotification": {
+    "class": "objectidentity",
+    "name": "hwUnimngNotification",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31"
+  },
+  "hwUnimngObjects": {
+    "class": "objectidentity",
+    "name": "hwUnimngObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.1"
+  },
+  "hwVermngAsTypeCfgInfoAsTypeIndex": {
+    "class": "objecttype",
+    "description": "The index of AS type.",
+    "maxaccess": "not-accessible",
+    "name": "hwVermngAsTypeCfgInfoAsTypeIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.5.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwVermngAsTypeCfgInfoAsTypeName": {
+    "class": "objecttype",
+    "description": "The name of AS type.",
+    "maxaccess": "read-create",
+    "name": "hwVermngAsTypeCfgInfoAsTypeName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.5.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwVermngAsTypeCfgInfoEntry": {
+    "class": "objecttype",
+    "description": "The entry of AS type configuration table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngAsTypeCfgInfoAsTypeIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVermngAsTypeCfgInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.5.3.1",
+    "status": "current"
+  },
+  "hwVermngAsTypeCfgInfoGroup": {
+    "class": "objectgroup",
+    "description": "The group of AS type.",
+    "name": "hwVermngAsTypeCfgInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngAsTypeCfgInfoPatch"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngAsTypeCfgInfoSystemSoftwareVer"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngAsTypeCfgInfoRowStatus"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngAsTypeCfgInfoSystemSoftware"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngAsTypeCfgInfoAsTypeName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.4.1.3",
+    "status": "current"
+  },
+  "hwVermngAsTypeCfgInfoPatch": {
+    "class": "objecttype",
+    "description": "The filename of patch configured.",
+    "maxaccess": "read-create",
+    "name": "hwVermngAsTypeCfgInfoPatch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.5.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwVermngAsTypeCfgInfoRowStatus": {
+    "class": "objecttype",
+    "description": "The RowStatus of table.",
+    "maxaccess": "read-create",
+    "name": "hwVermngAsTypeCfgInfoRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.5.3.1.50",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwVermngAsTypeCfgInfoSystemSoftware": {
+    "class": "objecttype",
+    "description": "The filename of system software configured.",
+    "maxaccess": "read-create",
+    "name": "hwVermngAsTypeCfgInfoSystemSoftware",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.5.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwVermngAsTypeCfgInfoSystemSoftwareVer": {
+    "class": "objecttype",
+    "description": "The version of system software.",
+    "maxaccess": "read-create",
+    "name": "hwVermngAsTypeCfgInfoSystemSoftwareVer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.5.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwVermngAsTypeCfgInfoTable": {
+    "class": "objecttype",
+    "description": "The table of configuration with AS type.",
+    "maxaccess": "not-accessible",
+    "name": "hwVermngAsTypeCfgInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.5.3",
+    "status": "current"
+  },
+  "hwVermngCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance of version management.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngObjectsGroup"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngUpgradeInfoGroup"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngAsTypeCfgInfoGroup"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngTrapsGroup"
+      }
+    ],
+    "name": "hwVermngCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.4.1",
+    "status": "current"
+  },
+  "hwVermngCompliances": {
+    "class": "objectidentity",
+    "name": "hwVermngCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.4"
+  },
+  "hwVermngFileServerType": {
+    "class": "objecttype",
+    "description": "The type of file server.",
+    "maxaccess": "read-only",
+    "name": "hwVermngFileServerType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftp": 1,
+          "none": 255,
+          "sftp": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVermngGlobalObjects": {
+    "class": "objectidentity",
+    "name": "hwVermngGlobalObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.5.1"
+  },
+  "hwVermngObjects": {
+    "class": "objectidentity",
+    "name": "hwVermngObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.5"
+  },
+  "hwVermngObjectsGroup": {
+    "class": "objectgroup",
+    "description": "The group of global objects.",
+    "name": "hwVermngObjectsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngFileServerType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.4.1.1",
+    "status": "current"
+  },
+  "hwVermngTrap": {
+    "class": "objectidentity",
+    "name": "hwVermngTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.4"
+  },
+  "hwVermngTrapObjects": {
+    "class": "objectidentity",
+    "name": "hwVermngTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.4.1"
+  },
+  "hwVermngTraps": {
+    "class": "objectidentity",
+    "name": "hwVermngTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.4.2"
+  },
+  "hwVermngTrapsGroup": {
+    "class": "notificationgroup",
+    "description": "The group of notification of version management.",
+    "name": "hwVermngTrapsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngUpgradeFail"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.4.1.4",
+    "status": "current"
+  },
+  "hwVermngUpgradeFail": {
+    "class": "notificationtype",
+    "description": "Upgrade failed.",
+    "name": "hwVermngUpgradeFail",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwAsmngTrapAsSysName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngUpgradeInfoAsErrorCode"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngUpgradeInfoAsErrorDescr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.31.4.2.1",
+    "status": "current"
+  },
+  "hwVermngUpgradeInfoAsDownloadPatch": {
+    "class": "objecttype",
+    "description": "The filename of patch which will be downloaded to AS.",
+    "maxaccess": "read-only",
+    "name": "hwVermngUpgradeInfoAsDownloadPatch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.5.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwVermngUpgradeInfoAsDownloadSoftware": {
+    "class": "objecttype",
+    "description": "The filename of system software which will be downloaded to AS.",
+    "maxaccess": "read-only",
+    "name": "hwVermngUpgradeInfoAsDownloadSoftware",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.5.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwVermngUpgradeInfoAsDownloadSoftwareVer": {
+    "class": "objecttype",
+    "description": "The version of system software which will be downloaded to AS..",
+    "maxaccess": "read-only",
+    "name": "hwVermngUpgradeInfoAsDownloadSoftwareVer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.5.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwVermngUpgradeInfoAsErrorCode": {
+    "class": "objecttype",
+    "description": "The error code in upgrading.",
+    "maxaccess": "read-only",
+    "name": "hwVermngUpgradeInfoAsErrorCode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.5.2.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVermngUpgradeInfoAsErrorDescr": {
+    "class": "objecttype",
+    "description": "The eroor description in upgrading.",
+    "maxaccess": "read-only",
+    "name": "hwVermngUpgradeInfoAsErrorDescr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.5.2.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwVermngUpgradeInfoAsFilePhase": {
+    "class": "objecttype",
+    "description": "The file type which is in downloading.",
+    "maxaccess": "read-only",
+    "name": "hwVermngUpgradeInfoAsFilePhase",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.5.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 255,
+          "patch": 2,
+          "systemSoftware": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVermngUpgradeInfoAsIndex": {
+    "class": "objecttype",
+    "description": "The ID of AS.",
+    "maxaccess": "not-accessible",
+    "name": "hwVermngUpgradeInfoAsIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.5.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwVermngUpgradeInfoAsName": {
+    "class": "objecttype",
+    "description": "The name of AS.",
+    "maxaccess": "read-only",
+    "name": "hwVermngUpgradeInfoAsName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.5.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwVermngUpgradeInfoAsSysPatch": {
+    "class": "objecttype",
+    "description": "The filename of running patch of AS.",
+    "maxaccess": "read-only",
+    "name": "hwVermngUpgradeInfoAsSysPatch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.5.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwVermngUpgradeInfoAsSysSoftware": {
+    "class": "objecttype",
+    "description": "The filename of running system software of AS.",
+    "maxaccess": "read-only",
+    "name": "hwVermngUpgradeInfoAsSysSoftware",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.5.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwVermngUpgradeInfoAsSysSoftwareVer": {
+    "class": "objecttype",
+    "description": "The version of running system software of AS.",
+    "maxaccess": "read-only",
+    "name": "hwVermngUpgradeInfoAsSysSoftwareVer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.5.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwVermngUpgradeInfoAsUpgradePhase": {
+    "class": "objecttype",
+    "description": "The state in downloading file.",
+    "maxaccess": "read-only",
+    "name": "hwVermngUpgradeInfoAsUpgradePhase",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.5.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "activateFile": 3,
+          "downloadFile": 1,
+          "none": 255,
+          "reboot": 4,
+          "wait": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVermngUpgradeInfoAsUpgradeResult": {
+    "class": "objecttype",
+    "description": "The result of upgrade.",
+    "maxaccess": "read-only",
+    "name": "hwVermngUpgradeInfoAsUpgradeResult",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.5.2.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failed": 2,
+          "none": 255,
+          "successfully": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVermngUpgradeInfoAsUpgradeState": {
+    "class": "objecttype",
+    "description": "The upgrade status of AS.",
+    "maxaccess": "read-only",
+    "name": "hwVermngUpgradeInfoAsUpgradeState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.5.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noUpgrade": 1,
+          "none": 255,
+          "upgrading": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVermngUpgradeInfoAsUpgradeType": {
+    "class": "objecttype",
+    "description": "The type of upgrade.",
+    "maxaccess": "read-only",
+    "name": "hwVermngUpgradeInfoAsUpgradeType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.5.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 2,
+          "none": 255,
+          "verSync": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVermngUpgradeInfoEntry": {
+    "class": "objecttype",
+    "description": "The entry of the table of AS upgrade information.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngUpgradeInfoAsIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVermngUpgradeInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.5.2.1",
+    "status": "current"
+  },
+  "hwVermngUpgradeInfoGroup": {
+    "class": "objectgroup",
+    "description": "The group of upgrade info.",
+    "name": "hwVermngUpgradeInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngUpgradeInfoAsName"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngUpgradeInfoAsSysSoftware"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngUpgradeInfoAsSysSoftwareVer"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngUpgradeInfoAsSysPatch"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngUpgradeInfoAsDownloadSoftware"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngUpgradeInfoAsDownloadSoftwareVer"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngUpgradeInfoAsDownloadPatch"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngUpgradeInfoAsUpgradeState"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngUpgradeInfoAsUpgradeType"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngUpgradeInfoAsFilePhase"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngUpgradeInfoAsUpgradePhase"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngUpgradeInfoAsUpgradeResult"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngUpgradeInfoAsErrorCode"
+      },
+      {
+        "module": "HUAWEI-UNIMNG-MIB",
+        "object": "hwVermngUpgradeInfoAsErrorDescr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.327.50.4.1.2",
+    "status": "current"
+  },
+  "hwVermngUpgradeInfoTable": {
+    "class": "objecttype",
+    "description": "The table of AS upgrade information.",
+    "maxaccess": "not-accessible",
+    "name": "hwVermngUpgradeInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.327.5.2",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "MibIdentifier",
+      "Counter64",
+      "iso",
+      "BITS",
+      "Integer32",
+      "Bits",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "IpAddress",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "AutonomousType"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-UNIMNG-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:15 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-UNIMNG-MIB"
+  }
+}

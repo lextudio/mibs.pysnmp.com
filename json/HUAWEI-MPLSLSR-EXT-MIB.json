@@ -1,0 +1,1198 @@
+{
+  "hwLdpOutSegmentIndexArray": {
+    "class": "objecttype",
+    "description": "This object indicates the outsegment index of the members of the LDP virtual tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwLdpOutSegmentIndexArray",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.53.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLdpStaticFrrGroup": {
+    "class": "objectgroup",
+    "description": "Objects required for LDP static FRR configuration management.",
+    "name": "hwLdpStaticFrrGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwLdpStaticFrrNextHop"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwLdpStaticFrrIpPrefix"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwLdpStaticFrrInterfaceRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.182.2.2.3",
+    "status": "current"
+  },
+  "hwLdpStaticFrrInterfaceEntry": {
+    "class": "objecttype",
+    "description": "This entry is used to display and configure the FRR-supporting interface. The indexes of this entry are hwMplsInterfaceIndex and hwLdpStaticFrrPriority. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsInterfaceIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwLdpStaticFrrPriority"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwLdpStaticFrrInterfaceEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.52.1",
+    "status": "current"
+  },
+  "hwLdpStaticFrrInterfaceRowStatus": {
+    "class": "objecttype",
+    "description": "This object indicates whether one entry is created or deleted in hwLdpStaticFrrInterfaceTable. The value of the object can be CreatAndGo or Destroy. When the value is set as CreatAndGo, and the entry is created, the status of the object will change into active.",
+    "maxaccess": "read-create",
+    "name": "hwLdpStaticFrrInterfaceRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.52.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwLdpStaticFrrInterfaceTable": {
+    "class": "objecttype",
+    "description": "This table is used to configure or delete static LDP FRR entries on the interface. The indexes of this table are hwMplsInterfaceIndex and hwLdpStaticFrrPriority. ",
+    "maxaccess": "not-accessible",
+    "name": "hwLdpStaticFrrInterfaceTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.52",
+    "status": "current"
+  },
+  "hwLdpStaticFrrIpPrefix": {
+    "class": "objecttype",
+    "description": "This object indicates the IP prefix policy. The valid prefix length ranges from 1 to 169 characters. When the length is 0, it indicates that the policy is deleted. Range: 1-169 ",
+    "maxaccess": "read-create",
+    "name": "hwLdpStaticFrrIpPrefix",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.52.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwLdpStaticFrrNextHop": {
+    "class": "objecttype",
+    "description": "This object indicates the next hop of the static FRR.",
+    "maxaccess": "read-create",
+    "name": "hwLdpStaticFrrNextHop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.52.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwLdpStaticFrrPriority": {
+    "class": "objecttype",
+    "description": "This object indicates the priority of a static FRR entry.",
+    "maxaccess": "not-accessible",
+    "name": "hwLdpStaticFrrPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.52.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLdpVirtualStatus": {
+    "class": "objecttype",
+    "description": "The status of this LDP virtual tunnel. Options: 1. up(1) -indicates that the status of this LDP virtual tunnel is Up. 2. down(2) -indicates that the status of this LDP virtual tunnel is Down. 3. testing(3) -indicates that the status of this LDP virtual tunnel is testing, this is, in some test mode. Default: up(1) ",
+    "maxaccess": "read-only",
+    "name": "hwLdpVirtualStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.53.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "testing": 3,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLdpVirtualTunnelEntry": {
+    "class": "objecttype",
+    "description": "An entry of the virtual tunnel table, used to display the features associated with the virtual tunnel. The index of this entry is hwLdpVirtualTunnelIndex. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwLdpVirtualTunnelIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwLdpVirtualTunnelEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.53.1",
+    "status": "current"
+  },
+  "hwLdpVirtualTunnelFEC": {
+    "class": "objecttype",
+    "description": "This object indicates the LDP virtual tunnel FEC.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwLdpVirtualTunnelFEC",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwLdpVirtualTunnelIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the LDP virtual tunnel index.",
+    "maxaccess": "not-accessible",
+    "name": "hwLdpVirtualTunnelIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.53.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwLdpVirtualTunnelTable": {
+    "class": "objecttype",
+    "description": "This table specifies LDP virtual tunnel information. The index of this table is hwLdpVirtualTunnelIndex. ",
+    "maxaccess": "not-accessible",
+    "name": "hwLdpVirtualTunnelTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.53",
+    "status": "current"
+  },
+  "hwLdpVirtualTunnelTrap": {
+    "class": "objectidentity",
+    "name": "hwLdpVirtualTunnelTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.54"
+  },
+  "hwLdpXcIndexArray": {
+    "class": "objecttype",
+    "description": "This object indicates the xc index of the members of the LDP virtual tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwLdpXcIndexArray",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.53.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMplsBasicGroup": {
+    "class": "objectgroup",
+    "description": "Objects required for MPLS basic configuration management.",
+    "name": "hwMplsBasicGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsCapabilityConfig"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsLabelAdvertise"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsStatisticsIntervalTimer"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.182.2.2.1",
+    "status": "current"
+  },
+  "hwMplsBfdCapabilityConfig": {
+    "class": "objecttype",
+    "description": "This object indicates the configuration or deletion of the MPLS BFD capability. Before the MPLS BFD function is enabled, you must enable the MPLS capability and BFD capability.",
+    "maxaccess": "read-write",
+    "name": "hwMplsBfdCapabilityConfig",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMplsBfdDetectMultiplier": {
+    "class": "objecttype",
+    "description": "This object indicates the value of the detect multiplier. If the value of the detect multiplier is set as 0, it indicates that the value returns to the default value.",
+    "maxaccess": "read-write",
+    "name": "hwMplsBfdDetectMultiplier",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMplsBfdGroup": {
+    "class": "objectgroup",
+    "description": "Objects required for MPLS BFD configuration management.",
+    "name": "hwMplsBfdGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsBfdCapabilityConfig"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsBfdMinTx"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsBfdMinRx"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsBfdDetectMultiplier"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsFecListName"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsBfdTrigger"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsBfdTriggerNextHop"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsBfdTriggerInterface"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsBfdTriggerFecListName"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsFecListRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.182.2.2.2",
+    "status": "current"
+  },
+  "hwMplsBfdMinRx": {
+    "class": "objecttype",
+    "description": "This object indicates the minimum receiving period. If the minimum receiving period is set as 0 seconds, it indicates that the minimum receiving period returns to the default value.",
+    "maxaccess": "read-write",
+    "name": "hwMplsBfdMinRx",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMplsBfdMinTx": {
+    "class": "objecttype",
+    "description": "This object indicates the minimum forwarding period. If the minimum forwarding period is set as 0 seconds, it indicates that the minimum forwarding period returns to the default value.",
+    "maxaccess": "read-write",
+    "name": "hwMplsBfdMinTx",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMplsBfdTrigger": {
+    "class": "objecttype",
+    "description": "This object indicates the MPLS BFD triggering policy. By using this object, you can also specify the next hop and the outgoing interface. To configure the MPLS BFD triggering policy, you must enable MPLS and BFD in advance. In addition, this MPLS BFD triggering policy cannot be modified, and you can only delete the policy and then create a new one. Options: 1. triggerHost(1) -indicates that the MPLS BFD triggering policy was configured as host. 2. triggerFeclist(2) -indicates that the MPLS BFD triggering policy was configured as FEC list. 3. disabled(3) -indicates that the MPLS BFD triggering policy was not configured. Default: triggerHost(1) ",
+    "maxaccess": "read-write",
+    "name": "hwMplsBfdTrigger",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 3,
+          "triggerFeclist": 2,
+          "triggerHost": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsBfdTriggerFecListName": {
+    "class": "objecttype",
+    "description": "This object indicates the FEC list when the MPLS BFD trigger policy is configured. The valid length of the FEC list ranges from 1 to 31 characters. If the specified FEC list does not exist, or the specified FEC list contains no FEC node, no LSP can be triggered. Range: 1-31 ",
+    "maxaccess": "read-write",
+    "name": "hwMplsBfdTriggerFecListName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMplsBfdTriggerInterface": {
+    "class": "objecttype",
+    "description": "This object indicates the outgoing interface when the MPLS BFD trigger policy is configured as host. The next hop and the outgoing interface can be specified at the same time. In addition, you can get the correct interface index based on the ifIndex of ifTable.",
+    "maxaccess": "read-write",
+    "name": "hwMplsBfdTriggerInterface",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsBfdTriggerNextHop": {
+    "class": "objecttype",
+    "description": "This object indicates the next hop when the MPLS BFD trigger policy is configured as host. The next hop and the outgoing interface can be specified at the same time.",
+    "maxaccess": "read-write",
+    "name": "hwMplsBfdTriggerNextHop",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMplsBgpBfdCapabilityConfig": {
+    "class": "objecttype",
+    "description": "This object indicates the configuration or deletion of the MPLS BGP BFD capability. Before the MPLS BGP BFD function is enabled, you must enable the MPLS capability and BFD capability.",
+    "maxaccess": "read-write",
+    "name": "hwMplsBgpBfdCapabilityConfig",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMplsBgpBfdDetectMultiplier": {
+    "class": "objecttype",
+    "description": "This object indicates the value of the detect multiplier. If the value of the detect multiplier is set as 0, it indicates that the value returns to the default value.",
+    "maxaccess": "read-write",
+    "name": "hwMplsBgpBfdDetectMultiplier",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMplsBgpBfdGroup": {
+    "class": "objectgroup",
+    "description": "Objects required for MPLS BGP BFD configuration management.",
+    "name": "hwMplsBgpBfdGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsBgpBfdCapabilityConfig"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsBgpBfdMinTx"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsBgpBfdMinRx"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsBgpBfdDetectMultiplier"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsBgpBfdTriggerTunnel"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsBgpBfdTriggerTunnelIpprefix"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.182.2.2.8",
+    "status": "current"
+  },
+  "hwMplsBgpBfdMinRx": {
+    "class": "objecttype",
+    "description": "This object indicates the minimum receiving period. If the minimum receiving period is set as 0 seconds, it indicates that the minimum receiving period returns to the default value.",
+    "maxaccess": "read-write",
+    "name": "hwMplsBgpBfdMinRx",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMplsBgpBfdMinTx": {
+    "class": "objecttype",
+    "description": "This object indicates the minimum forwarding period. If the minimum forwarding period is set as 0 seconds, it indicates that the minimum forwarding period returns to the default value.",
+    "maxaccess": "read-write",
+    "name": "hwMplsBgpBfdMinTx",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMplsBgpBfdTriggerTunnel": {
+    "class": "objecttype",
+    "description": "This object indicates the MPLS BGP BFD triggering policy. To configure the MPLS BGP BFD triggering policy, you must enable MPLS and BFD in advance. Options: 1. triggerHost(1) -indicates that the MPLS BGP BFD triggering policy was configured as host. 2. triggerIpPrefix(2) -indicates that the MPLS BGP BFD triggering policy was configured as Ip Prefix. 3. disabled(3) -indicates that the MPLS BGP BFD triggering policy was not configured. Default: disabled(3) ",
+    "maxaccess": "read-write",
+    "name": "hwMplsBgpBfdTriggerTunnel",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 3,
+          "triggerHost": 1,
+          "triggerIpPrefix": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsBgpBfdTriggerTunnelIpprefix": {
+    "class": "objecttype",
+    "description": "This object indicates the IP Prefix name when the MPLS BGP BFD trigger policy is configured. The valid length of the IP prefix name ranges from 1 to 169 characters. Range: 1-169 ",
+    "maxaccess": "read-write",
+    "name": "hwMplsBgpBfdTriggerTunnelIpprefix",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMplsCapabilityConfig": {
+    "class": "objecttype",
+    "description": "This object indicates the configuration or deletion of the MPLS capability. Before the MPLS capability is enabled, the MPLS LSR ID must be configured.",
+    "maxaccess": "read-write",
+    "name": "hwMplsCapabilityConfig",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMplsFecListEntry": {
+    "class": "objecttype",
+    "description": "An FEC node entry of FEC list table. It can be created, or deleted. The indexes of this entry are hwMplsFecNodeIpAddress, hwMplsFecNodeInterface, and hwMplsFecNodeNextHop. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsFecNodeIpAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsFecNodeInterface"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsFecNodeNextHop"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMplsFecListEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.50.1",
+    "status": "current"
+  },
+  "hwMplsFecListName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of the FEC LIST. The name of the FEC LIST is globally unique, with a valid length from 1 to 31 characters. If the character length is 0, it indicates that the FEC LIST is deleted. Furthermore, the FEC LIST cannot be modified, and you can only delete the FEC LIST and then create a new one. If the FEC LIST is used by others, you need to cancel the usage and then delete the FEC LIST. Range: 1-31 ",
+    "maxaccess": "read-write",
+    "name": "hwMplsFecListName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMplsFecListRowStatus": {
+    "class": "objecttype",
+    "description": "This object indicates whether one entry of FEC list table is created or destroyed. The value of the object can be CreatAndGo or Destroy. If the value is set as CreatAndGo, and the entry is created in hwFecListTable, the status of the object will change into active.",
+    "maxaccess": "read-create",
+    "name": "hwMplsFecListRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.50.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMplsFecListTable": {
+    "class": "objecttype",
+    "description": "This table is used to configure or delete MPLS FEC Node. The indexes of this table are hwMplsFecNodeIpAddress, hwMplsFecNodeInterface, and hwMplsFecNodeNextHop. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsFecListTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.50",
+    "status": "current"
+  },
+  "hwMplsFecNodeInterface": {
+    "class": "objecttype",
+    "description": "This object indicates the outgoing interface of the FEC node. You can get the correct interface index based on the ifIndex of ifTable.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsFecNodeInterface",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.50.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsFecNodeIpAddress": {
+    "class": "objecttype",
+    "description": "This object indicates the IP address of the specified FEC node.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsFecNodeIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.50.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMplsFecNodeNextHop": {
+    "class": "objecttype",
+    "description": "This object indicates the next hop of the FEC node.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsFecNodeNextHop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.50.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMplsInterfaceEntry": {
+    "class": "objecttype",
+    "description": "An entry of the MPLS interface table, used to display and configure features on the MPLS-supporting interface. The index of this entry is hwMplsInterfaceIndex. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsInterfaceIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMplsInterfaceEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.51.1",
+    "status": "current"
+  },
+  "hwMplsInterfaceGroup": {
+    "class": "objectgroup",
+    "description": "Objects required for MPLS configuration management on interface.",
+    "name": "hwMplsInterfaceGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsMtu"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsInterfaceRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.182.2.2.4",
+    "status": "current"
+  },
+  "hwMplsInterfaceIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the interface index. You can get the correct interface index based on the ifIndex of ifTable.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsInterfaceIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.51.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwMplsInterfaceRowStatus": {
+    "class": "objecttype",
+    "description": "This object indicates whether one entry is created or deleted in hwMplsInterfaceTable. The value of the object can be CreatAndGo and Destroy. When the value is set as CreatAndGo, and the entry is created, the status of the object will change into active.",
+    "maxaccess": "read-create",
+    "name": "hwMplsInterfaceRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.51.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMplsInterfaceTable": {
+    "class": "objecttype",
+    "description": "This table is used to configure or delete the MPLS capability on the interface. The index of this table is hwMplsInterfaceIndex. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsInterfaceTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.51",
+    "status": "current"
+  },
+  "hwMplsLabelAdvertise": {
+    "class": "objecttype",
+    "description": "This object indicates the way to configure label advertisement policy. By default, the label advertisement policy is implicitnull. Before the label advertisement policy is configured, MPLS capability must be enabled. Options: 1. explicitNull(1) -indicates that the label advertisement policy is explicitNull. 2. implicitNull(2) -indicates that the label advertisement policy is implicitNull. 3. nonNull(3) -indicates that the label advertisement policy is nonNull. Default: implicitNull(2) ",
+    "maxaccess": "read-write",
+    "name": "hwMplsLabelAdvertise",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "explicitNull": 1,
+          "implicitNull": 2,
+          "nonNull": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsLdpVirtualTunnelDown": {
+    "class": "notificationtype",
+    "description": "A trap is sent when an LDP virtual tunnel goes Down.",
+    "name": "hwMplsLdpVirtualTunnelDown",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwLdpVirtualTunnelFEC"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.54.2",
+    "status": "current"
+  },
+  "hwMplsLdpVirtualTunnelGroup": {
+    "class": "objectgroup",
+    "description": "Objects required for LDP virtual tunnel management.",
+    "name": "hwMplsLdpVirtualTunnelGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwLdpVirtualTunnelFEC"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwLdpVirtualStatus"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwLdpXcIndexArray"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwLdpOutSegmentIndexArray"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.182.2.2.5",
+    "status": "current"
+  },
+  "hwMplsLdpVirtualTunnelNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "Notification information about LDP virtual tunnel.",
+    "name": "hwMplsLdpVirtualTunnelNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsLdpVirtualTunnelUp"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsLdpVirtualTunnelDown"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.182.2.2.6",
+    "status": "current"
+  },
+  "hwMplsLdpVirtualTunnelUp": {
+    "class": "notificationtype",
+    "description": "A trap is sent when an LDP virtual tunnel goes Up.",
+    "name": "hwMplsLdpVirtualTunnelUp",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwLdpVirtualTunnelFEC"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.54.1",
+    "status": "current"
+  },
+  "hwMplsLsrExtCompliances": {
+    "class": "objectidentity",
+    "name": "hwMplsLsrExtCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.2.1"
+  },
+  "hwMplsLsrExtConformance": {
+    "class": "objectidentity",
+    "name": "hwMplsLsrExtConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.2"
+  },
+  "hwMplsLsrExtGroup": {
+    "class": "objectidentity",
+    "name": "hwMplsLsrExtGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.2.2"
+  },
+  "hwMplsLsrExtMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "This MIB provides management of MPLS basic configurations. It is an extension of MPLS-LSR-STD-MIB.",
+    "lastupdated": "201309241655Z",
+    "name": "hwMplsLsrExtMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.182",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "V2.01, added six nodes about MPLS BGP BFD configuration management.",
+        "revision": "2013-09-24 16:55"
+      },
+      {
+        "description": "V2.00, delete Delval clause in these nodes: hwMplsLabelAdvertise, hwLdpVirtualStatus.",
+        "revision": "2011-07-30 11:00"
+      },
+      {
+        "description": "V1.03, modified the description.",
+        "revision": "2010-11-22 16:00"
+      },
+      {
+        "description": "V1.02, modified the description.",
+        "revision": "2010-08-11 16:00"
+      },
+      {
+        "description": "V1.01, added the object hwMplsStaticLspTable and modified the description.",
+        "revision": "2010-07-12 16:00"
+      },
+      {
+        "description": "V1.00, initial version for the configuration of MPLS capabilities.",
+        "revision": "2009-03-10 16:00"
+      }
+    ]
+  },
+  "hwMplsLsrExtObject": {
+    "class": "objectidentity",
+    "name": "hwMplsLsrExtObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1"
+  },
+  "hwMplsLsrId": {
+    "class": "objecttype",
+    "description": "This object indicates the configuration of the MPLS LSR ID. Before the MPLS capability is enabled, the MPLS LSR ID must be configured. After the MPLS capability is enabled, the MPLS LSR ID cannot be modified or deleted. If the MPLS LSR ID is set as 0.0.0.0, it indicates that the MPLS LSR ID is deleted. The MPLS LSR ID and the MPLS capability cannot be configured together.",
+    "maxaccess": "read-write",
+    "name": "hwMplsLsrId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMplsModuleCompliance": {
+    "class": "modulecompliance",
+    "description": "hwMplsModuleCompliance",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsBasicGroup"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsInterfaceGroup"
+      }
+    ],
+    "name": "hwMplsModuleCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.2.1.1",
+    "status": "current"
+  },
+  "hwMplsMtu": {
+    "class": "objecttype",
+    "description": "This object indicates the MPLS MTU of an interface. If the value of the MPLS MTU is set as 0, it indicates that the MPLS MTU is deleted.",
+    "maxaccess": "read-create",
+    "name": "hwMplsMtu",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.51.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMplsStaticLspDestAddr": {
+    "class": "objecttype",
+    "description": "This object indicates the destination.",
+    "maxaccess": "read-create",
+    "name": "hwMplsStaticLspDestAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.55.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMplsStaticLspEntry": {
+    "class": "objecttype",
+    "description": "The entry is used to show or configure static LSP. The index of this entry is hwMplsStaticLspName. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsStaticLspName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMplsStaticLspEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.55.1",
+    "status": "current"
+  },
+  "hwMplsStaticLspGroup": {
+    "class": "objectgroup",
+    "description": "Objects required for static LSP configuration management.",
+    "name": "hwMplsStaticLspGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsStaticLspType"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsStaticLspInIntfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsStaticLspInLabel"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsStaticLspLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsStaticLspTunnelID"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsStaticLspNextHop"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsStaticLspOutIntfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsStaticLspOutLabel"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsStaticLspDestAddr"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsStaticLspMaskLen"
+      },
+      {
+        "module": "HUAWEI-MPLSLSR-EXT-MIB",
+        "object": "hwMplsStaticLspRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.182.2.2.7",
+    "status": "current"
+  },
+  "hwMplsStaticLspInIntfIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the incoming-interface index.",
+    "maxaccess": "read-create",
+    "name": "hwMplsStaticLspInIntfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.55.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsStaticLspInLabel": {
+    "class": "objecttype",
+    "description": "This object indicates the in-label.",
+    "maxaccess": "read-create",
+    "name": "hwMplsStaticLspInLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.55.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MplsLabel"
+    }
+  },
+  "hwMplsStaticLspLsrId": {
+    "class": "objecttype",
+    "description": "This object indicates the LSR ID of ingress static LSP.",
+    "maxaccess": "read-create",
+    "name": "hwMplsStaticLspLsrId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.55.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMplsStaticLspMaskLen": {
+    "class": "objecttype",
+    "description": "This object indicates the mask length.",
+    "maxaccess": "read-create",
+    "name": "hwMplsStaticLspMaskLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.55.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsStaticLspName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of static LSP.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsStaticLspName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.55.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwMplsStaticLspNextHop": {
+    "class": "objecttype",
+    "description": "This object indicates the nexthop of static LSP.",
+    "maxaccess": "read-create",
+    "name": "hwMplsStaticLspNextHop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.55.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMplsStaticLspOutIntfIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the outgoing-interface index.",
+    "maxaccess": "read-create",
+    "name": "hwMplsStaticLspOutIntfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.55.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsStaticLspOutLabel": {
+    "class": "objecttype",
+    "description": "This object indicates the out-label.",
+    "maxaccess": "read-create",
+    "name": "hwMplsStaticLspOutLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.55.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MplsLabel"
+    }
+  },
+  "hwMplsStaticLspRowStatus": {
+    "class": "objecttype",
+    "description": "This object indicates whether one entry is created or deleted in hwMplsStaticLspTable. The value of the object can be CreateAndGo or Destroy. When the value is set as CreateAndGo, and the entry is created, the status of the object will change into active.",
+    "maxaccess": "read-create",
+    "name": "hwMplsStaticLspRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.55.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMplsStaticLspTable": {
+    "class": "objecttype",
+    "description": "This table is used to create or delete static LSP configurations. The index of this table is hwMplsStaticLspName. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsStaticLspTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.55",
+    "status": "current"
+  },
+  "hwMplsStaticLspTunnelID": {
+    "class": "objecttype",
+    "description": "This object indicates the Tunnel ID of ingress static LSP.",
+    "maxaccess": "read-create",
+    "name": "hwMplsStaticLspTunnelID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.55.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsStaticLspType": {
+    "class": "objecttype",
+    "description": "This object is used to identify the type of static LSP. Options: 1. ingress(1) -indicates that the type of the static LSP is ingress. 2. transit(2) -indicates that the type of the static LSP is transit. 3. egress(3) -indicates that the type of the static LSP is egress. 4. ingressBindTunnel(4) -indicates that the type of the static LSP is ingress-bind-tunnel. ",
+    "maxaccess": "read-create",
+    "name": "hwMplsStaticLspType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.55.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "egress": 3,
+          "ingress": 1,
+          "ingressBindTunnel": 4,
+          "transit": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsStatisticsIntervalTimer": {
+    "class": "objecttype",
+    "description": "This object indicates the value of the MPLS statistics timer. Range: 30-65535 Default: 0 Unit: seconds ",
+    "maxaccess": "read-write",
+    "name": "hwMplsStatisticsIntervalTimer",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.182.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "MPLS-TC-STD-MIB": [
+      "MplsLabel"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "iso",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "TimeTicks",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-MPLSLSR-EXT-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:25 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-MPLSLSR-EXT-MIB"
+  }
+}

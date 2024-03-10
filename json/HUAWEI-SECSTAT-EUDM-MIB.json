@@ -1,0 +1,1859 @@
+{
+  "hwSECSTAT": {
+    "class": "objectidentity",
+    "name": "hwSECSTAT",
+    "oid": "1.3.6.1.4.1.2011.5.25.11"
+  },
+  "hwSECSTATEudm": {
+    "class": "moduleidentity",
+    "contactinfo": " ADDR: HUAWEI TECHNOLOGY CO.,LTD,SHEZHEN CHINA Tel: 86-755-26540808 ",
+    "description": " V1.00 The HUAWEI-STCSTAT-EUDM-MIB contains objects to manage the security statistics information for firewall product. ",
+    "lastupdated": "200304101100Z",
+    "name": "hwSECSTATEudm",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwSECSTATEudmCompliance": {
+    "class": "objectidentity",
+    "name": "hwSECSTATEudmCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.3.1"
+  },
+  "hwSECSTATEudmConformance": {
+    "class": "objectidentity",
+    "name": "hwSECSTATEudmConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.3"
+  },
+  "hwSECSTATEudmMibGroups": {
+    "class": "objectidentity",
+    "name": "hwSECSTATEudmMibGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.3.2"
+  },
+  "hwSECSTATEudmZoneCfgGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwSECSTATEudmZoneCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessTcpInZoneNumMax"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessTcpInZoneNumMin"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessTcpInIPNumMax"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessTcpInIPNumMin"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessTcpOutZoneNumMax"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessTcpOutZoneNumMin"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessTcpOutIPNumMax"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessTcpOutIPNumMin"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessUdpInZoneNumMax"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessUdpInZoneNumMin"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessUdpInIPNumMax"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessUdpInIPNumMin"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessUdpOutZoneNumMax"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessUdpOutZoneNumMin"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessUdpOutIPNumMax"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessUdpOutIPNumMin"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessTcpInZoneSpeedMax"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessTcpInZoneSpeedMin"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessTcpInIPSpeedMax"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessTcpInIPSpeedMin"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessTcpOutZoneSpeedMax"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessTcpOutZoneSpeedMin"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessTcpOutIPSpeedMax"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessTcpOutIPSpeedMin"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessUdpInZoneSpeedMax"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessUdpInZoneSpeedMin"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessUdpInIPSpeedMax"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessUdpInIPSpeedMin"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessUdpOutZoneSpeedMax"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessUdpOutZoneSpeedMin"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessUdpOutIPSpeedMax"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessUdpOutIPSpeedMin"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmCfgEnbaleZoneIn"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmCfgEnbaleZoneOut"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmCfgEnbaleIpIn"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmCfgEnbaleIPOut"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessCfgSetDefault"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmCfgEnableSetDefault"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.3.2.2",
+    "status": "current"
+  },
+  "hwSECSTATEudmZoneMonitorGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwSECSTATEudmZoneMonitorGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneInTcpSess"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneInUdpSess"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneInIcmpSess"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneInConn"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneInHalfConn"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneInTcpSessSpeed"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneInUdpSessSpeed"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneInIcmpSessSpeed"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneInConnSpeed"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneInHalfConnSpeed"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneInAclDenyIcmpPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneInAclDenyIcmpOcts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneInAclDenyNonIcmpPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneInAclDenyNonIcmpOcts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneInIcmpFloodDropPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneInUdpFloodDropPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneInFtpPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneInSmtpPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneInHttpPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneInH323Pkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneInRtspPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneOutTcpSess"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneOutUdpSess"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneOutIcmpSess"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneOutConn"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneOutHalfConn"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneOutTcpSessSpeed"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneOutUdpSessSpeed"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneOutIcmpSessSpeed"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneOutConnSpeed"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneOutHalfConnSpeed"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneOutAclDenyIcmpPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneOutAclDenyIcmpOcts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneOutAclDenyNonIcmpPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneOutAclDenyNonIcmpOcts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneOutDftAclDenyIcmpPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneOutFtpPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneOutSmtpPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneOutHttpPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneOutH323Pkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneOutRtspPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneInDftAclDenyIcmpPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneInBlsDenyPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneInDftAclDenyPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatClearZoneInfo"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneOutDftAclDenyPkts"
+      },
+      {
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneOutBlsDenyPkts"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.3.2.4",
+    "status": "current"
+  },
+  "hwSecStatClearZoneInfo": {
+    "class": "objecttype",
+    "description": " This OID is used for clearing the statistics information of the zone. When you want to clear the information, set this OID to 1. ",
+    "maxaccess": "read-write",
+    "name": "hwSecStatClearZoneInfo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.48",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmCfgEnableEntry": {
+    "class": "objecttype",
+    "description": "The entry to indicate whether the statistics is enabled in this zone.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmCfgEnableZoneID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSecStatEudmCfgEnableEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.2.1",
+    "status": "current"
+  },
+  "hwSecStatEudmCfgEnableSetDefault": {
+    "class": "objecttype",
+    "description": " This OID is used for setting the statistics enabling configuration of the zone to default. When you want to set the calue to default, set this OID to 1. ",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmCfgEnableSetDefault",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmCfgEnableTable": {
+    "class": "objecttype",
+    "description": "The table for status to indicate whether the statistics is enabled in the zone.",
+    "maxaccess": "not-accessible",
+    "name": "hwSecStatEudmCfgEnableTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.2",
+    "status": "current"
+  },
+  "hwSecStatEudmCfgEnableZoneID": {
+    "class": "objecttype",
+    "description": "The ID of security zone.",
+    "maxaccess": "not-accessible",
+    "name": "hwSecStatEudmCfgEnableZoneID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmCfgEnbaleIPOut": {
+    "class": "objecttype",
+    "description": "The status to indicate whether the outbound statistics is enabled for the hosts in the zone.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmCfgEnbaleIPOut",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwSecStatEudmCfgEnbaleIpIn": {
+    "class": "objecttype",
+    "description": "The status to indicate whether the inbound statistics is enabled for the hosts in the zone.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmCfgEnbaleIpIn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwSecStatEudmCfgEnbaleZoneIn": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "The status to indicate whether the inbound statistics is enabled for the zone.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmCfgEnbaleZoneIn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwSecStatEudmCfgEnbaleZoneOut": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "The status to indicate whether the outbound statistics is enabled for the zone.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmCfgEnbaleZoneOut",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwSecStatEudmCfgObjects": {
+    "class": "objectidentity",
+    "name": "hwSecStatEudmCfgObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1"
+  },
+  "hwSecStatEudmMonitorObjects": {
+    "class": "objectidentity",
+    "name": "hwSecStatEudmMonitorObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2"
+  },
+  "hwSecStatEudmSessCfgEntry": {
+    "class": "objecttype",
+    "description": "The configuration informations for security zone.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatEudmSessCfgZoneID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSecStatEudmSessCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1",
+    "status": "current"
+  },
+  "hwSecStatEudmSessCfgSetDefault": {
+    "class": "objecttype",
+    "description": " This OID is used for setting the session configuration of the zone to default. When you want to set the calue to default, set this OID to 1. ",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessCfgSetDefault",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.34",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessCfgTable": {
+    "class": "objecttype",
+    "description": "The configuration informations for security zone.",
+    "maxaccess": "not-accessible",
+    "name": "hwSecStatEudmSessCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1",
+    "status": "current"
+  },
+  "hwSecStatEudmSessCfgZoneID": {
+    "class": "objecttype",
+    "description": "The ID of security zone.",
+    "maxaccess": "not-accessible",
+    "name": "hwSecStatEudmSessCfgZoneID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessTcpInIPNumMax": {
+    "class": "objecttype",
+    "description": "The upper limit of inbound TCP session for one host.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessTcpInIPNumMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessTcpInIPNumMin": {
+    "class": "objecttype",
+    "description": "The lower limit of inbound TCP session for one host.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessTcpInIPNumMin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessTcpInIPSpeedMax": {
+    "class": "objecttype",
+    "description": "The upper limit of establishing speed of inbound TCP session for one host.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessTcpInIPSpeedMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessTcpInIPSpeedMin": {
+    "class": "objecttype",
+    "description": "The lower limit of establishing speed of inbound TCP session for one host.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessTcpInIPSpeedMin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessTcpInZoneNumMax": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 500000
+      }
+    },
+    "description": "The upper limit of inbound TCP session for a zone.",
+    "maxaccess": "read-create",
+    "name": "hwSecStatEudmSessTcpInZoneNumMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 500000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessTcpInZoneNumMin": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 500000
+      }
+    },
+    "description": "The lower limit of inbound TCP session for a zone.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessTcpInZoneNumMin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 500000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessTcpInZoneSpeedMax": {
+    "class": "objecttype",
+    "description": "The upper limit of establishing speed of inbound TCP session for one zone.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessTcpInZoneSpeedMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessTcpInZoneSpeedMin": {
+    "class": "objecttype",
+    "description": "The lower limit of establishing speed of inbound TCP session for one zone.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessTcpInZoneSpeedMin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessTcpOutIPNumMax": {
+    "class": "objecttype",
+    "description": "The upper limit of outbound TCP session for one host.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessTcpOutIPNumMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessTcpOutIPNumMin": {
+    "class": "objecttype",
+    "description": "The lower limit of outbound TCP session for one host.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessTcpOutIPNumMin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessTcpOutIPSpeedMax": {
+    "class": "objecttype",
+    "description": "The upper limit of establishing speed of outbound TCP session for one host.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessTcpOutIPSpeedMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessTcpOutIPSpeedMin": {
+    "class": "objecttype",
+    "description": "The lower limit of establishing speed of outbound TCP session for one host.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessTcpOutIPSpeedMin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessTcpOutZoneNumMax": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 500000
+      }
+    },
+    "description": "The upper limit of outbound TCP session for a zone.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessTcpOutZoneNumMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 500000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessTcpOutZoneNumMin": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 500000
+      }
+    },
+    "description": "The lower limit of outbound TCP session for a zone.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessTcpOutZoneNumMin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 500000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessTcpOutZoneSpeedMax": {
+    "class": "objecttype",
+    "description": "The upper limit of establishing speed of outbound TCP session for one zone.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessTcpOutZoneSpeedMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessTcpOutZoneSpeedMin": {
+    "class": "objecttype",
+    "description": "The lower limit of establishing speed of outbound TCP session for one zone.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessTcpOutZoneSpeedMin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessUdpInIPNumMax": {
+    "class": "objecttype",
+    "description": "The upper limit of inbound UDP session for one host.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessUdpInIPNumMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessUdpInIPNumMin": {
+    "class": "objecttype",
+    "description": "The lower limit of inbound UDP session for one host.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessUdpInIPNumMin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessUdpInIPSpeedMax": {
+    "class": "objecttype",
+    "description": "The upper limit of establishing speed of inbound UDP session for one host.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessUdpInIPSpeedMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessUdpInIPSpeedMin": {
+    "class": "objecttype",
+    "description": "The lower limit of establishing speed of inbound UDP session for one host.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessUdpInIPSpeedMin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessUdpInZoneNumMax": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 500000
+      }
+    },
+    "description": "The upper limit of inbound UDP session for a zone.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessUdpInZoneNumMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 500000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessUdpInZoneNumMin": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 500000
+      }
+    },
+    "description": "The lower limit of inbound UDP session for a zone.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessUdpInZoneNumMin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 500000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessUdpInZoneSpeedMax": {
+    "class": "objecttype",
+    "description": "The upper limit of establishing speed of inbound UDP session for one zone.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessUdpInZoneSpeedMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessUdpInZoneSpeedMin": {
+    "class": "objecttype",
+    "description": "The lower limit of establishing speed of inbound UDP session for one zone.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessUdpInZoneSpeedMin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessUdpOutIPNumMax": {
+    "class": "objecttype",
+    "description": "The upper limit of outbound UDP session for one host.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessUdpOutIPNumMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessUdpOutIPNumMin": {
+    "class": "objecttype",
+    "description": "The lower limit of outbound UDP session for one host.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessUdpOutIPNumMin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessUdpOutIPSpeedMax": {
+    "class": "objecttype",
+    "description": "The upper limit of establishing speed of outbound UDP session for one host.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessUdpOutIPSpeedMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessUdpOutIPSpeedMin": {
+    "class": "objecttype",
+    "description": "The lower limit of establishing speed of outbound UDP session for one host.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessUdpOutIPSpeedMin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessUdpOutZoneNumMax": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 500000
+      }
+    },
+    "description": "The upper limit of outbound UDP session for one zone.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessUdpOutZoneNumMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 500000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessUdpOutZoneNumMin": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 500000
+      }
+    },
+    "description": "The lower limit of outbound UDP session for one zone.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessUdpOutZoneNumMin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 500000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessUdpOutZoneSpeedMax": {
+    "class": "objecttype",
+    "description": "The upper limit of establishing speed of outbound UDP session for one zone.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessUdpOutZoneSpeedMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatEudmSessUdpOutZoneSpeedMin": {
+    "class": "objecttype",
+    "description": "The lower limit of establishing speed of outbound UDP session for one zone.",
+    "maxaccess": "read-write",
+    "name": "hwSecStatEudmSessUdpOutZoneSpeedMin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.1.1.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatZoneInAclDenyIcmpOcts": {
+    "class": "objecttype",
+    "description": "The total bytes of droped icmp packets by acl to the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneInAclDenyIcmpOcts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneInAclDenyIcmpPkts": {
+    "class": "objecttype",
+    "description": "The total number of droped icmp packets by acl to the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneInAclDenyIcmpPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneInAclDenyNonIcmpOcts": {
+    "class": "objecttype",
+    "description": "The total bytes of droped non icmp packets by acl to the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneInAclDenyNonIcmpOcts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneInAclDenyNonIcmpPkts": {
+    "class": "objecttype",
+    "description": "The total number of droped non icmp packets by acl to the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneInAclDenyNonIcmpPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneInBlsDenyPkts": {
+    "class": "objecttype",
+    "description": "The total number of droped packets by blacklist to the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneInBlsDenyPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneInConn": {
+    "class": "objecttype",
+    "description": "The total number of session to the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneInConn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneInConnSpeed": {
+    "class": "objecttype",
+    "description": "The current establishing speed of session to the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneInConnSpeed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneInDftAclDenyIcmpPkts": {
+    "class": "objecttype",
+    "description": "The total number of droped ICMP packets by default acl to the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneInDftAclDenyIcmpPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneInDftAclDenyPkts": {
+    "class": "objecttype",
+    "description": "The total number of droped packets by default acl to the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneInDftAclDenyPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneInFtpPkts": {
+    "class": "objecttype",
+    "description": "The total number of FTP packets to the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneInFtpPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneInH323Pkts": {
+    "class": "objecttype",
+    "description": "The total number of H323 packets to the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneInH323Pkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneInHalfConn": {
+    "class": "objecttype",
+    "description": "The total number of incomplete session to the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneInHalfConn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneInHalfConnSpeed": {
+    "class": "objecttype",
+    "description": "The current establishing speed of incomplete session to the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneInHalfConnSpeed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneInHttpPkts": {
+    "class": "objecttype",
+    "description": "The total number of HTTP packets to the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneInHttpPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneInIcmpFloodDropPkts": {
+    "class": "objecttype",
+    "description": "The total number of droped packets to the hosts in this zone for ICMP flood attack.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneInIcmpFloodDropPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneInIcmpSess": {
+    "class": "objecttype",
+    "description": "The total number of ICMP session to the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneInIcmpSess",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneInIcmpSessSpeed": {
+    "class": "objecttype",
+    "description": "The current establishing speed of ICMP session to the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneInIcmpSessSpeed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneInRtspPkts": {
+    "class": "objecttype",
+    "description": "The total number of RTSP packets to the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneInRtspPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneInSmtpPkts": {
+    "class": "objecttype",
+    "description": "The total number of SMTP packets to the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneInSmtpPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneInTcpSess": {
+    "class": "objecttype",
+    "description": "The total number of TCP session to the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneInTcpSess",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneInTcpSessSpeed": {
+    "class": "objecttype",
+    "description": "The current establishing speed of TCP session to the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneInTcpSessSpeed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneInUdpFloodDropPkts": {
+    "class": "objecttype",
+    "description": "The total number of droped UDP packets to the hosts in this zone for UDP flood attack.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneInUdpFloodDropPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneInUdpSess": {
+    "class": "objecttype",
+    "description": "The total number of UDP session to the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneInUdpSess",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneInUdpSessSpeed": {
+    "class": "objecttype",
+    "description": "The current establishing speed of UDP session to the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneInUdpSessSpeed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneInfoEntry": {
+    "class": "objecttype",
+    "description": "The statistics data for a zone.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SECSTAT-EUDM-MIB",
+        "object": "hwSecStatZoneInfoZoneID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSecStatZoneInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1",
+    "status": "current"
+  },
+  "hwSecStatZoneInfoTable": {
+    "class": "objecttype",
+    "description": "The statistics data table for zone.",
+    "maxaccess": "not-accessible",
+    "name": "hwSecStatZoneInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1",
+    "status": "current"
+  },
+  "hwSecStatZoneInfoZoneID": {
+    "class": "objecttype",
+    "description": "The ID of security zone.",
+    "maxaccess": "not-accessible",
+    "name": "hwSecStatZoneInfoZoneID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSecStatZoneOutAclDenyIcmpOcts": {
+    "class": "objecttype",
+    "description": "The total bytes of droped icmp packets by acl from the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneOutAclDenyIcmpOcts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.37",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneOutAclDenyIcmpPkts": {
+    "class": "objecttype",
+    "description": "The total number of droped icmp packets by acl from the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneOutAclDenyIcmpPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.36",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneOutAclDenyNonIcmpOcts": {
+    "class": "objecttype",
+    "description": "The total bytes of droped non icmp packets by acl from the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneOutAclDenyNonIcmpOcts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.39",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneOutAclDenyNonIcmpPkts": {
+    "class": "objecttype",
+    "description": "The total number of droped non icmp packets by acl from the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneOutAclDenyNonIcmpPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.38",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneOutBlsDenyPkts": {
+    "class": "objecttype",
+    "description": "The total number of droped packets by blacklist from the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneOutBlsDenyPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.40",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneOutConn": {
+    "class": "objecttype",
+    "description": "The total number of session from the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneOutConn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneOutConnSpeed": {
+    "class": "objecttype",
+    "description": "The current establishing speed of session from the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneOutConnSpeed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.34",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneOutDftAclDenyIcmpPkts": {
+    "class": "objecttype",
+    "description": "The total number of droped icmp packets by default acl from the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneOutDftAclDenyIcmpPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.42",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneOutDftAclDenyPkts": {
+    "class": "objecttype",
+    "description": "The total number of droped packets by default acl from the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneOutDftAclDenyPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.41",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneOutFtpPkts": {
+    "class": "objecttype",
+    "description": "The total number of FTP packets from the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneOutFtpPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.43",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneOutH323Pkts": {
+    "class": "objecttype",
+    "description": "The total number of H323 packets from the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneOutH323Pkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.46",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneOutHalfConn": {
+    "class": "objecttype",
+    "description": "The total number of incomplete session from the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneOutHalfConn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneOutHalfConnSpeed": {
+    "class": "objecttype",
+    "description": "The current establishing speed of incomplete session from the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneOutHalfConnSpeed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.35",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneOutHttpPkts": {
+    "class": "objecttype",
+    "description": "The total number of HTTP packets from the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneOutHttpPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.45",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneOutIcmpSess": {
+    "class": "objecttype",
+    "description": "The total number of ICMP session from the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneOutIcmpSess",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneOutIcmpSessSpeed": {
+    "class": "objecttype",
+    "description": "The current establishing speed of ICMP session from the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneOutIcmpSessSpeed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneOutRtspPkts": {
+    "class": "objecttype",
+    "description": "The total number of RTSP packets from the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneOutRtspPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.47",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneOutSmtpPkts": {
+    "class": "objecttype",
+    "description": "The total number of SMTP packets from the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneOutSmtpPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.44",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneOutTcpSess": {
+    "class": "objecttype",
+    "description": "The total number of TCP session from the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneOutTcpSess",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneOutTcpSessSpeed": {
+    "class": "objecttype",
+    "description": "The current establishing speed of TCP session from the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneOutTcpSessSpeed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneOutUdpSess": {
+    "class": "objecttype",
+    "description": "The total number of UDP session from the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneOutUdpSess",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSecStatZoneOutUdpSessSpeed": {
+    "class": "objecttype",
+    "description": "The current establishing speed of UDP session from the hosts in this zone.",
+    "maxaccess": "read-only",
+    "name": "hwSecStatZoneOutUdpSessSpeed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.11.2.2.1.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "MPLS-VPN-MIB": [
+      "mplsVpnVrfName"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "Bits",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "TimeTicks",
+      "Gauge32",
+      "Unsigned32",
+      "Integer32",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-SECSTAT-EUDM-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:53 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-SECSTAT-EUDM-MIB"
+  }
+}

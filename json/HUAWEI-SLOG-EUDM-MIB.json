@@ -1,0 +1,375 @@
+{
+  "FlowLogType": {
+    "class": "textualconvention",
+    "description": "Description.",
+    "name": "FlowLogType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "flowLogExport": 2,
+          "flowLogSysLog": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSLOG": {
+    "class": "objectidentity",
+    "name": "hwSLOG",
+    "oid": "1.3.6.1.4.1.2011.5.25.16"
+  },
+  "hwSLOGEudm": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": " V1.00 The HUAWEI-SLOG-EUDM-MIB contains objects to manage the security log for firewall product. ",
+    "lastupdated": "200304081633Z",
+    "name": "hwSLOGEudm",
+    "oid": "1.3.6.1.4.1.2011.5.25.16.2",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwSLOGEudmCompliance": {
+    "class": "objectidentity",
+    "name": "hwSLOGEudmCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.16.2.3.1"
+  },
+  "hwSLOGEudmConformance": {
+    "class": "objectidentity",
+    "name": "hwSLOGEudmConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.16.2.3"
+  },
+  "hwSLOGEudmFlowLogEnableGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwSLOGEudmFlowLogEnableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SLOG-EUDM-MIB",
+        "object": "hwSLogEudmFlowEnableFlag"
+      },
+      {
+        "module": "HUAWEI-SLOG-EUDM-MIB",
+        "object": "hwSLogEudmEnableHostAcl"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.16.2.3.2.2",
+    "status": "current"
+  },
+  "hwSLOGEudmGlobalCfgGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwSLOGEudmGlobalCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SLOG-EUDM-MIB",
+        "object": "hwSLogEudmAttackLogInterval"
+      },
+      {
+        "module": "HUAWEI-SLOG-EUDM-MIB",
+        "object": "hwSLogEudmStreamLogInterval"
+      },
+      {
+        "module": "HUAWEI-SLOG-EUDM-MIB",
+        "object": "hwSLogEudmFlowLogMode"
+      },
+      {
+        "module": "HUAWEI-SLOG-EUDM-MIB",
+        "object": "hwSLogEudmFlowLogInterval"
+      },
+      {
+        "module": "HUAWEI-SLOG-EUDM-MIB",
+        "object": "hwSLogEudmServerIP"
+      },
+      {
+        "module": "HUAWEI-SLOG-EUDM-MIB",
+        "object": "hwSLogEudmServerPort"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.16.2.3.2.1",
+    "status": "current"
+  },
+  "hwSLOGEudmMibGroups": {
+    "class": "objectidentity",
+    "name": "hwSLOGEudmMibGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.16.2.3.2"
+  },
+  "hwSLogEudmAttackLogInterval": {
+    "class": "objecttype",
+    "description": " The interval for sending log of attack event, the unit is second.",
+    "maxaccess": "read-write",
+    "name": "hwSLogEudmAttackLogInterval",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.16.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSLogEudmEnableHostAcl": {
+    "class": "objecttype",
+    "description": "The acl number indicate the data flow which will be logged.",
+    "maxaccess": "read-write",
+    "name": "hwSLogEudmEnableHostAcl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.16.2.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 3999,
+            "min": 2000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSLogEudmFlowEnableFlag": {
+    "class": "objecttype",
+    "description": "The status indicate whether the security log is enabled in this interzone.",
+    "maxaccess": "read-write",
+    "name": "hwSLogEudmFlowEnableFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.16.2.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwSLogEudmFlowLogEnableEntry": {
+    "class": "objecttype",
+    "description": "Each inter-zone must have an entry",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SLOG-EUDM-MIB",
+        "object": "hwSLogFlowEnableZoneID1"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SLOG-EUDM-MIB",
+        "object": "hwSLogFlowEnableZoneID2"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSLogEudmFlowLogEnableEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.16.2.2.1.1",
+    "status": "current"
+  },
+  "hwSLogEudmFlowLogEnableTable": {
+    "class": "objecttype",
+    "description": "Description",
+    "maxaccess": "not-accessible",
+    "name": "hwSLogEudmFlowLogEnableTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.16.2.2.1",
+    "status": "current"
+  },
+  "hwSLogEudmFlowLogInterval": {
+    "class": "objecttype",
+    "description": "The interval for sending flow log, the unit is second.",
+    "maxaccess": "read-write",
+    "name": "hwSLogEudmFlowLogInterval",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.16.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSLogEudmFlowLogMode": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "flowLogSysLog"
+      }
+    },
+    "description": "The sending mode of flow log, can be SysLog or Export.",
+    "maxaccess": "read-write",
+    "name": "hwSLogEudmFlowLogMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.16.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "FlowLogType"
+    }
+  },
+  "hwSLogEudmGlobalCfg": {
+    "class": "objectidentity",
+    "name": "hwSLogEudmGlobalCfg",
+    "oid": "1.3.6.1.4.1.2011.5.25.16.2.1"
+  },
+  "hwSLogEudmServerIP": {
+    "class": "objecttype",
+    "description": "The IP address of log server.",
+    "maxaccess": "read-write",
+    "name": "hwSLogEudmServerIP",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.16.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwSLogEudmServerPort": {
+    "class": "objecttype",
+    "description": "The port of log server.",
+    "maxaccess": "read-write",
+    "name": "hwSLogEudmServerPort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.16.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSLogEudmStreamLogInterval": {
+    "class": "objecttype",
+    "description": "The interval for sending log of statistics, the unit is second.",
+    "maxaccess": "read-write",
+    "name": "hwSLogEudmStreamLogInterval",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.16.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSLogFlowEnableZoneID1": {
+    "class": "objecttype",
+    "description": "The ID of first zone that compose the inter-zone.",
+    "maxaccess": "not-accessible",
+    "name": "hwSLogFlowEnableZoneID1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.16.2.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSLogFlowEnableZoneID2": {
+    "class": "objecttype",
+    "description": "The ID of second zone that compose the inter-zone.",
+    "maxaccess": "not-accessible",
+    "name": "hwSLogFlowEnableZoneID2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.16.2.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSLogInterZoneEnableCfg": {
+    "class": "objectidentity",
+    "name": "hwSLogInterZoneEnableCfg",
+    "oid": "1.3.6.1.4.1.2011.5.25.16.2.2"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter64",
+      "IpAddress",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Counter32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "TimeTicks",
+      "MibIdentifier"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-SLOG-EUDM-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:57 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-SLOG-EUDM-MIB"
+  }
+}

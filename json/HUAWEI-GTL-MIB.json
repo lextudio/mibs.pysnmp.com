@@ -1,0 +1,504 @@
+{
+  "hwGtl": {
+    "class": "moduleidentity",
+    "contactinfo": "VRP Team Huawei Technologies Co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China http://www.huawei.com Zip:100085 ",
+    "description": "The private mib file includes the general extent information of the device.hwDatacomm(25).htGtl(142)",
+    "lastupdated": "200611221414Z",
+    "name": "hwGtl",
+    "oid": "1.3.6.1.4.1.2011.5.25.142",
+    "organization": "Huawei Technologies Co.,Ltd."
+  },
+  "hwGtlActive": {
+    "class": "objecttype",
+    "description": "Active GTL license",
+    "maxaccess": "read-write",
+    "name": "hwGtlActive",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 127,
+            "min": 5
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwGtlChassisID": {
+    "class": "objecttype",
+    "description": "Show chassis description.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwGtlChassisID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwGtlCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-GTL-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlObjectGroup"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlNotificationGroup"
+      }
+    ],
+    "name": "hwGtlCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.3.1.1",
+    "status": "current"
+  },
+  "hwGtlCompliances": {
+    "class": "objectidentity",
+    "name": "hwGtlCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.3.1"
+  },
+  "hwGtlConformance": {
+    "class": "objectidentity",
+    "name": "hwGtlConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.3"
+  },
+  "hwGtlDefaultValue": {
+    "class": "notificationtype",
+    "description": "Notification represents that the system will use default value if the license file fails to pass the verification.",
+    "name": "hwGtlDefaultValue",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlDefaultValueReason"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.1",
+    "status": "current"
+  },
+  "hwGtlDefaultValueReason": {
+    "class": "objecttype",
+    "description": "The object specifies the reason why the system uses the default value.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwGtlDefaultValueReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwGtlExpired": {
+    "class": "notificationtype",
+    "description": "Notification represents the license has expired.",
+    "name": "hwGtlExpired",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.5",
+    "status": "current"
+  },
+  "hwGtlFeatureName": {
+    "class": "objecttype",
+    "description": "The object specifies the feature name which is near deadline.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwGtlFeatureName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwGtlGroups": {
+    "class": "objectidentity",
+    "name": "hwGtlGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.3.2"
+  },
+  "hwGtlItemControlValue": {
+    "class": "objecttype",
+    "description": "Control value of the item. Control value will always be non-zero.",
+    "maxaccess": "read-only",
+    "name": "hwGtlItemControlValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.8.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwGtlItemDescription": {
+    "class": "objecttype",
+    "description": "Description of the item.",
+    "maxaccess": "read-only",
+    "name": "hwGtlItemDescription",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.8.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwGtlItemEntry": {
+    "class": "objecttype",
+    "description": "A GTL license item information entry. Each entry consists of information of a item.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwGtlItemEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.8.1",
+    "status": "current"
+  },
+  "hwGtlItemIndex": {
+    "class": "objecttype",
+    "description": "The index of the GTL license item.",
+    "maxaccess": "not-accessible",
+    "name": "hwGtlItemIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwGtlItemMismatch": {
+    "class": "notificationtype",
+    "description": "License item mismatch with the main chassis.",
+    "name": "hwGtlItemMismatch",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlChassisID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.6",
+    "status": "current"
+  },
+  "hwGtlItemName": {
+    "class": "objecttype",
+    "description": "Item name.",
+    "maxaccess": "read-only",
+    "name": "hwGtlItemName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.8.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwGtlItemTable": {
+    "class": "objecttype",
+    "description": "A table of item infomation in GTL license. Especially for show usage of reource item.",
+    "maxaccess": "not-accessible",
+    "name": "hwGtlItemTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.8",
+    "status": "current"
+  },
+  "hwGtlItemUsedValue": {
+    "class": "objecttype",
+    "description": "Used value of the item.",
+    "maxaccess": "read-only",
+    "name": "hwGtlItemUsedValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.8.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwGtlLicenseVerifyFailed": {
+    "class": "notificationtype",
+    "description": "Notification represents license verification failed. The reason why license verification failed can be: 1 represents that the ESN or version of the device and the license file mismatch. 2 represents that the license file has expired. 3 represents that the product type of the device and the license file mismatch. 4 represents that the license file is invalid.",
+    "name": "hwGtlLicenseVerifyFailed",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlVerifyCode"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.4",
+    "status": "current"
+  },
+  "hwGtlMibObjects": {
+    "class": "objectidentity",
+    "name": "hwGtlMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1"
+  },
+  "hwGtlNearDeadline": {
+    "class": "notificationtype",
+    "description": "Notification represents the feature is near deadline.",
+    "name": "hwGtlNearDeadline",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlFeatureName"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlRemainTime"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.3",
+    "status": "current"
+  },
+  "hwGtlNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "The notification group.",
+    "name": "hwGtlNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlDefaultValue"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlResourceUsedUp"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlNearDeadline"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlLicenseVerifyFailed"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlExpired"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.142.3.2.2",
+    "status": "current"
+  },
+  "hwGtlNotifications": {
+    "class": "objectidentity",
+    "name": "hwGtlNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2"
+  },
+  "hwGtlObjectGroup": {
+    "class": "objectgroup",
+    "description": "The GTL attribute group.",
+    "name": "hwGtlObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlDefaultValueReason"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlResourceItem"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlFeatureName"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlRemainTime"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlVerifyCode"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlActive"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlShowActLCSName"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemName"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemControlValue"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemUsedValue"
+      },
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlItemDescription"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.142.3.2.1",
+    "status": "current"
+  },
+  "hwGtlRemainTime": {
+    "class": "objecttype",
+    "description": "Remain time of the feature which is near deadline.The unit is day.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwGtlRemainTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwGtlResourceItem": {
+    "class": "objecttype",
+    "description": "The object specifies the resource item which is nearly exhausted.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwGtlResourceItem",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwGtlResourceUsedUp": {
+    "class": "notificationtype",
+    "description": "Notification represents the resource is nearly exhausted.",
+    "name": "hwGtlResourceUsedUp",
+    "objects": [
+      {
+        "module": "HUAWEI-GTL-MIB",
+        "object": "hwGtlResourceItem"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.142.2.2",
+    "status": "current"
+  },
+  "hwGtlShowActLCSName": {
+    "class": "objecttype",
+    "description": "Show active GTL license file name",
+    "maxaccess": "read-only",
+    "name": "hwGtlShowActLCSName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 127,
+            "min": 5
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwGtlVerifyCode": {
+    "class": "objecttype",
+    "description": "The verify code returned when verify license file failed.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwGtlVerifyCode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.142.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "imports": {
+    "ENTITY-MIB": [
+      "entPhysicalName"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "iso",
+      "TimeTicks",
+      "Unsigned32",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-GTL-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:28 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-GTL-MIB"
+  }
+}

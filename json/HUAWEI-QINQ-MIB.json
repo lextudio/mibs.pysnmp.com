@@ -1,0 +1,3652 @@
+{
+  "BpduIndex": {
+    "class": "textualconvention",
+    "description": "A list value for bpdu. ",
+    "name": "BpduIndex",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cdp": 50,
+          "gmrp": 33,
+          "gvrp": 34,
+          "hgmp": 11,
+          "isisLevel01": 21,
+          "isisLevel02": 22,
+          "lacp": 49,
+          "pagp": 51,
+          "pauseFrame": 2,
+          "reserved02": 3,
+          "reserved03": 4,
+          "reserved04": 5,
+          "reserved05": 6,
+          "reserved06": 7,
+          "reserved07": 8,
+          "reserved08": 10,
+          "reserved09": 12,
+          "reserved10": 13,
+          "reserved11": 14,
+          "reserved12": 15,
+          "reserved13": 16,
+          "reserved14": 17,
+          "reserved15": 18,
+          "reserved16": 19,
+          "reserved17": 20,
+          "reserved18": 23,
+          "reserved19": 24,
+          "reserved20": 25,
+          "reserved21": 26,
+          "reserved22": 27,
+          "reserved23": 28,
+          "reserved24": 29,
+          "reserved25": 30,
+          "reserved26": 31,
+          "reserved27": 32,
+          "reserved28": 35,
+          "reserved29": 36,
+          "reserved30": 37,
+          "reserved31": 38,
+          "reserved32": 39,
+          "reserved33": 40,
+          "reserved34": 41,
+          "reserved35": 42,
+          "reserved36": 43,
+          "reserved37": 44,
+          "reserved38": 45,
+          "reserved39": 46,
+          "reserved40": 47,
+          "reserved41": 48,
+          "stp01": 1,
+          "stp02": 9,
+          "udld": 52,
+          "vtp": 53
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwBpduSystemDropPacketSta": {
+    "class": "objecttype",
+    "description": "View statistics about the discarded BPDUs.",
+    "maxaccess": "read-write",
+    "name": "hwBpduSystemDropPacketSta",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBpduTunnelBpduEgressMacIndex": {
+    "class": "objecttype",
+    "description": "Bpdu MAC address list BPDU DMAC protocol 01-80-C2-00-00-00 stp01 01-80-C2-00-00-01 pauseFrame 01-80-C2-00-00-02 reserved02 01-80-C2-00-00-03 reserved03 01-80-C2-00-00-04 reserved04 01-80-C2-00-00-05 reserved05 01-80-C2-00-00-06 reserved06 01-80-C2-00-00-07 reserved07 01-80-C2-00-00-08 stp02 01-80-C2-00-00-09 reserved08 01-80-C2-00-00-0a hgmp 01-80-C2-00-00-0b reserved09 01-80-C2-00-00-0c reserved10 01-80-C2-00-00-0d reserved11 01-80-C2-00-00-0e reserved12 01-80-C2-00-00-0f reserved13 01-80-C2-00-00-10 reserved14 01-80-C2-00-00-11 reserved15 01-80-C2-00-00-12 reserved16 01-80-C2-00-00-13 reserved17 01-80-C2-00-00-14 isisLevel01 01-80-C2-00-00-15 isisLevel02 01-80-C2-00-00-16 reserved18 01-80-C2-00-00-17 reserved19 01-80-C2-00-00-18 reserved20 01-80-C2-00-00-19 reserved21 01-80-C2-00-00-1a reserved22 01-80-C2-00-00-1b reserved23 01-80-C2-00-00-1c reserved24 01-80-C2-00-00-1d reserved25 01-80-C2-00-00-1e reserved26 01-80-C2-00-00-1f reserved27 01-80-C2-00-00-20 gmrp 01-80-C2-00-00-21 gvrp 01-80-C2-00-00-22 reserved28 01-80-C2-00-00-23 reserved29 01-80-C2-00-00-24 reserved30 01-80-C2-00-00-25 reserved31 01-80-C2-00-00-26 reserved32 01-80-C2-00-00-27 reserved33 01-80-C2-00-00-28 reserved34 01-80-C2-00-00-29 reserved35 01-80-C2-00-00-2a reserved36 01-80-C2-00-00-2b reserved37 01-80-C2-00-00-2c reserved38 01-80-C2-00-00-2d reserved39 01-80-C2-00-00-2e reserved40 01-80-C2-00-00-2f reserved41.",
+    "maxaccess": "not-accessible",
+    "name": "hwBpduTunnelBpduEgressMacIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.16.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "BpduIndex"
+    }
+  },
+  "hwBpduTunnelBpduEnable": {
+    "class": "objecttype",
+    "description": "Bpdu tunnel enable or disable.",
+    "maxaccess": "read-write",
+    "name": "hwBpduTunnelBpduEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.18.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwBpduTunnelBpduIndex": {
+    "class": "objecttype",
+    "description": "Bpdu mac address list BPDU Dmac protocol 01-80-C2-00-00-00 stp01 (1) 01-80-C2-00-00-01 pauseFrame (2) 01-80-C2-00-00-02 reserved02 (3) 01-80-C2-00-00-03 reserved03 (4) 01-80-C2-00-00-04 reserved04 (5) 01-80-C2-00-00-05 reserved05 (6) 01-80-C2-00-00-06 reserved06 (7) 01-80-C2-00-00-07 reserved07 (8) 01-80-C2-00-00-08 stp02 (9) 01-80-C2-00-00-09 reserved08 (10) 01-80-C2-00-00-0a hgmp (11) 01-80-C2-00-00-0b reserved09 (12) 01-80-C2-00-00-0c reserved10 (13) 01-80-C2-00-00-0d reserved11 (14) 01-80-C2-00-00-0e reserved12 (15) 01-80-C2-00-00-0f reserved13 (16) 01-80-C2-00-00-10 reserved14 (17) 01-80-C2-00-00-11 reserved15 (18) 01-80-C2-00-00-12 reserved16 (19) 01-80-C2-00-00-13 reserved17 (20) 01-80-C2-00-00-14 isisLevel01 (21) 01-80-C2-00-00-15 isisLevel02 (22) 01-80-C2-00-00-16 reserved18 (23) 01-80-C2-00-00-17 reserved19 (24) 01-80-C2-00-00-18 reserved20 (25) 01-80-C2-00-00-19 reserved21 (26) 01-80-C2-00-00-1a reserved22 (27) 01-80-C2-00-00-1b reserved23 (28) 01-80-C2-00-00-1c reserved24 (29) 01-80-C2-00-00-1d reserved25 (30) 01-80-C2-00-00-1e reserved26 (31) 01-80-C2-00-00-1f reserved27 (32) 01-80-C2-00-00-20 gmrp (33) 01-80-C2-00-00-21 gvrp (34) 01-80-C2-00-00-22 reserved28 (35) 01-80-C2-00-00-23 reserved29 (36) 01-80-C2-00-00-24 reserved30 (37) 01-80-C2-00-00-25 reserved31 (38) 01-80-C2-00-00-26 reserved32 (39) 01-80-C2-00-00-27 reserved33 (40) 01-80-C2-00-00-28 reserved34 (41) 01-80-C2-00-00-29 reserved35 (42) 01-80-C2-00-00-2a reserved36 (43) 01-80-C2-00-00-2b reserved37 (44) 01-80-C2-00-00-2c reserved38 (45) 01-80-C2-00-00-2d reserved39 (46) 01-80-C2-00-00-2e reserved40 (47) 01-80-C2-00-00-2f reserved41 (48) 01-80-C2-00-00-02 lacp (49) 01-00-0C-CC-CC-CC cdp (50) 01-00-0C-CC-CC-CC pagp (51) 01-00-0C-CC-CC-CC udld (52) 01-00-0C-CC-CC-CC vtp (53) .",
+    "maxaccess": "not-accessible",
+    "name": "hwBpduTunnelBpduIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.18.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "BpduIndex"
+    }
+  },
+  "hwBpduTunnelBpduIngressMacIndex": {
+    "class": "objecttype",
+    "description": " bpdu mac address list BPDU Dmac protocol 01-80-C2-00-00-00 stp01 01-80-C2-00-00-01 pauseFrame 01-80-C2-00-00-02 reserved02 01-80-C2-00-00-03 reserved03 01-80-C2-00-00-04 reserved04 01-80-C2-00-00-05 reserved05 01-80-C2-00-00-06 reserved06 01-80-C2-00-00-07 reserved07 01-80-C2-00-00-08 stp02 01-80-C2-00-00-09 reserved08 01-80-C2-00-00-0a hgmp 01-80-C2-00-00-0b reserved09 01-80-C2-00-00-0c reserved10 01-80-C2-00-00-0d reserved11 01-80-C2-00-00-0e reserved12 01-80-C2-00-00-0f reserved13 01-80-C2-00-00-10 reserved14 01-80-C2-00-00-11 reserved15 01-80-C2-00-00-12 reserved16 01-80-C2-00-00-13 reserved17 01-80-C2-00-00-14 isisLevel01 01-80-C2-00-00-15 isisLevel02 01-80-C2-00-00-16 reserved18 01-80-C2-00-00-17 reserved19 01-80-C2-00-00-18 reserved20 01-80-C2-00-00-19 reserved21 01-80-C2-00-00-1a reserved22 01-80-C2-00-00-1b reserved23 01-80-C2-00-00-1c reserved24 01-80-C2-00-00-1d reserved25 01-80-C2-00-00-1e reserved26 01-80-C2-00-00-1f reserved27 01-80-C2-00-00-20 gmrp 01-80-C2-00-00-21 gvrp 01-80-C2-00-00-22 reserved28 01-80-C2-00-00-23 reserved29 01-80-C2-00-00-24 reserved30 01-80-C2-00-00-25 reserved31 01-80-C2-00-00-26 reserved32 01-80-C2-00-00-27 reserved33 01-80-C2-00-00-28 reserved34 01-80-C2-00-00-29 reserved35 01-80-C2-00-00-2a reserved36 01-80-C2-00-00-2b reserved37 01-80-C2-00-00-2c reserved38 01-80-C2-00-00-2d reserved39 01-80-C2-00-00-2e reserved40 01-80-C2-00-00-2f reserved41",
+    "maxaccess": "not-accessible",
+    "name": "hwBpduTunnelBpduIngressMacIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.15.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "BpduIndex"
+    }
+  },
+  "hwBpduTunnelEgressAddress": {
+    "class": "objecttype",
+    "description": "Group mac address.",
+    "maxaccess": "read-create",
+    "name": "hwBpduTunnelEgressAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.16.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwBpduTunnelEgressEntry": {
+    "class": "objecttype",
+    "description": "The entry of bpdu tunnel egress.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwBpduTunnelEgressPortIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwBpduTunnelBpduEgressMacIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBpduTunnelEgressEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.16.1",
+    "status": "current"
+  },
+  "hwBpduTunnelEgressGroup": {
+    "class": "objectgroup",
+    "description": "A collection of items of Group Mac table.",
+    "name": "hwBpduTunnelEgressGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwBpduTunnelEgressAddress"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwBpduTunnelEgressRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.116.3.1.17",
+    "status": "current"
+  },
+  "hwBpduTunnelEgressPortIndex": {
+    "class": "objecttype",
+    "description": "Port index in interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwBpduTunnelEgressPortIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.16.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBpduTunnelEgressRowStatus": {
+    "class": "objecttype",
+    "description": "Row Status.",
+    "maxaccess": "read-create",
+    "name": "hwBpduTunnelEgressRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.16.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwBpduTunnelEgressTable": {
+    "class": "objecttype",
+    "description": "The table of bpdu tunnel egress.",
+    "maxaccess": "not-accessible",
+    "name": "hwBpduTunnelEgressTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.16",
+    "status": "current"
+  },
+  "hwBpduTunnelEnable": {
+    "class": "objecttype",
+    "description": "Bpdu tunnel enable.",
+    "maxaccess": "read-write",
+    "name": "hwBpduTunnelEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.17.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwBpduTunnelEntry": {
+    "class": "objecttype",
+    "description": "The entry of of bpdu tunnel.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwBpduTunnelBpduIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBpduTunnelEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.18.1",
+    "status": "current"
+  },
+  "hwBpduTunnelGroup": {
+    "class": "objectgroup",
+    "description": "A collection of items of bpdu tunnel mac table.",
+    "name": "hwBpduTunnelGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwBpduTunnelBpduEnable"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwBpduTunnelMultiAddress"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwBpduTunnelRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.116.3.1.19",
+    "status": "current"
+  },
+  "hwBpduTunnelIngressAddress": {
+    "class": "objecttype",
+    "description": "Group mac address.",
+    "maxaccess": "read-create",
+    "name": "hwBpduTunnelIngressAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.15.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwBpduTunnelIngressEntry": {
+    "class": "objecttype",
+    "description": "The entry of of bpdu tunnel ingress. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwBpduTunnelIngressPortIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwBpduTunnelBpduIngressMacIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBpduTunnelIngressEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.15.1",
+    "status": "current"
+  },
+  "hwBpduTunnelIngressGroup": {
+    "class": "objectgroup",
+    "description": "A collection of items of Group Mac table.",
+    "name": "hwBpduTunnelIngressGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwBpduTunnelIngressAddress"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwBpduTunnelIngressRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.116.3.1.16",
+    "status": "current"
+  },
+  "hwBpduTunnelIngressPortIndex": {
+    "class": "objecttype",
+    "description": "Port index in interface. ",
+    "maxaccess": "not-accessible",
+    "name": "hwBpduTunnelIngressPortIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.15.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBpduTunnelIngressRowStatus": {
+    "class": "objecttype",
+    "description": "Bpdu tunnek ingress row status.",
+    "maxaccess": "read-create",
+    "name": "hwBpduTunnelIngressRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.15.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwBpduTunnelIngressTable": {
+    "class": "objecttype",
+    "description": "The table of bpdu tunnel ingress. ",
+    "maxaccess": "not-accessible",
+    "name": "hwBpduTunnelIngressTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.15",
+    "status": "current"
+  },
+  "hwBpduTunnelMultiAddress": {
+    "class": "objecttype",
+    "description": "Group MAC address.",
+    "maxaccess": "read-create",
+    "name": "hwBpduTunnelMultiAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.18.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwBpduTunnelPortIndex": {
+    "class": "objecttype",
+    "description": "Port index in interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwBpduTunnelPortIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.17.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBpduTunnelRowStatus": {
+    "class": "objecttype",
+    "description": "Row Status.",
+    "maxaccess": "read-create",
+    "name": "hwBpduTunnelRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.18.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwBpduTunnelTable": {
+    "class": "objecttype",
+    "description": "The table of bpdu tunnel.",
+    "maxaccess": "not-accessible",
+    "name": "hwBpduTunnelTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.18",
+    "status": "current"
+  },
+  "hwBpduTunnelVlanEntry": {
+    "class": "objecttype",
+    "description": "The entry of port bpdu tunnel vlan.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwBpduTunnelPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBpduTunnelVlanEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.17.1",
+    "status": "current"
+  },
+  "hwBpduTunnelVlanGroup": {
+    "class": "objectgroup",
+    "description": "A collection of items of Mode port bpdu tunnel table.",
+    "name": "hwBpduTunnelVlanGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwBpduTunnelEnable"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwBpduTunnelVlanListLow"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwBpduTunnelVlanListHigh"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.116.3.1.18",
+    "status": "current"
+  },
+  "hwBpduTunnelVlanListHigh": {
+    "class": "objecttype",
+    "description": "Vlan bpdu tunnel in port.",
+    "maxaccess": "read-write",
+    "name": "hwBpduTunnelVlanListHigh",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.17.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanList"
+    }
+  },
+  "hwBpduTunnelVlanListLow": {
+    "class": "objecttype",
+    "description": "Vlan bpdu tunnel in port.",
+    "maxaccess": "read-write",
+    "name": "hwBpduTunnelVlanListLow",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.17.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanList"
+    }
+  },
+  "hwBpduTunnelVlanTable": {
+    "class": "objecttype",
+    "description": "The table of port bpdu tunnel.",
+    "maxaccess": "not-accessible",
+    "name": "hwBpduTunnelVlanTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.17",
+    "status": "current"
+  },
+  "hwQinQ": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "The QinQ MIB module is defined to manage the configuration under system or interface view.",
+    "lastupdated": "200612141629Z",
+    "name": "hwQinQ",
+    "oid": "1.3.6.1.4.1.2011.5.25.116",
+    "organization": "Huawei Technologies Co.,Ltd."
+  },
+  "hwQinQAsymmetryCfgEntry": {
+    "class": "objecttype",
+    "description": "The entry of the asymmetry configure table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQAsymmetryCfgIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwQinQAsymmetryCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.13.1",
+    "status": "current"
+  },
+  "hwQinQAsymmetryCfgGroup": {
+    "class": "objectgroup",
+    "description": "A collection of items of asymmetry config table.",
+    "name": "hwQinQAsymmetryCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfAsymmetry"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQAsymmetryUserMode"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.116.3.1.14",
+    "status": "current"
+  },
+  "hwQinQAsymmetryCfgIfIndex": {
+    "class": "objecttype",
+    "description": "Index number of the QinQ-termination interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQAsymmetryCfgIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.13.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwQinQAsymmetryCfgTable": {
+    "class": "objecttype",
+    "description": "The table to configure asymmetry attribution of the interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQAsymmetryCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.13",
+    "status": "current"
+  },
+  "hwQinQAsymmetryUserMode": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32"
+      }
+    },
+    "description": "The user mode attribute of the QinQ-termination sub interface.",
+    "maxaccess": "read-write",
+    "name": "hwQinQAsymmetryUserMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.13.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwQinQBpduTunnelCustomerBpduTag": {
+    "class": "objecttype",
+    "description": "The tag is inserted into the head of the BPDU ,to support that can be transmitted through the services\u0027 network.",
+    "maxaccess": "read-write",
+    "name": "hwQinQBpduTunnelCustomerBpduTag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwQinQBpduTunnelCustomerBpduTagListHigh": {
+    "class": "objecttype",
+    "description": "The list describes accessible bpdu from different vlan (2048 to 4094).",
+    "maxaccess": "read-write",
+    "name": "hwQinQBpduTunnelCustomerBpduTagListHigh",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 256,
+            "min": 256
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwQinQBpduTunnelCustomerBpduTagListLow": {
+    "class": "objecttype",
+    "description": "The list describes accessible bode from different vlan (0 to 2047).",
+    "maxaccess": "read-write",
+    "name": "hwQinQBpduTunnelCustomerBpduTagListLow",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 256,
+            "min": 256
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwQinQBpduTunnelEnableBpduFilter": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disabled"
+      }
+    },
+    "description": "The value indicates whether the BPDU filter function is enabled. If hwQinQBpduTunnelEnableBpduFilter is enabled, then this value should be enable.",
+    "maxaccess": "read-write",
+    "name": "hwQinQBpduTunnelEnableBpduFilter",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwQinQBpduTunnelEnableBpduTag": {
+    "class": "objecttype",
+    "description": "Whether to enable the setting of BPDU Tunnel tag. Default is disabled.",
+    "maxaccess": "read-only",
+    "name": "hwQinQBpduTunnelEnableBpduTag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwQinQBpduTunnelEnableOneQBpduTunnel": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disabled"
+      }
+    },
+    "description": "The value indicates whether the 1Q-bpdutunnel is opened, If hwQinQBpduTunnelEnableTwoQBpduTunnel is enabling, then this value should be disable.",
+    "maxaccess": "read-write",
+    "name": "hwQinQBpduTunnelEnableOneQBpduTunnel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwQinQBpduTunnelEnableTwoQBpduTunnel": {
+    "class": "objecttype",
+    "description": "The value indicates whether the 2Q-bpdutunnel is opened, If hwQinQBpduTunnelEnableOneQBpduTunnel is enabling, then this value should be disable. Default is disabled.",
+    "maxaccess": "read-only",
+    "name": "hwQinQBpduTunnelEnableTwoQBpduTunnel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwQinQBpduTunnelEntry": {
+    "class": "objecttype",
+    "description": "The entry of an interface enabled the QinQ function.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQBpduTunnelIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwQinQBpduTunnelEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.1.1",
+    "status": "current"
+  },
+  "hwQinQBpduTunnelGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing device level control and status information for the interface.",
+    "name": "hwQinQBpduTunnelGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQEtherEncpsType"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQBpduTunnelEnableOneQBpduTunnel"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQBpduTunnelEnableBpduTag"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQBpduTunnelEnableTwoQBpduTunnel"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQBpduTunnelCustomerBpduTag"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQBpduTunnelCustomerBpduTagListLow"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQBpduTunnelCustomerBpduTagListHigh"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQRemarkOuterTpid"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQBpduTunnelEnableBpduFilter"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.116.3.1.2",
+    "status": "current"
+  },
+  "hwQinQBpduTunnelIndex": {
+    "class": "objecttype",
+    "description": "Index number of the interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQBpduTunnelIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwQinQBpduTunnelTable": {
+    "class": "objecttype",
+    "description": "QinQ-port configuration table.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQBpduTunnelTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.1",
+    "status": "current"
+  },
+  "hwQinQCeEtherType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "hex",
+        "value": "33024"
+      }
+    },
+    "description": "The value of tag type is encapsulated in the head of the ethernet frame to distinguish the encapsulated mode between the 802.1Q and QinQ.",
+    "maxaccess": "read-write",
+    "name": "hwQinQCeEtherType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.10.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1536
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwQinQCompliance": {
+    "class": "modulecompliance",
+    "description": "The core compliance statement for all implementations.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSystemBaseGroup"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQBpduTunnelGroup"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfVlanStackingGroup"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfStackingStatGroup"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfTermGroup"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfTermStatGroup"
+      }
+    ],
+    "name": "hwQinQCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.3.2.1",
+    "status": "current"
+  },
+  "hwQinQCompliances": {
+    "class": "objectidentity",
+    "name": "hwQinQCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.3.2"
+  },
+  "hwQinQConformance": {
+    "class": "objectidentity",
+    "name": "hwQinQConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.3"
+  },
+  "hwQinQCtrlVlan": {
+    "class": "objecttype",
+    "description": "Control-Vlan id.",
+    "maxaccess": "read-create",
+    "name": "hwQinQCtrlVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.11.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwQinQCtrlVlanCfgEntry": {
+    "class": "objecttype",
+    "description": "The Control-vlan configuration entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQCtrlVlanCfgIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwQinQCtrlVlanCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.11.1",
+    "status": "current"
+  },
+  "hwQinQCtrlVlanCfgGroup": {
+    "class": "objectgroup",
+    "description": "A collection of items of Control vlan table.",
+    "name": "hwQinQCtrlVlanCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQCtrlVlan"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfType"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQCtrlVlanFlag"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQCtrlVlanRowStatus"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQFlexibleFlag"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.116.3.1.12",
+    "status": "current"
+  },
+  "hwQinQCtrlVlanCfgIfIndex": {
+    "class": "objecttype",
+    "description": "Index number of the sub interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQCtrlVlanCfgIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.11.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwQinQCtrlVlanCfgTable": {
+    "class": "objecttype",
+    "description": "The control-vlan id and control-vlan\u0027s attributes can be configured in sub interface. You must designate control-vlan as QinQ or Dot1q before configuring QinQ-termination function or Dot1q-termination function.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQCtrlVlanCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.11",
+    "status": "current"
+  },
+  "hwQinQCtrlVlanFlag": {
+    "class": "objecttype",
+    "description": "The service type of the sub interface, by setting hwQinQCtrlVlanFlag to the value (rtprotocolenable), the route-protocol attribute enabled; and by setting hwQinQCtrlVlanFlag to the value (localswitch), the localswitch attribute enabled, which means two tags of packets will be pruned. So if you set hwQinQSubIfType to be dot1q type, you can not specify hwQinQCtrlVlanFlag as localswitch.",
+    "maxaccess": "read-create",
+    "name": "hwQinQCtrlVlanFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.11.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "localswitch": 3,
+          "original": 2,
+          "rtprotocolenable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwQinQCtrlVlanRowStatus": {
+    "class": "objecttype",
+    "description": "This table can be created and deleted.",
+    "maxaccess": "read-create",
+    "name": "hwQinQCtrlVlanRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.11.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwQinQEtherEncpsType": {
+    "class": "objecttype",
+    "description": "The value of tag type is encapsulated in the head of the Ethernet frame To distinguish the encapsulated mode between the 802.1Q and QinQ.",
+    "maxaccess": "read-write",
+    "name": "hwQinQEtherEncpsType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 2,
+            "min": 2
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwQinQEtherType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "hex",
+        "value": "33024"
+      }
+    },
+    "description": "The value of tag type is encapsulated in the head of the ethernet frame to distinguish the encapsulated mode between the 802.1Q and QinQ.",
+    "maxaccess": "read-write",
+    "name": "hwQinQEtherType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.10.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1536
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwQinQFlexibleFlag": {
+    "class": "objecttype",
+    "description": "The service type of the sub interface, by setting hwQinQFlexibleFlag to the value (flexibleenable), the flexible attribute enabled; So if you set hwQinQSubIfType to be dot1q type, you can not specify hwQinQFlexibleFlag as flexibleenable.",
+    "maxaccess": "read-create",
+    "name": "hwQinQFlexibleFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.11.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwQinQGroupCfgEntry": {
+    "class": "objecttype",
+    "description": "Group configuration entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQGroupCfgIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQGroupId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwQinQGroupCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.12.1",
+    "status": "current"
+  },
+  "hwQinQGroupCfgGroup": {
+    "class": "objectgroup",
+    "description": "A collection of items of group table.",
+    "name": "hwQinQGroupCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQGroupType"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQGroupStat"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQGroupRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.116.3.1.13",
+    "status": "current"
+  },
+  "hwQinQGroupCfgIfIndex": {
+    "class": "objecttype",
+    "description": "Index number of the interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQGroupCfgIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.12.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwQinQGroupCfgTable": {
+    "class": "objecttype",
+    "description": "The group-management id and group\u0027s attributes can be configured in sub interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQGroupCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.12",
+    "status": "current"
+  },
+  "hwQinQGroupId": {
+    "class": "objecttype",
+    "description": "Group-management id.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQGroupId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.12.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQinQGroupRowStatus": {
+    "class": "objecttype",
+    "description": "This table can be created and deleted.",
+    "maxaccess": "read-create",
+    "name": "hwQinQGroupRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.12.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwQinQGroupStat": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32"
+      }
+    },
+    "description": "Whether the statistic function is enabled.",
+    "maxaccess": "read-create",
+    "name": "hwQinQGroupStat",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.12.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwQinQGroupType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "single"
+      }
+    },
+    "description": "The type of the group.",
+    "maxaccess": "read-create",
+    "name": "hwQinQGroupType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.12.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "multi": 2,
+          "single": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwQinQGroups": {
+    "class": "objectidentity",
+    "name": "hwQinQGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.3.1"
+  },
+  "hwQinQMngObjects": {
+    "class": "objectidentity",
+    "name": "hwQinQMngObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2"
+  },
+  "hwQinQModeCfgEntry": {
+    "class": "objecttype",
+    "description": "The mode type and ethernet encapsulation type of an interface entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQModeCfgIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwQinQModeCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.10.1",
+    "status": "current"
+  },
+  "hwQinQModeCfgGroup": {
+    "class": "objectgroup",
+    "description": "A collection of items of Mode config table.",
+    "name": "hwQinQModeCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQModeCfgMode"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQEtherType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.116.3.1.11",
+    "status": "current"
+  },
+  "hwQinQModeCfgIfIndex": {
+    "class": "objecttype",
+    "description": "Index number of the interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQModeCfgIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.10.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwQinQModeCfgMode": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "common"
+      }
+    },
+    "description": "Mode type of the interface.",
+    "maxaccess": "read-write",
+    "name": "hwQinQModeCfgMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.10.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "common": 1,
+          "qinq": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwQinQModeCfgTable": {
+    "class": "objecttype",
+    "description": "The table contains mode type and ethernet encapsulation type.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQModeCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.10",
+    "status": "current"
+  },
+  "hwQinQPriorityRemark": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "pevid"
+      }
+    },
+    "description": "The service policy map to set the 802.1P bits. By default(pevid), copy the P bits that were in the outer PE VLAN tag to the trunk VLAN tag, by setting object to (cevid), copy the P bits that were in inner CE VALN tag to the trunk VLAN tag.",
+    "maxaccess": "read-write",
+    "name": "hwQinQPriorityRemark",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.14.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cevid": 8,
+          "pevid": 9,
+          "specify0": 0,
+          "specify1": 1,
+          "specify2": 2,
+          "specify3": 3,
+          "specify4": 4,
+          "specify5": 5,
+          "specify6": 6,
+          "specify7": 7
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwQinQRemarkCfgEntry": {
+    "class": "objecttype",
+    "description": "The entry of the interface remark configuration table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQRemarkCfgIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwQinQRemarkCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.14.1",
+    "status": "current"
+  },
+  "hwQinQRemarkCfgGroup": {
+    "class": "objectgroup",
+    "description": "A collection of items of Mode config table.",
+    "name": "hwQinQRemarkCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQPriorityRemark"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.116.3.1.15",
+    "status": "current"
+  },
+  "hwQinQRemarkCfgIfIndex": {
+    "class": "objecttype",
+    "description": "Index number of the sub interface, which should configure QinQ-termination function first.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQRemarkCfgIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.14.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwQinQRemarkCfgTable": {
+    "class": "objecttype",
+    "description": "Interface remark config.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQRemarkCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.14",
+    "status": "current"
+  },
+  "hwQinQRemarkOuterTpid": {
+    "class": "objecttype",
+    "description": "The value indicates the TPID of outer tag of packets that have two tag and output from the output interface of vlan-switch, If hwQinQEtherEncpsType is enabling, then this value should be 0xffff.",
+    "maxaccess": "read-write",
+    "name": "hwQinQRemarkOuterTpid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hex8100": 4,
+          "hex88a8": 2,
+          "hex9100": 3,
+          "hexffff": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwQinQStackingVlanCfgEntry": {
+    "class": "objecttype",
+    "description": "This object indicates the configuration table for QinQ Stacking Vlan.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQStackingVlanCfgIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwQinQStackingVlanCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.21.1",
+    "status": "current"
+  },
+  "hwQinQStackingVlanCfgGroup": {
+    "class": "objectgroup",
+    "description": "A collection of items of QinQ Stacking Vlan config table.",
+    "name": "hwQinQStackingVlanCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQStackingVlanCfgVlanId"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQStackingVlanCfgRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.116.3.1.22",
+    "status": "current"
+  },
+  "hwQinQStackingVlanCfgIfIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the Index number of the vlanif interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQStackingVlanCfgIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.21.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwQinQStackingVlanCfgRowStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the RowStatus of hwQinQStackingVlanTable.",
+    "maxaccess": "read-create",
+    "name": "hwQinQStackingVlanCfgRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.21.1.50",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwQinQStackingVlanCfgTable": {
+    "class": "objecttype",
+    "description": "QinQ Stacking Vlan configuration table.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQStackingVlanCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.21",
+    "status": "current"
+  },
+  "hwQinQStackingVlanCfgVlanId": {
+    "class": "objecttype",
+    "description": "This object indicates the outer vlan id for QinQ Stacking Vlan.",
+    "maxaccess": "read-create",
+    "name": "hwQinQStackingVlanCfgVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.21.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwQinQStaticARPCfgCEVlan": {
+    "class": "objecttype",
+    "description": "The second vlan id.",
+    "maxaccess": "read-create",
+    "name": "hwQinQStaticARPCfgCEVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQinQStaticARPCfgEntry": {
+    "class": "objecttype",
+    "description": "The entry of an interface enabled the QinQ function.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQStaticARPCfgIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQStaticARPCfgIp"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwQinQStaticARPCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.6.1",
+    "status": "current"
+  },
+  "hwQinQStaticARPCfgGroup": {
+    "class": "objectgroup",
+    "description": "A collection of items of static ARP table.",
+    "name": "hwQinQStaticARPCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQStaticARPCfgMac"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQStaticARPCfgVlan"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQStaticARPCfgCEVlan"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQStaticARPCfgRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.116.3.1.7",
+    "status": "current"
+  },
+  "hwQinQStaticARPCfgIfIndex": {
+    "class": "objecttype",
+    "description": "The interface\u0027s Index.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQStaticARPCfgIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwQinQStaticARPCfgIp": {
+    "class": "objecttype",
+    "description": "The IP address.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQStaticARPCfgIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwQinQStaticARPCfgMac": {
+    "class": "objecttype",
+    "description": "The MAC address.",
+    "maxaccess": "read-create",
+    "name": "hwQinQStaticARPCfgMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwQinQStaticARPCfgRowStatus": {
+    "class": "objecttype",
+    "description": "Used for controlling the creation and deletion of this row. All writeable objects in this row may be modified at any time. If a Network Management Application attempts to delete a conceptual row by setting this object to \u0027destroy\u0027 and there are one or more entries in hwQinQStaticARPCfgTable pointing to the row ,the agent must also destroy the corresponding entries in hwQinQStaticARPCfgTable.",
+    "maxaccess": "read-create",
+    "name": "hwQinQStaticARPCfgRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.6.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwQinQStaticARPCfgTable": {
+    "class": "objecttype",
+    "description": "The table is used to configure QinQ static ARP.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQStaticARPCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.6",
+    "status": "current"
+  },
+  "hwQinQStaticARPCfgVlan": {
+    "class": "objecttype",
+    "description": "The first vlan id.",
+    "maxaccess": "read-create",
+    "name": "hwQinQStaticARPCfgVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwQinQStaticMACCfgCEVlan": {
+    "class": "objecttype",
+    "description": "CE vlan id.",
+    "maxaccess": "read-create",
+    "name": "hwQinQStaticMACCfgCEVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.7.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQinQStaticMACCfgEntry": {
+    "class": "objecttype",
+    "description": "The entry of an interface enabled the QinQ function.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQStaticMACCfgMac"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQStaticMACCfgVsiName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQStaticMACCfgVlan"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwQinQStaticMACCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.7.1",
+    "status": "current"
+  },
+  "hwQinQStaticMACCfgFlag": {
+    "class": "objecttype",
+    "description": "The config type.",
+    "maxaccess": "read-create",
+    "name": "hwQinQStaticMACCfgFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.7.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1qtermination": 5,
+          "mapping": 3,
+          "qinqtermination": 4,
+          "vlan": 1,
+          "vsi": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwQinQStaticMACCfgGroup": {
+    "class": "objectgroup",
+    "description": "A collection of items of static MAC table.",
+    "name": "hwQinQStaticMACCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQStaticMACCfgPEVlan"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQStaticMACCfgCEVlan"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQStaticMACCfgType"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQStaticMACCfgIfIndex"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQStaticMACCfgFlag"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQStaticMACCfgRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.116.3.1.8",
+    "status": "current"
+  },
+  "hwQinQStaticMACCfgIfIndex": {
+    "class": "objecttype",
+    "description": "Index number of the interface.",
+    "maxaccess": "read-create",
+    "name": "hwQinQStaticMACCfgIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.7.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwQinQStaticMACCfgMac": {
+    "class": "objecttype",
+    "description": "The MAC address.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQStaticMACCfgMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwQinQStaticMACCfgPEVlan": {
+    "class": "objecttype",
+    "description": "PE vlan id for a Network Management Application attempts to configure hwQinQStaticMACCfgTable.",
+    "maxaccess": "read-create",
+    "name": "hwQinQStaticMACCfgPEVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.7.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwQinQStaticMACCfgRowStatus": {
+    "class": "objecttype",
+    "description": "Used for controlling the creation and deletion of this row. All writeable objects in this row may be modified at any time. If a Network Management Application attempts to delete a conceptual row by setting this object to \u0027destroy\u0027 and there are one or more entries in hwQinQStaticMACCfgTable pointing to the row ,the agent must also destroy the corresponding entries in hwQinQStaticMACCfgTable.",
+    "maxaccess": "read-create",
+    "name": "hwQinQStaticMACCfgRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.7.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwQinQStaticMACCfgTable": {
+    "class": "objecttype",
+    "description": "The table is used to configure static MAC.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQStaticMACCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.7",
+    "status": "current"
+  },
+  "hwQinQStaticMACCfgType": {
+    "class": "objecttype",
+    "description": "The type of the MAC.",
+    "maxaccess": "read-create",
+    "name": "hwQinQStaticMACCfgType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.7.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blackhole": 3,
+          "dynamid": 1,
+          "invalid": 0,
+          "static": 2,
+          "toobig": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwQinQStaticMACCfgVlan": {
+    "class": "objecttype",
+    "description": "Vlan id that the MAC address belongs to.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQStaticMACCfgVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwQinQStaticMACCfgVsiName": {
+    "class": "objecttype",
+    "description": "Name of VSI that the MAC address belongs to.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQStaticMACCfgVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwQinQSubIfAsymmetry": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "asymmetry"
+      }
+    },
+    "description": "The asymmetry attribution of the QinQ-termination interface.",
+    "maxaccess": "read-write",
+    "name": "hwQinQSubIfAsymmetry",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.13.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "asymmetry": 2,
+          "symmetry": 1,
+          "transparent": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwQinQSubIfCEEtherType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "hex",
+        "value": "33024"
+      }
+    },
+    "description": "EtherType of Ce Mapped.",
+    "maxaccess": "read-create",
+    "name": "hwQinQSubIfCEEtherType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.20.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1536
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwQinQSubIfCEVlanEnd": {
+    "class": "objecttype",
+    "description": "Inner end vlan id of the packets which have two tags before being Mapped.",
+    "maxaccess": "read-create",
+    "name": "hwQinQSubIfCEVlanEnd",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.20.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQinQSubIfCEVlanMap": {
+    "class": "objecttype",
+    "description": "Inner vlan id of the packets which have two tags after being Mapped.",
+    "maxaccess": "read-create",
+    "name": "hwQinQSubIfCEVlanMap",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.20.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQinQSubIfCEVlanStart": {
+    "class": "objecttype",
+    "description": "Inner start vlan id of the packets which have two tags before being Mapped.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfCEVlanStart",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.20.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQinQSubIfDot1qTermEntry": {
+    "class": "objecttype",
+    "description": "The entry of an interface enabled the Dot1q-termination function.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfDot1qTermIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfDot1qTermVidStart"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfDot1qTermEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.8.1",
+    "status": "current"
+  },
+  "hwQinQSubIfDot1qTermGroup": {
+    "class": "objectgroup",
+    "description": "A collection of items of Dot1q-termination table.",
+    "name": "hwQinQSubIfDot1qTermGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfDot1qTermVidEnd"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfDot1qTermGroupId"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfDot1qTermRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.116.3.1.9",
+    "status": "current"
+  },
+  "hwQinQSubIfDot1qTermGroupId": {
+    "class": "objecttype",
+    "description": "Group-management id.",
+    "maxaccess": "read-create",
+    "name": "hwQinQSubIfDot1qTermGroupId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.8.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQinQSubIfDot1qTermIfIndex": {
+    "class": "objecttype",
+    "description": "Index number of the Dot1q-termination interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfDot1qTermIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwQinQSubIfDot1qTermRowStatus": {
+    "class": "objecttype",
+    "description": "Used for controlling the creation and deletion of this row. All writeable objects in this row may be modified at any time. If a Network Management Application attempts to delete a conceptual row by setting this object to \u0027destroy\u0027 and there are one or more entries in hwQinQSubIfDot1qTermTable pointing to the row ,the agent must also destroy the corresponding entries in hwQinQSubIfDot1qTermTable.",
+    "maxaccess": "read-create",
+    "name": "hwQinQSubIfDot1qTermRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.8.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwQinQSubIfDot1qTermStatCEVlan": {
+    "class": "objecttype",
+    "description": "Inner vlan in packets which input the Dot1q-termination sub interface, used to indicate the packets as an index.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfDot1qTermStatCEVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.9.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwQinQSubIfDot1qTermStatEntry": {
+    "class": "objecttype",
+    "description": "The entry of an interface configured Dot1q-termination function.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfDot1qTermStatIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfDot1qTermStatCEVlan"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfDot1qTermStatEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.9.1",
+    "status": "current"
+  },
+  "hwQinQSubIfDot1qTermStatGroup": {
+    "class": "objectgroup",
+    "description": "A collection of items of Dot1q-termination statistic table.",
+    "name": "hwQinQSubIfDot1qTermStatGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfDot1qTermStatGroupId"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfDot1qTermStatOutPackets"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfDot1qTermStatOutBytes"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfDot1qTermStatInPackets"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfDot1qTermStatInBytes"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfDot1qTermStatOutBdPackets"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfDot1qTermStatInBdPackets"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfDot1qTermStatOutMuPackets"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfDot1qTermStatInMuPackets"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfDot1qTermStatOutUniPackets"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfDot1qTermStatInUniPackets"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.116.3.1.10",
+    "status": "current"
+  },
+  "hwQinQSubIfDot1qTermStatGroupId": {
+    "class": "objecttype",
+    "description": "The group-management id. The statistic number of packets can not get if the statistic funtion is not enabled.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfDot1qTermStatGroupId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.9.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQinQSubIfDot1qTermStatIfIndex": {
+    "class": "objecttype",
+    "description": "Index number of the Dot1q-termination interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfDot1qTermStatIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.9.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwQinQSubIfDot1qTermStatInBdPackets": {
+    "class": "objecttype",
+    "description": "Total number of broadcast packets received from the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfDot1qTermStatInBdPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.9.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfDot1qTermStatInBytes": {
+    "class": "objecttype",
+    "description": "Total number of in bytes of the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfDot1qTermStatInBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.9.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfDot1qTermStatInMuPackets": {
+    "class": "objecttype",
+    "description": "Total number of multicast packets received from the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfDot1qTermStatInMuPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.9.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfDot1qTermStatInPackets": {
+    "class": "objecttype",
+    "description": "Total number of in packets of the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfDot1qTermStatInPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.9.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfDot1qTermStatInUniPackets": {
+    "class": "objecttype",
+    "description": "Total number of unicast packets received from the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfDot1qTermStatInUniPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.9.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfDot1qTermStatOutBdPackets": {
+    "class": "objecttype",
+    "description": "Total number of broadcast packets transmitted out of the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfDot1qTermStatOutBdPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.9.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfDot1qTermStatOutBytes": {
+    "class": "objecttype",
+    "description": "Total number of out bytes of the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfDot1qTermStatOutBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.9.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfDot1qTermStatOutMuPackets": {
+    "class": "objecttype",
+    "description": "Total number of multicast packets transmitted out of the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfDot1qTermStatOutMuPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.9.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfDot1qTermStatOutPackets": {
+    "class": "objecttype",
+    "description": "Total number of out packets of the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfDot1qTermStatOutPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.9.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfDot1qTermStatOutUniPackets": {
+    "class": "objecttype",
+    "description": "Total number of unicast packets transmitted out of the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfDot1qTermStatOutUniPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.9.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfDot1qTermStatTable": {
+    "class": "objecttype",
+    "description": "When a sub interface configured Dot1q-termination, hwQinQSubIfDot1qTermStatTable used to statistic total number of the out packets and in packets.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfDot1qTermStatTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.9",
+    "status": "current"
+  },
+  "hwQinQSubIfDot1qTermTable": {
+    "class": "objecttype",
+    "description": "Used to configure Dot1q-termination function in sub interface ,then packets transmitted from this sub interface input with one tag will be terminated.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfDot1qTermTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.8",
+    "status": "current"
+  },
+  "hwQinQSubIfDot1qTermVidEnd": {
+    "class": "objecttype",
+    "description": "When configure ce vlan as a range, hwQinQSubIfDot1qTermCEVlanStart is the start vlan id and hwQinQSubIfDot1qTermCEVlanEnd is the end vlan id.",
+    "maxaccess": "read-create",
+    "name": "hwQinQSubIfDot1qTermVidEnd",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.8.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwQinQSubIfDot1qTermVidStart": {
+    "class": "objecttype",
+    "description": "When configure ce vlan as a range, hwQinQSubIfDot1qTermCEVlanStart is the start vlan id and hwQinQSubIfDot1qTermCEVlanEnd is the end vlan id.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfDot1qTermVidStart",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.8.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwQinQSubIfMapCe8021p": {
+    "class": "objecttype",
+    "description": "The service policy map to set the 802.1P bits. By default(pevid), copy the P bits that were in the outer PE VLAN tag to the trunk VLAN tag, by setting object to (cevid), copy the P bits that were in inner CE VALN tag to the trunk VLAN tag.",
+    "maxaccess": "read-write",
+    "name": "hwQinQSubIfMapCe8021p",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.20.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "specify0": 0,
+          "specify1": 1,
+          "specify2": 2,
+          "specify3": 3,
+          "specify4": 4,
+          "specify5": 5,
+          "specify6": 6,
+          "specify7": 7
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwQinQSubIfMapCetoPeFlag": {
+    "class": "objecttype",
+    "description": "The service type of the sub interface, by setting MapCetoPeFlag to the value (CetoPeenable), the 8021p CetoPeenable attribute enabled.",
+    "maxaccess": "read-create",
+    "name": "hwQinQSubIfMapCetoPeFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.20.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwQinQSubIfMapEntry": {
+    "class": "objecttype",
+    "description": "The entry of an interface enabled the QinQ-Map function.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfMapIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfPEVlan"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfCEVlanStart"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfMapEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.20.1",
+    "status": "current"
+  },
+  "hwQinQSubIfMapGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing device level control and status information for the sub interface.",
+    "name": "hwQinQSubIfMapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfCEVlanEnd"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfPEVlanMap"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfPEEtherType"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfCEVlanMap"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfCEEtherType"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfMapGroupId"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfMapRowStatus"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfMapPe8021p"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfMapCe8021p"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfMapCetoPeFlag"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.116.3.1.21",
+    "status": "current"
+  },
+  "hwQinQSubIfMapGroupId": {
+    "class": "objecttype",
+    "description": "Group-management id.",
+    "maxaccess": "read-create",
+    "name": "hwQinQSubIfMapGroupId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.20.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQinQSubIfMapIfIndex": {
+    "class": "objecttype",
+    "description": "Index number of the QinQ-Map interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfMapIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.20.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwQinQSubIfMapPe8021p": {
+    "class": "objecttype",
+    "description": "The service policy map to set the 802.1P bits. By default(pevid), copy the P bits that were in the outer PE VLAN tag to the trunk VLAN tag, by setting object to (cevid), copy the P bits that were in inner CE VALN tag to the trunk VLAN tag.",
+    "maxaccess": "read-write",
+    "name": "hwQinQSubIfMapPe8021p",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.20.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "specify0": 0,
+          "specify1": 1,
+          "specify2": 2,
+          "specify3": 3,
+          "specify4": 4,
+          "specify5": 5,
+          "specify6": 6,
+          "specify7": 7
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwQinQSubIfMapRowStatus": {
+    "class": "objecttype",
+    "description": "Used for controlling the creation and deletion of this row. All writeable objects in this row may be modified at any time. If a Network Management Application attempts to delete a conceptual row by setting this object to \u0027destroy\u0027 and there are one or more entries in hwQinQSubIfMapTable pointing to the row, the agent must also destroy the corresponding entries in hwQinQSubIfMapTable.",
+    "maxaccess": "read-create",
+    "name": "hwQinQSubIfMapRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.20.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwQinQSubIfMapTable": {
+    "class": "objecttype",
+    "description": "The table is used to configure QinQ-mapping function in sub interface, then packets transmitted from this sub interface input with one or two tags will be mapped to other tag or tags.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfMapTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.20",
+    "status": "current"
+  },
+  "hwQinQSubIfPEEtherType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "hex",
+        "value": "33024"
+      }
+    },
+    "description": "EtherType of Pe Mapped.",
+    "maxaccess": "read-create",
+    "name": "hwQinQSubIfPEEtherType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.20.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1536
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwQinQSubIfPEVlan": {
+    "class": "objecttype",
+    "description": "Outer vlan id of the packets which have two tags before being Mapped.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfPEVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.20.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQinQSubIfPEVlanMap": {
+    "class": "objecttype",
+    "description": "Outer vlan id of the packets which have two tags after being Mapped.",
+    "maxaccess": "read-create",
+    "name": "hwQinQSubIfPEVlanMap",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.20.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQinQSubIfStackGroupId": {
+    "class": "objecttype",
+    "description": "Group-management id.",
+    "maxaccess": "read-create",
+    "name": "hwQinQSubIfStackGroupId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQinQSubIfStackStatGroupId": {
+    "class": "objecttype",
+    "description": "The group-management id. The statistic number of packets can not get if the statistic funtion is not enabled.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfStackStatGroupId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQinQSubIfStackStatInBdPackets": {
+    "class": "objecttype",
+    "description": "Total number of broadcast packets received from the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfStackStatInBdPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfStackStatInMuPackets": {
+    "class": "objecttype",
+    "description": "Total number of multicast packets received from the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfStackStatInMuPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfStackStatInUniPackets": {
+    "class": "objecttype",
+    "description": "Total number of unicast packets received from the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfStackStatInUniPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.3.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfStackStatOutBdPackets": {
+    "class": "objecttype",
+    "description": "Total number of broadcast packets transmitted out of the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfStackStatOutBdPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfStackStatOutMuPackets": {
+    "class": "objecttype",
+    "description": "Total number of multicast packets transmitted out of the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfStackStatOutMuPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfStackStatOutUniPackets": {
+    "class": "objecttype",
+    "description": "Total number of unicast packets transmitted out of the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfStackStatOutUniPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.3.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfStackingCEVlanEnd": {
+    "class": "objecttype",
+    "description": "When configure ce vlan as a range, hwQinQSubIfStackingCEVlanStart is the start vlan id and hwQinQSubIfStackingCEVlanEnd is the end vlan id.",
+    "maxaccess": "read-create",
+    "name": "hwQinQSubIfStackingCEVlanEnd",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwQinQSubIfStackingCEVlanStart": {
+    "class": "objecttype",
+    "description": "When configure ce vlan as a range, hwQinQSubIfStackingCEVlanStart is the start vlan id and hwQinQSubIfStackingCEVlanEnd is the end vlan id.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfStackingCEVlanStart",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwQinQSubIfStackingIfIndex": {
+    "class": "objecttype",
+    "description": "Index number of the QinQ-stacking interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfStackingIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwQinQSubIfStackingPEVlan": {
+    "class": "objecttype",
+    "description": "PE vlan id.",
+    "maxaccess": "read-create",
+    "name": "hwQinQSubIfStackingPEVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQinQSubIfStackingRowStatus": {
+    "class": "objecttype",
+    "description": "Used for controlling the creation and deletion of this row. All writable objects in this row may be modified at any time. If a Network Management Application attempts to delete a conceptual row by setting this object to \u0027destroy\u0027 and there are one or more entries in hwQinQSubIfVlanStackingTable pointing to the row, the agent must also destroy the corresponding entries in hwQinQSubIfVlanStackingTable.",
+    "maxaccess": "read-create",
+    "name": "hwQinQSubIfStackingRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwQinQSubIfStackingStatCEVlan": {
+    "class": "objecttype",
+    "description": "Inner vlan in packets which input the QinQ sub interface, used to indicate the packets as an index.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfStackingStatCEVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwQinQSubIfStackingStatEntry": {
+    "class": "objecttype",
+    "description": "The entry of an interface enabled the QinQ-stacking function.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfStackingStatIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfStackingStatCEVlan"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfStackingStatEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.3.1",
+    "status": "current"
+  },
+  "hwQinQSubIfStackingStatGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing device level control and status information for the sub interface.",
+    "name": "hwQinQSubIfStackingStatGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfStackStatGroupId"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfStackingStatOutPackets"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfStackingStatOutBytes"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfStackingStatInPackets"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfStackingStatInBytes"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfStackStatOutBdPackets"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfStackStatInBdPackets"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfStackStatOutMuPackets"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfStackStatInMuPackets"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfStackStatOutUniPackets"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfStackStatInUniPackets"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.116.3.1.4",
+    "status": "current"
+  },
+  "hwQinQSubIfStackingStatIfIndex": {
+    "class": "objecttype",
+    "description": "Index number of the QinQ-stacking interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfStackingStatIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwQinQSubIfStackingStatInBytes": {
+    "class": "objecttype",
+    "description": "Total number of in bytes of the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfStackingStatInBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfStackingStatInPackets": {
+    "class": "objecttype",
+    "description": "Total number of in packets of the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfStackingStatInPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfStackingStatOutBytes": {
+    "class": "objecttype",
+    "description": "Total number of out bytes of the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfStackingStatOutBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfStackingStatOutPackets": {
+    "class": "objecttype",
+    "description": "Total number of out packets of the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfStackingStatOutPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfStackingStatTable": {
+    "class": "objecttype",
+    "description": "When a sub interface configured QinQ-stacking function, hwQinQSubIfStackingStatTable is used to statistic total number of the out packets and in packets.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfStackingStatTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.3",
+    "status": "current"
+  },
+  "hwQinQSubIfTermCEVlanEnd": {
+    "class": "objecttype",
+    "description": "When configure ce vlan as a range, hwQinQSubIfTermCEVlanStart is the start vlan id and hwQinQSubIfTermCEVlanEnd is the end vlan id.",
+    "maxaccess": "read-create",
+    "name": "hwQinQSubIfTermCEVlanEnd",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwQinQSubIfTermCEVlanStart": {
+    "class": "objecttype",
+    "description": "When configure ce vlan as a range, hwQinQSubIfTermCEVlanStart is the start vlan id and hwQinQSubIfTermCEVlanEnd is the end vlan id.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfTermCEVlanStart",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwQinQSubIfTermEntry": {
+    "class": "objecttype",
+    "description": "The entry of an interface enabled the QinQ-termination function.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfTermIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfTermPEVlan"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfTermCEVlanStart"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfTermEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.4.1",
+    "status": "current"
+  },
+  "hwQinQSubIfTermGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing device level control and status information for the sub interface.",
+    "name": "hwQinQSubIfTermGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfTermCEVlanEnd"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfTermGroupId"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfTermRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.116.3.1.5",
+    "status": "current"
+  },
+  "hwQinQSubIfTermGroupId": {
+    "class": "objecttype",
+    "description": "Group-management id.",
+    "maxaccess": "read-create",
+    "name": "hwQinQSubIfTermGroupId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQinQSubIfTermIfIndex": {
+    "class": "objecttype",
+    "description": "Index number of the QinQ-termination interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfTermIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwQinQSubIfTermPEVlan": {
+    "class": "objecttype",
+    "description": "Outer vlan id of the packets which have two tags before being terminated.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfTermPEVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwQinQSubIfTermRowStatus": {
+    "class": "objecttype",
+    "description": "Used for controlling the creation and deletion of this row. All writeable objects in this row may be modified at any time. If a Network Management Application attempts to delete a conceptual row by setting this object to \u0027destroy\u0027 and there are one or more entries in hwQinQSubIfTermTable pointing to the row, the agent must also destroy the corresponding entries in hwQinQSubIfTermTable.",
+    "maxaccess": "read-create",
+    "name": "hwQinQSubIfTermRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwQinQSubIfTermStatCEVlan": {
+    "class": "objecttype",
+    "description": "Inner vlan in packets which input the QinQ sub interface, used to indicate the packets as an index.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfTermStatCEVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwQinQSubIfTermStatEntry": {
+    "class": "objecttype",
+    "description": "The entry of an interface enabled the QinQ-termination function.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfTermStatIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfTermStatPEVlan"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfTermStatCEVlan"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfTermStatEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.5.1",
+    "status": "current"
+  },
+  "hwQinQSubIfTermStatGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing device level control and status information for the sub interface.",
+    "name": "hwQinQSubIfTermStatGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfTermStatGroupId"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfTermStatOutPackets"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfTermStatOutBytes"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfTermStatInPackets"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfTermStatInBytes"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfTermStatOutBdPackets"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfTermStatInBdPackets"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfTermStatOutMuPackets"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfTermStatInMuPackets"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfTermStatOutUniPackets"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfTermStatInUniPackets"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.116.3.1.6",
+    "status": "current"
+  },
+  "hwQinQSubIfTermStatGroupId": {
+    "class": "objecttype",
+    "description": "The group-management id. The statistic number of packets can not get if the statistic funtion is not enabled.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfTermStatGroupId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQinQSubIfTermStatIfIndex": {
+    "class": "objecttype",
+    "description": "Index number of the QinQ-termination interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfTermStatIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwQinQSubIfTermStatInBdPackets": {
+    "class": "objecttype",
+    "description": "Total number of broadcast packets received from the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfTermStatInBdPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.5.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfTermStatInBytes": {
+    "class": "objecttype",
+    "description": "Total number of in bytes of the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfTermStatInBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.5.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfTermStatInMuPackets": {
+    "class": "objecttype",
+    "description": "Total number of multicast packets received from the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfTermStatInMuPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.5.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfTermStatInPackets": {
+    "class": "objecttype",
+    "description": "Total number of in packets of the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfTermStatInPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.5.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfTermStatInUniPackets": {
+    "class": "objecttype",
+    "description": "Total number of unicast packets received from the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfTermStatInUniPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.5.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfTermStatOutBdPackets": {
+    "class": "objecttype",
+    "description": "Total number of broadcast packets transmitted out of the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfTermStatOutBdPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.5.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfTermStatOutBytes": {
+    "class": "objecttype",
+    "description": "Total number of out bytes of the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfTermStatOutBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.5.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfTermStatOutMuPackets": {
+    "class": "objecttype",
+    "description": "Total number of multicast packets transmitted out of the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfTermStatOutMuPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.5.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfTermStatOutPackets": {
+    "class": "objecttype",
+    "description": "Total number of out packets of the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfTermStatOutPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.5.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfTermStatOutUniPackets": {
+    "class": "objecttype",
+    "description": "Total number of unicast packets transmitted out of the sub interface.",
+    "maxaccess": "read-only",
+    "name": "hwQinQSubIfTermStatOutUniPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.5.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwQinQSubIfTermStatPEVlan": {
+    "class": "objecttype",
+    "description": "Outer vlan in packets which input the QinQ sub interface, used to indicate the packets as an index.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfTermStatPEVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwQinQSubIfTermStatTable": {
+    "class": "objecttype",
+    "description": "When a sub interface configured QinQ-termination function, hwQinQSubIfTermStatTable used to statistic total number of the out packets and in packets.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfTermStatTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.5",
+    "status": "current"
+  },
+  "hwQinQSubIfTermTable": {
+    "class": "objecttype",
+    "description": "The table is used to configure QinQ-termination function in sub interface, then packets transmitted from this sub interface input with two tags will be terminated.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfTermTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.4",
+    "status": "current"
+  },
+  "hwQinQSubIfType": {
+    "class": "objecttype",
+    "description": "The type of sub interface.",
+    "maxaccess": "read-create",
+    "name": "hwQinQSubIfType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.11.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1q": 2,
+          "qinq": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwQinQSubIfVlanStackingEntry": {
+    "class": "objecttype",
+    "description": "The entry of an interface enabled the QinQ-stacking function.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfStackingIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfStackingCEVlanStart"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfVlanStackingEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.2.1",
+    "status": "current"
+  },
+  "hwQinQSubIfVlanStackingGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing device level control and status information for the sub interface.",
+    "name": "hwQinQSubIfVlanStackingGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfStackingCEVlanEnd"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfStackGroupId"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfStackingRowStatus"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSubIfStackingPEVlan"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.116.3.1.3",
+    "status": "current"
+  },
+  "hwQinQSubIfVlanStackingTable": {
+    "class": "objecttype",
+    "description": "Used to configure packets\u0027vlan stacking in sub interface, receive one-tag packets and transmit two-tag packets, where the outer-tag inserted is in hwQinQSubIfVlanStackingTable.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSubIfVlanStackingTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.2",
+    "status": "current"
+  },
+  "hwQinQSwapCfgEntry": {
+    "class": "objecttype",
+    "description": "An entry is created for each active ethernet type interface in the device and deleted when the interface been not exist.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSwapCfgIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSwapCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.19.1",
+    "status": "current"
+  },
+  "hwQinQSwapCfgFlag": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32"
+      }
+    },
+    "description": "QinQ swap flag of the interface, which indicates whether to swap the two vlan tags or not when the interface receives a packet with two 802.1q tags.",
+    "maxaccess": "read-write",
+    "name": "hwQinQSwapCfgFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.19.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwQinQSwapCfgGroup": {
+    "class": "objectgroup",
+    "description": "A collection of items of Swap config table.",
+    "name": "hwQinQSwapCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSwapCfgFlag"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.116.3.1.20",
+    "status": "current"
+  },
+  "hwQinQSwapCfgIfIndex": {
+    "class": "objecttype",
+    "description": "Index number of the interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSwapCfgIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.19.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwQinQSwapCfgTable": {
+    "class": "objecttype",
+    "description": "This table describes the vlan swap configurations of interfaces.",
+    "maxaccess": "not-accessible",
+    "name": "hwQinQSwapCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.2.19",
+    "status": "current"
+  },
+  "hwQinQSystemBase": {
+    "class": "objectidentity",
+    "name": "hwQinQSystemBase",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.1"
+  },
+  "hwQinQSystemBaseGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing device level control and status information for the system.",
+    "name": "hwQinQSystemBaseGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSystemWellKnowMac"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSystemBridgeRole"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwBpduSystemDropPacketSta"
+      },
+      {
+        "module": "HUAWEI-QINQ-MIB",
+        "object": "hwQinQSystemEtherType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.116.3.1.1",
+    "status": "current"
+  },
+  "hwQinQSystemBridgeRole": {
+    "class": "objecttype",
+    "description": "It indicates the Bridge \u0027s location, having two possible values :Customers\u0027 Bridge and Providers\u0027 Bridge.",
+    "maxaccess": "read-write",
+    "name": "hwQinQSystemBridgeRole",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "customer": 1,
+          "provider": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwQinQSystemEtherType": {
+    "class": "objecttype",
+    "description": "The value of tag type is encapsulated in the head of the ethernet frame to distinguish the encapsulated mode between the 802.1Q and QinQ. Default is \u00278100\u0027h.",
+    "maxaccess": "read-write",
+    "name": "hwQinQSystemEtherType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1536
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwQinQSystemWellKnowMac": {
+    "class": "objecttype",
+    "description": "The destination MAC address that is replaced the original destination macAddress is a wellknown multicast macAddress to hide the inner details of the BPDU in order to that it can be transmitted with a tag through the services\u0027network.",
+    "maxaccess": "read-write",
+    "name": "hwQinQSystemWellKnowMac",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.116.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "imports": {
+    "HUAWEI-L2IF-MIB": [
+      "VlanList"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "MibIdentifier",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Bits",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "TimeTicks",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "MacAddress"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-QINQ-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:47 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-QINQ-MIB"
+  }
+}

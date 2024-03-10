@@ -1,0 +1,1265 @@
+{
+  "InetAddress": {
+    "class": "textualconvention",
+    "description": "Denotes a generic Internet address. An InetAddress value is always interpreted within the context of an InetAddressType value. The InetAddressType object which defines the context must be registered immediately before the object which uses the InetAddress textual convention. In other words, the object identifiers for the InetAddressType object and the InetAddress object MUST have the same length and the last sub-identifier of the InetAddressType object MUST be 1 less than the last sub-identifier of the InetAddress object. When this textual convention is used as the syntax of an index object, there may be issues with the limit of 128 sub-identifiers specified in SMIv2, STD 58. In this case, the OBJECT-TYPE declaration MUST include a \u0027SIZE\u0027 clause to limit the number of potential instance sub-identifiers.",
+    "name": "InetAddress",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDismanPing": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": "This private mib file includes the test information of the device. It is supplementary for DISMAN-PING-MIB(rfc2925). By setting more parameters you can finish more types test such as tcp, udp, dlsw, dhcp, ftp, http and jitter . This mib contains 5 tables: hwPingCtlTable, hwpingResultsTable, hwPingJitterStatsTable, hwPingTcpServerTable, hwPingUdpServerTable, and 3 nodes: hwPingMIBVersion, hwPingAgentEnable, hwPingServerEnable. ",
+    "lastupdated": "200308130000Z",
+    "name": "hwDismanPing",
+    "oid": "1.3.6.1.4.1.2011.5.25.28",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwPingAgentEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "Enable Huawei PING agent function",
+    "maxaccess": "read-write",
+    "name": "hwPingAgentEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPingCtlEntry": {
+    "augmention": {
+      "module": "HUAWEI-DISMAN-PING-MIB",
+      "name": "hwPingCtlEntry",
+      "object": "pingCtlEntry"
+    },
+    "class": "objecttype",
+    "description": "Defines an entry in the hwpingCtlTable. The operation of this table is same as that of pingResultsTable.",
+    "maxaccess": "not-accessible",
+    "name": "hwPingCtlEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.2.1",
+    "status": "current"
+  },
+  "hwPingCtlTable": {
+    "class": "objecttype",
+    "description": "Defines the ping Control Extend Table for providing, via SNMP, the capability of performing ping operations at a remote host. ",
+    "maxaccess": "not-accessible",
+    "name": "hwPingCtlTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.2",
+    "status": "current"
+  },
+  "hwPingImplementationTypeDomains": {
+    "class": "objectidentity",
+    "name": "hwPingImplementationTypeDomains",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.2"
+  },
+  "hwPingJitterStatsAveNegativesDS": {
+    "class": "objecttype",
+    "description": "The average of RTT\u0027s of all negative jitter values from packets sent from destination to source.",
+    "maxaccess": "read-only",
+    "name": "hwPingJitterStatsAveNegativesDS",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwPingJitterStatsAveNegativesSD": {
+    "class": "objecttype",
+    "description": "The average of all negative jitter values from packets sent from source to destination.",
+    "maxaccess": "read-only",
+    "name": "hwPingJitterStatsAveNegativesSD",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwPingJitterStatsAvePositivesDS": {
+    "class": "objecttype",
+    "description": "The average of RTT\u0027s of all positive jitter values from packets sent from destination to source.",
+    "maxaccess": "read-only",
+    "name": "hwPingJitterStatsAvePositivesDS",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwPingJitterStatsAvePositivesSD": {
+    "class": "objecttype",
+    "description": "The average of RTT\u0027s of all positive jitter values from packets sent from source to destination.",
+    "maxaccess": "read-only",
+    "name": "hwPingJitterStatsAvePositivesSD",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwPingJitterStatsEntry": {
+    "class": "objecttype",
+    "description": "A table which contains the status of latest Jitter operation. This entry is created only if the pingCtlType is hwpingjitter. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlOwnerIndex"
+      },
+      {
+        "implied": 0,
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTestName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPingJitterStatsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1",
+    "status": "current"
+  },
+  "hwPingJitterStatsMaxOfNegativesDS": {
+    "class": "objecttype",
+    "description": "The maximum of all negative jitter values from packets sent from destination to source.",
+    "maxaccess": "read-only",
+    "name": "hwPingJitterStatsMaxOfNegativesDS",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwPingJitterStatsMaxOfNegativesSD": {
+    "class": "objecttype",
+    "description": "The maximum of absolute values of all negative jitter values from packets sent from source to destination.",
+    "maxaccess": "read-only",
+    "name": "hwPingJitterStatsMaxOfNegativesSD",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwPingJitterStatsMaxOfPositivesDS": {
+    "class": "objecttype",
+    "description": "The maximum of all positive jitter values from packets sent from destination to source.",
+    "maxaccess": "read-only",
+    "name": "hwPingJitterStatsMaxOfPositivesDS",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwPingJitterStatsMaxOfPositivesSD": {
+    "class": "objecttype",
+    "description": "The maximum of all positive jitter values from packets sent from source to destination.",
+    "maxaccess": "read-only",
+    "name": "hwPingJitterStatsMaxOfPositivesSD",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwPingJitterStatsMinOfNegativesDS": {
+    "class": "objecttype",
+    "description": "The minimum of all negative jitter values from packets sent from destination to source.",
+    "maxaccess": "read-only",
+    "name": "hwPingJitterStatsMinOfNegativesDS",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwPingJitterStatsMinOfNegativesSD": {
+    "class": "objecttype",
+    "description": "The minimum of absolute values of all negative jitter values from packets sent from source to destination.",
+    "maxaccess": "read-only",
+    "name": "hwPingJitterStatsMinOfNegativesSD",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwPingJitterStatsMinOfPositivesDS": {
+    "class": "objecttype",
+    "description": "The minimum of all positive jitter values from packets sent from destination to source.",
+    "maxaccess": "read-only",
+    "name": "hwPingJitterStatsMinOfPositivesDS",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwPingJitterStatsMinOfPositivesSD": {
+    "class": "objecttype",
+    "description": "The minimum of all positive jitter values from packets sent from source to destination.",
+    "maxaccess": "read-only",
+    "name": "hwPingJitterStatsMinOfPositivesSD",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwPingJitterStatsNumOfNegativesDS": {
+    "class": "objecttype",
+    "description": "The sum of number of all negative jitter values from packets sent from destination to source.",
+    "maxaccess": "read-only",
+    "name": "hwPingJitterStatsNumOfNegativesDS",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwPingJitterStatsNumOfNegativesSD": {
+    "class": "objecttype",
+    "description": "The sum of number of all negative jitter values from packets sent from source to destination.",
+    "maxaccess": "read-only",
+    "name": "hwPingJitterStatsNumOfNegativesSD",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwPingJitterStatsNumOfPositivesDS": {
+    "class": "objecttype",
+    "description": "The sum of number of all positive jitter values from packets sent from destination to source.",
+    "maxaccess": "read-only",
+    "name": "hwPingJitterStatsNumOfPositivesDS",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwPingJitterStatsNumOfPositivesSD": {
+    "class": "objecttype",
+    "description": "The sum of number of all positive jitter values from packets sent from source to destination.",
+    "maxaccess": "read-only",
+    "name": "hwPingJitterStatsNumOfPositivesSD",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwPingJitterStatsNumOfRTT": {
+    "class": "objecttype",
+    "description": "The number of Jitter\u0027s that are successfully measured.",
+    "maxaccess": "read-only",
+    "name": "hwPingJitterStatsNumOfRTT",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwPingJitterStatsPacketLossDS": {
+    "class": "objecttype",
+    "description": "The number of packets lost when sent from destination to source.",
+    "maxaccess": "read-only",
+    "name": "hwPingJitterStatsPacketLossDS",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwPingJitterStatsPacketLossSD": {
+    "class": "objecttype",
+    "description": "The number of packets lost when sent from source to destination.",
+    "maxaccess": "read-only",
+    "name": "hwPingJitterStatsPacketLossSD",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwPingJitterStatsPktLossUnknown": {
+    "class": "objecttype",
+    "description": " The number of packets which lost but not knowing result .",
+    "maxaccess": "read-only",
+    "name": "hwPingJitterStatsPktLossUnknown",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    },
+    "units": "milliseconds"
+  },
+  "hwPingJitterStatsSum2NegativesDS": {
+    "class": "objecttype",
+    "description": "The sum of squares of RTT\u0027s of all negative jitter values from packets sent from destination to source.",
+    "maxaccess": "read-only",
+    "name": "hwPingJitterStatsSum2NegativesDS",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwPingJitterStatsSum2NegativesSD": {
+    "class": "objecttype",
+    "description": "The sum of square of RTT\u0027s of all negative jitter values from packets sent from source to destination.",
+    "maxaccess": "read-only",
+    "name": "hwPingJitterStatsSum2NegativesSD",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwPingJitterStatsSum2PositivesDS": {
+    "class": "objecttype",
+    "description": "The sum of squares of RTT\u0027s of all positive jitter values from packets sent from destination to source.",
+    "maxaccess": "read-only",
+    "name": "hwPingJitterStatsSum2PositivesDS",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwPingJitterStatsSum2PositivesSD": {
+    "class": "objecttype",
+    "description": "The sum of square of RTT\u0027s of all positive jitter values from packets sent from source to destination.",
+    "maxaccess": "read-only",
+    "name": "hwPingJitterStatsSum2PositivesSD",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwPingJitterStatsSumOfNegativesDS": {
+    "class": "objecttype",
+    "description": "The sum of RTT\u0027s of all negative jitter values from packets sent from destination to source.",
+    "maxaccess": "read-only",
+    "name": "hwPingJitterStatsSumOfNegativesDS",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwPingJitterStatsSumOfNegativesSD": {
+    "class": "objecttype",
+    "description": "The sum of all negative jitter values from packets sent from source to destination.",
+    "maxaccess": "read-only",
+    "name": "hwPingJitterStatsSumOfNegativesSD",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwPingJitterStatsSumOfPositivesDS": {
+    "class": "objecttype",
+    "description": "The sum of RTT\u0027s of all positive jitter values from packets sent from destination to source.",
+    "maxaccess": "read-only",
+    "name": "hwPingJitterStatsSumOfPositivesDS",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwPingJitterStatsSumOfPositivesSD": {
+    "class": "objecttype",
+    "description": "The sum of RTT\u0027s of all positive jitter values from packets sent from source to destination.",
+    "maxaccess": "read-only",
+    "name": "hwPingJitterStatsSumOfPositivesSD",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwPingJitterStatsTable": {
+    "class": "objecttype",
+    "description": "A table which contains the status of latest Jitter operation.",
+    "maxaccess": "not-accessible",
+    "name": "hwPingJitterStatsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.4",
+    "status": "current"
+  },
+  "hwPingMIBVersion": {
+    "class": "objecttype",
+    "description": "Huawei PING MIB version string. The format will be: \u0027Version.Release.Patch: Textual-Description\u0027 For example: \u00271.0.0: Initial Ping MIB\u0027",
+    "maxaccess": "read-only",
+    "name": "hwPingMIBVersion",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwPingObjects": {
+    "class": "objectidentity",
+    "name": "hwPingObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1"
+  },
+  "hwPingServerEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "Enable Huawei PING server function",
+    "maxaccess": "read-write",
+    "name": "hwPingServerEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPingTcpServerEntry": {
+    "class": "objecttype",
+    "description": "A table which contains the status of hwping tcp server configuration information. This entry is includeed not only the tcp server ip address but also the tcp server udp port. If used for VPN it is also included the VPN name.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DISMAN-PING-MIB",
+        "object": "hwPingTcpServerIpAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DISMAN-PING-MIB",
+        "object": "hwPingTcpServerPort"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DISMAN-PING-MIB",
+        "object": "hwpingTcpServerVPNInstance"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPingTcpServerEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.6.1",
+    "status": "current"
+  },
+  "hwPingTcpServerIpAddress": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "OctetString",
+        "format": "hex",
+        "value": ""
+      }
+    },
+    "description": "This object represents the tcp server\u0027s ip address. This object and hwpingTcpServerPort is hwPingTcpServerTable index.",
+    "maxaccess": "not-accessible",
+    "name": "hwPingTcpServerIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwPingTcpServerPort": {
+    "class": "objecttype",
+    "description": "This object represents the tcp server\u0027s port number. This object and hwPingTcpServerIpAddress is hwPingTcpServerTable index.",
+    "maxaccess": "not-accessible",
+    "name": "hwPingTcpServerPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPingTcpServerTable": {
+    "class": "objecttype",
+    "description": "A table which contains the status of hwping tcp server configuration information.",
+    "maxaccess": "not-accessible",
+    "name": "hwPingTcpServerTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.6",
+    "status": "current"
+  },
+  "hwPingUdpServerEntry": {
+    "class": "objecttype",
+    "description": "A table which contains the status of hwping udp server configuration information. This entry is includeed not only the udp server ip address but also the udp server udp port.If used for VPN it is also included the VPN name.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DISMAN-PING-MIB",
+        "object": "hwPingUdpServerIpAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DISMAN-PING-MIB",
+        "object": "hwPingUdpServerPort"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DISMAN-PING-MIB",
+        "object": "hwpingUdpServerVPNInstance"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPingUdpServerEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.7.1",
+    "status": "current"
+  },
+  "hwPingUdpServerIpAddress": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "OctetString",
+        "format": "hex",
+        "value": ""
+      }
+    },
+    "description": "This object represents the udp server\u0027s ip address. This object and hwpingUdpServerPort is hwPingUdpServerEntry index.",
+    "maxaccess": "not-accessible",
+    "name": "hwPingUdpServerIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwPingUdpServerPort": {
+    "class": "objecttype",
+    "description": "This object represents the udp server\u0027s port number. This object and hwPingUdpServerIpAddress is hwPingUdpServerEntry index.",
+    "maxaccess": "not-accessible",
+    "name": "hwPingUdpServerPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPingUdpServerTable": {
+    "class": "objecttype",
+    "description": "A table which contains the status of hwping udp server configuration information.",
+    "maxaccess": "not-accessible",
+    "name": "hwPingUdpServerTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.7",
+    "status": "current"
+  },
+  "hwpingCtlFtpOperationString": {
+    "class": "objecttype",
+    "description": "Ftp operation string.If the ftp operation type is get,the string will be file name that you will get from ftp server.",
+    "maxaccess": "read-create",
+    "name": "hwpingCtlFtpOperationString",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 240,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwpingCtlFtpOperationType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "get"
+      }
+    },
+    "description": "Ftp operation type:get or put",
+    "maxaccess": "read-create",
+    "name": "hwpingCtlFtpOperationType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "get": 1,
+          "put": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwpingCtlFtpPassword": {
+    "class": "objecttype",
+    "description": "Ftp password.",
+    "maxaccess": "read-create",
+    "name": "hwpingCtlFtpPassword",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwpingCtlFtpUsername": {
+    "class": "objecttype",
+    "description": "Ftp username",
+    "maxaccess": "read-create",
+    "name": "hwpingCtlFtpUsername",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwpingCtlHttpOperationString": {
+    "class": "objecttype",
+    "description": "Http operation string.for example,if you choose get operation type,the string will be url , home page and http version.",
+    "maxaccess": "read-create",
+    "name": "hwpingCtlHttpOperationString",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 240,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwpingCtlHttpOperationType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "get"
+      }
+    },
+    "description": "Http operation type:get or post.",
+    "maxaccess": "read-create",
+    "name": "hwpingCtlHttpOperationType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "get": 1,
+          "post": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwpingCtlJitterAdminInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 20
+      }
+    },
+    "description": "This value represents the inter-packet delay between packets and is in milliseconds. This value is currently used for Jitter probe. This object is applicable to jitter probe only.",
+    "maxaccess": "read-create",
+    "name": "hwpingCtlJitterAdminInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    },
+    "units": "milliseconds"
+  },
+  "hwpingCtlJitterAdminNumPackets": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 10
+      }
+    },
+    "description": "This value represents the number of packets that need to be transmitted. This value is currently used for Jitter probe. This object is applicable to jitter probe only.",
+    "maxaccess": "read-create",
+    "name": "hwpingCtlJitterAdminNumPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwpingCtlSourcePort": {
+    "class": "objecttype",
+    "description": "This object represents the source\u0027s port number. If this object is not specified, the application will get a port allocated by the system. This object is applicable to all probes except dns, dlsw.",
+    "maxaccess": "read-create",
+    "name": "hwpingCtlSourcePort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwpingCtlTTL": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 20
+      }
+    },
+    "description": "Specifies the value to store in the TTL Field in the IP packet used to encapsulate the ping probe.",
+    "maxaccess": "read-create",
+    "name": "hwpingCtlTTL",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwpingCtlTargetPort": {
+    "class": "objecttype",
+    "description": "This object represents the target\u0027s port number. This object is applicable to udpEcho, tcpConnect and jitter probes.",
+    "maxaccess": "read-create",
+    "name": "hwpingCtlTargetPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwpingCtlVPNInstance": {
+    "class": "objecttype",
+    "description": "This field is used to specify the VPN name in which the PING operation will be userd. The agent will use the field to identify the VPN routing Table for this operation.",
+    "maxaccess": "read-create",
+    "name": "hwpingCtlVPNInstance",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwpingHttp": {
+    "class": "objectidentity",
+    "description": "Indicates that an implementation is using udp for name resolution, tcp connect and tcp data transfer mechanisms for HTTP data download from a particular HTTP Server. it cause the PING application to perform a download of the object specified in the URL",
+    "name": "hwpingHttp",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.2.4",
+    "status": "current"
+  },
+  "hwpingResultsEntry": {
+    "class": "objecttype",
+    "description": "The operation of this table is same as that of pingResultsTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlOwnerIndex"
+      },
+      {
+        "implied": 0,
+        "module": "DISMAN-PING-MIB",
+        "object": "pingCtlTestName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwpingResultsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.3.1",
+    "status": "current"
+  },
+  "hwpingResultsLostPacketRatio": {
+    "class": "objecttype",
+    "description": "The value of this object reflects the drop rate of HWPing test. For example, this value is 30 that means source device only had received 70% packets of total sent packets.",
+    "maxaccess": "read-only",
+    "name": "hwpingResultsLostPacketRatio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    },
+    "units": "milliseconds"
+  },
+  "hwpingResultsMaxDelayDS": {
+    "class": "objecttype",
+    "description": " The maximal delay from destination device to source device. Currently this value is only used for JITTER test, and this value is 0 in other type test. In JITTER test, if destination system time is not valid, the DS delay may be set 0.",
+    "maxaccess": "read-only",
+    "name": "hwpingResultsMaxDelayDS",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    },
+    "units": "milliseconds"
+  },
+  "hwpingResultsMaxDelaySD": {
+    "class": "objecttype",
+    "description": " The maximal delay from source device to destination device. Currently this value is only used for JITTER test, and this value must be 0 in other type test. In JITTER test, if destination system time is not valid, the SD delay may be set 0.",
+    "maxaccess": "read-only",
+    "name": "hwpingResultsMaxDelaySD",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    },
+    "units": "milliseconds"
+  },
+  "hwpingResultsRttBusies": {
+    "class": "objecttype",
+    "description": "The number of occasions when a PING operation could not be initiated because a previous PING operation has not been completed. When the pingCtlType is \u0027pathEcho\u0027 this can occur for both connection oriented protocols and connectionless protocols. When the initiation of a new operation cannot be started, this object will be incremented and the operation will be omitted. (The next operation will start at the next Frequency). ",
+    "maxaccess": "read-only",
+    "name": "hwpingResultsRttBusies",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwpingResultsRttDrops": {
+    "class": "objecttype",
+    "description": "The number of occasions when a PING operation could not be initiated because some necessary internal resource (for example memory) was not available,or the operation completion could not be recognized.",
+    "maxaccess": "read-only",
+    "name": "hwpingResultsRttDrops",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwpingResultsRttNoConnections": {
+    "class": "objecttype",
+    "description": "When the pingCtlType is \u0027icmpecho\u0027 this is the number of occasions when a PING operation could not be initiated because the connection to the target has not been established. For all other pingCtlTypes this object will remain zero.",
+    "maxaccess": "read-only",
+    "name": "hwpingResultsRttNoConnections",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwpingResultsRttNumDisconnects": {
+    "class": "objecttype",
+    "description": "When the pingCtlType is \u0027icmpecho\u0027 , this object represents the number of times that the target or hop along the path to a target became disconnected. For all other values of pingCtlType, this object will remain zero. For connectionless protocols this has no meaning, and will consequently remain 0. Since this error does not indicate any information about the failure of an PING operation, no response time information for this instance will be recorded in the appropriate objects.",
+    "maxaccess": "read-only",
+    "name": "hwpingResultsRttNumDisconnects",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwpingResultsRttSequenceErrors": {
+    "class": "objecttype",
+    "description": "When the pingCtlType is \u0027icmpecho\u0027 this is the number of PING operation completions received with an unexpected sequence identifier. For all other values of pingCtlType this object will remain zero. When this has occurred some of the possible reasons may be: - a duplicate packet was received - a response was received after it had timed-out - a corrupted packet was received and was not detected ",
+    "maxaccess": "read-only",
+    "name": "hwpingResultsRttSequenceErrors",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwpingResultsRttStatsErrors": {
+    "class": "objecttype",
+    "description": "The number of some other errors",
+    "maxaccess": "read-only",
+    "name": "hwpingResultsRttStatsErrors",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwpingResultsRttTimeouts": {
+    "class": "objecttype",
+    "description": "The number of occasions when a PING operation was not completed before a timeout occurred, i.e. pingCtlTimeOut was exceeded. Since the PING operation was never completed, the completion time of these operations are not accumulated.",
+    "maxaccess": "read-only",
+    "name": "hwpingResultsRttTimeouts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwpingResultsTable": {
+    "class": "objecttype",
+    "description": "Defines the Ping Results Extend Table for providing the capability of performing ping operations at a remote host. The results of these operations are stored in the hwpingResultsTable . The operation of this table is same as that of pingResultsTable.",
+    "maxaccess": "not-accessible",
+    "name": "hwpingResultsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.3",
+    "status": "current"
+  },
+  "hwpingTcpServerRowStatus": {
+    "class": "objecttype",
+    "description": "This object allows entries to be created and deleted in the hwPingTcpServerTable. A value MUST be specified for hwPingTcpServerIpAddress and hwPingTcpServerPort prior to a transition to active(1) state being accepted.",
+    "maxaccess": "read-create",
+    "name": "hwpingTcpServerRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.6.1.4",
+    "reference": "See definition of RowStatus in RFC 2579, \u0027Textual Conventions for SMIv2.\u0027",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwpingTcpServerVPNInstance": {
+    "class": "objecttype",
+    "description": "This field is used to specify the VPN name in which the PING operation will be userd. The TCP server will use the field to identify the VPN routing Table for this operation.",
+    "maxaccess": "not-accessible",
+    "name": "hwpingTcpServerVPNInstance",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwpingTcpconnect": {
+    "class": "objectidentity",
+    "description": "Indicates that an implementation is attempting to connect to a TCP port in order to calculate a round trip time. Notes: The hwpingCtlTargetPort and hwpingCtlSourcePort need to be set.",
+    "name": "hwpingTcpconnect",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.2.2",
+    "status": "current"
+  },
+  "hwpingUdpEcho": {
+    "class": "objectidentity",
+    "description": "Indicates that an implementation is using the UDP based echo server. Notes: The hwpingCtlTargetPort and hwpingCtlSourcePort need to be set.",
+    "name": "hwpingUdpEcho",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.2.1",
+    "status": "current"
+  },
+  "hwpingUdpServerRowStatus": {
+    "class": "objecttype",
+    "description": "This object allows entries to be created and deleted in the hwPingUdpServerTable. A value MUST be specified for hwPingUdpServerIpAddress and hwPingUdpServerPort prior to a transition to active(1) state being accepted.",
+    "maxaccess": "read-create",
+    "name": "hwpingUdpServerRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.7.1.4",
+    "reference": "See definition of RowStatus in RFC 2579, \u0027Textual Conventions for SMIv2.\u0027",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwpingUdpServerVPNInstance": {
+    "class": "objecttype",
+    "description": "This field is used to specify the VPN name in which the PING operation will be userd. The UDP server will use the field to identify the VPN routing Table for this operation.",
+    "maxaccess": "not-accessible",
+    "name": "hwpingUdpServerVPNInstance",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.1.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwpingdhcp": {
+    "class": "objectidentity",
+    "description": "Indicates that an implementation is using udp for sending dhcp requests. \u0027dhcp\u0027 will cause the PING application to perform an IP Address lease request/teardown operation.",
+    "name": "hwpingdhcp",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.2.6",
+    "status": "current"
+  },
+  "hwpingdlsw": {
+    "class": "objectidentity",
+    "description": "Indicates that an implementation is using tcp for sending keepalives. \u0027dlsw\u0027 will cause the PING application to perform a keepalive operation to measure the response time of a DLSw peer.",
+    "name": "hwpingdlsw",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.2.5",
+    "status": "current"
+  },
+  "hwpingftp": {
+    "class": "objectidentity",
+    "description": "Indicates that an implementation is using tcp for connect \u0026 data transfer. ",
+    "name": "hwpingftp",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.2.7",
+    "status": "current"
+  },
+  "hwpingjitter": {
+    "class": "objectidentity",
+    "description": "Indicates that an implementation is using udp for packet transfers. \u0027jitter\u0027 will cause the PING application to perform delay variance analysis.",
+    "name": "hwpingjitter",
+    "oid": "1.3.6.1.4.1.2011.5.25.28.2.3",
+    "status": "current"
+  },
+  "imports": {
+    "DISMAN-PING-MIB": [
+      "pingCtlEntry",
+      "pingCtlOwnerIndex",
+      "pingCtlTestName"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "mib-2",
+      "Gauge32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "Unsigned32",
+      "DateAndTime",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-DISMAN-PING-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:13 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-DISMAN-PING-MIB"
+  }
+}

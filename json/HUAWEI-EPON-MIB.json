@@ -1,0 +1,7008 @@
+{
+  "DisplayString": {
+    "class": "type",
+    "name": "DisplayString",
+    "type": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "PortList": {
+    "class": "textualconvention",
+    "description": "Each octet within this value specifies a set of eight ports, with the first octet specifying ports 1 through 8, the second octet specifying ports 9 through 16 and others. Within each octet, the most significant bit represents the lowest numbered port, and the least significant bit represents the highest numbered port. Thus, each port of the bridge is represented by a single bit within the value of this object. If that bit has a value of \u00271\u0027 then that port is included in the set of ports; the port is not included if its bit has a value of \u00270\u0027.",
+    "name": "PortList",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEponAutoFindOnuAge": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 300
+      }
+    },
+    "description": "The aging time of the auto-found ONU, ranging from 100(s) to 300(s)",
+    "maxaccess": "read-write",
+    "name": "hwEponAutoFindOnuAge",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 300,
+            "min": 100
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponAutoFindOnuInfoEntry": {
+    "class": "objecttype",
+    "description": "ONU auto-find entry, including a set of operations of the ONU auto-find.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponAutoFindOnuOrder"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponAutoFindOnuInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.5.1",
+    "status": "current"
+  },
+  "hwEponAutoFindOnuInfoMacAddress": {
+    "class": "objecttype",
+    "description": "The MAC address of the auto-found ONU.",
+    "maxaccess": "read-only",
+    "name": "hwEponAutoFindOnuInfoMacAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwEponAutoFindOnuInfoPasswordValue": {
+    "class": "objecttype",
+    "description": "The password of the auto-found ONU.",
+    "maxaccess": "read-only",
+    "name": "hwEponAutoFindOnuInfoPasswordValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEponAutoFindOnuInfoTable": {
+    "class": "objecttype",
+    "description": "This is the auto find table of the ONU.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponAutoFindOnuInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.5",
+    "status": "current"
+  },
+  "hwEponAutoFindOnuOrder": {
+    "class": "objecttype",
+    "description": "The SN of the auto-found ONU.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponAutoFindOnuOrder",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponCardIndex": {
+    "class": "objecttype",
+    "description": "Card ID of the EPON interface.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEponCardIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.6.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEponChangePasswordAge": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 10
+      }
+    },
+    "description": "The interval time of ONU\u0027s password renew, ranging from 1(s) to 254(s)",
+    "maxaccess": "read-write",
+    "name": "hwEponChangePasswordAge",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 254,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for SNMP entities which implement the HUAWEI-EPON-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponGlobalGroup"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponControlGroup"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponProfileGroup"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponStatisticGroup"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponDisplayAlarmObjectsGroup"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponTrapObjectsGroup"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponTrapGroup"
+      }
+    ],
+    "name": "hwEponCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.8.1.1",
+    "status": "current"
+  },
+  "hwEponCompliances": {
+    "class": "objectidentity",
+    "name": "hwEponCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.8.1"
+  },
+  "hwEponConformance": {
+    "class": "objectidentity",
+    "name": "hwEponConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.8"
+  },
+  "hwEponControlGroup": {
+    "class": "objectgroup",
+    "description": "The collection of objects which are used to control the EPON implementation behavior.",
+    "name": "hwEponControlGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltControlfarthest"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltControlAutofindOnuEnable"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltControlStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltControlUpStreamBandWidth"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltControlDownStreamBandWidth"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuAuthMode"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuMacAddress"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPassword"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuTimeout"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuManagementMode"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuLineProfName"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuServiceProfName"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuActiveStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuDescription"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuVendorId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuModel"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuOnuIdentifier"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuHardwareVersion"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSoftwareVersion"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuChipVenderId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuChipModel"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuChipVersion"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuChipDesignDate"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuFirmwareVersion"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuReset"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuReRegister"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuReDiscovery"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuRunStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuDistance"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuRtt"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuLastUpTime"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuLastDownTime"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuLastDownCause"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponAutoFindOnuInfoMacAddress"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponAutoFindOnuInfoPasswordValue"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPotsPortNum"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuFePortsNum"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuGePortsNum"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuTdmPortsNum"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuFecSupport"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSupportBackupBattery"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUpQueueNum"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUpQueueNumPerPort"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuDownQueueNum"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuDownQueueNumPerPort"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuFePortList"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuGePortList"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSupportMulticastQuickLeave"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIpAddress"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuNetMask"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuNetGateway"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuEthOperateStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuEthFlowcontrolSwitch"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuTdmPortOperateStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPotsPortOperateStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltPortDefaultVlanId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltPortDefaultVlanBatch"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltPortDefaultVlanOnuStartId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltPortDefaultVlanOnuEndId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuCarProfileNameIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuTrafficPolicyNameIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponVlanStackingOrMapping"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuDextVlanId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuDintVlanId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPopExtVlanId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuVlanCopyPri"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIntVlanRemarkPri"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuExtVlanRemarkPri"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIntVlanPri"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuExtVlanPri"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponVlanMappingBatch"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponVlanMappingOnuStartId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponVlanMappingOnuEndId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUserMacAddress"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUserMacAddressNumber"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuForwardAction"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuAlarmAction"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuRowStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuCfgCarRowStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltPortDefaultVlanRowStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponVlanMappingRowStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIpRowStates"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltPortStaticMacRowStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuMacLimitRowStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIpManageVlan"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.8.2.2",
+    "status": "current"
+  },
+  "hwEponControlObjects": {
+    "class": "objectidentity",
+    "name": "hwEponControlObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2"
+  },
+  "hwEponCtcOuiId": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 111111
+      }
+    },
+    "description": "The OUI identifier",
+    "maxaccess": "read-write",
+    "name": "hwEponCtcOuiId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponDbaProfileAssuredRate": {
+    "class": "objecttype",
+    "description": "Assured bandwidth of the profile.",
+    "maxaccess": "read-create",
+    "name": "hwEponDbaProfileAssuredRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.8.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponDbaProfileEntryStatus": {
+    "class": "objecttype",
+    "description": "Row status. This object is used to differentiate the creation, modification and deletion operations for an object.",
+    "maxaccess": "read-create",
+    "name": "hwEponDbaProfileEntryStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.8.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwEponDbaProfileFixedRate": {
+    "class": "objecttype",
+    "description": "Fixed bandwidth of the profile.",
+    "maxaccess": "read-create",
+    "name": "hwEponDbaProfileFixedRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.8.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponDbaProfileInfoEntry": {
+    "class": "objecttype",
+    "description": "The DBA profile entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponDbaProfileInfoNameIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponDbaProfileInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.8.1",
+    "status": "current"
+  },
+  "hwEponDbaProfileInfoNameIndex": {
+    "class": "objecttype",
+    "description": "DBA profile name.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponDbaProfileInfoNameIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwEponDbaProfileInfoTable": {
+    "class": "objecttype",
+    "description": "This is the DBA profile table. This table is used to create a DBA profile, and is used to modify or delete a DBA profile which is not bound.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponDbaProfileInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.8",
+    "status": "current"
+  },
+  "hwEponDbaProfileMaxRate": {
+    "class": "objecttype",
+    "description": "Max bandwidth of the profile.",
+    "maxaccess": "read-create",
+    "name": "hwEponDbaProfileMaxRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.8.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponDbaProfileReferenceNum": {
+    "class": "objecttype",
+    "description": "Number of bound DBA profiles.",
+    "maxaccess": "read-only",
+    "name": "hwEponDbaProfileReferenceNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.8.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEponDbaTypeIndex": {
+    "class": "objecttype",
+    "description": "The DBA type index.",
+    "maxaccess": "read-create",
+    "name": "hwEponDbaTypeIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.8.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "assure": 2,
+          "assureAndmax": 3,
+          "fix": 1,
+          "fixAndassureAndMax": 5,
+          "max": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponDisplayAlarmObjects": {
+    "class": "objectidentity",
+    "name": "hwEponDisplayAlarmObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5"
+  },
+  "hwEponDisplayAlarmObjectsGroup": {
+    "class": "objectgroup",
+    "description": "The collection of objects which are used to control the EPON alarm behavior.",
+    "name": "hwEponDisplayAlarmObjectsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuAlarmStateKeyExchangeFail"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuAlarmStateDyingGasp"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuAlarmStateLinkFault"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuFirmWareLoadStateSucc"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuFirmWareLoadStateFault"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltAlarmStateDegrade"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniAlarmStateTransmitFail"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniAlarmStateLos"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.8.2.5",
+    "status": "current"
+  },
+  "hwEponGlobalGroup": {
+    "class": "objectgroup",
+    "description": "The collection of objects which are used to configure the EPON implementation behavior. This group is mandatory for agents which implement the EPON.",
+    "name": "hwEponGlobalGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponAutoFindOnuAge"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponCtcOuiId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponChangePasswordAge"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.8.2.1",
+    "status": "current"
+  },
+  "hwEponGlobalObjects": {
+    "class": "objectidentity",
+    "name": "hwEponGlobalObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.1"
+  },
+  "hwEponGroups": {
+    "class": "objectidentity",
+    "name": "hwEponGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.8.2"
+  },
+  "hwEponLineProfileBindNum": {
+    "class": "objecttype",
+    "description": "Number of EPON line profiles bound to the ONU.",
+    "maxaccess": "read-only",
+    "name": "hwEponLineProfileBindNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEponLineProfileDbaProfileName": {
+    "class": "objecttype",
+    "description": "Name of the EPON line DBA profile.",
+    "maxaccess": "read-create",
+    "name": "hwEponLineProfileDbaProfileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwEponLineProfileEncryptMode": {
+    "class": "objecttype",
+    "description": "Encryption mode of the EPON line profile.",
+    "maxaccess": "read-create",
+    "name": "hwEponLineProfileEncryptMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aes": 1,
+          "off": 3,
+          "tripleChurining": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponLineProfileInfoEntry": {
+    "class": "objecttype",
+    "description": "The EPON line profile entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponLineProfileNameIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponLineProfileInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.1.1",
+    "status": "current"
+  },
+  "hwEponLineProfileInfoTable": {
+    "class": "objecttype",
+    "description": "This is the EPON line profile table. This table is used to create a EPON line profile.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponLineProfileInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.1",
+    "status": "current"
+  },
+  "hwEponLineProfileNameIndex": {
+    "class": "objecttype",
+    "description": "Index of the EPON line profile.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponLineProfileNameIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwEponLineProfileQueueSetIndex1Threshold": {
+    "class": "objecttype",
+    "description": "Threshold of queue set 1 in the EPON line profile.",
+    "maxaccess": "read-write",
+    "name": "hwEponLineProfileQueueSetIndex1Threshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 500,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwEponLineProfileQueueSetIndex2Threshold": {
+    "class": "objecttype",
+    "description": "Threshold of queue set 2 in the EPON line profile.",
+    "maxaccess": "read-write",
+    "name": "hwEponLineProfileQueueSetIndex2Threshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 500,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwEponLineProfileQueueSetIndex3Threshold": {
+    "class": "objecttype",
+    "description": "Threshold of queue set 3 in the EPON line profile.",
+    "maxaccess": "read-write",
+    "name": "hwEponLineProfileQueueSetIndex3Threshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 500,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwEponLineProfileRowStatus": {
+    "class": "objecttype",
+    "description": "Row status. This object is used to differentiate the creation, modification and deletion operations for an object.",
+    "maxaccess": "read-create",
+    "name": "hwEponLineProfileRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.1.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwEponMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "Block 4, R\u0026D Building, Huawei Longgang Production Base, Shenzhen, P.R.C. http://www.huawei.com Zip:518129",
+    "description": "Epon MIB, contain Epon.",
+    "lastupdated": "200904240000Z",
+    "name": "hwEponMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.179",
+    "organization": "Research \u0026 Development Dept, AN, Huawei Technologies Co.,Ltd."
+  },
+  "hwEponObjects": {
+    "class": "objectidentity",
+    "name": "hwEponObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1"
+  },
+  "hwEponOltAlarmLosResumeTrap": {
+    "class": "notificationtype",
+    "description": "Los alarm resume alarm.",
+    "name": "hwEponOltAlarmLosResumeTrap",
+    "objects": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSlotIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponCardIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponPortIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.7.2",
+    "status": "current"
+  },
+  "hwEponOltAlarmLosTrap": {
+    "class": "notificationtype",
+    "description": "Los alarm.",
+    "name": "hwEponOltAlarmLosTrap",
+    "objects": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSlotIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponCardIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponPortIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.7.1",
+    "status": "current"
+  },
+  "hwEponOltAlarmStateDegrade": {
+    "class": "objecttype",
+    "description": "The dying-gasp of ONU is generated.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltAlarmStateDegrade",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 2,
+          "yes": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOltAlarmStateEntry": {
+    "class": "objecttype",
+    "description": "OLT alarm state entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponOltAlarmStateEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5.3.1",
+    "status": "current"
+  },
+  "hwEponOltAlarmStateTable": {
+    "class": "objecttype",
+    "description": "This is the OLT alarm state table. This table is used to query the alarm state of an OLT.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOltAlarmStateTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5.3",
+    "status": "current"
+  },
+  "hwEponOltAlarmTransmitFaultTrap": {
+    "class": "notificationtype",
+    "description": "OLT send failed.",
+    "name": "hwEponOltAlarmTransmitFaultTrap",
+    "objects": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSlotIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponCardIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponPortIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.7.4",
+    "status": "current"
+  },
+  "hwEponOltAutoFindTrap": {
+    "class": "notificationtype",
+    "description": "ONU auto finded alarm.",
+    "name": "hwEponOltAutoFindTrap",
+    "objects": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSlotIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponCardIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponPortIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponTrapMac"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponTrapPwd"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.7.3",
+    "status": "current"
+  },
+  "hwEponOltControlAutofindOnuEnable": {
+    "class": "objecttype",
+    "description": "ONU auto-find is enabled.",
+    "maxaccess": "read-write",
+    "name": "hwEponOltControlAutofindOnuEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwEponOltControlDownStreamBandWidth": {
+    "class": "objecttype",
+    "description": "The down-stream bandwidth of the OLT port.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltControlDownStreamBandWidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltControlEntry": {
+    "class": "objecttype",
+    "description": "The entry of the control table of the EPON OLT.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponOltControlEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.1.1",
+    "status": "current"
+  },
+  "hwEponOltControlStatus": {
+    "class": "objecttype",
+    "description": "The Epon port status in the OLT. up (1): normal down (2): fault",
+    "maxaccess": "read-only",
+    "name": "hwEponOltControlStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOltControlTable": {
+    "class": "objecttype",
+    "description": "The control table of the EPON OLT.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOltControlTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.1",
+    "status": "current"
+  },
+  "hwEponOltControlUpStreamBandWidth": {
+    "class": "objecttype",
+    "description": "The up-stream bandwidth of the OLT port.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltControlUpStreamBandWidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltControlfarthest": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 20
+      }
+    },
+    "description": "This is the distance of the fiber between the OLT and the farthest ONU, ranging from 0km to 40km.",
+    "maxaccess": "read-write",
+    "name": "hwEponOltControlfarthest",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 40,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOltPortDefaultVlanBatch": {
+    "class": "objecttype",
+    "description": "Batch config.",
+    "maxaccess": "read-create",
+    "name": "hwEponOltPortDefaultVlanBatch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.12.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "batch": 1,
+          "notBatch": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOltPortDefaultVlanEntry": {
+    "class": "objecttype",
+    "description": "OLT default VLAN config entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponOltPortDefaultVlanEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.12.1",
+    "status": "current"
+  },
+  "hwEponOltPortDefaultVlanId": {
+    "class": "objecttype",
+    "description": "Default VLAN ID on the port.",
+    "maxaccess": "read-create",
+    "name": "hwEponOltPortDefaultVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.12.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOltPortDefaultVlanOnuEndId": {
+    "class": "objecttype",
+    "description": "End ONU ID in batch configuration.",
+    "maxaccess": "read-create",
+    "name": "hwEponOltPortDefaultVlanOnuEndId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.12.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOltPortDefaultVlanOnuStartId": {
+    "class": "objecttype",
+    "description": "Start ONU ID in batch configuration.",
+    "maxaccess": "read-create",
+    "name": "hwEponOltPortDefaultVlanOnuStartId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.12.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOltPortDefaultVlanRowStatus": {
+    "class": "objecttype",
+    "description": "The row status, which is used to differentiate the creation, modification and deletion of a row.",
+    "maxaccess": "read-create",
+    "name": "hwEponOltPortDefaultVlanRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.12.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwEponOltPortDefaultVlanTable": {
+    "class": "objecttype",
+    "description": "OLT default VLAN config table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOltPortDefaultVlanTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.12",
+    "status": "current"
+  },
+  "hwEponOltPortMacLimitEntry": {
+    "class": "objecttype",
+    "description": "MAC address learning limit entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponOltPortMacLimitEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.15.1",
+    "status": "current"
+  },
+  "hwEponOltPortMacLimitTable": {
+    "class": "objecttype",
+    "description": "MAC address learning limit table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOltPortMacLimitTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.15",
+    "status": "current"
+  },
+  "hwEponOltPortStaticMacEntry": {
+    "class": "objecttype",
+    "description": "OLT static MAC address entry",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUserMacAddressOrder"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponOltPortStaticMacEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.14.1",
+    "status": "current"
+  },
+  "hwEponOltPortStaticMacRowStatus": {
+    "class": "objecttype",
+    "description": "The row status, which is used to differentiate the creation, modification and deletion of a row. ",
+    "maxaccess": "read-create",
+    "name": "hwEponOltPortStaticMacRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.14.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwEponOltPortStaticMacTable": {
+    "class": "objecttype",
+    "description": "OLT static MAC address table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOltPortStaticMacTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.14",
+    "status": "current"
+  },
+  "hwEponOltStatisticClear": {
+    "class": "objecttype",
+    "description": "Clear the statistics.",
+    "maxaccess": "read-write",
+    "name": "hwEponOltStatisticClear",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOltStatisticEntry": {
+    "class": "objecttype",
+    "description": "The OLT statistics entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponOltStatisticEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1",
+    "status": "current"
+  },
+  "hwEponOltStatisticRecv1024To1518ByteFrames": {
+    "class": "objecttype",
+    "description": "Received 1024-1518 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticRecv1024To1518ByteFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticRecv128To255ByteFrames": {
+    "class": "objecttype",
+    "description": "Received 128-255 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticRecv128To255ByteFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticRecv256To511ByteFrames": {
+    "class": "objecttype",
+    "description": "Received 256~511 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticRecv256To511ByteFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticRecv512To1023ByteFrames": {
+    "class": "objecttype",
+    "description": "Received 512-1023 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticRecv512To1023ByteFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticRecv64ByteFrames": {
+    "class": "objecttype",
+    "description": "Received 64 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticRecv64ByteFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticRecv65To127ByteFrames": {
+    "class": "objecttype",
+    "description": "Received 65-127 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticRecv65To127ByteFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticRecvBoardcastFrames": {
+    "class": "objecttype",
+    "description": "Received board cast frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticRecvBoardcastFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticRecvDataBytes": {
+    "class": "objecttype",
+    "description": "Received data bytes.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticRecvDataBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticRecvDataFrames": {
+    "class": "objecttype",
+    "description": "Received data frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticRecvDataFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticRecvErrorBytes": {
+    "class": "objecttype",
+    "description": "Received errored bytes.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticRecvErrorBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticRecvErrorFrames": {
+    "class": "objecttype",
+    "description": "Received errored frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticRecvErrorFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticRecvFcsErrorFrames": {
+    "class": "objecttype",
+    "description": "Received FCS errored frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticRecvFcsErrorFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticRecvMulticastFrames": {
+    "class": "objecttype",
+    "description": "Received multi-cast frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticRecvMulticastFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticRecvOkByteCnt": {
+    "class": "objecttype",
+    "description": "Received correct bytes.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticRecvOkByteCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticRecvOkFrameCnt": {
+    "class": "objecttype",
+    "description": "Received correct frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticRecvOkFrameCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticRecvOver1518ByteFrames": {
+    "class": "objecttype",
+    "description": "Received frames containing more than 1518 bytes.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticRecvOver1518ByteFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticRecvOversizeFrames": {
+    "class": "objecttype",
+    "description": "Received oversize frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticRecvOversizeFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticRecvUndersizeFrames": {
+    "class": "objecttype",
+    "description": "Received undersize frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticRecvUndersizeFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticTable": {
+    "class": "objecttype",
+    "description": "The OLT statisitcs table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOltStatisticTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1",
+    "status": "current"
+  },
+  "hwEponOltStatisticTrans1024To1518ByteFrames": {
+    "class": "objecttype",
+    "description": "Sent 1024-1518 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticTrans1024To1518ByteFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticTrans128To255ByteFrames": {
+    "class": "objecttype",
+    "description": "Sent 128-255 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticTrans128To255ByteFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticTrans256To511ByteFrames": {
+    "class": "objecttype",
+    "description": "Sent 256-511 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticTrans256To511ByteFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticTrans512To1023ByteFrames": {
+    "class": "objecttype",
+    "description": "Sent 512-1023 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticTrans512To1023ByteFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticTrans64ByteFrames": {
+    "class": "objecttype",
+    "description": "Sent 64 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticTrans64ByteFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticTrans65To127ByteFrames": {
+    "class": "objecttype",
+    "description": "Sent 65-127 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticTrans65To127ByteFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticTransBoardcastFrames": {
+    "class": "objecttype",
+    "description": "Sent broadcast frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticTransBoardcastFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticTransDataBytes": {
+    "class": "objecttype",
+    "description": "Sent data bytes.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticTransDataBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticTransDataFrames": {
+    "class": "objecttype",
+    "description": "Sent data frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticTransDataFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticTransFcsErrorFrames": {
+    "class": "objecttype",
+    "description": "Sent FCS errored bytes.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticTransFcsErrorFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticTransMulticastFrames": {
+    "class": "objecttype",
+    "description": "Sent multicast frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticTransMulticastFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticTransOver1518ByteFrames": {
+    "class": "objecttype",
+    "description": "Sent frames containing more than 1518 bytes.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticTransOver1518ByteFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticTransUnicastFrames": {
+    "class": "objecttype",
+    "description": "Sent uni cast frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticTransUnicastFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOltStatisticUniCastFrames": {
+    "class": "objecttype",
+    "description": "Received unicast frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOltStatisticUniCastFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuActiveStatus": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "This object is used to activate or deactivate an ONU. ",
+    "maxaccess": "read-write",
+    "name": "hwEponOnuActiveStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "deactive": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuAlarmAction": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "Alarm action.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuAlarmAction",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.15.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notWarning": 2,
+          "warning": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuAlarmPwdConlictTrap": {
+    "class": "notificationtype",
+    "description": "Regist conflicted by password alarm.",
+    "name": "hwEponOnuAlarmPwdConlictTrap",
+    "objects": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSlotIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponCardIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponPortIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponTrapOnuId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.7.5",
+    "status": "current"
+  },
+  "hwEponOnuAlarmStateDyingGasp": {
+    "class": "objecttype",
+    "description": "The dying-gasp of ONU is generated.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuAlarmStateDyingGasp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 2,
+          "yes": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuAlarmStateEntry": {
+    "class": "objecttype",
+    "description": "ONU alarm state.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuAlarmStateEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5.1.1",
+    "status": "current"
+  },
+  "hwEponOnuAlarmStateKeyExchangeFail": {
+    "class": "objecttype",
+    "description": "Fail to exchange key.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuAlarmStateKeyExchangeFail",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 2,
+          "yes": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuAlarmStateLinkFault": {
+    "class": "objecttype",
+    "description": "Link fault occurs at OLT.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuAlarmStateLinkFault",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 2,
+          "yes": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuAlarmStateTable": {
+    "class": "objecttype",
+    "description": "This is the ONU alarm state table. This table is used to query the alarm state of an ONU.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuAlarmStateTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5.1",
+    "status": "current"
+  },
+  "hwEponOnuAuthMode": {
+    "class": "objecttype",
+    "description": "The authentication mode for the ONU.",
+    "maxaccess": "read-write",
+    "name": "hwEponOnuAuthMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alwaysOn": 3,
+          "onceOn": 4,
+          "sn": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuCapabilityInfoEntry": {
+    "class": "objecttype",
+    "description": "This is the entry of the ONU capbility.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuCapabilityInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6.1",
+    "status": "current"
+  },
+  "hwEponOnuCapabilityInfoTable": {
+    "class": "objecttype",
+    "description": "The capability table of the ONU.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuCapabilityInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6",
+    "status": "current"
+  },
+  "hwEponOnuCarProfileNameIndex": {
+    "class": "objecttype",
+    "description": "CAR profile name.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuCarProfileNameIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.11.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEponOnuCfgCarDirection": {
+    "class": "objecttype",
+    "description": "The direction of packets where CAR is performed.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuCfgCarDirection",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.11.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuCfgCarEntry": {
+    "class": "objecttype",
+    "description": "ONU CAR config entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuCfgCarDirection"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuCfgCarEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.11.1",
+    "status": "current"
+  },
+  "hwEponOnuCfgCarRowStatus": {
+    "class": "objecttype",
+    "description": "The row status, which is used to differentiate the creation, modification and deletion of a row.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuCfgCarRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.11.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwEponOnuCfgCarTable": {
+    "class": "objecttype",
+    "description": "ONU CAR config table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuCfgCarTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.11",
+    "status": "current"
+  },
+  "hwEponOnuChipDesignDate": {
+    "class": "objecttype",
+    "description": "The production date of the ONU\u0027s chip.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuChipDesignDate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEponOnuChipModel": {
+    "class": "objecttype",
+    "description": "The model of the ONU\u0027s chip.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuChipModel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuChipVenderId": {
+    "class": "objecttype",
+    "description": "The verder ID of the ONU\u0027s chip.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuChipVenderId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEponOnuChipVersion": {
+    "class": "objecttype",
+    "description": "The verion of the ONU\u0027s chip.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuChipVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuClassifEthPortIndex": {
+    "class": "objecttype",
+    "description": "ETH port ID of the ONU .",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuClassifEthPortIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuConfigEntry": {
+    "class": "objecttype",
+    "description": "The ONU configuration entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuConfigEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2.1",
+    "status": "current"
+  },
+  "hwEponOnuConfigTable": {
+    "class": "objecttype",
+    "description": "This table is used to create, modify, delete or query an ONU.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuConfigTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2",
+    "status": "current"
+  },
+  "hwEponOnuControlEntry": {
+    "class": "objecttype",
+    "description": "ONU control entry, including a set of operations performed on the ONU.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuControlEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.4.1",
+    "status": "current"
+  },
+  "hwEponOnuControlTable": {
+    "class": "objecttype",
+    "description": "This is the control table of the ONU. The indexes are IF index and ONU ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuControlTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.4",
+    "status": "current"
+  },
+  "hwEponOnuDescription": {
+    "class": "objecttype",
+    "description": "The description of the ONU.",
+    "maxaccess": "read-write",
+    "name": "hwEponOnuDescription",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwEponOnuDextVlanId": {
+    "class": "objecttype",
+    "description": "Mapping the outer VLAN ID of destination.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuDextVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuDintVlanId": {
+    "class": "objecttype",
+    "description": "Mapping the inner VLAN ID of destination.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuDintVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuDistance": {
+    "class": "objecttype",
+    "description": "The distance of the ONU (km).",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuDistance",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuDownQueueNum": {
+    "class": "objecttype",
+    "description": "The number of downstram queues of the ONU.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuDownQueueNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuDownQueueNumPerPort": {
+    "class": "objecttype",
+    "description": "The number of queues on the downstream port of the ONU.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuDownQueueNumPerPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuEthFlowcontrolSwitch": {
+    "class": "objecttype",
+    "description": "Enabling or disabling flow control on the ONU port.",
+    "maxaccess": "read-write",
+    "name": "hwEponOnuEthFlowcontrolSwitch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.8.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "close": 2,
+          "open": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuEthObjectCfgEntry": {
+    "class": "objecttype",
+    "description": "The ONU ETH port config entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuEthPortId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuEthObjectCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.8.1",
+    "status": "current"
+  },
+  "hwEponOnuEthObjectCfgTable": {
+    "class": "objecttype",
+    "description": "The ONU ETH port config table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuEthObjectCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.8",
+    "status": "current"
+  },
+  "hwEponOnuEthOperateStatus": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "The operation status of the port.",
+    "maxaccess": "read-write",
+    "name": "hwEponOnuEthOperateStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.8.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "shutdown": 2,
+          "undoshutdown": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuEthPortId": {
+    "class": "objecttype",
+    "description": "The ETH port number of the ONU.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuEthPortId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuExtSVlanId": {
+    "class": "objecttype",
+    "description": "Source VLAN ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuExtSVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuExtVlanPri": {
+    "class": "objecttype",
+    "description": "The outer VLAN COS vlaue.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuExtVlanPri",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuExtVlanRemarkPri": {
+    "class": "objecttype",
+    "description": "Remark outer VLAN COS value.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuExtVlanRemarkPri",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notRemark": 2,
+          "remark": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuFePortList": {
+    "class": "objecttype",
+    "description": "The bit-map of FE port.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuFePortList",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "PortList"
+    }
+  },
+  "hwEponOnuFePortsNum": {
+    "class": "objecttype",
+    "description": "The number of FE ports of the ONU.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuFePortsNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuFecSupport": {
+    "class": "objecttype",
+    "description": "Does the ONU support FEC.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuFecSupport",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuFirmWareLoadStateFault": {
+    "class": "objecttype",
+    "description": "Fail to load ONU firmwar.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuFirmWareLoadStateFault",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 2,
+          "yes": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuFirmWareLoadStateSucc": {
+    "class": "objecttype",
+    "description": "Loading ONU firmware successfully.",
+    "maxaccess": "read-write",
+    "name": "hwEponOnuFirmWareLoadStateSucc",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 2,
+          "yes": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuFirmwareVersion": {
+    "class": "objecttype",
+    "description": "The firmware version of the ONU\u0027s chip.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuFirmwareVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuForwardAction": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "Forwarding action.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuForwardAction",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.15.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discard": 2,
+          "forward": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuGePortList": {
+    "class": "objecttype",
+    "description": "The bit-map of GE port.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuGePortList",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "PortList"
+    }
+  },
+  "hwEponOnuGePortsNum": {
+    "class": "objecttype",
+    "description": "The number of GE ports of the ONU.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuGePortsNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuHardwareVersion": {
+    "class": "objecttype",
+    "description": "The hardware version of the ONU.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuHardwareVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEponOnuId": {
+    "class": "objecttype",
+    "description": "This is the ONU ID.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuIndex": {
+    "class": "objecttype",
+    "description": "This is the index.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuIntSEndVlanId": {
+    "class": "objecttype",
+    "description": "Source inner end VLAN ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuIntSEndVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuIntSStartVlanId": {
+    "class": "objecttype",
+    "description": "Source inner start VLAN ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuIntSStartVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuIntVlanPri": {
+    "class": "objecttype",
+    "description": "The inner VLAN COS vlaue.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuIntVlanPri",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuIntVlanRemarkPri": {
+    "class": "objecttype",
+    "description": "Remark inner VLAN COS value.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuIntVlanRemarkPri",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notRemark": 2,
+          "remark": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuIpAddress": {
+    "class": "objecttype",
+    "description": "IP address.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwEponOnuIpConfigEntry": {
+    "class": "objecttype",
+    "description": "ONU IP config entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuIpConfigEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.7.1",
+    "status": "current"
+  },
+  "hwEponOnuIpConfigTable": {
+    "class": "objecttype",
+    "description": "This is the ONU IP configuration table. This table is used to configure and query the IP configuration mode and IP address of an ONU.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuIpConfigTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.7",
+    "status": "current"
+  },
+  "hwEponOnuIpManageVlan": {
+    "class": "objecttype",
+    "description": "The management VLAN of the ONU.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuIpManageVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.7.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuIpRowStates": {
+    "class": "objecttype",
+    "description": "The row status, which is used to differentiate the creation, modification and deletion of a row.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuIpRowStates",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.7.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwEponOnuLastDownCause": {
+    "class": "objecttype",
+    "description": "The last offline reason.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuLastDownCause",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.4.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 1
+          },
+          {
+            "max": 10,
+            "min": 7
+          },
+          {
+            "max": 13,
+            "min": 13
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuLastDownTime": {
+    "class": "objecttype",
+    "description": "Last offline time of the ONU, including the year (2 bytes), month (1 byte), date (1 byte), hour (1 byte), minute (1 byte), second (1 byte), and the week (1 byte).",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuLastDownTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.4.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEponOnuLastUpTime": {
+    "class": "objecttype",
+    "description": "Last online time of the ONU, including the year (2 bytes), month (1 byte), date (1 byte), hour (1 byte), minute (1 byte), second (1 byte) and week (1 byte).",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuLastUpTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEponOnuLineProfName": {
+    "class": "objecttype",
+    "description": "The line profile name, which is bound to ONU.",
+    "maxaccess": "read-write",
+    "name": "hwEponOnuLineProfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwEponOnuMacAddress": {
+    "class": "objecttype",
+    "description": "This is the MAC address of the ONU.",
+    "maxaccess": "read-write",
+    "name": "hwEponOnuMacAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwEponOnuMacLimitRowStatus": {
+    "class": "objecttype",
+    "description": "The row status, which is used to differentiate the creation, modification and deletion of a row. ",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuMacLimitRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.15.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwEponOnuManagementMode": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "The ONU managemet mode, including OAM mode and SNMP mode.",
+    "maxaccess": "read-write",
+    "name": "hwEponOnuManagementMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oam": 1,
+          "snmp": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuModel": {
+    "class": "objecttype",
+    "description": "ONU model.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuModel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuNetGateway": {
+    "class": "objecttype",
+    "description": "ONU NMS gateway.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuNetGateway",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwEponOnuNetMask": {
+    "class": "objecttype",
+    "description": "Sub-net mask.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuNetMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwEponOnuOfflineTrap": {
+    "class": "notificationtype",
+    "description": "ONU off line alarm.",
+    "name": "hwEponOnuOfflineTrap",
+    "objects": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSlotIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponCardIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponPortIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponTrapOnuId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponTrapMac"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponTrapPwd"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.7.7",
+    "status": "current"
+  },
+  "hwEponOnuOnlineTrap": {
+    "class": "notificationtype",
+    "description": "ONU on line alarm.",
+    "name": "hwEponOnuOnlineTrap",
+    "objects": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSlotIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponCardIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponPortIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponTrapOnuId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponTrapMac"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponTrapPwd"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.7.6",
+    "status": "current"
+  },
+  "hwEponOnuOnuIdentifier": {
+    "class": "objecttype",
+    "description": "ONU identifier.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuOnuIdentifier",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEponOnuPassword": {
+    "class": "objecttype",
+    "description": "This is the password of the ONU .",
+    "maxaccess": "read-write",
+    "name": "hwEponOnuPassword",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwEponOnuPonStatisticClear": {
+    "class": "objecttype",
+    "description": "Clear the statistics.",
+    "maxaccess": "read-write",
+    "name": "hwEponOnuPonStatisticClear",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.45",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuPonStatisticEntry": {
+    "class": "objecttype",
+    "description": "OLT LLID statistics entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuPonStatisticEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1",
+    "status": "current"
+  },
+  "hwEponOnuPonStatisticRcv1024To1518byteFrm": {
+    "class": "objecttype",
+    "description": "Received 1024-1518 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticRcv1024To1518byteFrm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticRcv128To255byteFrm": {
+    "class": "objecttype",
+    "description": "Received 128-255 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticRcv128To255byteFrm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticRcv256To511byteFrm": {
+    "class": "objecttype",
+    "description": "Received 256-511 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticRcv256To511byteFrm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticRcv512To1023byteFrm": {
+    "class": "objecttype",
+    "description": "Received 512-1023 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticRcv512To1023byteFrm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticRcv64byteFrm": {
+    "class": "objecttype",
+    "description": "Received 64 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticRcv64byteFrm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticRcv65To127byteFrm": {
+    "class": "objecttype",
+    "description": "Received 65-127 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticRcv65To127byteFrm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticRcvBcFrame": {
+    "class": "objecttype",
+    "description": "Received broad cast frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticRcvBcFrame",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticRcvByte": {
+    "class": "objecttype",
+    "description": "Received bytes.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticRcvByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticRcvCrc8Err": {
+    "class": "objecttype",
+    "description": "Received CRC errored bytes.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticRcvCrc8Err",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticRcvDelayByte": {
+    "class": "objecttype",
+    "description": "Received delayed bytes.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticRcvDelayByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticRcvDelayMax": {
+    "class": "objecttype",
+    "description": "Received delayed MAX bytes.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticRcvDelayMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticRcvDelayThreshold": {
+    "class": "objecttype",
+    "description": "Received delayed threshold bytes.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticRcvDelayThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticRcvDropByte": {
+    "class": "objecttype",
+    "description": "Received dropped bytes.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticRcvDropByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticRcvDropFrm": {
+    "class": "objecttype",
+    "description": "Received dropped frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticRcvDropFrm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticRcvErrFrm": {
+    "class": "objecttype",
+    "description": "Received errored frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticRcvErrFrm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticRcvErrOntDestinedByte": {
+    "class": "objecttype",
+    "description": "Received errored destined bytes.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticRcvErrOntDestinedByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticRcvFcsErr": {
+    "class": "objecttype",
+    "description": "Received FEC errored frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticRcvFcsErr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticRcvFrame": {
+    "class": "objecttype",
+    "description": "Received frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticRcvFrame",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticRcvGreatThan1518byteFrm": {
+    "class": "objecttype",
+    "description": "Received frames containing more than 1518 bytes.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticRcvGreatThan1518byteFrm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticRcvInvalidSldFrm": {
+    "class": "objecttype",
+    "description": "Received invalid SID frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticRcvInvalidSldFrm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticRcvLaserPower": {
+    "class": "objecttype",
+    "description": "Received laser power frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticRcvLaserPower",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticRcvLineCodeErr": {
+    "class": "objecttype",
+    "description": "Received frames incorrectly coded.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticRcvLineCodeErr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticRcvMcFrame": {
+    "class": "objecttype",
+    "description": "Received multicast frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticRcvMcFrame",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticRcvOntDestinedByte": {
+    "class": "objecttype",
+    "description": "Received ONU destined bytes.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticRcvOntDestinedByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticRcvUcFrame": {
+    "class": "objecttype",
+    "description": "Received unicast frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticRcvUcFrame",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticRcvUndersizeFrm": {
+    "class": "objecttype",
+    "description": "Received under size frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticRcvUndersizeFrm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticSend1024To1518byteFrm": {
+    "class": "objecttype",
+    "description": "Sent 1024-1518 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticSend1024To1518byteFrm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticSend128To255byteFrm": {
+    "class": "objecttype",
+    "description": "Sent 128-255 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticSend128To255byteFrm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticSend256To511byteFrm": {
+    "class": "objecttype",
+    "description": "Sent 256-511 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticSend256To511byteFrm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticSend512To1023byteFrm": {
+    "class": "objecttype",
+    "description": "Sent 512-1023 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticSend512To1023byteFrm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticSend64byteFrm": {
+    "class": "objecttype",
+    "description": "Sent 64 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticSend64byteFrm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticSend65To127byteFrm": {
+    "class": "objecttype",
+    "description": "Sent 65-127 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticSend65To127byteFrm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticSendBcFrame": {
+    "class": "objecttype",
+    "description": "Sent broadcast frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticSendBcFrame",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticSendByte": {
+    "class": "objecttype",
+    "description": "Sent bytes.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticSendByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.34",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticSendDelayByte": {
+    "class": "objecttype",
+    "description": "Sent delayed bytes.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticSendDelayByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.35",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticSendDelayMax": {
+    "class": "objecttype",
+    "description": "Sent delayed MAX bytes.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticSendDelayMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.36",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticSendDelayThreshold": {
+    "class": "objecttype",
+    "description": "Sent delayed threshold bytes.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticSendDelayThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.37",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticSendDropByte": {
+    "class": "objecttype",
+    "description": "Sent dropped bytes.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticSendDropByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.38",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticSendDropFrm": {
+    "class": "objecttype",
+    "description": "Sent dropped frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticSendDropFrm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.39",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticSendFrame": {
+    "class": "objecttype",
+    "description": "Sent delayed bytes.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticSendFrame",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.40",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticSendGreatThan1518byteFrm": {
+    "class": "objecttype",
+    "description": "Sent frames containing more than 1518 bytes.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticSendGreatThan1518byteFrm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.41",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticSendMcFrame": {
+    "class": "objecttype",
+    "description": "Sent multicast frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticSendMcFrame",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.42",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticSendUcFrame": {
+    "class": "objecttype",
+    "description": "Sent unicast frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticSendUcFrame",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.43",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticSendUnusedByte": {
+    "class": "objecttype",
+    "description": "Sent unused bytes.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPonStatisticSendUnusedByte",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2.1.44",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuPonStatisticTable": {
+    "class": "objecttype",
+    "description": "OLT LLID statistics table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuPonStatisticTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.2",
+    "status": "current"
+  },
+  "hwEponOnuPopExtVlanId": {
+    "class": "objecttype",
+    "description": "Whether to remove the outer VLAN ID.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuPopExtVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notPop": 2,
+          "pop": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuPortClassConditionNum": {
+    "class": "objecttype",
+    "description": "Number of conditions in a rule",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuPortClassConditionNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "four": 4,
+          "one": 1,
+          "three": 3,
+          "two": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuPortClassFieldSelect1": {
+    "class": "objecttype",
+    "description": "The field selector of the first condition.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuPortClassFieldSelect1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dstIp": 6,
+          "dstMac": 1,
+          "dstPort": 12,
+          "ethPri": 3,
+          "ethType": 5,
+          "ipPrecedence": 10,
+          "ipTosDscp": 9,
+          "ipType": 8,
+          "srcIp": 7,
+          "srcMac": 2,
+          "srcPort": 11,
+          "vlanId": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuPortClassFieldSelect2": {
+    "class": "objecttype",
+    "description": "The field selector of the second condition.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuPortClassFieldSelect2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dstIp": 6,
+          "dstMac": 1,
+          "dstPort": 12,
+          "ethPri": 3,
+          "ethType": 5,
+          "ipPrecedence": 10,
+          "ipTosDscp": 9,
+          "ipType": 8,
+          "srcIp": 7,
+          "srcMac": 2,
+          "srcPort": 11,
+          "vlanId": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuPortClassFieldSelect3": {
+    "class": "objecttype",
+    "description": "The field selector of the third condtion.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuPortClassFieldSelect3",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dstIp": 6,
+          "dstMac": 1,
+          "dstPort": 12,
+          "ethPri": 3,
+          "ethType": 5,
+          "ipPrecedence": 10,
+          "ipTosDscp": 9,
+          "ipType": 8,
+          "srcIp": 7,
+          "srcMac": 2,
+          "srcPort": 11,
+          "vlanId": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuPortClassFieldSelect4": {
+    "class": "objecttype",
+    "description": "The field select of the fourth conditon.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuPortClassFieldSelect4",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dstIp": 6,
+          "dstMac": 1,
+          "dstPort": 12,
+          "ethPri": 3,
+          "ethType": 5,
+          "ipPrecedence": 10,
+          "ipTosDscp": 9,
+          "ipType": 8,
+          "srcIp": 7,
+          "srcMac": 2,
+          "srcPort": 11,
+          "vlanId": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuPortClassMatchValue1": {
+    "class": "objecttype",
+    "description": "The match value of the first condition.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuPortClassMatchValue1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEponOnuPortClassMatchValue2": {
+    "class": "objecttype",
+    "description": "The match value of the second condition.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuPortClassMatchValue2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEponOnuPortClassMatchValue3": {
+    "class": "objecttype",
+    "description": "The match value of the third conditon.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuPortClassMatchValue3",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEponOnuPortClassMatchValue4": {
+    "class": "objecttype",
+    "description": "The match value the fourth conditon.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuPortClassMatchValue4",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEponOnuPortClassOperator1": {
+    "class": "objecttype",
+    "description": "The operator of the first condition.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuPortClassOperator1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alwaysMatch": 8,
+          "equal": 2,
+          "exists": 6,
+          "greaterOrEqual": 5,
+          "lessOrEqual": 4,
+          "neverMatch": 1,
+          "notEqual": 3,
+          "notExists": 7
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuPortClassOperator2": {
+    "class": "objecttype",
+    "description": "The operator of the second condition.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuPortClassOperator2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alwaysMatch": 8,
+          "equal": 2,
+          "exists": 6,
+          "greaterOrEqual": 5,
+          "lessOrEqual": 4,
+          "neverMatch": 1,
+          "notEqual": 3,
+          "notExists": 7
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuPortClassOperator3": {
+    "class": "objecttype",
+    "description": "The operator of the third conditon.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuPortClassOperator3",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alwaysMatch": 8,
+          "equal": 2,
+          "exists": 6,
+          "greaterOrEqual": 5,
+          "lessOrEqual": 4,
+          "neverMatch": 1,
+          "notEqual": 3,
+          "notExists": 7
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuPortClassOperator4": {
+    "class": "objecttype",
+    "description": "The operator of the fourth conditon.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuPortClassOperator4",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alwaysMatch": 8,
+          "equal": 2,
+          "exists": 6,
+          "greaterOrEqual": 5,
+          "lessOrEqual": 4,
+          "neverMatch": 1,
+          "notEqual": 3,
+          "notExists": 7
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuPortClassPriMark": {
+    "class": "objecttype",
+    "description": "This is the remark priority of the rule.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuPortClassPriMark",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuPortClassProfileRowStatus": {
+    "class": "objecttype",
+    "description": "Row status. This object is used to differentiate the creation, modification and deletion operations for an object.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuPortClassProfileRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwEponOnuPortClassQueueIndexId": {
+    "class": "objecttype",
+    "description": "The ID of the queue.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuPortClassQueueIndexId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuPortClassRuleIndexId": {
+    "class": "objecttype",
+    "description": "Index of the traffic classification rule.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuPortClassRuleIndexId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuPortId": {
+    "class": "objecttype",
+    "description": "The ONU port ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuPortId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuPortIdIndex": {
+    "class": "objecttype",
+    "description": "Port index of the ONU.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuPortIdIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuPortType": {
+    "class": "objecttype",
+    "description": "The ONU port type.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuPortType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eth": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuPortTypeIndex": {
+    "class": "objecttype",
+    "description": "Port type of the ONU.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuPortTypeIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eth1": 1,
+          "eth2": 2,
+          "eth3": 3,
+          "eth4": 48
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuPotsPortCfgEntry": {
+    "class": "objecttype",
+    "description": "ONU POTS port config entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPotsPortId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuPotsPortCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.10.1",
+    "status": "current"
+  },
+  "hwEponOnuPotsPortCfgTable": {
+    "class": "objecttype",
+    "description": "ONU POTS port config table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuPotsPortCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.10",
+    "status": "current"
+  },
+  "hwEponOnuPotsPortId": {
+    "class": "objecttype",
+    "description": "ONU POTS port number.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuPotsPortId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.10.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuPotsPortNum": {
+    "class": "objecttype",
+    "description": "The number of POTS ports of the ONU.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuPotsPortNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuPotsPortOperateStatus": {
+    "class": "objecttype",
+    "description": "Operation status of the ONU POTS port.",
+    "maxaccess": "read-write",
+    "name": "hwEponOnuPotsPortOperateStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.10.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuReDiscovery": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "This object is used to reset the discovery status of an ONU. If the authentication mode is once-on(4), after performing the rediscovery operation, the online duration is re-timed.",
+    "maxaccess": "read-write",
+    "name": "hwEponOnuReDiscovery",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuReRegister": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "This object is used to re-register an ONU.",
+    "maxaccess": "read-write",
+    "name": "hwEponOnuReRegister",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuReset": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "This object is used to reset an ONU.",
+    "maxaccess": "read-write",
+    "name": "hwEponOnuReset",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuRowStatus": {
+    "class": "objecttype",
+    "description": "The row status, which is used to differentiate the creation, modification and deletion of a row.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwEponOnuRtt": {
+    "class": "objecttype",
+    "description": "The RTT of the ONU (TQ).",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuRtt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuRunStatus": {
+    "class": "objecttype",
+    "description": "The running status of the ONU: up means normal and down means faulty.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuRunStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuServiceProfName": {
+    "class": "objecttype",
+    "description": "The service profile name, which is bound to ONU.",
+    "maxaccess": "read-write",
+    "name": "hwEponOnuServiceProfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwEponOnuSnmpProfName": {
+    "class": "objecttype",
+    "description": "The SNMP profile name, which is bound to ONU.",
+    "maxaccess": "read-write",
+    "name": "hwEponOnuSnmpProfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwEponOnuSnmpProfileInfoEntry": {
+    "class": "objecttype",
+    "description": "EPON SNMP profile config table entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSnmpProfileInfoNameIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuSnmpProfileInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.9.1",
+    "status": "current"
+  },
+  "hwEponOnuSnmpProfileInfoNameIndex": {
+    "class": "objecttype",
+    "description": "SNMP profile name.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuSnmpProfileInfoNameIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.9.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwEponOnuSnmpProfileInfoTable": {
+    "class": "objecttype",
+    "description": "EPON SNMP profile config table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuSnmpProfileInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.9",
+    "status": "current"
+  },
+  "hwEponOnuSnmpProfileReadCommunityName": {
+    "class": "objecttype",
+    "description": "Name of the read community.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuSnmpProfileReadCommunityName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.9.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwEponOnuSnmpProfileRowStatus": {
+    "class": "objecttype",
+    "description": "Row status. This object is used to differentiate the creation, modification and deletion operations for an object.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuSnmpProfileRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.9.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwEponOnuSnmpProfileSecurityName": {
+    "class": "objecttype",
+    "description": "The securityname of SNMP message.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuSnmpProfileSecurityName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.9.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwEponOnuSnmpProfileTrapHostIp": {
+    "class": "objecttype",
+    "description": "IP address of the host sending the trap.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuSnmpProfileTrapHostIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.9.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwEponOnuSnmpProfileTrapHostSrcUdpPort": {
+    "class": "objecttype",
+    "description": "UDP port number, ranging from 1 to 65535.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuSnmpProfileTrapHostSrcUdpPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.9.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuSnmpProfileVersion": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "SNMP version of the profile.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuSnmpProfileVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.9.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v1": 1,
+          "v2": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuSnmpProfileWriteCommunityName": {
+    "class": "objecttype",
+    "description": "Name of the write community.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuSnmpProfileWriteCommunityName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.9.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwEponOnuSoftwareVersion": {
+    "class": "objecttype",
+    "description": "The software version of the ONU.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuSoftwareVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEponOnuSrvProfNameIndex": {
+    "class": "objecttype",
+    "description": "Index of the EPON service profile.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuSrvProfNameIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwEponOnuSrvProfileBindNum": {
+    "class": "objecttype",
+    "description": "Number of EPON service profiles bound to the ONU.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuSrvProfileBindNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuSrvProfileInfoEntry": {
+    "class": "objecttype",
+    "description": "The EPON service profile entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSrvProfNameIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuSrvProfileInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.2.1",
+    "status": "current"
+  },
+  "hwEponOnuSrvProfileInfoTable": {
+    "class": "objecttype",
+    "description": "This is the EPON service profile table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuSrvProfileInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.2",
+    "status": "current"
+  },
+  "hwEponOnuSrvProfileRowStatus": {
+    "class": "objecttype",
+    "description": "Row status. This object is used to differentiate the creation, modification and deletion operations for an object.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuSrvProfileRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.2.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwEponOnuSupportBackupBattery": {
+    "class": "objecttype",
+    "description": "Does the ONU support backup batter.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuSupportBackupBattery",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuSupportMulticastQuickLeave": {
+    "class": "objecttype",
+    "description": "Does the ONU support multicast quick-leave.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuSupportMulticastQuickLeave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuTdmPortCfgEntry": {
+    "class": "objecttype",
+    "description": "The ONU TDM port config entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuTdmPortId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuTdmPortCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.9.1",
+    "status": "current"
+  },
+  "hwEponOnuTdmPortCfgTable": {
+    "class": "objecttype",
+    "description": "The ONU TDM port config table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuTdmPortCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.9",
+    "status": "current"
+  },
+  "hwEponOnuTdmPortId": {
+    "class": "objecttype",
+    "description": "ONU TDM port ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuTdmPortId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.9.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuTdmPortOperateStatus": {
+    "class": "objecttype",
+    "description": "The enable switch of the port.",
+    "maxaccess": "read-write",
+    "name": "hwEponOnuTdmPortOperateStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.9.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuTdmPortsNum": {
+    "class": "objecttype",
+    "description": "The number of TDM ports of the ONU.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuTdmPortsNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuTimeout": {
+    "class": "objecttype",
+    "description": "The online duration of the ONU, ranging from 1 to 168 hours.",
+    "maxaccess": "read-write",
+    "name": "hwEponOnuTimeout",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 168,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuTrafficPolicyNameIndex": {
+    "class": "objecttype",
+    "description": "Traffic policy name.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuTrafficPolicyNameIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.11.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEponOnuUniAlarmStateEntry": {
+    "class": "objecttype",
+    "description": "ONU alarm state.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuUniAlarmStateEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5.2.1",
+    "status": "current"
+  },
+  "hwEponOnuUniAlarmStateLos": {
+    "class": "objecttype",
+    "description": "The loss of frame of ONU occurs.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuUniAlarmStateLos",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 2,
+          "yes": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuUniAlarmStateTable": {
+    "class": "objecttype",
+    "description": "This is the UNI of an ONU alarm state table. This table is used to query the alarm state of the UNI of an ONU.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuUniAlarmStateTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5.2",
+    "status": "current"
+  },
+  "hwEponOnuUniAlarmStateTransmitFail": {
+    "class": "objecttype",
+    "description": "Fail to transmit.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuUniAlarmStateTransmitFail",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.5.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 2,
+          "yes": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuUniStatisticClear": {
+    "class": "objecttype",
+    "description": "Clear the statistics.",
+    "maxaccess": "read-write",
+    "name": "hwEponOnuUniStatisticClear",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponOnuUniStatisticEntry": {
+    "class": "objecttype",
+    "description": "ONU ETH port statistics entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuEthPortId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuUniStatisticEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1",
+    "status": "current"
+  },
+  "hwEponOnuUniStatisticRecv1024To1518OctetFrames": {
+    "class": "objecttype",
+    "description": "Received 1024-1518 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuUniStatisticRecv1024To1518OctetFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuUniStatisticRecv128To255OctetFrames": {
+    "class": "objecttype",
+    "description": "Received 128-255 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuUniStatisticRecv128To255OctetFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuUniStatisticRecv256To511OctetFrames": {
+    "class": "objecttype",
+    "description": "Received 256-511 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuUniStatisticRecv256To511OctetFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuUniStatisticRecv512To1023OctetFrames": {
+    "class": "objecttype",
+    "description": "Received 512-1023 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuUniStatisticRecv512To1023OctetFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuUniStatisticRecv64OctetFrames": {
+    "class": "objecttype",
+    "description": "Received 64 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuUniStatisticRecv64OctetFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuUniStatisticRecv65To127OctetFrames": {
+    "class": "objecttype",
+    "description": "Received 65-127 bytes frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuUniStatisticRecv65To127OctetFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuUniStatisticRecvBroadcastFrames": {
+    "class": "objecttype",
+    "description": "Received boardcast frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuUniStatisticRecvBroadcastFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuUniStatisticRecvFrames": {
+    "class": "objecttype",
+    "description": "Received frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuUniStatisticRecvFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuUniStatisticRecvMulticastFrames": {
+    "class": "objecttype",
+    "description": "Received multicast frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuUniStatisticRecvMulticastFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuUniStatisticRecvTooLongFrames": {
+    "class": "objecttype",
+    "description": "Received oversize frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuUniStatisticRecvTooLongFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuUniStatisticRecvUndersizeFrames": {
+    "class": "objecttype",
+    "description": "Received undersize frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuUniStatisticRecvUndersizeFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuUniStatisticTable": {
+    "class": "objecttype",
+    "description": "ONU ETH port statistics table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuUniStatisticTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3",
+    "status": "current"
+  },
+  "hwEponOnuUniStatisticTransDropFrames": {
+    "class": "objecttype",
+    "description": "Received discarded frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuUniStatisticTransDropFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuUniStatisticTransFrames": {
+    "class": "objecttype",
+    "description": "Sent frames.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuUniStatisticTransFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuUniStatisticTransMtuExceededDiscardFrames": {
+    "class": "objecttype",
+    "description": "Frames failed to be sent due to oversize.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuUniStatisticTransMtuExceededDiscardFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4.3.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwEponOnuUpQueueNum": {
+    "class": "objecttype",
+    "description": "The number of upstream queues of the ONU.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuUpQueueNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuUpQueueNumPerPort": {
+    "class": "objecttype",
+    "description": "The number of queues on the upstream port of the ONU.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuUpQueueNumPerPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.6.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuUserMacAddress": {
+    "class": "objecttype",
+    "description": "MAC address.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuUserMacAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.14.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwEponOnuUserMacAddressNumber": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 4094
+      }
+    },
+    "description": "Maximum number of MAC addresses that can be learned.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuUserMacAddressNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.15.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuUserMacAddressOrder": {
+    "class": "objecttype",
+    "description": "The index of the static MAC address.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuUserMacAddressOrder",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.14.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponOnuVendorId": {
+    "class": "objecttype",
+    "description": "This is the ONU vendor ID.",
+    "maxaccess": "read-only",
+    "name": "hwEponOnuVendorId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEponOnuVersionEntry": {
+    "class": "objecttype",
+    "description": "ONU version information entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuVersionEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.3.1",
+    "status": "current"
+  },
+  "hwEponOnuVersionTable": {
+    "class": "objecttype",
+    "description": "This is the ONU version information table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponOnuVersionTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.3",
+    "status": "current"
+  },
+  "hwEponOnuVlanCopyPri": {
+    "class": "objecttype",
+    "description": "Copy VLAN COS value.",
+    "maxaccess": "read-create",
+    "name": "hwEponOnuVlanCopyPri",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "copy": 1,
+          "notCopy": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponPortIndex": {
+    "class": "objecttype",
+    "description": "Port ID of the EPON interface.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEponPortIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.6.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEponProfileGroup": {
+    "class": "objectgroup",
+    "description": "The collection of objects which are used to control the EPON profile behavior.",
+    "name": "hwEponProfileGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponLineProfileBindNum"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponLineProfileDbaProfileName"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponLineProfileEncryptMode"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponLineProfileQueueSetIndex1Threshold"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponLineProfileQueueSetIndex2Threshold"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponLineProfileQueueSetIndex3Threshold"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSrvProfileBindNum"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfileMulticastMode"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfileFecMode"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfileMulticastQuickLeaveSwitch"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortCfgMaxMacAddressNum"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortCfgMulticastStripSwitch"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponDbaProfileFixedRate"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponDbaProfileAssuredRate"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponDbaProfileMaxRate"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponDbaProfileReferenceNum"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponDbaProfileEntryStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSnmpProfileVersion"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSnmpProfileReadCommunityName"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSnmpProfileWriteCommunityName"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSnmpProfileTrapHostIp"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSnmpProfileTrapHostSrcUdpPort"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSnmpProfileSecurityName"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassPriMark"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassConditionNum"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassFieldSelect1"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassOperator1"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassMatchValue1"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassFieldSelect2"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassOperator2"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassMatchValue2"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortCarCfgCir"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassFieldSelect3"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassOperator3"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassMatchValue3"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortCarCfgPir"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortCarCfgCbs"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortCarCfgEbs"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassQueueIndexId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponLineProfileRowStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSrvProfileRowStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSnmpProfileRowStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortCarCfgRowStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassProfileRowStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfMulticastVlanCfgRowStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSnmpProfName"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponDbaTypeIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassFieldSelect4"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassOperator4"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassMatchValue4"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortVlanMode"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortVlanTranslationRowStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortDefaultVlanId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortVlanRowStatus"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortVlanTranslationSVlanId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortAddToVlanId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.8.2.3",
+    "status": "current"
+  },
+  "hwEponProfileObjects": {
+    "class": "objectidentity",
+    "name": "hwEponProfileObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3"
+  },
+  "hwEponSlotIndex": {
+    "class": "objecttype",
+    "description": "Slot ID of the EPON interface.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEponSlotIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.6.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEponSrvProfMulticastVlanCfgEntry": {
+    "class": "objecttype",
+    "description": "The EPON service profile multi-cast VLAN config entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSrvProfNameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortTypeIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortIdIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfMulticastVlanCfgMulticastVlan"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponSrvProfMulticastVlanCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.5.1",
+    "status": "current"
+  },
+  "hwEponSrvProfMulticastVlanCfgMulticastVlan": {
+    "class": "objecttype",
+    "description": "Multicast VLAN ID in the EPON service profile.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponSrvProfMulticastVlanCfgMulticastVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponSrvProfMulticastVlanCfgRowStatus": {
+    "class": "objecttype",
+    "description": "Row status. This object is used to differentiate the creation, modification and deletion operations for an object.",
+    "maxaccess": "read-create",
+    "name": "hwEponSrvProfMulticastVlanCfgRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.5.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwEponSrvProfMulticastVlanCfgTable": {
+    "class": "objecttype",
+    "description": "This is the EPON service profile multicast VLAN config table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponSrvProfMulticastVlanCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.5",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortAddToVlanId": {
+    "class": "objecttype",
+    "description": "VLAN IDs allowed by the ONU port.",
+    "maxaccess": "read-create",
+    "name": "hwEponSrvProfOnuPortAddToVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEponSrvProfOnuPortCarCfgCbs": {
+    "class": "objecttype",
+    "description": "The CBS on the ONU port.",
+    "maxaccess": "read-create",
+    "name": "hwEponSrvProfOnuPortCarCfgCbs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.11.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000000,
+            "min": 1568
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponSrvProfOnuPortCarCfgCir": {
+    "class": "objecttype",
+    "description": "The CIR on the ONU port.",
+    "maxaccess": "read-create",
+    "name": "hwEponSrvProfOnuPortCarCfgCir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.11.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000000,
+            "min": 640
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponSrvProfOnuPortCarCfgDirection": {
+    "class": "objecttype",
+    "description": "The direction of the CAR.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponSrvProfOnuPortCarCfgDirection",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.11.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponSrvProfOnuPortCarCfgEbs": {
+    "class": "objecttype",
+    "description": "The EBS on the ONU port.",
+    "maxaccess": "read-create",
+    "name": "hwEponSrvProfOnuPortCarCfgEbs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.11.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponSrvProfOnuPortCarCfgPir": {
+    "class": "objecttype",
+    "description": "The PIR on the ONU port.",
+    "maxaccess": "read-create",
+    "name": "hwEponSrvProfOnuPortCarCfgPir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.11.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponSrvProfOnuPortCarCfgRowStatus": {
+    "class": "objecttype",
+    "description": "Row status. This object is used to differentiate the creation, modification and deletion operations for an object.",
+    "maxaccess": "read-create",
+    "name": "hwEponSrvProfOnuPortCarCfgRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.11.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwEponSrvProfOnuPortCfgCarEntry": {
+    "class": "objecttype",
+    "description": "Service profile CAR config entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSrvProfNameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortTypeIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortIdIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortCarCfgDirection"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponSrvProfOnuPortCfgCarEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.11.1",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortCfgCarTable": {
+    "class": "objecttype",
+    "description": "The service profile CAR config table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponSrvProfOnuPortCfgCarTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.11",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortCfgEntry": {
+    "class": "objecttype",
+    "description": "The EPON service profile ONU port config entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSrvProfNameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortTypeIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortIdIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponSrvProfOnuPortCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.4.1",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortCfgMaxMacAddressNum": {
+    "class": "objecttype",
+    "description": "Max number of MAC addresses that can be learned on an ONU port.",
+    "maxaccess": "read-write",
+    "name": "hwEponSrvProfOnuPortCfgMaxMacAddressNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1023,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponSrvProfOnuPortCfgMulticastStripSwitch": {
+    "class": "objecttype",
+    "description": "Whether to remove VLAN tags from multicast packets on an ONU port.",
+    "maxaccess": "read-write",
+    "name": "hwEponSrvProfOnuPortCfgMulticastStripSwitch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notStrip": 2,
+          "strip": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponSrvProfOnuPortCfgTable": {
+    "class": "objecttype",
+    "description": "This is the EPON service profile ONU port config table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponSrvProfOnuPortCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.4",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortClassEntry": {
+    "class": "objecttype",
+    "description": "The entry of the configuration table of the Epon classification.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSrvProfNameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuClassifEthPortIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortClassRuleIndexId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponSrvProfOnuPortClassEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10.1",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortClassTable": {
+    "class": "objecttype",
+    "description": "The configuration table of the EPON classification.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponSrvProfOnuPortClassTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.10",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortDefaultVlanId": {
+    "class": "objecttype",
+    "description": "Default VLAN ID of the ONU port.",
+    "maxaccess": "read-create",
+    "name": "hwEponSrvProfOnuPortDefaultVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEponSrvProfOnuPortVlanCfgEntry": {
+    "class": "objecttype",
+    "description": "The ONU port\u0027s remote native VLAN info entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSrvProfNameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponSrvProfOnuPortVlanCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.6.1",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortVlanCfgTable": {
+    "class": "objecttype",
+    "description": "The ONU port\u0027s remote native VLAN info table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponSrvProfOnuPortVlanCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.6",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortVlanMode": {
+    "class": "objecttype",
+    "description": "The VLAN mode of an ONU port, 0, 2, or 3.",
+    "maxaccess": "read-create",
+    "name": "hwEponSrvProfOnuPortVlanMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "translation": 2,
+          "transmit": 3,
+          "transparent": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponSrvProfOnuPortVlanRowStatus": {
+    "class": "objecttype",
+    "description": "Row status. This object is used to differentiate the creation, modification and deletion operations for an object.",
+    "maxaccess": "read-create",
+    "name": "hwEponSrvProfOnuPortVlanRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.6.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwEponSrvProfOnuPortVlanTranslationCvlanId": {
+    "class": "objecttype",
+    "description": "C-VLAN ID on the ONU port.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponSrvProfOnuPortVlanTranslationCvlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponSrvProfOnuPortVlanTranslationEntry": {
+    "class": "objecttype",
+    "description": "The ONU port\u0027s remote VLAN translation information entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSrvProfNameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPortId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSrvProfOnuPortVlanTranslationCvlanId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponSrvProfOnuPortVlanTranslationEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.7.1",
+    "status": "current"
+  },
+  "hwEponSrvProfOnuPortVlanTranslationRowStatus": {
+    "class": "objecttype",
+    "description": "Row status. This object is used to differentiate the creation, modification and deletion operations for an object.",
+    "maxaccess": "read-create",
+    "name": "hwEponSrvProfOnuPortVlanTranslationRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.7.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwEponSrvProfOnuPortVlanTranslationSVlanId": {
+    "class": "objecttype",
+    "description": "S-VLAN ID on the ONU port.",
+    "maxaccess": "read-create",
+    "name": "hwEponSrvProfOnuPortVlanTranslationSVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponSrvProfOnuPortVlanTranslationTable": {
+    "class": "objecttype",
+    "description": "The ONU port\u0027s remote VLAN translation information table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponSrvProfOnuPortVlanTranslationTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.7",
+    "status": "current"
+  },
+  "hwEponSrvProfileFecMode": {
+    "class": "objecttype",
+    "description": "FEC mode of the EPON service profile.",
+    "maxaccess": "read-write",
+    "name": "hwEponSrvProfileFecMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwEponSrvProfileMulticastMode": {
+    "class": "objecttype",
+    "description": "Multicast mode of the EPON service profile.",
+    "maxaccess": "read-write",
+    "name": "hwEponSrvProfileMulticastMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ctc": 1,
+          "igmpsnooping": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponSrvProfileMulticastQuickLeaveSwitch": {
+    "class": "objecttype",
+    "description": "Enabling or disabling multicast quickleave of the EPON service profile.",
+    "maxaccess": "read-write",
+    "name": "hwEponSrvProfileMulticastQuickLeaveSwitch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwEponSrvProfileOnuCfgEntry": {
+    "class": "objecttype",
+    "description": "The EPON service profile ONU config entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuSrvProfNameIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponSrvProfileOnuCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.3.1",
+    "status": "current"
+  },
+  "hwEponSrvProfileOnuCfgTable": {
+    "class": "objecttype",
+    "description": "This is the EPON service profile ONU config table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponSrvProfileOnuCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.3.3",
+    "status": "current"
+  },
+  "hwEponStatisticGroup": {
+    "class": "objectgroup",
+    "description": "The collection of objects which are used to control the EPON Statistic behavior.",
+    "name": "hwEponStatisticGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecvDataFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecvDataBytes"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecvMulticastFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecvBoardcastFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecvErrorFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecvErrorBytes"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecv64ByteFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecv65To127ByteFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecv128To255ByteFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecv256To511ByteFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecv512To1023ByteFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecv1024To1518ByteFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecvOver1518ByteFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecvUndersizeFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecvOversizeFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecvFcsErrorFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticUniCastFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecvOkFrameCnt"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticRecvOkByteCnt"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticTransDataFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticTransDataBytes"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticTransUnicastFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticTransMulticastFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticTransBoardcastFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticTrans64ByteFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticTrans65To127ByteFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticTrans128To255ByteFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticTrans256To511ByteFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticTrans512To1023ByteFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticTrans1024To1518ByteFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticTransOver1518ByteFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticTransFcsErrorFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltStatisticClear"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcv1024To1518byteFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcv128To255byteFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcv256To511byteFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcv512To1023byteFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcv64byteFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcv65To127byteFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvBcFrame"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvByte"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvCrc8Err"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvDelayByte"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvDelayMax"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvDelayThreshold"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvDropByte"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvDropFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvErrFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvErrOntDestinedByte"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvFcsErr"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvFrame"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvGreatThan1518byteFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvInvalidSldFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvLaserPower"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvLineCodeErr"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvMcFrame"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvOntDestinedByte"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvUcFrame"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticRcvUndersizeFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSend1024To1518byteFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSend128To255byteFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSend256To511byteFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSend512To1023byteFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSend64byteFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSend65To127byteFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSendBcFrame"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSendByte"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSendDelayByte"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSendDelayMax"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSendDelayThreshold"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSendDropByte"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSendDropFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSendFrame"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSendGreatThan1518byteFrm"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSendMcFrame"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSendUcFrame"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticSendUnusedByte"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuPonStatisticClear"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticRecvFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticRecvMulticastFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticRecvBroadcastFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticRecv64OctetFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticRecv65To127OctetFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticRecv128To255OctetFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticRecv256To511OctetFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticRecv512To1023OctetFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticRecv1024To1518OctetFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticRecvUndersizeFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticRecvTooLongFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticTransDropFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticTransFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticTransMtuExceededDiscardFrames"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuUniStatisticClear"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.8.2.4",
+    "status": "current"
+  },
+  "hwEponStatisticObjects": {
+    "class": "objectidentity",
+    "name": "hwEponStatisticObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.4"
+  },
+  "hwEponTrap": {
+    "class": "objectidentity",
+    "name": "hwEponTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.7"
+  },
+  "hwEponTrapGroup": {
+    "class": "notificationgroup",
+    "description": "The collection of objects which are used to control the EPON trap behavior.",
+    "name": "hwEponTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltAlarmLosTrap"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltAlarmLosResumeTrap"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltAutoFindTrap"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOltAlarmTransmitFaultTrap"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuAlarmPwdConlictTrap"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuOnlineTrap"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuOfflineTrap"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.8.2.7",
+    "status": "current"
+  },
+  "hwEponTrapMac": {
+    "class": "objecttype",
+    "description": "MAC address of the ONU.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEponTrapMac",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.6.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEponTrapObjects": {
+    "class": "objectidentity",
+    "name": "hwEponTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.6"
+  },
+  "hwEponTrapObjectsGroup": {
+    "class": "objectgroup",
+    "description": "The collection of objects which are used to control the EPON trap object behavior.",
+    "name": "hwEponTrapObjectsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponSlotIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponCardIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponPortIndex"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponTrapOnuId"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponTrapMac"
+      },
+      {
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponTrapPwd"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.8.2.6",
+    "status": "current"
+  },
+  "hwEponTrapOnuId": {
+    "class": "objecttype",
+    "description": "ONU ID.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEponTrapOnuId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.6.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEponTrapPwd": {
+    "class": "objecttype",
+    "description": "ONU password.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEponTrapPwd",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.6.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEponVlanMappingBatch": {
+    "class": "objecttype",
+    "description": "Batch config.",
+    "maxaccess": "read-create",
+    "name": "hwEponVlanMappingBatch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 2,
+          "yes": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEponVlanMappingOnuEndId": {
+    "class": "objecttype",
+    "description": "End ONU ID.",
+    "maxaccess": "read-create",
+    "name": "hwEponVlanMappingOnuEndId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponVlanMappingOnuStartId": {
+    "class": "objecttype",
+    "description": "Start ONU ID.",
+    "maxaccess": "read-create",
+    "name": "hwEponVlanMappingOnuStartId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEponVlanMappingRowStatus": {
+    "class": "objecttype",
+    "description": "The row status, which is used to differentiate the creation, modification and deletion of a row. ",
+    "maxaccess": "read-create",
+    "name": "hwEponVlanMappingRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwEponVlanStackingAndMappingEntry": {
+    "class": "objecttype",
+    "description": "ONU stacking and mapping config entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuExtSVlanId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIntSStartVlanId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-EPON-MIB",
+        "object": "hwEponOnuIntSEndVlanId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEponVlanStackingAndMappingEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1",
+    "status": "current"
+  },
+  "hwEponVlanStackingAndMappingTable": {
+    "class": "objecttype",
+    "description": "ONU stacking and mapping config table.",
+    "maxaccess": "not-accessible",
+    "name": "hwEponVlanStackingAndMappingTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13",
+    "status": "current"
+  },
+  "hwEponVlanStackingOrMapping": {
+    "class": "objecttype",
+    "description": "Stacking or mapping.",
+    "maxaccess": "read-write",
+    "name": "hwEponVlanStackingOrMapping",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.179.1.2.13.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "doubleMapping": 2,
+          "singleMapping": 1,
+          "stacking": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "huaweiUtility",
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter64",
+      "Bits",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Counter32",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-EPON-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:19 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-EPON-MIB"
+  }
+}

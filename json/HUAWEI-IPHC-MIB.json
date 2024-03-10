@@ -1,0 +1,952 @@
+{
+  "HWCompressFormat": {
+    "class": "textualconvention",
+    "description": "Compress packets in ietf-format(defined in RFC2507) or not ",
+    "name": "HWCompressFormat",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ietf": 1,
+          "nonstandard": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWCompressType": {
+    "class": "textualconvention",
+    "description": "The Compress type: withoutCompress(1), enableTcpCompress(2), enableRtpCompress(3), enableEcRtpCompress(4), enableUdpCompressOnly(5), enableUdpandRtpCompressOnly(6) ",
+    "name": "HWCompressType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enableEcRtpCompress": 4,
+          "enableRtpCompress": 3,
+          "enableTcpCompress": 2,
+          "enableUdpCompressOnly": 5,
+          "enableUdpandRtpCompressOnly": 6,
+          "withoutCompress": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIphcCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-IPHC-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcInfoGroup"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcStatisticsGroup"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcNotificationGroup"
+      }
+    ],
+    "name": "hwIphcCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.4.1.1",
+    "status": "current"
+  },
+  "hwIphcCompliances": {
+    "class": "objectidentity",
+    "name": "hwIphcCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.4.1"
+  },
+  "hwIphcConformance": {
+    "class": "objectidentity",
+    "name": "hwIphcConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.4"
+  },
+  "hwIphcContextError": {
+    "class": "notificationtype",
+    "description": "During a specified period, the number of the CONTEXT_STATE packets received by the compressor exceeds the threshold. ",
+    "name": "hwIphcContextError",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.154.3.1",
+    "status": "current"
+  },
+  "hwIphcContextErrorResume": {
+    "class": "notificationtype",
+    "description": "During a specified period, the number of the CONTEXT_STATE packets received by the compressor restores to the normal state. ",
+    "name": "hwIphcContextErrorResume",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.154.3.2",
+    "status": "current"
+  },
+  "hwIphcGroups": {
+    "class": "objectidentity",
+    "name": "hwIphcGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.4.2"
+  },
+  "hwIphcInfoGroup": {
+    "class": "objectgroup",
+    "description": "Standard HUAWEI IPHC Configuration group.",
+    "name": "hwIphcInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpEnable"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpConnnectionNumber"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpRowStatus"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpEffectEnable"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpEffectConnnectionNumber"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpEnable"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpConnnectionNumber"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpNValue"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpFormatType"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpRowStatus"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpEffectEnable"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpEffectConnnectionNumber"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpEffectNValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.154.4.2.1",
+    "status": "current"
+  },
+  "hwIphcInfoObjects": {
+    "class": "objectidentity",
+    "name": "hwIphcInfoObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1"
+  },
+  "hwIphcMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com",
+    "description": "HUAWEI-IPHC-MIB is a private MIB defined by Huawei. It describes the configurations, configuration status, and statistics of IP packet header compression. ",
+    "lastupdated": "200707230000Z",
+    "name": "hwIphcMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.154",
+    "organization": "Huawei Technologies Co., Ltd."
+  },
+  "hwIphcNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "Standard HUAWEI IPHC Notification group.",
+    "name": "hwIphcNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcContextError"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcContextErrorResume"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.154.4.2.3",
+    "status": "current"
+  },
+  "hwIphcRtpCompressRatio": {
+    "class": "objecttype",
+    "description": "Compression ratio.",
+    "maxaccess": "read-only",
+    "name": "hwIphcRtpCompressRatio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIphcRtpConfigEffectEntry": {
+    "class": "objecttype",
+    "description": "An entry in this table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIphcRtpConfigEffectEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.4.1",
+    "status": "current"
+  },
+  "hwIphcRtpConfigEffectTable": {
+    "class": "objecttype",
+    "description": "This table lists the valid parameters of IP/UDP and IP/UDP/RTP header compression on the interface after negotiation with the peer interface. ",
+    "maxaccess": "not-accessible",
+    "name": "hwIphcRtpConfigEffectTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.4",
+    "status": "current"
+  },
+  "hwIphcRtpConfigEntry": {
+    "class": "objecttype",
+    "description": "An entry in this table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIphcRtpConfigEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.3.1",
+    "status": "current"
+  },
+  "hwIphcRtpConfigTable": {
+    "class": "objecttype",
+    "description": "This table is used to configure the parameters of IP/UDP or IP/UDP/RTP header compression.",
+    "maxaccess": "not-accessible",
+    "name": "hwIphcRtpConfigTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.3",
+    "status": "current"
+  },
+  "hwIphcRtpConnnectionNumber": {
+    "class": "objecttype",
+    "description": "The maximum number of IP/UDP and IP/UDP/RTP header compression sessions on the interface.",
+    "maxaccess": "read-create",
+    "name": "hwIphcRtpConnnectionNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIphcRtpEffectConnnectionNumber": {
+    "class": "objecttype",
+    "description": "The maximum number of valid IP/UDP and IP/UDP/RTP header compression sessions on the interface.",
+    "maxaccess": "read-only",
+    "name": "hwIphcRtpEffectConnnectionNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIphcRtpEffectEnable": {
+    "class": "objecttype",
+    "description": "Identifies whether IP/UDP and IP/UDP/RTP header compression is effective on the interface after negotiation with the peer interface.",
+    "maxaccess": "read-only",
+    "name": "hwIphcRtpEffectEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWCompressType"
+    }
+  },
+  "hwIphcRtpEffectNValue": {
+    "class": "objecttype",
+    "description": "The number of packet retransmissions when EcRTP is enabled on the interface after negotiation with the peer interface.",
+    "maxaccess": "read-only",
+    "name": "hwIphcRtpEffectNValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIphcRtpEnable": {
+    "class": "objecttype",
+    "description": "Identifies whether IP/UDP and IP/UDP/RTP header compression is enabled on the interface. ",
+    "maxaccess": "read-create",
+    "name": "hwIphcRtpEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWCompressType"
+    }
+  },
+  "hwIphcRtpFormatType": {
+    "class": "objecttype",
+    "description": "Compressed packet format supported by the interface. ",
+    "maxaccess": "read-create",
+    "name": "hwIphcRtpFormatType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWCompressFormat"
+    }
+  },
+  "hwIphcRtpIfIndex": {
+    "class": "objecttype",
+    "description": "Index of the interface enabled with IP/UDP or IP/UDP/RTP header compression, the same as IfIndex of this interface",
+    "maxaccess": "not-accessible",
+    "name": "hwIphcRtpIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIphcRtpNValue": {
+    "class": "objecttype",
+    "description": "The number of packet retransmissions when EcRTP is enabled on the interface.",
+    "maxaccess": "read-create",
+    "name": "hwIphcRtpNValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIphcRtpReceivedCompressDiscardPackets": {
+    "class": "objecttype",
+    "description": "Number of packets discarded due to failed compression with IP/UDP or IP/UDP/RTP header.",
+    "maxaccess": "read-only",
+    "name": "hwIphcRtpReceivedCompressDiscardPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIphcRtpReceivedCompressErrorPackets": {
+    "class": "objecttype",
+    "description": "Number of received incorrectly-compressed packets with IP/UDP or IP/UDP/RTP header.",
+    "maxaccess": "read-only",
+    "name": "hwIphcRtpReceivedCompressErrorPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIphcRtpReceivedCompressPackets": {
+    "class": "objecttype",
+    "description": "Total number of the bytes of received compressed packets with IP/UDP or IP/UDP/RTP header.",
+    "maxaccess": "read-only",
+    "name": "hwIphcRtpReceivedCompressPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIphcRtpReceivedTotalPackets": {
+    "class": "objecttype",
+    "description": "Total number of received packets with IP/UDP or IP/UDP/RTP header.",
+    "maxaccess": "read-only",
+    "name": "hwIphcRtpReceivedTotalPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIphcRtpRowStatus": {
+    "class": "objecttype",
+    "description": "Row status.",
+    "maxaccess": "read-create",
+    "name": "hwIphcRtpRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIphcRtpRunInfoEntry": {
+    "class": "objecttype",
+    "description": "An entry in this table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIphcRtpRunInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.2.1",
+    "status": "current"
+  },
+  "hwIphcRtpRunInfoTable": {
+    "class": "objecttype",
+    "description": "This table lists statistics on IP/UDP or IP/UDP/RTP header compression.",
+    "maxaccess": "not-accessible",
+    "name": "hwIphcRtpRunInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.2",
+    "status": "current"
+  },
+  "hwIphcRtpSavedBytes": {
+    "class": "objecttype",
+    "description": "Number of saved bytes after compression with IP/UDP or IP/UDP/RTP header.",
+    "maxaccess": "read-only",
+    "name": "hwIphcRtpSavedBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIphcRtpSentCompressBytes": {
+    "class": "objecttype",
+    "description": "Number of the bytes of sent compressed packets with IP/UDP or IP/UDP/RTP header.",
+    "maxaccess": "read-only",
+    "name": "hwIphcRtpSentCompressBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIphcRtpSentCompressPackets": {
+    "class": "objecttype",
+    "description": "Number of sent compressed packets with IP/UDP or IP/UDP/RTP header.",
+    "maxaccess": "read-only",
+    "name": "hwIphcRtpSentCompressPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIphcRtpSentTotalBytes": {
+    "class": "objecttype",
+    "description": "Total number of the bytes of sent packets with IP/UDP or IP/UDP/RTP header.",
+    "maxaccess": "read-only",
+    "name": "hwIphcRtpSentTotalBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIphcRtpSentTotalPackets": {
+    "class": "objecttype",
+    "description": "Total number of sent packets with IP/UDP or IP/UDP/RTP header.",
+    "maxaccess": "read-only",
+    "name": "hwIphcRtpSentTotalPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIphcStatisticsGroup": {
+    "class": "objectgroup",
+    "description": "Standard HUAWEI IPHC Statistics group.",
+    "name": "hwIphcStatisticsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpSentTotalPackets"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpSentTotalBytes"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpSentCompressPackets"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpSentCompressBytes"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpSavedBytes"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpCompressRatio"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpReceivedTotalPackets"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpReceivedCompressPackets"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpReceivedCompressErrorPackets"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpReceivedCompressDiscardPackets"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpSentTotalPackets"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpSentTotalBytes"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpSentCompressPackets"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpSentCompressBytes"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpSavedBytes"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpCompressRatio"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpReceivedTotalPackets"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpReceivedCompressPackets"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpReceivedCompressErrorPackets"
+      },
+      {
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcRtpReceivedCompressDiscardPackets"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.154.4.2.2",
+    "status": "current"
+  },
+  "hwIphcStatisticsObjects": {
+    "class": "objectidentity",
+    "name": "hwIphcStatisticsObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2"
+  },
+  "hwIphcTcpCompressRatio": {
+    "class": "objecttype",
+    "description": "Compression ratio.",
+    "maxaccess": "read-only",
+    "name": "hwIphcTcpCompressRatio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIphcTcpConfigEffectEntry": {
+    "class": "objecttype",
+    "description": "An entry in this table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIphcTcpConfigEffectEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.2.1",
+    "status": "current"
+  },
+  "hwIphcTcpConfigEffectTable": {
+    "class": "objecttype",
+    "description": "This table lists the valid parameters of IP/TCP header compression on the interface after negotiation with the peer interface. ",
+    "maxaccess": "not-accessible",
+    "name": "hwIphcTcpConfigEffectTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.2",
+    "status": "current"
+  },
+  "hwIphcTcpConfigEntry": {
+    "class": "objecttype",
+    "description": "An entry in this table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIphcTcpConfigEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.1.1",
+    "status": "current"
+  },
+  "hwIphcTcpConfigTable": {
+    "class": "objecttype",
+    "description": "This table is used to configure the parameters of IP/TCP header compression.",
+    "maxaccess": "not-accessible",
+    "name": "hwIphcTcpConfigTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.1",
+    "status": "current"
+  },
+  "hwIphcTcpConnnectionNumber": {
+    "class": "objecttype",
+    "description": "The maximum number of IP/TCP header compression sessions on the interface.The default value is 16.",
+    "maxaccess": "read-create",
+    "name": "hwIphcTcpConnnectionNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIphcTcpEffectConnnectionNumber": {
+    "class": "objecttype",
+    "description": "The maximum number of valid IP/TCP header compression sessions on the interface after negotiation with the peer interface. ",
+    "maxaccess": "read-only",
+    "name": "hwIphcTcpEffectConnnectionNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIphcTcpEffectEnable": {
+    "class": "objecttype",
+    "description": "Identifies whether the IP/TCP header compression is effective on the interface after negotiation with the peer interface. ",
+    "maxaccess": "read-only",
+    "name": "hwIphcTcpEffectEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWCompressType"
+    }
+  },
+  "hwIphcTcpEnable": {
+    "class": "objecttype",
+    "description": "Identifies whether IP/TCP header compression is enabled on the interface. The default value is 2.",
+    "maxaccess": "read-create",
+    "name": "hwIphcTcpEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWCompressType"
+    }
+  },
+  "hwIphcTcpIfIndex": {
+    "class": "objecttype",
+    "description": "Index of the interface enabled with IP/TCP header compression, the same as IfIndex of this interface. ",
+    "maxaccess": "not-accessible",
+    "name": "hwIphcTcpIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIphcTcpReceivedCompressDiscardPackets": {
+    "class": "objecttype",
+    "description": "Number of the packets discarded due to failed decompression with IP/TCP header.",
+    "maxaccess": "read-only",
+    "name": "hwIphcTcpReceivedCompressDiscardPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIphcTcpReceivedCompressErrorPackets": {
+    "class": "objecttype",
+    "description": "Number of incorrectly-compressed packets with IP/TCP header.",
+    "maxaccess": "read-only",
+    "name": "hwIphcTcpReceivedCompressErrorPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIphcTcpReceivedCompressPackets": {
+    "class": "objecttype",
+    "description": "Total number of received compressed packets with IP/TCP header.",
+    "maxaccess": "read-only",
+    "name": "hwIphcTcpReceivedCompressPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIphcTcpReceivedTotalPackets": {
+    "class": "objecttype",
+    "description": "Total number of received packets with IP/TCP header.",
+    "maxaccess": "read-only",
+    "name": "hwIphcTcpReceivedTotalPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIphcTcpRowStatus": {
+    "class": "objecttype",
+    "description": "Row status.",
+    "maxaccess": "read-create",
+    "name": "hwIphcTcpRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIphcTcpRunInfoEntry": {
+    "class": "objecttype",
+    "description": "An entry in this table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPHC-MIB",
+        "object": "hwIphcTcpIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIphcTcpRunInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.1.1",
+    "status": "current"
+  },
+  "hwIphcTcpRunInfoTable": {
+    "class": "objecttype",
+    "description": "This table lists statistics on IP/TCP header compression.",
+    "maxaccess": "not-accessible",
+    "name": "hwIphcTcpRunInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.1",
+    "status": "current"
+  },
+  "hwIphcTcpSavedBytes": {
+    "class": "objecttype",
+    "description": "Number of the bytes saved after compression with IP/TCP header.",
+    "maxaccess": "read-only",
+    "name": "hwIphcTcpSavedBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIphcTcpSentCompressBytes": {
+    "class": "objecttype",
+    "description": "Number of the bytes of compressed packets with IP/TCP header.",
+    "maxaccess": "read-only",
+    "name": "hwIphcTcpSentCompressBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIphcTcpSentCompressPackets": {
+    "class": "objecttype",
+    "description": "Number of compressed packets.",
+    "maxaccess": "read-only",
+    "name": "hwIphcTcpSentCompressPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIphcTcpSentTotalBytes": {
+    "class": "objecttype",
+    "description": "Total number of the bytes of sent packets with IP/TCP header.",
+    "maxaccess": "read-only",
+    "name": "hwIphcTcpSentTotalBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIphcTcpSentTotalPackets": {
+    "class": "objecttype",
+    "description": "Total number of sent packets with IP/TCP header.",
+    "maxaccess": "read-only",
+    "name": "hwIphcTcpSentTotalPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIphcTraps": {
+    "class": "objectidentity",
+    "name": "hwIphcTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.154.3"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifName",
+      "ifIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Bits",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "iso",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-IPHC-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:37 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-IPHC-MIB"
+  }
+}

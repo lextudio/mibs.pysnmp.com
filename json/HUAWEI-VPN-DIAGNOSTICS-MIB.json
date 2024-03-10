@@ -1,0 +1,1655 @@
+{
+  "MacOpType": {
+    "class": "textualconvention",
+    "description": "Select test type",
+    "name": "MacOpType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "populate": 1,
+          "purge": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOamMacCountReset": {
+    "class": "objecttype",
+    "description": "Reset the count of hwOamMacPopulateCount and hwOamMacPurgeCount, the value 1 means reset hwOamMacPopulateCount,the value is 2 means reset hwOamMacPurgeCount, the value is 3 means reset hwOamMacPurgeRegCount ,the value is 4 means reset hwOamMacPopulateCount and hwOamMacPurgeCount,hwOamMacPurgeRegCount , When read, it always returns value 4.",
+    "maxaccess": "read-write",
+    "name": "hwOamMacCountReset",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allreset": 4,
+          "populatereset": 1,
+          "purgeregreset": 3,
+          "purgereset": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOamMacDisplayAddress": {
+    "class": "objecttype",
+    "description": "The OAM MAC that had been populated or purged.",
+    "maxaccess": "read-only",
+    "name": "hwOamMacDisplayAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwOamMacDisplayAgeTime": {
+    "class": "objecttype",
+    "description": "The age time of the entry.",
+    "maxaccess": "read-only",
+    "name": "hwOamMacDisplayAgeTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwOamMacDisplayEntry": {
+    "class": "objecttype",
+    "description": "Entries of hwOamMacDisplayTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwOamMacDisplayIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwOamMacDisplayEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.4.1",
+    "status": "current"
+  },
+  "hwOamMacDisplayGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects indicating information of IP address of interface, contain Ip address, Ip address mask and Ip address acquiring method.",
+    "name": "hwOamMacDisplayGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwOamMacDisplayAddress"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwOamMacDisplayType"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwOamMacDisplayVsiName"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwOamMacDisplayAgeTime"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwOamMacDisplayLsrId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.5.1.4",
+    "status": "current"
+  },
+  "hwOamMacDisplayIndex": {
+    "class": "objecttype",
+    "description": "The index of hwOamMacDisplayEntry, the value range is from 1 to 100.",
+    "maxaccess": "not-accessible",
+    "name": "hwOamMacDisplayIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwOamMacDisplayLsrId": {
+    "class": "objecttype",
+    "description": "The LSR-ID of the sender.",
+    "maxaccess": "read-only",
+    "name": "hwOamMacDisplayLsrId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwOamMacDisplayTable": {
+    "class": "objecttype",
+    "description": "A table which displays the result of populate or purge operation.",
+    "maxaccess": "not-accessible",
+    "name": "hwOamMacDisplayTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.4",
+    "status": "current"
+  },
+  "hwOamMacDisplayType": {
+    "class": "objecttype",
+    "description": "The OAM MAC type, 1 means populate, 2 means purge.",
+    "maxaccess": "read-only",
+    "name": "hwOamMacDisplayType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacOpType"
+    }
+  },
+  "hwOamMacDisplayVsiName": {
+    "class": "objecttype",
+    "description": "The name or other identifier referring to the VSI which is correlative to the hwOamMac.",
+    "maxaccess": "read-only",
+    "name": "hwOamMacDisplayVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwOamMacEntryNum": {
+    "class": "objecttype",
+    "description": "The entry number of hwOamMacDisplayTable.",
+    "maxaccess": "read-only",
+    "name": "hwOamMacEntryNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwOamMacGroup": {
+    "class": "objectidentity",
+    "name": "hwOamMacGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.5.1"
+  },
+  "hwOamMacListAddress": {
+    "class": "objecttype",
+    "description": "The OAM MAC applied at huawei.",
+    "maxaccess": "read-only",
+    "name": "hwOamMacListAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwOamMacListEntry": {
+    "class": "objecttype",
+    "description": "Display the OAM MAC applied at huawei.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwOamMacListIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwOamMacListEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.3.1",
+    "status": "current"
+  },
+  "hwOamMacListGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects indicating information of IP address of interface, contain Ip address, Ip address mask and Ip address acquiring method.",
+    "name": "hwOamMacListGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwOamMacListAddress"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.5.1.3",
+    "status": "current"
+  },
+  "hwOamMacListIndex": {
+    "class": "objecttype",
+    "description": "The index of hwOamMacListIndex.",
+    "maxaccess": "not-accessible",
+    "name": "hwOamMacListIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwOamMacListTable": {
+    "class": "objecttype",
+    "description": "A table which displays the OAM MAC applied at huawei.",
+    "maxaccess": "not-accessible",
+    "name": "hwOamMacListTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.3",
+    "status": "current"
+  },
+  "hwOamMacOperAddress": {
+    "class": "objecttype",
+    "description": "The MAC that to be populated or purged.",
+    "maxaccess": "read-create",
+    "name": "hwOamMacOperAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwOamMacOperEntry": {
+    "class": "objecttype",
+    "description": "Entries of hwOamMacOperTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwOamMacOperIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwOamMacOperEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.2.1",
+    "status": "current"
+  },
+  "hwOamMacOperFlood": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32"
+      }
+    },
+    "description": "Broadcast the packet or not. 1 means broadcast, 2 means don`t broadcast.Defaut is 2.",
+    "maxaccess": "read-create",
+    "name": "hwOamMacOperFlood",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwOamMacOperGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects indicating information of IP address of interface, contain Ip address, Ip address mask and Ip address acquiring method.",
+    "name": "hwOamMacOperGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwOamMacOperAddress"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwOamMacOperVsiName"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwOamMacOperType"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwOamMacOperRegister"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwOamMacOperFlood"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwOamMacOperNum"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwOamMacOperRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.5.1.2",
+    "status": "current"
+  },
+  "hwOamMacOperIndex": {
+    "class": "objecttype",
+    "description": "The index of hwOamMacOperIndex,it is always 1.",
+    "maxaccess": "not-accessible",
+    "name": "hwOamMacOperIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwOamMacOperNum": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "The number of packets which want to be sent.",
+    "maxaccess": "read-create",
+    "name": "hwOamMacOperNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 5,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwOamMacOperRegister": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32"
+      }
+    },
+    "description": "while purge a OAM MAC,register it to be a reserved MAC . 1 means register, 2 means not register. Defaut is 2.",
+    "maxaccess": "read-create",
+    "name": "hwOamMacOperRegister",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwOamMacOperRowStatus": {
+    "class": "objecttype",
+    "description": "The operating state of the row.",
+    "maxaccess": "read-create",
+    "name": "hwOamMacOperRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwOamMacOperTable": {
+    "class": "objecttype",
+    "description": "A table which to be populate or purge operation.",
+    "maxaccess": "not-accessible",
+    "name": "hwOamMacOperTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.2",
+    "status": "current"
+  },
+  "hwOamMacOperType": {
+    "class": "objecttype",
+    "description": "The operate type,1 means populate,2 means purge.",
+    "maxaccess": "read-create",
+    "name": "hwOamMacOperType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacOpType"
+    }
+  },
+  "hwOamMacOperVsiName": {
+    "class": "objecttype",
+    "description": "The name or other identifier referring to the VSI which is correlative to the hwOamMac.",
+    "maxaccess": "read-create",
+    "name": "hwOamMacOperVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwOamMacPopulateCount": {
+    "class": "objecttype",
+    "description": "Received populate packets in current device.",
+    "maxaccess": "read-only",
+    "name": "hwOamMacPopulateCount",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwOamMacPurgeCount": {
+    "class": "objecttype",
+    "description": "Received purge packets in current device.",
+    "maxaccess": "read-only",
+    "name": "hwOamMacPurgeCount",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwOamMacPurgeRegCount": {
+    "class": "objecttype",
+    "description": "Received purge(register) packets in current device.",
+    "maxaccess": "read-only",
+    "name": "hwOamMacPurgeRegCount",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwOamMacSwitch": {
+    "class": "objecttype",
+    "description": "Indicates the switch of enabling MAC populate,if the value is 1, enable; if the value is 2, disable.",
+    "maxaccess": "read-write",
+    "name": "hwOamMacSwitch",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPopuBaseGroup": {
+    "class": "objectgroup",
+    "description": "hwPopuBaseGroup.",
+    "name": "hwPopuBaseGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwOamMacPopulateCount"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwOamMacPurgeCount"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwOamMacPurgeRegCount"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwOamMacCountReset"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwOamMacSwitch"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwOamMacEntryNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.5.1.1",
+    "status": "current"
+  },
+  "hwVpnCfgPing": {
+    "class": "objectidentity",
+    "name": "hwVpnCfgPing",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2"
+  },
+  "hwVpnCfgPingCompliance": {
+    "class": "modulecompliance",
+    "description": "Description.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingGroup"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultGroup"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultIRtGroup"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultERtGroup"
+      }
+    ],
+    "name": "hwVpnCfgPingCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.3.2.1",
+    "status": "current"
+  },
+  "hwVpnCfgPingCompliances": {
+    "class": "objectidentity",
+    "name": "hwVpnCfgPingCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.3.2"
+  },
+  "hwVpnCfgPingConformance": {
+    "class": "objectidentity",
+    "name": "hwVpnCfgPingConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.3"
+  },
+  "hwVpnCfgPingEntry": {
+    "class": "objecttype",
+    "description": "This object indicates that the index of this table is hwVpnCfgPingIndex.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVpnCfgPingEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.1.1",
+    "status": "current"
+  },
+  "hwVpnCfgPingGroup": {
+    "class": "objectgroup",
+    "description": "hwVpnCfgPingGroup.",
+    "name": "hwVpnCfgPingGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingPeerIpType"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingPeerIp"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingVpnIdType"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingVpnId"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingPwId"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingTunnelUsed"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingOperation"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultDetail"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingRowStatus"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingIfName"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingSecondary"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingPwIdNew"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.3.1.1",
+    "status": "current"
+  },
+  "hwVpnCfgPingGroups": {
+    "class": "objectidentity",
+    "name": "hwVpnCfgPingGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.3.1"
+  },
+  "hwVpnCfgPingIfName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of the AC interface.",
+    "maxaccess": "read-create",
+    "name": "hwVpnCfgPingIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwVpnCfgPingIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the index of an operation instance.",
+    "maxaccess": "not-accessible",
+    "name": "hwVpnCfgPingIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwVpnCfgPingOperation": {
+    "class": "objecttype",
+    "description": "This object indicates two values: enable(1) and disable(2). enable(1) indicates that the operation instance is started; disable(2) indicates that the operation instance is stopped.",
+    "maxaccess": "read-create",
+    "name": "hwVpnCfgPingOperation",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwVpnCfgPingPeerIp": {
+    "class": "objecttype",
+    "description": "This object indicates the peer IP address.",
+    "maxaccess": "read-create",
+    "name": "hwVpnCfgPingPeerIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwVpnCfgPingPeerIpType": {
+    "class": "objecttype",
+    "description": "This object indicates the type of the peer IP address. It is used to identify the value type of hwVpnCfgPingPeerIp, which can be IPv4 or IPv6.",
+    "maxaccess": "read-create",
+    "name": "hwVpnCfgPingPeerIpType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwVpnCfgPingPwId": {
+    "class": "objecttype",
+    "description": "This object indicates PW-ID. This value is set for the parameter only when the VPLS is in Martini mode. Otherwise, the value is 0.",
+    "maxaccess": "read-create",
+    "name": "hwVpnCfgPingPwId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVpnCfgPingPwIdNew": {
+    "class": "objecttype",
+    "description": "This object indicates PW-ID. This value is set for the parameter only when the VPLS is in Martini mode. Otherwise, the value is 0. Because hwVpnCfgPingPwId ranges from -2147483647 to +2147483647, failing to cover the range from 2147483648 to 4294967295, this object ranging from 0 to 4294967295 is therefore added.",
+    "maxaccess": "read-create",
+    "name": "hwVpnCfgPingPwIdNew",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwVpnCfgPingResultActualIp": {
+    "class": "objecttype",
+    "description": "This object indicates the IP address of the PW on the local PE.",
+    "maxaccess": "read-only",
+    "name": "hwVpnCfgPingResultActualIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwVpnCfgPingResultActualIpType": {
+    "class": "objecttype",
+    "description": "This object indicates the type of the IP address of the PW on the local PE. It is used to identify the value type of hwVpnCfgPingResultActualIp.",
+    "maxaccess": "read-only",
+    "name": "hwVpnCfgPingResultActualIpType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwVpnCfgPingResultCeCount": {
+    "class": "objecttype",
+    "description": "This object indicates the number of CEs.",
+    "maxaccess": "read-only",
+    "name": "hwVpnCfgPingResultCeCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVpnCfgPingResultControlWord": {
+    "class": "objecttype",
+    "description": "This object indicates whether the keyword control-word is configured.",
+    "maxaccess": "read-only",
+    "name": "hwVpnCfgPingResultControlWord",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.2.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1,
+          "unknown": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVpnCfgPingResultDesc": {
+    "class": "objecttype",
+    "description": "This object indicates the description of the VPN.",
+    "maxaccess": "read-only",
+    "name": "hwVpnCfgPingResultDesc",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwVpnCfgPingResultDetail": {
+    "class": "objecttype",
+    "description": "This object indicates the result detail of ping operation.",
+    "maxaccess": "read-only",
+    "name": "hwVpnCfgPingResultDetail",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noResult": 255,
+          "requestFailedReplyFailed": 3,
+          "requestSentReplyRecieved": 1,
+          "requestSentReplyTimeout": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVpnCfgPingResultERt": {
+    "class": "objecttype",
+    "description": "This object indicates the export vpn target.",
+    "maxaccess": "read-only",
+    "name": "hwVpnCfgPingResultERt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwVpnCfgPingResultERtEntry": {
+    "class": "objecttype",
+    "description": "This object indicates that indexes of this table are hwVpnCfgPingIndex and hwVpnCfgPingResultLocation.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultLocation"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultERtIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVpnCfgPingResultERtEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.5.1",
+    "status": "current"
+  },
+  "hwVpnCfgPingResultERtGroup": {
+    "class": "objectgroup",
+    "description": "hwVpnCfgPingResultERtGroup.",
+    "name": "hwVpnCfgPingResultERtGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultERtIndex"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultERt"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.3.1.4",
+    "status": "current"
+  },
+  "hwVpnCfgPingResultERtIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the index of an export vpn target..",
+    "maxaccess": "not-accessible",
+    "name": "hwVpnCfgPingResultERtIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVpnCfgPingResultERtTable": {
+    "class": "objecttype",
+    "description": "hwVpnCfgPingResultERtTable.",
+    "maxaccess": "not-accessible",
+    "name": "hwVpnCfgPingResultERtTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.5",
+    "status": "current"
+  },
+  "hwVpnCfgPingResultEntry": {
+    "class": "objecttype",
+    "description": "This object indicates that indexes of this table are hwVpnCfgPingIndex and hwVpnCfgPingResultLocation.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultLocation"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVpnCfgPingResultEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.2.1",
+    "status": "current"
+  },
+  "hwVpnCfgPingResultGroup": {
+    "class": "objectgroup",
+    "description": "hwVpnCfgPingResultGroup.",
+    "name": "hwVpnCfgPingResultGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultVpnIdType"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultVpnId"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultDesc"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultVpnAdminStatus"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultOperStatus"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultMtu"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultCeCount"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultActualIpType"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultActualIp"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultPeerIpType"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultPeerIp"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultPwId"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultPeType"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultVcType"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultLabelIn"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultLableOut"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultControlWord"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultPriOrSec"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultVplsID"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultRD"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultPwIdNew"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.3.1.2",
+    "status": "current"
+  },
+  "hwVpnCfgPingResultIRt": {
+    "class": "objecttype",
+    "description": "This object indicates the import vpn target.",
+    "maxaccess": "read-only",
+    "name": "hwVpnCfgPingResultIRt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwVpnCfgPingResultIRtEntry": {
+    "class": "objecttype",
+    "description": "This object indicates that indexes of this table are hwVpnCfgPingIndex and hwVpnCfgPingResultLocation.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultLocation"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultIRtIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVpnCfgPingResultIRtEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.4.1",
+    "status": "current"
+  },
+  "hwVpnCfgPingResultIRtGroup": {
+    "class": "objectgroup",
+    "description": "hwVpnCfgPingResultIRtGroup.",
+    "name": "hwVpnCfgPingResultIRtGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultIRtIndex"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwVpnCfgPingResultIRt"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.3.1.3",
+    "status": "current"
+  },
+  "hwVpnCfgPingResultIRtIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the index of an import vpn target.",
+    "maxaccess": "not-accessible",
+    "name": "hwVpnCfgPingResultIRtIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVpnCfgPingResultIRtTable": {
+    "class": "objecttype",
+    "description": "hwVpnCfgPingResultIRtTable.",
+    "maxaccess": "not-accessible",
+    "name": "hwVpnCfgPingResultIRtTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.4",
+    "status": "current"
+  },
+  "hwVpnCfgPingResultLabelIn": {
+    "class": "objecttype",
+    "description": "This object indicates the incoming label of the interface at the PW side.",
+    "maxaccess": "read-only",
+    "name": "hwVpnCfgPingResultLabelIn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.2.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVpnCfgPingResultLableOut": {
+    "class": "objecttype",
+    "description": "This object indicates the outgoing label of the interface at the PW side.",
+    "maxaccess": "read-only",
+    "name": "hwVpnCfgPingResultLableOut",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.2.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVpnCfgPingResultLocation": {
+    "class": "objecttype",
+    "description": "This object indicates two values: local(1) and remote(2). local(1) indicates configurations of the local end displayed in the probe result. remote(2) indicates configurations of the peer end displayed in the probe result.",
+    "maxaccess": "not-accessible",
+    "name": "hwVpnCfgPingResultLocation",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "remote": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVpnCfgPingResultMtu": {
+    "class": "objecttype",
+    "description": "This object indicates the MTU value. The object represents the MTU value of the AC interface when the VPN type is PWE3 or Martini VLL, represents the MTU value of the VSI when the VPN type is VPLS. If the value of the object cannot be obtained, the object value is considered as 0.",
+    "maxaccess": "read-only",
+    "name": "hwVpnCfgPingResultMtu",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVpnCfgPingResultOperStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the operation status of the VPN: up(1), down(2), and unknown(255).",
+    "maxaccess": "read-only",
+    "name": "hwVpnCfgPingResultOperStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "unknown": 255,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVpnCfgPingResultPeType": {
+    "class": "objecttype",
+    "description": "This object indicates the type of the PE (Whether the PE is an SPE.)",
+    "maxaccess": "read-only",
+    "name": "hwVpnCfgPingResultPeType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.2.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "spe": 2,
+          "unknown": 255,
+          "upe": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVpnCfgPingResultPeerIp": {
+    "class": "objecttype",
+    "description": "This object indicates the IP address of the PW on the peer PE.",
+    "maxaccess": "read-only",
+    "name": "hwVpnCfgPingResultPeerIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwVpnCfgPingResultPeerIpType": {
+    "class": "objecttype",
+    "description": "This object indicates the type of the IP address of the PW on the peer PE. It is used to identify the value type of hwVpnCfgPingResultPeerIP.",
+    "maxaccess": "read-only",
+    "name": "hwVpnCfgPingResultPeerIpType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwVpnCfgPingResultPriOrSec": {
+    "class": "objecttype",
+    "description": "This object indicates whether the local PW is a primary PW or a secondary PW.",
+    "maxaccess": "read-only",
+    "name": "hwVpnCfgPingResultPriOrSec",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.2.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 0,
+          "secondary": 1,
+          "unknown": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVpnCfgPingResultPwId": {
+    "class": "objecttype",
+    "description": "This object indicates PW-ID.",
+    "maxaccess": "read-only",
+    "name": "hwVpnCfgPingResultPwId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.2.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVpnCfgPingResultPwIdNew": {
+    "class": "objecttype",
+    "description": "This object indicates PW-ID. Because hwVpnCfgPingResultPwId ranges from -2147483647 to +2147483647, failing to cover the range from 2147483648 to 4294967295, this object ranging from 0 to 4294967295 is therefore added.",
+    "maxaccess": "read-only",
+    "name": "hwVpnCfgPingResultPwIdNew",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.2.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwVpnCfgPingResultRD": {
+    "class": "objecttype",
+    "description": "This object indicates the route distinguisher.",
+    "maxaccess": "read-only",
+    "name": "hwVpnCfgPingResultRD",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.2.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwVpnCfgPingResultTable": {
+    "class": "objecttype",
+    "description": "hwVpnCfgPingResultTable.",
+    "maxaccess": "not-accessible",
+    "name": "hwVpnCfgPingResultTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.2",
+    "status": "current"
+  },
+  "hwVpnCfgPingResultVcType": {
+    "class": "objecttype",
+    "description": "This object indicates the VC type.",
+    "maxaccess": "read-only",
+    "name": "hwVpnCfgPingResultVcType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.2.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWL2VpnVcEncapsType"
+    }
+  },
+  "hwVpnCfgPingResultVplsID": {
+    "class": "objecttype",
+    "description": "This object indicates the virtual private LAN service id.",
+    "maxaccess": "read-only",
+    "name": "hwVpnCfgPingResultVplsID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.2.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwVpnCfgPingResultVpnAdminStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the management status of the VPN: up(1), down(2), and unknown(255).",
+    "maxaccess": "read-only",
+    "name": "hwVpnCfgPingResultVpnAdminStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "unknown": 255,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVpnCfgPingResultVpnId": {
+    "class": "objecttype",
+    "description": "This object indicates the VPN ID, expressed in a character string. The VPN ID is VSI-Name for VPLS, VPN-Instance for L3VPN, and invalid for PWE3 and Martini VLL.",
+    "maxaccess": "read-only",
+    "name": "hwVpnCfgPingResultVpnId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwVpnCfgPingResultVpnIdType": {
+    "class": "objecttype",
+    "description": "This object indicates the VPN ID type, that is, the type of hwVPNCFGPingVPNID. The VPN ID type can be VPLS, L3VPN, PWE3, or Martini VLL.",
+    "maxaccess": "read-only",
+    "name": "hwVpnCfgPingResultVpnIdType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bgpadVPLS": 6,
+          "kompellaVPLS": 2,
+          "l3vpn": 3,
+          "martiniVLL": 5,
+          "martiniVPLS": 1,
+          "pwe3": 4,
+          "unknown": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVpnCfgPingRowStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the row status.",
+    "maxaccess": "read-create",
+    "name": "hwVpnCfgPingRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwVpnCfgPingSecondary": {
+    "class": "objecttype",
+    "description": "This object indicates the local secondary PW.",
+    "maxaccess": "read-create",
+    "name": "hwVpnCfgPingSecondary",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 0,
+          "secondary": 1,
+          "unknown": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVpnCfgPingTable": {
+    "class": "objecttype",
+    "description": "hwVpnCfgPingTable.",
+    "maxaccess": "not-accessible",
+    "name": "hwVpnCfgPingTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.1",
+    "status": "current"
+  },
+  "hwVpnCfgPingTunnelUsed": {
+    "class": "objecttype",
+    "description": "This object indicates the mode of forwarding request packets or response packets (such as tunnel forwarding).",
+    "maxaccess": "read-create",
+    "name": "hwVpnCfgPingTunnelUsed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "localAndRemote": 4,
+          "localOnly": 2,
+          "normal": 1,
+          "remoteOnly": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwVpnCfgPingVpnId": {
+    "class": "objecttype",
+    "description": "This object indicates the VPN ID, expressed in a character string. The VPN ID is VSI-Name for VPLS, VPN-Instance for L3VPN, and invalid for PWE3 and Martini VLL.",
+    "maxaccess": "read-create",
+    "name": "hwVpnCfgPingVpnId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwVpnCfgPingVpnIdType": {
+    "class": "objecttype",
+    "description": "This object indicates the VPN ID type, that is, the type of hwVPNCFGPingVPNID. The VPN ID type can be VPLS, L3VPN, PWE3, or Martini VLL.",
+    "maxaccess": "read-create",
+    "name": "hwVpnCfgPingVpnIdType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bgpadVPLS": 6,
+          "kompellaVPLS": 2,
+          "l3vpn": 3,
+          "martiniVLL": 5,
+          "martiniVPLS": 1,
+          "pwe3": 4,
+          "unknown": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "HUAWEI-VPLS-EXT-MIB": [
+      "HWL2VpnVcEncapsType"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "IpAddress",
+      "mib-2",
+      "Counter32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "DisplayString",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "macoper": {
+    "class": "objectidentity",
+    "name": "macoper",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1"
+  },
+  "macoperCompliance": {
+    "class": "modulecompliance",
+    "description": "Description.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwPopuBaseGroup"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwOamMacOperGroup"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwOamMacListGroup"
+      },
+      {
+        "module": "HUAWEI-VPN-DIAGNOSTICS-MIB",
+        "object": "hwOamMacDisplayGroup"
+      }
+    ],
+    "name": "macoperCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.5.2.1",
+    "status": "current"
+  },
+  "macoperCompliances": {
+    "class": "objectidentity",
+    "name": "macoperCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.5.2"
+  },
+  "macoperConformance": {
+    "class": "objectidentity",
+    "name": "macoperConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.5"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-VPN-DIAGNOSTICS-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:27 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-VPN-DIAGNOSTICS-MIB"
+  },
+  "populateBase": {
+    "class": "objectidentity",
+    "name": "populateBase",
+    "oid": "1.3.6.1.4.1.2011.5.25.172.1.1"
+  },
+  "vpndiagnostics": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "HUAWEI service quality detect funcion.",
+    "lastupdated": "201401181722Z",
+    "name": "vpndiagnostics",
+    "oid": "1.3.6.1.4.1.2011.5.25.172",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "Modify type of hwVpnCfgPingPwId and hwVpnCfgPingResultPwId at 2014-01-18.",
+        "revision": "2014-01-18 17:22"
+      },
+      {
+        "description": "Modify type of hwVpnCfgPingPwId and hwVpnCfgPingResultPwId at 2013-12-16.",
+        "revision": "2013-12-16 09:58"
+      },
+      {
+        "description": "Modify description of hwOamMacCountReset at 2013-7-16.",
+        "revision": "2013-07-16 16:00"
+      },
+      {
+        "description": "Inition at 2008-6-6.",
+        "revision": "2008-06-06 16:00"
+      }
+    ]
+  }
+}

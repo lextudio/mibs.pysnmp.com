@@ -1,0 +1,988 @@
+{
+  "hwBulkStat": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "The MIB module for creating and deleting bulk files of SNMP data for file transfer.",
+    "lastupdated": "201307011339Z",
+    "name": "hwBulkStat",
+    "oid": "1.3.6.1.4.1.2011.5.25.140",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "The initial revision of this MIB module .",
+        "revision": "2013-07-01 13:39"
+      },
+      {
+        "description": "The initial revision of this MIB module .",
+        "revision": "2006-11-22 14:14"
+      }
+    ]
+  },
+  "hwBulkStatCollectCapability": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the collection capability in five minutes.",
+    "maxaccess": "read-only",
+    "name": "hwBulkStatCollectCapability",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBulkStatCollectIncomplete": {
+    "class": "notificationtype",
+    "description": "An alarm is generated when the collected statistics files are incomplete.",
+    "name": "hwBulkStatCollectIncomplete",
+    "objects": [
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.140.2.1",
+    "status": "current"
+  },
+  "hwBulkStatCollectResume": {
+    "class": "notificationtype",
+    "description": "An alarm is generated when the incomplete statistics files are resumed.",
+    "name": "hwBulkStatCollectResume",
+    "objects": [
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.140.2.2",
+    "status": "current"
+  },
+  "hwBulkStatCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-BULKSTAT-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatObjectGroup"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatsDefineFileGroup"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineObjectGroup"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatNotificationGroup"
+      }
+    ],
+    "name": "hwBulkStatCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.3.1.1",
+    "status": "current"
+  },
+  "hwBulkStatCompliances": {
+    "class": "objectidentity",
+    "name": "hwBulkStatCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.3.1"
+  },
+  "hwBulkStatConformance": {
+    "class": "objectidentity",
+    "name": "hwBulkStatConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.3"
+  },
+  "hwBulkStatDefineFileCollectInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": "The value of this object identifies the interval for collecting statistics files.",
+    "maxaccess": "read-create",
+    "name": "hwBulkStatDefineFileCollectInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 5,
+            "min": 5
+          },
+          {
+            "max": 10,
+            "min": 10
+          },
+          {
+            "max": 15,
+            "min": 15
+          },
+          {
+            "max": 30,
+            "min": 30
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBulkStatDefineFileEntry": {
+    "class": "objecttype",
+    "description": "Entry of hwBulkStatDefineFileTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBulkStatDefineFileEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1",
+    "status": "current"
+  },
+  "hwBulkStatDefineFileFormat": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "bulkASCII"
+      }
+    },
+    "description": "The value of this object identifies the format of a statistics file.",
+    "maxaccess": "read-create",
+    "name": "hwBulkStatDefineFileFormat",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bulkASCII": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwBulkStatDefineFileIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the indexes of statistics files. The maximum index number is equal to that of the bulk files allowed to create.",
+    "maxaccess": "not-accessible",
+    "name": "hwBulkStatDefineFileIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBulkStatDefineFileLastTransferFailTime": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the last file collection timestamp of the latest failed statistics file uploading.",
+    "maxaccess": "read-only",
+    "name": "hwBulkStatDefineFileLastTransferFailTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBulkStatDefineFileLastTransferSuccessTime": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the last file collection timestamp of the latest successful statistics file uploading. The value is in seconds.",
+    "maxaccess": "read-only",
+    "name": "hwBulkStatDefineFileLastTransferSuccessTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBulkStatDefineFileName": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the name of a statistics file.",
+    "maxaccess": "read-create",
+    "name": "hwBulkStatDefineFileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBulkStatDefineFileNextObjectIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the index of the next available hwBulkStatDefineObjectTable.",
+    "maxaccess": "read-only",
+    "name": "hwBulkStatDefineFileNextObjectIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBulkStatDefineFileRemainTime": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": "The value of this object identifies the time for reserving statistics files.",
+    "maxaccess": "read-create",
+    "name": "hwBulkStatDefineFileRemainTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 30,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBulkStatDefineFileRowStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the row status of the statistics file table.",
+    "maxaccess": "read-create",
+    "name": "hwBulkStatDefineFileRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwBulkStatDefineFileStatus": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "stopped"
+      }
+    },
+    "description": "The value of this object identifies status of statistics files.There are three available values: stopped, ready, and running. For running state, it is read-only. For the other two, they are read-create, but can not be set to running, and set duplicatedly.",
+    "maxaccess": "read-create",
+    "name": "hwBulkStatDefineFileStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 1,
+          "running": 2,
+          "stopped": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwBulkStatDefineFileStorage": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "ephemeral"
+      }
+    },
+    "description": "The value of this object identifies the storage mode of a statistics file.",
+    "maxaccess": "read-create",
+    "name": "hwBulkStatDefineFileStorage",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ephemeral": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwBulkStatDefineFileTable": {
+    "class": "objecttype",
+    "description": "Bulk file management table, providing create/modify/delete operations. To create a bulk file, you need create a related record in this table, and add object nodes in the hwBulkStatDefineObjectTable. If you delete a bulk file, the related objects in the hwBulkStatDefineObjectTable will be deleted.",
+    "maxaccess": "not-accessible",
+    "name": "hwBulkStatDefineFileTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8",
+    "status": "current"
+  },
+  "hwBulkStatDefineFileTableNextIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the index of the next available hwBulkStatDefineObjectTable. If there is no available index, the value will be filled with 0.",
+    "maxaccess": "read-only",
+    "name": "hwBulkStatDefineFileTableNextIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBulkStatDefineFileTransferInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": "The value of this object identifies the interval for uploading statistics files.",
+    "maxaccess": "read-create",
+    "name": "hwBulkStatDefineFileTransferInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 5,
+            "min": 5
+          },
+          {
+            "max": 10,
+            "min": 10
+          },
+          {
+            "max": 15,
+            "min": 15
+          },
+          {
+            "max": 30,
+            "min": 30
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBulkStatDefineFileTransferPrimaryURL": {
+    "class": "objecttype",
+    "description": "This object indicates the primary URL the statistics file is uploaded to. It should be in the forms of below: ftp://user:password@host/folder/bulkstat1 sftp://user:password@host/folder/bulkstat1 tftp://10.1.0.1/tftpboot/user/bulkstat1 ",
+    "maxaccess": "read-create",
+    "name": "hwBulkStatDefineFileTransferPrimaryURL",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 256,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBulkStatDefineFileTransferRetryTimes": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": "The value of this object identifies the retransmission times of the statistics file during uploading.",
+    "maxaccess": "read-create",
+    "name": "hwBulkStatDefineFileTransferRetryTimes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 5,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBulkStatDefineFileTransferSecondaryURL": {
+    "class": "objecttype",
+    "description": "This object indicates the secondary URL the statistics file is uploaded to. It should be in the forms of below: ftp://user:password@host/folder/bulkstat1 sftp://user:password@host/folder/bulkstat1 tftp://10.1.0.1/tftpboot/user/bulkstat1 ",
+    "maxaccess": "read-create",
+    "name": "hwBulkStatDefineFileTransferSecondaryURL",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.8.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 256,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBulkStatDefineFiles": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the number of statistics files that are configured currently.",
+    "maxaccess": "read-only",
+    "name": "hwBulkStatDefineFiles",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBulkStatDefineMaxFiles": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the maximum number of statistics files that can be created.",
+    "maxaccess": "read-only",
+    "name": "hwBulkStatDefineMaxFiles",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBulkStatDefineObjectClass": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the types of statistics objects.",
+    "maxaccess": "read-create",
+    "name": "hwBulkStatDefineObjectClass",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.9.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "column": 2,
+          "single": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwBulkStatDefineObjectEntry": {
+    "class": "objecttype",
+    "description": "Entry of hwBulkStatDefineObjectTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineObjectIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBulkStatDefineObjectEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.9.1",
+    "status": "current"
+  },
+  "hwBulkStatDefineObjectGroup": {
+    "class": "objectgroup",
+    "description": "The bulkstat object\u0027s group.",
+    "name": "hwBulkStatDefineObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineObjectClass"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineObjectOID"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineObjectIndexBegin"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineObjectInstanceNum"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineObjectRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.140.3.2.3",
+    "status": "current"
+  },
+  "hwBulkStatDefineObjectIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies statistics objects.",
+    "maxaccess": "not-accessible",
+    "name": "hwBulkStatDefineObjectIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.9.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBulkStatDefineObjectIndexBegin": {
+    "class": "objecttype",
+    "description": "This object indicates the start index of the statistics object.",
+    "maxaccess": "read-create",
+    "name": "hwBulkStatDefineObjectIndexBegin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.9.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 127,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBulkStatDefineObjectInstanceNum": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the number of instances of statistics objects.",
+    "maxaccess": "read-create",
+    "name": "hwBulkStatDefineObjectInstanceNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.9.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBulkStatDefineObjectOID": {
+    "class": "objecttype",
+    "description": "This object indicates the OID of the statistics object.",
+    "maxaccess": "read-create",
+    "name": "hwBulkStatDefineObjectOID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.9.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 127,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwBulkStatDefineObjectRowStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the row status of the statistics object.",
+    "maxaccess": "read-create",
+    "name": "hwBulkStatDefineObjectRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.9.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwBulkStatDefineObjectTable": {
+    "class": "objecttype",
+    "description": "Object management table in the bulk file, providing add/modify/delete operations. Prerequisite for the operation is that the bulk file is listed in the hwBulkStatDefineFileTable.",
+    "maxaccess": "not-accessible",
+    "name": "hwBulkStatDefineObjectTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.9",
+    "status": "current"
+  },
+  "hwBulkStatDefineObjects": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the number of statistics objects configured in all files.",
+    "maxaccess": "read-only",
+    "name": "hwBulkStatDefineObjects",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBulkStatEnable": {
+    "class": "objecttype",
+    "description": "The value of this object identifies whether BulkStat is enabled.",
+    "maxaccess": "read-write",
+    "name": "hwBulkStatEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwBulkStatGroups": {
+    "class": "objectidentity",
+    "name": "hwBulkStatGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.3.2"
+  },
+  "hwBulkStatMibObjects": {
+    "class": "objectidentity",
+    "name": "hwBulkStatMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1"
+  },
+  "hwBulkStatNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "The notification group.",
+    "name": "hwBulkStatNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatCollectIncomplete"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatCollectResume"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatURLConnectionFail"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatURLConnectionResume"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatTransferFileDiscard"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.140.3.2.4",
+    "status": "current"
+  },
+  "hwBulkStatNotifications": {
+    "class": "objectidentity",
+    "name": "hwBulkStatNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.2"
+  },
+  "hwBulkStatObjectGroup": {
+    "class": "objectgroup",
+    "description": "The bulkstat attribute group.",
+    "name": "hwBulkStatObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatEnable"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatCollectCapability"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineMaxFiles"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFiles"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineObjects"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatTrapEnable"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileTableNextIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.140.3.2.1",
+    "status": "current"
+  },
+  "hwBulkStatTransferFileDiscard": {
+    "class": "notificationtype",
+    "description": "An alarm is generated when the file fails to be uploaded and then is discarded.",
+    "name": "hwBulkStatTransferFileDiscard",
+    "objects": [
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileName"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileLastTransferFailTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.140.2.5",
+    "status": "current"
+  },
+  "hwBulkStatTrapEnable": {
+    "class": "objecttype",
+    "description": "The object specifies whether to send trap information to NMS. It\u0027s allowed to send trap information to NMS only when the value is enable. The default value is disable.",
+    "maxaccess": "read-write",
+    "name": "hwBulkStatTrapEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.140.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwBulkStatURLConnectionFail": {
+    "class": "notificationtype",
+    "description": "An alarm is generated when the link for file uploading fails.",
+    "name": "hwBulkStatURLConnectionFail",
+    "objects": [
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileName"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileTransferPrimaryURL"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileTransferSecondaryURL"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.140.2.3",
+    "status": "current"
+  },
+  "hwBulkStatURLConnectionResume": {
+    "class": "notificationtype",
+    "description": "An alarm is generated when the link for file uploading recovers from the fault.",
+    "name": "hwBulkStatURLConnectionResume",
+    "objects": [
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileName"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileTransferPrimaryURL"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileTransferSecondaryURL"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.140.2.4",
+    "status": "current"
+  },
+  "hwBulkStatsDefineFileGroup": {
+    "class": "objectgroup",
+    "description": "The bulk file\u0027s group.",
+    "name": "hwBulkStatsDefineFileGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileName"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileStorage"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileFormat"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileCollectInterval"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileTransferInterval"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileStatus"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileTransferPrimaryURL"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileTransferSecondaryURL"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileTransferRetryTimes"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileRemainTime"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileLastTransferSuccessTime"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileLastTransferFailTime"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileNextObjectIndex"
+      },
+      {
+        "module": "HUAWEI-BULKSTAT-MIB",
+        "object": "hwBulkStatDefineFileRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.140.3.2.2",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Integer32",
+      "Counter64",
+      "Gauge32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "iso",
+      "Bits",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-BULKSTAT-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:46:59 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-BULKSTAT-MIB"
+  }
+}

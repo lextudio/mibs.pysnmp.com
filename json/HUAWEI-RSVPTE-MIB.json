@@ -1,0 +1,4340 @@
+{
+  "hwRsvpTe": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "The MIB module to describe the RSVP Protocol",
+    "lastupdated": "201410251736Z",
+    "name": "hwRsvpTe",
+    "oid": "1.3.6.1.4.1.2011.5.25.148",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "V3.00, hwRsvpTeIfStatus from read-only to read-create.",
+        "revision": "2014-10-25 17:36"
+      },
+      {
+        "description": "V2.02, add traps: hwRsvpTeIfNbrThresholdExceed, hwRsvpTeIfNbrThresholdExceedClear, hwRsvpTeIfNbrTotalCountExceed, hwRsvpTeIfNbrTotalCountExceedClear.",
+        "revision": "2014-06-16 14:55"
+      },
+      {
+        "description": "V2.01, modify the hwRsvpTeTrapObjectGroup of MODULE-COMPLIANCE hwRsvpTeCompliance.",
+        "revision": "2013-08-28 17:55"
+      }
+    ]
+  },
+  "hwRsvpTeAuthFail": {
+    "class": "notificationtype",
+    "description": "Indicates neighbour of RSVP hello lost.",
+    "name": "hwRsvpTeAuthFail",
+    "objects": [
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeNbr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.12.2.3",
+    "status": "current"
+  },
+  "hwRsvpTeAuthSuccess": {
+    "class": "notificationtype",
+    "description": "Indicates neighbour of RSVP hello lost.",
+    "name": "hwRsvpTeAuthSuccess",
+    "objects": [
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeNbr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.12.2.4",
+    "status": "current"
+  },
+  "hwRsvpTeCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement. Note that the im- plementation of this module requires implemen- tation of the Integrated Services MIB as well.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSessionGroup"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderGroup"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvGroup"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfGroup"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeNbrGroup"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeFilterSpecGroup"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeRroGroup"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeEroGroup"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeTrapObjectsGroup"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeTrapGroup"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvFwdGroup"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeMessageIdGroup"
+      }
+    ],
+    "name": "hwRsvpTeCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.2.2.1",
+    "status": "current"
+  },
+  "hwRsvpTeCompliances": {
+    "class": "objectidentity",
+    "name": "hwRsvpTeCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.2.2"
+  },
+  "hwRsvpTeConformance": {
+    "class": "objectidentity",
+    "name": "hwRsvpTeConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.2"
+  },
+  "hwRsvpTeEroEntry": {
+    "class": "objecttype",
+    "description": "Information describes the ERO sub-objects of an RSVP system.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSessionNumber"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderNumber"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeEroNumber"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeEroEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.10.1",
+    "status": "current"
+  },
+  "hwRsvpTeEroGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwRsvpTeEroGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeEroType"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeEroIpAddr"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeEroIpPrefixLen"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.148.2.1.10",
+    "status": "current"
+  },
+  "hwRsvpTeEroIpAddr": {
+    "class": "objecttype",
+    "description": "IP address for this sub-object.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeEroIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.10.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRsvpTeEroIpPrefixLen": {
+    "class": "objecttype",
+    "description": "IP prefix length for this sub-object.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeEroIpPrefixLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.10.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeEroNumber": {
+    "class": "objecttype",
+    "description": "The number of this ERO sub-object. This is for SNMP Indexing purposes only and has no relation to any protocol value.",
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeEroNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.10.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeEroTable": {
+    "class": "objecttype",
+    "description": "Information describes the ERO sub-objects of an RSVP system.",
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeEroTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.10",
+    "status": "current"
+  },
+  "hwRsvpTeEroType": {
+    "class": "objecttype",
+    "description": "An enumerable value that indicates the type of this sub-object. (0x01: IPv4 address; 0x02: IPv6 address.)",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeEroType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.10.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRsvpTeExtendObjects": {
+    "class": "objectidentity",
+    "name": "hwRsvpTeExtendObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.11"
+  },
+  "hwRsvpTeExtendTrap": {
+    "class": "objectidentity",
+    "name": "hwRsvpTeExtendTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.12"
+  },
+  "hwRsvpTeFilterSpecEntry": {
+    "class": "objecttype",
+    "description": "Information describes the FilterSpecs of an RSVP system.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSessionNumber"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvNumber"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeFilterSpecNumber"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeFilterSpecEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.8.1",
+    "status": "current"
+  },
+  "hwRsvpTeFilterSpecGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwRsvpTeFilterSpecGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeFilterSpecLspId"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeFilterSpecIngressLsrId"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeFilterSpecLabel"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.148.2.1.8",
+    "status": "current"
+  },
+  "hwRsvpTeFilterSpecIngressLsrId": {
+    "class": "objecttype",
+    "description": "IP address for a sender node.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeFilterSpecIngressLsrId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.8.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRsvpTeFilterSpecLabel": {
+    "class": "objecttype",
+    "description": "The value of the label arranged by next hop. A return of 4294967295 indicates the absence of the item.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeFilterSpecLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.8.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeFilterSpecLspId": {
+    "class": "objecttype",
+    "description": "A 16-bit identifier used in the SENDER_TEMPLATE and the FILTER_SPEC that can be changed to allow a sender to share resources with itself.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeFilterSpecLspId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.8.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeFilterSpecNumber": {
+    "class": "objecttype",
+    "description": "The number of this Filter_Spec. This is for SNMP Indexing purposes only and has no relation to any protocol value.",
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeFilterSpecNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeFilterSpecTable": {
+    "class": "objecttype",
+    "description": "Information describes the FilterSpecs of an RSVP system.",
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeFilterSpecTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.8",
+    "status": "current"
+  },
+  "hwRsvpTeGroups": {
+    "class": "objectidentity",
+    "name": "hwRsvpTeGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.2.1"
+  },
+  "hwRsvpTeHelloLost": {
+    "class": "notificationtype",
+    "description": "Indicates neighbour of RSVP hello lost.",
+    "name": "hwRsvpTeHelloLost",
+    "objects": [
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeNbr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.12.2.1",
+    "status": "current"
+  },
+  "hwRsvpTeHelloLostRecovery": {
+    "class": "notificationtype",
+    "description": "Indicates neighbour of RSVP hello lost.",
+    "name": "hwRsvpTeHelloLostRecovery",
+    "objects": [
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeNbr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.12.2.2",
+    "status": "current"
+  },
+  "hwRsvpTeIfAuthEnabled": {
+    "class": "objecttype",
+    "description": "If TRUE, authentication is enabled on this interface. If FALSE, authentication is not enabled on this interface.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeIfAuthEnabled",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.5.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwRsvpTeIfAuthEncrypted": {
+    "class": "objecttype",
+    "description": "This states that authentication key is encrypted or not.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeIfAuthEncrypted",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.5.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwRsvpTeIfAuthHandshake": {
+    "class": "objecttype",
+    "description": "Handshaking is enabled authentications.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeIfAuthHandshake",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.5.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwRsvpTeIfAuthKey": {
+    "class": "objecttype",
+    "description": "Authentication key, used for authentication processing. For security purposes, a get on this returns a zero length string.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeIfAuthKey",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.5.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 392,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRsvpTeIfAuthLifeTime": {
+    "class": "objecttype",
+    "description": "Authentication life time. The default value is 1800000.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeIfAuthLifeTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.5.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeInterval"
+    },
+    "units": "milliseconds"
+  },
+  "hwRsvpTeIfEnabled": {
+    "class": "objecttype",
+    "description": "Its value is always TRUE, if RSVP is enabled on this Interface.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeIfEnabled",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.5.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwRsvpTeIfEntry": {
+    "class": "objecttype",
+    "description": "The RSVP-specific attributes of the a given interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeIfEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.5.1",
+    "status": "current"
+  },
+  "hwRsvpTeIfGroup": {
+    "class": "objectgroup",
+    "description": "These objects are required for RSVP Systems.",
+    "name": "hwRsvpTeIfGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfUdpNbrs"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfIpNbrs"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfNbrs"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfRefreshBlockadeMultiple"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfRefreshMultiple"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfTtl"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfRefreshInterval"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfRouteDelay"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfEnabled"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfUdpRequired"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfStatus"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfHelloEnabled"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfSrefreshEnabled"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfSrefreshInterval"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfRetranIncDelta"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfRetranInterval"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfAuthEnabled"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfAuthEncrypted"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfAuthHandshake"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfAuthKey"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfWindowSize"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfAuthLifeTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.148.2.1.5",
+    "status": "current"
+  },
+  "hwRsvpTeIfHelloEnabled": {
+    "class": "objecttype",
+    "description": "If TRUE, RSVPTE hello is enabled on this Interface. If FALSE, RSVPTE hello is not enabled on this interface",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeIfHelloEnabled",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.5.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwRsvpTeIfIpNbrs": {
+    "class": "objecttype",
+    "description": "The number of neighbors perceived to be using only the RSVP IP Encapsulation.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeIfIpNbrs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeIfName": {
+    "class": "objecttype",
+    "description": "The name of the RSVP interface.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwRsvpTeIfName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.12.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwRsvpTeIfNbrCurrentCount": {
+    "class": "objecttype",
+    "description": "Number of existing neighbors of the RSVP interface.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwRsvpTeIfNbrCurrentCount",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.12.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeIfNbrThreshold": {
+    "class": "objecttype",
+    "description": "Threshold for the number of neighbors of the RSVP interface.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwRsvpTeIfNbrThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.12.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeIfNbrThresholdExceed": {
+    "class": "notificationtype",
+    "description": "Indicates that the number of RSVP interface neighbors has exceeded the upper threshold.",
+    "name": "hwRsvpTeIfNbrThresholdExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfName"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfNbrCurrentCount"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfNbrThreshold"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfNbrTotalCount"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.12.2.5",
+    "status": "current"
+  },
+  "hwRsvpTeIfNbrThresholdExceedClear": {
+    "class": "notificationtype",
+    "description": "Indicates that the number of RSVP interface neighbors has fallen below the lower threshold.",
+    "name": "hwRsvpTeIfNbrThresholdExceedClear",
+    "objects": [
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.12.2.6",
+    "status": "current"
+  },
+  "hwRsvpTeIfNbrTotalCount": {
+    "class": "objecttype",
+    "description": "Maximum number of allowed neighbors of the RSVP interface.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwRsvpTeIfNbrTotalCount",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.12.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeIfNbrTotalCountExceed": {
+    "class": "notificationtype",
+    "description": "Indicates that the number of RSVP interface neighbors has reached the maximum number.",
+    "name": "hwRsvpTeIfNbrTotalCountExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfName"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfNbrTotalCount"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.12.2.7",
+    "status": "current"
+  },
+  "hwRsvpTeIfNbrTotalCountExceedClear": {
+    "class": "notificationtype",
+    "description": "Indicates that the number of RSVP interface neighbors has fallen below the recovery number.",
+    "name": "hwRsvpTeIfNbrTotalCountExceedClear",
+    "objects": [
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.12.2.8",
+    "status": "current"
+  },
+  "hwRsvpTeIfNbrs": {
+    "class": "objecttype",
+    "description": "The number of neighbors currently perceived; this will exceed hwRsvpTeIfIpNbrs + hwRsvpTeIfUdpNbrs by the number of neighbors using both encapsu- lations.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeIfNbrs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeIfRefreshBlockadeMultiple": {
+    "class": "objecttype",
+    "description": "The value of the RSVP value \u0027Kb\u0027, Which is the minimum number of refresh intervals that blockade state will last once entered.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeIfRefreshBlockadeMultiple",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeIfRefreshInterval": {
+    "class": "objecttype",
+    "description": "The value of the RSVP value \u0027R\u0027, which is the minimum period between refresh transmissions of a given PATH or RESV message on an interface. The default value is 30000.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeIfRefreshInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.5.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeInterval"
+    },
+    "units": "milliseconds"
+  },
+  "hwRsvpTeIfRefreshMultiple": {
+    "class": "objecttype",
+    "description": "The value of the RSVP value \u0027K\u0027, which is the number of refresh intervals which must elapse (minimum) before a PATH or RESV message which is not being refreshed will be aged out.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeIfRefreshMultiple",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.5.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeIfRetranIncDelta": {
+    "class": "objecttype",
+    "description": "Delta governs the speed with which the sender increases the retransmission interval. The ratio of two successive retransmission intervals is (1 + Delta).",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeIfRetranIncDelta",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.5.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeIfRetranInterval": {
+    "class": "objecttype",
+    "description": "The retransmission interval. The default value is 5000.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeIfRetranInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.5.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeInterval"
+    },
+    "units": "milliseconds"
+  },
+  "hwRsvpTeIfRouteDelay": {
+    "class": "objecttype",
+    "description": "The approximate period from the time a route is changed to the time a resulting message ap- pears on the interface. The default value is 200.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeIfRouteDelay",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.5.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeInterval"
+    },
+    "units": "hundredths of a second"
+  },
+  "hwRsvpTeIfSrefreshEnabled": {
+    "class": "objecttype",
+    "description": "If TRUE, srefresh is enabled on this interface. If FALSE, srefresh is not enabled on this interface.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeIfSrefreshEnabled",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.5.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwRsvpTeIfSrefreshInterval": {
+    "class": "objecttype",
+    "description": "The srefresh interval. I.e. time difference between 2 refreshes. The default value is 30000.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeIfSrefreshInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.5.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeInterval"
+    },
+    "units": "milliseconds"
+  },
+  "hwRsvpTeIfStatus": {
+    "class": "objecttype",
+    "description": "\u0027active\u0027 on interfaces that are configured for RSVP.",
+    "maxaccess": "read-create",
+    "name": "hwRsvpTeIfStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.5.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwRsvpTeIfTable": {
+    "class": "objecttype",
+    "description": "The RSVP-specific attributes of the system\u0027s interfaces.",
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeIfTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.5",
+    "status": "current"
+  },
+  "hwRsvpTeIfTtl": {
+    "class": "objecttype",
+    "description": "The value of SEND_TTL used on this interface for messages this node originates. If set to zero, the node determines the TTL via other means.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeIfTtl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.5.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeIfUdpNbrs": {
+    "class": "objecttype",
+    "description": "The number of neighbors perceived to be using only the RSVP UDP Encapsulation.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeIfUdpNbrs",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeIfUdpRequired": {
+    "class": "objecttype",
+    "description": "If TRUE, manual configuration forces the use of UDP encapsulation on the interface. If FALSE, UDP encapsulation is only used if hwRsvpTeI- fUdpNbrs is not zero.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeIfUdpRequired",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.5.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwRsvpTeIfWindowSize": {
+    "class": "objecttype",
+    "description": "Administrators can specify a message window corresponding to the worst case reordering behavior. For example, one might specify that packets reordered within a 32 message window would be accepted. If no reordering can occur, the window is set to one. The maximum value is 64. The default value is 1.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeIfWindowSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.5.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeLspId": {
+    "class": "objecttype",
+    "description": "A 16-bit identifier used in the SENDER_TEMPLATE and the FILTER_SPEC that can be changed to allow a sender to share resources with itself.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeLspId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.40",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeMessageIdEntry": {
+    "class": "objecttype",
+    "description": "Information describes the MessageIds of an RSVP system.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeNbrAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeMessageIdEpoch"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeMessageIdNumber"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeMessageIdEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.7.1",
+    "status": "current"
+  },
+  "hwRsvpTeMessageIdEpoch": {
+    "class": "objecttype",
+    "description": "A value that indicates when the Message_Identi- fier sequence has been reset.",
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeMessageIdEpoch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeMessageIdFlag": {
+    "class": "objecttype",
+    "description": "A enumerable value to indicate the type of this Message_Identifier. (1: SenderIncoming; 2: SenderOutgoing; 3: Resv; 4: ResvFwd; 5: RtBuff)",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeMessageIdFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "resv": 3,
+          "resvFwd": 4,
+          "rtBuff": 5,
+          "senderIncoming": 1,
+          "senderOutgoing": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRsvpTeMessageIdGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwRsvpTeMessageIdGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeMessageIdFlag"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.148.2.1.7",
+    "status": "current"
+  },
+  "hwRsvpTeMessageIdNumber": {
+    "class": "objecttype",
+    "description": "When combined with the message generator\u0027s IP address, the Message_Identifier field uniquely identifies a message. The values placed in this field change incrementally and only decrease when the epoch changes or when the value wraps.",
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeMessageIdNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeMessageIdTable": {
+    "class": "objecttype",
+    "description": "Information describes the MessageIds of an RSVP system.",
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeMessageIdTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.7",
+    "status": "current"
+  },
+  "hwRsvpTeNbr": {
+    "class": "objecttype",
+    "description": "IP address of RSVP neighbour.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwRsvpTeNbr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.12.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwRsvpTeNbrAddress": {
+    "class": "objecttype",
+    "description": "The IP4 or IP6 Address used by this neighbor. This object may not be changed when the value of the RowStatus object is \u0027active\u0027.",
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeNbrAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRsvpTeNbrAuthKeyId": {
+    "class": "objecttype",
+    "description": "Neighbor\u0027s authentication key, used for authentication processing. A return of null string indicates the absence of the item. For security purposes, a get on this returns a zero length string.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeNbrAuthKeyId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.6.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 6,
+            "min": 6
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRsvpTeNbrEntry": {
+    "class": "objecttype",
+    "description": "Information describing a single RSVP Neigh- bor.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeNbrAddress"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeNbrEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.6.1",
+    "status": "current"
+  },
+  "hwRsvpTeNbrGrCapability": {
+    "class": "objecttype",
+    "description": "Gives neighbor capability to support GR or undergo GR, in case of control plane restart. A mixed value. (0x01: Self GR capability of neighbor; 0x02: GR support capability of neighbor; 0x04: Neighbor capable of receiving RecoveryPath message; 0x08: Neighbor capable of sending RecoveryPath message)",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeNbrGrCapability",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.6.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeNbrGrRecoveryTime": {
+    "class": "objecttype",
+    "description": "Neighbor nodes GR recovery time value.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeNbrGrRecoveryTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.6.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeStamp"
+    },
+    "units": "milliseconds"
+  },
+  "hwRsvpTeNbrGrRestartTime": {
+    "class": "objecttype",
+    "description": "Neighbor nodes GR restart time value.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeNbrGrRestartTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.6.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeStamp"
+    },
+    "units": "milliseconds"
+  },
+  "hwRsvpTeNbrGrStatus": {
+    "class": "objecttype",
+    "description": "Neighbor nodes GR status. (0x01, No GR activity; 0x02, Neighbor router is supporting GR; 0x03, Neighbor router is restarting; 0x04, Restart timer is running; 0x05, Recovery timer is running; 0x06, Neighbor GR end.)",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeNbrGrStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.6.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "grEnd": 6,
+          "normal": 1,
+          "recoveryTimerRunning": 5,
+          "restartTimerRunning": 4,
+          "restarting": 3,
+          "supporting": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRsvpTeNbrGroup": {
+    "class": "objectgroup",
+    "description": "These objects are required for RSVP Systems.",
+    "name": "hwRsvpTeNbrGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeNbrHelloSrcInstance"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeNbrHelloDstInstance"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeNbrHelloLostCounter"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeNbrHelloType"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeNbrHelloEnabled"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeNbrSendersNumber"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeNbrReceiversNumber"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeNbrGrCapability"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeNbrGrRestartTime"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeNbrGrRecoveryTime"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeNbrGrStatus"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeNbrAuthKeyId"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeNbrReductionEnabled"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeNbrReliabilityEnabled"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeNbrProtocol"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeNbrStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.148.2.1.6",
+    "status": "current"
+  },
+  "hwRsvpTeNbrHelloDstInstance": {
+    "class": "objecttype",
+    "description": "Destination instance of the neighbor.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeNbrHelloDstInstance",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.6.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeNbrHelloEnabled": {
+    "class": "objecttype",
+    "description": "If TRUE, hello is enabled on the neighbor.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeNbrHelloEnabled",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.6.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwRsvpTeNbrHelloLostCounter": {
+    "class": "objecttype",
+    "description": "The number of times the hello messages have been sent to the neighbor for which hello ACK has not received yet.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeNbrHelloLostCounter",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.6.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeNbrHelloSrcInstance": {
+    "class": "objecttype",
+    "description": "Source instance of the neighbor.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeNbrHelloSrcInstance",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.6.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeNbrHelloType": {
+    "class": "objecttype",
+    "description": "Hello type that is being sent to the neighbor. A return of 3[none] indicates that hello is disabled on the nbr.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeNbrHelloType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.6.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ack": 2,
+          "none": 3,
+          "request": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRsvpTeNbrProtocol": {
+    "class": "objecttype",
+    "description": "The encapsulation being used by this neigh- bor.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeNbrProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "both": 3,
+          "ip": 1,
+          "udp": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRsvpTeNbrReceiversNumber": {
+    "class": "objecttype",
+    "description": "The number of receivers on the neighbor.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeNbrReceiversNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeNbrReductionEnabled": {
+    "class": "objecttype",
+    "description": "If TRUE srefresh is enabled on the neighbor, else srefresh is not enabled on the neighbor.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeNbrReductionEnabled",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.6.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwRsvpTeNbrReliabilityEnabled": {
+    "class": "objecttype",
+    "description": "If TRUE reliability is enabled on the neighbor, else reliability is not enabled on the neighbor.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeNbrReliabilityEnabled",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.6.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwRsvpTeNbrSendersNumber": {
+    "class": "objecttype",
+    "description": "The number of senders on the neighbor.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeNbrSendersNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeNbrStatus": {
+    "class": "objecttype",
+    "description": "\u0027active\u0027 for all neighbors. This object may be used to configure neighbors. In the pres- ence of configured neighbors, the implementa- tion may (but is not required to) limit the set of valid neighbors to those configured.",
+    "maxaccess": "read-create",
+    "name": "hwRsvpTeNbrStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwRsvpTeNbrTable": {
+    "class": "objecttype",
+    "description": "Information describing the Neighbors of an RSVP system.",
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeNbrTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.6",
+    "status": "current"
+  },
+  "hwRsvpTeObjects": {
+    "class": "objectidentity",
+    "name": "hwRsvpTeObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1"
+  },
+  "hwRsvpTeResvConfirm": {
+    "class": "objecttype",
+    "description": "Receiver\u0027s address.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvConfirm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.3.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRsvpTeResvDestAddr": {
+    "class": "objecttype",
+    "description": "The destination address used by all senders in this session.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvDestAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRsvpTeResvDestAddrLength": {
+    "class": "objecttype",
+    "description": "The length of the destination address in bits. This is the CIDR Prefix Length, which for IP4 hosts and multicast addresses is 32 bits.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvDestAddrLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeResvEntry": {
+    "class": "objecttype",
+    "description": "Information describing the state information displayed by a single receiver\u0027s RESV message concerning a single sender.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSessionNumber"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvNumber"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeResvEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.3.1",
+    "status": "current"
+  },
+  "hwRsvpTeResvExplicit": {
+    "class": "objecttype",
+    "description": "If TRUE, individual senders are listed using Filter Specifications. If FALSE, all senders are implicitly selected. The Scope Object will contain a list of senders that need to receive this reservation request for the purpose of routing the RESV message.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvExplicit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.3.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwRsvpTeResvFwdDestAddr": {
+    "class": "objecttype",
+    "description": "The destination address used by all senders in this session.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvFwdDestAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRsvpTeResvFwdDestAddrLength": {
+    "class": "objecttype",
+    "description": "The length of the destination address in bits. This is the CIDR Prefix Length, which for IP4 hosts and multicast addresses is 32 bits.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvFwdDestAddrLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeResvFwdEntry": {
+    "class": "objecttype",
+    "description": "Information describing the state information displayed upstream in an RESV message concern- ing a single sender.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSessionNumber"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvFwdNumber"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeResvFwdEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4.1",
+    "status": "current"
+  },
+  "hwRsvpTeResvFwdExplicit": {
+    "class": "objecttype",
+    "description": "If TRUE, individual senders are listed using Filter Specifications. If FALSE, all senders are implicitly selected. The Scope Object will contain a list of senders that need to receive this reservation request for the purpose of routing the RESV message.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvFwdExplicit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwRsvpTeResvFwdGroup": {
+    "class": "objectgroup",
+    "description": "These objects are optional, used for some RSVP Systems.",
+    "name": "hwRsvpTeResvFwdGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvFwdType"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvFwdDestAddr"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvFwdSenderAddr"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvFwdDestAddrLength"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvFwdSenderAddrLength"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvFwdHopAddr"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvFwdHopLih"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvFwdInterface"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvFwdService"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvFwdTSpecRate"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvFwdTSpecPeakRate"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvFwdTSpecBurst"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvFwdTSpecMinTu"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvFwdTSpecMaxTu"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvFwdRSpecRate"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvFwdRSpecSlack"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvFwdInterval"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvFwdScope"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvFwdShared"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvFwdExplicit"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvFwdPolicy"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvFwdTtl"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvFwdMsgIdFlag"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvFwdMsgIdEpoch"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvFwdMsgIdNumber"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvFwdRsvpHop"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.148.2.1.4",
+    "status": "current"
+  },
+  "hwRsvpTeResvFwdHopAddr": {
+    "class": "objecttype",
+    "description": "The address of the (previous) RSVP that will receive this message.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvFwdHopAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRsvpTeResvFwdHopLih": {
+    "class": "objecttype",
+    "description": "The Logical Interface Handle sent to the (pre- vious) RSVP that will receive this message.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvFwdHopLih",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeResvFwdInterface": {
+    "class": "objecttype",
+    "description": "The ifIndex value of the interface on which this RESV message was most recently sent.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvFwdInterface",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeResvFwdInterval": {
+    "class": "objecttype",
+    "description": "The interval between refresh messages adver- tised to the Previous Hop.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvFwdInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeResvFwdMsgIdEpoch": {
+    "class": "objecttype",
+    "description": "A value that indicates when the Message_Identi- fier sequence has been reset.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvFwdMsgIdEpoch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeResvFwdMsgIdFlag": {
+    "class": "objecttype",
+    "description": "Indicates that the message sender requests the peer to send an acknowledgment for the message. (0x01: ACK desired.)",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvFwdMsgIdFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeResvFwdMsgIdNumber": {
+    "class": "objecttype",
+    "description": "When combined with the message generator\u0027s IP address, the Message_Identifier field uniquely identifies a message. The values placed in this field change incrementally and only decrease when the epoch changes or when the value wraps. A return of 0 indicates the absence of the MESSAGE_ID object.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvFwdMsgIdNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeResvFwdNumber": {
+    "class": "objecttype",
+    "description": "The number of this reservation request. This is for SNMP Indexing purposes only and has no relation to any protocol value.",
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeResvFwdNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeResvFwdPolicy": {
+    "class": "objecttype",
+    "description": "The contents of the policy object, displayed as an uninterpreted string of octets, including the object header. In the absence of such an object, this should be of zero length.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvFwdPolicy",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRsvpTeResvFwdRSpecRate": {
+    "class": "objecttype",
+    "description": "If the requested service is Guaranteed, as specified by hwRsvpTeResvService, this is the clearing rate that is being requested. Other- wise, it is zero, or the agent may return noSuchValue.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvFwdRSpecRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "BitRate"
+    },
+    "units": "bytes per second"
+  },
+  "hwRsvpTeResvFwdRSpecSlack": {
+    "class": "objecttype",
+    "description": "If the requested service is Guaranteed, as specified by hwRsvpTeResvService, this is the delay slack. Otherwise, it is zero, or the agent may return noSuchValue.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvFwdRSpecSlack",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    },
+    "units": "microseconds"
+  },
+  "hwRsvpTeResvFwdRsvpHop": {
+    "class": "objecttype",
+    "description": "If TRUE, the node believes that the next IP hop is an RSVP hop. If FALSE, the node be- lieves that the next IP hop may not be an RSVP hop.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvFwdRsvpHop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwRsvpTeResvFwdScope": {
+    "class": "objecttype",
+    "description": "The contents of the scope object, displayed as an uninterpreted string of octets, including the object header. In the absence of such an object, this should be of zero length.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvFwdScope",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRsvpTeResvFwdSenderAddr": {
+    "class": "objecttype",
+    "description": "The source address of the sender selected by this reservation. The value of all zeroes in- dicates \u0027all senders\u0027.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvFwdSenderAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRsvpTeResvFwdSenderAddrLength": {
+    "class": "objecttype",
+    "description": "The length of the sender\u0027s address in bits. This is the CIDR Prefix Length, which for IP4 hosts and multicast addresses is 32 bits.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvFwdSenderAddrLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeResvFwdService": {
+    "class": "objecttype",
+    "description": "The QoS Service classification requested.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvFwdService",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "QosService"
+    }
+  },
+  "hwRsvpTeResvFwdShared": {
+    "class": "objecttype",
+    "description": "If TRUE, a reservation shared among senders is requested. If FALSE, a reservation specific to this sender is requested.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvFwdShared",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwRsvpTeResvFwdTSpecBurst": {
+    "class": "objecttype",
+    "description": "The size of the largest burst expected from the sender at a time. If this is less than the sender\u0027s advertised burst size, the receiver is asking the network to provide flow pacing beyond what would be provided under normal circumstances. Such pac- ing is at the network\u0027s option.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvFwdTSpecBurst",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "BurstSize"
+    },
+    "units": "bytes"
+  },
+  "hwRsvpTeResvFwdTSpecMaxTu": {
+    "class": "objecttype",
+    "description": "The maximum message size for this flow. The admission algorithm will reject TSpecs whose Maximum Transmission Unit, plus the interface headers, exceed the interface MTU.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvFwdTSpecMaxTu",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MessageSize"
+    }
+  },
+  "hwRsvpTeResvFwdTSpecMinTu": {
+    "class": "objecttype",
+    "description": "The minimum message size for this flow. The policing algorithm will treat smaller messages as though they are this size.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvFwdTSpecMinTu",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MessageSize"
+    }
+  },
+  "hwRsvpTeResvFwdTSpecPeakRate": {
+    "class": "objecttype",
+    "description": "The Peak Bit Rate of the sender\u0027s data stream Traffic arrival is not expected to exceed this rate at any time, apart from the effects of jitter in the network. If not specified in the TSpec, this returns zero or noSuchValue.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvFwdTSpecPeakRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "BitRate"
+    },
+    "units": "bits per second"
+  },
+  "hwRsvpTeResvFwdTSpecRate": {
+    "class": "objecttype",
+    "description": "The Average Bit Rate of the sender\u0027s data stream. Within a transmission burst, the ar- rival rate may be as fast as hwRsvpTeResvFwdT- SpecPeakRate (if supported by the service model);however, averaged across two or more burst intervals, the rate should not exceed hwRsvpTeResvFwdTSpecRate. Note that this is a prediction, often based on the general capability of a type of codec or particular encoding; the measured average rate may be significantly lower.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvFwdTSpecRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "BitRate"
+    },
+    "units": "bits per second"
+  },
+  "hwRsvpTeResvFwdTable": {
+    "class": "objecttype",
+    "description": "Information describing the state information displayed upstream in RESV messages.",
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeResvFwdTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4",
+    "status": "current"
+  },
+  "hwRsvpTeResvFwdTtl": {
+    "class": "objecttype",
+    "description": "The TTL value in the RSVP header that was last received.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvFwdTtl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeResvFwdType": {
+    "class": "objecttype",
+    "description": "The type of session (IP4, IP6, IP6 with flow information, etc).",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvFwdType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SessionType"
+    }
+  },
+  "hwRsvpTeResvGroup": {
+    "class": "objectgroup",
+    "description": "These objects are required for RSVP Systems.",
+    "name": "hwRsvpTeResvGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvType"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvDestAddr"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvSenderAddr"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvDestAddrLength"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvSenderAddrLength"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvHopAddr"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvHopLih"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvInterface"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvService"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvTSpecRate"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvTSpecPeakRate"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvTSpecBurst"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvTSpecMinTu"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvTSpecMaxTu"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvRSpecRate"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvRSpecSlack"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvInterval"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvScope"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvShared"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvExplicit"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvRsvpHop"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvPolicy"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvTtl"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeResvConfirm"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.148.2.1.3",
+    "status": "current"
+  },
+  "hwRsvpTeResvHopAddr": {
+    "class": "objecttype",
+    "description": "The address used by the next RSVP hop (which may be the ultimate receiver).",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvHopAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRsvpTeResvHopLih": {
+    "class": "objecttype",
+    "description": "The Logical Interface Handle received from the previous RSVP hop (which may be the ultimate receiver).",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvHopLih",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeResvInterface": {
+    "class": "objecttype",
+    "description": "The ifIndex value of the interface on which this RESV message was most recently received.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvInterface",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeResvInterval": {
+    "class": "objecttype",
+    "description": "The interval between refresh messages as ad- vertised by the Next Hop.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.3.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeResvNumber": {
+    "class": "objecttype",
+    "description": "The number of this reservation request. This is for SNMP Indexing purposes only and has no relation to any protocol value.",
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeResvNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeResvPolicy": {
+    "class": "objecttype",
+    "description": "The contents of the policy object, displayed as an uninterpreted string of octets, including the object header. In the absence of such an object, this should be of zero length.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvPolicy",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.3.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRsvpTeResvRSpecRate": {
+    "class": "objecttype",
+    "description": "If the requested service is guaranteed, as specified by hwRsvpTeResvService, this is the clearing rate that is being requested. Other- wise, it is zero, or the agent may return noSuchValue.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvRSpecRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.3.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "BitRate"
+    },
+    "units": "bits per second"
+  },
+  "hwRsvpTeResvRSpecSlack": {
+    "class": "objecttype",
+    "description": "If the requested service is guaranteed, as specified by hwRsvpTeResvService, this is the delay slack. Otherwise, it is zero, or the agent may return noSuchValue.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvRSpecSlack",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.3.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    },
+    "units": "microseconds"
+  },
+  "hwRsvpTeResvRsvpHop": {
+    "class": "objecttype",
+    "description": "If TRUE, the node believes that the previous IP hop is an RSVP hop. If FALSE, the node be- lieves that the previous IP hop may not be an RSVP hop.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvRsvpHop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.3.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwRsvpTeResvScope": {
+    "class": "objecttype",
+    "description": "The contents of the scope object, displayed as an uninterpreted string of octets, including the object header. In the absence of such an object, this should be of zero length. If the length is non-zero, this contains a series of IP4 or IP6 addresses.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvScope",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.3.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRsvpTeResvSenderAddr": {
+    "class": "objecttype",
+    "description": "The source address of the sender selected by this reservation. The value of all zeroes in- dicates \u0027all senders\u0027.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvSenderAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRsvpTeResvSenderAddrLength": {
+    "class": "objecttype",
+    "description": "The length of the sender\u0027s address in bits. This is the CIDR Prefix Length, which for IP4 hosts and multicast addresses is 32 bits.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvSenderAddrLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeResvService": {
+    "class": "objecttype",
+    "description": "The QoS Service classification requested by the receiver.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvService",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "QosService"
+    }
+  },
+  "hwRsvpTeResvShared": {
+    "class": "objecttype",
+    "description": "If TRUE, a reservation shared among senders is requested. If FALSE, a reservation specific to this sender is requested.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvShared",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.3.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwRsvpTeResvTSpecBurst": {
+    "class": "objecttype",
+    "description": "The size of the largest burst expected from the sender at a time. If this is less than the sender\u0027s advertised burst size, the receiver is asking the network to provide flow pacing beyond what would be provided under normal circumstances. Such pac- ing is at the network\u0027s option.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvTSpecBurst",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.3.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "BurstSize"
+    },
+    "units": "bytes"
+  },
+  "hwRsvpTeResvTSpecMaxTu": {
+    "class": "objecttype",
+    "description": "The maximum message size for this flow. The admission algorithm will reject TSpecs whose Maximum Transmission Unit, plus the interface headers, exceed the interface MTU.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvTSpecMaxTu",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.3.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MessageSize"
+    }
+  },
+  "hwRsvpTeResvTSpecMinTu": {
+    "class": "objecttype",
+    "description": "The minimum message size for this flow. The policing algorithm will treat smaller messages as though they are this size.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvTSpecMinTu",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.3.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MessageSize"
+    }
+  },
+  "hwRsvpTeResvTSpecPeakRate": {
+    "class": "objecttype",
+    "description": "The Peak Bit Rate of the sender\u0027s data stream. Traffic arrival is not expected to exceed this rate at any time, apart from the effects of jitter in the network. If not specified in the TSpec, this returns zero or noSuchValue.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvTSpecPeakRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.3.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "BitRate"
+    },
+    "units": "bits per second"
+  },
+  "hwRsvpTeResvTSpecRate": {
+    "class": "objecttype",
+    "description": "The Average Bit Rate of the sender\u0027s data stream. Within a transmission burst, the ar- rival rate may be as fast as hwRsvpTeResvTSpec- PeakRate (if supported by the service model); however, averaged across two or more burst in- tervals, the rate should not exceed hwRsvpTeResvTSpecRate. Note that this is a prediction, often based on the general capability of a type of codec or particular encoding; the measured average rate may be significantly lower.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvTSpecRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "BitRate"
+    },
+    "units": "bits per second"
+  },
+  "hwRsvpTeResvTable": {
+    "class": "objecttype",
+    "description": "Information describing the state information displayed by receivers in RESV messages.",
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeResvTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.3",
+    "status": "current"
+  },
+  "hwRsvpTeResvTtl": {
+    "class": "objecttype",
+    "description": "The TTL value in the RSVP header that was last received.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvTtl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.3.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeResvType": {
+    "class": "objecttype",
+    "description": "The type of session (IP4, IP6, IP6 with flow information, etc).",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeResvType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SessionType"
+    }
+  },
+  "hwRsvpTeRroEntry": {
+    "class": "objecttype",
+    "description": "Information describes the RRO sub-objects of an RSVP system.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSessionNumber"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderNumber"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeRroNumber"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeRroEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.9.1",
+    "status": "current"
+  },
+  "hwRsvpTeRroFlag": {
+    "class": "objecttype",
+    "description": "If hwRsvpTeRroType is IPv4 or IPv6, it is a mixed value. (0x01: Local protection available; 0x02: Local protection in use; 0x04: bandwidth protection; 0x08: node protection; 0x10: preemption pending; 0x20: node ID.) If hwRsvpTeRroType is Label, 0x01 means global label. A return of zero indicates no bit was set.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeRroFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.9.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeRroGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwRsvpTeRroGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeRroType"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeRroIpAddr"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeRroIpPrefixLen"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeRroLabel"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeRroFlag"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.148.2.1.9",
+    "status": "current"
+  },
+  "hwRsvpTeRroIpAddr": {
+    "class": "objecttype",
+    "description": "IP address for this sub-object if the type is \u0027IPv4 address\u0027 of \u0027IPv6 address\u0027. A return of null string indicates the absence of the item.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeRroIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.9.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRsvpTeRroIpPrefixLen": {
+    "class": "objecttype",
+    "description": "IP prefix length for this sub-object if the type is \u0027IPv4 address\u0027 of \u0027IPv6 address\u0027. A return of 0 indicates the absence of the item.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeRroIpPrefixLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.9.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeRroLabel": {
+    "class": "objecttype",
+    "description": "The value of the label if the type is \u0027Label\u0027. A return of 4294967295 indicates the absence of the item.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeRroLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.9.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeRroNumber": {
+    "class": "objecttype",
+    "description": "The number of this RRO sub-object. This is for SNMP Indexing purposes only and has no relation to any protocol value.",
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeRroNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.9.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeRroTable": {
+    "class": "objecttype",
+    "description": "Information describes the RRO sub-objects of an RSVP system.",
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeRroTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.9",
+    "status": "current"
+  },
+  "hwRsvpTeRroType": {
+    "class": "objecttype",
+    "description": "An enumerable value that indicates the type of this sub-object. (0x01: IPv4 address; 0x02: IPv6 address; 0x03: Label.)",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeRroType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.9.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2,
+          "label": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRsvpTeSenderAddr": {
+    "class": "objecttype",
+    "description": "The source address used by this sender in this session.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRsvpTeSenderAddrLength": {
+    "class": "objecttype",
+    "description": "The length of the sender\u0027s address in bits. This is the CIDR Prefix Length, which for IP4 hosts and multicast addresses is 32 bits.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderAddrLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeSenderAdspecBreak": {
+    "class": "objecttype",
+    "description": "The global break bit general characterization parameter from the ADSPEC. If TRUE, at least one non-IS hop was detected in the path. If FALSE, no non-IS hops were detected.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderAdspecBreak",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwRsvpTeSenderAdspecCtrlLoadBreak": {
+    "class": "objecttype",
+    "description": "If TRUE, the Controlled Load Service fragment has its \u0027break\u0027 bit set, indicating that one or more nodes along the path do not support the controlled load service. If FALSE, and hwRsvpTeSenderAdspecCtrlLoadSvc is TRUE, the \u0027break\u0027 bit is not set. If hwRsvpTeSenderAdspecCtrlLoadSvc is FALSE, this returns FALSE or noSuchValue.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderAdspecCtrlLoadBreak",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.34",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwRsvpTeSenderAdspecCtrlLoadHopCount": {
+    "class": "objecttype",
+    "description": "If hwRsvpTeSenderAdspecCtrlLoadSvc is TRUE, this is the service-specific override of the hop count general characterization parameter from the ADSPEC. A return of zero or noSuchValue indicates one of the following conditions: the invalid bit was set the parameter was not present If hwRsvpTeSenderAdspecCtrlLoadSvc is FALSE, this returns zero or noSuchValue.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderAdspecCtrlLoadHopCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.35",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeSenderAdspecCtrlLoadMinLatency": {
+    "class": "objecttype",
+    "description": "If hwRsvpTeSenderAdspecCtrlLoadSvc is TRUE, this is the service-specific override of the minimum path latency general characterization parameter from the ADSPEC. A return of zero or noSuch- Value indicates one of the following condi- tions: the invalid bit was set the parameter was not present If hwRsvpTeSenderAdspecCtrlLoadSvc is FALSE, this returns zero or noSuchValue.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderAdspecCtrlLoadMinLatency",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.37",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    },
+    "units": "microseconds"
+  },
+  "hwRsvpTeSenderAdspecCtrlLoadMtu": {
+    "class": "objecttype",
+    "description": "If hwRsvpTeSenderAdspecCtrlLoadSvc is TRUE, this is the service-specific override of the com- posed Maximum Transmission Unit general charac- terization parameter from the ADSPEC. A return of zero or noSuchValue indicates one of the following conditions: the invalid bit was set the parameter was not present If hwRsvpTeSenderAdspecCtrlLoadSvc is FALSE, this returns zero or noSuchValue.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderAdspecCtrlLoadMtu",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.38",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    },
+    "units": "bytes"
+  },
+  "hwRsvpTeSenderAdspecCtrlLoadPathBw": {
+    "class": "objecttype",
+    "description": "If hwRsvpTeSenderAdspecCtrlLoadSvc is TRUE, this is the service-specific override of the path bandwidth estimate general characterization parameter from the ADSPEC. A return of zero or noSuchValue indicates one of the following con- ditions: the invalid bit was set the parameter was not present If hwRsvpTeSenderAdspecCtrlLoadSvc is FALSE, this returns zero or noSuchValue.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderAdspecCtrlLoadPathBw",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.36",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "BitRate"
+    },
+    "units": "bits per second"
+  },
+  "hwRsvpTeSenderAdspecCtrlLoadSvc": {
+    "class": "objecttype",
+    "description": "If TRUE, the ADSPEC contains a Controlled Load Service fragment. If FALSE, the ADSPEC does not contain a Controlled Load Service frag- ment.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderAdspecCtrlLoadSvc",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwRsvpTeSenderAdspecGuaranteedBreak": {
+    "class": "objecttype",
+    "description": "If TRUE, the Guaranteed Service fragment has its \u0027break\u0027 bit set, indicating that one or more nodes along the path do not support the guaranteed service. If FALSE, and hwRsvpTe- SenderAdspecGuaranteedSvc is TRUE, the \u0027break\u0027 bit is not set. If hwRsvpTeSenderAdspecGuaranteedSvc is FALSE, this returns FALSE or noSuchValue.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderAdspecGuaranteedBreak",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwRsvpTeSenderAdspecGuaranteedCsum": {
+    "class": "objecttype",
+    "description": "If hwRsvpTeSenderAdspecGuaranteedSvc is TRUE, this is the composed value for the guaranteed ser- vice \u0027C\u0027 parameter since the last reshaping point. A return of zero or noSuchValue indi- cates one of the following conditions: the invalid bit was set the parameter was not present If hwRsvpTeSenderAdspecGuaranteedSvc is FALSE, this returns zero or noSuchValue.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderAdspecGuaranteedCsum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    },
+    "units": "bytes"
+  },
+  "hwRsvpTeSenderAdspecGuaranteedCtot": {
+    "class": "objecttype",
+    "description": "If hwRsvpTeSenderAdspecGuaranteedSvc is TRUE, this is the end-to-end composed value for the guaranteed service \u0027C\u0027 parameter. A return of zero or noSuchValue indicates one of the fol- lowing conditions: the invalid bit was set the parameter was not present If hwRsvpTeSenderAdspecGuaranteedSvc is FALSE, this returns zero or noSuchValue.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderAdspecGuaranteedCtot",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    },
+    "units": "bytes"
+  },
+  "hwRsvpTeSenderAdspecGuaranteedDsum": {
+    "class": "objecttype",
+    "description": "If hwRsvpTeSenderAdspecGuaranteedSvc is TRUE, this is the composed value for the guaranteed ser- vice \u0027D\u0027 parameter since the last reshaping point. A return of zero or noSuchValue indi- cates one of the following conditions: the invalid bit was set the parameter was not present If hwRsvpTeSenderAdspecGuaranteedSvc is FALSE, this returns zero or noSuchValue.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderAdspecGuaranteedDsum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    },
+    "units": "microseconds"
+  },
+  "hwRsvpTeSenderAdspecGuaranteedDtot": {
+    "class": "objecttype",
+    "description": "If hwRsvpTeSenderAdspecGuaranteedSvc is TRUE, this is the end-to-end composed value for the guaranteed service \u0027D\u0027 parameter. A return of zero or noSuchValue indicates one of the fol- lowing conditions: the invalid bit was set the parameter was not present If hwRsvpTeSenderAdspecGuaranteedSvc is FALSE, this returns zero or noSuchValue.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderAdspecGuaranteedDtot",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    },
+    "units": "microseconds"
+  },
+  "hwRsvpTeSenderAdspecGuaranteedHopCount": {
+    "class": "objecttype",
+    "description": "If hwRsvpTeSenderAdspecGuaranteedSvc is TRUE, this is the service-specific override of the hop count general characterization parameter from the ADSPEC. A return of zero or noSuchValue indicates one of the following conditions: the invalid bit was set the parameter was not present If hwRsvpTeSenderAdspecGuaranteedSvc is FALSE, this returns zero or noSuchValue.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderAdspecGuaranteedHopCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeSenderAdspecGuaranteedMinLatency": {
+    "class": "objecttype",
+    "description": "If hwRsvpTeSenderAdspecGuaranteedSvc is TRUE, this is the service-specific override of the minimum path latency general characterization parameter from the ADSPEC. A return of zero or noSuch- Value indicates one of the following condi- tions: the invalid bit was set the parameter was not present If hwRsvpTeSenderAdspecGuaranteedSvc is FALSE, this returns zero or noSuchValue.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderAdspecGuaranteedMinLatency",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    },
+    "units": "microseconds"
+  },
+  "hwRsvpTeSenderAdspecGuaranteedMtu": {
+    "class": "objecttype",
+    "description": "If hwRsvpTeSenderAdspecGuaranteedSvc is TRUE, this is the service-specific override of the com- posed Maximum Transmission Unit general charac- terization parameter from the ADSPEC. A return of zero or noSuchValue indicates one of the following conditions: the invalid bit was set the parameter was not present If hwRsvpTeSenderAdspecGuaranteedSvc is FALSE, this returns zero or noSuchValue.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderAdspecGuaranteedMtu",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    },
+    "units": "bytes"
+  },
+  "hwRsvpTeSenderAdspecGuaranteedPathBw": {
+    "class": "objecttype",
+    "description": "If hwRsvpTeSenderAdspecGuaranteedSvc is TRUE, this is the service-specific override of the path bandwidth estimate general characterization parameter from the ADSPEC. A return of zero or noSuchValue indicates one of the following con- ditions: the invalid bit was set the parameter was not present If hwRsvpTeSenderAdspecGuaranteedSvc is FALSE, this returns zero or noSuchValue.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderAdspecGuaranteedPathBw",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "BitRate"
+    },
+    "units": "bits per second"
+  },
+  "hwRsvpTeSenderAdspecGuaranteedSvc": {
+    "class": "objecttype",
+    "description": "If TRUE, the ADSPEC contains a Guaranteed Ser- vice fragment. If FALSE, the ADSPEC does not contain a Guaranteed Service fragment.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderAdspecGuaranteedSvc",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwRsvpTeSenderAdspecHopCount": {
+    "class": "objecttype",
+    "description": "The hop count general characterization parame- ter from the ADSPEC. A return of zero or noSuchValue indicates one of the following con- ditions: the invalid bit was set the parameter was not present",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderAdspecHopCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeSenderAdspecMinLatency": {
+    "class": "objecttype",
+    "description": "The minimum path latency general characteriza- tion parameter from the ADSPEC. A return of zero or noSuchValue indicates one of the fol- lowing conditions: the invalid bit was set the parameter was not present",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderAdspecMinLatency",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    },
+    "units": "microseconds"
+  },
+  "hwRsvpTeSenderAdspecMtu": {
+    "class": "objecttype",
+    "description": "The composed Maximum Transmission Unit general characterization parameter from the ADSPEC. A return of zero or noSuchValue indicates one of the following conditions: the invalid bit was set the parameter was not present",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderAdspecMtu",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    },
+    "units": "bytes"
+  },
+  "hwRsvpTeSenderAdspecPathBw": {
+    "class": "objecttype",
+    "description": "The path bandwidth estimate general character- ization parameter from the ADSPEC. A return of zero or noSuchValue indicates one of the fol- lowing conditions: the invalid bit was set the parameter was not present",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderAdspecPathBw",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "BitRate"
+    },
+    "units": "bits per second"
+  },
+  "hwRsvpTeSenderClassType": {
+    "class": "objecttype",
+    "description": "Indicates the class-type. A return of zero indicates the absence of the object.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderClassType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.47",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeSenderDestAddr": {
+    "class": "objecttype",
+    "description": "The destination address used by all senders in this session.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderDestAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRsvpTeSenderDestAddrLength": {
+    "class": "objecttype",
+    "description": "The length of the destination address in bits. This is the CIDR Prefix Length, which for IP4 hosts and multicast addresses is 32 bits.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderDestAddrLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeSenderDiffServPsc": {
+    "class": "objecttype",
+    "description": "This 16 bits field indicates a PHB Scheduling Class to be supported by the LSP.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderDiffServPsc",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.73",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeSenderEntry": {
+    "class": "objecttype",
+    "description": "Information describing the state information displayed by a single sender\u0027s PATH message.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSessionNumber"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderNumber"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeSenderEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1",
+    "status": "current"
+  },
+  "hwRsvpTeSenderFrrBandwidth": {
+    "class": "objecttype",
+    "description": "Bandwidth estimate; 32-bit IEEE floating point integer, in bits per second.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderFrrBandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.68",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "BitRate"
+    },
+    "units": "bits per second"
+  },
+  "hwRsvpTeSenderFrrExcludeAny": {
+    "class": "objecttype",
+    "description": "A 32-bit vector representing a set of attribute filters associated with a backup path, any of which renders a link unacceptable.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderFrrExcludeAny",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.69",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeSenderFrrFlag": {
+    "class": "objecttype",
+    "description": "An enumerable value to indicate the protection schema desired (0x01, One-to-One Backup Desired; 0x02, Facility Backup Desired; 0x03, No Backup Desired).",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderFrrFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.67",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "facilityDesired": 2,
+          "noBackupDesired": 3,
+          "oneToOneDesired": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRsvpTeSenderFrrHoldPrio": {
+    "class": "objecttype",
+    "description": "The priority of the backup path with respect to holding resources, in the range 0 to 7. The value 0 is the highest priority. Holding Priority is used in deciding whether this session can be preempted by another session. The default value is 7. ",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderFrrHoldPrio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.65",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeSenderFrrHopLimit": {
+    "class": "objecttype",
+    "description": "The maximum number of extra hops the backup path is allowed to take, from current node (a PLR) to an MP, with PLR and MP excluded from the count. For example, hop-limit of 0 means that only direct links between PLR and MP can be considered. The default value is 16.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderFrrHopLimit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.66",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeSenderFrrIncludeAll": {
+    "class": "objecttype",
+    "description": "A 32-bit vector representing a set of attribute filters associated with a backup path, all of which must be present for a link to be acceptable (with respect to this test). A null set (all bits set to zero) automatically passes.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderFrrIncludeAll",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.71",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeSenderFrrIncludeAny": {
+    "class": "objecttype",
+    "description": "A 32-bit vector representing a set of attribute filters associated with a backup path, any of which renders a link acceptable (with respect to this test). A null set (all bits set to zero) automatically passes.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderFrrIncludeAny",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.70",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeSenderFrrInuseFlag": {
+    "class": "objecttype",
+    "description": "An enumerable value to indicate the fast-reroute state of this sender (normal, PLR in use, MP in use, PLR in use and MP in use, under protection).",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderFrrInuseFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.72",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mpInUse": 3,
+          "normal": 1,
+          "plrAndMpInUse": 4,
+          "plrInUse": 2,
+          "underProtection": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRsvpTeSenderFrrSetupPrio": {
+    "class": "objecttype",
+    "description": "The priority of the backup path with respect to taking resources, in the range 0 to 7. The value 0 is the highest priority. Setup Priority is used in deciding whether this session can preempt another session. See [RSVP-TE] for the usage on priority. The default value is 7.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderFrrSetupPrio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.64",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeSenderGroup": {
+    "class": "objectgroup",
+    "description": "These objects are required for RSVP Systems.",
+    "name": "hwRsvpTeSenderGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderType"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderDestAddr"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderAddr"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderDestAddrLength"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderAddrLength"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderHopAddr"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderHopLih"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderInterface"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderTSpecRate"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderTSpecPeakRate"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderTSpecBurst"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderTSpecMinTu"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderTSpecMaxTu"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderInterval"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderRsvpHop"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderPolicy"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderAdspecBreak"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderAdspecHopCount"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderAdspecPathBw"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderAdspecMinLatency"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderAdspecMtu"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderAdspecGuaranteedSvc"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderAdspecGuaranteedBreak"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderAdspecGuaranteedCtot"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderAdspecGuaranteedDtot"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderAdspecGuaranteedCsum"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderAdspecGuaranteedDsum"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderAdspecGuaranteedHopCount"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderAdspecGuaranteedPathBw"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderAdspecGuaranteedMinLatency"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderAdspecGuaranteedMtu"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderAdspecCtrlLoadSvc"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderAdspecCtrlLoadBreak"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderAdspecCtrlLoadHopCount"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderAdspecCtrlLoadPathBw"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderAdspecCtrlLoadMinLatency"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderAdspecCtrlLoadMtu"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderTtl"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeLspId"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderMsgIdSndFlag"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderMsgIdSndEpoch"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderMsgIdSndNumber"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderMsgIdRcvFlag"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderMsgIdRcvEpoch"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderMsgIdRcvNumber"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderClassType"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderLabelRequestCtype"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderLabelRequestL3pid"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderLabelRequestAtmMinVpi"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderLabelRequestAtmMinVci"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderLabelRequestAtmMaxVpi"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderLabelRequestAtmMaxVci"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderLabelRequestFrMinDlci"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderLabelRequestFrMaxDlci"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderSessionAttrType"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderSessionAttrSetupPrio"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderSessionAttrHoldPrio"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderSessionAttrFlag"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderSessionAttrName"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderSessionAttrExcludeAny"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderSessionAttrIncludeAny"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderSessionAttrIncludeAll"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderFrrSetupPrio"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderFrrHoldPrio"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderFrrHopLimit"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderFrrFlag"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderFrrBandwidth"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderFrrExcludeAny"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderFrrIncludeAny"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderFrrIncludeAll"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderFrrInuseFlag"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSenderDiffServPsc"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.148.2.1.2",
+    "status": "current"
+  },
+  "hwRsvpTeSenderHopAddr": {
+    "class": "objecttype",
+    "description": "The address used by the previous RSVP hop (which may be the original sender).",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderHopAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRsvpTeSenderHopLih": {
+    "class": "objecttype",
+    "description": "The Logical Interface Handle used by the pre- vious RSVP hop (which may be the original sender).",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderHopLih",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeSenderInterface": {
+    "class": "objecttype",
+    "description": "The ifIndex value of the interface on which this PATH message was most recently received.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderInterface",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeSenderInterval": {
+    "class": "objecttype",
+    "description": "The interval between refresh messages as ad- vertised by the previous hop.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeSenderLabelRequestAtmMaxVci": {
+    "class": "objecttype",
+    "description": "This 16 bit field specifies the upper bound of a block of Virtual Connection Identifiers that is supported on the originating switch. If the VCI is less than 16-bits it must be right justified in this field and preceding bits must be set to zero.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderLabelRequestAtmMaxVci",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.53",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeSenderLabelRequestAtmMaxVpi": {
+    "class": "objecttype",
+    "description": "This 12 bit field specifies the upper bound of a block of Virtual Path Identifiers that is supported on the originating switch. If the VPI is less than 12-bits it must be right justified in this field and preceding bits must be set to zero.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderLabelRequestAtmMaxVpi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.52",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeSenderLabelRequestAtmMinVci": {
+    "class": "objecttype",
+    "description": "This 16 bit field specifies the lower bound of a block of Virtual Connection Identifiers that is supported on the originating switch. If the VCI is less than 16-bits it must be right justified in this field and preceding bits must be set to zero.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderLabelRequestAtmMinVci",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeSenderLabelRequestAtmMinVpi": {
+    "class": "objecttype",
+    "description": "This 12 bit field specifies the lower bound of a block of Virtual Path Identifiers that is supported on the originating switch. If the VPI is less than 12-bits it must be right justified in this field and preceding bits must be set to zero.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderLabelRequestAtmMinVpi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.50",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeSenderLabelRequestCtype": {
+    "class": "objecttype",
+    "description": "The type of label request (without label range, with ATM label range, with frame relay label range, etc).",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderLabelRequestCtype",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.48",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "withAtmLabelRange": 2,
+          "withFrameRelayLabelRange": 3,
+          "withoutLabelRange": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRsvpTeSenderLabelRequestFrMaxDlci": {
+    "class": "objecttype",
+    "description": "This 23-bit field specifies the upper bound of a block of Data Link Connection Identifiers (DLCIs) that is supported on the originating switch. The DLCI must be right justified in this field and unused bits must be set to 0.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderLabelRequestFrMaxDlci",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.55",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeSenderLabelRequestFrMinDlci": {
+    "class": "objecttype",
+    "description": "This 23-bit field specifies the lower bound of a block of Data Link Connection Identifiers (DLCIs) that is supported on the originating switch. The DLCI must be right justified in this field and unused bits must be set to 0.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderLabelRequestFrMinDlci",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.54",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeSenderLabelRequestL3pid": {
+    "class": "objecttype",
+    "description": "An identifier of the layer 3 protocol using this path. Standard Ethertype values are used.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderLabelRequestL3pid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.49",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeSenderMsgIdRcvEpoch": {
+    "class": "objecttype",
+    "description": "The message ID epoch of the message latest received form the interface.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderMsgIdRcvEpoch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.45",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeSenderMsgIdRcvFlag": {
+    "class": "objecttype",
+    "description": "The message ID flag of the message latest received. It is used to identify whether ACK is desired or not. And it can be extended. (0x01: ACK desired.)",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderMsgIdRcvFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.44",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeSenderMsgIdRcvNumber": {
+    "class": "objecttype",
+    "description": "The message ID number of the message latest received form the interface. A return of 0 indicates the absence of the MESSAGE_ID object received.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderMsgIdRcvNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.46",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeSenderMsgIdSndEpoch": {
+    "class": "objecttype",
+    "description": "A value that indicates when the Message_Identi- fier sequence has been reset.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderMsgIdSndEpoch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.42",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeSenderMsgIdSndFlag": {
+    "class": "objecttype",
+    "description": "Indicates that the message sender requests the peer to send an acknowledgment for the message. (0x01: ACK desired.)",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderMsgIdSndFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.41",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeSenderMsgIdSndNumber": {
+    "class": "objecttype",
+    "description": "When combined with the message generator\u0027s IP address, the Message_Identifier field uniquely identifies a message. The values placed in this field change incrementally and only decrease when the Epoch changes or when the value wraps. A return of 0 indicates the absence of the MESSAGE_ID object to be sent.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderMsgIdSndNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.43",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeSenderNumber": {
+    "class": "objecttype",
+    "description": "The number of this sender. This is for SNMP Indexing purposes only and has no relation to any protocol value.",
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeSenderNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeSenderPolicy": {
+    "class": "objecttype",
+    "description": "The contents of the policy object, displayed as an uninterpreted string of octets, including the object header. In the absence of such an object, this should be of zero length.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderPolicy",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 65532,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRsvpTeSenderRsvpHop": {
+    "class": "objecttype",
+    "description": "If TRUE, the node believes that the previous IP hop is an RSVP hop. If FALSE, the node be- lieves that the previous IP hop may not be an RSVP hop.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderRsvpHop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwRsvpTeSenderSessionAttrExcludeAny": {
+    "class": "objecttype",
+    "description": "A 32-bit vector representing a set of attribute filters associated with a tunnel any of which renders a link unacceptable.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderSessionAttrExcludeAny",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.61",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeSenderSessionAttrFlag": {
+    "class": "objecttype",
+    "description": "A mixed value. (0x01: Local protection desired; 0x02: Label recording desired; 0x04: SE Style desired; 0x08: bandwidth protection desired; 0x10: node protection desired; 0x20: Path re-evaluation request; 0x40: Soft preemption desired)",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderSessionAttrFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.59",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeSenderSessionAttrHoldPrio": {
+    "class": "objecttype",
+    "description": "The priority of the session with respect to holding resources, in the range of 0 to 7. The value 0 is the highest priority. Holding Priority is used in deciding whether this session can be preempted by another session. The default value is 7.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderSessionAttrHoldPrio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.58",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeSenderSessionAttrIncludeAll": {
+    "class": "objecttype",
+    "description": "A 32-bit vector representing a set of attribute filters associated with a tunnel all of which must be present for a link to be acceptable (with respect to this test). A null set (all bits set to zero) automatically passes.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderSessionAttrIncludeAll",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.63",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeSenderSessionAttrIncludeAny": {
+    "class": "objecttype",
+    "description": "A 32-bit vector representing a set of attribute filters associated with a tunnel any of which renders a link acceptable (with respect to this test). A null set (all bits set to zero) automatically passes.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderSessionAttrIncludeAny",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.62",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeSenderSessionAttrName": {
+    "class": "objecttype",
+    "description": "Session name, a null padded string of characters.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderSessionAttrName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.60",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRsvpTeSenderSessionAttrSetupPrio": {
+    "class": "objecttype",
+    "description": "The priority of the session with respect to taking resources, in the range of 0 to 7. The value 0 is the highest priority. The Setup Priority is used in deciding whether this session can preempt another session. The default value is 7.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderSessionAttrSetupPrio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.57",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeSenderSessionAttrType": {
+    "class": "objecttype",
+    "description": "The type of the session_attribute (without resource affinities or with resource affinities).",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderSessionAttrType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.56",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "withRa": 1,
+          "withoutRa": 7
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRsvpTeSenderTSpecBurst": {
+    "class": "objecttype",
+    "description": "The size of the largest burst expected from the sender at a time.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderTSpecBurst",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "BurstSize"
+    },
+    "units": "bytes"
+  },
+  "hwRsvpTeSenderTSpecMaxTu": {
+    "class": "objecttype",
+    "description": "The maximum message size for this flow. The admission algorithm will reject TSpecs whose Maximum Transmission Unit, plus the interface headers, exceed the interface MTU.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderTSpecMaxTu",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MessageSize"
+    }
+  },
+  "hwRsvpTeSenderTSpecMinTu": {
+    "class": "objecttype",
+    "description": "The minimum message size for this flow. The policing algorithm will treat smaller messages as though they are this size.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderTSpecMinTu",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MessageSize"
+    }
+  },
+  "hwRsvpTeSenderTSpecPeakRate": {
+    "class": "objecttype",
+    "description": "The Peak Bit Rate of the sender\u0027s data stream. Traffic arrival is not expected to exceed this rate at any time, apart from the effects of jitter in the network. If not specified in the TSpec, this returns zero or noSuchValue.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderTSpecPeakRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "BitRate"
+    },
+    "units": "bits per second"
+  },
+  "hwRsvpTeSenderTSpecRate": {
+    "class": "objecttype",
+    "description": "The Average Bit Rate of the sender\u0027s data stream. Within a transmission burst, the ar- rival rate may be as fast as hwRsvpTeSenderTSpec- PeakRate (if supported by the service model); however, averaged across two or more burst in- tervals, the rate should not exceed hwRsvpTeSen- derTSpecRate. Note that this is a prediction, often based on the general capability of a type of codec or particular encoding; the measured average rate may be significantly lower.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderTSpecRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "BitRate"
+    },
+    "units": "bits per second"
+  },
+  "hwRsvpTeSenderTable": {
+    "class": "objecttype",
+    "description": "Information describing the state information displayed by senders in PATH messages.",
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeSenderTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2",
+    "status": "current"
+  },
+  "hwRsvpTeSenderTtl": {
+    "class": "objecttype",
+    "description": "The TTL value in the RSVP header that was last received.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderTtl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.39",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeSenderType": {
+    "class": "objecttype",
+    "description": "The type of session (IP4, IP6, IP6 with flow information, etc).",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSenderType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SessionType"
+    }
+  },
+  "hwRsvpTeSessionDestAddr": {
+    "class": "objecttype",
+    "description": "The destination address used by all senders in this session.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSessionDestAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRsvpTeSessionDestAddrLength": {
+    "class": "objecttype",
+    "description": "The CIDR prefix length of the session address, which is 32 for IP4 host and multicast ad- dresses, and 128 for IP6 addresses.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSessionDestAddrLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeSessionEntry": {
+    "class": "objecttype",
+    "description": "A single session seen by a given system.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSessionNumber"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeSessionEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.1.1",
+    "status": "current"
+  },
+  "hwRsvpTeSessionGroup": {
+    "class": "objectgroup",
+    "description": "These objects are required for RSVP Systems.",
+    "name": "hwRsvpTeSessionGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSessionType"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSessionDestAddr"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSessionDestAddrLength"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSessionSenders"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSessionReceivers"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSessionRequests"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSessionTunnelId"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSessionTunnelExtId"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSessionLspsNumber"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeSessionStyle"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.148.2.1.1",
+    "status": "current"
+  },
+  "hwRsvpTeSessionLspsNumber": {
+    "class": "objecttype",
+    "description": "The number of LSPs that belong to this session.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSessionLspsNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeSessionNumber": {
+    "class": "objecttype",
+    "description": "The number of this session. This is for SNMP Indexing purposes only and has no relation to any protocol value.",
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeSessionNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeSessionReceivers": {
+    "class": "objecttype",
+    "description": "The number of reservations being requested of this system for this session.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSessionReceivers",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeSessionRequests": {
+    "class": "objecttype",
+    "description": "The number of reservation requests this system is sending upstream for this session.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSessionRequests",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeSessionSenders": {
+    "class": "objecttype",
+    "description": "The number of distinct senders currently known to be part of this session.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSessionSenders",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwRsvpTeSessionStyle": {
+    "class": "objecttype",
+    "description": "An enumerable value to identify the treatment of reservations for different senders within the same session: WF 10001b, FF01010b, SE 10010b.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSessionStyle",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ff": 10,
+          "se": 18,
+          "wf": 17
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRsvpTeSessionTable": {
+    "class": "objecttype",
+    "description": "A table of all sessions seen by a given sys- tem.",
+    "maxaccess": "not-accessible",
+    "name": "hwRsvpTeSessionTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.1",
+    "status": "current"
+  },
+  "hwRsvpTeSessionTunnelExtId": {
+    "class": "objecttype",
+    "description": "An identifier used in the SESSION that remains constant over the life of the tunnel. Normally the identifier is set to all zeros. Ingress nodes that wish to narrow the scope of a SESSION to the ingress-egress pair may place their IPv4 address here as a globally unique identifier. ",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSessionTunnelExtId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwRsvpTeSessionTunnelId": {
+    "class": "objecttype",
+    "description": "A 16-bit identifier used in the SESSION that remains constant over the life of the tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSessionTunnelId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwRsvpTeSessionType": {
+    "class": "objecttype",
+    "description": "The type of session (IP4, IP6, IP6 with flow information, etc).",
+    "maxaccess": "read-only",
+    "name": "hwRsvpTeSessionType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SessionType"
+    }
+  },
+  "hwRsvpTeTrap": {
+    "class": "objectidentity",
+    "name": "hwRsvpTeTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.12.2"
+  },
+  "hwRsvpTeTrapGroup": {
+    "class": "notificationgroup",
+    "description": "Description.",
+    "name": "hwRsvpTeTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeHelloLost"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeHelloLostRecovery"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeAuthFail"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeAuthSuccess"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfNbrThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfNbrThresholdExceedClear"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfNbrTotalCountExceed"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfNbrTotalCountExceedClear"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.148.2.1.12",
+    "status": "current"
+  },
+  "hwRsvpTeTrapObjects": {
+    "class": "objectidentity",
+    "name": "hwRsvpTeTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.148.1.12.1"
+  },
+  "hwRsvpTeTrapObjectsGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwRsvpTeTrapObjectsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeNbr"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfNbrCurrentCount"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfNbrThreshold"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfNbrTotalCount"
+      },
+      {
+        "module": "HUAWEI-RSVPTE-MIB",
+        "object": "hwRsvpTeIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.148.2.1.11",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INTEGRATED-SERVICES-MIB": [
+      "BurstSize",
+      "SessionType",
+      "MessageSize",
+      "QosService",
+      "BitRate"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TimeInterval",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-RSVPTE-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:52 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-RSVPTE-MIB"
+  }
+}

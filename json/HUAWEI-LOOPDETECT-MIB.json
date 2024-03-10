@@ -1,0 +1,324 @@
+{
+  "hwDatacomm": {
+    "class": "objectidentity",
+    "name": "hwDatacomm",
+    "oid": "1.3.6.1.4.1.2011.25"
+  },
+  "hwLoopDetectBlocked": {
+    "class": "notificationtype",
+    "description": "The interface is blocked.",
+    "name": "hwLoopDetectBlocked",
+    "objects": [
+      {
+        "module": "HUAWEI-LOOPDETECT-MIB",
+        "object": "hwLoopDetectCfgPortName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.25.180.2.3",
+    "status": "current"
+  },
+  "hwLoopDetectCfg": {
+    "class": "objecttype",
+    "description": "Indicates whether the loop detect function is enabled.",
+    "maxaccess": "read-only",
+    "name": "hwLoopDetectCfg",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.25.180.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwLoopDetectCfgBlock": {
+    "class": "objecttype",
+    "description": "Indicates whether the interface can enter the blocking state after a loop is detected.",
+    "maxaccess": "read-only",
+    "name": "hwLoopDetectCfgBlock",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.25.180.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwLoopDetectCfgBlockTime": {
+    "class": "objecttype",
+    "description": "Indicates the interval that is used to judge whether the loop disappears and the blocking state ends.",
+    "maxaccess": "read-only",
+    "name": "hwLoopDetectCfgBlockTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.25.180.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwLoopDetectCfgEntry": {
+    "class": "objecttype",
+    "description": "Indicates the entries about the loop detect configuration and blocking state.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-LOOPDETECT-MIB",
+        "object": "hwLoopDetectCfgPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwLoopDetectCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.25.180.1.1",
+    "status": "current"
+  },
+  "hwLoopDetectCfgEntryGroup": {
+    "class": "objectgroup",
+    "description": "Entries about the loop detect configuration and blocking state group.",
+    "name": "hwLoopDetectCfgEntryGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LOOPDETECT-MIB",
+        "object": "hwLoopDetectCfgPortName"
+      },
+      {
+        "module": "HUAWEI-LOOPDETECT-MIB",
+        "object": "hwLoopDetectCfg"
+      },
+      {
+        "module": "HUAWEI-LOOPDETECT-MIB",
+        "object": "hwLoopDetectCfgBlock"
+      },
+      {
+        "module": "HUAWEI-LOOPDETECT-MIB",
+        "object": "hwLoopDetectCfgBlockTime"
+      },
+      {
+        "module": "HUAWEI-LOOPDETECT-MIB",
+        "object": "hwLoopDetectCfgPriority"
+      },
+      {
+        "module": "HUAWEI-LOOPDETECT-MIB",
+        "object": "hwLoopDetectCfgTrigger"
+      },
+      {
+        "module": "HUAWEI-LOOPDETECT-MIB",
+        "object": "hwLoopDetectCfgSta"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.25.180.3.1",
+    "status": "current"
+  },
+  "hwLoopDetectCfgPortIndex": {
+    "class": "objecttype",
+    "description": "Indicates the interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwLoopDetectCfgPortIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.25.180.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLoopDetectCfgPortName": {
+    "class": "objecttype",
+    "description": "Indicates the interface name.",
+    "maxaccess": "read-only",
+    "name": "hwLoopDetectCfgPortName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.25.180.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 80,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLoopDetectCfgPriority": {
+    "class": "objecttype",
+    "description": "Indicates the priority in loop detect.",
+    "maxaccess": "read-only",
+    "name": "hwLoopDetectCfgPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.25.180.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwLoopDetectCfgSta": {
+    "class": "objecttype",
+    "description": "Identify the interface that is blocked after a loop is detected.",
+    "maxaccess": "read-only",
+    "name": "hwLoopDetectCfgSta",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.25.180.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwLoopDetectCfgTable": {
+    "class": "objecttype",
+    "description": "Indicates the table that shows the loop detect configuration and blocking state.",
+    "maxaccess": "not-accessible",
+    "name": "hwLoopDetectCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.25.180.1",
+    "status": "current"
+  },
+  "hwLoopDetectCfgTrigger": {
+    "class": "objecttype",
+    "description": "Indicates whether the function of immediate interface Down/Up is triggered after a loop is detected.",
+    "maxaccess": "read-only",
+    "name": "hwLoopDetectCfgTrigger",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.25.180.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwLoopDetectDisabled": {
+    "class": "notificationtype",
+    "description": "The loop detect function is disabled.",
+    "name": "hwLoopDetectDisabled",
+    "objects": [
+      {
+        "module": "HUAWEI-LOOPDETECT-MIB",
+        "object": "hwLoopDetectCfgPortName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.25.180.2.2",
+    "status": "current"
+  },
+  "hwLoopDetectEnabled": {
+    "class": "notificationtype",
+    "description": "The loop detect function is enabled.",
+    "name": "hwLoopDetectEnabled",
+    "objects": [
+      {
+        "module": "HUAWEI-LOOPDETECT-MIB",
+        "object": "hwLoopDetectCfgPortName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.25.180.2.1",
+    "status": "current"
+  },
+  "hwLoopDetectGroups": {
+    "class": "objectidentity",
+    "name": "hwLoopDetectGroups",
+    "oid": "1.3.6.1.4.1.2011.25.180.3"
+  },
+  "hwLoopDetectMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "L2-Adp Team Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China http://www.huawei.com Zip:100085 ",
+    "description": "The LoopDetect MIB module is defined to indicate loop-detect function of Huawei Technologies co.,Ltd.",
+    "lastupdated": "200810070000Z",
+    "name": "hwLoopDetectMIB",
+    "oid": "1.3.6.1.4.1.2011.25.180",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwLoopDetectTraps": {
+    "class": "objectidentity",
+    "name": "hwLoopDetectTraps",
+    "oid": "1.3.6.1.4.1.2011.25.180.2"
+  },
+  "hwLoopDetectTrapsGroup": {
+    "class": "notificationgroup",
+    "description": "Loop-detect traps group.",
+    "name": "hwLoopDetectTrapsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LOOPDETECT-MIB",
+        "object": "hwLoopDetectEnabled"
+      },
+      {
+        "module": "HUAWEI-LOOPDETECT-MIB",
+        "object": "hwLoopDetectDisabled"
+      },
+      {
+        "module": "HUAWEI-LOOPDETECT-MIB",
+        "object": "hwLoopDetectBlocked"
+      },
+      {
+        "module": "HUAWEI-LOOPDETECT-MIB",
+        "object": "hwLoopDetectUnBlocked"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.25.180.3.2",
+    "status": "current"
+  },
+  "hwLoopDetectUnBlocked": {
+    "class": "notificationtype",
+    "description": "The interface is unblocked.",
+    "name": "hwLoopDetectUnBlocked",
+    "objects": [
+      {
+        "module": "HUAWEI-LOOPDETECT-MIB",
+        "object": "hwLoopDetectCfgPortName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.25.180.2.4",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "huawei"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "MibIdentifier",
+      "TimeTicks",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Counter64",
+      "Unsigned32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-LOOPDETECT-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:59 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-LOOPDETECT-MIB"
+  }
+}

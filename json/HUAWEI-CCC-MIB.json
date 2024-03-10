@@ -1,0 +1,789 @@
+{
+  "hwCCCMIBCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-KOMPELLA-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcGroup"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcStatisticsGroup"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCNotificationControlGroup"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcStateChangeReasonGroup"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCNotificationGroup"
+      }
+    ],
+    "name": "hwCCCMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.3.1.1",
+    "status": "current"
+  },
+  "hwCCCMIBCompliances": {
+    "class": "objectidentity",
+    "name": "hwCCCMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.3.1"
+  },
+  "hwCCCMIBConformance": {
+    "class": "objectidentity",
+    "name": "hwCCCMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.3"
+  },
+  "hwCCCMIBGroups": {
+    "class": "objectidentity",
+    "name": "hwCCCMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.3.2"
+  },
+  "hwCCCMIBObjects": {
+    "class": "objectidentity",
+    "name": "hwCCCMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1"
+  },
+  "hwCCCMIBTraps": {
+    "class": "objectidentity",
+    "name": "hwCCCMIBTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.2"
+  },
+  "hwCCCNotificationControlGroup": {
+    "class": "objectgroup",
+    "description": "The CCC\u0027s Notification Control group.",
+    "name": "hwCCCNotificationControlGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcUpDownNotifEnable"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcDeletedNotifEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.3.2.3",
+    "status": "current"
+  },
+  "hwCCCNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "The CCC Notification group.",
+    "name": "hwCCCNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcDown"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcUp"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcDeleted"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.3.2.5",
+    "status": "current"
+  },
+  "hwCCCVcAtmPackOvertime": {
+    "class": "objecttype",
+    "description": "Specifies the AtmPackOvertime.",
+    "maxaccess": "read-create",
+    "name": "hwCCCVcAtmPackOvertime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwCCCVcConnectionType": {
+    "class": "objecttype",
+    "description": "This object indicates the VC connection type.",
+    "maxaccess": "read-create",
+    "name": "hwCCCVcConnectionType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "remote": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCCCVcCtrlWord": {
+    "class": "objecttype",
+    "description": "This object indicates the control word capability. This value need not be designated if the CCC is local.",
+    "maxaccess": "read-create",
+    "name": "hwCCCVcCtrlWord",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwCCCVcDeleted": {
+    "class": "notificationtype",
+    "description": "This notification indicates the VC is deleted.",
+    "name": "hwCCCVcDeleted",
+    "objects": [
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcIfIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.2.3",
+    "status": "current"
+  },
+  "hwCCCVcDeletedNotifEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "This object indicates the enable sign of CCC VC deletion notification.",
+    "maxaccess": "read-write",
+    "name": "hwCCCVcDeletedNotifEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwCCCVcDown": {
+    "class": "notificationtype",
+    "description": "This notification indicates the VC\u0027s state changes to down.",
+    "name": "hwCCCVcDown",
+    "objects": [
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcIfIndex"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcStateChangeReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.2.1",
+    "status": "current"
+  },
+  "hwCCCVcEncapType": {
+    "class": "objecttype",
+    "description": "This object indicates the service to be carried.",
+    "maxaccess": "read-create",
+    "name": "hwCCCVcEncapType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWL2VpnVcEncapsType"
+    }
+  },
+  "hwCCCVcEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of a CCC entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwCCCVcEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.1.1",
+    "status": "current"
+  },
+  "hwCCCVcGroup": {
+    "class": "objectgroup",
+    "description": "The CCC\u0027s VC group.",
+    "name": "hwCCCVcGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcConnectionType"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcEncapType"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcIfIndex"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcInboundlabel"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcOutboundlabel"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcOutIfIndex"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcNextHop"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcCtrlWord"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcOperStatus"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcUpStartTime"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcUpSumTime"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcMaxAtmCells"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcAtmPackOvertime"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcPwJitterBufferDepth"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcPwTdmEncapsulationNum"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcPwIdleCode"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcPwRtpHeader"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcIpInterworking"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.3.2.1",
+    "status": "current"
+  },
+  "hwCCCVcIfIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the AC ifIndex. 0 is invalid ifIndex.",
+    "maxaccess": "read-create",
+    "name": "hwCCCVcIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwCCCVcInboundlabel": {
+    "class": "objecttype",
+    "description": "This object indicates the static inbound label. This value need not be designated if the CCC is local.",
+    "maxaccess": "read-create",
+    "name": "hwCCCVcInboundlabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwCCCVcIpInterworking": {
+    "class": "objecttype",
+    "description": "This object indicates the enable sign of the IP interworking.",
+    "maxaccess": "read-create",
+    "name": "hwCCCVcIpInterworking",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwCCCVcMaxAtmCells": {
+    "class": "objecttype",
+    "description": "Specifies the MaxAtmCells.",
+    "maxaccess": "read-create",
+    "name": "hwCCCVcMaxAtmCells",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwCCCVcName": {
+    "class": "objecttype",
+    "description": "The human-readable name of this CCC.",
+    "maxaccess": "not-accessible",
+    "name": "hwCCCVcName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 20,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwCCCVcNextHop": {
+    "class": "objecttype",
+    "description": "This object indicates the next hop IP address of the out interface in the side of PSN. For the interface of ATM or FR or Ethernet, the next hop address must be used. Don\u0027t use the out interface in this case.",
+    "maxaccess": "read-create",
+    "name": "hwCCCVcNextHop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwCCCVcOperStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the operation status.",
+    "maxaccess": "read-only",
+    "name": "hwCCCVcOperStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCCCVcOutIfIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the ifIndex of the out interface in the side of PSN, or the ifIndex of the out interface in the side of AC if the CCC is local cross. 0 is invalid ifIndex.",
+    "maxaccess": "read-create",
+    "name": "hwCCCVcOutIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwCCCVcOutboundlabel": {
+    "class": "objecttype",
+    "description": "This object indicates the static outbound label. This value need not be designated if the CCC is local.",
+    "maxaccess": "read-create",
+    "name": "hwCCCVcOutboundlabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwCCCVcPwIdleCode": {
+    "class": "objecttype",
+    "description": "Specifies the PwIdleCode.",
+    "maxaccess": "read-create",
+    "name": "hwCCCVcPwIdleCode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwCCCVcPwJitterBufferDepth": {
+    "class": "objecttype",
+    "description": "Specifies the PwJitterBufferDepth.",
+    "maxaccess": "read-create",
+    "name": "hwCCCVcPwJitterBufferDepth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwCCCVcPwRtpHeader": {
+    "class": "objecttype",
+    "description": "Specifies the PwRtpHeader.",
+    "maxaccess": "read-create",
+    "name": "hwCCCVcPwRtpHeader",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwCCCVcPwTdmEncapsulationNum": {
+    "class": "objecttype",
+    "description": "Specifies the PwTdmEncapsulationNum.",
+    "maxaccess": "read-create",
+    "name": "hwCCCVcPwTdmEncapsulationNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwCCCVcRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus for this Table.",
+    "maxaccess": "read-create",
+    "name": "hwCCCVcRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.1.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwCCCVcStateChangeReason": {
+    "class": "objecttype",
+    "description": "This object indicates the reason of CCC VC state change.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwCCCVcStateChangeReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWL2VpnStateChangeReason"
+    }
+  },
+  "hwCCCVcStateChangeReasonGroup": {
+    "class": "objectgroup",
+    "description": "The CCC\u0027s Vc State Change Reason group.",
+    "name": "hwCCCVcStateChangeReasonGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcStateChangeReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.3.2.4",
+    "status": "current"
+  },
+  "hwCCCVcStatisticsEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of the CCC\u0027s VC packets Statistics.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcStatisticsIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwCCCVcStatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.2.1",
+    "status": "current"
+  },
+  "hwCCCVcStatisticsGroup": {
+    "class": "objectgroup",
+    "description": "The CCC\u0027s VC Statistics group.",
+    "name": "hwCCCVcStatisticsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcStatisticsRcvPkts"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcStatisticsRcvBytes"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcStatisticsSndPkts"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcStatisticsSndBytes"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.3.2.2",
+    "status": "current"
+  },
+  "hwCCCVcStatisticsIfIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the AC ifIndex. The CCC will have two AC which need to be displayed if the CCC is local cross.",
+    "maxaccess": "not-accessible",
+    "name": "hwCCCVcStatisticsIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwCCCVcStatisticsRcvBytes": {
+    "class": "objecttype",
+    "description": "The total number of bytes received on this VC.",
+    "maxaccess": "read-only",
+    "name": "hwCCCVcStatisticsRcvBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCCCVcStatisticsRcvPkts": {
+    "class": "objecttype",
+    "description": "The total number of packets received on this VC.",
+    "maxaccess": "read-only",
+    "name": "hwCCCVcStatisticsRcvPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCCCVcStatisticsSndBytes": {
+    "class": "objecttype",
+    "description": "The total number of bytes sent on the VC.",
+    "maxaccess": "read-only",
+    "name": "hwCCCVcStatisticsSndBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCCCVcStatisticsSndPkts": {
+    "class": "objecttype",
+    "description": "The total number of packets sent on this VC.",
+    "maxaccess": "read-only",
+    "name": "hwCCCVcStatisticsSndPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwCCCVcStatisticsTable": {
+    "class": "objecttype",
+    "description": "This table contains the CCC\u0027s VC packets statistics.",
+    "maxaccess": "not-accessible",
+    "name": "hwCCCVcStatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.2",
+    "status": "current"
+  },
+  "hwCCCVcTable": {
+    "class": "objecttype",
+    "description": "This table is the CCC\u0027s configuration table. Users can create or delete the CCC by it.",
+    "maxaccess": "not-accessible",
+    "name": "hwCCCVcTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.1",
+    "status": "current"
+  },
+  "hwCCCVcUp": {
+    "class": "notificationtype",
+    "description": "This notification indicates the VC\u0027s state changes to up.",
+    "name": "hwCCCVcUp",
+    "objects": [
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcIfIndex"
+      },
+      {
+        "module": "HUAWEI-CCC-MIB",
+        "object": "hwCCCVcStateChangeReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.2.2",
+    "status": "current"
+  },
+  "hwCCCVcUpDownNotifEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "This object indicates the enable sign of CCC VC state change notification.",
+    "maxaccess": "read-write",
+    "name": "hwCCCVcUpDownNotifEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwCCCVcUpStartTime": {
+    "class": "objecttype",
+    "description": "Specifies the time this VC status was Up(1).",
+    "maxaccess": "read-only",
+    "name": "hwCCCVcUpStartTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwCCCVcUpSumTime": {
+    "class": "objecttype",
+    "description": "Specifies the cumulate time this VC status has been Up(1).",
+    "maxaccess": "read-only",
+    "name": "hwCCCVcUpSumTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwL2Vpn": {
+    "class": "objectidentity",
+    "name": "hwL2Vpn",
+    "oid": "1.3.6.1.4.1.2011.5.25.119"
+  },
+  "hwL2VpnCCC": {
+    "class": "moduleidentity",
+    "contactinfo": "R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com",
+    "description": "The HUAWEI-CCC-MIB contains objects to manage KOMPELLA.",
+    "lastupdated": "200605110900Z",
+    "name": "hwL2VpnCCC",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.3",
+    "organization": "Huawei Technologies Co., Ltd."
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "HUAWEI-VPLS-EXT-MIB": [
+      "HWL2VpnStateChangeReason",
+      "HWL2VpnVcEncapsType",
+      "HWEnableValue"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Integer32",
+      "Unsigned32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-CCC-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:01 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-CCC-MIB"
+  }
+}

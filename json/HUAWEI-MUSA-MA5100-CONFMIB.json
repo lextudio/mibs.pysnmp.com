@@ -1,0 +1,5611 @@
+{
+  "DisplayString": {
+    "class": "type",
+    "name": "DisplayString",
+    "type": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "adlbAs0DnRate": {
+    "class": "objecttype",
+    "description": " AS0\u0368 \u03bb:32KbPS ",
+    "maxaccess": "read-only",
+    "name": "adlbAs0DnRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAs1DnRate": {
+    "class": "objecttype",
+    "description": " AS1\u0368 \u03bb:32KbPS ",
+    "maxaccess": "read-only",
+    "name": "adlbAs1DnRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucAlarmValidIntervals": {
+    "class": "objecttype",
+    "description": " \u073c\u0427\u02b1 (\u03bb:15) ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucAlarmValidIntervals",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.2.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucBgBENotSES": {
+    "class": "objecttype",
+    "description": " \u02f7\u06b7\u06bcBACKGROUND ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucBgBENotSES",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.4.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucBitswaps": {
+    "class": "objecttype",
+    "description": " \u02f7\u0131\u063d\u073c ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucBitswaps",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.4.1.14",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucCrcErrFast": {
+    "class": "objecttype",
+    "description": " \u02ff\u0368CRC\u0133\u05a1\u073c ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucCrcErrFast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.4.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucCrcErrInterleave": {
+    "class": "objecttype",
+    "description": " \u02fd\u05af\u0368CRC\u0133\u05a1\u073c ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucCrcErrInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.4.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucCurr1DayBgBENotSES": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u02f7\u06b7\u06bcBACKGROUND ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucCurr1DayBgBENotSES",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.6.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucCurr1DayBitswaps": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u02f7\u0131\u063d ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucCurr1DayBitswaps",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.6.1.14",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucCurr1DayCrcErrFast": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u02ff\u0368CRC\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucCurr1DayCrcErrFast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.6.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucCurr1DayCrcErrInterleave": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u02fd\u05af\u0368CRC\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucCurr1DayCrcErrInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.6.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucCurr1DayErrFrames": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u02fc\u0434\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucCurr1DayErrFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.6.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucCurr1DayErrSecond": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucCurr1DayErrSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.6.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucCurr1DayFastRetrain": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0475\u0134 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucCurr1DayFastRetrain",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.6.1.17",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucCurr1DayFastRetrainFail": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0475\u02a7\u0735\u0134 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucCurr1DayFastRetrainFail",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.6.1.18",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucCurr1DayFecErrFast": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u02ff\u0368FEC\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucCurr1DayFecErrFast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.6.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucCurr1DayFecErrInterleave": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u02fd\u05af\u0368FEC\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucCurr1DayFecErrInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.6.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucCurr1DayFecSecond": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u02f7\u04bbFEC ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucCurr1DayFecSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.6.1.16",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucCurr1DayHighBitErr": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u02f8bit ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucCurr1DayHighBitErr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.2.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucCurr1DayLof": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1LOF ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucCurr1DayLof",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.2.1.13",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucCurr1DayLos": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u017a\u0176\u02a7 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucCurr1DayLos",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.2.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucCurr1DayLossSecond": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u02f6\u02a7 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucCurr1DayLossSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.6.1.15",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucCurr1DayNonSESFrames": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucCurr1DayNonSESFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.6.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucCurr1DayRetrain": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u00b7\u0536\u0475 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucCurr1DayRetrain",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.2.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucCurr1DaySevereErrSecond": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucCurr1DaySevereErrSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.6.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucCurr1DaySuperFrameReceived": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0575\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucCurr1DaySuperFrameReceived",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.6.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucCurr1DaySuperFrameSent": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0375\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucCurr1DaySuperFrameSent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.6.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucCurr1DayTimeCount": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u02fc\u05a1\u02b1,4000frames=1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucCurr1DayTimeCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.6.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucCurr1DayUnavailableSecond": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u02f2\u02b1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucCurr1DayUnavailableSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.6.1.13",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucErrFrames": {
+    "class": "objecttype",
+    "description": " \u02fc\u0434\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucErrFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.4.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucErrSecond": {
+    "class": "objecttype",
+    "description": " ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucErrSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.4.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucFastRetrain": {
+    "class": "objecttype",
+    "description": " \u0475\u0734 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucFastRetrain",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.4.1.17",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucFastRetrainFail": {
+    "class": "objecttype",
+    "description": " \u0475\u02a7\u0735\u0734 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucFastRetrainFail",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.4.1.18",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucFebeFastState": {
+    "class": "objecttype",
+    "description": " \u02f7\u01fd\u05af\u0368CRC\u0423,\u03f1FEBE:\u0536\u02ff ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucFebeFastState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.12.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucFebeInterleaveState": {
+    "class": "objecttype",
+    "description": " \u02fd\u05af\u0368CRC\u0423,\u03f1FEBE:\u0536\u02ff ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucFebeInterleaveState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.12.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucFecErrFast": {
+    "class": "objecttype",
+    "description": " \u02ff\u0368FEC\u0133\u05a1\u073c ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucFecErrFast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.4.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucFecErrInterleave": {
+    "class": "objecttype",
+    "description": " \u02fd\u05af\u0368FEC\u0133\u05a1\u073c ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucFecErrInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.4.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucFecFastState": {
+    "class": "objecttype",
+    "description": " \u02f7\u01fd\u05af\u0368\u01f0\u0423\u05b8\u02be ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucFecFastState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.12.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucFecInterleaveState": {
+    "class": "objecttype",
+    "description": " \u02fd\u05af\u0368\u01f0\u0423\u05b8\u02be ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucFecInterleaveState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.12.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucFecSecond": {
+    "class": "objecttype",
+    "description": " \u02f7\u04bbFEC ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucFecSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.4.1.16",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucHecFast": {
+    "class": "objecttype",
+    "description": " \u02ff\u0368\u052a\u0377\u0423\u05b8\u02be ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucHecFast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.14.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucHecInterleave": {
+    "class": "objecttype",
+    "description": " \u02fd\u05af\u0368\u052a\u0377\u0423\u05b8\u02be ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucHecInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.14.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucHighBitErr": {
+    "class": "objecttype",
+    "description": " \u02f8bit\u073c ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucHighBitErr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.2.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucLcdFast": {
+    "class": "objecttype",
+    "description": " \u02f7\u01fd\u05af\u0368\u052a\u7daa\u02a7 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucLcdFast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.14.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucLcdInterleave": {
+    "class": "objecttype",
+    "description": " \u02fd\u05af\u0368\u052a\u7daa\u02a7 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucLcdInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.14.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucLof": {
+    "class": "objecttype",
+    "description": " LOF\u073c ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucLof",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.2.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucLofState": {
+    "class": "objecttype",
+    "description": " \u05a1\u02a7 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucLofState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.12.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucLos": {
+    "class": "objecttype",
+    "description": " \u017a\u0176\u02a7\u073c ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucLos",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.2.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucLosState": {
+    "class": "objecttype",
+    "description": " \u017a\u02a7 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucLosState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.12.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucLossSecond": {
+    "class": "objecttype",
+    "description": " \u02f6\u02a7 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucLossSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.4.1.15",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucLpsState": {
+    "class": "objecttype",
+    "description": " \u02f6\u02a7\u01b5\u017a ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucLpsState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.12.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucNcdFast": {
+    "class": "objecttype",
+    "description": " \u02ff\u0368\u052a\u05b8\u02be ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucNcdFast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.14.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucNcdInterleave": {
+    "class": "objecttype",
+    "description": " \u02fd\u05af\u0368\u052a\u05b8\u02be ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucNcdInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.14.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucNonSESFrames": {
+    "class": "objecttype",
+    "description": " \u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucNonSESFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.4.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucOamSwBuildDate": {
+    "class": "objecttype",
+    "description": " OAM\u0123 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucOamSwBuildDate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.1.1.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "adlbAtucOamSwVer": {
+    "class": "objecttype",
+    "description": " OAM\u0123\u0130\u6c7e ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucOamSwVer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.1.1.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "adlbAtucOcdFast": {
+    "class": "objecttype",
+    "description": " \u02f7\u01fd\u05af\u0368\u052a\u7daa\u02a7\u05b8\u02be ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucOcdFast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.14.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucOcdInterleave": {
+    "class": "objecttype",
+    "description": " \u02fd\u05af\u0368\u052a\u7daa\u02a7\u05b8\u02be ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucOcdInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.14.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPerfValidIntervals": {
+    "class": "objecttype",
+    "description": " \u0373\u073c\u0427\u02b1 (\u03bb:15) ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPerfValidIntervals",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.4.1.19",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev15MinBgBENotSES": {
+    "class": "objecttype",
+    "description": " \u01f015\u04fd\u02f7\u06b7\u06bcBACKGROUND ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev15MinBgBENotSES",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.5.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev15MinBitswaps": {
+    "class": "objecttype",
+    "description": " \u01f015\u04fd\u02f7\u0131\u063d ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev15MinBitswaps",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.5.1.14",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev15MinCrcErrFast": {
+    "class": "objecttype",
+    "description": " \u01f015\u04fd\u02ff\u0368CRC\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev15MinCrcErrFast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.5.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev15MinCrcErrInterleave": {
+    "class": "objecttype",
+    "description": " \u01f015\u04fd\u02fd\u05af\u0368CRC\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev15MinCrcErrInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.5.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev15MinErrFrames": {
+    "class": "objecttype",
+    "description": " \u01f015\u04fd\u02fc\u0434\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev15MinErrFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.5.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev15MinErrSecond": {
+    "class": "objecttype",
+    "description": " \u01f015\u04fd ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev15MinErrSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.5.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev15MinFastRetrain": {
+    "class": "objecttype",
+    "description": " \u01f015\u04f7\u0475\u0134 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev15MinFastRetrain",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.5.1.17",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev15MinFastRetrainFail": {
+    "class": "objecttype",
+    "description": " \u01f015\u04ff\u0475\u02a7\u0735\u0134 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev15MinFastRetrainFail",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.5.1.18",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev15MinFecErrFast": {
+    "class": "objecttype",
+    "description": " \u01f015\u04fd\u02ff\u0368FEC\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev15MinFecErrFast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.5.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev15MinFecErrInterleave": {
+    "class": "objecttype",
+    "description": " \u01f015\u04fd\u02fd\u05af\u0368FEC\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev15MinFecErrInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.5.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev15MinFecSecond": {
+    "class": "objecttype",
+    "description": " \u01f015\u04fd\u02f7\u04bbFEC ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev15MinFecSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.5.1.16",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev15MinHighBitErr": {
+    "class": "objecttype",
+    "description": " \u01f015\u04fd\u02f8bit ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev15MinHighBitErr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.2.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev15MinLof": {
+    "class": "objecttype",
+    "description": " \u01f015\u04fdLOF ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev15MinLof",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.2.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev15MinLos": {
+    "class": "objecttype",
+    "description": " \u01f015\u04fd\u017a\u0176\u02a7 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev15MinLos",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.2.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev15MinLossSecond": {
+    "class": "objecttype",
+    "description": " \u01f015\u04fd\u02f6\u02a7 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev15MinLossSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.5.1.15",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev15MinNonSESFrames": {
+    "class": "objecttype",
+    "description": " \u01f015\u04fd\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev15MinNonSESFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.5.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev15MinRetrain": {
+    "class": "objecttype",
+    "description": " \u01f015\u00b7\u0536\u0475 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev15MinRetrain",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.2.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev15MinSevereErrSecond": {
+    "class": "objecttype",
+    "description": " \u01f015\u04fd ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev15MinSevereErrSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.5.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev15MinSuperFrameReceived": {
+    "class": "objecttype",
+    "description": " \u01f015\u04fd\u0575\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev15MinSuperFrameReceived",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.5.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev15MinSuperFrameSent": {
+    "class": "objecttype",
+    "description": " \u01f015\u04f7\u0375\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev15MinSuperFrameSent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.5.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev15MinTimeCount": {
+    "class": "objecttype",
+    "description": " \u01f015\u04fd\u02fc\u05a1\u02b1,4000frames=1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev15MinTimeCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.5.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev15MinUnavailableSecond": {
+    "class": "objecttype",
+    "description": " \u01f015\u04fd\u02f2\u02b1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev15MinUnavailableSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.5.1.13",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev1DayBgBENotSES": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u02f7\u06b7\u06bcBACKGROUND ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev1DayBgBENotSES",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.7.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev1DayBitswaps": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u02f7\u0131\u063d ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev1DayBitswaps",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.7.1.14",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev1DayCrcErrFast": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u02ff\u0368CRC\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev1DayCrcErrFast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.7.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev1DayCrcErrInterleave": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u02fd\u05af\u0368CRC\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev1DayCrcErrInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.7.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev1DayErrFrames": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u02fc\u0434\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev1DayErrFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.7.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev1DayErrSecond": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev1DayErrSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.7.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev1DayFastRetrain": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0475\u0134 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev1DayFastRetrain",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.7.1.17",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev1DayFastRetrainFail": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0475\u02a7\u0735\u0134 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev1DayFastRetrainFail",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.7.1.18",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev1DayFecErrFast": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u02ff\u0368FEC\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev1DayFecErrFast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.7.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev1DayFecErrInterleave": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u02fd\u05af\u0368FEC\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev1DayFecErrInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.7.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev1DayFecSecond": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u02f7\u04bbFEC ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev1DayFecSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.7.1.16",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev1DayHighBitErr": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u02f8bit ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev1DayHighBitErr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.2.1.15",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev1DayLof": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1LOF ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev1DayLof",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.2.1.17",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev1DayLos": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u017a\u0176\u02a7 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev1DayLos",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.2.1.14",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev1DayLossSecond": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u02f6\u02a7 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev1DayLossSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.7.1.15",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev1DayNonSESFrames": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev1DayNonSESFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.7.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev1DayRetrain": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u00b7\u0536\u0475 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev1DayRetrain",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.2.1.16",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev1DaySevereErrSecond": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev1DaySevereErrSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.7.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev1DaySuperFrameReceived": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0575\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev1DaySuperFrameReceived",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.7.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev1DaySuperFrameSent": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0375\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev1DaySuperFrameSent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.7.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev1DayTimeCount": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u02fc\u05a1\u02b1,4000frames=1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev1DayTimeCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.7.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucPrev1DayUnavailableSecond": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u02f2\u02b1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucPrev1DayUnavailableSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.7.1.13",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucRetrain": {
+    "class": "objecttype",
+    "description": " \u00b7\u0536\u0475\u073c ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucRetrain",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.2.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucRomSwBuildDate": {
+    "class": "objecttype",
+    "description": " MODEM\u033b ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucRomSwBuildDate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.1.1.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "adlbAtucRomSwVer": {
+    "class": "objecttype",
+    "description": " MODEM\u033b\u0130\u6c7e ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucRomSwVer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.1.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "adlbAtucSefState": {
+    "class": "objecttype",
+    "description": " \u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucSefState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.12.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucSevereErrSecond": {
+    "class": "objecttype",
+    "description": " ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucSevereErrSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.4.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucSuperFrameReceived": {
+    "class": "objecttype",
+    "description": " \u0575\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucSuperFrameReceived",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.4.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucSuperFrameSent": {
+    "class": "objecttype",
+    "description": " \u0375\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucSuperFrameSent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.4.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucTimeCount": {
+    "class": "objecttype",
+    "description": " \u02fc\u05a1\u02b1,4000frames=1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucTimeCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.4.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucUnavailableSecond": {
+    "class": "objecttype",
+    "description": " \u02f2\u02b1\u073c ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucUnavailableSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.4.1.13",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucVendorId": {
+    "class": "objecttype",
+    "description": " \u04e6ID ,\u05bbT1.413\u02bd\u00b2 ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucVendorId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.1.1.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAtucVersionNo": {
+    "class": "objecttype",
+    "description": " \u04e6\u0335\u0130\u6c7e\u0163T.1413G.HS\u02bd ",
+    "maxaccess": "read-only",
+    "name": "adlbAtucVersionNo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.1.1.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturAdslCapability": {
+    "class": "objecttype",
+    "description": " ATURADSL 0:not support1:support; bit0--T1.413 issue2 bit2--g992.1 POTS non-overlapped spectrum bit3--g992.1 POTS overlapped specturm bit4--g992.1 ISDN non-overlapped spectrum bit5--g992.1 ISDN overlapped spectrum bit6--g992.1 operation in conjunction with TCM-ISDN non-overlapped spectrum bit7--g992.1 operation in conjunction with TCM-ISDN overlapped spectrum bit8--g992.2 POTS non-overlapped spectrum bit9--g992.2 POTS overlapped specturm bit10--g992.2 operation in conjunction with TCM-ISDN non-overlapped spectrum bit11--g992.2 operation in conjunction with TCM-ISDN overlapped spectrum ",
+    "maxaccess": "read-only",
+    "name": "adlbAturAdslCapability",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.1.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturAlarmValidIntervals": {
+    "class": "objecttype",
+    "description": " \u073c\u0427\u02b1 (\u03bb:15) ",
+    "maxaccess": "read-only",
+    "name": "adlbAturAlarmValidIntervals",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.3.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturBgBENotSES": {
+    "class": "objecttype",
+    "description": " \u0536\u02f7\u06b7\u06bcBACKGROUND ",
+    "maxaccess": "read-only",
+    "name": "adlbAturBgBENotSES",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.8.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturCountryCode": {
+    "class": "objecttype",
+    "description": " ATUR\u04e6\u0335\u0139\u04b4 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturCountryCode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.1.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturCrcErrFast": {
+    "class": "objecttype",
+    "description": " \u0536\u02ff\u0368CRC\u0133\u05a1\u073c ",
+    "maxaccess": "read-only",
+    "name": "adlbAturCrcErrFast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.8.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturCrcErrInterleave": {
+    "class": "objecttype",
+    "description": " \u0536\u02fd\u05af\u0368CRC\u0133\u05a1\u073c ",
+    "maxaccess": "read-only",
+    "name": "adlbAturCrcErrInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.8.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturCurr1DayBgBENotSES": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536\u02f7\u06b7\u06bcBACKGROUND ",
+    "maxaccess": "read-only",
+    "name": "adlbAturCurr1DayBgBENotSES",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.10.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturCurr1DayCrcErrFast": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536\u02ff\u0368CRC\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturCurr1DayCrcErrFast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.10.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturCurr1DayCrcErrInterleave": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536\u02fd\u05af\u0368CRC\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturCurr1DayCrcErrInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.10.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturCurr1DayErrFrames": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536\u02fc\u0434\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturCurr1DayErrFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.10.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturCurr1DayErrSecond": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturCurr1DayErrSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.10.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturCurr1DayFecErrFast": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536\u02ff\u0368FEC\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturCurr1DayFecErrFast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.10.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturCurr1DayFecErrInterleave": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536\u02fd\u05af\u0368FEC\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturCurr1DayFecErrInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.10.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturCurr1DayFecSecond": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536\u02f7\u04bbFEC ",
+    "maxaccess": "read-only",
+    "name": "adlbAturCurr1DayFecSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.10.1.13",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturCurr1DayHighBitErr": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536\u02f8bit ",
+    "maxaccess": "read-only",
+    "name": "adlbAturCurr1DayHighBitErr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.3.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturCurr1DayLos": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536\u017a\u0176\u02a7 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturCurr1DayLos",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.3.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturCurr1DayLossSecond": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536\u02f6\u02a7 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturCurr1DayLossSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.10.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturCurr1DayLpr": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536ATU-R\u0534\u02a7 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturCurr1DayLpr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.3.1.13",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturCurr1DayNonSESFrames": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturCurr1DayNonSESFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.10.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturCurr1DayRfi": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536RFI ",
+    "maxaccess": "read-only",
+    "name": "adlbAturCurr1DayRfi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.3.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturCurr1DaySevereErrSecond": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturCurr1DaySevereErrSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.10.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturCurr1DayTimeCount": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536\u02fc\u05a1\u02b1,4000frames=1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturCurr1DayTimeCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.10.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturCurr1DayUnavailableSecond": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536\u02f2\u02b1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturCurr1DayUnavailableSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.10.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturErrFrames": {
+    "class": "objecttype",
+    "description": " \u0536\u02fc\u0434\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturErrFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.8.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturErrSecond": {
+    "class": "objecttype",
+    "description": " \u0536 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturErrSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.8.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturFebeFastState": {
+    "class": "objecttype",
+    "description": " \u0536\u02f7\u01fd\u05af\u0368CRC\u0423,\u03f1FEBE:\u0536\u02ff ",
+    "maxaccess": "read-only",
+    "name": "adlbAturFebeFastState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.13.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturFebeInterleaveState": {
+    "class": "objecttype",
+    "description": " \u0536\u02fd\u05af\u0368CRC\u0423,\u03f1FEBE:\u0536\u02ff ",
+    "maxaccess": "read-only",
+    "name": "adlbAturFebeInterleaveState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.13.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturFecErrFast": {
+    "class": "objecttype",
+    "description": " \u0536\u02ff\u0368FEC\u0133\u05a1\u073c ",
+    "maxaccess": "read-only",
+    "name": "adlbAturFecErrFast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.8.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturFecErrInterleave": {
+    "class": "objecttype",
+    "description": " \u0536\u02fd\u05af\u0368FEC\u0133\u05a1\u073c ",
+    "maxaccess": "read-only",
+    "name": "adlbAturFecErrInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.8.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturFecFastState": {
+    "class": "objecttype",
+    "description": " \u0536\u02f7\u01fd\u05af\u0368\u01f0\u0423\u05b8\u02be ",
+    "maxaccess": "read-only",
+    "name": "adlbAturFecFastState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.13.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturFecInterleaveState": {
+    "class": "objecttype",
+    "description": " \u0536\u02fd\u05af\u0368\u01f0\u0423\u05b8\u02be ",
+    "maxaccess": "read-only",
+    "name": "adlbAturFecInterleaveState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.13.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturFecSecond": {
+    "class": "objecttype",
+    "description": " \u0536\u02f7\u04bbFEC ",
+    "maxaccess": "read-only",
+    "name": "adlbAturFecSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.8.1.13",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturFriState": {
+    "class": "objecttype",
+    "description": " \u0536\u8c78\u0536\u02a7\u0427\u05b8\u02be ",
+    "maxaccess": "read-only",
+    "name": "adlbAturFriState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.13.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturHecFast": {
+    "class": "objecttype",
+    "description": " \u0536\u02ff\u0368\u052a\u0377\u0423\u05b8\u02be ",
+    "maxaccess": "read-only",
+    "name": "adlbAturHecFast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.15.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturHecInterleave": {
+    "class": "objecttype",
+    "description": " \u0536\u02fd\u05af\u0368\u052a\u0377\u0423\u05b8\u02be ",
+    "maxaccess": "read-only",
+    "name": "adlbAturHecInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.15.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturHighBitErr": {
+    "class": "objecttype",
+    "description": " \u0536\u02f8bit\u073c ",
+    "maxaccess": "read-only",
+    "name": "adlbAturHighBitErr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.3.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturLcdFast": {
+    "class": "objecttype",
+    "description": " \u0536\u02f7\u01fd\u05af\u0368\u052a\u7daa\u02a7 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturLcdFast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.15.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturLcdInterleave": {
+    "class": "objecttype",
+    "description": " \u0536\u02fd\u05af\u0368\u052a\u7daa\u02a7 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturLcdInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.15.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturLos": {
+    "class": "objecttype",
+    "description": " \u0536\u017a\u0176\u02a7\u073c ",
+    "maxaccess": "read-only",
+    "name": "adlbAturLos",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.3.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturLosState": {
+    "class": "objecttype",
+    "description": " \u0536\u8c78\u017a\u02a7 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturLosState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.13.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturLossSecond": {
+    "class": "objecttype",
+    "description": " \u0536\u02f6\u02a7 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturLossSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.8.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturLpr": {
+    "class": "objecttype",
+    "description": " \u0536ATU-R\u0534\u02a7\u073c ",
+    "maxaccess": "read-only",
+    "name": "adlbAturLpr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.3.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturLpsState": {
+    "class": "objecttype",
+    "description": " \u0536\u8c78\u02a7\u01b5\u017a ",
+    "maxaccess": "read-only",
+    "name": "adlbAturLpsState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.13.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturNcdFast": {
+    "class": "objecttype",
+    "description": " \u0536\u02ff\u0368\u052a\u05b8\u02be ",
+    "maxaccess": "read-only",
+    "name": "adlbAturNcdFast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.15.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturNcdInterleave": {
+    "class": "objecttype",
+    "description": " \u0536\u02fd\u05af\u0368\u052a\u05b8\u02be ",
+    "maxaccess": "read-only",
+    "name": "adlbAturNcdInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.15.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturNonSESFrames": {
+    "class": "objecttype",
+    "description": " \u0536\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturNonSESFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.8.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturOcdFast": {
+    "class": "objecttype",
+    "description": " \u0536\u02f7\u01fd\u05af\u0368\u052a\u7daa\u02a7\u05b8\u02be ",
+    "maxaccess": "read-only",
+    "name": "adlbAturOcdFast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.15.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturOcdInterleave": {
+    "class": "objecttype",
+    "description": " \u0536\u02fd\u05af\u0368\u052a\u7daa\u02a7\u05b8\u02be ",
+    "maxaccess": "read-only",
+    "name": "adlbAturOcdInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.15.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPerfValidIntervals": {
+    "class": "objecttype",
+    "description": " \u0373\u073c\u0427\u02b1 (\u03bb:15) ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPerfValidIntervals",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.8.1.14",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev15MinBgBENotSES": {
+    "class": "objecttype",
+    "description": " \u01f015\u0536\u02f7\u06b7\u06bcBACKGROUND ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev15MinBgBENotSES",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.9.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev15MinCrcErrFast": {
+    "class": "objecttype",
+    "description": " \u01f015\u0536\u02ff\u0368CRC\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev15MinCrcErrFast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.9.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev15MinCrcErrInterleave": {
+    "class": "objecttype",
+    "description": " \u01f015\u0536\u02fd\u05af\u0368CRC\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev15MinCrcErrInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.9.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev15MinErrFrames": {
+    "class": "objecttype",
+    "description": " \u01f015\u0536\u02fc\u0434\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev15MinErrFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.9.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev15MinErrSecond": {
+    "class": "objecttype",
+    "description": " \u01f015\u0536 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev15MinErrSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.9.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev15MinFecErrFast": {
+    "class": "objecttype",
+    "description": " \u01f015\u0536\u02ff\u0368FEC\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev15MinFecErrFast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.9.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev15MinFecErrInterleave": {
+    "class": "objecttype",
+    "description": " \u01f015\u0536\u02fd\u05af\u0368FEC\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev15MinFecErrInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.9.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev15MinFecSecond": {
+    "class": "objecttype",
+    "description": " \u01f015\u0536\u02f7\u04bbFEC ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev15MinFecSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.9.1.13",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev15MinHighBitErr": {
+    "class": "objecttype",
+    "description": " \u01f015\u0536\u02f8bit ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev15MinHighBitErr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.3.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev15MinLos": {
+    "class": "objecttype",
+    "description": " \u01f015\u0536\u017a\u0176\u02a7 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev15MinLos",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.3.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev15MinLossSecond": {
+    "class": "objecttype",
+    "description": " \u01f015\u0536\u02f6\u02a7 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev15MinLossSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.9.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev15MinLpr": {
+    "class": "objecttype",
+    "description": " \u01f015\u0536ATU-R\u0534\u02a7 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev15MinLpr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.3.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev15MinNonSESFrames": {
+    "class": "objecttype",
+    "description": " \u01f015\u0536\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev15MinNonSESFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.9.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev15MinRfi": {
+    "class": "objecttype",
+    "description": " \u01f015\u0536RFI ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev15MinRfi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.3.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev15MinSevereErrSecond": {
+    "class": "objecttype",
+    "description": " \u01f015\u0536 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev15MinSevereErrSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.9.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev15MinTimeCount": {
+    "class": "objecttype",
+    "description": " \u01f015\u0536\u02fc\u05a1\u02b1,4000frames=1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev15MinTimeCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.9.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev15MinUnavailableSecond": {
+    "class": "objecttype",
+    "description": " \u01f015\u0536\u02f2\u02b1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev15MinUnavailableSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.9.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev1DayBgBENotSES": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536\u02f7\u06b7\u06bcBACKGROUND ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev1DayBgBENotSES",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.11.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev1DayCrcErrFast": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536\u02ff\u0368CRC\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev1DayCrcErrFast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.11.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev1DayCrcErrInterleave": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536\u02fd\u05af\u0368CRC\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev1DayCrcErrInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.11.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev1DayErrFrames": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536\u02fc\u0434\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev1DayErrFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.11.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev1DayErrSecond": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev1DayErrSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.11.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev1DayFecErrFast": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536\u02ff\u0368FEC\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev1DayFecErrFast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.11.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev1DayFecErrInterleave": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536\u02fd\u05af\u0368FEC\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev1DayFecErrInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.11.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev1DayFecSecond": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536\u02f7\u04bbFEC ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev1DayFecSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.11.1.13",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev1DayHighBitErr": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536\u02f8bit ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev1DayHighBitErr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.3.1.15",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev1DayLos": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536\u017a\u0176\u02a7 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev1DayLos",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.3.1.14",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev1DayLossSecond": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536\u02f6\u02a7 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev1DayLossSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.11.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev1DayLpr": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536ATU-R\u0534\u02a7 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev1DayLpr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.3.1.17",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev1DayNonSESFrames": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536\u0133\u05a1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev1DayNonSESFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.11.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev1DayRfi": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536RFI ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev1DayRfi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.3.1.16",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev1DaySevereErrSecond": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev1DaySevereErrSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.11.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev1DayTimeCount": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536\u02fc\u05a1\u02b1,4000frames=1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev1DayTimeCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.11.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturPrev1DayUnavailableSecond": {
+    "class": "objecttype",
+    "description": " \u01f024\u0421\u02b1\u0536\u02f2\u02b1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturPrev1DayUnavailableSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.11.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturProviderCode": {
+    "class": "objecttype",
+    "description": " ATUR\u0139\u04e6\u0334 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturProviderCode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.1.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturRdiState": {
+    "class": "objecttype",
+    "description": " \u0536\u8c78\u0536\u02f9(sef)\u05b8\u02be ",
+    "maxaccess": "read-only",
+    "name": "adlbAturRdiState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.13.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturRfi": {
+    "class": "objecttype",
+    "description": " \u0536RFI\u073c ",
+    "maxaccess": "read-only",
+    "name": "adlbAturRfi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.3.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturSevereErrSecond": {
+    "class": "objecttype",
+    "description": " \u0536 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturSevereErrSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.8.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturTimeCount": {
+    "class": "objecttype",
+    "description": " \u0536\u02fc\u05a1\u02b1,4000frames=1 ",
+    "maxaccess": "read-only",
+    "name": "adlbAturTimeCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.8.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturUnavailableSecond": {
+    "class": "objecttype",
+    "description": " \u0536\u02f2\u02b1\u073c ",
+    "maxaccess": "read-only",
+    "name": "adlbAturUnavailableSecond",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.8.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturVendorId": {
+    "class": "objecttype",
+    "description": " ATUR\u0139\u04e6ID ",
+    "maxaccess": "read-only",
+    "name": "adlbAturVendorId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.1.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbAturVersion": {
+    "class": "objecttype",
+    "description": " ATUR\u0130\u6c7e ",
+    "maxaccess": "read-only",
+    "name": "adlbAturVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbByDiagCodeVer": {
+    "class": "objecttype",
+    "description": " DIAG CODE\u0123\u0130\u6c7e ",
+    "maxaccess": "read-only",
+    "name": "adlbByDiagCodeVer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.1.1.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "adlbByModemCodeVer": {
+    "class": "objecttype",
+    "description": " MODEM CODE\u0123\u0130\u6c7e ",
+    "maxaccess": "read-only",
+    "name": "adlbByModemCodeVer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.1.1.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "adlbChipsetIndex": {
+    "class": "objecttype",
+    "description": " Adlb\u01ac ",
+    "maxaccess": "not-accessible",
+    "name": "adlbChipsetIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.2.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 3,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbChipsetOper": {
+    "class": "objecttype",
+    "description": " reset chipset \u03bb\u01ac. ",
+    "maxaccess": "write-only",
+    "name": "adlbChipsetOper",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.2.1.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbClearAlarmstatistics": {
+    "class": "objecttype",
+    "description": " \u02ff\u06b8\u6faf\u0373\u03e2 ",
+    "maxaccess": "write-only",
+    "name": "adlbClearAlarmstatistics",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.2.1.18",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbClearPerfstatistics": {
+    "class": "objecttype",
+    "description": " \u02ff\u0373\u03e2 ",
+    "maxaccess": "write-only",
+    "name": "adlbClearPerfstatistics",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.4.1.20",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbConfigOrAutoDelay": {
+    "class": "objecttype",
+    "description": " \u04f3 (0:\u05b9(Default) 1:\u01ac\u0536) ",
+    "maxaccess": "read-write",
+    "name": "adlbConfigOrAutoDelay",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "manual": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbCustomId": {
+    "class": "objecttype",
+    "description": " \u00fb(0:\u03b4\u05aa 1:ISDN 2:POTS) ",
+    "maxaccess": "read-only",
+    "name": "adlbCustomId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.1.1.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "isdn": 1,
+          "pots": 2,
+          "unknown": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbDelayOrDepth": {
+    "class": "objecttype",
+    "description": " \u04f3\u0675\u03bb (0:DMT\u017c(Default) 1:) ",
+    "maxaccess": "read-write",
+    "name": "adlbDelayOrDepth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "depth": 0,
+          "ms": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbDnAttenuation": {
+    "class": "objecttype",
+    "description": " \u02e5 \u03bb:0.5dB ",
+    "maxaccess": "read-only",
+    "name": "adlbDnAttenuation",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.1.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbDnBitAllocate": {
+    "class": "objecttype",
+    "description": " \u0632BIT\u0137 ",
+    "maxaccess": "read-only",
+    "name": "adlbDnBitAllocate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.16.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "adlbDnBitsPerFrame": {
+    "class": "objecttype",
+    "description": " \u00ff\u05a1BIT ",
+    "maxaccess": "read-only",
+    "name": "adlbDnBitsPerFrame",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.16.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbDnInterleaveDelay": {
+    "class": "objecttype",
+    "description": " \u043d\u05af\u0368\u04f3 \u03bb:ms (\u04bb\u0421\u06b5\u00f5\u05b5) ",
+    "maxaccess": "read-only",
+    "name": "adlbDnInterleaveDelay",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.1.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbDnInterleaveDepth": {
+    "class": "objecttype",
+    "description": " \u043d\u05af\u0368\u013d\u05af ",
+    "maxaccess": "read-only",
+    "name": "adlbDnInterleaveDepth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.1.1.20",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbDnNoiseMargin": {
+    "class": "objecttype",
+    "description": " \u03bb:dB ",
+    "maxaccess": "read-only",
+    "name": "adlbDnNoiseMargin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.1.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbDnParityFast": {
+    "class": "objecttype",
+    "description": " \u043f\u0368\u00ffRS\u05b0FEC\u0423\u05bd ",
+    "maxaccess": "read-only",
+    "name": "adlbDnParityFast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.1.1.13",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbDnParityInterleave": {
+    "class": "objecttype",
+    "description": " \u043d\u05af\u0368\u00ffRS\u05b0FEC\u0423\u05bd ",
+    "maxaccess": "read-only",
+    "name": "adlbDnParityInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.1.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbDnSnrAllocate": {
+    "class": "objecttype",
+    "description": " \u0632\u0235\u0137(\u03bb:0.5db) ",
+    "maxaccess": "read-only",
+    "name": "adlbDnSnrAllocate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.17.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "adlbDnSymbolPerCodeFast": {
+    "class": "objecttype",
+    "description": " \u043f\u0368\u00ffRS\u05b0DMT=1 ",
+    "maxaccess": "read-only",
+    "name": "adlbDnSymbolPerCodeFast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.1.1.17",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbDnSymbolPerCodeInterleave": {
+    "class": "objecttype",
+    "description": " \u043d\u05af\u0368\u00ffRS\u05b0DMT=1,0.5 ",
+    "maxaccess": "read-only",
+    "name": "adlbDnSymbolPerCodeInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.1.1.16",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbDsExcessRatio": {
+    "class": "objecttype",
+    "description": " \u0433\u02b7 ( Single channel default=100 Dual channel default=50) ",
+    "maxaccess": "read-write",
+    "name": "adlbDsExcessRatio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1.24",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbDsMinMargin": {
+    "class": "objecttype",
+    "description": " \u0421 Default=0dB \u0475\u02b1\u06b8\u05b5MODEM\u0536\u0475 ",
+    "maxaccess": "read-write",
+    "name": "adlbDsMinMargin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1.14",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbDsMsOrDmtNumber": {
+    "class": "objecttype",
+    "description": " \u00b7\u04f3\u0663RW(\u04f3\u0675\u03bb\u053a\u02be(5-255ms) Default=16ms, \u04f3\u0675\u03bbDMT\u0178\u0231\u02be,(2,4,8,16,32,64,128) Default=64) ",
+    "maxaccess": "read-write",
+    "name": "adlbDsMsOrDmtNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1.22",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbDsSingleOrDual": {
+    "class": "objecttype",
+    "description": " \u0368SingleDual\u0461 ( 1-single DS channel(AS0) (Default) 3-dual DS channel(AS0 and AS1/LS0ds) ) ",
+    "maxaccess": "read-write",
+    "name": "adlbDsSingleOrDual",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dual": 3,
+          "single": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbDsTargetMargin": {
+    "class": "objecttype",
+    "description": " \u013f (0-15dB) Default=6dB ",
+    "maxaccess": "read-write",
+    "name": "adlbDsTargetMargin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1.13",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbEocClearChannelMode": {
+    "class": "objecttype",
+    "description": " \u01f6\u0368EOC\u0123\u02bd (0:transparent mode(Default) 1:HDLC framing mode) ",
+    "maxaccess": "read-write",
+    "name": "adlbEocClearChannelMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hdlcframing": 1,
+          "transparent": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbFastOrInterleave": {
+    "class": "objecttype",
+    "description": " \u0368\u02bdg.lite\u02b1\u01ff\u03aainterleave ( 2-Interleaved(default), 3-Fast) ",
+    "maxaccess": "read-write",
+    "name": "adlbFastOrInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fast": 3,
+          "interleaved": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbFrameMode": {
+    "class": "objecttype",
+    "description": " \u05a1\u0123\u02bd ( 0-Framing mode 0, Full overhead asynchronous mode 1-Framing mode 1, Full overhead synchronous mode 2-Framing mode 2, Dual latency with reduced overhead 3-Framing mode 3(Default), Single latency with reduced overhead ) ",
+    "maxaccess": "read-write",
+    "name": "adlbFrameMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mode0": 0,
+          "mode1": 1,
+          "mode2": 2,
+          "mode3": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbIfConfigSetToDefault": {
+    "class": "objecttype",
+    "description": " \u00b7\u00f2\u01f7\u0231\u02a1\u05b5 (1: 0:) ",
+    "maxaccess": "read-write",
+    "name": "adlbIfConfigSetToDefault",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "manual": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbItuCountryCode": {
+    "class": "objecttype",
+    "description": " ITU-T\u05fc\u0139\u04b4\u0163G.HS\u02bd ",
+    "maxaccess": "read-only",
+    "name": "adlbItuCountryCode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.1.1.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbItuProviderCode": {
+    "class": "objecttype",
+    "description": " ITU-T\u05fc\u0139\u04e6\u0334\u0163G.HS\u02bd ",
+    "maxaccess": "read-only",
+    "name": "adlbItuProviderCode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.1.1.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "adlbLs0DnRate": {
+    "class": "objecttype",
+    "description": " LS0\u0368 \u03bb:32KbPS ",
+    "maxaccess": "read-only",
+    "name": "adlbLs0DnRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.1.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbLs0UpRate": {
+    "class": "objecttype",
+    "description": " LS0\u0368 \u03bb:32KbPS ",
+    "maxaccess": "read-only",
+    "name": "adlbLs0UpRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.1.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbLs1UpRate": {
+    "class": "objecttype",
+    "description": " LS1\u0368 \u03bb:32KbPS ",
+    "maxaccess": "read-only",
+    "name": "adlbLs1UpRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.1.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbMaxDnAttainableRate": {
+    "class": "objecttype",
+    "description": " \u0274\ufd7d \u03bb:32Kbps ",
+    "maxaccess": "read-only",
+    "name": "adlbMaxDnAttainableRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.1.1.22",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbMaxDsRateC0": {
+    "class": "objecttype",
+    "description": " channel0 ( \u03bb:32kbits/sec single channel,full rate, Default=255 -\u003e 8.160Mbps single channel,lite rate, Default=48 -\u003e 1.536Mbps dual channel,full rate,Default=235 -\u003e 7.520Mbps ) ",
+    "maxaccess": "read-write",
+    "name": "adlbMaxDsRateC0",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1.17",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbMaxDsRateC1": {
+    "class": "objecttype",
+    "description": " Channel0\u02a3dual channel operation\u02bd\u02b9 \u03bb:32kbits/sec dual channel default=20 -\u003e 640Kbps ",
+    "maxaccess": "read-write",
+    "name": "adlbMaxDsRateC1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1.25",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbMaxUpAttainableRate": {
+    "class": "objecttype",
+    "description": " \u0274\ufd7d \u03bb:32Kbps ",
+    "maxaccess": "read-only",
+    "name": "adlbMaxUpAttainableRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.1.1.23",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbMaxUsRateC0": {
+    "class": "objecttype",
+    "description": " channel0 ( \u03bb:32kbits/sec Full rate, Default=28 -\u003e 896Kbps Lite , Default=16 -\u003e 512Kbps single channel,full rate, Default=28 -\u003e 896Kbps single channel,lite rate, Default=16 -\u003e 512Kbps dual channel, Default=24 -\u003e 768Kbps ) ",
+    "maxaccess": "read-write",
+    "name": "adlbMaxUsRateC0",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1.19",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbMaxUsRateC1": {
+    "class": "objecttype",
+    "description": " Channel0\u02a3dual channel operation\u02bd\u02b9 \u03bb:32kbits/sec dual channel default=4 -\u003e 128Kbps ",
+    "maxaccess": "read-write",
+    "name": "adlbMaxUsRateC1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1.27",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbMinDsRateC0": {
+    "class": "objecttype",
+    "description": " channel0\u0421 ( \u03bb:32kbits/sec single channel,full rate, Default=1 -\u003e 32Kbps single channel,lite rate, Default=2 -\u003e 64Kbps dual channel,full rate,Default=1 -\u003e 32Kbps ) ",
+    "maxaccess": "read-write",
+    "name": "adlbMinDsRateC0",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1.18",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbMinDsRateC1": {
+    "class": "objecttype",
+    "description": " Channel0\u0421\u02a3dual channel operation\u02bd\u02b9 \u03bb:32kbits/sec dual channel default=20 -\u003e 640Kbps ",
+    "maxaccess": "read-write",
+    "name": "adlbMinDsRateC1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1.26",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbMinUsRateC0": {
+    "class": "objecttype",
+    "description": " channel0\u0421 ( \u03bb:32kbits/sec single channel,full rate, Default=1 -\u003e 32Kbps single channel,lite rate, Default=1 -\u003e 32Kbps dual channel, Default=1 -\u003e 32Kbps ) ",
+    "maxaccess": "read-write",
+    "name": "adlbMinUsRateC0",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1.20",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbMinUsRateC1": {
+    "class": "objecttype",
+    "description": " Channel0\u0421\u02a3dual channel operation\u02bd\u02b9 \u03bb:32kbits/sec dual channel default=4 -\u003e 128Kbps ",
+    "maxaccess": "read-write",
+    "name": "adlbMinUsRateC1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1.28",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbNTROptionEnable": {
+    "class": "objecttype",
+    "description": " NTR\u02b1\u04f2\u03bf (0:disabled(Default) 1:enabled) ",
+    "maxaccess": "read-write",
+    "name": "adlbNTROptionEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbPortIndex": {
+    "class": "objecttype",
+    "description": " Adlb\u02ff\u06ba ",
+    "maxaccess": "not-accessible",
+    "name": "adlbPortIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbPortOper": {
+    "class": "objecttype",
+    "description": " \u02ff\u06b20:\u0631/\u0225 1: 2: ",
+    "maxaccess": "write-only",
+    "name": "adlbPortOper",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.2.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "block": 1,
+          "clearCellStat": 3,
+          "deact": 0,
+          "unblock": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbPortPfmThresId1": {
+    "class": "objecttype",
+    "description": " \u0373ID1 (default=\u0536\u05b5) ",
+    "maxaccess": "read-write",
+    "name": "adlbPortPfmThresId1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.4.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 30,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbPortPfmThresId2": {
+    "class": "objecttype",
+    "description": " \u0373ID2(default=\u05b5)",
+    "maxaccess": "read-write",
+    "name": "adlbPortPfmThresId2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.4.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 30,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbPortPfmThresId3": {
+    "class": "objecttype",
+    "description": " \u0373ID3 (default=\u0536\u05b5) ",
+    "maxaccess": "read-write",
+    "name": "adlbPortPfmThresId3",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.4.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 30,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbPortPfmThresId4": {
+    "class": "objecttype",
+    "description": " \u0373ID4 (default=\u05b5) ",
+    "maxaccess": "read-write",
+    "name": "adlbPortPfmThresId4",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.4.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 30,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbPortPfmThresId5": {
+    "class": "objecttype",
+    "description": " \u0373ID5 (default=\u0536\u02f2\u02b1\u05b5) ",
+    "maxaccess": "read-write",
+    "name": "adlbPortPfmThresId5",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.4.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 30,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbPortPfmThresId6": {
+    "class": "objecttype",
+    "description": " \u0373ID6 (default=\u02f2\u02b1\u05b5) ",
+    "maxaccess": "read-write",
+    "name": "adlbPortPfmThresId6",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.4.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 30,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbPortPfmThresId7": {
+    "class": "objecttype",
+    "description": " \u0373ID7 (default=\u0536\u02f6\u02a7\u05b5) ",
+    "maxaccess": "read-write",
+    "name": "adlbPortPfmThresId7",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.4.1.13",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 30,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbPortPfmThresId8": {
+    "class": "objecttype",
+    "description": " \u0373ID8 (default=\u02f6\u02a7\u05b5) ",
+    "maxaccess": "read-write",
+    "name": "adlbPortPfmThresId8",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.4.1.15",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 30,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbPortPfmThresValue1": {
+    "class": "objecttype",
+    "description": " \u0373\u05b51 (default=0) ",
+    "maxaccess": "read-write",
+    "name": "adlbPortPfmThresValue1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.4.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbPortPfmThresValue2": {
+    "class": "objecttype",
+    "description": " \u0373\u05b52 (default=0) ",
+    "maxaccess": "read-write",
+    "name": "adlbPortPfmThresValue2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.4.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbPortPfmThresValue3": {
+    "class": "objecttype",
+    "description": " \u0373\u05b53 (default=0) ",
+    "maxaccess": "read-write",
+    "name": "adlbPortPfmThresValue3",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.4.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbPortPfmThresValue4": {
+    "class": "objecttype",
+    "description": " \u0373\u05b54 (default=0) ",
+    "maxaccess": "read-write",
+    "name": "adlbPortPfmThresValue4",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.4.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbPortPfmThresValue5": {
+    "class": "objecttype",
+    "description": " \u0373\u05b55 (default=0) ",
+    "maxaccess": "read-write",
+    "name": "adlbPortPfmThresValue5",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.4.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbPortPfmThresValue6": {
+    "class": "objecttype",
+    "description": " \u0373\u05b56 (default=0) ",
+    "maxaccess": "read-write",
+    "name": "adlbPortPfmThresValue6",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.4.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbPortPfmThresValue7": {
+    "class": "objecttype",
+    "description": " \u0373\u05b57 (default=0) ",
+    "maxaccess": "read-write",
+    "name": "adlbPortPfmThresValue7",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.4.1.14",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbPortPfmThresValue8": {
+    "class": "objecttype",
+    "description": " \u0373\u05b58 (default=0) ",
+    "maxaccess": "read-write",
+    "name": "adlbPortPfmThresValue8",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.4.1.16",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbPortRxCell": {
+    "class": "objecttype",
+    "description": " ADL port Receive cells. ",
+    "maxaccess": "read-only",
+    "name": "adlbPortRxCell",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.2.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbPortState": {
+    "class": "objecttype",
+    "description": " \u02ff\u05f4\u032c (0:active 1:deactive 2:bad 3:activating 4:deactivating 5:block 255:other) ",
+    "maxaccess": "read-only",
+    "name": "adlbPortState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.2.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "activating": 3,
+          "active": 0,
+          "bad": 2,
+          "block": 5,
+          "deactivating": 4,
+          "deactive": 1,
+          "other": 255,
+          "unblock": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbPortTemplateId": {
+    "class": "objecttype",
+    "description": " activate ADL port by one template. \u02ff ",
+    "maxaccess": "read-write",
+    "name": "adlbPortTemplateId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.2.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 99,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbPortTestOper": {
+    "class": "objecttype",
+    "description": " \u02ff\u06bb\u0623W( 1:MODEM\u02ff\u06b5ATM(AS0LS0\u0368) 2:ADLBATU-R\u03f1\u01bbCRC 3:ADLB\u0363\u05b9ATU-R\u03f1\u01bbCRC 4:ADLB\u01bbCRC 5:ADLB\u01bbCRC\u0363\u05b9 6:ADLBATU-R\u0532 7:ADLBATU-R\u07b8\u0132\u0532(\u02e5) ) ",
+    "maxaccess": "write-only",
+    "name": "adlbPortTestOper",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.5.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "atmLoop": 1,
+          "aturAutoLoop": 6,
+          "aturChgLoopParam": 7,
+          "aturErrCrc": 2,
+          "sendErrCrc": 4,
+          "stopAturErrCrc": 3,
+          "stopSendErrCrc": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbPortTrainStandard": {
+    "class": "objecttype",
+    "description": " \u02ff\u0475\u046d\u0131\u05fc ( 0:none 1:G.DMT 2:G.LITE 3:T1.413 ) ",
+    "maxaccess": "read-only",
+    "name": "adlbPortTrainStandard",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.2.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dmt": 1,
+          "glite": 2,
+          "none": 0,
+          "t1413": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbPortTxCell": {
+    "class": "objecttype",
+    "description": " ADL port Transfer cells. ",
+    "maxaccess": "read-only",
+    "name": "adlbPortTxCell",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.2.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbProductId": {
+    "class": "objecttype",
+    "description": " \u01b7ID ",
+    "maxaccess": "read-only",
+    "name": "adlbProductId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.1.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbServiceType": {
+    "class": "objecttype",
+    "description": " ADSL ( 0:All (G992.1, G992.2, T1.413)(Default) 1:Full rate(G992.1 or T1.413) 2:G992.2(g.lite) only 3:T1.413 only 4:G992.2(g.dmt) only 5:g.hs (G992.1 and G992.2 with priority to G992.1) ) ",
+    "maxaccess": "read-write",
+    "name": "adlbServiceType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 0,
+          "fullrate": 1,
+          "g9922": 4,
+          "ghs": 5,
+          "glite": 2,
+          "t1413": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbTemplateOperate": {
+    "class": "objecttype",
+    "description": " template add/del operate. ",
+    "maxaccess": "read-write",
+    "name": "adlbTemplateOperate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1.29",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 0,
+          "del": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbTotalOutputPower": {
+    "class": "objecttype",
+    "description": " (\u03bb:dBm) (-31~31) ",
+    "maxaccess": "read-only",
+    "name": "adlbTotalOutputPower",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.1.1.24",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbTrellisModeEnable": {
+    "class": "objecttype",
+    "description": " \u0564 (0:disable 1:enable(Default)) ",
+    "maxaccess": "read-write",
+    "name": "adlbTrellisModeEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbUpAttenuation": {
+    "class": "objecttype",
+    "description": " \u02e5 \u03bb:0.5dB ",
+    "maxaccess": "read-only",
+    "name": "adlbUpAttenuation",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.1.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbUpBitAllocate": {
+    "class": "objecttype",
+    "description": " \u0632BIT\u0137 ",
+    "maxaccess": "read-only",
+    "name": "adlbUpBitAllocate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.16.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "adlbUpBitsPerFrame": {
+    "class": "objecttype",
+    "description": " \u00ff\u05a1BIT ",
+    "maxaccess": "read-only",
+    "name": "adlbUpBitsPerFrame",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.16.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbUpInterleaveDelay": {
+    "class": "objecttype",
+    "description": " \u043d\u05af\u0368\u04f3 \u03bb:ms (\u04bb\u0421\u06b5\u00f5\u05b5) ",
+    "maxaccess": "read-only",
+    "name": "adlbUpInterleaveDelay",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.1.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbUpInterleaveDepth": {
+    "class": "objecttype",
+    "description": " \u043d\u05af\u0368\u013d\u05af ",
+    "maxaccess": "read-only",
+    "name": "adlbUpInterleaveDepth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.1.1.21",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbUpNoiseMargin": {
+    "class": "objecttype",
+    "description": " \u03bb:dB ",
+    "maxaccess": "read-only",
+    "name": "adlbUpNoiseMargin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.1.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbUpParityFast": {
+    "class": "objecttype",
+    "description": " \u043f\u0368\u00ffRS\u05b0FEC\u0423\u05bd ",
+    "maxaccess": "read-only",
+    "name": "adlbUpParityFast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.1.1.15",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbUpParityInterleave": {
+    "class": "objecttype",
+    "description": " \u043d\u05af\u0368\u00ffRS\u05b0FEC\u0423\u05bd ",
+    "maxaccess": "read-only",
+    "name": "adlbUpParityInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.1.1.14",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbUpSnrAllocate": {
+    "class": "objecttype",
+    "description": " \u0632\u0235\u0137(\u03bb:0.5db) ",
+    "maxaccess": "read-only",
+    "name": "adlbUpSnrAllocate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.17.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "adlbUpSymbolPerCodeFast": {
+    "class": "objecttype",
+    "description": " \u043f\u0368\u00ffRS\u05b0DMT=1 ",
+    "maxaccess": "read-only",
+    "name": "adlbUpSymbolPerCodeFast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.1.1.19",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbUpSymbolPerCodeInterleave": {
+    "class": "objecttype",
+    "description": " \u043d\u05af\u0368\u00ffRS\u05b0DMT=1,0.5 ",
+    "maxaccess": "read-only",
+    "name": "adlbUpSymbolPerCodeInterleave",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.1.1.18",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbUsExcessRatio": {
+    "class": "objecttype",
+    "description": " \u0433\u02b7 ( Single channel default=100 Dual channel default=50) ",
+    "maxaccess": "read-write",
+    "name": "adlbUsExcessRatio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1.23",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbUsMinMargin": {
+    "class": "objecttype",
+    "description": " \u0421 Default=0dB \u0475\u02b1\u06b8\u05b5MODEM\u0536\u0475 ",
+    "maxaccess": "read-write",
+    "name": "adlbUsMinMargin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1.16",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbUsMsOrDmtNumber": {
+    "class": "objecttype",
+    "description": " \u00b7\u04f3 (\u04f3\u0675\u03bb\u053a\u02be(5-255ms) Default=16ms, \u04f3\u0675\u03bbDMT\u0178\u0231\u02be,(2,4,8,16,32,64,128) Default=64) ",
+    "maxaccess": "read-write",
+    "name": "adlbUsMsOrDmtNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1.21",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "adlbUsSingleOrDual": {
+    "class": "objecttype",
+    "description": " \u0368SingleDual\u0461 ( 1-single US channel(LS0us) (Default) 3-dual US channel(LS0us and LS1) ) ",
+    "maxaccess": "read-write",
+    "name": "adlbUsSingleOrDual",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dual": 3,
+          "single": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "adlbUsTargetMargin": {
+    "class": "objecttype",
+    "description": " \u013f (0-15dB) Default=6dB ",
+    "maxaccess": "read-write",
+    "name": "adlbUsTargetMargin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1.15",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMa5100Mib": {
+    "class": "objectidentity",
+    "name": "hwMa5100Mib",
+    "oid": "1.3.6.1.4.1.2011.2.6.5"
+  },
+  "hwMuasSrcSlotId": {
+    "class": "objecttype",
+    "description": "The slot id of source board.",
+    "maxaccess": "read-write",
+    "name": "hwMuasSrcSlotId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaAdlFrameId": {
+    "class": "objecttype",
+    "description": "Musa region ADL frame ID. \u0421PVCADL",
+    "maxaccess": "read-write",
+    "name": "hwMusaAdlFrameId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.15.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaAdlPortId": {
+    "class": "objecttype",
+    "description": "Musa region ADL port ID. \u0421PVCADL\u02ff\u06ba",
+    "maxaccess": "read-write",
+    "name": "hwMusaAdlPortId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.15.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaAdlPortOperat": {
+    "class": "objecttype",
+    "description": "Musa region ADL Operat. \u0421\u0123\u02bdADL\u02ff\u06b5\u0132",
+    "maxaccess": "read-write",
+    "name": "hwMusaAdlPortOperat",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.15.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 0,
+          "del": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaAdlSlotId": {
+    "class": "objecttype",
+    "description": "Musa region ADL slot ID. \u0421PVCADL\u06fa",
+    "maxaccess": "read-write",
+    "name": "hwMusaAdlSlotId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.15.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaAdlVci": {
+    "class": "objecttype",
+    "description": "Musa region VCI. \u0421PVCVCI",
+    "maxaccess": "read-only",
+    "name": "hwMusaAdlVci",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.15.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 127,
+            "min": 32
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaAdlVpi": {
+    "class": "objecttype",
+    "description": "Musa region VPI. \u0421PVCVPI",
+    "maxaccess": "read-only",
+    "name": "hwMusaAdlVpi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.15.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 127,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaAdlb": {
+    "class": "objectidentity",
+    "name": "hwMusaAdlb",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6"
+  },
+  "hwMusaAdlbAtucAlarmDataEntry": {
+    "class": "objecttype",
+    "description": "This list contains adlb port ATUC alarm statistic data variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "adlbPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbAtucAlarmDataEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.2.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbAtucAlarmDataTable": {
+    "class": "objecttype",
+    "description": "Musa adlb port ATUC alarm statistic data table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbAtucAlarmDataTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.2",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbAtucAtmDefectEntry": {
+    "class": "objecttype",
+    "description": "This list contains adlb port ATUC atm defect state variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "adlbPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbAtucAtmDefectEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.14.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbAtucAtmDefectTable": {
+    "class": "objecttype",
+    "description": "Musa adlb port ATUC atm defect state table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbAtucAtmDefectTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.14",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbAtucLineDefectEntry": {
+    "class": "objecttype",
+    "description": "This list contains adlb port ATUC line defect state variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "adlbPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbAtucLineDefectEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.12.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbAtucLineDefectTable": {
+    "class": "objecttype",
+    "description": "Musa adlb port ATUC line defect state table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbAtucLineDefectTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.12",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbAtucPerfCurr24hDataEntry": {
+    "class": "objecttype",
+    "description": "This list contains adlb port ATUC performance statistic data in current 24 hours variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "adlbPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbAtucPerfCurr24hDataEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.6.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbAtucPerfCurr24hDataTable": {
+    "class": "objecttype",
+    "description": "Musa adlb port ATUC performance statistic data in current 24 hours table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbAtucPerfCurr24hDataTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.6",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbAtucPerfDataEntry": {
+    "class": "objecttype",
+    "description": "This list contains adlb port ATUC performance statistic total data until now variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "adlbPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbAtucPerfDataEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.4.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbAtucPerfDataTable": {
+    "class": "objecttype",
+    "description": "Musa adlb port ATUC performance statistic data table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbAtucPerfDataTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.4",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbAtucPerfPrev15mDataEntry": {
+    "class": "objecttype",
+    "description": "This list contains adlb port ATUC performance statistic in previous 15 minutes data variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "adlbPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbAtucPerfPrev15mDataEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.5.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbAtucPerfPrev15mDataTable": {
+    "class": "objecttype",
+    "description": "Musa adlb port ATUC performance statistic in previous 15 minutes data table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbAtucPerfPrev15mDataTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.5",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbAtucPerfPrev24hDataEntry": {
+    "class": "objecttype",
+    "description": "This list contains adlb port ATUC performance statistic data in previous 24 hours variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "adlbPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbAtucPerfPrev24hDataEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.7.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbAtucPerfPrev24hDataTable": {
+    "class": "objecttype",
+    "description": "Musa adlb port ATUC performance statistic data in previous 24 hours table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbAtucPerfPrev24hDataTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.7",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbAturAlarmDataEntry": {
+    "class": "objecttype",
+    "description": "This list contains adlb port ATUR alarm statistic data variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "adlbPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbAturAlarmDataEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.3.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbAturAlarmDataTable": {
+    "class": "objecttype",
+    "description": "Musa adlb port ATUR alarm statistic data table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbAturAlarmDataTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.3",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbAturAtmDefectEntry": {
+    "class": "objecttype",
+    "description": "This list contains adlb port ATUR atm defect state variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "adlbPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbAturAtmDefectEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.15.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbAturAtmDefectTable": {
+    "class": "objecttype",
+    "description": "Musa adlb port ATUR atm defect state table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbAturAtmDefectTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.15",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbAturLineDefectEntry": {
+    "class": "objecttype",
+    "description": "This list contains adlb port ATUR line defect state variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "adlbPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbAturLineDefectEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.13.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbAturLineDefectTable": {
+    "class": "objecttype",
+    "description": "Musa adlb port ATUR line defect state table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbAturLineDefectTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.13",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbAturPerfCurr24hDataEntry": {
+    "class": "objecttype",
+    "description": "This list contains adlb port ATUR performance statistic data in current 24 hours variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "adlbPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbAturPerfCurr24hDataEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.10.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbAturPerfCurr24hDataTable": {
+    "class": "objecttype",
+    "description": "Musa adlb port ATUR performance statistic data in current 24 hours table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbAturPerfCurr24hDataTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.10",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbAturPerfDataEntry": {
+    "class": "objecttype",
+    "description": "This list contains adlb port ATUR performance statistic data until now variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "adlbPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbAturPerfDataEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.8.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbAturPerfDataTable": {
+    "class": "objecttype",
+    "description": "Musa adlb port ATUR performance statistic data until now table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbAturPerfDataTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.8",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbAturPerfPrev15mDataEntry": {
+    "class": "objecttype",
+    "description": "This list contains adlb port ATUR performance statistic data in previous 15 minutes variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "adlbPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbAturPerfPrev15mDataEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.9.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbAturPerfPrev15mDataTable": {
+    "class": "objecttype",
+    "description": "Musa adlb port ATUR performance statistic data in previous 15 minutes table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbAturPerfPrev15mDataTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.9",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbAturPerfPrev24hDataEntry": {
+    "class": "objecttype",
+    "description": "This list contains adlb port ATUR performance statistic data in previous 24 hours variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "adlbPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbAturPerfPrev24hDataEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.11.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbAturPerfPrev24hDataTable": {
+    "class": "objecttype",
+    "description": "Musa adlb port ATUR performance statistic data in previous 24 hours table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbAturPerfPrev24hDataTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.11",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbBoard": {
+    "class": "objectidentity",
+    "name": "hwMusaAdlbBoard",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.1"
+  },
+  "hwMusaAdlbBoardInfoEntry": {
+    "class": "objecttype",
+    "description": "This list contains Musa adlb board description variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaSlotIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbBoardInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.1.1.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbBoardInfoTable": {
+    "class": "objecttype",
+    "description": "Musa adlb board description table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbBoardInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.1.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbCarrierSnrEntry": {
+    "class": "objecttype",
+    "description": "This list contains adlb port carrier snr distribution variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "adlbPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbCarrierSnrEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.17.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbCarrierSnrTable": {
+    "class": "objecttype",
+    "description": "Musa adlb port carrier snr distribution table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbCarrierSnrTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.17",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbChipset": {
+    "class": "objectidentity",
+    "name": "hwMusaAdlbChipset",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.2"
+  },
+  "hwMusaAdlbChipsetMtEntry": {
+    "class": "objecttype",
+    "description": "This list contains Musa chipset maintenance variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "adlbChipsetIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbChipsetMtEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.2.1.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbChipsetMtTable": {
+    "class": "objecttype",
+    "description": "Musa adlb board description table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbChipsetMtTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.2.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbConf": {
+    "class": "objectidentity",
+    "name": "hwMusaAdlbConf",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3"
+  },
+  "hwMusaAdlbPfm": {
+    "class": "objectidentity",
+    "name": "hwMusaAdlbPfm",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4"
+  },
+  "hwMusaAdlbPortActEntry": {
+    "class": "objecttype",
+    "description": "This list contains activate adlb port variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "adlbPortTemplateId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbPortActEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbPortActTable": {
+    "class": "objecttype",
+    "description": "Musa adlb activate port table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbPortActTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.3",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbPortBitsEntry": {
+    "class": "objecttype",
+    "description": "This list contains adlb port bits distribution variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "adlbPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbPortBitsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.16.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbPortBitsTable": {
+    "class": "objecttype",
+    "description": "Musa adlb port bits distribution table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbPortBitsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.16",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbPortDeviceEntry": {
+    "class": "objecttype",
+    "description": "This list contains Musa adlb port remote device variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "adlbPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbPortDeviceEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.1.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbPortDeviceTable": {
+    "class": "objecttype",
+    "description": "Musa adlb port remote device table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbPortDeviceTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbPortEntry": {
+    "class": "objecttype",
+    "description": "This list contains Musa adlb port query and operation variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "adlbPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.2.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbPortLineDataEntry": {
+    "class": "objecttype",
+    "description": "This list contains adlb port line operation data variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "adlbPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbPortLineDataEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.1.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbPortLineDataTable": {
+    "class": "objecttype",
+    "description": "Musa adlb port line operation data table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbPortLineDataTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.4.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbPortPfmThresEntry": {
+    "class": "objecttype",
+    "description": "This list contains adlb port performance statistic threshold variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "adlbPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbPortPfmThresEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.4.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbPortPfmThresTable": {
+    "class": "objecttype",
+    "description": "Musa adlb port performance statistic threshold table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbPortPfmThresTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.4",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbPortTable": {
+    "class": "objecttype",
+    "description": "Musa adlb port table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.3.2",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbPortTestEntry": {
+    "class": "objecttype",
+    "description": "This list contains Musa adlb port test variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "adlbPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbPortTestEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.5.1.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbPortTestTable": {
+    "class": "objecttype",
+    "description": "Musa adlb port test table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAdlbPortTestTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.5.1",
+    "status": "mandatory"
+  },
+  "hwMusaAdlbTest": {
+    "class": "objectidentity",
+    "name": "hwMusaAdlbTest",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.6.5"
+  },
+  "hwMusaAllPvcConfEntry": {
+    "class": "objecttype",
+    "description": "This lists config variables of all kinds of PVC.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaTypeOfPvcPvpindex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaCidIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAllPvcConfEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1",
+    "status": "mandatory"
+  },
+  "hwMusaAllPvcConfTable": {
+    "class": "objecttype",
+    "description": "The config talbe of all kinds of PVC.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaAllPvcConfTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22",
+    "status": "mandatory"
+  },
+  "hwMusaAllPvcOperater": {
+    "class": "objecttype",
+    "description": "Add or delete PVC.",
+    "maxaccess": "read-write",
+    "name": "hwMusaAllPvcOperater",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.40",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 0,
+          "del": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaCidIndex": {
+    "class": "objecttype",
+    "description": "The CID index.",
+    "maxaccess": "read-only",
+    "name": "hwMusaCidIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaDestBoardVci": {
+    "class": "objecttype",
+    "description": "Destination VCI Index.",
+    "maxaccess": "read-write",
+    "name": "hwMusaDestBoardVci",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.25",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaDestBoardVpi": {
+    "class": "objecttype",
+    "description": "Destination Port vpi Index.",
+    "maxaccess": "read-write",
+    "name": "hwMusaDestBoardVpi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.24",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaDestFrameId": {
+    "class": "objecttype",
+    "description": "Destination frame Index.",
+    "maxaccess": "read-write",
+    "name": "hwMusaDestFrameId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.20",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaDestPortVlanVccId": {
+    "class": "objecttype",
+    "description": "Destination port Index.",
+    "maxaccess": "read-write",
+    "name": "hwMusaDestPortVlanVccId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.22",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaDestSlotId": {
+    "class": "objecttype",
+    "description": "Destination slot Index.",
+    "maxaccess": "read-write",
+    "name": "hwMusaDestSlotId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.21",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaDestToSrcTraffic": {
+    "class": "objecttype",
+    "description": "The destination to source board traffic.",
+    "maxaccess": "read-write",
+    "name": "hwMusaDestToSrcTraffic",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.39",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaDestUpcEpdPpd": {
+    "class": "objecttype",
+    "description": "The flow control parameter of connection.",
+    "maxaccess": "read-write",
+    "name": "hwMusaDestUpcEpdPpd",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.34",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaEndOfMib": {
+    "class": "objectidentity",
+    "name": "hwMusaEndOfMib",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.100"
+  },
+  "hwMusaFrame": {
+    "class": "objectidentity",
+    "name": "hwMusaFrame",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.2"
+  },
+  "hwMusaFrameConfEntry": {
+    "class": "objecttype",
+    "description": "This list contains Musa Frame configuration parameters and status variables. MUSA\u8c78.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaShelfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaFrameIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrameConfEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.2.2.1",
+    "status": "mandatory"
+  },
+  "hwMusaFrameConfTable": {
+    "class": "objecttype",
+    "description": "This table contains Musa Frame configuration parameters.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrameConfTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.2.2",
+    "status": "mandatory"
+  },
+  "hwMusaFrameIndex": {
+    "class": "objecttype",
+    "description": "the Musa Frame number. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrameIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.2.2.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrameNumber": {
+    "class": "objecttype",
+    "description": "Musa frame numbers.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrameNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.2.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFromLanTrafficId": {
+    "class": "objecttype",
+    "description": "Musa region from lan board traffic index. LAN",
+    "maxaccess": "read-write",
+    "name": "hwMusaFromLanTrafficId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.15.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaPvcPvpState": {
+    "class": "objecttype",
+    "description": "Pvc or Pvp state ",
+    "maxaccess": "read-only",
+    "name": "hwMusaPvcPvpState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.42",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delete": 3,
+          "invalid": 2,
+          "normal": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaRegionPvcConfEntry": {
+    "class": "objecttype",
+    "description": "This list contains Musa region pvc Configuration parameters and variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaVlanId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaVlanIciIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaRegionPvcConfEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.15.1",
+    "status": "mandatory"
+  },
+  "hwMusaRegionPvcConfTable": {
+    "class": "objecttype",
+    "description": "Musa region pvc configuration table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaRegionPvcConfTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.15",
+    "status": "mandatory"
+  },
+  "hwMusaSlot": {
+    "class": "objectidentity",
+    "name": "hwMusaSlot",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3"
+  },
+  "hwMusaSlotConfEntry": {
+    "class": "objecttype",
+    "description": "This list contains Musa slot configuration parameters and status variables. MUSA\u8c78\u03bb.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-CONFMIB",
+        "object": "hwMusaSlotIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaSlotConfEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.2.1",
+    "status": "mandatory"
+  },
+  "hwMusaSlotConfTable": {
+    "class": "objecttype",
+    "description": "This table contains Musa slot configuration parameters, one entry per Musa slot.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaSlotConfTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.2",
+    "status": "mandatory"
+  },
+  "hwMusaSlotGroup": {
+    "class": "objectidentity",
+    "name": "hwMusaSlotGroup",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6"
+  },
+  "hwMusaSlotIndex": {
+    "class": "objecttype",
+    "description": "the Musa slot number. \u03bb",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaSlotIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.6.3.2.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSrcBoardVci": {
+    "class": "objecttype",
+    "description": "Src board VCI Index.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSrcBoardVci",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSrcBoardVpi": {
+    "class": "objecttype",
+    "description": "Src board Port vpi Index.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSrcBoardVpi",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSrcFrameId": {
+    "class": "objecttype",
+    "description": "The Frame id of source board.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSrcFrameId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSrcPortVlanVccId": {
+    "class": "objecttype",
+    "description": "The Port/VlanID/VCC Index of source board.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSrcPortVlanVccId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSrcToDestTraffic": {
+    "class": "objecttype",
+    "description": "The source board to destination traffic.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSrcToDestTraffic",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.38",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSrcUpcEpdPpd": {
+    "class": "objecttype",
+    "description": "The flow control parameter of connection.",
+    "maxaccess": "read-write",
+    "name": "hwMusaSrcUpcEpdPpd",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.16",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaSysMib": {
+    "class": "objectidentity",
+    "name": "hwMusaSysMib",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1"
+  },
+  "hwMusaToLanTrafficId": {
+    "class": "objecttype",
+    "description": "Musa region to lan board traffic index. LAN",
+    "maxaccess": "read-write",
+    "name": "hwMusaToLanTrafficId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.15.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaTypeOfPvcPvpindex": {
+    "class": "objecttype",
+    "description": "Identified type of Pvc or Pvp",
+    "maxaccess": "read-write",
+    "name": "hwMusaTypeOfPvcPvpindex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.22.1.41",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pvc": 0,
+          "pvp": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaVlanIciIndex": {
+    "class": "objecttype",
+    "description": "Musa region VLanIciIndex. \u0421VLAN \u06b2",
+    "maxaccess": "read-only",
+    "name": "hwMusaVlanIciIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.15.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaVlanId": {
+    "class": "objecttype",
+    "description": "Musa region VLan Id. \u0421VLAN ID",
+    "maxaccess": "read-only",
+    "name": "hwMusaVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.1.15.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 63,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "musa"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Gauge32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-MUSA-MA5100-CONFMIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:30 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-MUSA-MA5100-CONFMIB"
+  }
+}

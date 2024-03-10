@@ -1,0 +1,1584 @@
+{
+  "hwBaseMirrorGroup": {
+    "class": "objectidentity",
+    "name": "hwBaseMirrorGroup",
+    "oid": "1.3.6.1.4.1.2011.5.162.11.2"
+  },
+  "hwFlowMirrorInstanceName": {
+    "class": "objecttype",
+    "description": " Name of the mirroring instance. ",
+    "maxaccess": "read-create",
+    "name": "hwFlowMirrorInstanceName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLocalBehaviorName": {
+    "class": "objecttype",
+    "description": "Traffic behavior view name.",
+    "maxaccess": "not-accessible",
+    "name": "hwLocalBehaviorName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLocalCpuPacketFlag": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": " Indicates whether the packets sent to the CPU need to be mirrored. True: CPU packets are forwarded; False: CPU packets are not forwarded. You can configure this object only when the mirroring direction is 1 or 3. Default value: false. ",
+    "maxaccess": "read-create",
+    "name": "hwLocalCpuPacketFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwLocalFlowMirrorCar": {
+    "class": "objecttype",
+    "description": " CAR (CIR) of mirrored packets, expressed in thousand bits per second. The default value is 0, which indicates that CAR is not performed. ",
+    "maxaccess": "read-create",
+    "name": "hwLocalFlowMirrorCar",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 2500000,
+            "min": 100
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "Kbps"
+  },
+  "hwLocalFlowMirrorEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": " Indicates whether the flow mirroring is enabled. Disable indicates that flow mirroring is disabled; Enable indicates that flow mirroring is enabled. Default value: disable. ",
+    "maxaccess": "read-create",
+    "name": "hwLocalFlowMirrorEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwLocalFlowMirrorEntry": {
+    "class": "objecttype",
+    "description": " The hwLocalFlowMirrorEntry lists local mirror characters. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwLocalBehaviorName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwLocalFlowMirrorEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.3.1",
+    "status": "current"
+  },
+  "hwLocalFlowMirrorGroup": {
+    "class": "objectgroup",
+    "description": "The group specifies traffic behavior for local mirroring.",
+    "name": "hwLocalFlowMirrorGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwLocalFlowMirrorEnable"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwLocalFlowMirrorCar"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwLocalFlowMirrorRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.162.11.2.3",
+    "status": "current"
+  },
+  "hwLocalFlowMirrorRowStatus": {
+    "class": "objecttype",
+    "description": " Row status. The value ranges from 1 to 6 but usually 4 and 6 are used. createAndGo[4] - create a row. destroy[6] -delete a row. ",
+    "maxaccess": "read-create",
+    "name": "hwLocalFlowMirrorRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwLocalFlowMirrorTable": {
+    "class": "objecttype",
+    "description": " The hwLocalFlowMirrorTable lists local mirror characters. ",
+    "maxaccess": "not-accessible",
+    "name": "hwLocalFlowMirrorTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.3",
+    "status": "current"
+  },
+  "hwLocalMirror": {
+    "class": "objectidentity",
+    "name": "hwLocalMirror",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1"
+  },
+  "hwLocalMirrorBearing": {
+    "class": "objecttype",
+    "description": "Mirroring direction: inbound, outbound, and in-out.1:inbound 2:outbound 3:in-out.",
+    "maxaccess": "read-create",
+    "name": "hwLocalMirrorBearing",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "inout": 3,
+          "outbound": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLocalMirrorPort": {
+    "class": "objecttype",
+    "description": "Ifindex of the mirroring port and is used to search the name of a mirroring port.",
+    "maxaccess": "not-accessible",
+    "name": "hwLocalMirrorPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwLocalObserveEntry": {
+    "class": "objecttype",
+    "description": " The hwLocalObserveEntry lists local mirror characters. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwLocalObservePort"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwLocalObserveEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.1.1",
+    "status": "current"
+  },
+  "hwLocalObserveGroup": {
+    "class": "objectgroup",
+    "description": "The group specifies local observing port.",
+    "name": "hwLocalObserveGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwLocalObserveIndex"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwLocalObserveWithLinkLayerHeader"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwLocalObserveRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.162.11.2.1",
+    "status": "current"
+  },
+  "hwLocalObserveIndex": {
+    "class": "objecttype",
+    "description": " Index of an observing port that identifies the observing port. Single chassis: (The index of a physical port corresponds to the slot number of a board. The observe index ranges from 1 to 32.One board supports 32 logical observing ports.) Multi-chassis: Supports physical observing ports only. The observe index ranges from 1 to 128. ",
+    "maxaccess": "read-create",
+    "name": "hwLocalObserveIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLocalObservePort": {
+    "class": "objecttype",
+    "description": "Ifindex is the index of the observing port and is used to search the name of an observing port.",
+    "maxaccess": "not-accessible",
+    "name": "hwLocalObservePort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwLocalObserveRowStatus": {
+    "class": "objecttype",
+    "description": " Row status. The value ranges from 1 to 6 but usually 4 and 6 are used. createAndGo[4] - create a row. destroy[6] -delete a row. ",
+    "maxaccess": "read-create",
+    "name": "hwLocalObserveRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwLocalObserveTable": {
+    "class": "objecttype",
+    "description": " The hwLocalObserveTable lists local mirror characters. ",
+    "maxaccess": "not-accessible",
+    "name": "hwLocalObserveTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.1",
+    "status": "current"
+  },
+  "hwLocalObserveWithLinkLayerHeader": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": " Same interworking attribute. 1: different interworking, mirroring packets at and above the IP layer. 0: same interworking, mirroring packets at and above Layer 2. Default value: 1. ",
+    "maxaccess": "read-create",
+    "name": "hwLocalObserveWithLinkLayerHeader",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLocalPortMirrorCar": {
+    "class": "objecttype",
+    "description": " CAR (CIR) of mirrored packets, expressed in thousand bits per second. The default value is 0, which indicates that CAR is not performed. ",
+    "maxaccess": "read-create",
+    "name": "hwLocalPortMirrorCar",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 2500000,
+            "min": 100
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "Kbps"
+  },
+  "hwLocalPortMirrorEntry": {
+    "class": "objecttype",
+    "description": " The hwLocalPortMirrorEntry lists local mirror characters. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwLocalMirrorPort"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwLocalPortMirrorEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.2.1",
+    "status": "current"
+  },
+  "hwLocalPortMirrorGroup": {
+    "class": "objectgroup",
+    "description": "The group specifies local mirroring port.",
+    "name": "hwLocalPortMirrorGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwLocalMirrorBearing"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwLocalCpuPacketFlag"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwLocalPortMirrorCar"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwLocalPortMirrorRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.162.11.2.2",
+    "status": "current"
+  },
+  "hwLocalPortMirrorInfoGroup": {
+    "class": "objectgroup",
+    "description": "The group querys configuration of port-mirroring interfaces.",
+    "name": "hwLocalPortMirrorInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwMirrorType"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwMirrorCar"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwMirrorClass"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwMirrorBearing"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwMirrorCpuPacketFlag"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwMirrorWithLinkLayerHeader"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwRemoteMirrorInstanceName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.162.11.2.5",
+    "status": "current"
+  },
+  "hwLocalPortMirrorRowStatus": {
+    "class": "objecttype",
+    "description": " Row status. The value ranges from 1 to 6 but usually 4 and 6 are used. createAndGo[4] - create a row. destroy[6] -delete a row. ",
+    "maxaccess": "read-create",
+    "name": "hwLocalPortMirrorRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwLocalPortMirrorTable": {
+    "class": "objecttype",
+    "description": " The hwLocalPortMirrorTable lists local mirror characters. ",
+    "maxaccess": "not-accessible",
+    "name": "hwLocalPortMirrorTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.2",
+    "status": "current"
+  },
+  "hwLocalSlotMirrorEntry": {
+    "class": "objecttype",
+    "description": " The hwLocalFlowMirrorEntry lists local mirror characters. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwLocalSlotNo"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwLocalSlotMirrorEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.4.1",
+    "status": "current"
+  },
+  "hwLocalSlotMirrorGroup": {
+    "class": "objectgroup",
+    "description": "The group specifies local observing port for slot.",
+    "name": "hwLocalSlotMirrorGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwSlotObserveIndex"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwLocalSlotMirrorRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.162.11.2.4",
+    "status": "current"
+  },
+  "hwLocalSlotMirrorRowStatus": {
+    "class": "objecttype",
+    "description": " Row status. The value ranges from 1 to 6 but usually 4 and 6 are used. createAndGo[4] - create a row. destroy[6] -delete a row. ",
+    "maxaccess": "read-create",
+    "name": "hwLocalSlotMirrorRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwLocalSlotMirrorTable": {
+    "class": "objecttype",
+    "description": " The hwLocalSlotMirrorTable lists local mirror characters. ",
+    "maxaccess": "not-accessible",
+    "name": "hwLocalSlotMirrorTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.4",
+    "status": "current"
+  },
+  "hwLocalSlotNo": {
+    "class": "objecttype",
+    "description": "Slot number of a board.",
+    "maxaccess": "not-accessible",
+    "name": "hwLocalSlotNo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMirrorBearing": {
+    "class": "objecttype",
+    "description": " Mirroring direction: inbound(1), outbound(2), and in-out(3). When the direction is in-out, commands for both inbound and outbound configurations are required. ",
+    "maxaccess": "read-only",
+    "name": "hwMirrorBearing",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.5.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "inout": 3,
+          "outbound": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMirrorCar": {
+    "class": "objecttype",
+    "description": "CAR (CIR) of mirrored packets, expressed in thousand bits per second ",
+    "maxaccess": "read-only",
+    "name": "hwMirrorCar",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 2500000,
+            "min": 100
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "Kbps"
+  },
+  "hwMirrorClass": {
+    "class": "objecttype",
+    "description": "Type: port/policy1: port 2: policy.",
+    "maxaccess": "read-only",
+    "name": "hwMirrorClass",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "policy": 2,
+          "port": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMirrorCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-SECURITY-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwLocalObserveGroup"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwLocalPortMirrorGroup"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwLocalFlowMirrorGroup"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwLocalSlotMirrorGroup"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwLocalPortMirrorInfoGroup"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwRemoteObserveGroup"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwRemotePortMirrorGroup"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwRemoteFlowMirrorGroup"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwRemoteMirrorInstanceGroup"
+      }
+    ],
+    "name": "hwMirrorCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.162.11.1.1",
+    "status": "current"
+  },
+  "hwMirrorCompliances": {
+    "class": "objectidentity",
+    "name": "hwMirrorCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.162.11.1"
+  },
+  "hwMirrorConformance": {
+    "class": "objectidentity",
+    "name": "hwMirrorConformance",
+    "oid": "1.3.6.1.4.1.2011.5.162.11"
+  },
+  "hwMirrorCpuPacketFlag": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": " Indicates whether the packets sent to the CPU need to be mirrored. True: CPU packets are forwarded; False: CPU packets are not forwarded. ",
+    "maxaccess": "read-only",
+    "name": "hwMirrorCpuPacketFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.5.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwMirrorFlowClass": {
+    "class": "objecttype",
+    "description": " Type of mirrored flows. The value of 0 to 7 corresponds to \u003cbe,af1,af2,af3,af4,ef,cs6,cs7\u003e respectively. be (0), af1 (1), af2 (2), af3 (3), af4 (4), ef (5), cs6 (6), cs7 (7) ",
+    "maxaccess": "read-create",
+    "name": "hwMirrorFlowClass",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "af1": 1,
+          "af2": 2,
+          "af3": 3,
+          "af4": 4,
+          "be": 0,
+          "cs6": 6,
+          "cs7": 7,
+          "ef": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMirrorInstanceName": {
+    "class": "objecttype",
+    "description": " Mirroring instance name. Max 31 characters ",
+    "maxaccess": "not-accessible",
+    "name": "hwMirrorInstanceName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMirrorInstanceRowStatus": {
+    "class": "objecttype",
+    "description": " Row status. The value ranges from 1 to 6 but usually 4 and 6 are used. createAndGo[4] - create a row. destroy[6] -delete a row. ",
+    "maxaccess": "read-create",
+    "name": "hwMirrorInstanceRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.4.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMirrorMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "8090 Team Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China http://www.huawei.com Zip:100085 ",
+    "description": "MIB description of mirror.",
+    "lastupdated": "200801012030Z",
+    "name": "hwMirrorMIB",
+    "oid": "1.3.6.1.4.1.2011.5.162",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwMirrorMIBObjects": {
+    "class": "objectidentity",
+    "name": "hwMirrorMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.162.1"
+  },
+  "hwMirrorPortIndex": {
+    "class": "objecttype",
+    "description": "Port index of the mirroring port.",
+    "maxaccess": "not-accessible",
+    "name": "hwMirrorPortIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwMirrorSliceSize": {
+    "class": "objecttype",
+    "description": " Number of bytes of intercepted packets, expressed in bytes. The value of size ranges from 64 to 9600. ",
+    "maxaccess": "read-create",
+    "name": "hwMirrorSliceSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 9600,
+            "min": 64
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "Byte"
+  },
+  "hwMirrorTunnelIndex": {
+    "class": "objecttype",
+    "description": " Index of the tunnel that uniquely identifies the tunnel. ",
+    "maxaccess": "read-only",
+    "name": "hwMirrorTunnelIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMirrorTunnelPolicy": {
+    "class": "objecttype",
+    "description": " Tunnel policy name. Max 19 characters ",
+    "maxaccess": "read-create",
+    "name": "hwMirrorTunnelPolicy",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.4.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 19,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMirrorTunnelStatus": {
+    "class": "objecttype",
+    "description": " status of tunnel 0:DOWN 1:UP ",
+    "maxaccess": "read-only",
+    "name": "hwMirrorTunnelStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.4.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMirrorTunnelType": {
+    "class": "objecttype",
+    "description": " Type of the tunnel: 1: LSP tunnel 2: TE tunnel 3: GRE tunnel ",
+    "maxaccess": "read-only",
+    "name": "hwMirrorTunnelType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.4.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "greTunnel": 3,
+          "lspTunnel": 1,
+          "teTunnel": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMirrorType": {
+    "class": "objecttype",
+    "description": "Mirroring type: local or remote1: local 2: remote.",
+    "maxaccess": "read-only",
+    "name": "hwMirrorType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "remote": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMirrorWithLinkLayerHeader": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": " Same interworking attribute. 1: different interworking, mirroring packets at and above the IP layer. 0: same interworking, mirroring packets at and above Layer 2. Default value: 1. ",
+    "maxaccess": "read-only",
+    "name": "hwMirrorWithLinkLayerHeader",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.5.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPortMirrorInfoEntry": {
+    "class": "objecttype",
+    "description": " The hwPortMirrorInfoEntry lists local and remote mirror characters. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwMirrorPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPortMirrorInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.5.1",
+    "status": "current"
+  },
+  "hwPortMirrorInfoTable": {
+    "class": "objecttype",
+    "description": " The hwPortMirrorInfoTable lists local and remote mirror characters. ",
+    "maxaccess": "not-accessible",
+    "name": "hwPortMirrorInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.5",
+    "status": "current"
+  },
+  "hwPortMirrorInstanceName": {
+    "class": "objecttype",
+    "description": " Name of the mirroring instance. It must already exist in the MIB table. ",
+    "maxaccess": "read-create",
+    "name": "hwPortMirrorInstanceName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRemoteBehaviorName": {
+    "class": "objecttype",
+    "description": " Name of the traffic behavior. ",
+    "maxaccess": "not-accessible",
+    "name": "hwRemoteBehaviorName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRemoteCpuPacketFlag": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": " Indicates whether the packets sent to the CPU need to be mirrored. True: CPU packets are forwarded; False: CPU packets are not forwarded. ",
+    "maxaccess": "read-create",
+    "name": "hwRemoteCpuPacketFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwRemoteDescription": {
+    "class": "objecttype",
+    "description": " Description of the observing port. ",
+    "maxaccess": "read-create",
+    "name": "hwRemoteDescription",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRemoteFlowMirrorCar": {
+    "class": "objecttype",
+    "description": " CAR (Committed Access Rate) setting of the mirror flow. The value indicates the CIR(Committed information rate) measured in kbps. ",
+    "maxaccess": "read-create",
+    "name": "hwRemoteFlowMirrorCar",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 2500000,
+            "min": 100
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "Kbps"
+  },
+  "hwRemoteFlowMirrorEntry": {
+    "class": "objecttype",
+    "description": " The hwRemoteFlowMirrorEntry lists local mirror characters. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwRemoteBehaviorName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRemoteFlowMirrorEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.3.1",
+    "status": "current"
+  },
+  "hwRemoteFlowMirrorGroup": {
+    "class": "objectgroup",
+    "description": "The group specifies traffic behavior for remote mirroring.",
+    "name": "hwRemoteFlowMirrorGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwFlowMirrorInstanceName"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwRemoteFlowMirrorCar"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwRemoteFlowMirrorRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.162.11.2.8",
+    "status": "current"
+  },
+  "hwRemoteFlowMirrorRowStatus": {
+    "class": "objecttype",
+    "description": " Row status. The value ranges from 1 to 6 but usually 4 and 6 are used. createAndGo[4] - create a row. destroy[6] -delete a row. ",
+    "maxaccess": "read-create",
+    "name": "hwRemoteFlowMirrorRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwRemoteFlowMirrorTable": {
+    "class": "objecttype",
+    "description": " The hwRemoteFlowMirrorTable lists remote mirror characters. ",
+    "maxaccess": "not-accessible",
+    "name": "hwRemoteFlowMirrorTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.3",
+    "status": "current"
+  },
+  "hwRemoteIdentifier": {
+    "class": "objecttype",
+    "description": " Mirror Identifier. ",
+    "maxaccess": "read-create",
+    "name": "hwRemoteIdentifier",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRemoteMirror": {
+    "class": "objectidentity",
+    "name": "hwRemoteMirror",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2"
+  },
+  "hwRemoteMirrorBearing": {
+    "class": "objecttype",
+    "description": " Mirroring direction: inbound(1), outbound(2), and in-out(3). When the direction is in-out, commands for both inbound and outbound configurations are required. ",
+    "maxaccess": "read-create",
+    "name": "hwRemoteMirrorBearing",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inbound": 1,
+          "inout": 3,
+          "outbound": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRemoteMirrorIdentifier": {
+    "class": "objecttype",
+    "description": " Mirror identifier. ",
+    "maxaccess": "read-create",
+    "name": "hwRemoteMirrorIdentifier",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRemoteMirrorInstanceEntry": {
+    "class": "objecttype",
+    "description": " The hwRemoteMirrorInstanceEntry lists mirror instance characters. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwMirrorInstanceName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRemoteMirrorInstanceEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.4.1",
+    "status": "current"
+  },
+  "hwRemoteMirrorInstanceGroup": {
+    "class": "objectgroup",
+    "description": "The group specifies mirror instance.",
+    "name": "hwRemoteMirrorInstanceGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwRemoteObservePortIp"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwRemoteMirrorIdentifier"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwRemoteMirrorWithLinkLayerHeader"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwMirrorFlowClass"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwMirrorSliceSize"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwMirrorTunnelIndex"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwMirrorTunnelType"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwMirrorTunnelStatus"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwMirrorInstanceRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.162.11.2.9",
+    "status": "current"
+  },
+  "hwRemoteMirrorInstanceName": {
+    "class": "objecttype",
+    "description": "mirror instance name. Max 31 characters.",
+    "maxaccess": "read-only",
+    "name": "hwRemoteMirrorInstanceName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.5.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRemoteMirrorInstanceTable": {
+    "class": "objecttype",
+    "description": " The hwRemoteMirrorInstanceTable lists remote mirror characters. ",
+    "maxaccess": "not-accessible",
+    "name": "hwRemoteMirrorInstanceTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.4",
+    "status": "current"
+  },
+  "hwRemoteMirrorPort": {
+    "class": "objecttype",
+    "description": " Port index of the mirroring port. ",
+    "maxaccess": "not-accessible",
+    "name": "hwRemoteMirrorPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwRemoteMirrorWithLinkLayerHeader": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": " Same interworking attribute. 1: different interworking, mirroring packets at and above the IP layer. 0: same interworking, mirroring packets at and above Layer 2. Default value: 1. ",
+    "maxaccess": "read-create",
+    "name": "hwRemoteMirrorWithLinkLayerHeader",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRemoteObserveEntry": {
+    "class": "objecttype",
+    "description": " The hwLocalPortMirrorInfoEntry lists local mirror characters. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwRemoteObservePort"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRemoteObserveEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.1.1",
+    "status": "current"
+  },
+  "hwRemoteObserveGroup": {
+    "class": "objectgroup",
+    "description": "The group specifies remote observing port.",
+    "name": "hwRemoteObserveGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwRemoteIdentifier"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwRemoteDescription"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwRemoteObserveWithLinkLayerHeader"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwRemoteObserveRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.162.11.2.6",
+    "status": "current"
+  },
+  "hwRemoteObservePort": {
+    "class": "objecttype",
+    "description": " Port ifindex of the observing port. ",
+    "maxaccess": "not-accessible",
+    "name": "hwRemoteObservePort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwRemoteObservePortIp": {
+    "class": "objecttype",
+    "description": " Remote mirror destination.",
+    "maxaccess": "read-create",
+    "name": "hwRemoteObservePortIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwRemoteObserveRowStatus": {
+    "class": "objecttype",
+    "description": " Row status. The value ranges from 1 to 6 but usually 4 and 6 are used. createAndGo[4] - create a row. destroy[6] -delete a row. ",
+    "maxaccess": "read-create",
+    "name": "hwRemoteObserveRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwRemoteObserveTable": {
+    "class": "objecttype",
+    "description": " The hwRemoteObserveTable lists remote mirror characters. ",
+    "maxaccess": "not-accessible",
+    "name": "hwRemoteObserveTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.1",
+    "status": "current"
+  },
+  "hwRemoteObserveWithLinkLayerHeader": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": " Same interworking attribute. 1: different interworking, mirroring packets at and above the IP layer. 0: same interworking, mirroring packets at and above Layer 2. Default value: 1. ",
+    "maxaccess": "read-create",
+    "name": "hwRemoteObserveWithLinkLayerHeader",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRemotePortMirrorCar": {
+    "class": "objecttype",
+    "description": " CAR (CIR) of mirrored packets, expressed in thousand bits per second by default, CAR is not performed for mirrored packets. ",
+    "maxaccess": "read-create",
+    "name": "hwRemotePortMirrorCar",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 2500000,
+            "min": 100
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "Kbps"
+  },
+  "hwRemotePortMirrorEntry": {
+    "class": "objecttype",
+    "description": " The hwRemotePortMirrorTable lists local mirror characters. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwRemoteMirrorPort"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRemotePortMirrorEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.2.1",
+    "status": "current"
+  },
+  "hwRemotePortMirrorGroup": {
+    "class": "objectgroup",
+    "description": "The group specifies remote mirroring port.",
+    "name": "hwRemotePortMirrorGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwRemoteMirrorBearing"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwRemoteCpuPacketFlag"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwPortMirrorInstanceName"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwRemotePortMirrorCar"
+      },
+      {
+        "module": "HUAWEI-MIRROR-MIB",
+        "object": "hwRemotePortMirrorRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.162.11.2.7",
+    "status": "current"
+  },
+  "hwRemotePortMirrorRowStatus": {
+    "class": "objecttype",
+    "description": " Row status. The value ranges from 1 to 6 but usually 4 and 6 are used. createAndGo[4] - create a row. destroy[6] -delete a row. ",
+    "maxaccess": "read-create",
+    "name": "hwRemotePortMirrorRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwRemotePortMirrorTable": {
+    "class": "objecttype",
+    "description": " The hwRemotePortMirrorTable lists remote mirror characters. ",
+    "maxaccess": "not-accessible",
+    "name": "hwRemotePortMirrorTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.2.2",
+    "status": "current"
+  },
+  "hwSlotObserveIndex": {
+    "class": "objecttype",
+    "description": "Indicates the index of the observing port.",
+    "maxaccess": "read-create",
+    "name": "hwSlotObserveIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.162.1.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "huaweiMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-MIRROR-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:18 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-MIRROR-MIB"
+  }
+}

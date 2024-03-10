@@ -1,0 +1,5127 @@
+{
+  "hwTACACS": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "Update descriptions of hwtacacsClientAuthenServerType, hwtacacsClientAuthorServerType, hwtacacsClientAccountServerType, hwtacacsClientCommonServerType nodes",
+    "lastupdated": "201507291915Z",
+    "name": "hwTACACS",
+    "oid": "1.3.6.1.4.1.2011.5.25.20",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "hwTACACSServerGroupKey range is changed from 0-255 to 0-392",
+        "revision": "2015-07-29 19:15"
+      },
+      {
+        "description": "Modify hwTACACSServerGroupTimer value range.",
+        "revision": "2015-05-06 16:00"
+      },
+      {
+        "description": "Add hwTacacsSetting table.",
+        "revision": "2013-08-24 11:00"
+      },
+      {
+        "description": "Add hwTacacsSetting table.",
+        "revision": "2013-07-05 11:00"
+      },
+      {
+        "description": "The MIB contains objects of module HWTACACS.",
+        "revision": "2013-03-08 16:00"
+      },
+      {
+        "description": "Shared-key range is changed from 0-255 to 0-392",
+        "revision": "2014-02-25 16:00"
+      },
+      {
+        "description": "Added common server mib table",
+        "revision": "2015-04-01 16:00"
+      }
+    ]
+  },
+  "hwTACACSAcctStopResendDisable": {
+    "class": "objecttype",
+    "description": "Disables the retransmission of accounting-stop packets.",
+    "maxaccess": "read-create",
+    "name": "hwTACACSAcctStopResendDisable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwTACACSAcctStopResendNumber": {
+    "class": "objecttype",
+    "description": "The number of retransmitted accounting-stop packets.",
+    "maxaccess": "read-create",
+    "name": "hwTACACSAcctStopResendNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 300,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTACACSEnable": {
+    "class": "objecttype",
+    "description": "TACACS service state.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwTACACSPriAccClientPacketsDropped": {
+    "class": "objecttype",
+    "description": "Number of Dropped packets when being sent to primary accounting server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAccClientPacketsDropped",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.71",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAccClientReqCommandLevel": {
+    "class": "objecttype",
+    "description": "Number of Command Level Request packets sent to primary accounting server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAccClientReqCommandLevel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.64",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAccClientReqConnection": {
+    "class": "objecttype",
+    "description": "Number of Connection Request packets sent to primary accounting server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAccClientReqConnection",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.61",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAccClientReqEXEC": {
+    "class": "objecttype",
+    "description": "Number of EXEC packets sent to primary accounting server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAccClientReqEXEC",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.62",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAccClientReqNetwork": {
+    "class": "objecttype",
+    "description": "Number of Network Request packets sent to primary accounting server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAccClientReqNetwork",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.60",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAccClientReqPacket": {
+    "class": "objecttype",
+    "description": "Number of Request packets sent to primary accounting server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAccClientReqPacket",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.59",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAccClientReqPending": {
+    "class": "objecttype",
+    "description": "Number of Pending packets sent to primary accounting server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAccClientReqPending",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.68",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAccClientReqSysEvent": {
+    "class": "objecttype",
+    "description": "Number of System Event Request packets sent to primary accounting server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAccClientReqSysEvent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.63",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAccClientReqUpdate": {
+    "class": "objecttype",
+    "description": "Number of Update Request packets sent to primary accounting server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAccClientReqUpdate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.65",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAccClientResError": {
+    "class": "objecttype",
+    "description": "Number of Error packets sent by primary accounting server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAccClientResError",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.67",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAccClientResPacket": {
+    "class": "objecttype",
+    "description": "Number of Response packets sent by primary accounting server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAccClientResPacket",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.66",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAccClientRoundTripTime": {
+    "class": "objecttype",
+    "description": "Round trip time of an Accounting packet with primary accounting server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAccClientRoundTripTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.58",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwTACACSPriAccClientTimeouts": {
+    "class": "objecttype",
+    "description": "Number of Timeout packets sent to primary accounting server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAccClientTimeouts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.69",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAccClientUnknownTypes": {
+    "class": "objecttype",
+    "description": "Number of Unknown types packets sent to primary accounting server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAccClientUnknownTypes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.70",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthenClientAccessConAbort": {
+    "class": "objecttype",
+    "description": "Number of Connection aborting packets sent to primary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthenClientAccessConAbort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.41",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthenClientAccessConPack": {
+    "class": "objecttype",
+    "description": "Number of Connection Request packets sent to primary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthenClientAccessConPack",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.40",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthenClientAccessReqChaPass": {
+    "class": "objecttype",
+    "description": "Number of Password Change Request packets sent to primary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthenClientAccessReqChaPass",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthenClientAccessReqLogin": {
+    "class": "objecttype",
+    "description": "Number of Login Request packets sent to primary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthenClientAccessReqLogin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthenClientAccessReqPacket": {
+    "class": "objecttype",
+    "description": "Number of Request packets sent to primary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthenClientAccessReqPacket",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthenClientAccessReqSendAuth": {
+    "class": "objecttype",
+    "description": "Number of Authentication Request packets sent to primary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthenClientAccessReqSendAuth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthenClientAccessReqSendPass": {
+    "class": "objecttype",
+    "description": "Number of Password Sending Request packets sent to primary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthenClientAccessReqSendPass",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthenClientAccessResError": {
+    "class": "objecttype",
+    "description": "Number of Response error packets sent by primary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthenClientAccessResError",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.37",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthenClientAccessResFail": {
+    "class": "objecttype",
+    "description": "Number of Authentication Failure Response packets sent by primary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthenClientAccessResFail",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthenClientAccessResFollow": {
+    "class": "objecttype",
+    "description": "Number of Follow packets sent by primary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthenClientAccessResFollow",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.38",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthenClientAccessResGetData": {
+    "class": "objecttype",
+    "description": "Number of packets for obtaining data sent by primary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthenClientAccessResGetData",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthenClientAccessResGetPass": {
+    "class": "objecttype",
+    "description": "Number of packets for obtaining password sent by primary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthenClientAccessResGetPass",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.35",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthenClientAccessResGetUser": {
+    "class": "objecttype",
+    "description": "Number of packets for obtaining user name sent by primary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthenClientAccessResGetUser",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.34",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthenClientAccessResPack": {
+    "class": "objecttype",
+    "description": "Number of Response packets sent by primary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthenClientAccessResPack",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthenClientAccessResPass": {
+    "class": "objecttype",
+    "description": "Number of Authentication Success Response packets sent by primary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthenClientAccessResPass",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthenClientAccessResRestart": {
+    "class": "objecttype",
+    "description": "Number of Re-authentication packets sent by primary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthenClientAccessResRestart",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.36",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthenClientMalformedAccessResponses": {
+    "class": "objecttype",
+    "description": "Number of Unknown packets sent by primary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthenClientMalformedAccessResponses",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.39",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthenClientPacketsDropped": {
+    "class": "objecttype",
+    "description": "Number of Dropped packets when being sent to primary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthenClientPacketsDropped",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.45",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthenClientPendingRequests": {
+    "class": "objecttype",
+    "description": "Number of Pending packets sent to primary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthenClientPendingRequests",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.42",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthenClientRoundTripTime": {
+    "class": "objecttype",
+    "description": "Round trip time of an Authentication packet with primary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthenClientRoundTripTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwTACACSPriAuthenClientTimeouts": {
+    "class": "objecttype",
+    "description": "Number of Timeout packets sent to primary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthenClientTimeouts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.43",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthenClientUnknownTypes": {
+    "class": "objecttype",
+    "description": "Number of Unknown type packets sent to primary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthenClientUnknownTypes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.44",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthorClientPacketsDropped": {
+    "class": "objecttype",
+    "description": "Number of Drop packets sent to primary authorization server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthorClientPacketsDropped",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.57",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthorClientReqEXEC": {
+    "class": "objecttype",
+    "description": "Number of EXEC packets sent to primary authorization server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthorClientReqEXEC",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.48",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthorClientReqPacket": {
+    "class": "objecttype",
+    "description": "Number of Request packets sent to primary authorization server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthorClientReqPacket",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.47",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthorClientReqPending": {
+    "class": "objecttype",
+    "description": "Number of Pending packets sent to primary authorization server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthorClientReqPending",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.54",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthorClientReqVPDN": {
+    "class": "objecttype",
+    "description": "Number of VPDN packets sent to primary authorization server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthorClientReqVPDN",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.49",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthorClientResEXEC": {
+    "class": "objecttype",
+    "description": "Number of EXEC Response packet sent by primary authorization server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthorClientResEXEC",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthorClientResError": {
+    "class": "objecttype",
+    "description": "Number of Error packets sent by primary authorization server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthorClientResError",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.53",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthorClientResPack": {
+    "class": "objecttype",
+    "description": "Number of Response packets sent by primary authorization server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthorClientResPack",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.50",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthorClientResVPDN": {
+    "class": "objecttype",
+    "description": "Number of VPDN Response packets sent by primary authorization server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthorClientResVPDN",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.52",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthorClientRoundTripTime": {
+    "class": "objecttype",
+    "description": "Round trip time of an Authorization packet with primary authorization server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthorClientRoundTripTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.46",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwTACACSPriAuthorClientTimeouts": {
+    "class": "objecttype",
+    "description": "Number of Timeout packets sent to primary authorization server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthorClientTimeouts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.55",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSPriAuthorClientUnknownTypes": {
+    "class": "objecttype",
+    "description": "Number of Unknown type packets sent to primary authorization server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSPriAuthorClientUnknownTypes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.56",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAccClientPacketsDropped": {
+    "class": "objecttype",
+    "description": "Number of Dropped packets when being sent to secondary accounting server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAccClientPacketsDropped",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.119",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAccClientReqCommandLevel": {
+    "class": "objecttype",
+    "description": "Request command level packets about second accounting server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAccClientReqCommandLevel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.112",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAccClientReqConnection": {
+    "class": "objecttype",
+    "description": "Number of Connection Request packets sent to secondary accounting server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAccClientReqConnection",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.109",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAccClientReqEXEC": {
+    "class": "objecttype",
+    "description": "Number of EXEC packets sent to secondary accounting server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAccClientReqEXEC",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.110",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAccClientReqNetwork": {
+    "class": "objecttype",
+    "description": "Number of Network Request packets sent to secondary accounting server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAccClientReqNetwork",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.108",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAccClientReqPacket": {
+    "class": "objecttype",
+    "description": "Number of Request packets sent to secondary accounting server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAccClientReqPacket",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.107",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAccClientReqPending": {
+    "class": "objecttype",
+    "description": "Number of Pending packets sent to secondary accounting server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAccClientReqPending",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.116",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAccClientReqSysEvent": {
+    "class": "objecttype",
+    "description": "Number of System Event Request packets sent to secondary accounting server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAccClientReqSysEvent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.111",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAccClientReqUpdate": {
+    "class": "objecttype",
+    "description": "Number of Update Request packets sent to secondary accounting server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAccClientReqUpdate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.113",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAccClientResError": {
+    "class": "objecttype",
+    "description": "Number of Error packets sent by secondary accounting server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAccClientResError",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.115",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAccClientResPacket": {
+    "class": "objecttype",
+    "description": "Number of Response packets sent by secondary accounting server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAccClientResPacket",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.114",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAccClientRoundTripTime": {
+    "class": "objecttype",
+    "description": "Round trip time of an Accounting packet with secondary accounting server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAccClientRoundTripTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.106",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwTACACSSecAccClientTimeouts": {
+    "class": "objecttype",
+    "description": "Number of Timeout packets sent to secondary accounting server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAccClientTimeouts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.117",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAccClientUnknownTypes": {
+    "class": "objecttype",
+    "description": "Number of Unknown types packets sent to secondary accounting server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAccClientUnknownTypes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.118",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthenClientAccessConAbort": {
+    "class": "objecttype",
+    "description": "Number of Connection aborting packets sent to secondary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthenClientAccessConAbort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.89",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthenClientAccessConPack": {
+    "class": "objecttype",
+    "description": "Number of Connection Request packets sent to secondary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthenClientAccessConPack",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.88",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthenClientAccessReqChaPass": {
+    "class": "objecttype",
+    "description": "Number of Password Change Request packets sent to secondary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthenClientAccessReqChaPass",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.75",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthenClientAccessReqLogin": {
+    "class": "objecttype",
+    "description": "Number of Login Request packets sent to secondary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthenClientAccessReqLogin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.74",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthenClientAccessReqPacket": {
+    "class": "objecttype",
+    "description": "Number of Request packets sent to secondary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthenClientAccessReqPacket",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.73",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthenClientAccessReqSendAuth": {
+    "class": "objecttype",
+    "description": "Number of Authentication Request packets sent to secondary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthenClientAccessReqSendAuth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.77",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthenClientAccessReqSendPass": {
+    "class": "objecttype",
+    "description": "Number of Password Sending Request packets sent to secondary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthenClientAccessReqSendPass",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.76",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthenClientAccessResError": {
+    "class": "objecttype",
+    "description": "Number of Response error packets sent by secondary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthenClientAccessResError",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.85",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthenClientAccessResFail": {
+    "class": "objecttype",
+    "description": "Number of Authentication Failure Response packets sent by secondary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthenClientAccessResFail",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.80",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthenClientAccessResFollow": {
+    "class": "objecttype",
+    "description": "Number of Follow packets sent by secondary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthenClientAccessResFollow",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.86",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthenClientAccessResGetData": {
+    "class": "objecttype",
+    "description": "Number of packets for obtaining data sent by secondary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthenClientAccessResGetData",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.81",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthenClientAccessResGetPass": {
+    "class": "objecttype",
+    "description": "Number of packets for obtaining password sent by secondary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthenClientAccessResGetPass",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.83",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthenClientAccessResGetUser": {
+    "class": "objecttype",
+    "description": "Number of packets for obtaining user name sent by secondary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthenClientAccessResGetUser",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.82",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthenClientAccessResPack": {
+    "class": "objecttype",
+    "description": "Number of Response packets sent by secondary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthenClientAccessResPack",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.78",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthenClientAccessResPass": {
+    "class": "objecttype",
+    "description": "Number of Authentication Success Response packets sent by secondary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthenClientAccessResPass",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.79",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthenClientAccessResRestart": {
+    "class": "objecttype",
+    "description": "Number of Re-authentication packets sent by secondary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthenClientAccessResRestart",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.84",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthenClientMalformedAccessResponses": {
+    "class": "objecttype",
+    "description": "Number of Unknown packets sent by secondary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthenClientMalformedAccessResponses",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.87",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthenClientPacketsDropped": {
+    "class": "objecttype",
+    "description": "Number of Dropped packets when being sent to secondary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthenClientPacketsDropped",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.93",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthenClientPendingRequests": {
+    "class": "objecttype",
+    "description": "Number of Pending packets sent to secondary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthenClientPendingRequests",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.90",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthenClientRoundTripTime": {
+    "class": "objecttype",
+    "description": "Round trip time of an Authentication packet with secondary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthenClientRoundTripTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.72",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwTACACSSecAuthenClientTimeouts": {
+    "class": "objecttype",
+    "description": "Number of Timeout packets sent to secondary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthenClientTimeouts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.91",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthenClientUnknownTypes": {
+    "class": "objecttype",
+    "description": "Number of Unknown type packets sent to secondary authentication server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthenClientUnknownTypes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.92",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthorClientPacketsDropped": {
+    "class": "objecttype",
+    "description": "Number of Drop packets sent to secondary authorization server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthorClientPacketsDropped",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.105",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthorClientReqEXEC": {
+    "class": "objecttype",
+    "description": "Number of EXEC packets sent to secondary authorization server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthorClientReqEXEC",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.96",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthorClientReqPacket": {
+    "class": "objecttype",
+    "description": "Number of Request packets sent to secondary authorization server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthorClientReqPacket",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.95",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthorClientReqPending": {
+    "class": "objecttype",
+    "description": "Number of Pending packets sent to secondary authorization server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthorClientReqPending",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.102",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthorClientReqVPDN": {
+    "class": "objecttype",
+    "description": "Number of VPDN packets sent to secondary authorization server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthorClientReqVPDN",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.97",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthorClientResEXEC": {
+    "class": "objecttype",
+    "description": "Number of EXEC Response packet sent by secondary authorization server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthorClientResEXEC",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.99",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthorClientResError": {
+    "class": "objecttype",
+    "description": "Number of Error packets sent by secondary authorization server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthorClientResError",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.101",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthorClientResPack": {
+    "class": "objecttype",
+    "description": "Number of Response packets sent by secondary authorization server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthorClientResPack",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.98",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthorClientResVPDN": {
+    "class": "objecttype",
+    "description": "Number of VPDN Response packets sent by secondary authorization server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthorClientResVPDN",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.100",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthorClientRoundTripTime": {
+    "class": "objecttype",
+    "description": "Round trip time of an Authorization packet with secondary authorization server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthorClientRoundTripTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.94",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwTACACSSecAuthorClientTimeouts": {
+    "class": "objecttype",
+    "description": "Number of Timeout packets sent to secondary authorization server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthorClientTimeouts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.103",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSSecAuthorClientUnknownTypes": {
+    "class": "objecttype",
+    "description": "Number of Unknown type packets sent to secondary authorization server.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSSecAuthorClientUnknownTypes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.104",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTACACSServerConfig": {
+    "class": "objectidentity",
+    "name": "hwTACACSServerConfig",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1"
+  },
+  "hwTACACSServerGroupCurAccoutAddr": {
+    "class": "objecttype",
+    "description": "Current accounting server address.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSServerGroupCurAccoutAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwTACACSServerGroupCurAuthenAddr": {
+    "class": "objecttype",
+    "description": "Current authentication server address.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSServerGroupCurAuthenAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwTACACSServerGroupCurAuthorAddr": {
+    "class": "objecttype",
+    "description": "Current authorization server address.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSServerGroupCurAuthorAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwTACACSServerGroupDomain": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "Domain switch:1,open;2,close;3,original.",
+    "maxaccess": "read-create",
+    "name": "hwTACACSServerGroupDomain",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "close": 2,
+          "open": 1,
+          "original": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwTACACSServerGroupEntry": {
+    "class": "objecttype",
+    "description": "Group table entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTACACSServerGroupEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1",
+    "status": "current"
+  },
+  "hwTACACSServerGroupIndex": {
+    "class": "objecttype",
+    "description": "Hwtacacs server template index.",
+    "maxaccess": "read-only",
+    "name": "hwTACACSServerGroupIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTACACSServerGroupKey": {
+    "class": "objecttype",
+    "description": "Specify group encryption shared-key.",
+    "maxaccess": "read-create",
+    "name": "hwTACACSServerGroupKey",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 392,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwTACACSServerGroupName": {
+    "class": "objecttype",
+    "description": "Hwtacacs server template name.",
+    "maxaccess": "read-create",
+    "name": "hwTACACSServerGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwTACACSServerGroupOctFmt": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "Set octet format,The value must be byte(1), kbyte(2), mbyte(3), gbyte(4).",
+    "maxaccess": "read-create",
+    "name": "hwTACACSServerGroupOctFmt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "byte": 1,
+          "gbyte": 4,
+          "kbyte": 2,
+          "mbyte": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwTACACSServerGroupPriAccoutAddr": {
+    "class": "objecttype",
+    "description": "Primary accounting server address.",
+    "maxaccess": "read-create",
+    "name": "hwTACACSServerGroupPriAccoutAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwTACACSServerGroupPriAccoutPort": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 49
+      }
+    },
+    "description": "Primary accounting server port.",
+    "maxaccess": "read-create",
+    "name": "hwTACACSServerGroupPriAccoutPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTACACSServerGroupPriAuthenAddr": {
+    "class": "objecttype",
+    "description": "Primary authentication server address.",
+    "maxaccess": "read-create",
+    "name": "hwTACACSServerGroupPriAuthenAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwTACACSServerGroupPriAuthenPort": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 49
+      }
+    },
+    "description": "Primary authentication server port.",
+    "maxaccess": "read-create",
+    "name": "hwTACACSServerGroupPriAuthenPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTACACSServerGroupPriAuthorAddr": {
+    "class": "objecttype",
+    "description": "Primary authorization server address.",
+    "maxaccess": "read-create",
+    "name": "hwTACACSServerGroupPriAuthorAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwTACACSServerGroupPriAuthorPort": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 49
+      }
+    },
+    "description": "Primary authorization server port.",
+    "maxaccess": "read-create",
+    "name": "hwTACACSServerGroupPriAuthorPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTACACSServerGroupRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus.",
+    "maxaccess": "read-create",
+    "name": "hwTACACSServerGroupRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.120",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwTACACSServerGroupSecAccoutAddr": {
+    "class": "objecttype",
+    "description": "Secondary accounting server address.",
+    "maxaccess": "read-create",
+    "name": "hwTACACSServerGroupSecAccoutAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwTACACSServerGroupSecAccoutPort": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 49
+      }
+    },
+    "description": "Secondary accounting server port.",
+    "maxaccess": "read-create",
+    "name": "hwTACACSServerGroupSecAccoutPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTACACSServerGroupSecAuthenAddr": {
+    "class": "objecttype",
+    "description": "Secondary authentication server address.",
+    "maxaccess": "read-create",
+    "name": "hwTACACSServerGroupSecAuthenAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwTACACSServerGroupSecAuthenPort": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 49
+      }
+    },
+    "description": "Secondary authentication server port.",
+    "maxaccess": "read-create",
+    "name": "hwTACACSServerGroupSecAuthenPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTACACSServerGroupSecAuthorAddr": {
+    "class": "objecttype",
+    "description": "Secondary authorization server address.",
+    "maxaccess": "read-create",
+    "name": "hwTACACSServerGroupSecAuthorAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwTACACSServerGroupSecAuthorPort": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 49
+      }
+    },
+    "description": "Secondary authorization server port.",
+    "maxaccess": "read-create",
+    "name": "hwTACACSServerGroupSecAuthorPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTACACSServerGroupSourceIP": {
+    "class": "objecttype",
+    "description": "Specify hwtacacs source-ip.",
+    "maxaccess": "read-create",
+    "name": "hwTACACSServerGroupSourceIP",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwTACACSServerGroupTable": {
+    "class": "objecttype",
+    "description": "Group table.",
+    "maxaccess": "not-accessible",
+    "name": "hwTACACSServerGroupTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1",
+    "status": "current"
+  },
+  "hwTACACSServerGroupTimeout": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": "Specify server response timeout.",
+    "maxaccess": "read-create",
+    "name": "hwTACACSServerGroupTimeout",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 300,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTACACSServerGroupTimer": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": "Set time interval before retry the down-server.",
+    "maxaccess": "read-create",
+    "name": "hwTACACSServerGroupTimer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTacacsCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the this module.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTacacsTableGroup"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTacacsSettingGroup"
+      }
+    ],
+    "name": "hwTacacsCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.2.1.1",
+    "status": "current"
+  },
+  "hwTacacsCompliances": {
+    "class": "objectidentity",
+    "name": "hwTacacsCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.2.1"
+  },
+  "hwTacacsConformance": {
+    "class": "objectidentity",
+    "name": "hwTacacsConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.2"
+  },
+  "hwTacacsObjectGroups": {
+    "class": "objectidentity",
+    "name": "hwTacacsObjectGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.2.2"
+  },
+  "hwTacacsSetting": {
+    "class": "objectidentity",
+    "name": "hwTacacsSetting",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.4"
+  },
+  "hwTacacsSettingEntry": {
+    "class": "objectidentity",
+    "name": "hwTacacsSettingEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.4.1"
+  },
+  "hwTacacsSettingGroup": {
+    "class": "objectgroup",
+    "description": "The HWTACACS Setting table.",
+    "name": "hwTacacsSettingGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSEnable"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSAcctStopResendDisable"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSAcctStopResendNumber"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.20.2.2.2",
+    "status": "current"
+  },
+  "hwTacacsTableGroup": {
+    "class": "objectgroup",
+    "description": "The HWTACACS configuration table.",
+    "name": "hwTacacsTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupIndex"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupName"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupSourceIP"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupKey"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupTimer"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupDomain"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupOctFmt"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupTimeout"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupPriAuthenAddr"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupPriAuthenPort"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupPriAuthorAddr"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupPriAuthorPort"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupPriAccoutAddr"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupPriAccoutPort"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupSecAuthenAddr"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupSecAuthenPort"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupSecAuthorAddr"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupSecAuthorPort"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupSecAccoutAddr"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupSecAccoutPort"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupCurAuthenAddr"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupCurAuthorAddr"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupCurAccoutAddr"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientRoundTripTime"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessReqPacket"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessReqLogin"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessReqChaPass"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessReqSendPass"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessReqSendAuth"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessResPack"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessResPass"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessResFail"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessResGetData"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessResGetUser"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessResGetPass"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessResRestart"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessResError"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessResFollow"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientMalformedAccessResponses"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessConPack"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientAccessConAbort"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientPendingRequests"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientTimeouts"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientUnknownTypes"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthenClientPacketsDropped"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthorClientRoundTripTime"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthorClientReqPacket"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthorClientReqEXEC"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthorClientReqVPDN"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthorClientResPack"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthorClientResEXEC"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthorClientResVPDN"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthorClientResError"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthorClientReqPending"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthorClientTimeouts"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthorClientUnknownTypes"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAuthorClientPacketsDropped"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAccClientRoundTripTime"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAccClientReqPacket"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAccClientReqNetwork"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAccClientReqConnection"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAccClientReqEXEC"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAccClientReqSysEvent"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAccClientReqCommandLevel"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAccClientReqUpdate"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAccClientResPacket"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAccClientResError"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAccClientReqPending"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAccClientTimeouts"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAccClientUnknownTypes"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSPriAccClientPacketsDropped"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientRoundTripTime"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessReqPacket"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessReqLogin"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessReqChaPass"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessReqSendPass"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessReqSendAuth"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessResPack"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessResPass"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessResFail"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessResGetData"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessResGetUser"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessResGetPass"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessResRestart"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessResError"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessResFollow"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientMalformedAccessResponses"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessConPack"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientAccessConAbort"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientPendingRequests"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientTimeouts"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientUnknownTypes"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthenClientPacketsDropped"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthorClientRoundTripTime"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthorClientReqPacket"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthorClientReqEXEC"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthorClientReqVPDN"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthorClientResPack"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthorClientResEXEC"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthorClientResVPDN"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthorClientResError"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthorClientReqPending"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthorClientTimeouts"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthorClientUnknownTypes"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAuthorClientPacketsDropped"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAccClientRoundTripTime"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAccClientReqPacket"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAccClientReqNetwork"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAccClientReqConnection"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAccClientReqEXEC"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAccClientReqSysEvent"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAccClientReqCommandLevel"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAccClientReqUpdate"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAccClientResPacket"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAccClientResError"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAccClientReqPending"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAccClientTimeouts"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAccClientUnknownTypes"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSSecAccClientPacketsDropped"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwTACACSServerGroupRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.20.2.2.1",
+    "status": "current"
+  },
+  "hwtacacsClient": {
+    "class": "objectidentity",
+    "name": "hwtacacsClient",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1"
+  },
+  "hwtacacsClientAccountPacketsDropped": {
+    "class": "objecttype",
+    "description": "The number of accounting packets of which were received from this server on the port and dropped for some other reason.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAccountPacketsDropped",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAccountReqCommandLevel": {
+    "class": "objecttype",
+    "description": "The total number of Command record accounting request packets sent to this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAccountReqCommandLevel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAccountReqConnection": {
+    "class": "objecttype",
+    "description": "The total number of Connection request packets sent to this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAccountReqConnection",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAccountReqEXEC": {
+    "class": "objecttype",
+    "description": "The total number of EXEC accounting request packets sent to this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAccountReqEXEC",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAccountReqNetwork": {
+    "class": "objecttype",
+    "description": "The total number of Network request packets sent to this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAccountReqNetwork",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAccountReqPending": {
+    "class": "objecttype",
+    "description": "The number of accounting packets destined for this server that have not yet timed out or received a response. This variable is incremented when a Request is sent and decremented due to receipt of a response or a timeout.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAccountReqPending",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAccountReqSysEvent": {
+    "class": "objecttype",
+    "description": "The total number of System Event accounting request packets sent to this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAccountReqSysEvent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAccountReqUpdate": {
+    "class": "objecttype",
+    "description": "The total number of Command record accounting request packets sent to this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAccountReqUpdate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAccountRequestPackets": {
+    "class": "objecttype",
+    "description": "The total number of accounting request packets sent to this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAccountRequestPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAccountResponseErrorPackets": {
+    "class": "objecttype",
+    "description": "The total number of erroneous accounting response packets from server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAccountResponseErrorPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAccountResponsePackets": {
+    "class": "objecttype",
+    "description": "The total number of accounting successful response packets received from this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAccountResponsePackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAccountRoundTripTime": {
+    "class": "objecttype",
+    "description": "The time interval (in hundredths of a second) between the most recent accounting response and the accounting request that matched it from this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAccountRoundTripTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwtacacsClientAccountRowStatus": {
+    "class": "objecttype",
+    "description": "The object specifies the status of this table entry. When the status is active, hwtacacsClientAccountServerEntry table fields\u0027s value in the entry are allowed to be modified. The following objects may not be modified while the value of this object is active(1): - hwtacacsClientAccountServerAddress. - hwtacacsClientAccountServerType.",
+    "maxaccess": "read-create",
+    "name": "hwtacacsClientAccountRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwtacacsClientAccountServerAddress": {
+    "class": "objecttype",
+    "description": "The object specifies the IP address of the server",
+    "maxaccess": "read-create",
+    "name": "hwtacacsClientAccountServerAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwtacacsClientAccountServerEntry": {
+    "class": "objecttype",
+    "description": "HwTACACS Account Server table entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAccountTemplateIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAccountServerIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwtacacsClientAccountServerEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1",
+    "status": "current"
+  },
+  "hwtacacsClientAccountServerGroup": {
+    "class": "objectgroup",
+    "description": "The basic collection of objects providing management of HwTACACS Authorization servers.",
+    "name": "hwtacacsClientAccountServerGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAccountServerAddress"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAccountServerPort"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAccountServerType"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAccountServerState"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAccountServerMode"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAccountRoundTripTime"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAccountRequestPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAccountResponsePackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAccountResponseErrorPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAccountVPNName"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.2.2.5",
+    "status": "current"
+  },
+  "hwtacacsClientAccountServerIndex": {
+    "class": "objecttype",
+    "description": "A number uniquely identifying each HwTACACS accounting server with which this client communicates.",
+    "maxaccess": "not-accessible",
+    "name": "hwtacacsClientAccountServerIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwtacacsClientAccountServerMode": {
+    "class": "objecttype",
+    "description": "The mode of operation of accounting server for this client.(1 - MUX, 0 - NonMux)",
+    "maxaccess": "read-create",
+    "name": "hwtacacsClientAccountServerMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwtacacsClientAccountServerPort": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 49
+      }
+    },
+    "description": "The TCP port the client is using to send accounting requests to this server.Default value is 49.",
+    "maxaccess": "read-create",
+    "name": "hwtacacsClientAccountServerPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwtacacsClientAccountServerState": {
+    "class": "objecttype",
+    "description": "The current server state identified by client based on the server responses.(0 - UP or 1 - DOWN)",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAccountServerState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwtacacsClientAccountServerTable": {
+    "class": "objecttype",
+    "description": "HwTACACS Account Server table.",
+    "maxaccess": "not-accessible",
+    "name": "hwtacacsClientAccountServerTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17",
+    "status": "current"
+  },
+  "hwtacacsClientAccountServerType": {
+    "class": "objecttype",
+    "description": "The Server Type indicates the type of server. 0 - Primary 1 - Secondary.",
+    "maxaccess": "read-create",
+    "name": "hwtacacsClientAccountServerType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwtacacsClientAccountTemplateIndex": {
+    "class": "objecttype",
+    "description": "A number uniquely identifying the HwTACACS Template for which this server belongs to.",
+    "maxaccess": "not-accessible",
+    "name": "hwtacacsClientAccountTemplateIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwtacacsClientAccountTimeouts": {
+    "class": "objecttype",
+    "description": "The number of accounting timeout packets to this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAccountTimeouts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAccountUnKnownTypes": {
+    "class": "objecttype",
+    "description": "The number of accounting packets of unknown type which were received from this server on the port.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAccountUnKnownTypes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAccountVPNName": {
+    "class": "objecttype",
+    "description": "The object specifies the VPN instance name of the server.Default value is _public_",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAccountVPNName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.17.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwtacacsClientAcctErrorPackets": {
+    "class": "objecttype",
+    "description": "The object specifies total number of accounting error packets received by this router.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAcctErrorPackets",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAcctPendingPackets": {
+    "class": "objecttype",
+    "description": "The object specifies total number of pending accounting requests for this router.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAcctPendingPackets",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAcctRequestPackets": {
+    "class": "objecttype",
+    "description": "The object specifies total number of accounting request packets sent by this router.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAcctRequestPackets",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAcctResponsePackets": {
+    "class": "objecttype",
+    "description": "The object specifies total number of accounting response packets received by this router.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAcctResponsePackets",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthenAcceptPackets": {
+    "class": "objecttype",
+    "description": "The object specifies total number of authentication accept responses received by this router.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthenAcceptPackets",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthenAccessChngPassRequests": {
+    "class": "objecttype",
+    "description": "The number of change password requests received",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthenAccessChngPassRequests",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthenAccessReqPackets": {
+    "class": "objecttype",
+    "description": "The number of access request packets received.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthenAccessReqPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthenAccessSendAuthenPackets": {
+    "class": "objecttype",
+    "description": "The number of send authentication packets.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthenAccessSendAuthenPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthenAccessSendPassPackets": {
+    "class": "objecttype",
+    "description": "The number of send password packets.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthenAccessSendPassPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthenContinueAbortPackets": {
+    "class": "objecttype",
+    "description": "The total number of authentication client continue abort packets sent to this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthenContinueAbortPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthenContinuePackets": {
+    "class": "objecttype",
+    "description": "The total number of authentication continue packets sent to this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthenContinuePackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthenDroppedPackets": {
+    "class": "objecttype",
+    "description": "The number of HwTACACS authentication packets of which were received from this server on the port and dropped for some other reason.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthenDroppedPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthenPendRequests": {
+    "class": "objecttype",
+    "description": "The object specifies total number of pending authentication requests for this router.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthenPendRequests",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwtacacsClientAuthenPendingRequests": {
+    "class": "objecttype",
+    "description": "The number of HwTACACS authentication packets destined for this server that have not yet timed out or received a response. This variable is incremented when a Request is sent and decremented due to receipt of a response or a timeout. ",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthenPendingRequests",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwtacacsClientAuthenRejectPackets": {
+    "class": "objecttype",
+    "description": "The object specifies total number of authentication reject responses received by this router.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthenRejectPackets",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthenReplyErrorPackets": {
+    "class": "objecttype",
+    "description": "The total number of erroneous authentication reply packets from this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthenReplyErrorPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthenReplyFailPackets": {
+    "class": "objecttype",
+    "description": "The total number of authentication which are failed by the authentication processes. This also includes follow packets from this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthenReplyFailPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthenReplyFollowPackets": {
+    "class": "objecttype",
+    "description": "The total number of authentication follow reply packets from this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthenReplyFollowPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthenReplyGetDataPackets": {
+    "class": "objecttype",
+    "description": "The total number of \u0027get data\u0027 authentication reply packets from this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthenReplyGetDataPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthenReplyGetPassPackets": {
+    "class": "objecttype",
+    "description": "The total number of \u0027get pass\u0027 authentication reply packets from this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthenReplyGetPassPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthenReplyGetUserPackets": {
+    "class": "objecttype",
+    "description": "The total number of \u0027get user\u0027 authentication reply packets from this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthenReplyGetUserPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthenReplyPackets": {
+    "class": "objecttype",
+    "description": "The total number of authentication replies from this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthenReplyPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthenReplyPassPackets": {
+    "class": "objecttype",
+    "description": "The total number of authentication pass reply from this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthenReplyPassPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthenReplyRestartPackets": {
+    "class": "objecttype",
+    "description": "The total number of authentication restart reply packets from this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthenReplyRestartPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthenRequestPackets": {
+    "class": "objecttype",
+    "description": "The object specifies total number of authentication request packets sent by this router.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthenRequestPackets",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthenRoundTripTime": {
+    "class": "objecttype",
+    "description": "The time interval (in hundredths of a second) between the most recent authentication response and the authentication request that matched it from this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthenRoundTripTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwtacacsClientAuthenRowStatus": {
+    "class": "objecttype",
+    "description": "The object specifies the status of this table entry. When the status is active, hwtacacsClientAuthenServerEntry table fields value in the entry are allowed to be modified. The following objects may not be modified while the value of this object is active(1): - hwtacacsClientAuthenServerAddress. - hwtacacsClientAuthenServerType.",
+    "maxaccess": "read-create",
+    "name": "hwtacacsClientAuthenRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwtacacsClientAuthenServerAddress": {
+    "class": "objecttype",
+    "description": "The object specifies the IP address of the server",
+    "maxaccess": "read-create",
+    "name": "hwtacacsClientAuthenServerAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwtacacsClientAuthenServerEntry": {
+    "class": "objecttype",
+    "description": "HwTACACS Authentication Server table entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenTemplateIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenServerIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwtacacsClientAuthenServerEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenServerGroup": {
+    "class": "objectgroup",
+    "description": "The basic collection of objects providing management of HwTACACS Authentication servers.",
+    "name": "hwtacacsClientAuthenServerGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenServerAddress"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenServerPort"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenServerType"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenServerState"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenServerMode"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenRoundTripTime"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenAccessReqPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenAccessChngPassRequests"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenAccessSendPassPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenAccessSendAuthenPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenStartPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenContinuePackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenContinueAbortPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenReplyPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenReplyPassPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenReplyFailPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenReplyGetDataPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenReplyGetUserPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenReplyGetPassPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenReplyErrorPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenReplyRestartPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenReplyFollowPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenPendingRequests"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenTimeouts"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenUnknownTypePackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenDroppedPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenVPNName"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.2.2.3",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenServerIndex": {
+    "class": "objecttype",
+    "description": "A number uniquely identifying each HwTACACS authentication server with which this client communicates.",
+    "maxaccess": "not-accessible",
+    "name": "hwtacacsClientAuthenServerIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwtacacsClientAuthenServerMode": {
+    "class": "objecttype",
+    "description": "The mode of operation of authentication server for this client. (1 - MUX, 0 - NonMux)",
+    "maxaccess": "read-create",
+    "name": "hwtacacsClientAuthenServerMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwtacacsClientAuthenServerPort": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 49
+      }
+    },
+    "description": "The TCP port the client is using to send authentication requests to this server.Default value is 49.",
+    "maxaccess": "read-create",
+    "name": "hwtacacsClientAuthenServerPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwtacacsClientAuthenServerState": {
+    "class": "objecttype",
+    "description": "The current server state identified by client based on the server responses. (0 - UP or 1 - DOWN)",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthenServerState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwtacacsClientAuthenServerTable": {
+    "class": "objecttype",
+    "description": "HwTACACS Authentication Server table.",
+    "maxaccess": "not-accessible",
+    "name": "hwtacacsClientAuthenServerTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15",
+    "status": "current"
+  },
+  "hwtacacsClientAuthenServerType": {
+    "class": "objecttype",
+    "description": "The Server Type indicates the type of server. 0 - Primary 1 - Secondary.",
+    "maxaccess": "read-create",
+    "name": "hwtacacsClientAuthenServerType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwtacacsClientAuthenStartPackets": {
+    "class": "objecttype",
+    "description": "The total number of authentication packets sent to this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthenStartPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthenTemplateIndex": {
+    "class": "objecttype",
+    "description": "A number uniquely identifying the HwTACACS Template for which this server belongs to.",
+    "maxaccess": "not-accessible",
+    "name": "hwtacacsClientAuthenTemplateIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwtacacsClientAuthenTimeouts": {
+    "class": "objecttype",
+    "description": "The number of authentication timeouts to this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthenTimeouts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthenUnknownTypePackets": {
+    "class": "objecttype",
+    "description": "The number of HwTACACS authentication packets of unknown type which were received from this server on the port.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthenUnknownTypePackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthenVPNName": {
+    "class": "objecttype",
+    "description": "The object specifies the VPN instance name of the server. Default value is _public_",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthenVPNName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.15.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwtacacsClientAuthorAcceptPackets": {
+    "class": "objecttype",
+    "description": "The object specifies total number of authorization accept responses received by this router.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthorAcceptPackets",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthorDroppedPackets": {
+    "class": "objecttype",
+    "description": "The number of authorization packets of which were received from this server on the port and dropped for some other reason.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthorDroppedPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthorPendRequests": {
+    "class": "objecttype",
+    "description": "The object specifies total number of pending authorization requests for this router.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthorPendRequests",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwtacacsClientAuthorPendingRequests": {
+    "class": "objecttype",
+    "description": "The number of authorization packets destined for this server that have not yet timed out or received a response. This variable is incremented when a Request is sent and decremented due to receipt of a response or a timeout.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthorPendingRequests",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwtacacsClientAuthorRejectPackets": {
+    "class": "objecttype",
+    "description": "The object specifies total number of authorization reject responses received by this router.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthorRejectPackets",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthorReqPackets": {
+    "class": "objecttype",
+    "description": "The object specifies total number of authorization request packets sent by this router.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthorReqPackets",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthorRequestPackets": {
+    "class": "objecttype",
+    "description": "The total number of authorization request packets sent to this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthorRequestPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthorResponseAcceptPackets": {
+    "class": "objecttype",
+    "description": "The total number of authorization successful response packets received from this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthorResponseAcceptPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthorResponseErrorPackets": {
+    "class": "objecttype",
+    "description": "The total number of erroneous authorization response packets from server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthorResponseErrorPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthorResponseRejectPackets": {
+    "class": "objecttype",
+    "description": "The total number of authorization failure response packets received from this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthorResponseRejectPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthorRoundTripTime": {
+    "class": "objecttype",
+    "description": "The time interval (in hundredths of a second) between the most recent authorization response and the authorization request that matched it from this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthorRoundTripTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwtacacsClientAuthorRowStatus": {
+    "class": "objecttype",
+    "description": "The object specifies the status of this table entry. When the status is active, hwtacacsClientAuthorServerEntry table fields\u0027s value in the entry are allowed to be modified. The following objects may not be modified while the value of this object is active(1): - hwtacacsClientAuthorServerAddress. - hwtacacsClientAuthorServerType.",
+    "maxaccess": "read-create",
+    "name": "hwtacacsClientAuthorRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwtacacsClientAuthorServerAddress": {
+    "class": "objecttype",
+    "description": "The object specifies the IP address of the server",
+    "maxaccess": "read-create",
+    "name": "hwtacacsClientAuthorServerAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwtacacsClientAuthorServerEntry": {
+    "class": "objecttype",
+    "description": "HwTACACS Authorization Server table entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorTemplateIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorServerIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwtacacsClientAuthorServerEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1",
+    "status": "current"
+  },
+  "hwtacacsClientAuthorServerGroup": {
+    "class": "objectgroup",
+    "description": "The basic collection of objects providing management of HwTACACS Authorization servers.",
+    "name": "hwtacacsClientAuthorServerGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorServerAddress"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorServerPort"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorServerType"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorServerState"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorServerMode"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorRoundTripTime"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorRequestPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorResponseAcceptPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorResponseRejectPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorResponseErrorPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorPendingRequests"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorTimeouts"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorUnknownTypePackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorDroppedPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorVPNName"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.2.2.4",
+    "status": "current"
+  },
+  "hwtacacsClientAuthorServerIndex": {
+    "class": "objecttype",
+    "description": "A number uniquely identifying each HwTACACS authorization server with which this client communicates.",
+    "maxaccess": "not-accessible",
+    "name": "hwtacacsClientAuthorServerIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 127,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwtacacsClientAuthorServerMode": {
+    "class": "objecttype",
+    "description": "The mode of operation of authorization server for this client. (1 - MUX, 0 - NonMux)",
+    "maxaccess": "read-create",
+    "name": "hwtacacsClientAuthorServerMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwtacacsClientAuthorServerPort": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 49
+      }
+    },
+    "description": "The TCP port the client is using to send authorization requests to this server.Default value is 49.",
+    "maxaccess": "read-create",
+    "name": "hwtacacsClientAuthorServerPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwtacacsClientAuthorServerState": {
+    "class": "objecttype",
+    "description": "The current server state identified by client based on the server responses. (0 - UP or 1 - DOWN)",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthorServerState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwtacacsClientAuthorServerTable": {
+    "class": "objecttype",
+    "description": "HwTACACS Authorization Server table.",
+    "maxaccess": "not-accessible",
+    "name": "hwtacacsClientAuthorServerTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16",
+    "status": "current"
+  },
+  "hwtacacsClientAuthorServerType": {
+    "class": "objecttype",
+    "description": "The Server Type indicates the type of server. 0 - Primary 1 - Secondary.",
+    "maxaccess": "read-create",
+    "name": "hwtacacsClientAuthorServerType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwtacacsClientAuthorTemplateIndex": {
+    "class": "objecttype",
+    "description": "A number uniquely identifying the HwTACACS Template for which this server belongs to.",
+    "maxaccess": "not-accessible",
+    "name": "hwtacacsClientAuthorTemplateIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwtacacsClientAuthorTimeouts": {
+    "class": "objecttype",
+    "description": "The number of authorization timeouts to this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthorTimeouts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthorUnknownTypePackets": {
+    "class": "objecttype",
+    "description": "The number of authorization packets of unknown type which were received from this server on the port.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthorUnknownTypePackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientAuthorVPNName": {
+    "class": "objecttype",
+    "description": "The object specifies the VPN instance name of the server. Default value is _public_",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientAuthorVPNName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.16.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwtacacsClientCommomContinueAbortPackets": {
+    "class": "objecttype",
+    "description": "The total number of authentication client continue abort packets sent to this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommomContinueAbortPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientCommonAccessChngPassRequests": {
+    "class": "objecttype",
+    "description": "The number of change password requests received",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommonAccessChngPassRequests",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientCommonAccessSendAuthenPackets": {
+    "class": "objecttype",
+    "description": "The number of send authentication packets.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommonAccessSendAuthenPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientCommonAccessSendPassPackets": {
+    "class": "objecttype",
+    "description": "The number of send password packets.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommonAccessSendPassPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientCommonContinuePackets": {
+    "class": "objecttype",
+    "description": "The total number of authentication continue packets sent to this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommonContinuePackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientCommonDroppedPackets": {
+    "class": "objecttype",
+    "description": "The number of HwTACACS packets of which were received from this server on the port and dropped for some other reason.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommonDroppedPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.34",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientCommonPendingRequests": {
+    "class": "objecttype",
+    "description": "The number of HwTACACS authentication, authorization and accouting packets destined for this server that have not yet timed out or received a response. This variable is incremented when a Request is sent and decremented due to receipt of a response or a timeout. ",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommonPendingRequests",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwtacacsClientCommonReplyErrorPackets": {
+    "class": "objecttype",
+    "description": "The total number of authentication, authorization and accounting error packets from this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommonReplyErrorPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientCommonReplyFailPackets": {
+    "class": "objecttype",
+    "description": "The total number of authentication, authorization and accounting pass fail from this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommonReplyFailPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientCommonReplyFollowPackets": {
+    "class": "objecttype",
+    "description": "The total number of follow reply packets from this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommonReplyFollowPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientCommonReplyGetDataPackets": {
+    "class": "objecttype",
+    "description": "The total number of authentication get data packets from this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommonReplyGetDataPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientCommonReplyGetPassPackets": {
+    "class": "objecttype",
+    "description": "The total number of authentication get pass packets from this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommonReplyGetPassPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientCommonReplyGetUserPackets": {
+    "class": "objecttype",
+    "description": "The total number of authentication get user packets from this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommonReplyGetUserPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientCommonReplyPackets": {
+    "class": "objecttype",
+    "description": "The total number of authentication, authorization and accounting replies from this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommonReplyPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientCommonReplyPassPackets": {
+    "class": "objecttype",
+    "description": "The total number of authentication, authorization and accounting pass replies from this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommonReplyPassPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientCommonReplyRestartPackets": {
+    "class": "objecttype",
+    "description": "The total number of restart reply packets from this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommonReplyRestartPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientCommonReqCommandLevel": {
+    "class": "objecttype",
+    "description": "The total number of Command record accounting request packets sent to this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommonReqCommandLevel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientCommonReqConnection": {
+    "class": "objecttype",
+    "description": "The total number of Connection request packets sent to this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommonReqConnection",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientCommonReqEXEC": {
+    "class": "objecttype",
+    "description": "The total number of EXEC accounting request packets sent to this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommonReqEXEC",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientCommonReqNetwork": {
+    "class": "objecttype",
+    "description": "The total number of Network request packets sent to this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommonReqNetwork",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientCommonReqSysEvent": {
+    "class": "objecttype",
+    "description": "The total number of System Event accounting request packets sent to this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommonReqSysEvent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientCommonReqUpdate": {
+    "class": "objecttype",
+    "description": "The total number of Command record accounting request packets sent to this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommonReqUpdate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientCommonRequestPackets": {
+    "class": "objecttype",
+    "description": "The total number of common request packets sent to this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommonRequestPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientCommonRoundTripTime": {
+    "class": "objecttype",
+    "description": "The time interval (in hundredths of a second) between the most recent response and the request that matched it from this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommonRoundTripTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwtacacsClientCommonRowStatus": {
+    "class": "objecttype",
+    "description": "The object specifies the status of this table entry. When the status is active, hwtacacsClientCommonServerEntry table fields value in the entry are allowed to be modified. The following objects may not be modified while the value of this object is active(1): - hwtacacsClientCommonServerAddress. - hwtacacsClientCommonServerType.",
+    "maxaccess": "read-create",
+    "name": "hwtacacsClientCommonRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.36",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwtacacsClientCommonServerAddress": {
+    "class": "objecttype",
+    "description": "The object specifies the IP address of the server",
+    "maxaccess": "read-create",
+    "name": "hwtacacsClientCommonServerAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwtacacsClientCommonServerEntry": {
+    "class": "objecttype",
+    "description": "HwTACACS Common Server table entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonTemplateIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonServerIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwtacacsClientCommonServerEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1",
+    "status": "current"
+  },
+  "hwtacacsClientCommonServerGroup": {
+    "class": "objectgroup",
+    "description": "The basic collection of objects providing management of HwTACACS common servers.",
+    "name": "hwtacacsClientCommonServerGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonServerAddress"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonServerPort"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonServerType"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonServerState"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonServerMode"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonRoundTripTime"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonRequestPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonAccessChngPassRequests"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonAccessSendPassPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonAccessSendAuthenPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonStartPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonContinuePackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommomContinueAbortPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReplyPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReplyPassPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReplyFailPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReplyGetDataPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReplyGetUserPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReplyGetPassPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReplyErrorPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReplyRestartPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReplyFollowPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReqNetwork"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReqConnection"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReqEXEC"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReqSysEvent"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReqCommandLevel"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonReqUpdate"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonPendingRequests"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonTimeouts"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonUnknownTypePackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonDroppedPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonVPNName"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientCommonRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.2.2.6",
+    "status": "current"
+  },
+  "hwtacacsClientCommonServerIndex": {
+    "class": "objecttype",
+    "description": "A number uniquely identifying each HwTACACS common server with which this client communicates.",
+    "maxaccess": "not-accessible",
+    "name": "hwtacacsClientCommonServerIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwtacacsClientCommonServerMode": {
+    "class": "objecttype",
+    "description": "The mode of operation of common server for this client. (1 - MUX, 0 - NonMux)",
+    "maxaccess": "read-create",
+    "name": "hwtacacsClientCommonServerMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwtacacsClientCommonServerPort": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 49
+      }
+    },
+    "description": "The TCP port the client is using to send common requests to this server.Default value is 49.",
+    "maxaccess": "read-create",
+    "name": "hwtacacsClientCommonServerPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwtacacsClientCommonServerState": {
+    "class": "objecttype",
+    "description": "The current server state identified by client based on the server responses.(0 - UP or 1 - DOWN)",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommonServerState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwtacacsClientCommonServerTable": {
+    "class": "objecttype",
+    "description": "HwTACACS Common Server table.",
+    "maxaccess": "not-accessible",
+    "name": "hwtacacsClientCommonServerTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18",
+    "status": "current"
+  },
+  "hwtacacsClientCommonServerType": {
+    "class": "objecttype",
+    "description": "The Server Type indicates the type of server. 0 - Primary 1 - Secondary.",
+    "maxaccess": "read-create",
+    "name": "hwtacacsClientCommonServerType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwtacacsClientCommonStartPackets": {
+    "class": "objecttype",
+    "description": "The total number of authentication packets sent to this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommonStartPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientCommonTemplateIndex": {
+    "class": "objecttype",
+    "description": "A number uniquely identifying the HwTACACS Template for which this server belongs to.",
+    "maxaccess": "not-accessible",
+    "name": "hwtacacsClientCommonTemplateIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwtacacsClientCommonTimeouts": {
+    "class": "objecttype",
+    "description": "The number of request timeouts to this server.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommonTimeouts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientCommonUnknownTypePackets": {
+    "class": "objecttype",
+    "description": "The number of HwTACACS packets of unknown type which were received from this server on the port.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommonUnknownTypePackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientCommonVPNName": {
+    "class": "objecttype",
+    "description": "The object specifies the VPN instance name of the server. Default value is _public_",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientCommonVPNName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.18.1.35",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwtacacsClientCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HwTACACS Client MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientTemplateGroup"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientGroup"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorServerGroup"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenServerGroup"
+      }
+    ],
+    "name": "hwtacacsClientCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.2.1.1",
+    "status": "current"
+  },
+  "hwtacacsClientCompliances": {
+    "class": "objectidentity",
+    "name": "hwtacacsClientCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.2.1"
+  },
+  "hwtacacsClientConformance": {
+    "class": "objectidentity",
+    "name": "hwtacacsClientConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.2"
+  },
+  "hwtacacsClientDomainNameIncluded": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "The object specifies if the domain name is included or not in the username 1 - Domain Included 0 - Undo Domain ",
+    "maxaccess": "read-create",
+    "name": "hwtacacsClientDomainNameIncluded",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.14.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwtacacsClientDroppedPackets": {
+    "class": "objecttype",
+    "description": "The object specifies total number of packets dropped for this router.",
+    "maxaccess": "read-only",
+    "name": "hwtacacsClientDroppedPackets",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwtacacsClientGroup": {
+    "class": "objectgroup",
+    "description": "The basic collection of objects providing management of HwTACACS Clients. ",
+    "name": "hwtacacsClientGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenRequestPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenAcceptPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenRejectPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthenPendRequests"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorReqPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorAcceptPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorRejectPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAuthorPendRequests"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientDroppedPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAcctRequestPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAcctResponsePackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAcctErrorPackets"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientAcctPendingPackets"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.2.2.1",
+    "status": "current"
+  },
+  "hwtacacsClientMng": {
+    "class": "objectidentity",
+    "name": "hwtacacsClientMng",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3"
+  },
+  "hwtacacsClientObjectGroups": {
+    "class": "objectidentity",
+    "name": "hwtacacsClientObjectGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.2.2"
+  },
+  "hwtacacsClientQuietTimer": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": "The object specifies the quiet timeout value. Default value is 5(in minute)",
+    "maxaccess": "read-create",
+    "name": "hwtacacsClientQuietTimer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.14.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwtacacsClientResponseTimeout": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": "The object specifies the server response timeout value. Default value is 5",
+    "maxaccess": "read-create",
+    "name": "hwtacacsClientResponseTimeout",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.14.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 300,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwtacacsClientRowStatus": {
+    "class": "objecttype",
+    "description": "The object specifies the status of this table entry. When the status is active, all the hwtacacsTemplateEntry table field values in the entry are allowed to be modified. The following objects may not be modified while the value of this object is active(1): - hwtacacsClientTemplateName.",
+    "maxaccess": "read-create",
+    "name": "hwtacacsClientRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.14.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwtacacsClientSharedKey": {
+    "class": "objecttype",
+    "description": "The object specifies the shared key of the template",
+    "maxaccess": "read-create",
+    "name": "hwtacacsClientSharedKey",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.14.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 392,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwtacacsClientSourceIP": {
+    "class": "objecttype",
+    "description": "The object specifies the source address to be used while communicating with the servers",
+    "maxaccess": "read-create",
+    "name": "hwtacacsClientSourceIP",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.14.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwtacacsClientTemplateGroup": {
+    "class": "objectgroup",
+    "description": "The basic collection of objects providing management of HwTACACS Templates.",
+    "name": "hwtacacsClientTemplateGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientTemplateName"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientSharedKey"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientSourceIP"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientResponseTimeout"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientDomainNameIncluded"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientQuietTimer"
+      },
+      {
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.2.2.2",
+    "status": "current"
+  },
+  "hwtacacsClientTemplateIndex": {
+    "class": "objecttype",
+    "description": "A number uniquely identifying each HwTACACS Template.",
+    "maxaccess": "not-accessible",
+    "name": "hwtacacsClientTemplateIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.14.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwtacacsClientTemplateName": {
+    "class": "objecttype",
+    "description": "The object specifies the name of the server template",
+    "maxaccess": "read-create",
+    "name": "hwtacacsClientTemplateName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.14.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwtacacsTemplateEntry": {
+    "class": "objecttype",
+    "description": "HwTACACS Template table entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-HWTACACS-MIB",
+        "object": "hwtacacsClientTemplateIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwtacacsTemplateEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.14.1",
+    "status": "current"
+  },
+  "hwtacacsTemplateTable": {
+    "class": "objecttype",
+    "description": "HwTACACS Template table.",
+    "maxaccess": "not-accessible",
+    "name": "hwtacacsTemplateTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.20.3.1.14",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "enterprises",
+      "Counter32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "Counter64",
+      "iso",
+      "OBJECT-TYPE",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-HWTACACS-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:31 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-HWTACACS-MIB"
+  }
+}

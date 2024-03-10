@@ -1,0 +1,345 @@
+{
+  "hwBRASDpi": {
+    "class": "moduleidentity",
+    "contactinfo": "The MIB contains objects of module DPI.",
+    "description": "Description.",
+    "lastupdated": "200604181334Z",
+    "name": "hwBRASDpi",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.16",
+    "organization": " NanJing Institute,Huawei Technologies Co.,Ltd. HuiHong Mansion,No.91 BaiXia Rd. NanJing, P.R. of China Zipcode:210001 Http://www.huawei.com E-mail:support@huawei.com "
+  },
+  "hwDpiBehaviorCarCir": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 100000
+      }
+    },
+    "description": " Dpi Car Cir. Car Cir.",
+    "maxaccess": "read-write",
+    "name": "hwDpiBehaviorCarCir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.16.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 3000000,
+            "min": 100
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDpiBehaviorEntry": {
+    "class": "objecttype",
+    "description": " Dpi Behavior Entry. The dpi behavior table is uniquely identified by the behavior name. The behavior name is the key word entered when the behavior table is created, and cannot be changed. The index is hwDpiBehaviorName. This table is used to configure the dpi behavior. The description of operation constraints is as follows: 1.The DPI behavior name must be entered when the behavior table is created. 2.The DPI behavior cannot be changed if it is referenced by some DPI policy. 3.The current DPI behavior cannot be deleted if it is referenced by global application. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-DPI-MIB",
+        "object": "hwDpiBehaviorName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDpiBehaviorEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.16.1.2.1",
+    "status": "current"
+  },
+  "hwDpiBehaviorGroup": {
+    "class": "objectgroup",
+    "description": "The Dpi behavior group.",
+    "name": "hwDpiBehaviorGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-DPI-MIB",
+        "object": "hwDpiBehaviorName"
+      },
+      {
+        "module": "HUAWEI-BRAS-DPI-MIB",
+        "object": "hwDpiBehaviorCarCir"
+      },
+      {
+        "module": "HUAWEI-BRAS-DPI-MIB",
+        "object": "hwDpiBehaviorRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.16.2.2.2",
+    "status": "current"
+  },
+  "hwDpiBehaviorName": {
+    "class": "objecttype",
+    "description": " Dpi Behavior Name. The behavior name is the key word entered when the behavior table is created, and cannot be changed. The DPI behavior name is assigned when DPI behavior is created. ",
+    "maxaccess": "read-write",
+    "name": "hwDpiBehaviorName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.16.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDpiBehaviorRowStatus": {
+    "class": "objecttype",
+    "description": "Row admin status,either Add or Del. Supports add and delete. ",
+    "maxaccess": "read-create",
+    "name": "hwDpiBehaviorRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.16.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwDpiBehaviorTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "hwDpiBehaviorTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.16.1.2",
+    "status": "current"
+  },
+  "hwDpiCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the this module.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-BRAS-DPI-MIB",
+        "object": "hwDpiPolicyGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-DPI-MIB",
+        "object": "hwDpiBehaviorGroup"
+      }
+    ],
+    "name": "hwDpiCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.16.2.1.1",
+    "status": "current"
+  },
+  "hwDpiCompliances": {
+    "class": "objectidentity",
+    "name": "hwDpiCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.16.2.1"
+  },
+  "hwDpiConformance": {
+    "class": "objectidentity",
+    "name": "hwDpiConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.16.2"
+  },
+  "hwDpiDownBehaviorName": {
+    "class": "objecttype",
+    "description": " Down Behavior Name. Binding down DPI behavior policy is choosen to do, if down DPI behavior is binded, it need assingn behavior name. ",
+    "maxaccess": "read-write",
+    "name": "hwDpiDownBehaviorName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.16.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDpiGroups": {
+    "class": "objectidentity",
+    "name": "hwDpiGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.16.2.2"
+  },
+  "hwDpiPolicyEntry": {
+    "class": "objecttype",
+    "description": " Dpi Policy Entry. The dpi policy table is uniquely identified by the policy name. The policy name is the key word entered when the policy table is created, and cannot be changed. The index is hwDpiPolicyName. This table is used to configure the dpi policy. The description of operation constraints is as follows: 1.The DPI policy name must be entered when the policy table is created. 2.The DPI policy cannot be changed if it is referenced by some user. 3.The current DPI policy cannot be deleted if it is referenced by some domain. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-DPI-MIB",
+        "object": "hwDpiPolicyName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDpiPolicyEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.16.1.1.1",
+    "status": "current"
+  },
+  "hwDpiPolicyGroup": {
+    "class": "objectgroup",
+    "description": "The Dpi policy group.",
+    "name": "hwDpiPolicyGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-DPI-MIB",
+        "object": "hwDpiServiceType"
+      },
+      {
+        "module": "HUAWEI-BRAS-DPI-MIB",
+        "object": "hwDpiPolicyName"
+      },
+      {
+        "module": "HUAWEI-BRAS-DPI-MIB",
+        "object": "hwDpiUpBehaviorName"
+      },
+      {
+        "module": "HUAWEI-BRAS-DPI-MIB",
+        "object": "hwDpiDownBehaviorName"
+      },
+      {
+        "module": "HUAWEI-BRAS-DPI-MIB",
+        "object": "hwDpiPolicyRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.16.2.2.1",
+    "status": "current"
+  },
+  "hwDpiPolicyName": {
+    "class": "objecttype",
+    "description": " Dpi Policy Name. The policy name is the key word entered when the policy table is created, and cannot be changed later. The DPI policy name is assigned when DPI policy is created. ",
+    "maxaccess": "read-write",
+    "name": "hwDpiPolicyName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.16.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDpiPolicyObject": {
+    "class": "objectidentity",
+    "name": "hwDpiPolicyObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.16.1"
+  },
+  "hwDpiPolicyRowStatus": {
+    "class": "objecttype",
+    "description": "Row admin status,either Add or Del. Supports add and delete. ",
+    "maxaccess": "read-create",
+    "name": "hwDpiPolicyRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.16.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwDpiPolicyTable": {
+    "class": "objecttype",
+    "description": " DPI Service Policy Configuration. ",
+    "maxaccess": "not-accessible",
+    "name": "hwDpiPolicyTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.16.1.1",
+    "status": "current"
+  },
+  "hwDpiServiceType": {
+    "class": "objecttype",
+    "description": " Service Type. P2P/OTHER. ",
+    "maxaccess": "read-write",
+    "name": "hwDpiServiceType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.16.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "p2p": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDpiUpBehaviorName": {
+    "class": "objecttype",
+    "description": " Up Behavior Name. Binding up DPI behavior policy is choosen to do, if up DPI behavior is binded, it need assingn behavior name. ",
+    "maxaccess": "read-write",
+    "name": "hwDpiUpBehaviorName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.16.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwBRASMib"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "OBJECT-TYPE",
+      "Bits",
+      "iso",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter64",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TruthValue",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-BRAS-DPI-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:46:46 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-BRAS-DPI-MIB"
+  }
+}

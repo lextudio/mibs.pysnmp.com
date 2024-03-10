@@ -1,0 +1,1666 @@
+{
+  "hwKompellaACOAMStatus": {
+    "class": "objecttype",
+    "description": "Denotes the AC\u0027s protocol is operational or not.",
+    "maxaccess": "read-only",
+    "name": "hwKompellaACOAMStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwKompellaACStatus": {
+    "class": "objecttype",
+    "description": "Denotes the AC\u0027s physical status is operational or not.",
+    "maxaccess": "read-only",
+    "name": "hwKompellaACStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "downNotify": 6,
+          "notify": 4,
+          "notifyDown": 5,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwKompellaCeEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of a CE entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaCeID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwKompellaCeEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.3.1",
+    "status": "current"
+  },
+  "hwKompellaCeGroup": {
+    "class": "objectgroup",
+    "description": "The KOMPELLA\u0027s CE group.",
+    "name": "hwKompellaCeGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaCeName"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaCeIDRange"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaCeIDDefaultOffset"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaCeRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3.2.3",
+    "status": "current"
+  },
+  "hwKompellaCeID": {
+    "class": "objecttype",
+    "description": "The unique ID in a VPN identifies a local CE.",
+    "maxaccess": "not-accessible",
+    "name": "hwKompellaCeID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 249,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwKompellaCeIDDefaultOffset": {
+    "class": "objecttype",
+    "description": "Value of default original CE offset, default value is 0.",
+    "maxaccess": "read-create",
+    "name": "hwKompellaCeIDDefaultOffset",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwKompellaCeIDRange": {
+    "class": "objecttype",
+    "description": "The CE ID range available.",
+    "maxaccess": "read-create",
+    "name": "hwKompellaCeIDRange",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 250,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwKompellaCeName": {
+    "class": "objecttype",
+    "description": "The human-readable name of this CE.",
+    "maxaccess": "read-create",
+    "name": "hwKompellaCeName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 20,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwKompellaCeRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus for this Table. Restriction: The VPN designated by hwKompellaVpnName must be created first. Not support modifying configuration. If delete a CE, the entries of hwKompellaVcTable under this CE will be deleted too.",
+    "maxaccess": "read-create",
+    "name": "hwKompellaCeRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.3.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwKompellaCeTable": {
+    "class": "objecttype",
+    "description": "This table is the CE configuration table. Users can create or delete the CE of a VPN by it.",
+    "maxaccess": "not-accessible",
+    "name": "hwKompellaCeTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.3",
+    "status": "current"
+  },
+  "hwKompellaCfmMaIndex": {
+    "class": "objecttype",
+    "description": "This value indicates the CFM MA Index.",
+    "maxaccess": "read-only",
+    "name": "hwKompellaCfmMaIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4095,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwKompellaEthOamType": {
+    "class": "objecttype",
+    "description": "This value indicates the type of ETH OAM.",
+    "maxaccess": "read-only",
+    "name": "hwKompellaEthOamType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethOam1ag": 1,
+          "ethOam3ah": 2,
+          "noEthOamCfg": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwKompellaMIBCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-KOMPELLA-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnGroup"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnTargetGroup"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaCeGroup"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcGroup"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcTnlGroup"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcStatisticsGroup"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaNotificationControlGroup"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVCSwitchControlGroup"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcStateChangeReasonGroup"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaSwitchRmtCEIDGroup"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaNotificationGroup"
+      }
+    ],
+    "name": "hwKompellaMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3.1.1",
+    "status": "current"
+  },
+  "hwKompellaMIBCompliances": {
+    "class": "objectidentity",
+    "name": "hwKompellaMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3.1"
+  },
+  "hwKompellaMIBConformance": {
+    "class": "objectidentity",
+    "name": "hwKompellaMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3"
+  },
+  "hwKompellaMIBGroups": {
+    "class": "objectidentity",
+    "name": "hwKompellaMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3.2"
+  },
+  "hwKompellaMIBObjects": {
+    "class": "objectidentity",
+    "name": "hwKompellaMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1"
+  },
+  "hwKompellaMIBTraps": {
+    "class": "objectidentity",
+    "name": "hwKompellaMIBTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.2"
+  },
+  "hwKompellaNotificationControlGroup": {
+    "class": "objectgroup",
+    "description": "The KOMPELLA\u0027s Notification Control group.",
+    "name": "hwKompellaNotificationControlGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcUpDownNotifEnable"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcDeletedNotifEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3.2.7",
+    "status": "current"
+  },
+  "hwKompellaNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "The KOMPELLA Notification group.",
+    "name": "hwKompellaNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcDown"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcUp"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaSwitchWtoP"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaSwitchPtoW"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcDeleted"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3.2.11",
+    "status": "current"
+  },
+  "hwKompellaOAMSync": {
+    "class": "objecttype",
+    "description": "Denotes the AC and PSN are enable or not.",
+    "maxaccess": "read-create",
+    "name": "hwKompellaOAMSync",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwKompellaSwitchNotifEnable": {
+    "class": "objecttype",
+    "description": "If this object is set to enable(1),then it enbables this emission of hwKompellaSwitchWtoP and hwKompellaSwitchPtoW notifications;otherwise these notifications are not emitted. The default value is disable (2).",
+    "maxaccess": "read-write",
+    "name": "hwKompellaSwitchNotifEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwKompellaSwitchPtoW": {
+    "class": "notificationtype",
+    "description": "This notification is generated when switch from protect pw to working pw happens.",
+    "name": "hwKompellaSwitchPtoW",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcCtrlWord"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaSwitchRmtCEID"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcStateChangeReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.2.4",
+    "status": "current"
+  },
+  "hwKompellaSwitchRmtCEID": {
+    "class": "objecttype",
+    "description": "This object indicates the remote CE ID of KOMPELLA VC switch from working pw to protect pw .",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwKompellaSwitchRmtCEID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 249,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwKompellaSwitchRmtCEIDGroup": {
+    "class": "objectgroup",
+    "description": "The KOMPELLA\u0027s Remote CE ID group.",
+    "name": "hwKompellaSwitchRmtCEIDGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaSwitchRmtCEID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3.2.10",
+    "status": "current"
+  },
+  "hwKompellaSwitchWtoP": {
+    "class": "notificationtype",
+    "description": "This notification is generated when switch from working pw to protect pw happens.",
+    "name": "hwKompellaSwitchWtoP",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcCtrlWord"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaSwitchRmtCEID"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcStateChangeReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.2.3",
+    "status": "current"
+  },
+  "hwKompellaTnlForBfdIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the index of LSP for BFD.",
+    "maxaccess": "read-only",
+    "name": "hwKompellaTnlForBfdIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwKompellaVCForBFDIndex": {
+    "class": "objecttype",
+    "description": "The index of pw for BFD.",
+    "maxaccess": "read-only",
+    "name": "hwKompellaVCForBFDIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwKompellaVCSwitchControlGroup": {
+    "class": "objectgroup",
+    "description": "The KOMPELLA\u0027s Switch Notification Control group.",
+    "name": "hwKompellaVCSwitchControlGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaSwitchNotifEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3.2.8",
+    "status": "current"
+  },
+  "hwKompellaVcBFDDetectMultiplier": {
+    "class": "objecttype",
+    "description": "The multiple of detection time.",
+    "maxaccess": "read-only",
+    "name": "hwKompellaVcBFDDetectMultiplier",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 50,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwKompellaVcBFDMinReceiveInterval": {
+    "class": "objecttype",
+    "description": "The minimum interval of BFD messages to be received.",
+    "maxaccess": "read-only",
+    "name": "hwKompellaVcBFDMinReceiveInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 1000,
+            "min": 10
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwKompellaVcBFDMinTransmitInterval": {
+    "class": "objecttype",
+    "description": "The minimum interval of BFD messages to be sent.",
+    "maxaccess": "read-only",
+    "name": "hwKompellaVcBFDMinTransmitInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 1000,
+            "min": 10
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwKompellaVcCtrlWord": {
+    "class": "objecttype",
+    "description": "This value indicates the control word capability.",
+    "maxaccess": "read-create",
+    "name": "hwKompellaVcCtrlWord",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwKompellaVcDeleted": {
+    "class": "notificationtype",
+    "description": "This notification indicates the VC is deleted.",
+    "name": "hwKompellaVcDeleted",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcSecondary"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.2.5",
+    "status": "current"
+  },
+  "hwKompellaVcDeletedNotifEnable": {
+    "class": "objecttype",
+    "description": "This object indicates the enable sign of KOMPELLA VC deletion notification. The default value is disable (2).",
+    "maxaccess": "read-write",
+    "name": "hwKompellaVcDeletedNotifEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwKompellaVcDown": {
+    "class": "notificationtype",
+    "description": "This notification indicates the VC\u0027s state changes to down.",
+    "name": "hwKompellaVcDown",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcSecondary"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcStateChangeReason"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcTnlPolicyName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.2.1",
+    "status": "current"
+  },
+  "hwKompellaVcDynamicBFDDetect": {
+    "class": "objecttype",
+    "description": "This value indicates the capacitability to support dynamic BFD detect.",
+    "maxaccess": "read-only",
+    "name": "hwKompellaVcDynamicBFDDetect",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwKompellaVcEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of a VC entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaCeID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcRmtCeID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwKompellaVcEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1",
+    "status": "current"
+  },
+  "hwKompellaVcGroup": {
+    "class": "objectgroup",
+    "description": "The KOMPELLA\u0027s VC group.",
+    "name": "hwKompellaVcGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcInboundLabel"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcOutboundLabel"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcCtrlWord"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcTnlPolicyName"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcVlanTagMode"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcSecondary"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaOAMSync"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVCForBFDIndex"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcOperStatus"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcRerouteDelayTime"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcRerouteResumeTime"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcReroutePolicy"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcRerouteReason"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcLastRerouteTime"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcManualSetFault"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcIsActive"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaACStatus"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaACOAMStatus"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcBFDDetectMultiplier"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcBFDMinReceiveInterval"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcBFDMinTransmitInterval"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcDynamicBFDDetect"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaEthOamType"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaCfmMaIndex"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3.2.4",
+    "status": "current"
+  },
+  "hwKompellaVcIfIndex": {
+    "class": "objecttype",
+    "description": "If the vc is represented in the ifTable as an ifIndex, this item holds the ifIndex of the vc in the ifTable, otherwise it MUST be set to zero.",
+    "maxaccess": "not-accessible",
+    "name": "hwKompellaVcIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwKompellaVcInboundLabel": {
+    "class": "objecttype",
+    "description": "This object indicates the inbound label.",
+    "maxaccess": "read-only",
+    "name": "hwKompellaVcInboundLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwKompellaVcIsActive": {
+    "class": "objecttype",
+    "description": "Denotes the current vc is active or not.",
+    "maxaccess": "read-only",
+    "name": "hwKompellaVcIsActive",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwKompellaVcLastRerouteTime": {
+    "class": "objecttype",
+    "description": "last reroute time.",
+    "maxaccess": "read-only",
+    "name": "hwKompellaVcLastRerouteTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwKompellaVcManualSetFault": {
+    "class": "objecttype",
+    "description": "Denotes the manual has been set or not.",
+    "maxaccess": "read-only",
+    "name": "hwKompellaVcManualSetFault",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwKompellaVcOperStatus": {
+    "class": "objecttype",
+    "description": "Denotes the vc is operational or not.",
+    "maxaccess": "read-only",
+    "name": "hwKompellaVcOperStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwKompellaVcOutboundLabel": {
+    "class": "objecttype",
+    "description": "This object indicates the outbound label.",
+    "maxaccess": "read-only",
+    "name": "hwKompellaVcOutboundLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwKompellaVcPeerAddr": {
+    "class": "objecttype",
+    "description": "This object contain the value of the peer node address of the VC/PE maintenance protocol entity. ",
+    "maxaccess": "read-only",
+    "name": "hwKompellaVcPeerAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwKompellaVcRerouteDelayTime": {
+    "class": "objecttype",
+    "description": "The reroute delay time.",
+    "maxaccess": "read-create",
+    "name": "hwKompellaVcRerouteDelayTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwKompellaVcReroutePolicy": {
+    "class": "objecttype",
+    "description": "reroute policy.",
+    "maxaccess": "read-only",
+    "name": "hwKompellaVcReroutePolicy",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delay": 1,
+          "err": 5,
+          "immediately": 2,
+          "immediatelySwitch": 7,
+          "invalid": 6,
+          "never": 3,
+          "none": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwKompellaVcRerouteReason": {
+    "class": "objecttype",
+    "description": "the reroute reason.",
+    "maxaccess": "read-only",
+    "name": "hwKompellaVcRerouteReason",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWL2VpnStateChangeReason"
+    }
+  },
+  "hwKompellaVcRerouteResumeTime": {
+    "class": "objecttype",
+    "description": "the reroute resume time.",
+    "maxaccess": "read-create",
+    "name": "hwKompellaVcRerouteResumeTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwKompellaVcRmtCeID": {
+    "class": "objecttype",
+    "description": "This item holds the remote ce id.",
+    "maxaccess": "not-accessible",
+    "name": "hwKompellaVcRmtCeID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 249,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwKompellaVcRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus for this Table. Restriction: The VPN designated by hwKompellaVpnName must be created first. The CE designated by hwKompellaVpnName and hwKompellaCeID must be created first. Not support modifying configuration.",
+    "maxaccess": "read-create",
+    "name": "hwKompellaVcRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwKompellaVcSecondary": {
+    "class": "objecttype",
+    "description": "Denotes the VC is the repetition or not.",
+    "maxaccess": "read-create",
+    "name": "hwKompellaVcSecondary",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwKompellaVcStateChangeReason": {
+    "class": "objecttype",
+    "description": "This object indicates the reason of KOMPELLA VC state change.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwKompellaVcStateChangeReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWL2VpnStateChangeReason"
+    }
+  },
+  "hwKompellaVcStateChangeReasonGroup": {
+    "class": "objectgroup",
+    "description": "The KOMPELLA\u0027s Vc State Change Reason group.",
+    "name": "hwKompellaVcStateChangeReasonGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcStateChangeReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3.2.9",
+    "status": "current"
+  },
+  "hwKompellaVcStatisticsEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of the KOMPELLA\u0027s VC packets statistics.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaCeID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcRmtCeID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwKompellaVcStatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.6.1",
+    "status": "current"
+  },
+  "hwKompellaVcStatisticsGroup": {
+    "class": "objectgroup",
+    "description": "The KOMPELLA\u0027s VC Statistic group.",
+    "name": "hwKompellaVcStatisticsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcStatisticsRcvPkts"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcStatisticsRcvBytes"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcStatisticsSndPkts"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcStatisticsSndBytes"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3.2.6",
+    "status": "current"
+  },
+  "hwKompellaVcStatisticsRcvBytes": {
+    "class": "objecttype",
+    "description": "The total number of bytes received on this VC.",
+    "maxaccess": "read-only",
+    "name": "hwKompellaVcStatisticsRcvBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwKompellaVcStatisticsRcvPkts": {
+    "class": "objecttype",
+    "description": "The total number of packets received on this VC.",
+    "maxaccess": "read-only",
+    "name": "hwKompellaVcStatisticsRcvPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwKompellaVcStatisticsSndBytes": {
+    "class": "objecttype",
+    "description": "The total number of bytes sent on the VC.",
+    "maxaccess": "read-only",
+    "name": "hwKompellaVcStatisticsSndBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwKompellaVcStatisticsSndPkts": {
+    "class": "objecttype",
+    "description": "The total number of packets sent on this VC.",
+    "maxaccess": "read-only",
+    "name": "hwKompellaVcStatisticsSndPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwKompellaVcStatisticsTable": {
+    "class": "objecttype",
+    "description": "This table contains the KOMPELLA\u0027s VC packets statistics.",
+    "maxaccess": "not-accessible",
+    "name": "hwKompellaVcStatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.6",
+    "status": "current"
+  },
+  "hwKompellaVcTable": {
+    "class": "objecttype",
+    "description": "This table is the VC configuration table. Users can create or delete the VC of a VPN by it.",
+    "maxaccess": "not-accessible",
+    "name": "hwKompellaVcTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4",
+    "status": "current"
+  },
+  "hwKompellaVcTnlEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of a VC tunnel entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaCeID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcRmtCeID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcTnlIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwKompellaVcTnlEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.5.1",
+    "status": "current"
+  },
+  "hwKompellaVcTnlGroup": {
+    "class": "objectgroup",
+    "description": "The KOMPELLA\u0027s VC Tunnel group.",
+    "name": "hwKompellaVcTnlGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcTnlType"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaTnlForBfdIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3.2.5",
+    "status": "current"
+  },
+  "hwKompellaVcTnlIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the tunnel index of a VC.",
+    "maxaccess": "not-accessible",
+    "name": "hwKompellaVcTnlIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwKompellaVcTnlPolicyName": {
+    "class": "objecttype",
+    "description": "This object indicates the tunnel policy name used.",
+    "maxaccess": "read-create",
+    "name": "hwKompellaVcTnlPolicyName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 39,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwKompellaVcTnlTable": {
+    "class": "objecttype",
+    "description": "This table is used to search the tunnel index of a VC.",
+    "maxaccess": "not-accessible",
+    "name": "hwKompellaVcTnlTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.5",
+    "status": "current"
+  },
+  "hwKompellaVcTnlType": {
+    "class": "objecttype",
+    "description": "This object indicates the type of the VC tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwKompellaVcTnlType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "crLsp": 5,
+          "gre": 2,
+          "ipsec": 4,
+          "l2tp": 3,
+          "lsp": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwKompellaVcUp": {
+    "class": "notificationtype",
+    "description": "This notification indicates the VC\u0027s state changes to up.",
+    "name": "hwKompellaVcUp",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcSecondary"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcStateChangeReason"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcPeerAddr"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVcTnlPolicyName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.2.2",
+    "status": "current"
+  },
+  "hwKompellaVcUpDownNotifEnable": {
+    "class": "objecttype",
+    "description": "This object indicates the enable sign of KOMPELLA VC state change notification. The default value is disable (2).",
+    "maxaccess": "read-write",
+    "name": "hwKompellaVcUpDownNotifEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwKompellaVcVlanTagMode": {
+    "class": "objecttype",
+    "description": "This object indicates VLAN tag is stripped(raw) , attached(tagged) or invalid(rawTagNotConfiged).",
+    "maxaccess": "read-create",
+    "name": "hwKompellaVcVlanTagMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "raw": 1,
+          "rawTagNotConfiged": 255,
+          "tagged": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwKompellaVpnCtrlWord": {
+    "class": "objecttype",
+    "description": "This value indicates the control word capability.",
+    "maxaccess": "read-create",
+    "name": "hwKompellaVpnCtrlWord",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwKompellaVpnEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of a Vpn entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwKompellaVpnEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.1.1",
+    "status": "current"
+  },
+  "hwKompellaVpnGroup": {
+    "class": "objectgroup",
+    "description": "The KOMPELLA\u0027s Vpn group.",
+    "name": "hwKompellaVpnGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnVcType"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnRouteDistinguisher"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnCtrlWord"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnMtu"
+      },
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3.2.1",
+    "status": "current"
+  },
+  "hwKompellaVpnMtu": {
+    "class": "objecttype",
+    "description": "This object specifies max transport unit.",
+    "maxaccess": "read-create",
+    "name": "hwKompellaVpnMtu",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 16352,
+            "min": 46
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwKompellaVpnName": {
+    "class": "objecttype",
+    "description": "The human-readable name of this VPN.",
+    "maxaccess": "not-accessible",
+    "name": "hwKompellaVpnName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwKompellaVpnRouteDistinguisher": {
+    "class": "objecttype",
+    "description": "The route distinguisher for this VPN. This value must be exclusive on the whole. If this node hasn\u0027t been configured, the entry of hwKompellaCeTable or hwKompellaVcTable can not be created.",
+    "maxaccess": "read-create",
+    "name": "hwKompellaVpnRouteDistinguisher",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 21,
+            "min": 3
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwKompellaVpnRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus for this Table. Restriction: If delete a VPN, the entries of hwKompellaCeTable and hwKompellaVcTable under this VPN will be deleted too.",
+    "maxaccess": "read-create",
+    "name": "hwKompellaVpnRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.1.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwKompellaVpnTable": {
+    "class": "objecttype",
+    "description": "This table is the VPN\u0027s configuration table. Users can create or delete the VPN by it.",
+    "maxaccess": "not-accessible",
+    "name": "hwKompellaVpnTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.1",
+    "status": "current"
+  },
+  "hwKompellaVpnTarget": {
+    "class": "objecttype",
+    "description": "The route target distribution policy.",
+    "maxaccess": "not-accessible",
+    "name": "hwKompellaVpnTarget",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 21,
+            "min": 3
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwKompellaVpnTargetEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of a Vpn target entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnTargetType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnTarget"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwKompellaVpnTargetEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.2.1",
+    "status": "current"
+  },
+  "hwKompellaVpnTargetGroup": {
+    "class": "objectgroup",
+    "description": "The KOMPELLA\u0027s Vpn Target group.",
+    "name": "hwKompellaVpnTargetGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-KOMPELLA-MIB",
+        "object": "hwKompellaVpnTargetRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.3.2.2",
+    "status": "current"
+  },
+  "hwKompellaVpnTargetRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus for this Table. Restriction: The VPN designated by hwKompellaVpnName must be created first. Not support modifying configuration.",
+    "maxaccess": "read-create",
+    "name": "hwKompellaVpnTargetRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.2.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwKompellaVpnTargetTable": {
+    "class": "objecttype",
+    "description": "This table is the VPN Target\u0027s configuration table. Users can create or delete the Vpn target of a VPN by it.",
+    "maxaccess": "not-accessible",
+    "name": "hwKompellaVpnTargetTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.2",
+    "status": "current"
+  },
+  "hwKompellaVpnTargetType": {
+    "class": "objecttype",
+    "description": "The route target export distribution type.",
+    "maxaccess": "not-accessible",
+    "name": "hwKompellaVpnTargetType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "export": 2,
+          "import": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwKompellaVpnVcType": {
+    "class": "objecttype",
+    "description": "This value indicates the service to be carried.",
+    "maxaccess": "read-create",
+    "name": "hwKompellaVpnVcType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWL2VpnVcEncapsType"
+    }
+  },
+  "hwL2Vpn": {
+    "class": "objectidentity",
+    "name": "hwL2Vpn",
+    "oid": "1.3.6.1.4.1.2011.5.25.119"
+  },
+  "hwL2VpnKompella": {
+    "class": "moduleidentity",
+    "contactinfo": "R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com",
+    "description": "The HUAWEI-KOMPELLA-MIB contains objects to manage KOMPELLA.",
+    "lastupdated": "200605090900Z",
+    "name": "hwL2VpnKompella",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.2",
+    "organization": "Huawei Technologies Co., Ltd."
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "HUAWEI-VPLS-EXT-MIB": [
+      "HWEnableValue",
+      "HWL2VpnVcEncapsType",
+      "HWL2VpnStateChangeReason"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Integer32",
+      "Bits",
+      "iso",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString",
+      "TruthValue"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-KOMPELLA-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:44 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-KOMPELLA-MIB"
+  }
+}

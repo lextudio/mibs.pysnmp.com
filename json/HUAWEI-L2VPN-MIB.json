@@ -1,0 +1,140 @@
+{
+  "hwL2Vpn": {
+    "class": "objectidentity",
+    "name": "hwL2Vpn",
+    "oid": "1.3.6.1.4.1.2011.5.25.119"
+  },
+  "hwL2VpnAttribute": {
+    "class": "moduleidentity",
+    "contactinfo": "R\u0026D BeiJing, Huawei Technologies co.,Ltd. Q2 Bld.,NO.156 BeiQing Rd., HuanBaoYuan Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100094 Http://www.huawei.com E-mail:support@huawei.com",
+    "description": "The HUAWEI-L2VPN-MIB contains objects to manage global Attributes of L2VPN.",
+    "lastupdated": "200903030900Z",
+    "name": "hwL2VpnAttribute",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7",
+    "organization": "Huawei Technologies Co., Ltd."
+  },
+  "hwL2VpnEnable": {
+    "class": "objecttype",
+    "description": "This object indicates whether enabled mpls L2vpn capability or not.",
+    "maxaccess": "read-write",
+    "name": "hwL2VpnEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwL2VpnMIBCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-L2VPN-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2VpnMIBGroup"
+      }
+    ],
+    "name": "hwL2VpnMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.3.1.1",
+    "status": "current"
+  },
+  "hwL2VpnMIBCompliances": {
+    "class": "objectidentity",
+    "name": "hwL2VpnMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.3.1"
+  },
+  "hwL2VpnMIBConformance": {
+    "class": "objectidentity",
+    "name": "hwL2VpnMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.3"
+  },
+  "hwL2VpnMIBGroup": {
+    "class": "objectgroup",
+    "description": "The L2VPN\u0027s attributes group.",
+    "name": "hwL2VpnMIBGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2VpnEnable"
+      },
+      {
+        "module": "HUAWEI-L2VPN-MIB",
+        "object": "hwL2VpnWorkingMode"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.3.2.1",
+    "status": "current"
+  },
+  "hwL2VpnMIBGroups": {
+    "class": "objectidentity",
+    "name": "hwL2VpnMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.3.2"
+  },
+  "hwL2VpnWorkingMode": {
+    "class": "objecttype",
+    "description": "This object indicates the working mode of mpls L2vpn.",
+    "maxaccess": "read-write",
+    "name": "hwL2VpnWorkingMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.7.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "martini": 2,
+          "pwe3": 1,
+          "unknown": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysUpTime"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "TimeTicks",
+      "Bits",
+      "Integer32",
+      "Counter64",
+      "Gauge32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "MibIdentifier",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-L2VPN-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:51 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-L2VPN-MIB"
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "hwErrordowFullCompliance": {
+    "class": "modulecompliance",
+    "description": "This is the Error-down compliance.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-ERRORDOWN-MIB",
+        "object": "hwErrordownObjectGroup"
+      },
+      {
+        "module": "HUAWEI-ERRORDOWN-MIB",
+        "object": "hwErrordownNotificationGroup"
+      }
+    ],
+    "name": "hwErrordowFullCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.257.3.1.1",
+    "status": "current"
+  },
+  "hwErrordown": {
+    "class": "notificationtype",
+    "description": "The event is reported when error-down occur.",
+    "name": "hwErrordown",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-ERRORDOWN-MIB",
+        "object": "hwErrordownCause"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.257.2.1",
+    "status": "current"
+  },
+  "hwErrordownCause": {
+    "class": "objecttype",
+    "description": "The cause of error-down.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwErrordownCause",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.257.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwErrordownCompliances": {
+    "class": "objectidentity",
+    "name": "hwErrordownCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.257.3.1"
+  },
+  "hwErrordownConformance": {
+    "class": "objectidentity",
+    "name": "hwErrordownConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.257.3"
+  },
+  "hwErrordownGroups": {
+    "class": "objectidentity",
+    "name": "hwErrordownGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.257.3.2"
+  },
+  "hwErrordownMIB": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D NanJing, Huawei Technologies co.,Ltd. NO.101 YuHua Rd., Software District NanJing P.R. China Zip:210001 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": "The HUAWEI-ERRORDOWN-MIB contains objects to Manage configuration and Monitor running state for ERROR-DOWN feature.",
+    "lastupdated": "201108081000Z",
+    "name": "hwErrordownMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.257",
+    "organization": "Huawei Technologies co., Ltd.",
+    "revisions": [
+      {
+        "description": "The initial revision of this MIB module.",
+        "revision": "2011-08-08 10:00"
+      }
+    ]
+  },
+  "hwErrordownNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "This is the Error-down notification group.",
+    "name": "hwErrordownNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ERRORDOWN-MIB",
+        "object": "hwErrordown"
+      },
+      {
+        "module": "HUAWEI-ERRORDOWN-MIB",
+        "object": "hwErrordownRecovery"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.257.3.2.2",
+    "status": "current"
+  },
+  "hwErrordownNotifications": {
+    "class": "objectidentity",
+    "name": "hwErrordownNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.257.2"
+  },
+  "hwErrordownObjectGroup": {
+    "class": "objectgroup",
+    "description": "This is the Error-down object group.",
+    "name": "hwErrordownObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ERRORDOWN-MIB",
+        "object": "hwErrordownCause"
+      },
+      {
+        "module": "HUAWEI-ERRORDOWN-MIB",
+        "object": "hwErrordownRecoverType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.257.3.2.1",
+    "status": "current"
+  },
+  "hwErrordownObjects": {
+    "class": "objectidentity",
+    "name": "hwErrordownObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.257.1"
+  },
+  "hwErrordownRecoverType": {
+    "class": "objecttype",
+    "description": "The type of error-down recovery.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwErrordownRecoverType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.257.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwErrordownRecovery": {
+    "class": "notificationtype",
+    "description": "The event is reported when error-down recover.",
+    "name": "hwErrordownRecovery",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-ERRORDOWN-MIB",
+        "object": "hwErrordownCause"
+      },
+      {
+        "module": "HUAWEI-ERRORDOWN-MIB",
+        "object": "hwErrordownRecoverType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.257.2.2",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifName"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "iso",
+      "Unsigned32",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-ERRORDOWN-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:21 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-ERRORDOWN-MIB"
+  }
+}

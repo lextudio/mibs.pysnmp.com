@@ -1,0 +1,434 @@
+{
+  "EnabledStatus": {
+    "class": "textualconvention",
+    "description": "A simple status value for the object.",
+    "name": "EnabledStatus",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLldpCompliances": {
+    "class": "objectidentity",
+    "name": "hwLldpCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.134.3.1"
+  },
+  "hwLldpConfigGroup": {
+    "class": "objectgroup",
+    "description": "The collection of objects which are used to configure the LLDP implementation behavior. This group is mandatory for agents which implement the LLDP.",
+    "name": "hwLldpConfigGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LLDP-MIB",
+        "object": "hwLldpEnable"
+      },
+      {
+        "module": "HUAWEI-LLDP-MIB",
+        "object": "hwLldpLocManIPAddr"
+      },
+      {
+        "module": "HUAWEI-LLDP-MIB",
+        "object": "hwLldpNotificationEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.134.3.2.1",
+    "status": "current"
+  },
+  "hwLldpConfiguration": {
+    "class": "objectidentity",
+    "name": "hwLldpConfiguration",
+    "oid": "1.3.6.1.4.1.2011.5.25.134.1.1"
+  },
+  "hwLldpConformance": {
+    "class": "objectidentity",
+    "name": "hwLldpConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.134.3"
+  },
+  "hwLldpCounterReset": {
+    "class": "objecttype",
+    "description": "Clears the statistics of packets received and sent on all ports.",
+    "maxaccess": "read-write",
+    "name": "hwLldpCounterReset",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.134.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwLldpDisabled": {
+    "class": "notificationtype",
+    "description": "Notify the NMS that the LLDP is globally disabled. This alarm is not restricted by the alarm delay.",
+    "name": "hwLldpDisabled",
+    "oid": "1.3.6.1.4.1.2011.5.25.134.2.2",
+    "status": "current"
+  },
+  "hwLldpEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "Globally enable or disable the LLDP configuration. If the hwLldpEnable is 1, LLDP is enabled. If the hwLldpEnable is 2, LLDP is disabled. By default, LLDP is disabled.",
+    "maxaccess": "read-write",
+    "name": "hwLldpEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.134.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwLldpEnabled": {
+    "class": "notificationtype",
+    "description": "Notify the NMS that the LLDP is globally enabled. This alarm is not restricted by the alarm delay.",
+    "name": "hwLldpEnabled",
+    "oid": "1.3.6.1.4.1.2011.5.25.134.2.1",
+    "status": "current"
+  },
+  "hwLldpGroups": {
+    "class": "objectidentity",
+    "name": "hwLldpGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.134.3.2"
+  },
+  "hwLldpLocManIPAddr": {
+    "class": "objecttype",
+    "description": "Specifies the management IP address of the local device. The management IP address is carried in the management address TLV of LLDP packet and is used to identify NM devices in network management. The management IP address configured here must be a valid one and must be an IP address in the address chain. If the IP address is not valid or is not configured, the management IP address will be chosen from default IP addressees of the system. The sequence of address searching is: loopback interface, management network interface, VLANIF port and IP address chain (The smallest IP is chosen). If the default IP is not found, the bridge MAC of the system is used.",
+    "maxaccess": "read-write",
+    "name": "hwLldpLocManIPAddr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.134.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwLldpLocManIPAddrChange": {
+    "class": "notificationtype",
+    "description": "Alarm on the change of management IP address of a local device.",
+    "name": "hwLldpLocManIPAddrChange",
+    "objects": [
+      {
+        "module": "HUAWEI-LLDP-MIB",
+        "object": "hwLldpLocManIPAddr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.134.2.5",
+    "status": "current"
+  },
+  "hwLldpLocSysCapEnabledChange": {
+    "class": "notificationtype",
+    "description": "Alarm on the change of capabilities enabled of a local device.",
+    "name": "hwLldpLocSysCapEnabledChange",
+    "objects": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpLocSysCapEnabled"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.134.2.4",
+    "status": "current"
+  },
+  "hwLldpLocSysCapSupportedChange": {
+    "class": "notificationtype",
+    "description": "Alarm on the change of capabilities supported of a local device.",
+    "name": "hwLldpLocSysCapSupportedChange",
+    "objects": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpLocSysCapSupported"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.134.2.3",
+    "status": "current"
+  },
+  "hwLldpMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "VRP Team Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China http://www.huawei.com Zip:100085 ",
+    "description": "This file is an extension of LLDP-MIB. It provides such functions of globally enabling or disabling the LLDP protocol, enabling the global alarm, clearing statistics on ports and configuring network management IP addresses and some alarms.",
+    "lastupdated": "200611240000Z",
+    "name": "hwLldpMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.134",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwLldpNotificationEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "The global alarming that is used to control alarms on all ports. If it is 1, the global alarming is enabled. If it is 2, the global alarming is disabled. By default, the global alarming is disabled.",
+    "maxaccess": "read-write",
+    "name": "hwLldpNotificationEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.134.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwLldpObjects": {
+    "class": "objectidentity",
+    "name": "hwLldpObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.134.1"
+  },
+  "hwLldpPortConfigCounterReset": {
+    "class": "objecttype",
+    "description": "Clears the statistics of packets received and sent on the current port.",
+    "maxaccess": "read-write",
+    "name": "hwLldpPortConfigCounterReset",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.134.1.1.5.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwLldpPortConfigEntry": {
+    "class": "objecttype",
+    "description": "Entries of the LLDP port congfiguration table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "LLDP-MIB",
+        "object": "lldpPortConfigPortNum"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwLldpPortConfigEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.134.1.1.5.1",
+    "status": "current"
+  },
+  "hwLldpPortConfigIfIndex": {
+    "class": "objecttype",
+    "description": "Port index.",
+    "maxaccess": "read-only",
+    "name": "hwLldpPortConfigIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.134.1.1.5.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwLldpPortConfigTable": {
+    "class": "objecttype",
+    "description": "LLDP port congfiguration table.",
+    "maxaccess": "not-accessible",
+    "name": "hwLldpPortConfigTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.134.1.1.5",
+    "status": "current"
+  },
+  "hwLldpPortGroup": {
+    "class": "objectgroup",
+    "description": "The collection of objects indicate index of port.",
+    "name": "hwLldpPortGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LLDP-MIB",
+        "object": "hwLldpPortConfigIfIndex"
+      },
+      {
+        "module": "HUAWEI-LLDP-MIB",
+        "object": "hwLldpRemProtoType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.134.3.2.3",
+    "status": "current"
+  },
+  "hwLldpRemProtoType": {
+    "class": "objecttype",
+    "description": "Protocol type of the remote neighbour.",
+    "maxaccess": "read-only",
+    "name": "hwLldpRemProtoType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.134.1.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cdp": 2,
+          "lldp": 1,
+          "unknown": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLldpRemProtoTypeEntry": {
+    "class": "objecttype",
+    "description": "Entries of the LLDP remote neighbour protocol version table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "LLDP-MIB",
+        "object": "lldpPortConfigPortNum"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwLldpRemProtoTypeEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.134.1.2.1.1",
+    "status": "current"
+  },
+  "hwLldpRemProtoTypeTable": {
+    "class": "objecttype",
+    "description": "LLDP remote neighbour protocol version table.",
+    "maxaccess": "not-accessible",
+    "name": "hwLldpRemProtoTypeTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.134.1.2.1",
+    "status": "current"
+  },
+  "hwLldpRemoteSystemData": {
+    "class": "objectidentity",
+    "name": "hwLldpRemoteSystemData",
+    "oid": "1.3.6.1.4.1.2011.5.25.134.1.2"
+  },
+  "hwLldpStatsGroup": {
+    "class": "objectgroup",
+    "description": "The collection of objects which are used to represent LLDP statistics. This group is mandatory for agents which implement the LLDP and have the capability of receiving and transmitting LLDP frames.",
+    "name": "hwLldpStatsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LLDP-MIB",
+        "object": "hwLldpCounterReset"
+      },
+      {
+        "module": "HUAWEI-LLDP-MIB",
+        "object": "hwLldpPortConfigCounterReset"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.134.3.2.2",
+    "status": "current"
+  },
+  "hwLldpTrapGroup": {
+    "class": "notificationgroup",
+    "description": "The collection of notifications used to indicate HUAWEI-LLDP-MIB data consistency and general status information. This group is mandatory for agents which implement the LLDP and have the capability of receiving LLDP frames.",
+    "name": "hwLldpTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LLDP-MIB",
+        "object": "hwLldpEnabled"
+      },
+      {
+        "module": "HUAWEI-LLDP-MIB",
+        "object": "hwLldpDisabled"
+      },
+      {
+        "module": "HUAWEI-LLDP-MIB",
+        "object": "hwLldpLocSysCapSupportedChange"
+      },
+      {
+        "module": "HUAWEI-LLDP-MIB",
+        "object": "hwLldpLocSysCapEnabledChange"
+      },
+      {
+        "module": "HUAWEI-LLDP-MIB",
+        "object": "hwLldpLocManIPAddrChange"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.134.3.2.4",
+    "status": "current"
+  },
+  "hwLldpTraps": {
+    "class": "objectidentity",
+    "name": "hwLldpTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.134.2"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "LLDP-MIB": [
+      "lldpLocSysCapEnabled",
+      "lldpLocSysCapSupported",
+      "lldpPortConfigPortNum"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Bits",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ],
+    "class": "imports"
+  },
+  "lldpCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for SNMP entities which implement the HUAWEI-LLDP-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-LLDP-MIB",
+        "object": "hwLldpConfigGroup"
+      },
+      {
+        "module": "HUAWEI-LLDP-MIB",
+        "object": "hwLldpStatsGroup"
+      },
+      {
+        "module": "HUAWEI-LLDP-MIB",
+        "object": "hwLldpPortGroup"
+      },
+      {
+        "module": "HUAWEI-LLDP-MIB",
+        "object": "hwLldpTrapGroup"
+      }
+    ],
+    "name": "lldpCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.134.3.1.1",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-LLDP-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:58 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-LLDP-MIB"
+  }
+}

@@ -1,0 +1,436 @@
+{
+  "hwSZONE": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": " V1.00 The HUAWEI-SZONE-MIB contains objects to manage the security zone for firewall product. ",
+    "lastupdated": "200304080900Z",
+    "name": "hwSZONE",
+    "oid": "1.3.6.1.4.1.2011.5.25.15",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwSZoneCompliance": {
+    "class": "objectidentity",
+    "name": "hwSZoneCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.15.3.1"
+  },
+  "hwSZoneConformance": {
+    "class": "objectidentity",
+    "name": "hwSZoneConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.15.3"
+  },
+  "hwSZoneIFZoneID": {
+    "class": "objecttype",
+    "description": "The ID of security zone.",
+    "maxaccess": "read-only",
+    "name": "hwSZoneIFZoneID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.15.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSZoneInterZoneCfg": {
+    "class": "objectidentity",
+    "name": "hwSZoneInterZoneCfg",
+    "oid": "1.3.6.1.4.1.2011.5.25.15.2"
+  },
+  "hwSZoneInterZoneCfgGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwSZoneInterZoneCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SZONE-MIB",
+        "object": "hwSZoneInterZoneZoneID1"
+      },
+      {
+        "module": "HUAWEI-SZONE-MIB",
+        "object": "hwSZoneInterZoneZoneID2"
+      },
+      {
+        "module": "HUAWEI-SZONE-MIB",
+        "object": "hwSZoneInterZoneEnableFW"
+      },
+      {
+        "module": "HUAWEI-SZONE-MIB",
+        "object": "hwSZoneInterZoneStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.15.3.2.2",
+    "status": "current"
+  },
+  "hwSZoneInterZoneEnableFW": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "The switch indicates whether the interzone enables firewall.",
+    "maxaccess": "read-create",
+    "name": "hwSZoneInterZoneEnableFW",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.15.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwSZoneInterZoneEntry": {
+    "class": "objecttype",
+    "description": " ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SZONE-MIB",
+        "object": "hwSZoneInterZoneZoneID1"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SZONE-MIB",
+        "object": "hwSZoneInterZoneZoneID2"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSZoneInterZoneEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.15.2.1.1",
+    "status": "current"
+  },
+  "hwSZoneInterZoneStatus": {
+    "class": "objecttype",
+    "description": "Row status, can be CreateAndGo.",
+    "maxaccess": "read-create",
+    "name": "hwSZoneInterZoneStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.15.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwSZoneInterZoneTable": {
+    "class": "objecttype",
+    "description": " This table define all inter zone of system. The inter zone can\u0027t be create directly, when a security zone is created, the related inter zones are created automatically, and when deleting a zone, the related inter zones are deleted. ",
+    "maxaccess": "not-accessible",
+    "name": "hwSZoneInterZoneTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.15.2.1",
+    "status": "current"
+  },
+  "hwSZoneInterZoneZoneID1": {
+    "class": "objecttype",
+    "description": "The ID of first zone that compose the inter-zone.",
+    "maxaccess": "read-only",
+    "name": "hwSZoneInterZoneZoneID1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.15.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSZoneInterZoneZoneID2": {
+    "class": "objecttype",
+    "description": "The ID of second zone that compose the inter-zone.",
+    "maxaccess": "read-only",
+    "name": "hwSZoneInterZoneZoneID2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.15.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSZoneMibGroups": {
+    "class": "objectidentity",
+    "name": "hwSZoneMibGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.15.3.2"
+  },
+  "hwSZoneSecPriority": {
+    "class": "objecttype",
+    "description": " The priority of security zone. Different zone has different priority. ",
+    "maxaccess": "read-create",
+    "name": "hwSZoneSecPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.15.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 200,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSZoneZoneCfg": {
+    "class": "objectidentity",
+    "name": "hwSZoneZoneCfg",
+    "oid": "1.3.6.1.4.1.2011.5.25.15.1"
+  },
+  "hwSZoneZoneCfgGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwSZoneZoneCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SZONE-MIB",
+        "object": "hwSZoneZoneName"
+      },
+      {
+        "module": "HUAWEI-SZONE-MIB",
+        "object": "hwSZoneSecPriority"
+      },
+      {
+        "module": "HUAWEI-SZONE-MIB",
+        "object": "hwSZoneZoneStatus"
+      },
+      {
+        "module": "HUAWEI-SZONE-MIB",
+        "object": "hwSZoneZoneIFIndex"
+      },
+      {
+        "module": "HUAWEI-SZONE-MIB",
+        "object": "hwSZoneZoneIFStatus"
+      },
+      {
+        "module": "HUAWEI-SZONE-MIB",
+        "object": "hwSZoneZoneID"
+      },
+      {
+        "module": "HUAWEI-SZONE-MIB",
+        "object": "hwSZoneIFZoneID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.15.3.2.1",
+    "status": "current"
+  },
+  "hwSZoneZoneEntry": {
+    "class": "objecttype",
+    "description": "Define the parameters of security zone.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SZONE-MIB",
+        "object": "hwSZoneZoneID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSZoneZoneEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.15.1.1.1",
+    "status": "current"
+  },
+  "hwSZoneZoneID": {
+    "class": "objecttype",
+    "description": " An internal number to distinguish security zone. Different zone has different number. ",
+    "maxaccess": "read-only",
+    "name": "hwSZoneZoneID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.15.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSZoneZoneIFEntry": {
+    "class": "objecttype",
+    "description": " ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SZONE-MIB",
+        "object": "hwSZoneIFZoneID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SZONE-MIB",
+        "object": "hwSZoneZoneIFIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSZoneZoneIFEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.15.1.2.1",
+    "status": "current"
+  },
+  "hwSZoneZoneIFIndex": {
+    "class": "objecttype",
+    "description": "The index of interface.",
+    "maxaccess": "read-only",
+    "name": "hwSZoneZoneIFIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.15.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwSZoneZoneIFStatus": {
+    "class": "objecttype",
+    "description": "Row status, can be CreateAndGo or Destroy.",
+    "maxaccess": "read-create",
+    "name": "hwSZoneZoneIFStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.15.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwSZoneZoneIFTable": {
+    "class": "objecttype",
+    "description": " This table define the interfaces belong to which security zone. An interface can only belong to one security zone.",
+    "maxaccess": "not-accessible",
+    "name": "hwSZoneZoneIFTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.15.1.2",
+    "status": "current"
+  },
+  "hwSZoneZoneName": {
+    "class": "objecttype",
+    "description": " The name of security zone. Different zone has different name.",
+    "maxaccess": "read-create",
+    "name": "hwSZoneZoneName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.15.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSZoneZoneStatus": {
+    "class": "objecttype",
+    "description": "Row status, can be CreateAndGo or Destroy.",
+    "maxaccess": "read-create",
+    "name": "hwSZoneZoneStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.15.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwSZoneZoneTable": {
+    "class": "objecttype",
+    "description": "This table contains all the security zones defined in the system.",
+    "maxaccess": "not-accessible",
+    "name": "hwSZoneZoneTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.15.1.1",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "MPLS-VPN-MIB": [
+      "mplsVpnVrfName"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "Bits",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "MibIdentifier",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "iso",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-SZONE-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:06 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-SZONE-MIB"
+  }
+}

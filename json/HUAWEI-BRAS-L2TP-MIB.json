@@ -1,0 +1,2130 @@
+{
+  "hwBRASL2tp": {
+    "class": "moduleidentity",
+    "contactinfo": "Floor 5, Block 4, R\u0026D Building, Huawei Longgang Production Base, Shenzhen, P.R.C. http://www.huawei.com Zip:518057 ",
+    "description": "The MIB contains objects of module L2TP.",
+    "lastupdated": "200403030900Z",
+    "name": "hwBRASL2tp",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3",
+    "organization": "Huawei Technologies Co., Ltd. "
+  },
+  "hwL2tpAging": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": " The aging time of LNS down. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpAging",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 60,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2tpAvp46": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": " The switch of avp46. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpAvp46",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.42",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwL2tpCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the this module.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpConfigGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupConfigGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpLnsGroupConfigGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpTrapOidGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpObsoleteGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpTrapNotificationsGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpLnsGroupLoopbackGroup"
+      }
+    ],
+    "name": "hwL2tpCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.3.1.1",
+    "status": "current"
+  },
+  "hwL2tpCompliances": {
+    "class": "objectidentity",
+    "name": "hwL2tpCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.3.1"
+  },
+  "hwL2tpConfigGroup": {
+    "class": "objectgroup",
+    "description": "The L2TP configuration.",
+    "name": "hwL2tpConfigGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpEnableStatus"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpTunnelClearLocalID"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpTunnelClearRemoteName"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpTunnelClearSlotID"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpAging"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.3.2.1",
+    "status": "current"
+  },
+  "hwL2tpConfigTable": {
+    "class": "objectidentity",
+    "name": "hwL2tpConfigTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.1"
+  },
+  "hwL2tpConformance": {
+    "class": "objectidentity",
+    "name": "hwL2tpConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.3"
+  },
+  "hwL2tpEnableStatus": {
+    "class": "objecttype",
+    "description": " The switch of startup L2TP funcition. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpEnableStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwL2tpGroupAging": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": " The aging time of LNS down. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupAging",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.23",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 60,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2tpGroupAuthentication": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "true"
+      }
+    },
+    "description": " The switch of tunnel authentication. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupAuthentication",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwL2tpGroupAvpHidden": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": " The switch of AVP hidden. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupAvpHidden",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwL2tpGroupConfigEntry": {
+    "class": "objecttype",
+    "description": "An entry in this table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupindex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL2tpGroupConfigEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1",
+    "status": "current"
+  },
+  "hwL2tpGroupConfigGroup": {
+    "class": "objectgroup",
+    "description": "The L2TP group configuration.",
+    "name": "hwL2tpGroupConfigGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupindex"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupAuthentication"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupAvpHidden"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLoadShare"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpTunnelName"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupRetransmit"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupTimeout"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupTimer"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupPassWord"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsIP1"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsWeight1"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsIP2"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsWeight2"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsIP3"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsWeight3"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsIP4"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsWeight4"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsIP5"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsWeight5"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupRowStatus"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupRadiusAuth"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupRemoteName"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupForceChap"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupForceLcp"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupVt"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupaaaAuthentication"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpIdleCutTimer"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupFlag"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsIP6"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsWeight6"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsIP7"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsWeight7"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsIP8"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupLnsWeight8"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpAvp46"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupDefaultDomain"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupPassWord1"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupPassWord2"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupPassWord3"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupPassWord4"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupPassWord5"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupPassWord6"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupPassWord7"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupPassWord8"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupDomainAuthMode"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupDescription"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpTunnelAlarmEnable"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupQosProfileIn"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupQosProfileOut"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupQosMode"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.3.2.2",
+    "status": "current"
+  },
+  "hwL2tpGroupConfigTable": {
+    "class": "objecttype",
+    "description": " The config table of L2TP group. ",
+    "maxaccess": "not-accessible",
+    "name": "hwL2tpGroupConfigTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2",
+    "status": "current"
+  },
+  "hwL2tpGroupDefaultDomain": {
+    "class": "objecttype",
+    "description": " Configure the default domain name of LNS. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupDefaultDomain",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.43",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 200,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2tpGroupDescription": {
+    "class": "objecttype",
+    "description": " Description of this L2TP group. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupDescription",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.53",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2tpGroupDomainAuthMode": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "default"
+      }
+    },
+    "description": " The authentication mode of the domain of L2TP group. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupDomainAuthMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.52",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "force": 2,
+          "replace": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwL2tpGroupFlag": {
+    "class": "objecttype",
+    "description": " The type of L2TP group. ",
+    "maxaccess": "read-only",
+    "name": "hwL2tpGroupFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.35",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2tpGroupForceChap": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": " The switch of mandatory CHAP authentication. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupForceChap",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwL2tpGroupForceLcp": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": " The switch of mandatory LCP negotiation. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupForceLcp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwL2tpGroupLnsIP1": {
+    "class": "objecttype",
+    "description": " LNS IP address. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupLnsIP1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL2tpGroupLnsIP2": {
+    "class": "objecttype",
+    "description": " LNS IP address. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupLnsIP2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL2tpGroupLnsIP3": {
+    "class": "objecttype",
+    "description": " LNS IP address. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupLnsIP3",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL2tpGroupLnsIP4": {
+    "class": "objecttype",
+    "description": " LNS IP address. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupLnsIP4",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL2tpGroupLnsIP5": {
+    "class": "objecttype",
+    "description": " LNS IP address. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupLnsIP5",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL2tpGroupLnsIP6": {
+    "class": "objecttype",
+    "description": " LNS IP address. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupLnsIP6",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.36",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL2tpGroupLnsIP7": {
+    "class": "objecttype",
+    "description": " LNS IP address. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupLnsIP7",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.38",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL2tpGroupLnsIP8": {
+    "class": "objecttype",
+    "description": " LNS IP address. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupLnsIP8",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.40",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL2tpGroupLnsWeight1": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": " The weight value of LNS Load Share. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupLnsWeight1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2tpGroupLnsWeight2": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": " The weight value of LNS Load Share. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupLnsWeight2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2tpGroupLnsWeight3": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": " The weight value of LNS Load Share. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupLnsWeight3",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2tpGroupLnsWeight4": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": " The weight value of LNS Load Share. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupLnsWeight4",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2tpGroupLnsWeight5": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": " The weight value of LNS Load Share. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupLnsWeight5",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2tpGroupLnsWeight6": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": " The weight value of LNS Load Share. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupLnsWeight6",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.37",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2tpGroupLnsWeight7": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": " The weight value of LNS Load Share. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupLnsWeight7",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.39",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2tpGroupLnsWeight8": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": " The weight value of LNS Load Share. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupLnsWeight8",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.41",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2tpGroupLoadShare": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": " The switch of LNS Load Share. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupLoadShare",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwL2tpGroupName": {
+    "class": "objecttype",
+    "description": " Configure L2TP group name. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 30,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2tpGroupPassWord": {
+    "class": "objecttype",
+    "description": " The password of tunnel authentication. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupPassWord",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2tpGroupPassWord1": {
+    "class": "objecttype",
+    "description": " The tunnel authentication password for the first ip address of LNS in LAC. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupPassWord1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.44",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2tpGroupPassWord2": {
+    "class": "objecttype",
+    "description": " The tunnel authentication password for the second ip address of LNS in LAC. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupPassWord2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.45",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2tpGroupPassWord3": {
+    "class": "objecttype",
+    "description": " The tunnel authentication password for the third ip address of LNS in LAC. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupPassWord3",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.46",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2tpGroupPassWord4": {
+    "class": "objecttype",
+    "description": " The tunnel authentication password for the fourth ip address of LNS in LAC. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupPassWord4",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.47",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2tpGroupPassWord5": {
+    "class": "objecttype",
+    "description": " The tunnel authentication password for the fifth ip address of LNS in LAC. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupPassWord5",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.48",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2tpGroupPassWord6": {
+    "class": "objecttype",
+    "description": " The tunnel authentication password for the sixth ip address of LNS in LAC. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupPassWord6",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.49",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2tpGroupPassWord7": {
+    "class": "objecttype",
+    "description": " The tunnel authentication password for the seventh ip address of LNS in LAC. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupPassWord7",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.50",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2tpGroupPassWord8": {
+    "class": "objecttype",
+    "description": " The tunnel authentication password for the eighth ip address of LNS in LAC. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupPassWord8",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2tpGroupQosMode": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "tunnel"
+      }
+    },
+    "description": " The mode of Qos for the L2TP group. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupQosMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.57",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "session": 2,
+          "tunnel": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwL2tpGroupQosProfileIn": {
+    "class": "objecttype",
+    "description": " The name of Qos Profile inbound of the tunnel. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupQosProfileIn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.55",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2tpGroupQosProfileOut": {
+    "class": "objecttype",
+    "description": " The name of Qos Profile outbound of the tunnel. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupQosProfileOut",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.56",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2tpGroupRadiusAuth": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": " The switch of tunnel radius authentication. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupRadiusAuth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwL2tpGroupRemoteName": {
+    "class": "objecttype",
+    "description": " Configure acceptable peer tunnel name. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupRemoteName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 30,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2tpGroupRetransmit": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": " The retransmit times of tunnel control packet. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupRetransmit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2tpGroupRowStatus": {
+    "class": "objecttype",
+    "description": " Row status. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwL2tpGroupTimeout": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": " The retransmit interval of tunnel control packet. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupTimeout",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2tpGroupTimer": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 60
+      }
+    },
+    "description": " The keepalive interval of tunnel,and the value of zero is closing keepalive. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupTimer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2tpGroupTunnelStartLnsIP1": {
+    "class": "objecttype",
+    "description": " Configure the first Ip address of LNS. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupTunnelStartLnsIP1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.30",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL2tpGroupTunnelStartLnsIP2": {
+    "class": "objecttype",
+    "description": " Configure the second Ip address of LNS. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupTunnelStartLnsIP2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.31",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL2tpGroupTunnelStartLnsIP3": {
+    "class": "objecttype",
+    "description": " Configure the third Ip address of LNS. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupTunnelStartLnsIP3",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.32",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL2tpGroupTunnelStartLnsIP4": {
+    "class": "objecttype",
+    "description": " Configure the fourth Ip address of LNS. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupTunnelStartLnsIP4",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.33",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL2tpGroupTunnelStartLnsIP5": {
+    "class": "objecttype",
+    "description": " Configure the fifth Ip address of LNS. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupTunnelStartLnsIP5",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.34",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL2tpGroupVt": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 65535
+      }
+    },
+    "description": " The virtual template by L2TP group. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupVt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1023,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2tpGroupaaaAuthentication": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": " The switch of tunnel aaa authentication. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpGroupaaaAuthentication",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwL2tpGroupindex": {
+    "class": "objecttype",
+    "description": " L2TP group ID. ",
+    "maxaccess": "read-only",
+    "name": "hwL2tpGroupindex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2tpIdleCutTimer": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 60
+      }
+    },
+    "description": " The interval of clear tunnel when there are not users in tunnel. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpIdleCutTimer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2tpLnsGroupBindSlot": {
+    "class": "objecttype",
+    "description": " The number of tunnel board binded by Lns Group. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpLnsGroupBindSlot",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2tpLnsGroupConfigEntry": {
+    "class": "objecttype",
+    "description": "An entry in this table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpLnsGroupName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL2tpLnsGroupConfigEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.3.1",
+    "status": "current"
+  },
+  "hwL2tpLnsGroupConfigGroup": {
+    "class": "objectgroup",
+    "description": "The LNS group configuration.",
+    "name": "hwL2tpLnsGroupConfigGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpLnsGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpLnsGroupLoopBack"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpLnsGroupMasterSlot"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpLnsGroupBindSlot"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpLnsGroupRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.3.2.3",
+    "status": "current"
+  },
+  "hwL2tpLnsGroupConfigTable": {
+    "class": "objecttype",
+    "description": " The config table of lns group. ",
+    "maxaccess": "not-accessible",
+    "name": "hwL2tpLnsGroupConfigTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.3",
+    "status": "current"
+  },
+  "hwL2tpLnsGroupLoopBack": {
+    "class": "objecttype",
+    "description": " The Loopback name binded by lns group. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpLnsGroupLoopBack",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 30,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2tpLnsGroupLoopbackEntry": {
+    "class": "objecttype",
+    "description": "An entry in this table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpLnsGroupName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpLnsGroupLoopbackIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL2tpLnsGroupLoopbackEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.4.1",
+    "status": "current"
+  },
+  "hwL2tpLnsGroupLoopbackGroup": {
+    "class": "objectgroup",
+    "description": "The source loopback configuration of LNS group configuration.",
+    "name": "hwL2tpLnsGroupLoopbackGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpLnsGroupLoopbackInterface"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpLnsGroupLoopbackRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.3.2.7",
+    "status": "current"
+  },
+  "hwL2tpLnsGroupLoopbackIndex": {
+    "class": "objecttype",
+    "description": " The ID of loopback bound by lns group. ",
+    "maxaccess": "not-accessible",
+    "name": "hwL2tpLnsGroupLoopbackIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2tpLnsGroupLoopbackInterface": {
+    "class": "objecttype",
+    "description": " The Loopback name bound by lns group. ",
+    "maxaccess": "read-create",
+    "name": "hwL2tpLnsGroupLoopbackInterface",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 30,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2tpLnsGroupLoopbackRowStatus": {
+    "class": "objecttype",
+    "description": " Row status. ",
+    "maxaccess": "read-create",
+    "name": "hwL2tpLnsGroupLoopbackRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwL2tpLnsGroupLoopbackTable": {
+    "class": "objecttype",
+    "description": " The loopback table of LNS group. ",
+    "maxaccess": "not-accessible",
+    "name": "hwL2tpLnsGroupLoopbackTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.4",
+    "status": "current"
+  },
+  "hwL2tpLnsGroupMasterSlot": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 255
+      }
+    },
+    "description": " The current number of tunnel board. ",
+    "maxaccess": "read-only",
+    "name": "hwL2tpLnsGroupMasterSlot",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          },
+          {
+            "max": 255,
+            "min": 255
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2tpLnsGroupName": {
+    "class": "objecttype",
+    "description": " Lns group name. ",
+    "maxaccess": "read-only",
+    "name": "hwL2tpLnsGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 30,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2tpLnsGroupRowStatus": {
+    "class": "objecttype",
+    "description": " Row status. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpLnsGroupRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwL2tpMibObjects": {
+    "class": "objectidentity",
+    "name": "hwL2tpMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1"
+  },
+  "hwL2tpMibTrap": {
+    "class": "objectidentity",
+    "name": "hwL2tpMibTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.2"
+  },
+  "hwL2tpObjectGroups": {
+    "class": "objectidentity",
+    "name": "hwL2tpObjectGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.3.2"
+  },
+  "hwL2tpObsoleteGroup": {
+    "class": "objectgroup",
+    "description": "The L2TP obsolete node.",
+    "name": "hwL2tpObsoleteGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupAging"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupTunnelStartLnsIP1"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupTunnelStartLnsIP2"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupTunnelStartLnsIP3"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupTunnelStartLnsIP4"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpGroupTunnelStartLnsIP5"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.3.2.5",
+    "status": "obsolete"
+  },
+  "hwL2tpPeerIp": {
+    "class": "objecttype",
+    "description": " Peer IP address ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwL2tpPeerIp",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL2tpPeerName": {
+    "class": "objecttype",
+    "description": " Peer Name ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwL2tpPeerName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 30,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2tpTrapNotificationsGroup": {
+    "class": "notificationgroup",
+    "description": "The L2TP Traps.",
+    "name": "hwL2tpTrapNotificationsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpTunnelUpOrDown"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.3.2.6",
+    "status": "current"
+  },
+  "hwL2tpTrapOid": {
+    "class": "objectidentity",
+    "name": "hwL2tpTrapOid",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.2.1"
+  },
+  "hwL2tpTrapOidGroup": {
+    "class": "objectgroup",
+    "description": "The L2TP Trap Oid.",
+    "name": "hwL2tpTrapOidGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpTunnelID"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpPeerName"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpPeerIp"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpTunnelStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.3.2.4",
+    "status": "current"
+  },
+  "hwL2tpTraps": {
+    "class": "objectidentity",
+    "name": "hwL2tpTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.2.2.0"
+  },
+  "hwL2tpTrapsDefine": {
+    "class": "objectidentity",
+    "name": "hwL2tpTrapsDefine",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.2.2"
+  },
+  "hwL2tpTunnelAlarmEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": " The switch of tunnel alram when status of tunnel changed. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpTunnelAlarmEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.54",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwL2tpTunnelClearLocalID": {
+    "class": "objecttype",
+    "description": " Clear tunnel by local tunnel ID. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpTunnelClearLocalID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2tpTunnelClearRemoteName": {
+    "class": "objecttype",
+    "description": " Clear tunnel by remote tunnel name. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpTunnelClearRemoteName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 30,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2tpTunnelClearSlotID": {
+    "class": "objecttype",
+    "description": " Clear tunnel by tunnel board ID. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpTunnelClearSlotID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2tpTunnelID": {
+    "class": "objecttype",
+    "description": " Local Tunnel ID. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwL2tpTunnelID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2tpTunnelName": {
+    "class": "objecttype",
+    "description": " Configure the local tunnel name. ",
+    "maxaccess": "read-write",
+    "name": "hwL2tpTunnelName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 30,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2tpTunnelStatus": {
+    "class": "objecttype",
+    "description": " The status of L2tp tunnel : Up/Down. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwL2tpTunnelStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 30,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2tpTunnelUpOrDown": {
+    "class": "notificationtype",
+    "description": " 1 Notice/Trap name: L2tp Tunnel is Up Or Down. 2 Notice/Trap generation cause: L2tp tunnel is up or down. 3 Repair suggestions: If the tunnel is down, please check out whether there is a error. ",
+    "name": "hwL2tpTunnelUpOrDown",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpTunnelID"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpPeerName"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpPeerIp"
+      },
+      {
+        "module": "HUAWEI-BRAS-L2TP-MIB",
+        "object": "hwL2tpTunnelStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.3.2.2.0.1",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwBRASMib"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Bits",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "IpAddress",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-BRAS-L2TP-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:46:48 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-BRAS-L2TP-MIB"
+  }
+}

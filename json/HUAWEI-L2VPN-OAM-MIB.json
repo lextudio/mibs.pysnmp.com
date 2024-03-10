@@ -1,0 +1,2800 @@
+{
+  "hwL2Vpn": {
+    "class": "objectidentity",
+    "name": "hwL2Vpn",
+    "oid": "1.3.6.1.4.1.2011.5.25.119"
+  },
+  "hwL2vpnIfIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the index of the AC interface. This object should contain a value of zero if not valid.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwL2vpnIfIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwL2vpnIfName": {
+    "class": "objecttype",
+    "description": "This object indicates the AC interface\u0027s name. This object should contain a value of null if not valid.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwL2vpnIfName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwL2vpnInLabel": {
+    "class": "objecttype",
+    "description": "This object indicates the received label be used in PW. This object should contain a value of zero if not valid.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwL2vpnInLabel",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwL2vpnOamAis": {
+    "class": "notificationtype",
+    "description": "OAM reported an AIS alarm.",
+    "name": "hwL2vpnOamAis",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.13",
+    "status": "current"
+  },
+  "hwL2vpnOamAisClear": {
+    "class": "notificationtype",
+    "description": "OAM reported the clearing of the AIS alarm.",
+    "name": "hwL2vpnOamAisClear",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.14",
+    "status": "current"
+  },
+  "hwL2vpnOamConformance": {
+    "class": "objectidentity",
+    "name": "hwL2vpnOamConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.3"
+  },
+  "hwL2vpnOamCsf": {
+    "class": "notificationtype",
+    "description": "OAM reported a CSF alarm.",
+    "name": "hwL2vpnOamCsf",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.19",
+    "status": "current"
+  },
+  "hwL2vpnOamCsfClear": {
+    "class": "notificationtype",
+    "description": "OAM reported the CSF alarm disappearance.",
+    "name": "hwL2vpnOamCsfClear",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.20",
+    "status": "current"
+  },
+  "hwL2vpnOamDbdi": {
+    "class": "notificationtype",
+    "description": "OAM reported a DBDI alarm.",
+    "name": "hwL2vpnOamDbdi",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.29",
+    "status": "current"
+  },
+  "hwL2vpnOamDbdiClear": {
+    "class": "notificationtype",
+    "description": "OAM reported the DBDI alarm disappearance.",
+    "name": "hwL2vpnOamDbdiClear",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.30",
+    "status": "current"
+  },
+  "hwL2vpnOamDloc": {
+    "class": "notificationtype",
+    "description": "OAM reported an alarm about PW disconnection.",
+    "name": "hwL2vpnOamDloc",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.1",
+    "status": "current"
+  },
+  "hwL2vpnOamDlocClear": {
+    "class": "notificationtype",
+    "description": "OAM reported the clearing of the dLOC alarm.",
+    "name": "hwL2vpnOamDlocClear",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.2",
+    "status": "current"
+  },
+  "hwL2vpnOamExcess": {
+    "class": "notificationtype",
+    "description": "OAM reported a TTSI excess alarm.",
+    "name": "hwL2vpnOamExcess",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.21",
+    "status": "current"
+  },
+  "hwL2vpnOamExcessClear": {
+    "class": "notificationtype",
+    "description": "OAM reported the TTSI excess alarm disappearance.",
+    "name": "hwL2vpnOamExcessClear",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.22",
+    "status": "current"
+  },
+  "hwL2vpnOamFail": {
+    "class": "notificationtype",
+    "description": "OAM reported a failed-negotiation alarm.",
+    "name": "hwL2vpnOamFail",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.27",
+    "status": "current"
+  },
+  "hwL2vpnOamFailClear": {
+    "class": "notificationtype",
+    "description": "OAM reported the failed-negotiation alarm disappearance.",
+    "name": "hwL2vpnOamFailClear",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.28",
+    "status": "current"
+  },
+  "hwL2vpnOamFdi": {
+    "class": "notificationtype",
+    "description": "OAM reported a FDI alarm.",
+    "name": "hwL2vpnOamFdi",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.39",
+    "status": "current"
+  },
+  "hwL2vpnOamFdiClear": {
+    "class": "notificationtype",
+    "description": "OAM reported the FDI alarm disappearance.",
+    "name": "hwL2vpnOamFdiClear",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.40",
+    "status": "current"
+  },
+  "hwL2vpnOamGroup": {
+    "class": "objectgroup",
+    "description": "The L2VPN OAM group.",
+    "name": "hwL2vpnOamGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.3.2.1",
+    "status": "current"
+  },
+  "hwL2vpnOamGroups": {
+    "class": "objectidentity",
+    "name": "hwL2vpnOamGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.3.2"
+  },
+  "hwL2vpnOamLck": {
+    "class": "notificationtype",
+    "description": "OAM reported a PW service layers LCK alarm.",
+    "name": "hwL2vpnOamLck",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.17",
+    "status": "current"
+  },
+  "hwL2vpnOamLckClear": {
+    "class": "notificationtype",
+    "description": "OAM reported the PW service layers LCK alarm disappearance.",
+    "name": "hwL2vpnOamLckClear",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.18",
+    "status": "current"
+  },
+  "hwL2vpnOamLocalLock": {
+    "class": "notificationtype",
+    "description": "OAM reported a local PW LOCK alarm.",
+    "name": "hwL2vpnOamLocalLock",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.33",
+    "status": "current"
+  },
+  "hwL2vpnOamLocalLockClear": {
+    "class": "notificationtype",
+    "description": "OAM reported the local LOCK PW alarm disappearance.",
+    "name": "hwL2vpnOamLocalLockClear",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.34",
+    "status": "current"
+  },
+  "hwL2vpnOamMIBCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-L2VPN-OAM-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamGroup"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamNotificationGroup"
+      }
+    ],
+    "name": "hwL2vpnOamMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.3.1.1",
+    "status": "current"
+  },
+  "hwL2vpnOamMIBCompliances": {
+    "class": "objectidentity",
+    "name": "hwL2vpnOamMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.3.1"
+  },
+  "hwL2vpnOamMIBTraps": {
+    "class": "objectidentity",
+    "name": "hwL2vpnOamMIBTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2"
+  },
+  "hwL2vpnOamMeg": {
+    "class": "notificationtype",
+    "description": "OAM reported an unexpected MEG alarm.",
+    "name": "hwL2vpnOamMeg",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.7",
+    "status": "current"
+  },
+  "hwL2vpnOamMegClear": {
+    "class": "notificationtype",
+    "description": "OAM reported the clearing of the unexpected MEG alarm",
+    "name": "hwL2vpnOamMegClear",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.8",
+    "status": "current"
+  },
+  "hwL2vpnOamMep": {
+    "class": "notificationtype",
+    "description": "OAM reported an unexpected MEP alarm.",
+    "name": "hwL2vpnOamMep",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.9",
+    "status": "current"
+  },
+  "hwL2vpnOamMepClear": {
+    "class": "notificationtype",
+    "description": "OAM reported an alarm about the clearing of the unexpected MEP alarm.",
+    "name": "hwL2vpnOamMepClear",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.10",
+    "status": "current"
+  },
+  "hwL2vpnOamMismatch": {
+    "class": "notificationtype",
+    "description": "OAM reported a TTSI mismatch alarm.",
+    "name": "hwL2vpnOamMismatch",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.23",
+    "status": "current"
+  },
+  "hwL2vpnOamMismatchClear": {
+    "class": "notificationtype",
+    "description": "OAM reported the TTSI mismatch alarm disappearance.",
+    "name": "hwL2vpnOamMismatchClear",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.24",
+    "status": "current"
+  },
+  "hwL2vpnOamMismerge": {
+    "class": "notificationtype",
+    "description": "OAM reported a TTSI mismerge alarm.",
+    "name": "hwL2vpnOamMismerge",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.25",
+    "status": "current"
+  },
+  "hwL2vpnOamMismergeClear": {
+    "class": "notificationtype",
+    "description": "OAM reported the TTSI mismerge alarm disappearance.",
+    "name": "hwL2vpnOamMismergeClear",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.26",
+    "status": "current"
+  },
+  "hwL2vpnOamNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "The L2VPN OAM Notification group.",
+    "name": "hwL2vpnOamNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamDloc"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamDlocClear"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamSd1Near"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamSd1NearClear"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamRdi"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamRdiClear"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamMeg"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamMegClear"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamMep"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamMepClear"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamPeriod"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamPeriodClear"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamAis"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamAisClear"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamSd2Near"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamSd2NearClear"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamLck"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamLckClear"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamCsf"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamCsfClear"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamExcess"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamExcessClear"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamMismatch"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamMismatchClear"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamMismerge"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamMismergeClear"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamFail"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamFailClear"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamDbdi"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamDbdiClear"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamUnknown"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamUnknownClear"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamLocalLock"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamLocalLockClear"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamSd1Far"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamSd1FarClear"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamSd2Far"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamSd2FarClear"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamFdi"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOamFdiClear"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.3.2.2",
+    "status": "current"
+  },
+  "hwL2vpnOamPeriod": {
+    "class": "notificationtype",
+    "description": "OAM reported an alarm about an unexpected CV packet period.",
+    "name": "hwL2vpnOamPeriod",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.11",
+    "status": "current"
+  },
+  "hwL2vpnOamPeriodClear": {
+    "class": "notificationtype",
+    "description": "OAM reported an alarm about the rectification of the unexpected CV packet period.",
+    "name": "hwL2vpnOamPeriodClear",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.12",
+    "status": "current"
+  },
+  "hwL2vpnOamRdi": {
+    "class": "notificationtype",
+    "description": "OAM reported an alarm about a remote defect.",
+    "name": "hwL2vpnOamRdi",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.5",
+    "status": "current"
+  },
+  "hwL2vpnOamRdiClear": {
+    "class": "notificationtype",
+    "description": "OAM reported an alarm about the removal of the remote defect.",
+    "name": "hwL2vpnOamRdiClear",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.6",
+    "status": "current"
+  },
+  "hwL2vpnOamSd1Far": {
+    "class": "notificationtype",
+    "description": "OAM reported an alarm about the far-end packet loss exceeding sd1.",
+    "name": "hwL2vpnOamSd1Far",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.35",
+    "status": "current"
+  },
+  "hwL2vpnOamSd1FarClear": {
+    "class": "notificationtype",
+    "description": "OAM reported an alarm indicating the far-end packet loss dropping below sd1.",
+    "name": "hwL2vpnOamSd1FarClear",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.36",
+    "status": "current"
+  },
+  "hwL2vpnOamSd1Near": {
+    "class": "notificationtype",
+    "description": "OAM reported an alarm about the near-end packet loss exceeding sd1.",
+    "name": "hwL2vpnOamSd1Near",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.3",
+    "status": "current"
+  },
+  "hwL2vpnOamSd1NearClear": {
+    "class": "notificationtype",
+    "description": "OAM reported an alarm about the near-end packet loss dropping below sd1.",
+    "name": "hwL2vpnOamSd1NearClear",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.4",
+    "status": "current"
+  },
+  "hwL2vpnOamSd2Far": {
+    "class": "notificationtype",
+    "description": "OAM reported an alarm about the far-end packet loss exceeding sd2.",
+    "name": "hwL2vpnOamSd2Far",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.37",
+    "status": "current"
+  },
+  "hwL2vpnOamSd2FarClear": {
+    "class": "notificationtype",
+    "description": "OAM reported an alarm indicating the far-end packet loss dropping below sd2.",
+    "name": "hwL2vpnOamSd2FarClear",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.38",
+    "status": "current"
+  },
+  "hwL2vpnOamSd2Near": {
+    "class": "notificationtype",
+    "description": "OAM reported an alarm about the near-end packet loss exceeding sd2.",
+    "name": "hwL2vpnOamSd2Near",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.15",
+    "status": "current"
+  },
+  "hwL2vpnOamSd2NearClear": {
+    "class": "notificationtype",
+    "description": "OAM reported an alarm indicating the near-end packet loss dropping below sd2.",
+    "name": "hwL2vpnOamSd2NearClear",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.16",
+    "status": "current"
+  },
+  "hwL2vpnOamTrap": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "The HUAWEI-L2VPN-OAM-MIB contains objects to manage OAM TRAP.",
+    "lastupdated": "201309051400Z",
+    "name": "hwL2vpnOamTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "V2.03, modify import error.",
+        "revision": "2013-09-05 14:00"
+      },
+      {
+        "description": "V2.02, add hwL2vpnOamFdi, hwL2vpnOamFdiClear for PTN5900.",
+        "revision": "2013-05-13 13:30"
+      },
+      {
+        "description": "V2.01, add hwL2vpnOamSd1Far, hwL2vpnOamSd1FarClear, hwL2vpnOamSd2Far, hwL2vpnOamSd2FarClear for far-end packet loss.",
+        "revision": "2013-03-25 14:52"
+      }
+    ]
+  },
+  "hwL2vpnOamTrapMIBObjects": {
+    "class": "objectidentity",
+    "name": "hwL2vpnOamTrapMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.1"
+  },
+  "hwL2vpnOamUnknown": {
+    "class": "notificationtype",
+    "description": "OAM reported an unknown limitation alarm.",
+    "name": "hwL2vpnOamUnknown",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.31",
+    "status": "current"
+  },
+  "hwL2vpnOamUnknownClear": {
+    "class": "notificationtype",
+    "description": "OAM reported the unknown limitation alarm disappearance.",
+    "name": "hwL2vpnOamUnknownClear",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnServiceType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnProtocolType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVcType"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPeerAddr"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfIndex"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnPwMaster"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnRmtSiteID"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnInLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnOutLabel"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnIfName"
+      },
+      {
+        "module": "HUAWEI-L2VPN-OAM-MIB",
+        "object": "hwL2vpnVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.2.32",
+    "status": "current"
+  },
+  "hwL2vpnOutLabel": {
+    "class": "objecttype",
+    "description": "This object indicates the transfer label be used in pw. This object should contain a value of zero if not valid.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwL2vpnOutLabel",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwL2vpnPeerAddr": {
+    "class": "objecttype",
+    "description": "This object contain the value of the peer node address of the PW/PE maintenance protocol entity. This object should contain a value of all zeroes if not applicable",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwL2vpnPeerAddr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL2vpnProtocolType": {
+    "class": "objecttype",
+    "description": "This object indicates the protocol(static or ldp or bgp) of one PW\u0027s classification.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwL2vpnProtocolType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bgp": 2,
+          "ldp": 1,
+          "static": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwL2vpnPwMaster": {
+    "class": "objecttype",
+    "description": "This object indicates the role (primary or second) of the PW. This object should contain a value of zero if not valid.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwL2vpnPwMaster",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "second": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwL2vpnRmtSiteID": {
+    "class": "objecttype",
+    "description": "This object indicates the Route Distinguisher. This object should contain a value of zero if not valid.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwL2vpnRmtSiteID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwL2vpnServiceType": {
+    "class": "objecttype",
+    "description": "This object indicates the classification(vpws or vpls) of the PW.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwL2vpnServiceType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vplsPw": 1,
+          "vpwsPw": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwL2vpnVcID": {
+    "class": "objecttype",
+    "description": "This object indicates the ID of the PW. This object should contain a value of zero if not valid.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwL2vpnVcID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwL2vpnVcType": {
+    "class": "objecttype",
+    "description": "This object indicates the type of the PW. This object should contain a value of zero if not valid.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwL2vpnVcType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWL2VpnVcEncapsType"
+    }
+  },
+  "hwL2vpnVsiName": {
+    "class": "objecttype",
+    "description": "This object indicates the the vsi\u0027s name. This object should contain a value of null if not valid.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwL2vpnVsiName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.9.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "HUAWEI-VPLS-EXT-MIB": [
+      "HWL2VpnVcEncapsType"
+    ],
+    "IF-MIB": [
+      "ifName",
+      "InterfaceIndexOrZero"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "Bits",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-L2VPN-OAM-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:52 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-L2VPN-OAM-MIB"
+  }
+}

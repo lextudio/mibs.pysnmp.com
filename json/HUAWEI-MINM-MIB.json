@@ -1,0 +1,3924 @@
+{
+  "HWAdminStatus": {
+    "class": "textualconvention",
+    "description": "Indicates the administration status as follows: up(1), down(2) ",
+    "name": "HWAdminStatus",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWApsInterval": {
+    "class": "textualconvention",
+    "description": " Indicates the time interval for fast sending of Aps packets described in the G.8031. By default, it is 3.3 ms. Optional values for sending interval are as follows: apsInterval3dot3ms(1): indicates a sending interval of 3.3 ms. apsInterval5ms(2): indicates a sending interval of 5 ms. apsInterval10ms(3): indicates a sending interval of 10 ms. apsInterval15ms(4): indicates a sending interval of 15 ms. apsInterval20ms(5): indicates a sending interval of 20 ms. apsInterval30ms(6): indicates a sending interval of 30 ms. ",
+    "name": "HWApsInterval",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apsInterval10ms": 3,
+          "apsInterval15ms": 4,
+          "apsInterval20ms": 5,
+          "apsInterval30ms": 6,
+          "apsInterval3dot3ms": 1,
+          "apsInterval5ms": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWInterfaceType": {
+    "class": "textualconvention",
+    "description": "Indicates the interface type of a service instance. The encApsulation mapping modes of the service instance can be configured as follows: transparent(1): indicates the transparent transmission mode. oneToOne(2): indicates the one-to-one in the s-tagged mode. bundling(3): indicates the bundling in the s-tagged mode. By default, the s-tagged bundling mode is used. ",
+    "name": "HWInterfaceType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bundling": 3,
+          "oneToOne": 2,
+          "transparent": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWOperStatus": {
+    "class": "textualconvention",
+    "description": "Indicates the operation status as follows: up(1), down(2) ",
+    "name": "HWOperStatus",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWProcessBehavior": {
+    "class": "textualconvention",
+    "description": "Indicates the processing behavior of packets as follows: discard(1), forward(2) ",
+    "name": "HWProcessBehavior",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discard": 1,
+          "forward": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWProtectMode": {
+    "class": "textualconvention",
+    "description": "Indicates the protection modes of the G.8031 Aps protection group of mac-tunnels. oneplusonebidirectional(1): 1 + 1 switchover protection modes on both ends oneplusoneunidirectional(2): 1 + 1 switchover protection modes on a single end onetoone(3): 1:1 protection mode By the default, the 1:1 protection mode is used. ",
+    "name": "HWProtectMode",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "onePlusOneBidirectional": 1,
+          "onePlusOneUnidirectional": 2,
+          "oneToOne": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWProtectProtocol": {
+    "class": "textualconvention",
+    "description": "Indicates the protection protocol of the protection group of mac-tunnels. protocolAps(1): use an APS protocol to enhance the protection switching. protocolOam(2): not using any APS protocol to enhance the protection switching. By the default, the Protocol OAM is used. ",
+    "name": "HWProtectProtocol",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "protocolAps": 1,
+          "protocolOam": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWServiceType": {
+    "class": "textualconvention",
+    "description": "Indicates the type of a service instance as follows: p2p(1): indicates the type of a point-to-point service instance. mp2mp(2): indicates the type of a multi-point to multi-point service instance. By default, the service type is mp2mp. ",
+    "name": "HWServiceType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mp2mp": 2,
+          "p2p": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWStaticMacFwdType": {
+    "class": "textualconvention",
+    "description": " Indicates the type of the static MAC forwarding table of a service instance: static(1): indicates a static entry. blackhole(2): indicates a blackhole entry. ",
+    "name": "HWStaticMacFwdType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blackhole": 2,
+          "static": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWSwitchOperation": {
+    "class": "textualconvention",
+    "description": "Indicates the switchover commands for the Aps protection group of mac-tunnels. The priority levels in a descending order are: clear, lock, force and manual. clear(1): clears the lock, force and manual commands, and WTR state on the local end. After the local commands are cleared, the WTR state cannot be entered. lock(2): locks the services on the working tunnel. force(3): forcibly switches the services to the protection tunnel when the protection tunnel is in sound state. manual(4): forcibly switches the services to the protection channel when the working and the protection tunnel are in sound state. null(5):there is not manual commands. ",
+    "name": "HWSwitchOperation",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "force": 3,
+          "lock": 2,
+          "manual": 4,
+          "null": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HwDot1agCfmCcmInterval": {
+    "class": "textualconvention",
+    "description": "Indicates the interval at which CCMs are sent by a MEP. The possible values are: intervalInvalid(1) No CCMs are sent (disabled). interval300Hz(2) CCMs are sent every 3 1/3 milliseconds (300Hz). interval10ms(3) CCMs are sent every 10 milliseconds. interval100ms(4) CCMs are sent every 100 milliseconds. interval1s(5) CCMs are sent every 1 second. interval10s(6) CCMs are sent every 10 seconds. interval1min(7) CCMs are sent every minute. interval10min(8) CCMs are sent every 10 minutes. interval20ms(9) CCMs are sent every 10 milliseconds. interval30ms(10) CCMs are sent every 10 milliseconds. interval50ms(11) CCMs are sent every 10 milliseconds. Note: enumerations start at zero to match the \u0027CCM Interval field\u0027 protocol field. ",
+    "name": "HwDot1agCfmCcmInterval",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interval100ms": 4,
+          "interval10min": 8,
+          "interval10ms": 3,
+          "interval10s": 6,
+          "interval1min": 7,
+          "interval1s": 5,
+          "interval20ms": 9,
+          "interval300Hz": 2,
+          "interval30ms": 10,
+          "interval50ms": 11,
+          "intervalInvalid": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HwDot1agCfmEgressActionFieldValue": {
+    "class": "textualconvention",
+    "description": "Possible values returned in the egress action field",
+    "name": "HwDot1agCfmEgressActionFieldValue",
+    "reference": "802.1ag clauses 12.14.7.5.3 o), 21.9.10.1 and Table 21-28",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "egrBlocked": 3,
+          "egrDown": 2,
+          "egrOK": 1,
+          "egrVid": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HwDot1agCfmIngressActionFieldValue": {
+    "class": "textualconvention",
+    "description": "Possible values returned in the ingress action field.",
+    "name": "HwDot1agCfmIngressActionFieldValue",
+    "reference": "802.1ag clauses 12.14.7.5.3 k), 21.9.9.1, 20.35.2.6 and Table 21-26. ",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ingBlocked": 3,
+          "ingDown": 2,
+          "ingOk": 1,
+          "ingVid": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HwDot1agCfmMepIdOrZero": {
+    "class": "textualconvention",
+    "description": "Indicates the Maintenance association End Point Identifier (MEPID): A small integer, unique over a given Maintenance Association, identifying a specific MEP. The special value 0 is allowed to indicate special cases, for example that no MEPID is configured in a given Maintenance Association point. Whenever an object is defined with this SYNTAX, then the DESCRIPTION clause of such an object MUST specify what the special value of 0 means. ",
+    "displayhint": "d",
+    "name": "HwDot1agCfmMepIdOrZero",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 8191,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "HwDot1agCfmRelayActionFieldValue": {
+    "class": "textualconvention",
+    "description": "Indicates the possible values the Relay action field can take.",
+    "name": "HwDot1agCfmRelayActionFieldValue",
+    "reference": "802.1ag clauses 12.14.7.5.3 g), 20.32.2.5, and Table 21-24. RlyHit(1) The LTM reached an MP whose MAC address matches the target MAC address. RlyFDB(2) The Egress Port was determined by consulting the Filtering Database(20.41.1.1:a). RlyMPDB(3) The Egress Port was determined by consulting the MIP CCM Database(20.41.1.1:b). ",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rlyFdb": 2,
+          "rlyHit": 1,
+          "rlyMpdb": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HwLldpChassisId": {
+    "class": "textualconvention",
+    "description": "This TC describes the format of a chassis identifier string. Objects of this type are always used with an associated LldpChassisIdSubtype object, which identifies the format of the particular LldpChassisId object instance. If the associated LldpChassisIdSubtype object has a value of \u0027chassisComponent(1)\u0027, then the octet string identifies a particular instance of the entPhysicalAlias object (defined in IETF RFC 2737) for a chassis component (i.e., an entPhysicalClass value of \u0027chassis(3)\u0027). If the associated LldpChassisIdSubtype object has a value of \u0027interfaceAlias(2)\u0027, then the octet string identifies a particular instance of the ifAlias object (defined in IETF RFC 2863) for an interface on the containing chassis. If the particular ifAlias object does not contain any values, another chassis identifier type should be used. If the associated LldpChassisIdSubtype object has a value of \u0027portComponent(3)\u0027, then the octet string identifies a particular instance of the entPhysicalAlias object (defined in IETF RFC 2737) for a port or backplane component within the containing chassis. If the associated LldpChassisIdSubtype object has a value of \u0027macAddress(4)\u0027, then this string identifies a particular unicast source address (encoded in network byte order and IEEE 802.3 canonical bit order), of a port on the containing chassis as defined in IEEE Std 802-2001. If the associated LldpChassisIdSubtype object has a value of \u0027networkAddress(5)\u0027, then this string identifies a particular network address, encoded in network byte order, associated with one or more ports on the containing chassis. The first octet contains the IANA Address Family Numbers enumeration value for the specific address type, and octets 2 through N contain the network address value in network byte order. If the associated LldpChassisIdSubtype object has a value of \u0027interfaceName(6)\u0027, then the octet string identifies a particular instance of the ifName object (defined in IETF RFC 2863) for an interface on the containing chassis. If the particular ifName object does not contain any values, another chassis identifier type should be used. If the associated LldpChassisIdSubtype object has a value of \u0027local(7)\u0027, then this string identifies a locally assigned Chassis ID.",
+    "name": "HwLldpChassisId",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "HwLldpChassisIdSubtype": {
+    "class": "textualconvention",
+    "description": "This TC describes the source of a chassis identifier. The enumeration \u0027chassisComponent(1)\u0027 represents a chassis identifier based on the value of entPhysicalAlias object (defined in IETF RFC 2737) for a chassis component (i.e., an entPhysicalClass value of \u0027chassis(3)\u0027). The enumeration \u0027interfaceAlias(2)\u0027 represents a chassis identifier based on the value of ifAlias object (defined in IETF RFC 2863) for an interface on the containing chassis. The enumeration \u0027portComponent(3)\u0027 represents a chassis identifier based on the value of entPhysicalAlias object (defined in IETF RFC 2737) for a port or backplane component (i.e., entPhysicalClass value of \u0027port(10)\u0027 or \u0027backplane(4)\u0027), within the containing chassis. The enumeration \u0027macAddress(4)\u0027 represents a chassis identifier based on the value of a unicast source address (encoded in network byte order and IEEE 802.3 canonical bit order), of a port on the containing chassis as defined in IEEE Std 802-2001. The enumeration \u0027networkAddress(5)\u0027 represents a chassis identifier based on a network address, associated with a particular chassis. The encoded address is actually composed of two fields. The first field is a single octet, representing the IANA AddressFamilyNumbers value for the specific address type, and the second field is the network address value. The enumeration \u0027interfaceName(6)\u0027 represents a chassis identifier based on the value of ifName object (defined in IETF RFC 2863) for an interface on the containing chassis. The enumeration \u0027local(7)\u0027 represents a chassis identifier based on a locally defined value.",
+    "name": "HwLldpChassisIdSubtype",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "chassisComponent": 1,
+          "interfaceAlias": 2,
+          "interfaceName": 6,
+          "local": 7,
+          "macAddress": 4,
+          "networkAddress": 5,
+          "portComponent": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HwLldpManAddrIfSubtype": {
+    "class": "textualconvention",
+    "description": "This TC describes the basis of a particular type of interface associated with the management address. The enumeration \u0027unknown(1)\u0027 represents the case where the interface is not known. The enumeration \u0027ifIndex(2)\u0027 represents interface identifier based on the ifIndex MIB object. The enumeration \u0027systemPortNumber(3)\u0027 represents interface identifier based on the system port numbering convention.",
+    "name": "HwLldpManAddrIfSubtype",
+    "reference": "IEEE 802.1AB-2005 9.5.9.5",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ifIndex": 2,
+          "systemPortNumber": 3,
+          "unknown": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HwLldpManAddress": {
+    "class": "textualconvention",
+    "description": "The value of a management address associated with the LLDP agent that may be used to reach higher layer entities to assist discovery by network management. It should be noted that appropriate security credentials, such as SNMP engineId, may be required to access the LLDP agent using a management address. These necessary credentials should be known by the network management and the objects associated with the credentials are not included in the LLDP agent.",
+    "name": "HwLldpManAddress",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "HwLldpPortId": {
+    "class": "textualconvention",
+    "description": "This TC describes the format of a port identifier string. Objects of this type are always used with an associated LldpPortIdSubtype object, which identifies the format of the particular LldpPortId object instance. If the associated LldpPortIdSubtype object has a value of \u0027interfaceAlias(1)\u0027, then the octet string identifies a particular instance of the ifAlias object (defined in IETF RFC 2863). If the particular ifAlias object does not contain any values, another port identifier type should be used. If the associated LldpPortIdSubtype object has a value of \u0027portComponent(2)\u0027, then the octet string identifies a particular instance of the entPhysicalAlias object (defined in IETF RFC 2737) for a port or backplane component. If the associated LldpPortIdSubtype object has a value of \u0027macAddress(3)\u0027, then this string identifies a particular unicast source address (encoded in network byte order and IEEE 802.3 canonical bit order) associated with the port (IEEE Std 802-2001). If the associated LldpPortIdSubtype object has a value of \u0027networkAddress(4)\u0027, then this string identifies a network address associated with the port. The first octet contains the IANA AddressFamilyNumbers enumeration value for the specific address type, and octets 2 through N contain the networkAddress address value in network byte order. If the associated LldpPortIdSubtype object has a value of \u0027interfaceName(5)\u0027, then the octet string identifies a particular instance of the ifName object (defined in IETF RFC 2863). If the particular ifName object does not contain any values, another port identifier type should be used. If the associated LldpPortIdSubtype object has a value of \u0027agentCircuitId(6)\u0027, then this string identifies a agent-local identifier of the circuit (defined in RFC 3046). If the associated LldpPortIdSubtype object has a value of \u0027local(7)\u0027, then this string identifies a locally assigned port ID.",
+    "name": "HwLldpPortId",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "HwLldpPortIdSubtype": {
+    "class": "textualconvention",
+    "description": "This TC describes the source of a particular type of port identifier used in the LLDP MIB. The enumeration \u0027interfaceAlias(1)\u0027 represents a port identifier based on the ifAlias MIB object, defined in IETF RFC 2863. The enumeration \u0027portComponent(2)\u0027 represents a port identifier based on the value of entPhysicalAlias (defined in IETF RFC 2737) for a port component (i.e., entPhysicalClass value of \u0027port(10)\u0027), within the containing chassis. The enumeration \u0027macAddress(3)\u0027 represents a port identifier based on a unicast source address (encoded in network byte order and IEEE 802.3 canonical bit order), which has been detected by the agent and associated with a particular port (IEEE Std 802-2001). The enumeration \u0027networkAddress(4)\u0027 represents a port identifier based on a network address, detected by the agent and associated with a particular port. The enumeration \u0027interfaceName(5)\u0027 represents a port identifier based on the ifName MIB object, defined in IETF RFC 2863. The enumeration \u0027agentCircuitId(6)\u0027 represents a port identifier based on the agent-local identifier of the circuit (defined in RFC 3046), detected by the agent and associated with a particular port. The enumeration \u0027local(7)\u0027 represents a port identifier based on a value locally assigned.",
+    "name": "HwLldpPortIdSubtype",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "agentCircuitId": 6,
+          "interfaceAlias": 1,
+          "interfaceName": 5,
+          "local": 7,
+          "macAddress": 3,
+          "networkAddress": 4,
+          "portComponent": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMINM": {
+    "class": "objectidentity",
+    "name": "hwMINM",
+    "oid": "1.3.6.1.4.1.2011.5.25.133"
+  },
+  "hwMacTnlIndex": {
+    "class": "objecttype",
+    "description": "Indicates the tunnel index.It begins with one.",
+    "maxaccess": "read-only",
+    "name": "hwMacTnlIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.4.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMacTnlName": {
+    "class": "objecttype",
+    "description": "Indicates the name of the mac-tunnel. It is a character string with a maximum of 31 bytes and a minimum of 1 byte. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMacTnlName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMacTnlNameToIndexMappingEntry": {
+    "class": "objecttype",
+    "description": "Indicates the mapping table entry of the tunnel name and tunnel index.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMacTnlName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMacTnlNameToIndexMappingEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.4.1",
+    "status": "current"
+  },
+  "hwMacTnlNameToIndexMappingTable": {
+    "class": "objecttype",
+    "description": "Indicates the mapping table of the tunnel name and tunnel index.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacTnlNameToIndexMappingTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.4",
+    "status": "current"
+  },
+  "hwMinMCompliances": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for entities implementing the Huawei MINM MIB",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSystemGroup"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlCfgGroup"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlOAMGroup"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlApsGroup"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSICfgGroup"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlStatisticsGroup"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIStatisticsGroup"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMNotificationGroup"
+      }
+    ],
+    "name": "hwMinMCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.3.2",
+    "status": "current"
+  },
+  "hwMinMConformance": {
+    "class": "objectidentity",
+    "name": "hwMinMConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.3"
+  },
+  "hwMinMGroups": {
+    "class": "objectidentity",
+    "name": "hwMinMGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.3.1"
+  },
+  "hwMinMMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "R\u0026D Beijing, Huawei Technologies Co., Ltd. Huawei Bld., NO.3 Xinxi Rd, Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip: 100085 Http://www.huawei.com E-mail:support@huawei.com",
+    "description": "The HUAWEI-MINM-MIB contains objects to Manage configuration for MINM feature. ",
+    "lastupdated": "200611230000Z",
+    "name": "hwMinMMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1",
+    "organization": "Huawei Technologies Co., Ltd."
+  },
+  "hwMinMMacTnlAdminStatus": {
+    "class": "objecttype",
+    "description": "Indicates the administration status of the mac-tunnel.",
+    "maxaccess": "read-create",
+    "name": "hwMinMMacTnlAdminStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWAdminStatus"
+    }
+  },
+  "hwMinMMacTnlApsCfgEntry": {
+    "class": "objecttype",
+    "description": "Indicates the configuration table entry for the Aps protection of the mac-tunnel. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMinMMacTnlApsCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1.1",
+    "status": "current"
+  },
+  "hwMinMMacTnlApsCfgTable": {
+    "class": "objecttype",
+    "description": "Indicates the configuration table for the Aps protection of the mac-tunnel.",
+    "maxaccess": "not-accessible",
+    "name": "hwMinMMacTnlApsCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1",
+    "status": "current"
+  },
+  "hwMinMMacTnlApsGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing the Aps of the MAC TUNNEL capability.",
+    "name": "hwMinMMacTnlApsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectMacTnlName"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectApsSwitchMode"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectProtocolApsEnable"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectApsFastInterval"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectHoldoffTime"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectRevMode"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectRevWtrTime"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectSwitchOperation"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectProtocol"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectMacTnlDMac"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectMacTnlBVlanID"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectRowStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectMacTnlIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.3.1.5",
+    "status": "current"
+  },
+  "hwMinMMacTnlApsObjects": {
+    "class": "objectidentity",
+    "name": "hwMinMMacTnlApsObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3"
+  },
+  "hwMinMMacTnlBVlanID": {
+    "class": "objecttype",
+    "description": "Indicates BVLAN value of the current BVLAN used by the mac-tunnel: It ranges from 1 to 4094. By default, BVLAN value is not configured. The VLAN here must have been created and be in the backbone VLAN used by the mac-tunnel. The special value of zero is used to indicate that no VLAN-ID is present or used. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMMacTnlBVlanID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrNone"
+    }
+  },
+  "hwMinMMacTnlBVlanListHigh": {
+    "class": "objecttype",
+    "description": "Indicates the ending value of the backbone VLAN that is assigned to the mac-tunnel.",
+    "maxaccess": "read-write",
+    "name": "hwMinMMacTnlBVlanListHigh",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 256,
+            "min": 256
+          }
+        ]
+      },
+      "type": "VlanList"
+    }
+  },
+  "hwMinMMacTnlBVlanListLow": {
+    "class": "objecttype",
+    "description": "Indicates the starting value of the backbone VLAN that is assigned to the mac-tunnel.",
+    "maxaccess": "read-write",
+    "name": "hwMinMMacTnlBVlanListLow",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 256,
+            "min": 256
+          }
+        ]
+      },
+      "type": "VlanList"
+    }
+  },
+  "hwMinMMacTnlBVlanType": {
+    "class": "objecttype",
+    "description": " Indicates the B-TAG type of the BVLAN. By default, it is 88a8. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMMacTnlBVlanType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 2,
+            "min": 2
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMinMMacTnlCCEntry": {
+    "class": "objecttype",
+    "description": "Indicates the CC table entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMinMMacTnlCCEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.1.1",
+    "status": "current"
+  },
+  "hwMinMMacTnlCCFaultAlarm": {
+    "class": "notificationtype",
+    "description": "Indicates an alarm on the connectivity of fault. ",
+    "name": "hwMinMMacTnlCCFaultAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlName"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlDMac"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlBVlanID"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlSomeRMepCcmDefect"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlSomeRdiDefect"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.2.5",
+    "status": "current"
+  },
+  "hwMinMMacTnlCCInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "Indicates the time interval of CC packets.",
+    "maxaccess": "read-create",
+    "name": "hwMinMMacTnlCCInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HwDot1agCfmCcmInterval"
+    }
+  },
+  "hwMinMMacTnlCCRowStatus": {
+    "class": "objecttype",
+    "description": "Indicates the row status.",
+    "maxaccess": "read-create",
+    "name": "hwMinMMacTnlCCRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.1.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMinMMacTnlCCTable": {
+    "class": "objecttype",
+    "description": "Indicates the parameters used to describe CC packets. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMinMMacTnlCCTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.1",
+    "status": "current"
+  },
+  "hwMinMMacTnlCcReceiveEnabled": {
+    "class": "objecttype",
+    "description": "Whether CC reception is enabled.",
+    "maxaccess": "read-create",
+    "name": "hwMinMMacTnlCcReceiveEnabled",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwMinMMacTnlCfgEntry": {
+    "class": "objecttype",
+    "description": "Indicates the entry in the tunnel configuration table of the mac-tunnel.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMinMMacTnlCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1",
+    "status": "current"
+  },
+  "hwMinMMacTnlCfgGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing the configuration of the MAC TUNNEL capability.",
+    "name": "hwMinMMacTnlCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMVirtualMac"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlBVlanListLow"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlBVlanListHigh"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlIndexNext"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlName"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlDMac"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlBVlanID"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlBVlanType"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlPriorityValue"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlOutgoingIfIndex"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlSplitHorizonEnable"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlOperStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlDescription"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlRowStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMacTnlIndex"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlStatisticsReset"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlPriorityTrustITag"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlDeiTrustIDei"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlDeiValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.3.1.2",
+    "status": "current"
+  },
+  "hwMinMMacTnlCfgObjects": {
+    "class": "objectidentity",
+    "name": "hwMinMMacTnlCfgObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1"
+  },
+  "hwMinMMacTnlCfgTable": {
+    "class": "objecttype",
+    "description": "Indicates a configuration information table of Mac-tunnel.",
+    "maxaccess": "not-accessible",
+    "name": "hwMinMMacTnlCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2",
+    "status": "current"
+  },
+  "hwMinMMacTnlCfmEnable": {
+    "class": "objecttype",
+    "description": "Indicates that CFM is enabled.",
+    "maxaccess": "read-create",
+    "name": "hwMinMMacTnlCfmEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMinMMacTnlDMac": {
+    "class": "objecttype",
+    "description": "Indicates the remote MAC address of the current mac-tunnel. By default, there is no such configuration.",
+    "maxaccess": "read-create",
+    "name": "hwMinMMacTnlDMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwMinMMacTnlDeiTrustIDei": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "Indicates that the I-DEI priority is copied to the mac-tunnel. By default, the I-DEI priority is not copied to the mac-tunnel.",
+    "maxaccess": "read-create",
+    "name": "hwMinMMacTnlDeiTrustIDei",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwMinMMacTnlDeiValue": {
+    "class": "objecttype",
+    "description": "Indicates DEI of the mac-tunnel. It is used to set the DEI field of B-TAG. When DEI is true, the value is set to 1. When DEI is false, the value is set to 0. By default, the I-DEI priority is not copied to the mac-tunnel, and the DEI is false. When the value of the DEI is set to 2, it indicates that no DEI is configured on the tunnel. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMMacTnlDeiValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMinMMacTnlDescription": {
+    "class": "objecttype",
+    "description": "Indicates descriptive information of the static Mac-In-Mac tunnel. Its length ranges from 1 to 80 bytes and the first byte cannot be a space. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMMacTnlDescription",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 80,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMinMMacTnlDown": {
+    "class": "notificationtype",
+    "description": "Indicates the Down alarm of the mac-tunnel. This object forms a pair with the previous hwMinMMacTnlUp. ",
+    "name": "hwMinMMacTnlDown",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlName"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlDMac"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlBVlanID"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlOperStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.2.2",
+    "status": "current"
+  },
+  "hwMinMMacTnlInBytes": {
+    "class": "objecttype",
+    "description": "Indicates the number of bytes received by the mac-tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlInBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.3.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwMinMMacTnlInPackets": {
+    "class": "objecttype",
+    "description": "Indicates the number of packets received by the mac-tunnel. ",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlInPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwMinMMacTnlIndex": {
+    "class": "objecttype",
+    "description": "Indicates the index of Mac Tunnel. It begins with one.",
+    "maxaccess": "not-accessible",
+    "name": "hwMinMMacTnlIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMinMMacTnlIndexNext": {
+    "class": "objecttype",
+    "description": "Indicates the Index of the Next Mac Tunnel.It begins with one.",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlIndexNext",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMinMMacTnlLbEntry": {
+    "class": "objecttype",
+    "description": "Indicates the loopback table entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMinMMacTnlLbEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.2.1",
+    "status": "current"
+  },
+  "hwMinMMacTnlLbResultEntry": {
+    "class": "objecttype",
+    "description": "Indicates the loopback table entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMinMMacTnlLbResultEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.3.1",
+    "status": "current"
+  },
+  "hwMinMMacTnlLbResultTable": {
+    "class": "objecttype",
+    "description": " Performance statistics returned by using the MAC ping command for a tunnel. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMinMMacTnlLbResultTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.3",
+    "status": "current"
+  },
+  "hwMinMMacTnlLbRowStatus": {
+    "class": "objecttype",
+    "description": "Indicates the row status.",
+    "maxaccess": "read-create",
+    "name": "hwMinMMacTnlLbRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.2.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMinMMacTnlLbTable": {
+    "class": "objecttype",
+    "description": "Indicates the parameters used to describe Lb packets.",
+    "maxaccess": "not-accessible",
+    "name": "hwMinMMacTnlLbTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.2",
+    "status": "current"
+  },
+  "hwMinMMacTnlLbmEnable": {
+    "class": "objecttype",
+    "description": " Indicates that the MAC Ping is started inside the tunnel. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMMacTnlLbmEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMinMMacTnlLbmResult": {
+    "class": "objecttype",
+    "description": " Whether the MAC ping operation for a tunnel is over. ",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlLbmResult",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.2.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwMinMMacTnlLbmSize": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 64
+      }
+    },
+    "description": " Indicates the size of an Lbm packet. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMMacTnlLbmSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.2.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1480,
+            "min": 64
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMinMMacTnlLbmTimeOut": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2000
+      }
+    },
+    "description": "Indicates the timeout period entered by a user, in ms. By default, it is 2000.",
+    "maxaccess": "read-create",
+    "name": "hwMinMMacTnlLbmTimeOut",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.2.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMinMMacTnlLbmTimeStamp": {
+    "class": "objecttype",
+    "description": "Indicates the operation time.",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlLbmTimeStamp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeStamp"
+    }
+  },
+  "hwMinMMacTnlLbmTimes": {
+    "class": "objecttype",
+    "description": " Indicates the number of times that Ping is entered. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMMacTnlLbmTimes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.2.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMinMMacTnlLbrIn": {
+    "class": "objecttype",
+    "description": "Indicates the number of valid LBR packets received ",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlLbrIn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.2.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwMinMMacTnlLtmEgressIdentifier": {
+    "class": "objecttype",
+    "description": "Indicates the egress ID of Ltm packets.",
+    "maxaccess": "read-create",
+    "name": "hwMinMMacTnlLtmEgressIdentifier",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.4.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMinMMacTnlLtmEnable": {
+    "class": "objecttype",
+    "description": " Indicates that the MAC Trace is started inside the tunnel. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMMacTnlLtmEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.4.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMinMMacTnlLtmEntry": {
+    "class": "objecttype",
+    "description": "Indicates the linktrace table entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMinMMacTnlLtmEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.4.1",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtmFlags": {
+    "class": "objecttype",
+    "default": {
+      "basetype": "Bits",
+      "format": "bits",
+      "value": {
+        "bits": {
+          "useFDBonly": 0
+        },
+        "class": "type",
+        "type": "Bits"
+      }
+    },
+    "description": " The flags field of an LTM packet. ",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlLtmFlags",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.4.1.15",
+    "status": "current",
+    "syntax": {
+      "bits": {
+        "useFDBonly": 0
+      },
+      "class": "type",
+      "type": "Bits"
+    }
+  },
+  "hwMinMMacTnlLtmResult": {
+    "class": "objecttype",
+    "description": " Two conditions are used to determine whether the MAC trace operation to a tunnel is over: (1) The peer of a tunnel has been traced. (2) The preset timer for timeout is triggered. Either condition indicates the completion of an operation. ",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlLtmResult",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.4.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwMinMMacTnlLtmRowStatus": {
+    "class": "objecttype",
+    "description": "Indicates the row status.",
+    "maxaccess": "read-create",
+    "name": "hwMinMMacTnlLtmRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.4.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMinMMacTnlLtmSeqNumber": {
+    "class": "objecttype",
+    "description": " The sequence number of an LTM packet. ",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlLtmSeqNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.4.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMinMMacTnlLtmTable": {
+    "class": "objecttype",
+    "description": "Indicates the parameters used to describe Ltm packets. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMinMMacTnlLtmTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.4",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtmTimeOut": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2000
+      }
+    },
+    "description": " Indicates the timeout period entered by a user, in ms. By default, it is 2000. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMMacTnlLtmTimeOut",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.4.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMinMMacTnlLtmTimeStamp": {
+    "class": "objecttype",
+    "description": " The time stamp for enabling the MAC trace operation for a tunnel. ",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlLtmTimeStamp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.4.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeStamp"
+    }
+  },
+  "hwMinMMacTnlLtmTtl": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 64
+      }
+    },
+    "description": " Indicates the living cycle of Ltm packets. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMMacTnlLtmTtl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.4.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMinMMacTnlLtrEgress": {
+    "class": "objecttype",
+    "description": "The value returned in the Egress Action Field of the LTM.",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlLtrEgress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HwDot1agCfmEgressActionFieldValue"
+    }
+  },
+  "hwMinMMacTnlLtrEgressMac": {
+    "class": "objecttype",
+    "description": "MAC address returned in the egress MAC address field.",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlLtrEgressMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwMinMMacTnlLtrEgressPortId": {
+    "class": "objecttype",
+    "description": "Egress Port ID. The format of this object is determined by the value of the dot1agCfmLtrEgressPortIdSubtype object. ",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlLtrEgressPortId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HwLldpPortId"
+    }
+  },
+  "hwMinMMacTnlLtrEgressPortIdSubtype": {
+    "class": "objecttype",
+    "description": "Format of the egress Port ID.",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlLtrEgressPortIdSubtype",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HwLldpPortIdSubtype"
+    }
+  },
+  "hwMinMMacTnlLtrEntry": {
+    "class": "objecttype",
+    "description": " Indicates the linktraceRelay table entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrSeqNumber"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrReceiveOrder"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMinMMacTnlLtrEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtrForwarded": {
+    "class": "objecttype",
+    "description": " Indicates an identifier that shows whether the LTM packet should be forwarded to the next hop. ",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlLtrForwarded",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwMinMMacTnlLtrIngress": {
+    "class": "objecttype",
+    "description": "The value returned in the Ingress Action Field of the LTM.",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlLtrIngress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HwDot1agCfmIngressActionFieldValue"
+    }
+  },
+  "hwMinMMacTnlLtrIngressMac": {
+    "class": "objecttype",
+    "description": "MAC address returned in the ingress MAC address field.",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlLtrIngressMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwMinMMacTnlLtrIngressPortId": {
+    "class": "objecttype",
+    "description": "Ingress Port ID. The format of this object is determined by the value of the dot1agCfmLtrIngressPortIdSubtype object. ",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlLtrIngressPortId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HwLldpPortId"
+    }
+  },
+  "hwMinMMacTnlLtrIngressPortIdSubtype": {
+    "class": "objecttype",
+    "description": "Format of the Ingress Port ID.",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlLtrIngressPortIdSubtype",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HwLldpPortIdSubtype"
+    }
+  },
+  "hwMinMMacTnlLtrLastEgressIdentifier": {
+    "class": "objecttype",
+    "description": "LTR packet is a response packet to a LTM packet. The LTM packet is the last packet sent by a port on a device. This variable indicates the port identifier of the LTM packet. The last six bytes indicate the MAC address, and the first two bytes represent the board number and outbound port number respectively.",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlLtrLastEgressIdentifier",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 8,
+            "min": 8
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMinMMacTnlLtrNextEgressIdentifier": {
+    "class": "objecttype",
+    "description": "If the LTM packet needs to be forwarded to the next hop, the port identifier of the next hop should be added to the TVL field in the response LTR packet. The last six bytes indicate the MAC address, and the first two bytes represent the board number and outbound port number respectively.",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlLtrNextEgressIdentifier",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 8,
+            "min": 8
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMinMMacTnlLtrReceiveOrder": {
+    "class": "objecttype",
+    "description": "An index to distinguish among multiple LTRs with the same LTR Transaction Identifier field value. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMinMMacTnlLtrReceiveOrder",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.2",
+    "reference": "802.1ag clause 12.14.7.5.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMinMMacTnlLtrRelay": {
+    "class": "objecttype",
+    "description": "Indicates the value in the Relay Action field.",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlLtrRelay",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HwDot1agCfmRelayActionFieldValue"
+    }
+  },
+  "hwMinMMacTnlLtrSeqNumber": {
+    "class": "objecttype",
+    "description": " Indicates the parameters used to describe Ltr packets. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMinMMacTnlLtrSeqNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMinMMacTnlLtrTable": {
+    "class": "objecttype",
+    "description": "Indicates the parameters used to describe Ltr packets. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMinMMacTnlLtrTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5",
+    "status": "current"
+  },
+  "hwMinMMacTnlLtrTtl": {
+    "class": "objecttype",
+    "description": "TTL field value for a returned LTR.",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlLtrTtl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.5.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwMinMMacTnlMacPingPacketLossRatio": {
+    "class": "objecttype",
+    "description": " The packet loss ratio. ",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlMacPingPacketLossRatio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.3.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwMinMMacTnlMacPingRTTAvg": {
+    "class": "objecttype",
+    "description": " The average round trip time. ",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlMacPingRTTAvg",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.3.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwMinMMacTnlMacPingRTTMax": {
+    "class": "objecttype",
+    "description": " The maximum round trip time. ",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlMacPingRTTMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.3.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwMinMMacTnlMacPingRTTMin": {
+    "class": "objecttype",
+    "description": " The minimum round trip time. ",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlMacPingRTTMin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwMinMMacTnlName": {
+    "class": "objecttype",
+    "description": "Indicates the name of the mac-tunnel. It is a character string with a maximum of 31 bytes and a minimum of 1 byte.",
+    "maxaccess": "read-create",
+    "name": "hwMinMMacTnlName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMinMMacTnlOAMGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing the OAM of the MAC TUNNEL capability.",
+    "name": "hwMinMMacTnlOAMGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlCfmEnable"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlCCInterval"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlSomeRMepCcmDefect"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlSomeRdiDefect"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlCcReceiveEnabled"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlCCRowStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLbmEnable"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLbmTimeStamp"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLbmTimeOut"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLbmTimes"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLbmSize"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLbrIn"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlMacPingRTTMin"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlMacPingRTTMax"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlMacPingRTTAvg"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlMacPingPacketLossRatio"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLbmResult"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLbRowStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtmEnable"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtmTimeStamp"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtmTimeOut"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtmTtl"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtmFlags"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtmSeqNumber"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtmEgressIdentifier"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtmResult"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtmRowStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrTtl"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrForwarded"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrLastEgressIdentifier"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrNextEgressIdentifier"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrRelay"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrIngress"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrIngressMac"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrIngressPortIdSubtype"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrIngressPortId"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrEgress"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrEgressMac"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrEgressPortIdSubtype"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlLtrEgressPortId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.3.1.4",
+    "status": "current"
+  },
+  "hwMinMMacTnlOamObjects": {
+    "class": "objectidentity",
+    "name": "hwMinMMacTnlOamObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2"
+  },
+  "hwMinMMacTnlObjects": {
+    "class": "objectidentity",
+    "name": "hwMinMMacTnlObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2"
+  },
+  "hwMinMMacTnlOperStatus": {
+    "class": "objecttype",
+    "description": "Indicates the physical state of the mac-tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlOperStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOperStatus"
+    }
+  },
+  "hwMinMMacTnlOutBytes": {
+    "class": "objecttype",
+    "description": "Indicates the number of bytes sent by the mac-tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlOutBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.3.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwMinMMacTnlOutPackets": {
+    "class": "objecttype",
+    "description": "Indicates the number of packets sent by the mac-tunnel. ",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlOutPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.3.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwMinMMacTnlOutgoingIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the port used in the mac-tunnel. By default, it is not configured. The value zero is used to indicate that interface was unknown or none.",
+    "maxaccess": "read-create",
+    "name": "hwMinMMacTnlOutgoingIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwMinMMacTnlPriorityTrustITag": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "Indicates that the I-TAG priority is copied to the mac-tunnel. By default, the I-TAG priority is not copied to the mac-tunnel.",
+    "maxaccess": "read-create",
+    "name": "hwMinMMacTnlPriorityTrustITag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwMinMMacTnlPriorityValue": {
+    "class": "objecttype",
+    "description": "Indicates priority level of the mac-tunnel. It is used to set the priority field of B-TAG. There are eight priority levels. By default, the I-TAG priority is used. The special value of eight is used to indicate that priority was unknown or none. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMMacTnlPriorityValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMinMMacTnlRevertive": {
+    "class": "notificationtype",
+    "description": " Indicates the Aps protection group switchover alarm of the mac-tunnel. This object forms a pair with the previous hwMinMMacTnlSwitch. hwMinMMacTnlName: indicates the name of the primary tunnel. hwMinMMacTnlDMac: indicates the destination MAC address of the primary tunnel. hwMinMMacTnlBVlanID: indicates the BVLANID of the primary tunnel. hwMinMProtectMacTnlName: Indicates the name of the backup tunnel. hwMinMProtectSwitchOperation: Indicates the switchover commands for the Aps protection group of mac-tunnels. hwMinMProtectMacTnlBVlanID: indicates the BVLANID of the backup tunnel. hwMinMProtectMacTnlDMac:indicates the destination MAC address of the backup tunnel.",
+    "name": "hwMinMMacTnlRevertive",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlName"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlDMac"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlBVlanID"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectMacTnlName"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectMacTnlDMac"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectMacTnlBVlanID"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectSwitchOperation"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.2.7",
+    "status": "current"
+  },
+  "hwMinMMacTnlRowStatus": {
+    "class": "objecttype",
+    "description": "Indicates the RowStatus. The following three actions are used: active, createAndGo, destroy",
+    "maxaccess": "read-create",
+    "name": "hwMinMMacTnlRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMinMMacTnlSomeRMepCcmDefect": {
+    "class": "objecttype",
+    "description": "Indicates a connectivity failure of tunnels.",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlSomeRMepCcmDefect",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwMinMMacTnlSomeRdiDefect": {
+    "class": "objecttype",
+    "description": "Indicates whether the RDI packet from the remote end is received.",
+    "maxaccess": "read-only",
+    "name": "hwMinMMacTnlSomeRdiDefect",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.2.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwMinMMacTnlSplitHorizonEnable": {
+    "class": "objecttype",
+    "description": "Indicates the split horizon of tunnels. By default, it is enabled. When split horizon is enabled on two mac-tunnels, the two tunnels cannot exchange packets. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMMacTnlSplitHorizonEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMinMMacTnlStatisticsEntry": {
+    "class": "objecttype",
+    "description": "Indicates an entry query for the hwMinMMacTnlStatisticsTable of the mac-tunnel.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMinMMacTnlStatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.3.1",
+    "status": "current"
+  },
+  "hwMinMMacTnlStatisticsGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing the Statistics of the Service Instance capability.",
+    "name": "hwMinMMacTnlStatisticsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlInPackets"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlInBytes"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlOutPackets"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlOutBytes"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.3.1.3",
+    "status": "current"
+  },
+  "hwMinMMacTnlStatisticsReset": {
+    "class": "objecttype",
+    "description": "Indicates the reset on traffic statistics of the mac-tunnel.",
+    "maxaccess": "read-create",
+    "name": "hwMinMMacTnlStatisticsReset",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.2.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMinMMacTnlStatisticsTable": {
+    "class": "objecttype",
+    "description": "Indicates a query for the hwMinMMacTnlStatisticsTable of the mac-tunnel. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMinMMacTnlStatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.1.3",
+    "status": "current"
+  },
+  "hwMinMMacTnlSwitch": {
+    "class": "notificationtype",
+    "description": "Indicates the Aps protection group switchover alarm of the mac-tunnel. This object forms a pair with the following hwMinMMacTnlRevertive. hwMinMMacTnlName: indicates the name of the primary tunnel. hwMinMMacTnlDMac: indicates the destination MAC address of the primary tunnel. hwMinMMacTnlBVlanID: indicates the BVLANID of the primary tunnel. hwMinMProtectMacTnlName: Indicates the name of the backup tunnel. hwMinMProtectSwitchOperation: Indicates the switchover commands for the Aps protection group of mac-tunnels. hwMinMProtectMacTnlBVlanID: indicates the BVLANID of the backup tunnel. hwMinMProtectMacTnlDMac:indicates the destination MAC address of the backup tunnel. ",
+    "name": "hwMinMMacTnlSwitch",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlName"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlDMac"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlBVlanID"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectMacTnlName"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectMacTnlDMac"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectMacTnlBVlanID"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMProtectSwitchOperation"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.2.6",
+    "status": "current"
+  },
+  "hwMinMMacTnlUp": {
+    "class": "notificationtype",
+    "description": "Indicates the Up alarm of the mac-tunnel. This object forms a pair with the following hwMinMMacTnlDown. ",
+    "name": "hwMinMMacTnlUp",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlName"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlDMac"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlBVlanID"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlOperStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.2.1",
+    "status": "current"
+  },
+  "hwMinMNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "Collection of notification objects.",
+    "name": "hwMinMNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlUp"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlDown"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIUp"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIDown"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlCCFaultAlarm"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlSwitch"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlRevertive"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIMacLimitNumRaisingThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.3.1.8",
+    "status": "current"
+  },
+  "hwMinMNotifications": {
+    "class": "objectidentity",
+    "name": "hwMinMNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.2"
+  },
+  "hwMinMObjects": {
+    "class": "objectidentity",
+    "name": "hwMinMObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1"
+  },
+  "hwMinMProtectApsFastInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": " Indicates the configuration of fast sending time interval for each protection group. The time intervals for fast sending of Aps packets described in the G.8031 are as follows: By default, the time interval for fast sending of Aps packets in G.8031 is 3.3 ms. Optional values for sending interval are as follows: ApsInterval3dot3ms(1): indicates a sending interval of 3.3 ms. ApsInterval5ms(3): indicates a sending interval of 5 ms. ApsInterval10ms(3): indicates a sending interval of 10 ms. ApsInterval5ms(4): indicates a sending interval of 15 ms. ApsInterval20ms(5): indicates a sending interval of 20 ms. ApsInterval30ms(6): indicates a sending interval of 30 ms.",
+    "maxaccess": "read-create",
+    "name": "hwMinMProtectApsFastInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWApsInterval"
+    }
+  },
+  "hwMinMProtectApsSwitchMode": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "Indicates the protection modes of the G.8031 Aps protection group of mac-tunnels. oneplusonebidirectional(1): 1 + 1 switchover protection modes on both ends oneplusoneunidirectional(2): 1 + 1 switchover protection modes on a single end onetoone(3): 1:1 protection mode By the default, the 1:1 protection mode is used. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMProtectApsSwitchMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWProtectMode"
+    }
+  },
+  "hwMinMProtectHoldoffTime": {
+    "class": "objecttype",
+    "description": "Indicates the switchover restoration time of Aps protection groups in the mac-tunnel, in 100 ms. It ranges from 0 to 100. By default, the switchover restoration time is not delayed. The value of delay is zero. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMProtectHoldoffTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMinMProtectMacTnlBVlanID": {
+    "class": "objecttype",
+    "description": "Indicates BVLAN value used by the protecting mac-tunnel: It ranges from 1 to 4094.",
+    "maxaccess": "read-only",
+    "name": "hwMinMProtectMacTnlBVlanID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwMinMProtectMacTnlDMac": {
+    "class": "objecttype",
+    "description": "Indicates the remote MAC address of the protecting mac-tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwMinMProtectMacTnlDMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwMinMProtectMacTnlIndex": {
+    "class": "objecttype",
+    "description": "Indicates the index of ProtectMacTunnel. It begins with one.",
+    "maxaccess": "read-only",
+    "name": "hwMinMProtectMacTnlIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMinMProtectMacTnlName": {
+    "class": "objecttype",
+    "description": "Indicates the tunnel name of the protective mac-tunnel.",
+    "maxaccess": "read-create",
+    "name": "hwMinMProtectMacTnlName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMinMProtectProtocol": {
+    "class": "objecttype",
+    "description": "Indicates the protection protocol of the protection group of mac-tunnels. ProtocolAPS(1): use an APS protocol to enhance the protection switching. ProtocolOAM(2): not using any APS protocol to enhance the protection switching. By the default, the ProtocolOAM is used. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMProtectProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWProtectProtocol"
+    }
+  },
+  "hwMinMProtectProtocolApsEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "Indicates that the G.8031 protocol of Aps protection group in the mac-tunnel is enabled. By default, the protocol is disabled. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMProtectProtocolApsEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMinMProtectRevMode": {
+    "class": "objecttype",
+    "description": "Indicates the non-restoration protection switchover mode of Aps protection group in mac-tunnels.",
+    "maxaccess": "read-create",
+    "name": "hwMinMProtectRevMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMinMProtectRevWtrTime": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": "Indicates the restoration time of restoration protection switchover mode of Aps protection group in mac-tunnels. By default, the switchover mode is restoration. The restoration time is five minutes.",
+    "maxaccess": "read-create",
+    "name": "hwMinMProtectRevWtrTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 120,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMinMProtectRowStatus": {
+    "class": "objecttype",
+    "description": "Indicates the RowStatus. The following three actions are used: active, createAndGo, destroy",
+    "maxaccess": "read-create",
+    "name": "hwMinMProtectRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMinMProtectSwitchOperation": {
+    "class": "objecttype",
+    "description": "Indicates the switchover commands for the Aps protection group of mac-tunnels. The priority levels in a descending order are: clear, lock, force and manual. clear(1): clears the lock, force and manual commands, and WTR state on the local end. After the local commands are cleared, the WTR state cannot be entered. lock(2): locks the services on the working tunnel. force(3): forcibly switches the services to the protection tunnel when the protection tunnel is in sound state. manual(4): forcibly switches the services to the protection channel when the working and the protection tunnel are in sound state. null(5):there is not manual commands.",
+    "maxaccess": "read-create",
+    "name": "hwMinMProtectSwitchOperation",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.2.3.1.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWSwitchOperation"
+    }
+  },
+  "hwMinMSIAdminStatus": {
+    "class": "objecttype",
+    "description": "Indicates the administration status of a service instance.",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIAdminStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWAdminStatus"
+    }
+  },
+  "hwMinMSIBindMacTnlEntry": {
+    "class": "objecttype",
+    "description": "Indicates the mac-tunnel table entry bound with a service instance.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIBindMacTnlIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMinMSIBindMacTnlEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.4.1",
+    "status": "current"
+  },
+  "hwMinMSIBindMacTnlIndex": {
+    "class": "objecttype",
+    "description": "Indicates the index of Mac Tunnel. It begins with one.",
+    "maxaccess": "not-accessible",
+    "name": "hwMinMSIBindMacTnlIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMinMSIBindMacTnlRowStatus": {
+    "class": "objecttype",
+    "description": "Indicates the RowStatus. The following three actions are used: active, createAndGo, destroy",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIBindMacTnlRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.4.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMinMSIBindMacTnlTable": {
+    "class": "objecttype",
+    "description": "Indicates the mac-tunnel table bound with a service instance.",
+    "maxaccess": "not-accessible",
+    "name": "hwMinMSIBindMacTnlTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.4",
+    "status": "current"
+  },
+  "hwMinMSIBroadcastEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "Indicates how a service instance processes a broadcast packet. By default, the service instance is allowed to forward the broadcast packet. This object applies to the mp2mp service instance only. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIBroadcastEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMinMSICfgEntry": {
+    "class": "objecttype",
+    "description": "Indicates the configuration table entry of a service instance.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMinMSICfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1",
+    "status": "current"
+  },
+  "hwMinMSICfgGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing the configuration of Service Instance capability.",
+    "name": "hwMinMSICfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIIndexNext"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIID"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIName"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIServiceType"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIPriorityTrust8021p"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIPriorityValue"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIInterfaceType"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIOperStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIMacLearningEnable"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIMacLimitAction"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIMacLimitAlarm"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIMacLimitMaxinum"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIL2CtrlProProcess"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIUnknownUnicastEnbale"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIMulticastEnable"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIBroadcastEnable"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIDescription"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIRowStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIStaticMacFwdOutgoingIfIndex"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIStaticMacFwdVlanID"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIStaticMacFwdType"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIFcsTransparentEnable"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIStaticMacFwdRowStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwSIIndex"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIBindMacTnlRowStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIStaticMacFwdMacTnlName"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIMappingVlanListLow"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIMappingVlanListHigh"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIMappingUserIsolate"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIIngressPriorityValue"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIEgressPriorityTrustBTag"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIIngressDeiValue"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIEgressDeiTrustBDei"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIIsolateAll"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIMappingRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.3.1.6",
+    "status": "current"
+  },
+  "hwMinMSICfgTable": {
+    "class": "objecttype",
+    "description": "Indicates the configuration table of a service instance.",
+    "maxaccess": "not-accessible",
+    "name": "hwMinMSICfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2",
+    "status": "current"
+  },
+  "hwMinMSIDescription": {
+    "class": "objecttype",
+    "description": "Indicates descriptive information of a service instance. Its length ranges from 1 to 80 bytes and the first byte cannot be a space. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIDescription",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 80,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMinMSIDown": {
+    "class": "notificationtype",
+    "description": "Indicates the Down alarm of a service instance. This object forms a pair with the previous hwMinMSIUp. ",
+    "name": "hwMinMSIDown",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIID"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIName"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIOperStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.2.4",
+    "status": "current"
+  },
+  "hwMinMSIEgressDeiTrustBDei": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "Indicates that the destination DEI of a service instance is copied from the B-DEI priority. It is used to set whether the DEI of I-TAG is coped from B-DEI when packets reach the end of the tunnel and are decpasulated. By default, B-DEI is not copied to I-TAG.",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIEgressDeiTrustBDei",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.34",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwMinMSIEgressPriorityTrustBTag": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "Indicates that the destination priority of a service instance is copied from the B-TAG priority. It is used to set whether the I-TAG priority is copied from the B-TAG priority when packets reach the end of the tunnel and are decapsulated. By default, the B-TAG priority is not copied to I-TAG.",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIEgressPriorityTrustBTag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwMinMSIFcsTransparentEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "The forwarded packets need to carry the CRC mark. By default, the forwarded packets do not carry the CRC mark.",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIFcsTransparentEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMinMSIID": {
+    "class": "objecttype",
+    "description": "Indicates the ID of a service instance. It can be any value within 24 bits. By default, the value is null. One ID can be configured to one service instance only. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16777216,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMinMSIInBytes": {
+    "class": "objecttype",
+    "description": "Indicates the number of bytes received by a user of the current service instance.",
+    "maxaccess": "read-only",
+    "name": "hwMinMSIInBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.5.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwMinMSIInPackets": {
+    "class": "objecttype",
+    "description": "Indicates the number of packets received by a user of the current service instance.",
+    "maxaccess": "read-only",
+    "name": "hwMinMSIInPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.5.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwMinMSIIndex": {
+    "class": "objecttype",
+    "description": "Indicates the Index of Service Instance.It begins with one.",
+    "maxaccess": "not-accessible",
+    "name": "hwMinMSIIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMinMSIIndexNext": {
+    "class": "objecttype",
+    "description": "Indicates the index of the next Service Instance. It begins with one.",
+    "maxaccess": "read-only",
+    "name": "hwMinMSIIndexNext",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMinMSIIngressDeiValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "Indicates the source DEI of a service instance. It is used to set the DEI field when packets are encapsulated for transmission on the tunnel. When DEI is true, the value is set to 1. When DEI is false, the value is set to 0. By default, the S-DEI priority is copied to the mac-tunnel. When the value of the DEI is set to 2, it indicates that no DEI is configured on the tunnel.",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIIngressDeiValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMinMSIIngressPriorityValue": {
+    "class": "objecttype",
+    "description": "Indicates the source priority of a service instance. It is used to set the I-TAG priority field when packets are encapsulated for transmission on the tunnel. The source priority has eight levels that range from 0 to 7. By default, the source priority is copied to the mac-tunnel. When the source priority is set to 8, it indicates that the service instance is not configured with a priority, and the priority does not exist.",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIIngressPriorityValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMinMSIInterfaceType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "Indicates the interface type of a service instance. transparent: indicates the transparent transmission mode. one-to-one: indicates the one-to-one in the s-tagged mode. bundling: indicates the bundling in the s-tagged mode. By default, the s-tagged bundling mode is used. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIInterfaceType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWInterfaceType"
+    }
+  },
+  "hwMinMSIIsolateAll": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "Indicates that all the mapping users of a service instance are isolated. By default, the isolation is disabled. This object applies to the service instance of mp2mp only. It is invalid in the service type of p2p.",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIIsolateAll",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.35",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMinMSIL2CtrlProProcess": {
+    "class": "objecttype",
+    "default": {
+      "basetype": "Bits",
+      "format": "bits",
+      "value": {
+        "bits": {
+          "all": 0
+        },
+        "class": "type",
+        "type": "Bits"
+      }
+    },
+    "description": "This configuration is unsuitable for the case of port+vlan+cos mapping. Layer 2 control packets of a service instance are handled as follows: By default, all layer 2 control packets are transmitted transparently and all bits are 0; if a bit is 1, it indicates that the packets of this protocol will be discarded. If bit 0 is 1, it indicates that all layer 2 control packets will be discarded. If bit 1 is 1, it indicates that the STP packets will be discarded. If bit 2 is 1, it indicates that the LLAP packets will be discarded. If bit 3 is 1, it indicates that the LACP packets will be discarded. If bit 4 is 1, it indicates that the DOT3AH packets will be discarded. If bit 5 is 1, it indicates that the DOTLAG packets will be discarded. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIL2CtrlProProcess",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.23",
+    "status": "current",
+    "syntax": {
+      "bits": {
+        "all": 0,
+        "dot1ag": 5,
+        "dot3ah": 4,
+        "lacp": 3,
+        "lldp": 2,
+        "stp": 1
+      },
+      "class": "type",
+      "type": "Bits"
+    }
+  },
+  "hwMinMSIMacLearningEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "Disable the MAC learning of a service instance. By default, the MAC learning is enabled. This object applies to the service instance of mp2mp only. It is invalid in the service type of p2p. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIMacLearningEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMinMSIMacLimitAction": {
+    "class": "objecttype",
+    "description": "Indicates MAC learning restriction of a service instance. After the number of MAC address entries reaches the limit, the system takes the following actions: discard: indicates that packets with new MAC address are discarded. forward: indicates that packets with new MAC address are forwarded, but the address is not added to the MAC address table. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIMacLimitAction",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWProcessBehavior"
+    }
+  },
+  "hwMinMSIMacLimitAlarm": {
+    "class": "objecttype",
+    "description": "Indicates MAC learning restriction of a service instance. Indicates whether alarm should be sent after the number of MAC address entries reaches the limit as follows: disable: indicates no alarm is sent. enable: indicates alarm is sent in syslog. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIMacLimitAlarm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMinMSIMacLimitMaxinum": {
+    "class": "objecttype",
+    "description": "Indicates MAC learning restriction of a service instance. The number of MAC addresses that can be learnt by the current service instance ranges from 0 to 131072. When the number is set to zero, no restriction is imposed on the address learning. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIMacLimitMaxinum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 131072,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMinMSIMacLimitNumRaisingThreshold": {
+    "class": "notificationtype",
+    "description": "Indicates the alarm of the mac limiting number beyond the Threshold.",
+    "name": "hwMinMSIMacLimitNumRaisingThreshold",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIName"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIID"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIMacLimitMaxinum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.2.8",
+    "status": "current"
+  },
+  "hwMinMSIMappingEntry": {
+    "class": "objecttype",
+    "description": "Indicates the configuration table entry of a service instance user. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIMappingIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIMappingVlanPriority"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIMappingGlobalVlanID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMinMSIMappingEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.3.1",
+    "status": "current"
+  },
+  "hwMinMSIMappingGlobalVlanID": {
+    "class": "objecttype",
+    "description": " The global VLAN ID that is mapped to the current service instance. If the value is 0, it means that the global VLAN mapping is not supported.",
+    "maxaccess": "not-accessible",
+    "name": "hwMinMSIMappingGlobalVlanID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrNone"
+    }
+  },
+  "hwMinMSIMappingIfIndex": {
+    "class": "objecttype",
+    "description": "The port that is mapped to the current service instance. If the value is 0, it means that port mapping is not supported.",
+    "maxaccess": "not-accessible",
+    "name": "hwMinMSIMappingIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwMinMSIMappingRowStatus": {
+    "class": "objecttype",
+    "description": "Indicates the RowStatus. The following three actions are used: active, createAndGo, destroy",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIMappingRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.3.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMinMSIMappingTable": {
+    "class": "objecttype",
+    "description": "Indicates the configuration table of a service instance user. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMinMSIMappingTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.3",
+    "status": "current"
+  },
+  "hwMinMSIMappingUserIsolate": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "Indicates that the specified mapping user of a service instance is isolated. By default, the isolation is enabled. This object applies to the service instance of mp2mp only. It is invalid in the service type of p2p",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIMappingUserIsolate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.3.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMinMSIMappingVlanListHigh": {
+    "class": "objecttype",
+    "description": "Indicates the VLAN ID ending value of a service instance user. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIMappingVlanListHigh",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.3.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 256,
+            "min": 256
+          }
+        ]
+      },
+      "type": "VlanList"
+    }
+  },
+  "hwMinMSIMappingVlanListLow": {
+    "class": "objecttype",
+    "description": "Indicates the VLAN ID starting value of a service instance user. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIMappingVlanListLow",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 256,
+            "min": 256
+          }
+        ]
+      },
+      "type": "VlanList"
+    }
+  },
+  "hwMinMSIMappingVlanPriority": {
+    "class": "objecttype",
+    "description": " The priority of a user\u0027s packets that are mapped to the current service instance. If the value is 8, it means that the priority mapping is not supported.",
+    "maxaccess": "not-accessible",
+    "name": "hwMinMSIMappingVlanPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMinMSIMulticastEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "Indicates how a service instance processes an unknown multicast packet. By default, the service instance is allowed to broadcast the unknown multicast packet. This object applies to the mp2mp service instance only.",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIMulticastEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMinMSIName": {
+    "class": "objecttype",
+    "description": "Indicates the name of a service instance. It is a character string with a maximum of 31 bytes and a minimum of 1 byte. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMinMSIObjects": {
+    "class": "objectidentity",
+    "name": "hwMinMSIObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3"
+  },
+  "hwMinMSIOperStatus": {
+    "class": "objecttype",
+    "description": "Indicates the physical status of a service instance.",
+    "maxaccess": "read-only",
+    "name": "hwMinMSIOperStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOperStatus"
+    }
+  },
+  "hwMinMSIOutBytes": {
+    "class": "objecttype",
+    "description": "Indicates the number of bytes sent by a user of the current service instance.",
+    "maxaccess": "read-only",
+    "name": "hwMinMSIOutBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.5.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwMinMSIOutPackets": {
+    "class": "objecttype",
+    "description": "Indicates the number of packets sent by a user of the current service instance.",
+    "maxaccess": "read-only",
+    "name": "hwMinMSIOutPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.5.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwMinMSIPriorityTrust8021p": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "Indicates that the priority of user packet based on 802.1Q is trusted. By default, no user priority is trusted. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIPriorityTrust8021p",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwMinMSIPriorityValue": {
+    "class": "objecttype",
+    "description": "Indicates priority level of a service instance. It is used to set the priority field of I-TAG. By default, no user priority is trusted and the priority is zero. The special value of eight is used to indicate that priority of user is trusted. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIPriorityValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMinMSIRowStatus": {
+    "class": "objecttype",
+    "description": "Indicates the RowStatus. The following three actions are used: active, createAndGo, destroy",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMinMSIServiceType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "Indicates the type of a service instance as follows: p2p: indicates the type of a point-to-point service instance. mp2mp: indicates the type of a multi-point to multi-point service instance. By default, the service type is mp2mp. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIServiceType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWServiceType"
+    }
+  },
+  "hwMinMSIStaticMacFwdCDMac": {
+    "class": "objecttype",
+    "description": "Indicates the destination MAC address of a customer.",
+    "maxaccess": "not-accessible",
+    "name": "hwMinMSIStaticMacFwdCDMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwMinMSIStaticMacFwdEntry": {
+    "class": "objecttype",
+    "description": "Indicates the static MAC forwarding table entry of a service instance:",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIStaticMacFwdCDMac"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMinMSIStaticMacFwdEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.6.1",
+    "status": "current"
+  },
+  "hwMinMSIStaticMacFwdMacTnlName": {
+    "class": "objecttype",
+    "description": " Indicates the name of the mac-tunnel. It is a character string with a maximum of 31 bytes and a minimum of 1 byte. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIStaticMacFwdMacTnlName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.6.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMinMSIStaticMacFwdOutgoingIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates a outbound port. The value zero is used to indicate that interface was unknown or none.",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIStaticMacFwdOutgoingIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.6.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwMinMSIStaticMacFwdRowStatus": {
+    "class": "objecttype",
+    "description": "Indicates the RowStatus. The following three actions are used: active, createAndGo, destroy.",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIStaticMacFwdRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.6.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMinMSIStaticMacFwdTable": {
+    "class": "objecttype",
+    "description": "Indicates the static MAC forwarding table of a service instance:",
+    "maxaccess": "not-accessible",
+    "name": "hwMinMSIStaticMacFwdTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.6",
+    "status": "current"
+  },
+  "hwMinMSIStaticMacFwdType": {
+    "class": "objecttype",
+    "description": " Indicates the type of the static MAC forwarding table of a service instance: static(1): indicates a static entry. blackhole(2): indicates a blackhole entry. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIStaticMacFwdType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.6.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWStaticMacFwdType"
+    }
+  },
+  "hwMinMSIStaticMacFwdVlanID": {
+    "class": "objecttype",
+    "description": "Indicates the downstream vlanid. The special value of zero is used to indicate that no VLAN-ID is present or used. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIStaticMacFwdVlanID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.6.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrNone"
+    }
+  },
+  "hwMinMSIStatisticsEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "Indicates that the traffic statistics is enabled on a service instance.",
+    "maxaccess": "read-write",
+    "name": "hwMinMSIStatisticsEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMinMSIStatisticsEntry": {
+    "class": "objecttype",
+    "description": "Indicates the hwMinMSIStatisticsTable entry of a service instance.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMinMSIStatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.5.1",
+    "status": "current"
+  },
+  "hwMinMSIStatisticsGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing the Statistics of the Service Instance capability.",
+    "name": "hwMinMSIStatisticsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIInPackets"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIInBytes"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIOutPackets"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIOutBytes"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIStatisticsReset"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIStatisticsEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.3.1.7",
+    "status": "current"
+  },
+  "hwMinMSIStatisticsReset": {
+    "class": "objecttype",
+    "description": "Indicates the reset on traffic statistics of a service instance.",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIStatisticsReset",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMinMSIStatisticsTable": {
+    "class": "objecttype",
+    "description": "Indicates the hwMinMSIStatisticsTable of a service instance. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMinMSIStatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.5",
+    "status": "current"
+  },
+  "hwMinMSIUnknownUnicastEnbale": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "Indicates how a service instance processes an unknown unicast packet. By default, the service instance is allowed to broadcast the unknown unicast packet. This object applies to the mp2mp service instance only. ",
+    "maxaccess": "read-create",
+    "name": "hwMinMSIUnknownUnicastEnbale",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.2.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMinMSIUp": {
+    "class": "notificationtype",
+    "description": "Indicates the Up alarm of a service instance. This object forms a pair with the following hwMinMSIDown. ",
+    "name": "hwMinMSIUp",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIID"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIName"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMSIOperStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.2.3",
+    "status": "current"
+  },
+  "hwMinMSystemGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing the System configuration of the MAC-in-MAC capability.",
+    "name": "hwMinMSystemGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMVirtualMac"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlBVlanListLow"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMMacTnlBVlanListHigh"
+      },
+      {
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwMinMTrapEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.3.1.1",
+    "status": "current"
+  },
+  "hwMinMSystemObjects": {
+    "class": "objectidentity",
+    "name": "hwMinMSystemObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.1"
+  },
+  "hwMinMTrapEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "Indicates that the Snmp-Agent Trap is enabled on the Mac-in-Mac.By default, it is disable.",
+    "maxaccess": "read-write",
+    "name": "hwMinMTrapEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMinMVirtualMac": {
+    "class": "objecttype",
+    "description": "Indicates the virtual MAC address of the device. By default, there is no virtual MAC address.",
+    "maxaccess": "read-write",
+    "name": "hwMinMVirtualMac",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwSIIndex": {
+    "class": "objecttype",
+    "description": "Indicates the index of a service instance.It begins with one.",
+    "maxaccess": "read-only",
+    "name": "hwSIIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.7.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwSIName": {
+    "class": "objecttype",
+    "description": "Indicates the name of a service instance. It is a character string with a maximum of 31 bytes and a minimum of 1 byte. ",
+    "maxaccess": "not-accessible",
+    "name": "hwSIName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSINameToIndexMappingEntry": {
+    "class": "objecttype",
+    "description": "Indicates the name and the index mapping table entry of a service instance.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MINM-MIB",
+        "object": "hwSIName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSINameToIndexMappingEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.7.1",
+    "status": "current"
+  },
+  "hwSINameToIndexMappingTable": {
+    "class": "objecttype",
+    "description": "Indicates the name and the index mapping table of a service instance.",
+    "maxaccess": "not-accessible",
+    "name": "hwSINameToIndexMappingTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.133.1.1.3.7",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-L2IF-MIB": [
+      "VlanList"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IANA-ADDRESS-FAMILY-NUMBERS-MIB": [
+      "AddressFamilyNumbers"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIdOrNone",
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Integer32",
+      "Gauge32",
+      "Counter64",
+      "TimeTicks",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue"
+    ],
+    "TRANSPORT-ADDRESS-MIB": [
+      "TransportAddress",
+      "TransportDomain"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-MINM-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:17 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-MINM-MIB"
+  }
+}

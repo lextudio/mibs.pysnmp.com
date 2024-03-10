@@ -1,0 +1,195 @@
+{
+  "hwMACBIND": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": " V1.00 The MAC-IP address bind mib is for all datacomm product. ",
+    "lastupdated": "200304110900Z",
+    "name": "hwMACBIND",
+    "oid": "1.3.6.1.4.1.2011.5.25.9",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwMacBindEnableFlag": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": " The MAC-IP address bind function switch. 1: true(on) 2: false(off) ",
+    "maxaccess": "read-write",
+    "name": "hwMacBindEnableFlag",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.9.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwMacBindEnableGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwMacBindEnableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MACBIND-MIB",
+        "object": "hwMacBindEnableFlag"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.9.2.1.2",
+    "status": "current"
+  },
+  "hwMacBindEntry": {
+    "class": "objecttype",
+    "description": " The MAC-IP address bind table struct. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MACBIND-MIB",
+        "object": "hwMacBindIPAddress"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMacBindEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.9.1.2.1",
+    "status": "current"
+  },
+  "hwMacBindIPAddress": {
+    "class": "objecttype",
+    "description": " IP address. This item is index.",
+    "maxaccess": "read-only",
+    "name": "hwMacBindIPAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.9.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMacBindMacAddress": {
+    "class": "objecttype",
+    "description": " MAC address. ",
+    "maxaccess": "read-create",
+    "name": "hwMacBindMacAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.9.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwMacBindMibConformance": {
+    "class": "objectidentity",
+    "name": "hwMacBindMibConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.9.2"
+  },
+  "hwMacBindMibGroup": {
+    "class": "objectidentity",
+    "name": "hwMacBindMibGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.9.2.1"
+  },
+  "hwMacBindMibObjects": {
+    "class": "objectidentity",
+    "name": "hwMacBindMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.9.1"
+  },
+  "hwMacBindRowStatus": {
+    "class": "objecttype",
+    "description": " Only support CreateAndGo and Destroy. ",
+    "maxaccess": "read-create",
+    "name": "hwMacBindRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.9.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMacBindTable": {
+    "class": "objecttype",
+    "description": " The MAC-IP address bind table. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMacBindTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.9.1.2",
+    "status": "current"
+  },
+  "hwMacBindTableGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwMacBindTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MACBIND-MIB",
+        "object": "hwMacBindIPAddress"
+      },
+      {
+        "module": "HUAWEI-MACBIND-MIB",
+        "object": "hwMacBindMacAddress"
+      },
+      {
+        "module": "HUAWEI-MACBIND-MIB",
+        "object": "hwMacBindRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.9.2.1.1",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "MPLS-VPN-MIB": [
+      "mplsVpnVrfName"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Counter64",
+      "Unsigned32",
+      "TimeTicks",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Gauge32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MibIdentifier"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-MACBIND-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:11 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-MACBIND-MIB"
+  }
+}

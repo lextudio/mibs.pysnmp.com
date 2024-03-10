@@ -1,0 +1,2335 @@
+{
+  "hwBundleSerial": {
+    "class": "objectidentity",
+    "name": "hwBundleSerial",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.7"
+  },
+  "hwBundleSerialCrcVerifyCode": {
+    "class": "objecttype",
+    "description": "Indicates the length of the CRC verify code. The default is 32.",
+    "maxaccess": "read-write",
+    "name": "hwBundleSerialCrcVerifyCode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.7.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "crc16": 1,
+          "crc32": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwBundleSerialEntry": {
+    "class": "objecttype",
+    "description": "Indicates the attribute of the serial interface formed by timeslots. This table lists the physical attributes of the serial interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwBundleSerialIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBundleSerialEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.7.1.1",
+    "status": "current"
+  },
+  "hwBundleSerialIfIndex": {
+    "class": "objecttype",
+    "description": "Interface index(es) of serial(s) present on the device .",
+    "maxaccess": "not-accessible",
+    "name": "hwBundleSerialIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.7.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwBundleSerialLinkProtocol": {
+    "class": "objecttype",
+    "description": "The link-protocol of interface. The serial(s) always use PPP as its link-protocol for default.",
+    "maxaccess": "read-write",
+    "name": "hwBundleSerialLinkProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.7.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "atm": 6,
+          "hdlc": 3,
+          "ietf": 1,
+          "lapb": 5,
+          "nonstandard": 2,
+          "ppp": 4,
+          "tdm": 7
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwBundleSerialLoopback": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "true: enables the loopback on the serial interface. false: disables the loopback on the serial interface. By default, the loopback on the serial interface is disabled.",
+    "maxaccess": "read-write",
+    "name": "hwBundleSerialLoopback",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.7.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwBundleSerialObjectGroup": {
+    "class": "objectgroup",
+    "description": "The Port attribute group.",
+    "name": "hwBundleSerialObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwBundleSerialLinkProtocol"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwBundleSerialTimerHold"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwBundleSerialCrcVerifyCode"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwBundleSerialLoopback"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.157.11.2.7",
+    "status": "current"
+  },
+  "hwBundleSerialTable": {
+    "class": "objecttype",
+    "description": "Indicates the attribute of the serial interface formed by timeslots. This table lists the physical attributes of the serial interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwBundleSerialTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.7.1",
+    "status": "current"
+  },
+  "hwBundleSerialTimerHold": {
+    "class": "objecttype",
+    "description": "Indicates the interval for sending Keepalive packets from the serial interface to the peer. The default is 10 seconds.",
+    "maxaccess": "read-write",
+    "name": "hwBundleSerialTimerHold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.7.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32767,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCpos": {
+    "class": "objectidentity",
+    "name": "hwCpos",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.3"
+  },
+  "hwCposClock": {
+    "class": "objecttype",
+    "description": "Indicates whether the clock is in master mode or slave mode. By default, the clock is in slave mode.",
+    "maxaccess": "read-write",
+    "name": "hwCposClock",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.3.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCposEntry": {
+    "class": "objecttype",
+    "description": "Indicates the physical attributes of the CPOS interface. This table lists the physical attributes of the CPOS interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwCposIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwCposEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.3.1.1",
+    "status": "current"
+  },
+  "hwCposFlagC2Value": {
+    "class": "objecttype",
+    "description": "Indicates the overhead byte of the SDH frame. c2: indicates the signal label byte. It is a hexdecimal value ranging from 00 to FF. The default value is 22(0x16).",
+    "maxaccess": "read-write",
+    "name": "hwCposFlagC2Value",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.3.1.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCposFlagJ0Mode": {
+    "class": "objecttype",
+    "description": "Indicates the overhead byte of the SDH frame. j0: sets section trace byte. The default value is j016ByteMode(2);hwCposFlagJ0Trace NetEngine.",
+    "maxaccess": "read-write",
+    "name": "hwCposFlagJ0Mode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.3.1.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "j016ByteMode": 2,
+          "j01ByteMode": 1,
+          "j064ByteOrNullMode": 3,
+          "peer": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCposFlagJ0Trace": {
+    "class": "objecttype",
+    "description": "Set section trace byte. When hwCposFlagJ0Mode is set to j016ByteMode or j064ByteOrNullMode, this variable takes effect. When hwCposFlagJ0Mode is set to j016ByteMode, this variable is up to 15 characters trace byte. When hwCposFlagJ0Mode is set to j064ByteOrNullMode, this variable is up to 64 characters trace byte.",
+    "maxaccess": "read-write",
+    "name": "hwCposFlagJ0Trace",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.3.1.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCposFlagJ0Value": {
+    "class": "objecttype",
+    "description": "j01ByteMode Value . When hwCposFlagJ0Mode is set to j01ByteMode, hwCposFlagJ0Value takes effect.",
+    "maxaccess": "read-write",
+    "name": "hwCposFlagJ0Value",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.3.1.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 127,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCposFlagJ1Mode": {
+    "class": "objecttype",
+    "description": "Indicates the overhead byte of the SDH frame. j1: sets path trace byte. The default value is j116ByteMode(2);hwCposFlagJ1Trace NetEngine.",
+    "maxaccess": "read-write",
+    "name": "hwCposFlagJ1Mode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.3.1.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "j116ByteMode": 2,
+          "j11ByteMode": 1,
+          "j164ByteOrNullMode": 3,
+          "peer": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCposFlagJ1Trace": {
+    "class": "objecttype",
+    "description": "Set path trace byte. When hwCposFlagJ1Mode is set to j116ByteMode or j164ByteOrNullMode, this variable takes effect. When hwCposFlagJ1Mode is set to j116ByteMode, this variable is a string up to 15 characters trace byte. When hwCposFlagJ1Mode is set to j164ByteOrNullMode, this variable is a string up to 64 characters trace byte.",
+    "maxaccess": "read-write",
+    "name": "hwCposFlagJ1Trace",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.3.1.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCposFlagJ1Value": {
+    "class": "objecttype",
+    "description": "Indicates the value of j11ByteMode. When hwCposFlagJ1Mode is set to j11ByteMode, hwCposFlagJ1Value takes effect.",
+    "maxaccess": "read-write",
+    "name": "hwCposFlagJ1Value",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.3.1.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 127,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCposFrameFormat": {
+    "class": "objecttype",
+    "description": "Indicates the frame type of the CPOS interface. By default, the frame type of the CPOS interface is SDH.",
+    "maxaccess": "read-write",
+    "name": "hwCposFrameFormat",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.3.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sdh": 2,
+          "sonet": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCposIfIndex": {
+    "class": "objecttype",
+    "description": "Interface index(es) of port(s) present on the device .",
+    "maxaccess": "not-accessible",
+    "name": "hwCposIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.3.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwCposIfType": {
+    "class": "objecttype",
+    "description": "Indicates the interface type.",
+    "maxaccess": "read-write",
+    "name": "hwCposIfType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.3.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stm1": 1,
+          "stm16": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCposLoopback": {
+    "class": "objecttype",
+    "description": "Indicates the loopback function of the CPOS interface. By default, the loopback function is disabled.",
+    "maxaccess": "read-write",
+    "name": "hwCposLoopback",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.3.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 3,
+          "otherloop": 1,
+          "remote": 4,
+          "stopLoopback": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCposMultiplex": {
+    "class": "objecttype",
+    "description": "Indicates the multiplex mode of the AUG. By default, the multiplex mode of the AUG is au-4.",
+    "maxaccess": "read-write",
+    "name": "hwCposMultiplex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.3.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "au3": 1,
+          "au4": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCposObjectGroup": {
+    "class": "objectgroup",
+    "description": "The Port attribute group.",
+    "name": "hwCposObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwCposFrameFormat"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwCposMultiplex"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwCposClock"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwCposIfType"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwCposLoopback"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwCposFlagJ0Mode"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwCposFlagJ0Value"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwCposFlagJ0Trace"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwCposFlagJ1Mode"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwCposFlagJ1Value"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwCposFlagJ1Trace"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwCposFlagC2Value"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.157.11.2.3",
+    "status": "current"
+  },
+  "hwCposTable": {
+    "class": "objecttype",
+    "description": "Indicates the physical attributes of the CPOS interface. This table lists the physical attributes of the CPOS interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwCposTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.3.1",
+    "status": "current"
+  },
+  "hwDs0ChannelBundle": {
+    "class": "objectidentity",
+    "name": "hwDs0ChannelBundle",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.4"
+  },
+  "hwDs0ChannelBundleDs1ChannelId": {
+    "class": "objecttype",
+    "description": "Indicates the channel ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwDs0ChannelBundleDs1ChannelId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.4.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDs0ChannelBundleEntry": {
+    "class": "objecttype",
+    "description": "This table is used to bundle timeslots of CE1/CT1 interfaces.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs0ChannelBundleParentIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs0ChannelBundleDs1ChannelId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs0ChannelBundleId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDs0ChannelBundleEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.4.1.1",
+    "status": "current"
+  },
+  "hwDs0ChannelBundleId": {
+    "class": "objecttype",
+    "description": "Indicates the index number of the channel set.",
+    "maxaccess": "not-accessible",
+    "name": "hwDs0ChannelBundleId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.4.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 30,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDs0ChannelBundleIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the index of the serial interface formed by the timeslot binding.",
+    "maxaccess": "read-create",
+    "name": "hwDs0ChannelBundleIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.4.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwDs0ChannelBundleObjectGroup": {
+    "class": "objectgroup",
+    "description": "The Port attribute group.",
+    "name": "hwDs0ChannelBundleObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs0ChannelBundleIfIndex"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs0ChannelBundleTimeSlots"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs0ChannelBundleSpeed"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs0ChannelBundleRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.157.11.2.4",
+    "status": "current"
+  },
+  "hwDs0ChannelBundleParentIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the index of the parent interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwDs0ChannelBundleParentIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.4.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwDs0ChannelBundleRowStatus": {
+    "class": "objecttype",
+    "description": "This variable is used to create or delete an object.",
+    "maxaccess": "read-create",
+    "name": "hwDs0ChannelBundleRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.4.1.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwDs0ChannelBundleSpeed": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 64
+      }
+    },
+    "description": "Configures the mode to configure the timeslots. If the parameter 56 k is selected, the timeslots are bound in the mode of N x 56 kbit/s. If the parameter 64 k is selected, the timeslots are bound in the mode of N x 64 kbit/s. The default value is 64kbit/s.",
+    "maxaccess": "read-create",
+    "name": "hwDs0ChannelBundleSpeed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.4.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "s56": 1,
+          "s64": 2
+        }
+      },
+      "type": "INTEGER"
+    },
+    "units": "kilo bytes"
+  },
+  "hwDs0ChannelBundleTable": {
+    "class": "objecttype",
+    "description": "This table is used to bundle timeslots of CE1/CT1 interfaces.",
+    "maxaccess": "not-accessible",
+    "name": "hwDs0ChannelBundleTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.4.1",
+    "status": "current"
+  },
+  "hwDs0ChannelBundleTimeSlots": {
+    "class": "objecttype",
+    "description": "Indicates the number of the range of the timeslot to be bound. The value is an integer ranging from 0 to 31. Multiple timeslots are separated by \u0027,\u0027. The range of timeslot is expressed by using \u0027-\u0027. For E1 card mode: If the timeslots are \u00270-31\u0027, it means unframed format, If the timeslots are \u00270-30\u0027, it means framed format, For T1 card mode: If the timeslots are \u00270-23\u0027, it means unframed format, If the timeslots are \u00270-22\u0027, it means framed format, and hwDs0ChannelBundleDs1ChannelId and hwDs0ChannelBundleId should be zero.",
+    "maxaccess": "read-create",
+    "name": "hwDs0ChannelBundleTimeSlots",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.4.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 61,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDs1": {
+    "class": "objectidentity",
+    "name": "hwDs1",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.5"
+  },
+  "hwDs1Cable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "short"
+      }
+    },
+    "description": "The cable command takes effect only if the E1 interface card uses 75-ohm coaxial cable. The default is short. If no cable is connected, this parameter is displayed as null.",
+    "maxaccess": "read-create",
+    "name": "hwDs1Cable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.5.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "long": 1,
+          "short": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDs1ChannelId": {
+    "class": "objecttype",
+    "description": "Indicates the channel ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwDs1ChannelId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.5.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDs1ChannelType": {
+    "class": "objecttype",
+    "description": "Indicates the interface type. The type can be E1/CE1 or T1/CT1.",
+    "maxaccess": "read-create",
+    "name": "hwDs1ChannelType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.5.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "e1": 2,
+          "t1": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDs1Channelized": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "true"
+      }
+    },
+    "description": "Indicates the working mode of the interface. true: indicates the channelized mode. false: indicates the clear channel mode. The default is true.",
+    "maxaccess": "read-create",
+    "name": "hwDs1Channelized",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.5.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwDs1Clock": {
+    "class": "objecttype",
+    "description": "Indicates the clock mode of the interface. master: indicates that the clock works in master mode and uses the internal clock signal. slave: indicates that the clock works in slave mode and uses the line clock signal.",
+    "maxaccess": "read-create",
+    "name": "hwDs1Clock",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.5.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDs1CodeType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "hdb3"
+      }
+    },
+    "description": "Indicates the code type of the interface. ami: is short for Alternate Mark Inversion. hdb3: is short for High Density Bipolar of Order 3. b8zs: is short for Bipolar with 8-Zero Substitution.",
+    "maxaccess": "read-create",
+    "name": "hwDs1CodeType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.5.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ami": 1,
+          "b8zs": 3,
+          "hdb3": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDs1Entry": {
+    "class": "objecttype",
+    "description": "This table lists all E1/CE1 interfaces or T1/CT1 interfaces. After the mode of E3/CE3 interfaces or T3/CT3 interfaces is set to channelized, this table can be used to create E1/CE1, or T1/CT1, or E3/CE3, or T3/CT3 interfaces.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs1ParentIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs1ChannelId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs1IfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDs1Entry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.5.1.1",
+    "status": "current"
+  },
+  "hwDs1FrameFormat": {
+    "class": "objecttype",
+    "description": "Indicates the frame format of the interface. crc4: indicates that the frame format is CRC4. no-crc4: indicates that the frame format is no-CRC4. sf: indicates that the frame format is Super Frame. esf: indicates that the frame format is Extended Super Frame. By default, the frame format of an E1 interface is no-crc4. By default, the frame format of a T1 interface is esf.",
+    "maxaccess": "read-create",
+    "name": "hwDs1FrameFormat",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.5.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "crc": 4,
+          "esf": 1,
+          "noCrc4": 3,
+          "sf": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDs1IfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwDs1IfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.5.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwDs1IfType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "none"
+      }
+    },
+    "description": "Indicates the interface tyep. e3: is multiplexed by CE3 interfaces. t3: is multiplexed by CT3 interfaces. cpos: is multiplexed by CPOS interfaces. atm: is multiplexed by ATM interfaces. none: indicates the physical interface. default:none",
+    "maxaccess": "read-create",
+    "name": "hwDs1IfType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.5.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "atm": 4,
+          "cpos": 3,
+          "e3": 1,
+          "none": 255,
+          "t3": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDs1Loopback": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "none"
+      }
+    },
+    "description": "Enable the loopback function of the interface. local: enables the local loopback on the interface. remote: enables the remote loopback on the interface. payload: enables the remote payload loopback on the interface. cell: enables the local cell loopback. The local cell loopback is used to test the local physical chip.",
+    "maxaccess": "read-create",
+    "name": "hwDs1Loopback",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.5.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cell": 4,
+          "local": 1,
+          "none": 255,
+          "payload": 3,
+          "remote": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDs1ObjectGroup": {
+    "class": "objectgroup",
+    "description": "The Port attribute group.",
+    "name": "hwDs1ObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs1ChannelType"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs1IfType"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs1Channelized"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs1CodeType"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs1Clock"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs1FrameFormat"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs1Cable"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs1Loopback"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs1RowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.157.11.2.5",
+    "status": "current"
+  },
+  "hwDs1ParentIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the index of the parent interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwDs1ParentIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.5.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwDs1RowStatus": {
+    "class": "objecttype",
+    "description": "This variable is used to create or delete an object.",
+    "maxaccess": "read-create",
+    "name": "hwDs1RowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.5.1.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwDs1Table": {
+    "class": "objecttype",
+    "description": "This table lists all E1/CE1 interfaces or T1/CT1 interfaces. After the mode of E3/CE3 interfaces or T3/CT3 interfaces is set to channelized, this table can be used to create E1/CE1, or T1/CT1, or E3/CE3, or T3/CT3 interfaces.",
+    "maxaccess": "not-accessible",
+    "name": "hwDs1Table",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.5.1",
+    "status": "current"
+  },
+  "hwDs3": {
+    "class": "objectidentity",
+    "name": "hwDs3",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.6"
+  },
+  "hwDs3Cable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "short"
+      }
+    },
+    "description": "The cable command takes effect only if the E3 interface card uses 75-ohm coaxial cable. The default is short. If no cable is connected, this parameter is displayed as null.",
+    "maxaccess": "read-create",
+    "name": "hwDs3Cable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.6.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "long": 1,
+          "short": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDs3ChannelId": {
+    "class": "objecttype",
+    "description": "Indicates the index of the parent interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwDs3ChannelId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.6.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 3,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDs3ChannelType": {
+    "class": "objecttype",
+    "description": "Indicates the interface type. The type can be E3/CE3 or T3/CT3.",
+    "maxaccess": "read-create",
+    "name": "hwDs3ChannelType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.6.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "e3": 2,
+          "t3": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDs3Channelized": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "true"
+      }
+    },
+    "description": "Indicates the working mode of the interface. true: indicates the channelized mode. false: indicates the clear channel mode. The default is true.",
+    "maxaccess": "read-create",
+    "name": "hwDs3Channelized",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.6.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwDs3Clock": {
+    "class": "objecttype",
+    "description": "Indicates the clock mode of the interface. master: indicates that the clock works in master mode and uses the internal clock signal. slave: indicates that the clock works in slave mode and uses the line clock signal.",
+    "maxaccess": "read-create",
+    "name": "hwDs3Clock",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.6.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDs3CreateSerial": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "Create serial interface from Ds3 interface. True create serial interface. False destroy serial interface. ",
+    "maxaccess": "read-create",
+    "name": "hwDs3CreateSerial",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.6.1.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwDs3Entry": {
+    "class": "objecttype",
+    "description": "This table lists all E3/CE3 interfaces or all T3/CT3 interfaces.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs3ParentIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs3ChannelId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs3IfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDs3Entry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.6.1.1",
+    "status": "current"
+  },
+  "hwDs3FrameFormat": {
+    "class": "objecttype",
+    "description": "Indicates the frame format of the interface.",
+    "maxaccess": "read-create",
+    "name": "hwDs3FrameFormat",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.6.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cbitAdm": 4,
+          "cbitPlcp": 5,
+          "g751Adm": 2,
+          "g751Plcp": 3,
+          "g832Adm": 1,
+          "m23Adm": 6,
+          "m23Plcp": 7
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDs3IfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwDs3IfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.6.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwDs3IfType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "none"
+      }
+    },
+    "description": "Indicates the parent interface type of the interface. cpos: is multiplexed by CPOS interfaces. none: indicates the interface is a physical interface. The default is none.",
+    "maxaccess": "read-create",
+    "name": "hwDs3IfType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.6.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cpos": 1,
+          "none": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDs3Loopback": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "none"
+      }
+    },
+    "description": "Enable the loopback function of the interface. local: enables the local loopback on the interface. remote: enables the remote loopback on the interface. payload: enables the remote payload loopback on the interface. cell: enables the local cell loopback. The local cell loopback is used to test the local physical chip.",
+    "maxaccess": "read-create",
+    "name": "hwDs3Loopback",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.6.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cell": 4,
+          "local": 1,
+          "none": 255,
+          "payload": 3,
+          "remote": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDs3NationalBit": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "n0"
+      }
+    },
+    "description": "Indicates the national bit of the E3/CE3 interface. n0: indicates the national bit is 0 and the interface supports only the communication within a country. n1: indicates the national bit is 1 and the interface supports the international communication. ",
+    "maxaccess": "read-create",
+    "name": "hwDs3NationalBit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.6.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "n0": 1,
+          "n1": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDs3ObjectGroup": {
+    "class": "objectgroup",
+    "description": "The Port attribute group.",
+    "name": "hwDs3ObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs3ChannelType"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs3IfType"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs3Channelized"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs3Clock"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs3FrameFormat"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs3Scramble"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs3Cable"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs3NationalBit"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs3Loopback"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs3CreateSerial"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs3RowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.157.11.2.6",
+    "status": "current"
+  },
+  "hwDs3ParentIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the index of the parent interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwDs3ParentIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.6.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwDs3RowStatus": {
+    "class": "objecttype",
+    "description": "This variable is used to create or delete an object.",
+    "maxaccess": "read-create",
+    "name": "hwDs3RowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.6.1.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwDs3Scramble": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "Indicates the scramble function of the interface. true: enables the scramble function. false: disables the scramble function. The default is false.",
+    "maxaccess": "read-create",
+    "name": "hwDs3Scramble",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.6.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwDs3Table": {
+    "class": "objecttype",
+    "description": "This table lists all E3/CE3 interfaces or all T3/CT3 interfaces.",
+    "maxaccess": "not-accessible",
+    "name": "hwDs3Table",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.6.1",
+    "status": "current"
+  },
+  "hwEthernet": {
+    "class": "objectidentity",
+    "name": "hwEthernet",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.1"
+  },
+  "hwEthernetClock": {
+    "class": "objecttype",
+    "description": "Indicates the mode of the clock. The mode can be master or slave. By default, the mode of a clock is slave. This parameter takes effect only on the WAN board.",
+    "maxaccess": "read-write",
+    "name": "hwEthernetClock",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.1.1.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEthernetDownHoldTime": {
+    "class": "objecttype",
+    "description": "Indicates the response time to the event that the port turns Down. The units of hwEthernetDownHoldTime is millisecond.",
+    "maxaccess": "read-write",
+    "name": "hwEthernetDownHoldTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.1.1.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEthernetDuplex": {
+    "class": "objecttype",
+    "description": "Indicates the duplex mode of the Ethernet interface. An electrical Ethernet interface can work in half-duplex mode or full-duplex mode. An optical Ethernet can work only in full-duplex mode.",
+    "maxaccess": "read-write",
+    "name": "hwEthernetDuplex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.1.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "full": 1,
+          "half": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEthernetEntry": {
+    "class": "objecttype",
+    "description": "Indicates the physical attributes of the Ethernet interface. This table lists the physical attributes of various Ethernet interfaces.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwEthernetIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEthernetEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.1.1.1",
+    "status": "current"
+  },
+  "hwEthernetFlagC2Value": {
+    "class": "objecttype",
+    "description": "Indicates the overhead byte of the SDH frame. c2: indicates the signal label byte. It is a hexdecimal value ranging from 00 to FF. The default value is 0x02.",
+    "maxaccess": "read-write",
+    "name": "hwEthernetFlagC2Value",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.1.1.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEthernetFlagJ0Mode": {
+    "class": "objecttype",
+    "description": "Before the 10 GE WAN board processes packets, the overhead byte must be configured on the interface. The overhead byte for the SDH frame, j0: Set section trace byte The default value is j016ByteMode(2)hwEthernetFlagJ0Trace NetEngine",
+    "maxaccess": "read-write",
+    "name": "hwEthernetFlagJ0Mode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.1.1.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "j016ByteMode": 2,
+          "j01ByteMode": 1,
+          "j064ByteOrNullMode": 3,
+          "peer": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEthernetFlagJ0Trace": {
+    "class": "objecttype",
+    "description": "Set section trace byte. When hwEthernetFlagJ0Mode is set to j016ByteMode or j064ByteOrNullMode, this variable takes effect. When hwEthernetFlagJ0Mode is set to j016ByteMode, this variable is up to 15 characters trace byte. When hwEthernetFlagJ0Mode is set to j064ByteOrNullMode, this variable is up to 64 characters trace byte.",
+    "maxaccess": "read-write",
+    "name": "hwEthernetFlagJ0Trace",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.1.1.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEthernetFlagJ0Value": {
+    "class": "objecttype",
+    "description": "j01ByteMode Value. When hwEthernetFlagJ0Mode is set to j01ByteMode, this parameter takes effect.",
+    "maxaccess": "read-write",
+    "name": "hwEthernetFlagJ0Value",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.1.1.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEthernetFlagJ1Mode": {
+    "class": "objecttype",
+    "description": "Indicates the overhead byte of the SDH frame. j1sets path trace byte. The default value is j116ByteMode(2) hwEthernetFlagJ1Trace NetEngine.",
+    "maxaccess": "read-write",
+    "name": "hwEthernetFlagJ1Mode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.1.1.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "j116ByteMode": 2,
+          "j11ByteMode": 1,
+          "j164ByteOrNullMode": 3,
+          "peer": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEthernetFlagJ1Trace": {
+    "class": "objecttype",
+    "description": "Set path trace byte. When hwEthernetFlagJ1Mode is set to j116ByteMode or j164ByteOrNullMode, this variable takes effect. When hwEthernetFlagJ1Mode is set to j116ByteMode, this variable is up to 15 characters trace byte. When hwEthernetFlagJ1Mode is set to j164ByteOrNullMode, this variable is up to 64 characters trace byte.",
+    "maxaccess": "read-write",
+    "name": "hwEthernetFlagJ1Trace",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.1.1.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEthernetFlagJ1Value": {
+    "class": "objecttype",
+    "description": "j11ByteMode Value. When hwEthernetFlagJ1Mode is set to j11ByteMode, this parameter takes effect.",
+    "maxaccess": "read-write",
+    "name": "hwEthernetFlagJ1Value",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.1.1.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEthernetIfIndex": {
+    "class": "objecttype",
+    "description": "Interface index(es) of port(s) present on the device .",
+    "maxaccess": "not-accessible",
+    "name": "hwEthernetIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwEthernetLoopback": {
+    "class": "objecttype",
+    "description": "The local loopback of an Ethernet interface is used to test the interface itself. If an interface works in a normal situation, disable the local loopback. By default, stopLoopback is used.",
+    "maxaccess": "read-write",
+    "name": "hwEthernetLoopback",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 3,
+          "otherLoop": 1,
+          "remote": 4,
+          "stopLoopback": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEthernetNegotiation": {
+    "class": "objecttype",
+    "description": "Indicates the auto-negotiation mode of the Ethernet electrical interface. By default, auto-negotiation is enabled. The three objects, hwEthernetSpeedSet, hwEthernetDuplex, and hwEthernetNegotiation are associated with each other. If the auto-negotiation of hwEthernetNegotiation is enabled, the values of hwEthernetSpeedSet and hwEthernetDuplex are auto-negotiated. If hwEthernetSpeedSet is set to a certain value, hwEthernetDuplex is modified to the default value full, and hwEthernetNegotiation is automatically changed to disable. If the auto-negotiation of hwEthernetNegotiation is enabled, hwEthernetDuplex cannot be set.",
+    "maxaccess": "read-write",
+    "name": "hwEthernetNegotiation",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.1.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwEthernetObjectGroup": {
+    "class": "objectgroup",
+    "description": "The Port attribute group.",
+    "name": "hwEthernetObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwEthernetLoopback"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwEthernetPortType"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwEthernetSpeedSet"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwEthernetDuplex"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwEthernetNegotiation"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwEthernetPortTypeOperate"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwEthernetClock"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwEthernetFlagJ0Mode"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwEthernetFlagJ0Value"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwEthernetFlagJ0Trace"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwEthernetFlagJ1Mode"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwEthernetFlagJ1Value"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwEthernetFlagJ1Trace"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwEthernetFlagC2Value"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwEthernetUpHoldTime"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwEthernetDownHoldTime"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwEthernetSubinterfaceStatisticEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.157.11.2.1",
+    "status": "current"
+  },
+  "hwEthernetPortType": {
+    "class": "objecttype",
+    "description": "Indicates the type of the Ethernet interface: an optical interface or an electrical interface.",
+    "maxaccess": "read-write",
+    "name": "hwEthernetPortType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "copper": 2,
+          "fiber": 3,
+          "other": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEthernetPortTypeOperate": {
+    "class": "objecttype",
+    "description": "Indicates the link type of the Ethernet interface. The type can be optical link or electrical link. This parameter takes effect only on specific Ethernet interfaces.",
+    "maxaccess": "read-write",
+    "name": "hwEthernetPortTypeOperate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.1.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "copper": 2,
+          "fiber100": 3,
+          "fiber1000": 4,
+          "other": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEthernetSpeedSet": {
+    "class": "objecttype",
+    "description": "Indicates the speed of the Ethernet interface. This parameter takes effect only on some Ethernet electrical interfaces rather than optical interfaces. The parameter can be 10 M, 100 M, 1000 M, 10000 M.",
+    "maxaccess": "read-write",
+    "name": "hwEthernetSpeedSet",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.1.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "speed10": 2,
+          "speed100": 3,
+          "speed1000": 4,
+          "speed10000": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEthernetSubinterfaceStatisticEnable": {
+    "class": "objecttype",
+    "description": "Enable the statistical function of the sub-interface.",
+    "maxaccess": "read-write",
+    "name": "hwEthernetSubinterfaceStatisticEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.1.1.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwEthernetTable": {
+    "class": "objecttype",
+    "description": "Indicates the physical attributes of the Ethernet interface. This table lists the physical attributes of various Ethernet interfaces.",
+    "maxaccess": "not-accessible",
+    "name": "hwEthernetTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.1.1",
+    "status": "current"
+  },
+  "hwEthernetUpHoldTime": {
+    "class": "objecttype",
+    "description": "Indicates the response time to the event that the port turns Up. The units of hwEthernetUpHoldTime is millisecond.",
+    "maxaccess": "read-write",
+    "name": "hwEthernetUpHoldTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.1.1.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 3000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPortCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-PORT-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwEthernetObjectGroup"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwPosObjectGroup"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwCposObjectGroup"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwBundleSerialObjectGroup"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs0ChannelBundleObjectGroup"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs1ObjectGroup"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwDs3ObjectGroup"
+      }
+    ],
+    "name": "hwPortCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.11.1.1",
+    "status": "current"
+  },
+  "hwPortCompliances": {
+    "class": "objectidentity",
+    "name": "hwPortCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.11.1"
+  },
+  "hwPortConformance": {
+    "class": "objectidentity",
+    "name": "hwPortConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.11"
+  },
+  "hwPortGroups": {
+    "class": "objectidentity",
+    "name": "hwPortGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.11.2"
+  },
+  "hwPortMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "VRP Team Huawei Technologies Co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China http://www.huawei.com Zip:100085 ",
+    "description": "The private mib file includes the general extent information of the device.hwDatacomm(157).hwPortMIB",
+    "lastupdated": "200710210930Z",
+    "name": "hwPortMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.157",
+    "organization": "Huawei Technologies Co.,Ltd."
+  },
+  "hwPortMIBObjects": {
+    "class": "objectidentity",
+    "name": "hwPortMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1"
+  },
+  "hwPos": {
+    "class": "objectidentity",
+    "name": "hwPos",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.2"
+  },
+  "hwPosClock": {
+    "class": "objecttype",
+    "description": "Indicates whether the clock is in master mode or slave mode. By default, the clock is in slave mode.",
+    "maxaccess": "read-write",
+    "name": "hwPosClock",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.2.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPosCrcVerifyCode": {
+    "class": "objecttype",
+    "description": "Indicates the length of the CRC verity code. The default value is 32.",
+    "maxaccess": "read-write",
+    "name": "hwPosCrcVerifyCode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.2.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "crc16": 1,
+          "crc32": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPosEntry": {
+    "class": "objecttype",
+    "description": "Indicates the physical attributes of the POS interface. This table lists the physical attributes of the POS interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwPosIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPosEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.2.1.1",
+    "status": "current"
+  },
+  "hwPosFlagC2Value": {
+    "class": "objecttype",
+    "description": "Indicates the overhead byte of the SDH frame. c2: indicates the signal label byte. It is a hexdecimal value ranging from 00 to FF. The default value is 0x02.",
+    "maxaccess": "read-write",
+    "name": "hwPosFlagC2Value",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.2.1.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPosFlagJ0Mode": {
+    "class": "objecttype",
+    "description": "Indicates the overhead byte of the SDH frame. j0: sets section trace byte. The default value is j016ByteMode(2);hwPosFlagJ0Trace NetEngine.",
+    "maxaccess": "read-write",
+    "name": "hwPosFlagJ0Mode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.2.1.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "j016ByteMode": 2,
+          "j01ByteMode": 1,
+          "j064ByteOrNullMode": 3,
+          "peer": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPosFlagJ0Trace": {
+    "class": "objecttype",
+    "description": "Set section trace byte. When hwPosFlagJ0Mode is set to j016ByteMode or j064ByteOrNullMode, this variable takes effect. When hwPosFlagJ0Mode is set to j016ByteMode, the value of this variable is up to 15 characters trace byte. When hwPosFlagJ0Mode is set to j064ByteOrNullMode, the value of this variable is up to 64 characters trace byte.",
+    "maxaccess": "read-write",
+    "name": "hwPosFlagJ0Trace",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.2.1.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPosFlagJ0Value": {
+    "class": "objecttype",
+    "description": "Indicates the value of j01ByteMode. When hwPosFlagJ0Mode is set to j01ByteMode, hwPosFlagJ0Value takes effect.",
+    "maxaccess": "read-write",
+    "name": "hwPosFlagJ0Value",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.2.1.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 127,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPosFlagJ1Mode": {
+    "class": "objecttype",
+    "description": "Indicates the overhead byte of the SDH frame. j1: sets path trace byte. The default value is j116ByteMode(2);hwPosFlagJ1Trace NetEngine.",
+    "maxaccess": "read-write",
+    "name": "hwPosFlagJ1Mode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.2.1.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "j116ByteMode": 2,
+          "j11ByteMode": 1,
+          "j164ByteOrNullMode": 3,
+          "peer": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPosFlagJ1Trace": {
+    "class": "objecttype",
+    "description": "Set path trace byte. When hwPosFlagJ1Mode is set to j116ByteMode or j164ByteOrNullMode, this variable takes effect. When hwPosFlagJ1Mode is set to j116ByteMode, this variable is up to 15 characters trace byte. When hwPosFlagJ1Mode is set to j164ByteOrNullMode, this variable is up to 64 characters trace byte.",
+    "maxaccess": "read-write",
+    "name": "hwPosFlagJ1Trace",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.2.1.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPosFlagJ1Value": {
+    "class": "objecttype",
+    "description": "Indicates the value of j11ByteMode. When hwPosFlagJ1Mode is set to j11ByteMode, hwPosFlagJ1Value takes effect.",
+    "maxaccess": "read-write",
+    "name": "hwPosFlagJ1Value",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.2.1.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 127,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPosFrameFormat": {
+    "class": "objecttype",
+    "description": "Indicates the frame type of the POS interface. By default, the frame type of the POS interface is SDH. This variable identifies whether a SONET or a SDH signal is used across this interface.",
+    "maxaccess": "read-write",
+    "name": "hwPosFrameFormat",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.2.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sdh": 2,
+          "sonet": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPosIfIndex": {
+    "class": "objecttype",
+    "description": "Interface index(es) of port(s) present on the device .",
+    "maxaccess": "not-accessible",
+    "name": "hwPosIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwPosLinkProtocol": {
+    "class": "objecttype",
+    "description": "Indicates the link layer protocol of the POS interface. By default, on a POS interface, PPP serves as the link layer protocol.",
+    "maxaccess": "read-write",
+    "name": "hwPosLinkProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.2.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hdlc": 3,
+          "ietf": 1,
+          "nonstandard": 2,
+          "ppp": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPosLoopback": {
+    "class": "objecttype",
+    "description": "The local loopback of a POS interface is used to test the interface itself. If an interface works in a normal situation, disable the local loopback. By default, stopLoopback is used.",
+    "maxaccess": "read-write",
+    "name": "hwPosLoopback",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.2.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 3,
+          "otherLoop": 1,
+          "remote": 4,
+          "stopLoopback": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPosObjectGroup": {
+    "class": "objectgroup",
+    "description": "The Port attribute group.",
+    "name": "hwPosObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwPosLinkProtocol"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwPosFrameFormat"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwPosLoopback"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwPosScramble"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwPosClock"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwPosCrcVerifyCode"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwPosFlagJ0Mode"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwPosFlagJ0Value"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwPosFlagJ0Trace"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwPosFlagJ1Mode"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwPosFlagJ1Value"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwPosFlagJ1Trace"
+      },
+      {
+        "module": "HUAWEI-PORT-MIB",
+        "object": "hwPosFlagC2Value"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.157.11.2.2",
+    "status": "current"
+  },
+  "hwPosScramble": {
+    "class": "objecttype",
+    "description": "Indicates the scramble function of payload. By default, the scramble function of payload is enabled.",
+    "maxaccess": "read-write",
+    "name": "hwPosScramble",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.2.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwPosTable": {
+    "class": "objecttype",
+    "description": "Indicates the physical attributes of the POS interface. This table lists the physical attributes of the POS interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwPosTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.157.1.2.1",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Bits",
+      "Integer32",
+      "IpAddress",
+      "MibIdentifier"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-PORT-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:41 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-PORT-MIB"
+  }
+}

@@ -1,0 +1,515 @@
+{
+  "hwL2Vpn": {
+    "class": "objectidentity",
+    "name": "hwL2Vpn",
+    "oid": "1.3.6.1.4.1.2011.5.25.119"
+  },
+  "hwL2VpnPwe3TnlExt": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "Initial version 2008/12/11,L2VPN QOS OBJECT GROUP.",
+    "lastupdated": "200812151935Z",
+    "name": "hwL2VpnPwe3TnlExt",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5",
+    "organization": "Huawei Technologies Co.,Ltd."
+  },
+  "hwPwVcId": {
+    "class": "objecttype",
+    "description": "Index for the conceptual row identifying a PW within this PW Emulation table.Used in the outgoing PW ID field within the \u0027Virtual Circuit FEC Element\u0027.",
+    "maxaccess": "not-accessible",
+    "name": "hwPwVcId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPwVcType": {
+    "class": "objecttype",
+    "description": "The type of the Virtual Circuit.This value indicate the service carried over this PW.",
+    "maxaccess": "not-accessible",
+    "name": "hwPwVcType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWL2VpnVcEncapsType"
+    }
+  },
+  "hwPwe3IsBalance": {
+    "class": "objecttype",
+    "description": "Property of Balance. Rerurn True if Tunnel-Policy is configed.",
+    "maxaccess": "read-only",
+    "name": "hwPwe3IsBalance",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwPwe3LspFec": {
+    "class": "objecttype",
+    "description": "The FEC of lsp.",
+    "maxaccess": "read-only",
+    "name": "hwPwe3LspFec",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwPwe3LspFecPfxLen": {
+    "class": "objecttype",
+    "description": "The length of mask for hwVplsLspFec.",
+    "maxaccess": "read-only",
+    "name": "hwPwe3LspFecPfxLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPwe3LspIndex": {
+    "class": "objecttype",
+    "description": "The index of lsp.",
+    "maxaccess": "read-only",
+    "name": "hwPwe3LspIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPwe3LspIsBackup": {
+    "class": "objecttype",
+    "description": "Indicate whether the lsp is main.",
+    "maxaccess": "read-only",
+    "name": "hwPwe3LspIsBackup",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwPwe3LspNextHop": {
+    "class": "objecttype",
+    "description": "The next-hop of lsp.",
+    "maxaccess": "read-only",
+    "name": "hwPwe3LspNextHop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwPwe3LspOutIf": {
+    "class": "objecttype",
+    "description": "The out-interface of lsp.",
+    "maxaccess": "read-only",
+    "name": "hwPwe3LspOutIf",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPwe3LspOutLabel": {
+    "class": "objecttype",
+    "description": "The out-label of lsp.",
+    "maxaccess": "read-only",
+    "name": "hwPwe3LspOutLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPwe3LspSignType": {
+    "class": "objecttype",
+    "description": "This object indicates the signaling protocol of the tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwPwe3LspSignType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bgp": 4,
+          "bgpIpv6": 8,
+          "crLdp": 2,
+          "crStatic": 7,
+          "l2vpnIpv6": 10,
+          "l3vpn": 5,
+          "ldp": 1,
+          "maxSignal": 20,
+          "rsvp": 3,
+          "static": 6,
+          "staticHa": 9
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPwe3LspTunnelId": {
+    "class": "objecttype",
+    "description": "This object indicates the tunnel ID of the tunnel interface.",
+    "maxaccess": "read-only",
+    "name": "hwPwe3LspTunnelId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPwe3PeerTnlId": {
+    "class": "objecttype",
+    "description": "The Tunnel ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwPwe3PeerTnlId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPwe3PwInlabel": {
+    "class": "objecttype",
+    "description": "The inlabel of SVC PW.",
+    "maxaccess": "not-accessible",
+    "name": "hwPwe3PwInlabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPwe3PwOutLabel": {
+    "class": "objecttype",
+    "description": "the outlabel of pw, specified for SVC.",
+    "maxaccess": "read-only",
+    "name": "hwPwe3PwOutLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPwe3TnlDestAddress": {
+    "class": "objecttype",
+    "description": "The destination ip address of this tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwPwe3TnlDestAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwPwe3TnlName": {
+    "class": "objecttype",
+    "description": "The name of this Tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwPwe3TnlName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPwe3TnlRowStatus": {
+    "class": "objecttype",
+    "description": "The operating state of the row.",
+    "maxaccess": "read-only",
+    "name": "hwPwe3TnlRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.50",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwPwe3TnlSrcAddress": {
+    "class": "objecttype",
+    "description": "The source ip address of this tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwPwe3TnlSrcAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwPwe3TnlType": {
+    "class": "objecttype",
+    "description": "The type of this Tunnel. e.g. LSP/GRE/CR-LSP...",
+    "maxaccess": "read-only",
+    "name": "hwPwe3TnlType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPwe3TunnelEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of a VC entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwVcId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwVcType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3PeerTnlId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3PwInlabel"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPwe3TunnelEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1.1",
+    "status": "current"
+  },
+  "hwPwe3TunnelGroup": {
+    "class": "objectgroup",
+    "description": "The PWE3 tunnel group.",
+    "name": "hwPwe3TunnelGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3TnlName"
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3TnlType"
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3TnlSrcAddress"
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3TnlDestAddress"
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3LspIndex"
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3LspOutIf"
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3LspOutLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3LspNextHop"
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3LspFec"
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3LspFecPfxLen"
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3LspIsBackup"
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3PwOutLabel"
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3IsBalance"
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3LspTunnelId"
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3LspSignType"
+      },
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3TnlRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.3.2.1",
+    "status": "current"
+  },
+  "hwPwe3TunnelMIBCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-PWE3-TNL-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-PWE3-TNL-MIB",
+        "object": "hwPwe3TunnelGroup"
+      }
+    ],
+    "name": "hwPwe3TunnelMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.3.1.1",
+    "status": "current"
+  },
+  "hwPwe3TunnelMIBCompliances": {
+    "class": "objectidentity",
+    "name": "hwPwe3TunnelMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.3.1"
+  },
+  "hwPwe3TunnelMIBConformance": {
+    "class": "objectidentity",
+    "name": "hwPwe3TunnelMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.3"
+  },
+  "hwPwe3TunnelMIBGroups": {
+    "class": "objectidentity",
+    "name": "hwPwe3TunnelMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.3.2"
+  },
+  "hwPwe3TunnelMIBObjects": {
+    "class": "objectidentity",
+    "name": "hwPwe3TunnelMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1"
+  },
+  "hwPwe3TunnelMIBTraps": {
+    "class": "objectidentity",
+    "name": "hwPwe3TunnelMIBTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.2"
+  },
+  "hwPwe3TunnelTable": {
+    "class": "objecttype",
+    "description": "Provides the information of a tunnel table.",
+    "maxaccess": "not-accessible",
+    "name": "hwPwe3TunnelTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.5.1.1",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "HUAWEI-VPLS-EXT-MIB": [
+      "HWL2VpnStateChangeReason",
+      "HWL2VpnVcEncapsType",
+      "HWEnableValue"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysUpTime"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "Bits",
+      "MibIdentifier",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "BITS",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-PWE3-TNL-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:45 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-PWE3-TNL-MIB"
+  }
+}

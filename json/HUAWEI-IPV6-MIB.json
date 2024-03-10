@@ -1,0 +1,162 @@
+{
+  "hwIpv6Compliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-IPV6-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-IPV6-MIB",
+        "object": "hwIpv6Group"
+      }
+    ],
+    "name": "hwIpv6Compliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.153.2.1.1",
+    "status": "current"
+  },
+  "hwIpv6Compliances": {
+    "class": "objectidentity",
+    "name": "hwIpv6Compliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.153.2.1"
+  },
+  "hwIpv6Group": {
+    "class": "objectgroup",
+    "description": "The IPv6 table member.",
+    "name": "hwIpv6Group",
+    "objects": [
+      {
+        "module": "HUAWEI-IPV6-MIB",
+        "object": "hwIpv6IfDescr"
+      },
+      {
+        "module": "HUAWEI-IPV6-MIB",
+        "object": "hwIpv6IfEnableFlag"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.153.2.2.1",
+    "status": "current"
+  },
+  "hwIpv6Groups": {
+    "class": "objectidentity",
+    "name": "hwIpv6Groups",
+    "oid": "1.3.6.1.4.1.2011.5.25.153.2.2"
+  },
+  "hwIpv6IfDescr": {
+    "class": "objecttype",
+    "description": "This object identifies interface name.",
+    "maxaccess": "read-only",
+    "name": "hwIpv6IfDescr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.153.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwIpv6IfEnableFlag": {
+    "class": "objecttype",
+    "description": "This object identifies whether IPv6 is enabled on interface or not. If IPv6 is enabled on interface, the value of this object refers to 1,else refers to 2.",
+    "maxaccess": "read-only",
+    "name": "hwIpv6IfEnableFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.153.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwIpv6IfEntry": {
+    "class": "objecttype",
+    "description": "An interface entry containing objects about a particular IPv6 interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IPV6-MIB",
+        "object": "ipv6IfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpv6IfEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.153.1.1.1",
+    "status": "current"
+  },
+  "hwIpv6IfTable": {
+    "class": "objecttype",
+    "description": "The IPv6 interfaces table contains information on the entity\u0027s internetwork-layer interfaces.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpv6IfTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.153.1.1",
+    "status": "current"
+  },
+  "hwIpv6Mib": {
+    "class": "moduleidentity",
+    "contactinfo": "R\u0026D BeiJing, Huawei Technologies co.,Ltd. Showchuang Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:winstan@huawei.com",
+    "description": "The MIB module for entities implementing the IPv6 protocol.",
+    "lastupdated": "200705241610Z",
+    "name": "hwIpv6Mib",
+    "oid": "1.3.6.1.4.1.2011.5.25.153",
+    "organization": "IPv6-Team of Huawei Technologies"
+  },
+  "hwIpv6MibConformance": {
+    "class": "objectidentity",
+    "name": "hwIpv6MibConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.153.2"
+  },
+  "hwIpv6MibObjects": {
+    "class": "objectidentity",
+    "name": "hwIpv6MibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.153.1"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "IPV6-MIB": [
+      "ipv6IfIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "Gauge32",
+      "IpAddress",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-IPV6-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:40 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-IPV6-MIB"
+  }
+}

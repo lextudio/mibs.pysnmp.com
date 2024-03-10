@@ -1,0 +1,202 @@
+{
+  "hwSMAP": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": " V1.00 The SMAP mib is for all datacomm product. ",
+    "lastupdated": "200303201150Z",
+    "name": "hwSMAP",
+    "oid": "1.3.6.1.4.1.2011.5.25.14",
+    "organization": " HAUWEI MIB Standard community "
+  },
+  "hwSmapAcl": {
+    "class": "objecttype",
+    "description": " The SMAP function is used for which data flow. 0 means thie item is used for all data flow. This item is index. ",
+    "maxaccess": "read-only",
+    "name": "hwSmapAcl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.14.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 2999,
+            "min": 2000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSmapAppSysPort": {
+    "class": "objecttype",
+    "description": " The application port defined by rfc. Now only support: ftp 21 smtp 25 http 80 rtsp 554 h323 1720 ",
+    "maxaccess": "read-create",
+    "name": "hwSmapAppSysPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.14.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSmapEntry": {
+    "class": "objecttype",
+    "description": " The Port-Application Map table struct. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SMAP-MIB",
+        "object": "hwSmapUserPort"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SMAP-MIB",
+        "object": "hwSmapAcl"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSmapEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.14.1.1.1",
+    "status": "current"
+  },
+  "hwSmapGroup": {
+    "class": "objectgroup",
+    "description": " The SMAP table member. ",
+    "name": "hwSmapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SMAP-MIB",
+        "object": "hwSmapUserPort"
+      },
+      {
+        "module": "HUAWEI-SMAP-MIB",
+        "object": "hwSmapAcl"
+      },
+      {
+        "module": "HUAWEI-SMAP-MIB",
+        "object": "hwSmapAppSysPort"
+      },
+      {
+        "module": "HUAWEI-SMAP-MIB",
+        "object": "hwSmapStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.14.2.1.1",
+    "status": "current"
+  },
+  "hwSmapMibConformance": {
+    "class": "objectidentity",
+    "name": "hwSmapMibConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.14.2"
+  },
+  "hwSmapMibGroup": {
+    "class": "objectidentity",
+    "name": "hwSmapMibGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.14.2.1"
+  },
+  "hwSmapMibObjects": {
+    "class": "objectidentity",
+    "name": "hwSmapMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.14.1"
+  },
+  "hwSmapStatus": {
+    "class": "objecttype",
+    "description": " Only support CreateAndGo and Destroy. ",
+    "maxaccess": "read-create",
+    "name": "hwSmapStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.14.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwSmapTable": {
+    "class": "objecttype",
+    "description": " The Port-Application Map table. ",
+    "maxaccess": "not-accessible",
+    "name": "hwSmapTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.14.1.1",
+    "status": "current"
+  },
+  "hwSmapUserPort": {
+    "class": "objecttype",
+    "description": " The new port defined by user. This item is index.",
+    "maxaccess": "read-only",
+    "name": "hwSmapUserPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.14.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Counter32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-SMAP-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:57 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-SMAP-MIB"
+  }
+}

@@ -1,0 +1,849 @@
+{
+  "ImaFrameLength": {
+    "class": "textualconvention",
+    "description": "Length of the IMA frames.",
+    "name": "ImaFrameLength",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "m128": 128,
+          "m256": 256,
+          "m32": 32,
+          "m64": 64
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "ImaGroupState": {
+    "class": "textualconvention",
+    "description": "State of the IMA group.",
+    "name": "ImaGroupState",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blocked": 8,
+          "configAbortIncompatibleSymmetry": 5,
+          "configAbortOther": 6,
+          "configAbortUnsupportedImaVersion": 10,
+          "configAbortUnsupportedM": 4,
+          "insufficientLinks": 7,
+          "notConfigured": 1,
+          "operational": 9,
+          "startUp": 2,
+          "startUpAck": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "ImaGroupSymmetry": {
+    "class": "textualconvention",
+    "description": "The group symmetry mode adjusted during the group start-up.",
+    "name": "ImaGroupSymmetry",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "asymmetricConfiguration": 3,
+          "asymmetricOperation": 2,
+          "symmetricOperation": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "ImaLinkState": {
+    "class": "textualconvention",
+    "description": "State of a link belonging to an IMA group.",
+    "name": "ImaLinkState",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 8,
+          "notInGroup": 1,
+          "unusableFailed": 6,
+          "unusableFault": 3,
+          "unusableInhibited": 5,
+          "unusableMisconnected": 4,
+          "unusableNoGivenReason": 2,
+          "usable": 7
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "MilliSeconds": {
+    "class": "textualconvention",
+    "description": "Time in milliseconds",
+    "name": "MilliSeconds",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwImaGroupAlphaValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "This indicates the \u0027alpha\u0027 value used to specify the number of consecutive invalid ICP cells to be detected before moving to the IMA Hunt state from the IMA Sync state.",
+    "maxaccess": "read-only",
+    "name": "hwImaGroupAlphaValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwImaGroupBetaValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "This indicates the \u0027beta\u0027 value used to specify the number of consecutive errored ICP cells to be detected before moving to the IMA Hunt state from the IMA Sync state.",
+    "maxaccess": "read-only",
+    "name": "hwImaGroupBetaValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 5,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwImaGroupDiffDelayMax": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 25
+      }
+    },
+    "description": "The maximum number of milliseconds of differential delay among the links that will be tolerated on this interface.",
+    "maxaccess": "read-create",
+    "name": "hwImaGroupDiffDelayMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 25
+          }
+        ]
+      },
+      "type": "MilliSeconds"
+    }
+  },
+  "hwImaGroupEntry": {
+    "class": "objecttype",
+    "description": "An entry in the IMA Group table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwImaGroupEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1",
+    "status": "current"
+  },
+  "hwImaGroupFeState": {
+    "class": "objecttype",
+    "description": "The current operational state of the far-end IMA Group State Machine.",
+    "maxaccess": "read-only",
+    "name": "hwImaGroupFeState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "ImaGroupState"
+    }
+  },
+  "hwImaGroupFirstLinkIfIndex": {
+    "class": "objecttype",
+    "description": "This object identifies the first link of this IMA Group.",
+    "maxaccess": "read-only",
+    "name": "hwImaGroupFirstLinkIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwImaGroupGammaValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "This indicates the \u0027gamma\u0027 value used to specify the number of consecutive valid ICP cells to be detected before moving to the IMA Sync state from the IMA PreSync state.",
+    "maxaccess": "read-only",
+    "name": "hwImaGroupGammaValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 5,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwImaGroupGroup": {
+    "class": "objectgroup",
+    "description": "A set of objects providing configuration and status information for an IMA group definition.",
+    "name": "hwImaGroupGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupIfIndex"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupNeState"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupFeState"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupSymmetry"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupMinNumTxLinks"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupMinNumRxLinks"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupTxTimingRefLink"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupRxTimingRefLink"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupTxImaId"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupRxImaId"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupTxFrameLength"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupRxFrameLength"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupDiffDelayMax"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupAlphaValue"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupBetaValue"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupGammaValue"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupNumTxActLinks"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupNumRxActLinks"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupTxOamLabelValue"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupRxOamLabelValue"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupFirstLinkIfIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.176.2.1.1",
+    "status": "current"
+  },
+  "hwImaGroupIfIndex": {
+    "class": "objecttype",
+    "description": "This object identifies the logical interface number (\u0027ifIndex\u0027) assigned to this IMA group, and is used to identify corresponding rows in the Interfaces MIB. Note that re-initialization of the management agent may cause a client\u0027s \u0027hwImaGroupIfIndex\u0027 to change.",
+    "maxaccess": "read-only",
+    "name": "hwImaGroupIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwImaGroupMinNumRxLinks": {
+    "class": "objecttype",
+    "description": "Minimum number of receive links required to be Active for the IMA group to be in the Operational state.",
+    "maxaccess": "read-create",
+    "name": "hwImaGroupMinNumRxLinks",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwImaGroupMinNumTxLinks": {
+    "class": "objecttype",
+    "description": "Minimum number of transmit links required to be Active for the IMA group to be in the Operational state.",
+    "maxaccess": "read-create",
+    "name": "hwImaGroupMinNumTxLinks",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwImaGroupNeState": {
+    "class": "objecttype",
+    "description": "The current operational state of the near-end IMA Group State Machine.",
+    "maxaccess": "read-only",
+    "name": "hwImaGroupNeState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "ImaGroupState"
+    }
+  },
+  "hwImaGroupNumRxActLinks": {
+    "class": "objecttype",
+    "description": "The number of links which are configured to receive and are currently Active in this IMA group.",
+    "maxaccess": "read-only",
+    "name": "hwImaGroupNumRxActLinks",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwImaGroupNumTxActLinks": {
+    "class": "objecttype",
+    "description": "The number of links which are configured to transmit and are currently Active in this IMA group.",
+    "maxaccess": "read-only",
+    "name": "hwImaGroupNumTxActLinks",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwImaGroupRxFrameLength": {
+    "class": "objecttype",
+    "description": "Value of IMA frame length as received from remote IMA function.",
+    "maxaccess": "read-only",
+    "name": "hwImaGroupRxFrameLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "ImaFrameLength"
+    }
+  },
+  "hwImaGroupRxImaId": {
+    "class": "objecttype",
+    "description": "The IMA ID currently in use by the far-end IMA function.",
+    "maxaccess": "read-only",
+    "name": "hwImaGroupRxImaId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwImaGroupRxOamLabelValue": {
+    "class": "objecttype",
+    "description": "IMA OAM Label value transmitted by the FE IMA unit. The value 0 likely means that the IMA unit has not received an OAM Label from the FE IMA unit at this time.",
+    "maxaccess": "read-only",
+    "name": "hwImaGroupRxOamLabelValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwImaGroupRxTimingRefLink": {
+    "class": "objecttype",
+    "description": "The ifIndex of the receive timing reference link to be used by near-end for IMA data cell clock recovery toward the ATM layer. The distinguished value of zero may be used if no link has been configured in the IMA group, or if the receive timing reference link has not yet been detected.",
+    "maxaccess": "read-only",
+    "name": "hwImaGroupRxTimingRefLink",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwImaGroupSymmetry": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "symmetricOperation"
+      }
+    },
+    "description": "Symmetry of the IMA group.",
+    "maxaccess": "read-only",
+    "name": "hwImaGroupSymmetry",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "ImaGroupSymmetry"
+    }
+  },
+  "hwImaGroupTable": {
+    "class": "objecttype",
+    "description": "The IMA Group Configuration table.",
+    "maxaccess": "not-accessible",
+    "name": "hwImaGroupTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1",
+    "status": "current"
+  },
+  "hwImaGroupTxFrameLength": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "m128"
+      }
+    },
+    "description": "The frame length to be used by the IMA group in the transmit direction. Can only be set when the IMA group is startup.",
+    "maxaccess": "read-create",
+    "name": "hwImaGroupTxFrameLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "ImaFrameLength"
+    }
+  },
+  "hwImaGroupTxImaId": {
+    "class": "objecttype",
+    "description": "The IMA ID currently in use by the near-end IMA function.",
+    "maxaccess": "read-only",
+    "name": "hwImaGroupTxImaId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwImaGroupTxOamLabelValue": {
+    "class": "objecttype",
+    "description": "IMA OAM Label value transmitted by the NE IMA unit.",
+    "maxaccess": "read-only",
+    "name": "hwImaGroupTxOamLabelValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwImaGroupTxTimingRefLink": {
+    "class": "objecttype",
+    "description": "The ifIndex of the transmit timing reference link to be used by the near-end for IMA data cell clock recovery from the ATM layer. The distinguished value of zero may be used if no link has been configured in the IMA group, or if the transmit timing reference link has not yet been selected.",
+    "maxaccess": "read-only",
+    "name": "hwImaGroupTxTimingRefLink",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwImaLinkEntry": {
+    "class": "objecttype",
+    "description": "An entry in the IMA Group Link table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwImaLinkEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.2.1",
+    "status": "current"
+  },
+  "hwImaLinkFeRxState": {
+    "class": "objecttype",
+    "description": "The current state of the far-end receive link as reported via ICP cells.",
+    "maxaccess": "read-only",
+    "name": "hwImaLinkFeRxState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "ImaLinkState"
+    }
+  },
+  "hwImaLinkFeTxState": {
+    "class": "objecttype",
+    "description": "The current state of the far-end transmit link as reported via ICP cells.",
+    "maxaccess": "read-only",
+    "name": "hwImaLinkFeTxState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "ImaLinkState"
+    }
+  },
+  "hwImaLinkGroup": {
+    "class": "objectgroup",
+    "description": "A set of objects providing status information for an IMA link.",
+    "name": "hwImaLinkGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkGroupIfIndex"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkNeTxState"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkNeRxState"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkFeTxState"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkFeRxState"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.176.2.1.2",
+    "status": "current"
+  },
+  "hwImaLinkGroupIfIndex": {
+    "class": "objecttype",
+    "description": "This object identifies the logical interface number (\u0027ifIndex\u0027) assigned to this IMA group. The specified link will be bound to this IMA group.",
+    "maxaccess": "read-create",
+    "name": "hwImaLinkGroupIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwImaLinkIfIndex": {
+    "class": "objecttype",
+    "description": "This corresponds to the \u0027ifIndex\u0027 of the MIB-II interface on which this link is established. This object also corresponds to the logical number (\u0027ifIndex\u0027) assigned to this IMA link.",
+    "maxaccess": "not-accessible",
+    "name": "hwImaLinkIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwImaLinkNeRxState": {
+    "class": "objecttype",
+    "description": "The current state of the near-end receive link.",
+    "maxaccess": "read-only",
+    "name": "hwImaLinkNeRxState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "ImaLinkState"
+    }
+  },
+  "hwImaLinkNeTxState": {
+    "class": "objecttype",
+    "description": "The current state of the near-end transmit link.",
+    "maxaccess": "read-only",
+    "name": "hwImaLinkNeTxState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "ImaLinkState"
+    }
+  },
+  "hwImaLinkRowStatus": {
+    "class": "objecttype",
+    "description": "The hwImaLinkRowStatus object allows create, change, and delete operations on hwImaLinkTable entries. To create a new conceptual row (or instance) of the hwImaLinkTable, hwImaLinkRowStatus must be set to \u0027createAndWait\u0027 or \u0027createAndGo\u0027. A successful set of the imaLinkGroupIndex object must be performed before the hwImaLinkRowStatus of a new conceptual row can be set to \u0027active\u0027. To change (modify) the imaLinkGroupIndex in an hwImaLinkTable entry, the hwImaLinkRowStatus object must first be set to \u0027notInService\u0027. Only then can this object in the conceptual row be modified. This is due to the fact that the imaLinkGroupIndex object provides the association between a physical IMA link and the IMA group to which it belongs, and setting the imaLinkGroupIndex object to a different value has the effect of changing the association between a physical IMA link and an IMA group. To place the link \u0027in group\u0027, the hwImaLinkRowStatus object is set to \u0027active\u0027. While the row is not in \u0027active\u0027 state, both the Transmit and Receive IMA link state machines are in the \u0027Not In Group\u0027 state. To remove (delete) an hwImaLinkTable entry from this table, set this object to \u0027destroy\u0027.",
+    "maxaccess": "read-create",
+    "name": "hwImaLinkRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.2.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwImaLinkTable": {
+    "class": "objecttype",
+    "description": "The IMA group Link Status and Configuration table.",
+    "maxaccess": "not-accessible",
+    "name": "hwImaLinkTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1.2",
+    "status": "current"
+  },
+  "hwImaMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China http://www.huawei.com Zip:100085 ",
+    "description": "The MIB is mainly used to configure Inverse Multiplexing for ATM (IMA) interfaces.",
+    "lastupdated": "200902101400Z",
+    "name": "hwImaMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.176",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwImaMibCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for network elements implementing Inverse Multiplexing for ATM (IMA) interfaces.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaGroupGroup"
+      },
+      {
+        "module": "HUAWEI-IMA-MIB",
+        "object": "hwImaLinkGroup"
+      }
+    ],
+    "name": "hwImaMibCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.2.2.1",
+    "status": "current"
+  },
+  "hwImaMibCompliances": {
+    "class": "objectidentity",
+    "name": "hwImaMibCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.2.2"
+  },
+  "hwImaMibConformance": {
+    "class": "objectidentity",
+    "name": "hwImaMibConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.2"
+  },
+  "hwImaMibGroups": {
+    "class": "objectidentity",
+    "name": "hwImaMibGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.2.1"
+  },
+  "hwImaMibObjects": {
+    "class": "objectidentity",
+    "name": "hwImaMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.176.1"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Counter64",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "enterprises",
+      "iso",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-IMA-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:34 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-IMA-MIB"
+  }
+}

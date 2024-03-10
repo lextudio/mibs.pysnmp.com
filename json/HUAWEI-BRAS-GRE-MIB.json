@@ -1,0 +1,392 @@
+{
+  "hwGRE": {
+    "class": "moduleidentity",
+    "contactinfo": "Floor 5, Block 4, R\u0026D Building, Huawei Longgang Production Base, Shenzhen, P.R.C. http://www.huawei.com Zip:518057 ",
+    "description": "V1.00. The GRE mib is for all datacomm product. ",
+    "lastupdated": "200508101200Z",
+    "name": "hwGRE",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.13",
+    "organization": "HAUWEI MIB Standard community. "
+  },
+  "hwQueryGreCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the this module.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-BRAS-GRE-MIB",
+        "object": "hwQueryGrePolicyGroup"
+      }
+    ],
+    "name": "hwQueryGreCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.13.2.1.1",
+    "status": "current"
+  },
+  "hwQueryGreCompliances": {
+    "class": "objectidentity",
+    "name": "hwQueryGreCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.13.2.1"
+  },
+  "hwQueryGreConformance": {
+    "class": "objectidentity",
+    "name": "hwQueryGreConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.13.2"
+  },
+  "hwQueryGreGroupActiveTunnel": {
+    "class": "objecttype",
+    "description": "The name of the active tunnel of the gre-group.",
+    "maxaccess": "read-only",
+    "name": "hwQueryGreGroupActiveTunnel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.13.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwQueryGreGroupCounter": {
+    "class": "objecttype",
+    "description": "The number of interfaces that the gre-group bound.",
+    "maxaccess": "read-only",
+    "name": "hwQueryGreGroupCounter",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.13.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQueryGreGroupEntry": {
+    "class": "objecttype",
+    "description": "An entry of hwQueryGreGroupTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-GRE-MIB",
+        "object": "hwQueryGreGroupName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwQueryGreGroupEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.13.1.1.1",
+    "status": "current"
+  },
+  "hwQueryGreGroupName": {
+    "class": "objecttype",
+    "description": "The name of the gre-group.",
+    "maxaccess": "read-only",
+    "name": "hwQueryGreGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.13.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwQueryGreGroupTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "hwQueryGreGroupTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.13.1.1",
+    "status": "current"
+  },
+  "hwQueryGreGroupTunnel1Name": {
+    "class": "objecttype",
+    "description": "The name of the first tunnel of the gre-group.",
+    "maxaccess": "read-only",
+    "name": "hwQueryGreGroupTunnel1Name",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.13.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwQueryGreGroupTunnel1Preference": {
+    "class": "objecttype",
+    "description": "The preference of the first tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwQueryGreGroupTunnel1Preference",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.13.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQueryGreGroupTunnel2Name": {
+    "class": "objecttype",
+    "description": "The name of the second tunnel of the gre-group.",
+    "maxaccess": "read-only",
+    "name": "hwQueryGreGroupTunnel2Name",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.13.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwQueryGreGroupTunnel2Preference": {
+    "class": "objecttype",
+    "description": "The preference of the second tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwQueryGreGroupTunnel2Preference",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.13.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQueryGreGroupTunnel3Name": {
+    "class": "objecttype",
+    "description": "The name of the third tunnel of the gre-group.",
+    "maxaccess": "read-only",
+    "name": "hwQueryGreGroupTunnel3Name",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.13.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwQueryGreGroupTunnel3Preference": {
+    "class": "objecttype",
+    "description": "The preference of the third tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwQueryGreGroupTunnel3Preference",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.13.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQueryGreGroupTunnel4Name": {
+    "class": "objecttype",
+    "description": "The name of the fourth tunnel of the gre-group.",
+    "maxaccess": "read-only",
+    "name": "hwQueryGreGroupTunnel4Name",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.13.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwQueryGreGroupTunnel4Preference": {
+    "class": "objecttype",
+    "description": "The preference of the fourth tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwQueryGreGroupTunnel4Preference",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.13.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwQueryGreGroups": {
+    "class": "objectidentity",
+    "name": "hwQueryGreGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.13.2.2"
+  },
+  "hwQueryGrePolicyGroup": {
+    "class": "objectgroup",
+    "description": "The query gre policy group.",
+    "name": "hwQueryGrePolicyGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-GRE-MIB",
+        "object": "hwQueryGreGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-GRE-MIB",
+        "object": "hwQueryGreGroupCounter"
+      },
+      {
+        "module": "HUAWEI-BRAS-GRE-MIB",
+        "object": "hwQueryGreGroupActiveTunnel"
+      },
+      {
+        "module": "HUAWEI-BRAS-GRE-MIB",
+        "object": "hwQueryGreGroupTunnel1Name"
+      },
+      {
+        "module": "HUAWEI-BRAS-GRE-MIB",
+        "object": "hwQueryGreGroupTunnel2Name"
+      },
+      {
+        "module": "HUAWEI-BRAS-GRE-MIB",
+        "object": "hwQueryGreGroupTunnel3Name"
+      },
+      {
+        "module": "HUAWEI-BRAS-GRE-MIB",
+        "object": "hwQueryGreGroupTunnel4Name"
+      },
+      {
+        "module": "HUAWEI-BRAS-GRE-MIB",
+        "object": "hwQueryGreGroupTunnel1Preference"
+      },
+      {
+        "module": "HUAWEI-BRAS-GRE-MIB",
+        "object": "hwQueryGreGroupTunnel2Preference"
+      },
+      {
+        "module": "HUAWEI-BRAS-GRE-MIB",
+        "object": "hwQueryGreGroupTunnel3Preference"
+      },
+      {
+        "module": "HUAWEI-BRAS-GRE-MIB",
+        "object": "hwQueryGreGroupTunnel4Preference"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.13.2.2.1",
+    "status": "current"
+  },
+  "hwhwGREMibObjects": {
+    "class": "objectidentity",
+    "name": "hwhwGREMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.13.1"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwBRASMib"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
+      "TimeTicks",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-BRAS-GRE-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:46:46 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-BRAS-GRE-MIB"
+  }
+}

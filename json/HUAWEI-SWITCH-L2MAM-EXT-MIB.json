@@ -1,0 +1,523 @@
+{
+  "hwL2MAMExtGeneralGrops": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing information about Mac addresses.",
+    "name": "hwL2MAMExtGeneralGrops",
+    "objects": [
+      {
+        "module": "HUAWEI-SWITCH-L2MAM-EXT-MIB",
+        "object": "hwMacTrapInterval"
+      },
+      {
+        "module": "HUAWEI-SWITCH-L2MAM-EXT-MIB",
+        "object": "hwMacTrapMacInfo"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.315.4.2.2",
+    "status": "current"
+  },
+  "hwL2MAMExtTrapGroup": {
+    "class": "notificationgroup",
+    "description": "The trap enable group.",
+    "name": "hwL2MAMExtTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SWITCH-L2MAM-EXT-MIB",
+        "object": "hwMacTrapAlarm"
+      },
+      {
+        "module": "HUAWEI-SWITCH-L2MAM-EXT-MIB",
+        "object": "hwMacTrapPortCfgAlarm"
+      },
+      {
+        "module": "HUAWEI-SWITCH-L2MAM-EXT-MIB",
+        "object": "hwPortVlanSecureMacAlarm"
+      },
+      {
+        "module": "HUAWEI-SWITCH-L2MAM-EXT-MIB",
+        "object": "hwSlotMacUsageFallingThreshold"
+      },
+      {
+        "module": "HUAWEI-SWITCH-L2MAM-EXT-MIB",
+        "object": "hwSlotMacUsageRaisingThreshold"
+      },
+      {
+        "module": "HUAWEI-SWITCH-L2MAM-EXT-MIB",
+        "object": "hwMacTrapHashConflictAlarm"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.315.4.2.3",
+    "status": "current"
+  },
+  "hwMacTrapAlarm": {
+    "class": "notificationtype",
+    "description": "The trap when mac-address is learned or aging.",
+    "name": "hwMacTrapAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-SWITCH-L2MAM-EXT-MIB",
+        "object": "hwMacTrapMacInfo"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.315.3.1",
+    "status": "current"
+  },
+  "hwMacTrapGroups": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing information about mac trap table.",
+    "name": "hwMacTrapGroups",
+    "objects": [
+      {
+        "module": "HUAWEI-SWITCH-L2MAM-EXT-MIB",
+        "object": "hwMacTrapPortCfgLearn"
+      },
+      {
+        "module": "HUAWEI-SWITCH-L2MAM-EXT-MIB",
+        "object": "hwMacTrapPortCfgAging"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.315.4.2.1",
+    "status": "current"
+  },
+  "hwMacTrapHashConflictAlarm": {
+    "class": "notificationtype",
+    "description": "This notification indicates that MAC address hash conflict occurred.",
+    "name": "hwMacTrapHashConflictAlarm",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgFdbMac"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgFdbVlanId"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgFdbVsiName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.315.3.6",
+    "status": "current"
+  },
+  "hwMacTrapInterval": {
+    "class": "objecttype",
+    "description": "The interval of trap the mac change.",
+    "maxaccess": "read-write",
+    "name": "hwMacTrapInterval",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.315.2.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMacTrapMacInfo": {
+    "class": "objecttype",
+    "description": "The information of mac-trap.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMacTrapMacInfo",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.315.2.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMacTrapPortCfgAging": {
+    "class": "objecttype",
+    "description": "The alarm switch of the delete mac. The meanings of the values are: enable(1),disanle(2).",
+    "maxaccess": "read-write",
+    "name": "hwMacTrapPortCfgAging",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.315.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMacTrapPortCfgAlarm": {
+    "class": "notificationtype",
+    "description": "The trap when mac-address is learned or aging.",
+    "name": "hwMacTrapPortCfgAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-SWITCH-L2MAM-EXT-MIB",
+        "object": "hwMacTrapMacInfo"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgFdbMac"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgFdbVlanId"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.315.3.5",
+    "status": "current"
+  },
+  "hwMacTrapPortCfgEntry": {
+    "class": "objecttype",
+    "description": "Entries of the mac-trap table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SWITCH-L2MAM-EXT-MIB",
+        "object": "hwMacTrapPortCfgIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMacTrapPortCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.315.1.1.1",
+    "status": "current"
+  },
+  "hwMacTrapPortCfgIfIndex": {
+    "class": "objecttype",
+    "description": "The IfIndex which will be configured mac-trap.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacTrapPortCfgIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.315.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwMacTrapPortCfgLearn": {
+    "class": "objecttype",
+    "description": "The alarm switch of the new mac. The meanings of the values are: enable(1),disanle(2).",
+    "maxaccess": "read-write",
+    "name": "hwMacTrapPortCfgLearn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.315.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMacTrapPortCfgTable": {
+    "class": "objecttype",
+    "description": "The mac-trap Table.The table that contains the mac-trap information currently operating on this device.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacTrapPortCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.315.1.1",
+    "status": "current"
+  },
+  "hwPortVlanSecureMacAlarm": {
+    "class": "notificationtype",
+    "description": "The alarm when MAC addresses that received are illegal ",
+    "name": "hwPortVlanSecureMacAlarm",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgFdbMac"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwCfgFdbVlanId"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwPortSecurityProtectAction"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.315.3.2",
+    "status": "current"
+  },
+  "hwSWITCH_L2MAM_EXT": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com",
+    "description": "THIS IS THE LAYER 2 MAC-ADDRESS MANAGEMENT MIB.",
+    "lastupdated": "201403261600Z",
+    "name": "hwSWITCH_L2MAM_EXT",
+    "oid": "1.3.6.1.4.1.2011.5.25.315",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "Modify code hwMacTrapPortCfgAlarm",
+        "revision": "2014-03-26 16:00"
+      },
+      {
+        "description": "Modify code hwMacTrapHashConflictAlarm ",
+        "revision": "2014-03-26 16:00"
+      },
+      {
+        "description": "Edit the mib file by OM stard guide",
+        "revision": "2014-03-19 16:00"
+      },
+      {
+        "description": "Add code hwMacTrapPortCfgAlarm",
+        "revision": "2014-02-14 16:00"
+      },
+      {
+        "description": " V1.00, Inital version. ",
+        "revision": "2004-06-08 00:00"
+      },
+      {
+        "description": "Initial version (version 1), published as RFC 2037.",
+        "revision": "1996-10-31 00:00"
+      },
+      {
+        "description": "Initial Version of Entity MIB (Version 2). This revision obsoletes RFC 2037. This version published as RFC 2737.",
+        "revision": "1999-12-07 00:00"
+      },
+      {
+        "description": " V1.00, Inital version. ",
+        "revision": "2004-06-08 00:00"
+      },
+      {
+        "description": " V1.00, Inital version. ",
+        "revision": "2004-06-08 00:00"
+      },
+      {
+        "description": "Initial version (version 1), published as RFC 2037.",
+        "revision": "1996-10-31 00:00"
+      },
+      {
+        "description": "Initial Version of Entity MIB (Version 2). This revision obsoletes RFC 2037. This version published as RFC 2737.",
+        "revision": "1999-12-07 00:00"
+      },
+      {
+        "description": " V1.00, Inital version. ",
+        "revision": "2004-06-08 00:00"
+      },
+      {
+        "description": "Initial version (version 1), published as RFC 2037.",
+        "revision": "1996-10-31 00:00"
+      },
+      {
+        "description": "Initial Version of Entity MIB (Version 2). This revision obsoletes RFC 2037. This version published as RFC 2737.",
+        "revision": "1999-12-07 00:00"
+      },
+      {
+        "description": "Initial version (version 1), published as RFC 2037.",
+        "revision": "1996-10-31 00:00"
+      },
+      {
+        "description": "Initial Version of Entity MIB (Version 2). This revision obsoletes RFC 2037. This version published as RFC 2737.",
+        "revision": "1999-12-07 00:00"
+      },
+      {
+        "description": " V1.00, Inital version. ",
+        "revision": "2004-06-08 00:00"
+      },
+      {
+        "description": " V1.00, Inital version. ",
+        "revision": "2004-06-08 00:00"
+      },
+      {
+        "description": " V1.00, Inital version. ",
+        "revision": "2004-06-08 00:00"
+      },
+      {
+        "description": "V1.00, initial version.",
+        "revision": "2010-08-11 16:00"
+      },
+      {
+        "description": "Add code hwMacTrapPortCfgAlarm",
+        "revision": "2014-02-14 16:00"
+      }
+    ]
+  },
+  "hwSlotMacUsageFallingThreshold": {
+    "class": "notificationtype",
+    "description": "This notification indicates the MAC usage of the slot falling the threshold ",
+    "name": "hwSlotMacUsageFallingThreshold",
+    "objects": [
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapEventType"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapSeverity"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapProbableCause"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.315.3.4",
+    "status": "current"
+  },
+  "hwSlotMacUsageRaisingThreshold": {
+    "class": "notificationtype",
+    "description": "This notification indicates the MAC usage of the slot raising the threshold ",
+    "name": "hwSlotMacUsageRaisingThreshold",
+    "objects": [
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapEventType"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapSeverity"
+      },
+      {
+        "module": "HUAWEI-BASE-TRAP-MIB",
+        "object": "hwBaseTrapProbableCause"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacEntityUsage"
+      },
+      {
+        "module": "HUAWEI-L2MAM-MIB",
+        "object": "hwMacEntityUsageThreshold"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.315.3.3",
+    "status": "current"
+  },
+  "hwSwitchL2MamExtCompliances": {
+    "class": "objectidentity",
+    "name": "hwSwitchL2MamExtCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.315.4.1"
+  },
+  "hwSwitchL2MamExtConformance": {
+    "class": "objectidentity",
+    "name": "hwSwitchL2MamExtConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.315.4"
+  },
+  "hwSwitchL2MamExtFullCompliance": {
+    "class": "modulecompliance",
+    "description": "hwSwitchL2MamExtFullCompliance",
+    "modulecompliance": [
+      {
+        "module": "HwSWITCH-L2MAM-EXT",
+        "object": "hwMacTrapGroups"
+      },
+      {
+        "module": "HwSWITCH-L2MAM-EXT",
+        "object": "hwL2MAMExtGeneralGrops"
+      },
+      {
+        "module": "HwSWITCH-L2MAM-EXT",
+        "object": "hwL2MAMExtTrapGroup"
+      }
+    ],
+    "name": "hwSwitchL2MamExtFullCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.315.4.1.1",
+    "status": "current"
+  },
+  "hwSwitchL2MamExtGeneralObjects": {
+    "class": "objectidentity",
+    "name": "hwSwitchL2MamExtGeneralObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.315.2"
+  },
+  "hwSwitchL2MamExtGroups": {
+    "class": "objectidentity",
+    "name": "hwSwitchL2MamExtGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.315.4.2"
+  },
+  "hwSwitchL2MamExtObjects": {
+    "class": "objectidentity",
+    "name": "hwSwitchL2MamExtObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.315.1"
+  },
+  "hwSwitchL2MamExtTraps": {
+    "class": "objectidentity",
+    "name": "hwSwitchL2MamExtTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.315.3"
+  },
+  "imports": {
+    "ENTITY-MIB": [
+      "entPhysicalName"
+    ],
+    "HUAWEI-BASE-TRAP-MIB": [
+      "hwBaseTrapProbableCause",
+      "hwBaseTrapSeverity",
+      "hwBaseTrapEventType"
+    ],
+    "HUAWEI-L2MAM-MIB": [
+      "hwPortSecurityProtectAction",
+      "hwMacEntityUsage",
+      "hwCfgFdbVsiName",
+      "hwCfgFdbVlanId",
+      "hwMacEntityUsageThreshold",
+      "hwCfgFdbMac"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifDescr",
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Gauge32",
+      "IpAddress",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-SWITCH-L2MAM-EXT-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:03 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-SWITCH-L2MAM-EXT-MIB"
+  }
+}

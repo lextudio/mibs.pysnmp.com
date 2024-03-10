@@ -1,0 +1,2626 @@
+{
+  "HWIplpmLossStatsErrorInfo": {
+    "class": "textualconvention",
+    "description": "Description.",
+    "name": "HWIplpmLossStatsErrorInfo",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aSynClock": 6,
+          "dataErr": 3,
+          "diffAuth": 4,
+          "diffIntvl": 5,
+          "incomplete": 7,
+          "init": 0,
+          "noRecvData": 2,
+          "ok": 1,
+          "portIsDown": 8
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIplpmBoardEntityEntry": {
+    "class": "objecttype",
+    "description": "This table contains board entity number.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmBoardNumber"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmBoardEntityEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.2.1",
+    "status": "current"
+  },
+  "hwIplpmBoardEntityTable": {
+    "class": "objecttype",
+    "description": "This table contains board entity number. ",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmBoardEntityTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.2",
+    "status": "current"
+  },
+  "hwIplpmBoardNumber": {
+    "class": "objecttype",
+    "description": "This object indicates board entity number.",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmBoardNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 48,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmBoardPhysicalIndex": {
+    "class": "objecttype",
+    "description": "This object indicates board physical index.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmBoardPhysicalIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for entities which implement the IPLPM MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmGlobalConfigGroup"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmInterfacelConfigGroup"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmStatisticsGroup"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmHistoryRecordGroup"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmTrapsGroup"
+      }
+    ],
+    "name": "hwIplpmCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.3.1.1",
+    "status": "current"
+  },
+  "hwIplpmCompliances": {
+    "class": "objectidentity",
+    "name": "hwIplpmCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.3.1"
+  },
+  "hwIplpmConfiguration": {
+    "class": "objectidentity",
+    "name": "hwIplpmConfiguration",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.1"
+  },
+  "hwIplpmConformance": {
+    "class": "objectidentity",
+    "name": "hwIplpmConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.3"
+  },
+  "hwIplpmDestIpAddress": {
+    "class": "objecttype",
+    "description": "The destination IP address which used to search IP routing table.",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmDestIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIplpmDestMask": {
+    "class": "objecttype",
+    "description": "The destination mask which used to search IP routing table.",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmDestMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIplpmDestVrf": {
+    "class": "objecttype",
+    "description": "The vpn instance ID which used to search IP routing table.",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmDestVrf",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmFwdPathSearch": {
+    "class": "objectidentity",
+    "name": "hwIplpmFwdPathSearch",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4"
+  },
+  "hwIplpmFwdPathSearchGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwIplpmFwdPathSearchGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmNetIfIndex"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmNetIfName"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmNetIfMacAddress"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmNetIfAddress"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmNetIfMask"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmNetIfVpnName"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmNetIfVrf"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmNetIfVlan"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmNetSystemMac"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmHostIfIndex"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmHostIfName"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmHostMacAddress"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmHostVlan"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmHostCeVlan"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLocalIfIndex"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLocalIfType"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLocalIfVrf"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLocalPortList"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmRouteIfIndex"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmRouteDstAddr"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmRouteDstMask"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmOutPortIfIndex"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmNetIfVrrpVip"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmNetIfVrrpMac"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmNetIfVrrpState"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmNetIfHostAddress"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.328.3.3.5",
+    "status": "current"
+  },
+  "hwIplpmGateWaySearchEntry": {
+    "class": "objecttype",
+    "description": "This entry contains gateway information which found by IP address and mask.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmNetAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmNetMask"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmGateWaySearchEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.1.1",
+    "status": "current"
+  },
+  "hwIplpmGateWaySearchTable": {
+    "class": "objecttype",
+    "description": "This table contains gateway information which found by IP address and mask.",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmGateWaySearchTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.1",
+    "status": "current"
+  },
+  "hwIplpmGlobalConfigGroup": {
+    "class": "objectgroup",
+    "description": "The collection of objects which are used to configure the IPLPM global behavior. ",
+    "name": "hwIplpmGlobalConfigGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLossMeasureColorFlag"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLossMeasureInterval"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLossMeasureEnable"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmIntfLossMeasureAlarmEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.328.3.3.1",
+    "status": "current"
+  },
+  "hwIplpmGlobalConfiguration": {
+    "class": "objectidentity",
+    "name": "hwIplpmGlobalConfiguration",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.1.1"
+  },
+  "hwIplpmGlobalHisRecEndTime": {
+    "class": "objecttype",
+    "description": "The end time of a global loss history record.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmGlobalHisRecEndTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.3.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIplpmGlobalHisRecStartTime": {
+    "class": "objecttype",
+    "description": "The start time of a global loss history record.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmGlobalHisRecStartTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.3.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIplpmGlobalHisRecordEntry": {
+    "class": "objecttype",
+    "description": "IPLPM global loss measure history record.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmGlobalHisRecordNo"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmGlobalHisRecordEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.3.1.1",
+    "status": "current"
+  },
+  "hwIplpmGlobalHisRecordNo": {
+    "class": "objecttype",
+    "description": "The history record number of global loss measure.",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmGlobalHisRecordNo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.3.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmGlobalHisRecordTable": {
+    "class": "objecttype",
+    "description": "The table contains global loss measure history record.",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmGlobalHisRecordTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.3.1",
+    "status": "current"
+  },
+  "hwIplpmGlobalLatestHisRecordNo": {
+    "class": "objecttype",
+    "description": "The object identifies the latest history record number of global loss. The value of -1 means it has not created history record.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmGlobalLatestHisRecordNo",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmGlobalLatestPeriodNo": {
+    "class": "objecttype",
+    "description": "The object identifies the latest period number of global loss.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmGlobalLatestPeriodNo",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIplpmGlobalLossPkts": {
+    "class": "objecttype",
+    "description": "The object indicates the number of loss packets for global loss measure.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmGlobalLossPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIplpmGlobalLossRatio": {
+    "class": "objecttype",
+    "description": "The object indicates the ratio of loss packets for global loss measure.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmGlobalLossRatio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmGlobalLossRatioExceed": {
+    "class": "notificationtype",
+    "description": "A hwIplpmGlobalLossRatioExceed trap is sent when the global loss ratio exceeds the uppper threshold in continuous five test intervals. ",
+    "name": "hwIplpmGlobalLossRatioExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmGlobalLossPkts"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmGlobalLossRatio"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmGlobalLatestPeriodNo"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.328.2.1",
+    "status": "current"
+  },
+  "hwIplpmGlobalLossRatioMax": {
+    "class": "objecttype",
+    "description": "The maximum loss ratio of global loss measure during a time.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmGlobalLossRatioMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.3.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmGlobalLossRatioMin": {
+    "class": "objecttype",
+    "description": "The minimum loss ratio of global loss measure during a time.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmGlobalLossRatioMin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.3.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmGlobalLossRatioRecovery": {
+    "class": "notificationtype",
+    "description": "A hwIplpmGlobalLossRatioRecovery trap is sent when the global loss ratio is under the lower threshold in continuous five test intervals. ",
+    "name": "hwIplpmGlobalLossRatioRecovery",
+    "objects": [
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmGlobalLossPkts"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmGlobalLossRatio"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmGlobalLatestPeriodNo"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.328.2.2",
+    "status": "current"
+  },
+  "hwIplpmGlobalLossStatsErrInfo": {
+    "class": "objecttype",
+    "description": "Error information of global loss statistics.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmGlobalLossStatsErrInfo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWIplpmLossStatsErrorInfo"
+    }
+  },
+  "hwIplpmGlobalPeriodClock": {
+    "class": "objecttype",
+    "description": "The string object indicates the time and data.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmGlobalPeriodClock",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIplpmGlobalPeriodHigh": {
+    "class": "objecttype",
+    "description": "The high period number of global loss statistics.",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmGlobalPeriodHigh",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIplpmGlobalPeriodLow": {
+    "class": "objecttype",
+    "description": "The low period number of global loss statistics.",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmGlobalPeriodLow",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIplpmGlobalStatsEntry": {
+    "class": "objecttype",
+    "description": "IPLPM global loss measure configuration information.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmGlobalPeriodHigh"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmGlobalPeriodLow"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmGlobalStatsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.3.1",
+    "status": "current"
+  },
+  "hwIplpmGlobalStatsInfo": {
+    "class": "objectidentity",
+    "name": "hwIplpmGlobalStatsInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.1"
+  },
+  "hwIplpmGlobalStatsTable": {
+    "class": "objecttype",
+    "description": "The table contains global loss measure information.",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmGlobalStatsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.3",
+    "status": "current"
+  },
+  "hwIplpmGlobalTable": {
+    "class": "objectidentity",
+    "name": "hwIplpmGlobalTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.1.1.1"
+  },
+  "hwIplpmGlobalTotalLossPkts": {
+    "class": "objecttype",
+    "description": "The loss packets number of global loss measure during a time.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmGlobalTotalLossPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.3.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIplpmGlobalTotalRecvPkts": {
+    "class": "objecttype",
+    "description": "The receive packets number of global loss measure during a time.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmGlobalTotalRecvPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.3.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIplpmGlobalValidStatDataNum": {
+    "class": "objecttype",
+    "description": "The valid statistics number of a global loss history record.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmGlobalValidStatDataNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.3.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmGroups": {
+    "class": "objectidentity",
+    "name": "hwIplpmGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.3.3"
+  },
+  "hwIplpmHistoryRecord": {
+    "class": "objectidentity",
+    "name": "hwIplpmHistoryRecord",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.3"
+  },
+  "hwIplpmHistoryRecordGroup": {
+    "class": "objectgroup",
+    "description": "The collection of objects which are used to represent the IPLPM test instance history records.",
+    "name": "hwIplpmHistoryRecordGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmGlobalLossRatioMax"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmGlobalLossRatioMin"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmGlobalTotalLossPkts"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmGlobalTotalRecvPkts"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkForwardLossRatioMax"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkForwardLossRatioMin"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkForwardTotalLossPkts"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkForwardTotalRecvPkts"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkBackwardLossRatioMax"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkBackwardLossRatioMin"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkBackwardTotalLossPkts"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmGlobalValidStatDataNum"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkValidStatDataNum"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkBackwardTotalRecvPkts"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmGlobalHisRecStartTime"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmGlobalHisRecEndTime"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkHisRecordStartTime"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkHisRecordEndTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.328.3.3.4",
+    "status": "current"
+  },
+  "hwIplpmHostCeVlan": {
+    "class": "objecttype",
+    "description": "The interface ce-vlan to which this entry pertains.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmHostCeVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmHostIfIndex": {
+    "class": "objecttype",
+    "description": "The interface index to which this entry pertains.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmHostIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmHostIfName": {
+    "class": "objecttype",
+    "description": "The interface name to which this entry pertains.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmHostIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIplpmHostInfoSearchEntry": {
+    "class": "objecttype",
+    "description": "This entry contains host information which found by nexthop IP address and vpn instance ID.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmHostIpAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmHostVrf"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmHostInfoSearchEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.2.1",
+    "status": "current"
+  },
+  "hwIplpmHostInfoSearchTable": {
+    "class": "objecttype",
+    "description": "This table contains host information which found by nexthop IP address and vpn instance ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmHostInfoSearchTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.2",
+    "status": "current"
+  },
+  "hwIplpmHostIpAddress": {
+    "class": "objecttype",
+    "description": "The IP address to which this entry pertains.",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmHostIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIplpmHostMacAddress": {
+    "class": "objecttype",
+    "description": "The mac address to which this entry pertains.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmHostMacAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIplpmHostVlan": {
+    "class": "objecttype",
+    "description": "The interface vlan to which this entry pertains.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmHostVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmHostVrf": {
+    "class": "objecttype",
+    "description": "The vpn instance ID to which this entry pertains.",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmHostVrf",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmInterfaceConguration": {
+    "class": "objectidentity",
+    "name": "hwIplpmInterfaceConguration",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.1.2"
+  },
+  "hwIplpmInterfacelConfigGroup": {
+    "class": "objectgroup",
+    "description": "The collection of objects which are used to configure the IPLPM link behavior.",
+    "name": "hwIplpmInterfacelConfigGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmIntfConfigRowStatus"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmIntfInterval"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmIntfAuthKeyId"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmIntfAuthType"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmIntfAuthKey"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmIntfLossMeasureEnable"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLossMeasureAlarmEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.328.3.3.2",
+    "status": "current"
+  },
+  "hwIplpmIntfAuthKey": {
+    "class": "objecttype",
+    "description": "The password used as authentication key for link loss measure.",
+    "maxaccess": "read-write",
+    "name": "hwIplpmIntfAuthKey",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.1.2.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 392,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIplpmIntfAuthKeyId": {
+    "class": "objecttype",
+    "description": "Authentication identification of the link loss measure.",
+    "maxaccess": "read-write",
+    "name": "hwIplpmIntfAuthKeyId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.1.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmIntfAuthType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "none"
+      }
+    },
+    "description": "Authentication type of the link loss measure. The enumeration \u0027hmac-sha256(1)\u0027 represents the password is sent after being encrypted through hmac-sha256. By default, authentication is not configured. ",
+    "maxaccess": "read-write",
+    "name": "hwIplpmIntfAuthType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.1.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hmacsha256": 1,
+          "none": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIplpmIntfConfigEntry": {
+    "class": "objecttype",
+    "description": "IPLPM configuration information for a link loss measure instance.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmIntfIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmIntfConfigEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.1.2.1.1",
+    "status": "current"
+  },
+  "hwIplpmIntfConfigRowStatus": {
+    "class": "objecttype",
+    "description": "Used for controlling the creation and deletion of this row.",
+    "maxaccess": "read-create",
+    "name": "hwIplpmIntfConfigRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.1.2.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIplpmIntfConfigTable": {
+    "class": "objecttype",
+    "description": "IPLPM configuration information for a link loss measure instance.",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmIntfConfigTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.1.2.1",
+    "status": "current"
+  },
+  "hwIplpmIntfIfIndex": {
+    "class": "objecttype",
+    "description": "The port index of the link loss measure.",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmIntfIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.1.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmIntfInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "interval10s"
+      }
+    },
+    "description": "This object indicates that interval of link loss measure is \u0027interval1s(1)\u0027 or \u0027interval10s(10)\u0027 or \u0027interval60s(60)\u0027 or \u0027interval600s(600)\u0027.",
+    "maxaccess": "read-write",
+    "name": "hwIplpmIntfInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.1.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interval10s": 10,
+          "interval1s": 1,
+          "interval600s": 600,
+          "interval60s": 60
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIplpmIntfLossMeasureAlarmEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disabled"
+      }
+    },
+    "description": "This object indicates that the link loss measure alarm function is \u0027enabled(1)\u0027 or \u0027disabled(2)\u0027.",
+    "maxaccess": "read-write",
+    "name": "hwIplpmIntfLossMeasureAlarmEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.1.2.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIplpmIntfLossMeasureEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disabled"
+      }
+    },
+    "description": "This object indicates that the link loss measure function is \u0027enabled(1)\u0027 or \u0027disabled(2)\u0027.",
+    "maxaccess": "read-write",
+    "name": "hwIplpmIntfLossMeasureEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.1.2.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIplpmIpRouteSearchEntry": {
+    "class": "objecttype",
+    "description": "IP routing entry which found by destination IP address and vpn instance ID.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmDestIpAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmDestMask"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmDestVrf"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmIpRouteSearchEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.4.1",
+    "status": "current"
+  },
+  "hwIplpmIpRouteSearchTable": {
+    "class": "objecttype",
+    "description": "This table contains IP routing information which found by destination IP address and vpn instance ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmIpRouteSearchTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.4",
+    "status": "current"
+  },
+  "hwIplpmLinkBackwardLossPkts": {
+    "class": "objecttype",
+    "description": "The object indicates the number of backward loss packets for link loss measure.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmLinkBackwardLossPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.5.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIplpmLinkBackwardLossRatio": {
+    "class": "objecttype",
+    "description": "The object indicates the ratio of backward loss packets for link loss measure.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmLinkBackwardLossRatio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.5.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmLinkBackwardLossRatioMax": {
+    "class": "objecttype",
+    "description": "The maximum loss ratio of link backward measure during a time.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmLinkBackwardLossRatioMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.3.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmLinkBackwardLossRatioMin": {
+    "class": "objecttype",
+    "description": "The minimum loss ratio of link backward measure during a time.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmLinkBackwardLossRatioMin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.3.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmLinkBackwardTotalLossPkts": {
+    "class": "objecttype",
+    "description": "The loss packets number of link backward measure during a time.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmLinkBackwardTotalLossPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.3.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIplpmLinkBackwardTotalRecvPkts": {
+    "class": "objecttype",
+    "description": "The received packets number of link backward measure during a time.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmLinkBackwardTotalRecvPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.3.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIplpmLinkForwardLossPkts": {
+    "class": "objecttype",
+    "description": "The object indicates the number of forward loss packets for link loss measure.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmLinkForwardLossPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.5.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIplpmLinkForwardLossRatio": {
+    "class": "objecttype",
+    "description": "The object indicates the ratio of forward loss packets for link loss measure.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmLinkForwardLossRatio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.5.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmLinkForwardLossRatioExceed": {
+    "class": "notificationtype",
+    "description": "A hwIplpmLinkForwardLossRatioExceed trap is sent when the link forward loss ratio exceeds the uppper threshold in continuous five test intervals. ",
+    "name": "hwIplpmLinkForwardLossRatioExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkForwardLossPkts"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkForwardLossRatio"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmPortQosQ0LossRatio"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmPortQosQ1LossRatio"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmPortQosQ2LossRatio"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmPortQosQ3LossRatio"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmPortQosQ4LossRatio"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmPortQosQ5LossRatio"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmPortQosQ6LossRatio"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmPortQosQ7LossRatio"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmPortUserQueLossRatio"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmPortOutputLossRatio"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkLatestPeriodNo"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.328.2.3",
+    "status": "current"
+  },
+  "hwIplpmLinkForwardLossRatioMax": {
+    "class": "objecttype",
+    "description": "The maximum loss ratio of link forward measure during a time.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmLinkForwardLossRatioMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.3.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmLinkForwardLossRatioMin": {
+    "class": "objecttype",
+    "description": "The minimum loss ratio of link forward measure during a time.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmLinkForwardLossRatioMin",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.3.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmLinkForwardLossRatioRecovery": {
+    "class": "notificationtype",
+    "description": "A hwIplpmLinkForwardLossRatioRecovery trap is sent when the link forward loss ratio is under the lower threshold in continuous five test intervals. ",
+    "name": "hwIplpmLinkForwardLossRatioRecovery",
+    "objects": [
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkForwardLossPkts"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkForwardLossRatio"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkLatestPeriodNo"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.328.2.4",
+    "status": "current"
+  },
+  "hwIplpmLinkForwardTotalLossPkts": {
+    "class": "objecttype",
+    "description": "The loss packets number of link forward measure during a time.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmLinkForwardTotalLossPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.3.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIplpmLinkForwardTotalRecvPkts": {
+    "class": "objecttype",
+    "description": "The received packets number of link forward measure during a time.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmLinkForwardTotalRecvPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.3.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIplpmLinkHisRecordEndTime": {
+    "class": "objecttype",
+    "description": "The end time of a link loss history record.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmLinkHisRecordEndTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.3.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIplpmLinkHisRecordEntryEntry": {
+    "class": "objecttype",
+    "description": "IPLPM link loss measure history record.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmIntfIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkHisRecordNo"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmLinkHisRecordEntryEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.3.2.1",
+    "status": "current"
+  },
+  "hwIplpmLinkHisRecordEntryTable": {
+    "class": "objecttype",
+    "description": "The table contains link loss measure history record.",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmLinkHisRecordEntryTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.3.2",
+    "status": "current"
+  },
+  "hwIplpmLinkHisRecordNo": {
+    "class": "objecttype",
+    "description": "The history record number of link loss measure.",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmLinkHisRecordNo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.3.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmLinkHisRecordStartTime": {
+    "class": "objecttype",
+    "description": "The start time of a link loss history record.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmLinkHisRecordStartTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.3.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIplpmLinkLatestHisRecordNo": {
+    "class": "objecttype",
+    "description": "The object identifies the latest history record number of a link loss measure instance. The value of -1 means it has not created history record.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmLinkLatestHisRecordNo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmLinkLatestPeriodNo": {
+    "class": "objecttype",
+    "description": "The object identifies the latest period number of a link loss measure instance.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmLinkLatestPeriodNo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIplpmLinkLossStatsEntry": {
+    "class": "objecttype",
+    "description": "IPLPM link loss measure statistics.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmIntfIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkPeriodHigh"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkPeriodLow"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmLinkLossStatsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.5.1",
+    "status": "current"
+  },
+  "hwIplpmLinkLossStatsErrInfo": {
+    "class": "objecttype",
+    "description": "Error information of a link loss statistics.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmLinkLossStatsErrInfo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWIplpmLossStatsErrorInfo"
+    }
+  },
+  "hwIplpmLinkLossStatsTable": {
+    "class": "objecttype",
+    "description": "The table contains link loss measure information.",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmLinkLossStatsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.5",
+    "status": "current"
+  },
+  "hwIplpmLinkPeriodClock": {
+    "class": "objecttype",
+    "description": "The string object indicates the time and data for a link loss measure.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmLinkPeriodClock",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIplpmLinkPeriodHigh": {
+    "class": "objecttype",
+    "description": "The high period number of a link loss statistics.",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmLinkPeriodHigh",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIplpmLinkPeriodLow": {
+    "class": "objecttype",
+    "description": "The low period number of a link loss statistics.",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmLinkPeriodLow",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIplpmLinkPeriodNoEntry": {
+    "class": "objecttype",
+    "description": "The table contains link loss period number information.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmIntfIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmLinkPeriodNoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.4.1",
+    "status": "current"
+  },
+  "hwIplpmLinkPeriodNoTable": {
+    "class": "objecttype",
+    "description": "The table contains link loss period number information.",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmLinkPeriodNoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.4",
+    "status": "current"
+  },
+  "hwIplpmLinkValidStatDataNum": {
+    "class": "objecttype",
+    "description": "The valid statistics number of a link loss history record.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmLinkValidStatDataNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.3.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmLocalIfIndex": {
+    "class": "objecttype",
+    "description": "The interface index to which this entity\u0027s local IP address pertains.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmLocalIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmLocalIfType": {
+    "class": "objecttype",
+    "description": "The interface type to which this entity\u0027s local IP address pertains.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmLocalIfType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethernet": 1,
+          "ethtrunk": 2,
+          "other": 4,
+          "vlanif": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIplpmLocalIfVrf": {
+    "class": "objecttype",
+    "description": "The vpn instance ID to which this entry\u0027s IP address binds.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmLocalIfVrf",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmLocalIpAddress": {
+    "class": "objecttype",
+    "description": "The IP address to which this entry\u0027s addressing information pertains.",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmLocalIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIplpmLocalIpSearchEntry": {
+    "class": "objecttype",
+    "description": "This entry contains local IP address information of this entity.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLocalIpAddress"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmLocalIpSearchEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.3.1",
+    "status": "current"
+  },
+  "hwIplpmLocalIpSearchTable": {
+    "class": "objecttype",
+    "description": "This table contains local IP address information of this entity.",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmLocalIpSearchTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.3",
+    "status": "current"
+  },
+  "hwIplpmLocalPortList": {
+    "class": "objecttype",
+    "description": "The interface index list to which this entity\u0027s local IP address pertains.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmLocalPortList",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIplpmLossMeasureAlarmEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disabled"
+      }
+    },
+    "description": "This object indicates that the global loss measure alarm function is \u0027enabled(1)\u0027 or \u0027disabled(2)\u0027.",
+    "maxaccess": "read-write",
+    "name": "hwIplpmLossMeasureAlarmEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIplpmLossMeasureColorFlag": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32"
+      }
+    },
+    "description": "This value indicates the bits of an IP packet used for color measurement. The character \u00271\u0027 represents the bit0 of the FLAGS byte. The character \u00272\u0027 represents the bit6 of the TOS byte. The character \u00273\u0027 represents the bit7 of the TOS byte.",
+    "maxaccess": "read-write",
+    "name": "hwIplpmLossMeasureColorFlag",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "flagsBit0": 1,
+          "tosBit6": 2,
+          "tosBit7": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIplpmLossMeasureEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disabled"
+      }
+    },
+    "description": "This object indicates that the global loss measure function is \u0027enabled(1)\u0027 or \u0027disabled(2)\u0027.",
+    "maxaccess": "read-write",
+    "name": "hwIplpmLossMeasureEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIplpmLossMeasureInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "interval10s"
+      }
+    },
+    "description": "This object indicates that interval of global loss measure is \u0027interval1s(1)\u0027 or \u0027interval10s(10)\u0027 or \u0027interval60s(60)\u0027 or \u0027interval600s(600)\u0027.",
+    "maxaccess": "read-write",
+    "name": "hwIplpmLossMeasureInterval",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interval10s": 10,
+          "interval1s": 1,
+          "interval600s": 600,
+          "interval60s": 60
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIplpmMib": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "This MIB describes objects to manage IPLPM (IP Local Performance Monitoring). ",
+    "lastupdated": "201404252000Z",
+    "name": "hwIplpmMib",
+    "oid": "1.3.6.1.4.1.2011.5.25.328",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "Import hwIplpmMib file at 2014-04-25",
+        "revision": "2014-04-25 20:00"
+      },
+      {
+        "description": "Import hwIplpmMib file at 2014-03-19",
+        "revision": "2013-10-25 20:00"
+      }
+    ]
+  },
+  "hwIplpmNetAddress": {
+    "class": "objecttype",
+    "description": "The IP address which used to find gateway information.",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmNetAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIplpmNetIfAddress": {
+    "class": "objecttype",
+    "description": "The IP address of interface to which this entry pertains.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmNetIfAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIplpmNetIfHostAddress": {
+    "class": "objecttype",
+    "description": "The next host IP address to which this entry pertains.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmNetIfHostAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIplpmNetIfIndex": {
+    "class": "objecttype",
+    "description": "The interface index to which this entry pertains.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmNetIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmNetIfMacAddress": {
+    "class": "objecttype",
+    "description": "The mac address of interface to which this entry pertains.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmNetIfMacAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIplpmNetIfMask": {
+    "class": "objecttype",
+    "description": "The mask of interface to which this entry pertains.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmNetIfMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIplpmNetIfName": {
+    "class": "objecttype",
+    "description": "The interface name to which this entry pertains.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmNetIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIplpmNetIfVlan": {
+    "class": "objecttype",
+    "description": "The vlan of interface to which this entry pertains.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmNetIfVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmNetIfVpnName": {
+    "class": "objecttype",
+    "description": "The vpn name of interface to which this entry pertains.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmNetIfVpnName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIplpmNetIfVrf": {
+    "class": "objecttype",
+    "description": "The vpn instance ID of interface to which this entry pertains.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmNetIfVrf",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmNetIfVrrpMac": {
+    "class": "objecttype",
+    "description": "The vrrp virtual mac address to which this entry pertains.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmNetIfVrrpMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIplpmNetIfVrrpState": {
+    "class": "objecttype",
+    "description": "The vrrp state to which this entry pertains.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmNetIfVrrpState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backup": 2,
+          "initialize": 1,
+          "master": 3,
+          "notexist": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIplpmNetIfVrrpVip": {
+    "class": "objecttype",
+    "description": "The vrrp virtual IP address to which this entry pertains.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmNetIfVrrpVip",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIplpmNetMask": {
+    "class": "objecttype",
+    "description": "The mask which used to find gateway information.",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmNetMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIplpmNetSystemMac": {
+    "class": "objecttype",
+    "description": "The system mac address of the device.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmNetSystemMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIplpmObjects": {
+    "class": "objectidentity",
+    "name": "hwIplpmObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1"
+  },
+  "hwIplpmOutPortIfIndex": {
+    "class": "objecttype",
+    "description": "The physical interface ifindex to which this entry\u0027s information pertains.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmOutPortIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmPortFlowStatsEntry": {
+    "class": "objecttype",
+    "description": "The table contains loss measure information of port.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmIntfIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkPeriodHigh"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkPeriodLow"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmPortFlowStatsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.7.1",
+    "status": "current"
+  },
+  "hwIplpmPortFlowStatsTable": {
+    "class": "objecttype",
+    "description": "The table contains loss measure information of port.",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmPortFlowStatsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.7",
+    "status": "current"
+  },
+  "hwIplpmPortInputLossRatio": {
+    "class": "objecttype",
+    "description": "The object indicates the input loss ratio of port.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmPortInputLossRatio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmPortOutputLossRatio": {
+    "class": "objecttype",
+    "description": "The object indicates the output loss ratio of port.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmPortOutputLossRatio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmPortQosQ0LossRatio": {
+    "class": "objecttype",
+    "description": "The object indicates the loss ratio of qos queue 0.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmPortQosQ0LossRatio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmPortQosQ1LossRatio": {
+    "class": "objecttype",
+    "description": "The object indicates the loss ratio of qos queue 1.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmPortQosQ1LossRatio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmPortQosQ2LossRatio": {
+    "class": "objecttype",
+    "description": "The object indicates the loss ratio of qos queue 2.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmPortQosQ2LossRatio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmPortQosQ3LossRatio": {
+    "class": "objecttype",
+    "description": "The object indicates the loss ratio of qos queue 3.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmPortQosQ3LossRatio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmPortQosQ4LossRatio": {
+    "class": "objecttype",
+    "description": "The object indicates the loss ratio of qos queue 4.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmPortQosQ4LossRatio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmPortQosQ5LossRatio": {
+    "class": "objecttype",
+    "description": "The object indicates the loss ratio of qos queue 5.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmPortQosQ5LossRatio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.6.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmPortQosQ6LossRatio": {
+    "class": "objecttype",
+    "description": "The object indicates the loss ratio of qos queue 6.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmPortQosQ6LossRatio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.6.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmPortQosQ7LossRatio": {
+    "class": "objecttype",
+    "description": "The object indicates the loss ratio of qos queue 7.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmPortQosQ7LossRatio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.6.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmPortQosQueStatsEntry": {
+    "class": "objecttype",
+    "description": "The table contains loss measure information of qos queue.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmIntfIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkPeriodHigh"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkPeriodLow"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmPortQosQueStatsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.6.1",
+    "status": "current"
+  },
+  "hwIplpmPortQosQueStatsTable": {
+    "class": "objecttype",
+    "description": "The table contains loss measure information of qos queue.",
+    "maxaccess": "not-accessible",
+    "name": "hwIplpmPortQosQueStatsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.6",
+    "status": "current"
+  },
+  "hwIplpmPortUserQueLossRatio": {
+    "class": "objecttype",
+    "description": "The object indicates the loss ratio of user queue.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmPortUserQueLossRatio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2.6.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmRouteDstAddr": {
+    "class": "objecttype",
+    "description": "The destination IP address to which this entry\u0027s information pertains.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmRouteDstAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIplpmRouteDstMask": {
+    "class": "objecttype",
+    "description": "The mask to which this entry\u0027s information pertains.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmRouteDstMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIplpmRouteIfIndex": {
+    "class": "objecttype",
+    "description": "The logic interface ifindex to which this entry\u0027s information pertains.",
+    "maxaccess": "read-only",
+    "name": "hwIplpmRouteIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.4.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIplpmStatistics": {
+    "class": "objectidentity",
+    "name": "hwIplpmStatistics",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.1.2"
+  },
+  "hwIplpmStatisticsGroup": {
+    "class": "objectgroup",
+    "description": "The collection of objects which are used to represent the IPLPM test instance statistics.",
+    "name": "hwIplpmStatisticsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkPeriodClock"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkForwardLossPkts"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkForwardLossRatio"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkBackwardLossPkts"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkLossStatsErrInfo"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmBoardPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmPortUserQueLossRatio"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkBackwardLossRatio"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmGlobalLossStatsErrInfo"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmGlobalPeriodClock"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmGlobalLossPkts"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmGlobalLossRatio"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmPortQosQ0LossRatio"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmPortQosQ1LossRatio"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmPortQosQ2LossRatio"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmPortQosQ3LossRatio"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmPortQosQ4LossRatio"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmPortQosQ5LossRatio"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmPortQosQ6LossRatio"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmPortQosQ7LossRatio"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmPortInputLossRatio"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmPortOutputLossRatio"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmGlobalLatestPeriodNo"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmGlobalLatestHisRecordNo"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkLatestPeriodNo"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkLatestHisRecordNo"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.328.3.3.3",
+    "status": "current"
+  },
+  "hwIplpmTraps": {
+    "class": "objectidentity",
+    "name": "hwIplpmTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.328.2"
+  },
+  "hwIplpmTrapsGroup": {
+    "class": "notificationgroup",
+    "description": "The collection of objects which are used to represent the IPLPM traps.",
+    "name": "hwIplpmTrapsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkForwardLossRatioExceed"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmLinkForwardLossRatioRecovery"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmGlobalLossRatioRecovery"
+      },
+      {
+        "module": "HUAWEI-IPLPM-MIB",
+        "object": "hwIplpmGlobalLossRatioExceed"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.328.3.3.6",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Counter32",
+      "TimeTicks",
+      "Gauge32",
+      "Unsigned32",
+      "Counter64",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "iso",
+      "Bits",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-IPLPM-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:37 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-IPLPM-MIB"
+  }
+}

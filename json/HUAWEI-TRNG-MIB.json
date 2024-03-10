@@ -1,0 +1,482 @@
+{
+  "hwTRNG": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "The mib is used for configuring time range. When configuring the ACL rule, if you need to specify the time for the ACL rule to take effect, you need to run this command to configure a time range before specifying the time. After that, you can specify the time for an ACL to take effect by referring the time range name when configuring the ACL rule.",
+    "lastupdated": "201103220000Z",
+    "name": "hwTRNG",
+    "oid": "1.3.6.1.4.1.2011.5.25.13",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "V1.01, modified the description of hwTimerangePeriodicEndTimes. modified the description of hwTrngCreateTimerangeTable, hwTrngAbsoluteTable and hwTrngPeriodicTable . modified the errors of the MIB file. modified the description of leaves. modified the datatype definition and the format of the MIB script.",
+        "revision": "2011-03-22 00:00"
+      },
+      {
+        "description": "V1.00, initial revision of this MIB module.",
+        "revision": "2003-04-11 00:00"
+      }
+    ]
+  },
+  "hwTRNGGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing mandatory time-range information.",
+    "name": "hwTRNGGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTrngName"
+      },
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTrngValidFlag"
+      },
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTrngCreateRowStatus"
+      },
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTimerangeAbsoluteStartTime"
+      },
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTimerangeAbsoluteEndTime"
+      },
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTimerangeAbsolueRowStatus"
+      },
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTrngPeriodicDayofWeek"
+      },
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTimerangePeriodicStartTime"
+      },
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTimerangePeriodicEndTime"
+      },
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTimerangePeriodicRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.13.3.2.1",
+    "status": "current"
+  },
+  "hwTRNGMibCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for entities which implement the Huawei Time-range MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTRNGGroup"
+      }
+    ],
+    "name": "hwTRNGMibCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.3.1.1",
+    "status": "current"
+  },
+  "hwTRNGMibCompliances": {
+    "class": "objectidentity",
+    "name": "hwTRNGMibCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.3.1"
+  },
+  "hwTRNGMibConformance": {
+    "class": "objectidentity",
+    "name": "hwTRNGMibConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.3"
+  },
+  "hwTRNGMibGroups": {
+    "class": "objectidentity",
+    "name": "hwTRNGMibGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.3.2"
+  },
+  "hwTRNGMibObjects": {
+    "class": "objectidentity",
+    "name": "hwTRNGMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1"
+  },
+  "hwTimerangeAbsolueRowStatus": {
+    "class": "objecttype",
+    "description": "Indicates the row status. Options: 1. active(1) -when this leaf is queried, the value is fixed to active(1). 2. createAndGo(4) -add an absolute time range 3. destroy(6) -delete an absolute time range It is used for adding or deleting an absolute time range. To add an absolute time range, enter hwTrngAbsoluteStartTime and set hwTrngAbsolueRowStatus to createAndGo(4). hwTrngAbsoluteEndTime is optional. To delete an absolute time range, set hwTrngAbsolueRowStatus to destroy(6). When this leaf is queried, the value is fixed to active(1). ",
+    "maxaccess": "read-create",
+    "name": "hwTimerangeAbsolueRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwTimerangeAbsoluteEndTime": {
+    "class": "objecttype",
+    "description": "Indicates the end time of an absolute time range. The format is the same as that of hwTrngAbsoluteStartTime. The value of the end time must be larger than that of the start time. If the value is not specified, the system uses 2099/12/31 23:59 by default. ",
+    "maxaccess": "read-create",
+    "name": "hwTimerangeAbsoluteEndTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwTimerangeAbsoluteStartTime": {
+    "class": "objecttype",
+    "description": "Indicates the start time of an absolute time range. It is an 8-byte hexadecimal numeral, where, the first two bytes indicate the year, the third byte indicates the month, the fourth byte indicates the day, the fifth byte indicates the hour, the six byte indicates the minute, and the seventh and eighth digits are reserved, which are filled in 0. For example, if the start time is 2010-1-10,8:10, the value is presented as 0x07 0xDA 0x01 0x0A 0x08 0x0A 0x00 0x00. The time range that the device can identify is 1970/01/01 00:00-2099/12/31 23:59. Therefore, the time value must be within the time range. ",
+    "maxaccess": "read-create",
+    "name": "hwTimerangeAbsoluteStartTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwTimerangePeriodicEndTime": {
+    "class": "objecttype",
+    "description": "Indicates the end time of a periodic time range. The format is the same as that of hwTrngPeriodicStartTime. The value of the end time must be larger than that of the start time. The value must be from 00:00 to 24:00. The 7th byte is used only in the case of 23: 59: 60 to indicate the time 24: 00. ",
+    "maxaccess": "read-create",
+    "name": "hwTimerangePeriodicEndTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwTimerangePeriodicRowStatus": {
+    "class": "objecttype",
+    "description": "Indicates the row status. Options: 1. active(1) -when this leaf is queried, the value is fixed to active(1). 2. createAndGo(4) -add a relative time range 3. destroy(6) -delete a relative time range It is used for adding or deleting a relative time range. To add a relative time range, enter hwTrngPeriodicStartTime and hwTrngPeriodicEndTime, and set hwTrngPeriodicRowStatus to createAndGo(4). To delete a relative time range, set hwTrngAbsolueRowStatus to destroy(6). When this leaf is queried, the value is fixed to active(1). ",
+    "maxaccess": "read-create",
+    "name": "hwTimerangePeriodicRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwTimerangePeriodicStartTime": {
+    "class": "objecttype",
+    "description": "Indicates the start time of a periodic time range. The format is the same as that of hwTrngAbsoluteStartTime in hwTrngAbsoluteTable. The periodic time needs only the hour and minute values, and thus only the fifth and sixth bytes are used, where, the fifth byte indicates the hour value of the start time and the sixth byte indicates the minute value. Other bytes are reserved and are filled in 0. For example, if the start time is 08:30, the value is presented as 0x00 0x00 0x00 0x00 0x08 0x1E 0x00 0x00. The time must be from 00:00 to 24:00. ",
+    "maxaccess": "read-create",
+    "name": "hwTimerangePeriodicStartTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwTrngAbsoluteEntry": {
+    "class": "objecttype",
+    "description": "Describes an absolute time range. An absolute time range refers to the time range without a period. The time range is active from the specified start time and date to the end time and date. Otherwise, the time range is inactive. The indexes of this entry are hwTrngAbsoluteNameIndex and hwTrngAbsoluteSubIndex. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTrngAbsoluteNameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTrngAbsoluteSubIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTrngAbsoluteEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.2.1",
+    "status": "current"
+  },
+  "hwTrngAbsoluteNameIndex": {
+    "class": "objecttype",
+    "description": "Uniquely identifies a time range. Range: 1-256 The specified time range must be created in hwTrngCreateTimerangeTable. ",
+    "maxaccess": "not-accessible",
+    "name": "hwTrngAbsoluteNameIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 256,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTrngAbsoluteSubIndex": {
+    "class": "objecttype",
+    "description": "Uniquely identifies an absolute time range. Range: 1-12 ",
+    "maxaccess": "not-accessible",
+    "name": "hwTrngAbsoluteSubIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 12,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTrngAbsoluteTable": {
+    "class": "objecttype",
+    "description": "Describes an absolute time range. An absolute time range refers to the time range without a period. The time range is active from the specified start time and date to the end time and date. Otherwise, the time range is inactive. The indexes of this table are hwTrngAbsoluteNameIndex and hwTrngAbsoluteSubIndex. ",
+    "maxaccess": "not-accessible",
+    "name": "hwTrngAbsoluteTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.2",
+    "status": "current"
+  },
+  "hwTrngCreateRowStatus": {
+    "class": "objecttype",
+    "description": "Indicates the row status. Options: 1. active(1) -when this leaf is queried, the value is fixed to active(1). 2. createAndGo(4) -add a time range 3. destroy(6) -delete a time range It is used for adding or deleting a time range. To add a time range, you must bind hwTrngName and set hwTrngCreateRowStatus to createAndGo(4). To delete a time range, set hwTrngCreateRowStatus to destroy(6). When this leaf is queried, the value is fixed to active(1). ",
+    "maxaccess": "read-create",
+    "name": "hwTrngCreateRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwTrngCreateTimerangeEntry": {
+    "class": "objecttype",
+    "description": "Describes a time range. When configuring an ACL rule, set its effective time. To do so, configurate a time range first. After the configuration, the effective time is specified by referencing the time range when an ACL rule is being configured. An ACL time range can be a relative time range and an absolute time range. The index of this entry is hwTrngIndex. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTrngIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTrngCreateTimerangeEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.1.1",
+    "status": "current"
+  },
+  "hwTrngCreateTimerangeTable": {
+    "class": "objecttype",
+    "description": "Describes a time range. When configuring an ACL rule, set its effective time. To do so, configurate a time range first. After the configuration, the effective time is specified by referencing the time range when an ACL rule is being configured. An ACL time range can be a relative time range and an absolute time range. The index of this table is hwTrngIndex. ",
+    "maxaccess": "not-accessible",
+    "name": "hwTrngCreateTimerangeTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.1",
+    "status": "current"
+  },
+  "hwTrngIndex": {
+    "class": "objecttype",
+    "description": "Uniquely identifies a time range. Range: 1-256 ",
+    "maxaccess": "not-accessible",
+    "name": "hwTrngIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 256,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTrngName": {
+    "class": "objecttype",
+    "description": "Indicates the character string of a time range name. It is used to identify different time ranges. The character string consists of 1-32 characters of letters and digits. No other characters can be included. ",
+    "maxaccess": "read-create",
+    "name": "hwTrngName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwTrngPeriodicDayofWeek": {
+    "class": "objecttype",
+    "description": "Indicates the day of week within the periodic time range. The values are as follows: Sunday: 0x01 Monday: 0x02 Tuesday: 0x04 Wednesday: 0x08 Thursday: 0x10 Friday: 0x20 Saturday: 0x40 If the value is set to Sunday and Monday, perform the | operation to the values of Sunday and Monday, and the value is 0x03, and so on. ",
+    "maxaccess": "read-create",
+    "name": "hwTrngPeriodicDayofWeek",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 127,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTrngPeriodicEntry": {
+    "class": "objecttype",
+    "description": "Describes a relative time range. A relative time range refers to the time range with a period. When a time range is already created, only the specific time is specified but the date is set to a day from Monday to Sunday. The time range is active at the specified time and date. Otherwise, the time range is inactive. The indexes of this entry are hwTrngPeriodicNameIndex and hwTrngPeriodicSubIndex. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTrngPeriodicNameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-TRNG-MIB",
+        "object": "hwTrngPeriodicSubIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTrngPeriodicEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.3.1",
+    "status": "current"
+  },
+  "hwTrngPeriodicNameIndex": {
+    "class": "objecttype",
+    "description": "Uniquely identifies a relative time range. Range: 1-256 The specified time range must be created in hwTrngCreateTimerangeTable. ",
+    "maxaccess": "not-accessible",
+    "name": "hwTrngPeriodicNameIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 256,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTrngPeriodicSubIndex": {
+    "class": "objecttype",
+    "description": "Uniquely identifies a relative time range. Range: 1-32 ",
+    "maxaccess": "not-accessible",
+    "name": "hwTrngPeriodicSubIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTrngPeriodicTable": {
+    "class": "objecttype",
+    "description": "Describes a relative time range. A relative time range refers to the time range with a period. When a time range is already created, only the specific time is specified but the date is set to a day from Monday to Sunday. The time range is active at the specified time and date. Otherwise, the time range is inactive. The indexes of this table are hwTrngPeriodicNameIndex and hwTrngPeriodicSubIndex. ",
+    "maxaccess": "not-accessible",
+    "name": "hwTrngPeriodicTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.3",
+    "status": "current"
+  },
+  "hwTrngValidFlag": {
+    "class": "objecttype",
+    "description": "Describes whether the current time range is valid, that is, whether the current time is within the specified time range. Options: 1. true(1) -if the current time is within the specified time range, the value is true(1), which indicates validity. 2. false(2) -if the current time is not within the specified time range, the value is false(2), which indicates invalidity. ",
+    "maxaccess": "read-only",
+    "name": "hwTrngValidFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.13.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32",
+      "Integer32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "iso",
+      "IpAddress",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TruthValue"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-TRNG-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:12 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-TRNG-MIB"
+  }
+}

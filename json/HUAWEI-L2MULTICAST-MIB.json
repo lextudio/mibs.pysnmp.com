@@ -1,0 +1,4334 @@
+{
+  "HWPortType": {
+    "class": "textualconvention",
+    "description": "type of port : invalid(1):invalid type, pw(2) : pw type, switchport(3) : switchport type, dot1q(4): dot1q sub-interface type, termination(5): termination sub-interface type",
+    "name": "HWPortType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dot1q": 4,
+          "invalid": 1,
+          "pw": 2,
+          "switchport": 3,
+          "termination": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwChnlCfgChnlName": {
+    "class": "objecttype",
+    "description": "The channel name.",
+    "maxaccess": "not-accessible",
+    "name": "hwChnlCfgChnlName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.9.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwChnlCfgChnlType": {
+    "class": "objecttype",
+    "description": "The channel type: 1: SSM 2: ASM ",
+    "maxaccess": "read-create",
+    "name": "hwChnlCfgChnlType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.9.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "asm": 2,
+          "ssm": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwChnlCfgGroupChnlName": {
+    "class": "objecttype",
+    "description": "The channel name.",
+    "maxaccess": "not-accessible",
+    "name": "hwChnlCfgGroupChnlName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.15.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwChnlCfgRowStatus": {
+    "class": "objecttype",
+    "description": "The row status.",
+    "maxaccess": "read-create",
+    "name": "hwChnlCfgRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.9.1.1.100",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwChnlCfgVlanIndex": {
+    "class": "objecttype",
+    "description": "The VLAN ID, which is the configuration index in a VLAN. If a VSI is specified, the value is 0. If both hwChnlCfgVlanIndex and hwChnlCfgVSIName are invalid, the configuration is global. The value ranges from 1 to 4095. ",
+    "maxaccess": "not-accessible",
+    "name": "hwChnlCfgVlanIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.9.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwChnlCfgVsiName": {
+    "class": "objecttype",
+    "description": "The name of a VSI. If a VLAN is specified, the value is 0. If both hwChnlCfgVlanIndex and hwChnlCfgVSIName are invalid, the configuration is global.",
+    "maxaccess": "not-accessible",
+    "name": "hwChnlCfgVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.9.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwChnlDenyCfg": {
+    "class": "objecttype",
+    "description": "Whether discard unspecified channel: 1: not discard 2: discard ",
+    "maxaccess": "read-create",
+    "name": "hwChnlDenyCfg",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.17.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discard": 2,
+          "forward": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwChnlDenyCfgRowStatus": {
+    "class": "objecttype",
+    "description": "The row status.",
+    "maxaccess": "read-create",
+    "name": "hwChnlDenyCfgRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.17.1.1.100",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwChnlDenyCfgVlanIndex": {
+    "class": "objecttype",
+    "description": "The VLAN ID, which is the configuration index in a VLAN. If a VSI is specified, the value is 4095. If both hwChnlCfgVlanIndex and hwChnlCfgVSIName are invalid, the configuration is global. The value ranges from 1 to 4095. ",
+    "maxaccess": "not-accessible",
+    "name": "hwChnlDenyCfgVlanIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.17.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwChnlDenyCfgVsiName": {
+    "class": "objecttype",
+    "description": "The name of a VSI. If a VLAN is specified, the value is 0. If both hwChnlCfgVlanIndex and hwChnlCfgVSIName are invalid, the configuration is global.",
+    "maxaccess": "not-accessible",
+    "name": "hwChnlDenyCfgVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.17.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwChnlGroupCfgGroupAddress": {
+    "class": "objecttype",
+    "description": "The group address of a multicast group. In the case of MAC forwarding, the group address is the smallest of 32 IP addresses.",
+    "maxaccess": "not-accessible",
+    "name": "hwChnlGroupCfgGroupAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.15.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwChnlGroupCfgGroupLen": {
+    "class": "objecttype",
+    "description": "The mask length of a multicast group.",
+    "maxaccess": "not-accessible",
+    "name": "hwChnlGroupCfgGroupLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.15.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32,
+            "min": 4
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwChnlGroupCfgPerBand": {
+    "class": "objecttype",
+    "description": "The bandwidth of a multicast group.",
+    "maxaccess": "read-create",
+    "name": "hwChnlGroupCfgPerBand",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.15.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 131072,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwChnlGroupCfgRowStatus": {
+    "class": "objecttype",
+    "description": "The row status.",
+    "maxaccess": "read-create",
+    "name": "hwChnlGroupCfgRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.15.1.1.100",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwChnlGroupCfgSourceAddress": {
+    "class": "objecttype",
+    "description": "The source IP address of a multicast group.",
+    "maxaccess": "not-accessible",
+    "name": "hwChnlGroupCfgSourceAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.15.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwChnlGroupCfgSourceLen": {
+    "class": "objecttype",
+    "description": "The mask length of a multicast source address.",
+    "maxaccess": "not-accessible",
+    "name": "hwChnlGroupCfgSourceLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.15.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 32,
+            "min": 8
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwChnlGroupCfgVlanIndex": {
+    "class": "objecttype",
+    "description": "The VLAN ID, which is the configuration index in a VLAN. If a VSI is specified, the value is 4095. If both hwChnlCfgVlanIndex and hwChnlCfgVSIName are invalid, the configuration is global. The value ranges from 1 to 4095. ",
+    "maxaccess": "not-accessible",
+    "name": "hwChnlGroupCfgVlanIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.15.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwChnlGroupCfgVsiName": {
+    "class": "objecttype",
+    "description": "The name of a VSI. If a VLAN is specified, the value is 0. If both hwChnlCfgVlanIndex and hwChnlCfgVSIName are invalid, the configuration is global.",
+    "maxaccess": "not-accessible",
+    "name": "hwChnlGroupCfgVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.15.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwGroupCfgGroupAddress": {
+    "class": "objecttype",
+    "description": "The group address of a multicast group. In the case of MAC forwarding, the group address is the smallest of 32 IP addresses.",
+    "maxaccess": "not-accessible",
+    "name": "hwGroupCfgGroupAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.6.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwGroupCfgPeerAddress": {
+    "class": "objecttype",
+    "description": "The peer IP address of a PW interface. The value 0.0.0.0 indicates that the IP address is invalid.",
+    "maxaccess": "not-accessible",
+    "name": "hwGroupCfgPeerAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.6.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwGroupCfgPortCeId": {
+    "class": "objecttype",
+    "description": "The CE VID of an interface. The value ranges from 1 to 4095. The value 0 indicates that the PE VID is invalid. ",
+    "maxaccess": "not-accessible",
+    "name": "hwGroupCfgPortCeId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.6.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwGroupCfgPortIfIndex": {
+    "class": "objecttype",
+    "description": "The interface index. The value 0 indicates that the interface index is invalid.",
+    "maxaccess": "not-accessible",
+    "name": "hwGroupCfgPortIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.6.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwGroupCfgPortPeId": {
+    "class": "objecttype",
+    "description": "The PE VID of an interface. The value ranges from 1 to 4095. The value 4095 indicates that the PE VID is invalid. ",
+    "maxaccess": "not-accessible",
+    "name": "hwGroupCfgPortPeId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.6.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwGroupCfgPortType": {
+    "class": "objecttype",
+    "description": "The interface type: 1: Invalid 2: PW interface 3: L2 interface 4: Encapsulation sub-interface 5: Termination sub-interface ",
+    "maxaccess": "not-accessible",
+    "name": "hwGroupCfgPortType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.6.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWPortType"
+    }
+  },
+  "hwGroupCfgRowStatus": {
+    "class": "objecttype",
+    "description": "The row status.",
+    "maxaccess": "read-create",
+    "name": "hwGroupCfgRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.6.1.1.100",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwGroupCfgSourceAddress": {
+    "class": "objecttype",
+    "description": "The source IP address of a multicast group.",
+    "maxaccess": "not-accessible",
+    "name": "hwGroupCfgSourceAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.6.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwGroupCfgVcOrSiteId": {
+    "class": "objecttype",
+    "description": "The VC ID or SITE ID of a PW interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwGroupCfgVcOrSiteId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.6.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwGroupCfgVlanIndex": {
+    "class": "objecttype",
+    "description": "The VLAN ID, which is the configuration index in a VLAN. If a VSI is specified, the value is 4095. The value ranges from 1 to 4095. ",
+    "maxaccess": "not-accessible",
+    "name": "hwGroupCfgVlanIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.6.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwGroupCfgVsiName": {
+    "class": "objecttype",
+    "description": "The name of a VSI. If a VLAN is specified, the value is 0.",
+    "maxaccess": "not-accessible",
+    "name": "hwGroupCfgVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.6.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwGroupPolicyAclNum": {
+    "class": "objecttype",
+    "description": "The number of a basic ACL. The ACL number ranges from 2000 to 3999. The default value is 0, indicating that the value is invalid. ",
+    "maxaccess": "read-create",
+    "name": "hwGroupPolicyAclNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.16.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 3999,
+            "min": 2000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwGroupPolicyIgmpVersion": {
+    "class": "objecttype",
+    "description": "The IGMP version. The value ranges from 0 to 3. The default is 0, indicating that no version is specified. ",
+    "maxaccess": "read-create",
+    "name": "hwGroupPolicyIgmpVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.16.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "version1": 1,
+          "version2": 2,
+          "version3": 3,
+          "versionAll": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwGroupPolicyRowStatus": {
+    "class": "objecttype",
+    "description": "The row status.",
+    "maxaccess": "read-create",
+    "name": "hwGroupPolicyRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.16.1.1.100",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwGroupPolicyVlanIndex": {
+    "class": "objecttype",
+    "description": "The VLAN ID, which is the configuration index in a VLAN. If a VSI is specified, the value is 4095. The value ranges from 1 to 4095. ",
+    "maxaccess": "not-accessible",
+    "name": "hwGroupPolicyVlanIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.16.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwGroupPolicyVsiName": {
+    "class": "objecttype",
+    "description": "The name of a VSI. If a VLAN is specified, the value is 0.",
+    "maxaccess": "not-accessible",
+    "name": "hwGroupPolicyVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.16.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIgmpSnoopingEnabled": {
+    "class": "objecttype",
+    "description": "IGMP snooping is enabled or disabled in the global view: 1: enabled 2: disabled The default value is 2. ",
+    "maxaccess": "read-write",
+    "name": "hwIgmpSnoopingEnabled",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwIgspMibCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for device supporting IGMP Snooping.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwIgspSystemInfoGroup"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcCfgInfoGroup"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcStatisticsInfoGroup"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcFwdInfoGroup"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcGroupInfoGroup"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcGroupCfgInfoGroup"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcSsmSourceInfoGroup"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcPortGroupPolicyCfgInfoGroup"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcChnlCfgInfoGroup"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcLimitInfoGroup"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcPortLimitInfoGroup"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcFastChnlCfgInfoGroup"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRouterPortInfoGroup"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRouterPortCfgInfoGroup"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcChnlGroupCfgInfoGroup"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcGroupPolicyCfgInfoGroup"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcChnlDenyCfgInfoGroup"
+      }
+    ],
+    "name": "hwIgspMibCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.100.1.1",
+    "status": "current"
+  },
+  "hwIgspMibObject": {
+    "class": "objectidentity",
+    "name": "hwIgspMibObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1"
+  },
+  "hwIgspSystemInfo": {
+    "class": "objectidentity",
+    "name": "hwIgspSystemInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.1"
+  },
+  "hwIgspSystemInfoGroup": {
+    "class": "objectgroup",
+    "description": ".",
+    "name": "hwIgspSystemInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwIgmpSnoopingEnabled"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwSendQueryEnabled"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwSendQuerySourceIpAddr"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcCacTrapInterval"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.181.100.2.1",
+    "status": "current"
+  },
+  "hwL2MultiCastMIB": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": "The MIB module for IGMP Snooping feature. Internet Group Management Protocol (IGMP) is the protocol used by IPv4 end hosts to indicate their interest in receiving multicast traffic for certain multicast groups to neighboring multicast routers. IGMP Snooping is a switch protocol. A switch that implements IGMP Snooping listens to the IGMP messages exchanged between the hosts and router, then provides selective transmission of multicast traffic based on multicast mac destination address or multicast group address.",
+    "lastupdated": "200812300000Z",
+    "name": "hwL2MultiCastMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.181",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwL2mcCacTrapInterval": {
+    "class": "objecttype",
+    "description": "The CAC trap interval. The default is zero.",
+    "maxaccess": "read-write",
+    "name": "hwL2mcCacTrapInterval",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1200,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2mcCfgEntry": {
+    "class": "objecttype",
+    "description": "An entry is created for each active VLAN or VSI in the device and deleted when the VLAN or VSI becomes inactive.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcVlanIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcVsiName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.2.1.1",
+    "status": "current"
+  },
+  "hwL2mcCfgInfo": {
+    "class": "objectidentity",
+    "name": "hwL2mcCfgInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.2"
+  },
+  "hwL2mcCfgInfoGroup": {
+    "class": "objectgroup",
+    "description": ".",
+    "name": "hwL2mcCfgInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcEnabled"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRouterAgingTime"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcMaxQueryRespTime"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcLastMemQueryInterval"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcQueryInterval"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRobustCount"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcCheckRouterAlert"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcSendRouterAlert"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcIgmpVersion"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcFwdMode"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcPromptLeaveEnable"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcPromptLeaveAclNum"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRouterPortLearningEnable"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcReportSuppressEnable"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcIgmpQuerierEnable"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcIgmpSsmMappingEnable"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcSsmAclNum"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.181.100.2.2",
+    "status": "current"
+  },
+  "hwL2mcCfgTable": {
+    "class": "objecttype",
+    "description": "This table describes the configurations of IGMP snooping in a VLAN or a VSI.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.2.1",
+    "status": "current"
+  },
+  "hwL2mcCheckRouterAlert": {
+    "class": "objecttype",
+    "description": "Whether to check the router-alert of a packet. The default value is False. ",
+    "maxaccess": "read-create",
+    "name": "hwL2mcCheckRouterAlert",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.2.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwL2mcChnlCfgEntry": {
+    "class": "objecttype",
+    "description": "An entry of channel is created for each VLAN or VSI in the device create an channel.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwChnlCfgVlanIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwChnlCfgVsiName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwChnlCfgChnlName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcChnlCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.9.1.1",
+    "status": "current"
+  },
+  "hwL2mcChnlCfgInfo": {
+    "class": "objectidentity",
+    "name": "hwL2mcChnlCfgInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.9"
+  },
+  "hwL2mcChnlCfgInfoGroup": {
+    "class": "objectgroup",
+    "description": ".",
+    "name": "hwL2mcChnlCfgInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwChnlCfgChnlType"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwChnlCfgRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.181.100.2.9",
+    "status": "current"
+  },
+  "hwL2mcChnlCfgTable": {
+    "class": "objecttype",
+    "description": "This table describes the configurations of a channel.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcChnlCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.9.1",
+    "status": "current"
+  },
+  "hwL2mcChnlDenyCfgEntry": {
+    "class": "objecttype",
+    "description": "An entry of channel deny is created for each VLAN or VSI in the device create an channel.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwChnlDenyCfgVlanIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwChnlDenyCfgVsiName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcChnlDenyCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.17.1.1",
+    "status": "current"
+  },
+  "hwL2mcChnlDenyCfgInfo": {
+    "class": "objectidentity",
+    "name": "hwL2mcChnlDenyCfgInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.17"
+  },
+  "hwL2mcChnlDenyCfgInfoGroup": {
+    "class": "objectgroup",
+    "description": ".",
+    "name": "hwL2mcChnlDenyCfgInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwChnlDenyCfg"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwChnlDenyCfgRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.181.100.2.17",
+    "status": "current"
+  },
+  "hwL2mcChnlDenyCfgTable": {
+    "class": "objecttype",
+    "description": "This table describes the configurations of deny unspecified group for each VLAN or VSI, or in global.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcChnlDenyCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.17.1",
+    "status": "current"
+  },
+  "hwL2mcChnlGroupCfgEntry": {
+    "class": "objecttype",
+    "description": "An entry of channel is created for each VLAN or VSI in the device create an channel.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwChnlGroupCfgVlanIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwChnlGroupCfgVsiName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwChnlCfgGroupChnlName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwChnlGroupCfgGroupAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwChnlGroupCfgGroupLen"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwChnlGroupCfgSourceAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwChnlGroupCfgSourceLen"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcChnlGroupCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.15.1.1",
+    "status": "current"
+  },
+  "hwL2mcChnlGroupCfgInfo": {
+    "class": "objectidentity",
+    "name": "hwL2mcChnlGroupCfgInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.15"
+  },
+  "hwL2mcChnlGroupCfgInfoGroup": {
+    "class": "objectgroup",
+    "description": ".",
+    "name": "hwL2mcChnlGroupCfgInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwChnlGroupCfgPerBand"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwChnlGroupCfgRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.181.100.2.15",
+    "status": "current"
+  },
+  "hwL2mcChnlGroupCfgTable": {
+    "class": "objecttype",
+    "description": "This table describes the group configurations of a channel.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcChnlGroupCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.15.1",
+    "status": "current"
+  },
+  "hwL2mcEnabled": {
+    "class": "objecttype",
+    "description": "Whether IGMP snooping is enabled in a VLAN or a VSI: 1:enabled 2:disabled The default value is 2. ",
+    "maxaccess": "read-create",
+    "name": "hwL2mcEnabled",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwL2mcFastChnlCfgEntry": {
+    "class": "objecttype",
+    "description": "An entry is created for each IGMP snooping fast channel.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcFastChnlCfgVlanIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcFastChnlCfgVsiName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcFastChnlCfgGroupAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcFastChnlCfgGroupLen"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcFastChnlCfgSourceAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcFastChnlCfgSourceLen"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcFastChnlCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.12.1.1",
+    "status": "current"
+  },
+  "hwL2mcFastChnlCfgGroupAddress": {
+    "class": "objecttype",
+    "description": "The group address of a multicast group. In the case of MAC forwarding, the group address is the smallest of 32 IP addresses.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcFastChnlCfgGroupAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.12.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL2mcFastChnlCfgGroupLen": {
+    "class": "objecttype",
+    "description": "The mask length of a multicast group address.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcFastChnlCfgGroupLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.12.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32,
+            "min": 4
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2mcFastChnlCfgInfo": {
+    "class": "objectidentity",
+    "name": "hwL2mcFastChnlCfgInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.12"
+  },
+  "hwL2mcFastChnlCfgInfoGroup": {
+    "class": "objectgroup",
+    "description": ".",
+    "name": "hwL2mcFastChnlCfgInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcFastChnlCfgRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.181.100.2.12",
+    "status": "current"
+  },
+  "hwL2mcFastChnlCfgRowStatus": {
+    "class": "objecttype",
+    "description": "The row status.",
+    "maxaccess": "read-create",
+    "name": "hwL2mcFastChnlCfgRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.12.1.1.100",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwL2mcFastChnlCfgSourceAddress": {
+    "class": "objecttype",
+    "description": "The source IP address of a multicast group.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcFastChnlCfgSourceAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.12.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL2mcFastChnlCfgSourceLen": {
+    "class": "objecttype",
+    "description": "The mask length of a multicast source address.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcFastChnlCfgSourceLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.12.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 32,
+            "min": 8
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2mcFastChnlCfgTable": {
+    "class": "objecttype",
+    "description": "Table contains l2 multicast fast forward information for IGMP Snooping.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcFastChnlCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.12.1",
+    "status": "current"
+  },
+  "hwL2mcFastChnlCfgVlanIndex": {
+    "class": "objecttype",
+    "description": "The VLAN ID, which is the configuration index in a VLAN. If a VSI is specified, the value is 4095. The value ranges from 1 to 4095. ",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcFastChnlCfgVlanIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.12.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwL2mcFastChnlCfgVsiName": {
+    "class": "objecttype",
+    "description": "The name of a VSI. If a VLAN is specified, the value is 0.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcFastChnlCfgVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.12.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwL2mcFwdAddressType": {
+    "class": "objecttype",
+    "description": "The address type of an entry: 1: IP 2: MAC The default value is 1. ",
+    "maxaccess": "read-only",
+    "name": "hwL2mcFwdAddressType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.4.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "mac": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwL2mcFwdEntry": {
+    "class": "objecttype",
+    "description": "An entry is created for each active VLAN or VSI in the device create a forwarding table entry and delete when a forwarding table entry deleted.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcFwdVlanIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcFwdVsiName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcFwdGroupAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcFwdSourceAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcFwdPortType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcFwdPortIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcFwdPortPeId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcFwdPortCeId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcFwdPeerAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcFwdVcOrSiteId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcFwdEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.4.1.1",
+    "status": "current"
+  },
+  "hwL2mcFwdGroupAddress": {
+    "class": "objecttype",
+    "description": "The group address of a multicast group. In the case of MAC forwarding, the group address is the smallest of 32 IP addresses.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcFwdGroupAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.4.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL2mcFwdHostFlag1": {
+    "class": "objecttype",
+    "description": "The mode to create an interface on the host: 1: static 2: dynamic 3: static and dynamic 4: invalid ",
+    "maxaccess": "read-only",
+    "name": "hwL2mcFwdHostFlag1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.4.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dynamic": 2,
+          "invalid": 4,
+          "static": 1,
+          "staticDynamic": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwL2mcFwdHostFlag2": {
+    "class": "objecttype",
+    "description": "Whether an interface on the host is created through SSM-mapping: 1: non-mapping 2: mapping ",
+    "maxaccess": "read-only",
+    "name": "hwL2mcFwdHostFlag2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.4.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mapping": 2,
+          "nonMapping": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwL2mcFwdHostFlag3": {
+    "class": "objecttype",
+    "description": "The type of an interface created on a router: 1: Interface connected to the host 2: Router interface that replicates multicast data flows ",
+    "maxaccess": "read-only",
+    "name": "hwL2mcFwdHostFlag3",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.4.1.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "host": 1,
+          "router": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwL2mcFwdHostFlag4": {
+    "class": "objecttype",
+    "description": "Indicates (S, G) table created : 1: from port; 2: from static; 3: from both the default falue is 1 ",
+    "maxaccess": "read-only",
+    "name": "hwL2mcFwdHostFlag4",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.4.1.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "both": 3,
+          "port": 1,
+          "static": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwL2mcFwdInfo": {
+    "class": "objectidentity",
+    "name": "hwL2mcFwdInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.4"
+  },
+  "hwL2mcFwdInfoGroup": {
+    "class": "objectgroup",
+    "description": ".",
+    "name": "hwL2mcFwdInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcFwdAddressType"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcFwdHostFlag1"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcFwdHostFlag2"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcFwdHostFlag3"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcFwdHostFlag4"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.181.100.2.4",
+    "status": "current"
+  },
+  "hwL2mcFwdMode": {
+    "class": "objecttype",
+    "description": "The forwarding mode: 1: IP 2: MAC The default value is 1. ",
+    "maxaccess": "read-create",
+    "name": "hwL2mcFwdMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.2.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "mac": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwL2mcFwdPeerAddress": {
+    "class": "objecttype",
+    "description": "The peer IP address of a PW interface. The value 0.0.0.0 indicates that the IP address is invalid.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcFwdPeerAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.4.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL2mcFwdPortCeId": {
+    "class": "objecttype",
+    "description": "The CE VID of an interface. The value ranges from 1 to 4095. The value 4095 indicates that the CE VID is invalid. ",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcFwdPortCeId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.4.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwL2mcFwdPortIfIndex": {
+    "class": "objecttype",
+    "description": "The interface index. The value 0 indicates that the interface index is invalid.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcFwdPortIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.4.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwL2mcFwdPortPeId": {
+    "class": "objecttype",
+    "description": "The PE VID of an interface. The value ranges from 1 to 4095. The value 4095 indicates that the PE VID is invalid. ",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcFwdPortPeId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.4.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwL2mcFwdPortType": {
+    "class": "objecttype",
+    "description": "The interface type: 1: Invalid 2: PW interface 3: L2 interface 4: Encapsulation sub-interface 5: Termination sub-interface ",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcFwdPortType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.4.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWPortType"
+    }
+  },
+  "hwL2mcFwdSourceAddress": {
+    "class": "objecttype",
+    "description": "The source IP address of a multicast group.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcFwdSourceAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.4.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL2mcFwdTable": {
+    "class": "objecttype",
+    "description": "Table contains l2 multicast forward information for IGMP Snooping.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcFwdTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.4.1",
+    "status": "current"
+  },
+  "hwL2mcFwdVcOrSiteId": {
+    "class": "objecttype",
+    "description": "The VC ID or SITE ID of a PW interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcFwdVcOrSiteId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.4.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwL2mcFwdVlanIndex": {
+    "class": "objecttype",
+    "description": "The VLAN ID, which is the configuration index in a VLAN. If a VSI is specified, the value is 4095. The value ranges from 1 to 4095. ",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcFwdVlanIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.4.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwL2mcFwdVsiName": {
+    "class": "objecttype",
+    "description": "The name of a VSI. If a VLAN is specified, the value is 0.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcFwdVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.4.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwL2mcGroupCfgEntry": {
+    "class": "objecttype",
+    "description": "An entry is created for each active VLAN or VSI in the device create a static group entry and delete when a static group entry deleted.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwGroupCfgPortType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwGroupCfgPortIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwGroupCfgPortPeId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwGroupCfgPortCeId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwGroupCfgPeerAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwGroupCfgVcOrSiteId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwGroupCfgVlanIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwGroupCfgVsiName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwGroupCfgGroupAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwGroupCfgSourceAddress"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcGroupCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.6.1.1",
+    "status": "current"
+  },
+  "hwL2mcGroupCfgInfo": {
+    "class": "objectidentity",
+    "name": "hwL2mcGroupCfgInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.6"
+  },
+  "hwL2mcGroupCfgInfoGroup": {
+    "class": "objectgroup",
+    "description": ".",
+    "name": "hwL2mcGroupCfgInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwGroupCfgRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.181.100.2.6",
+    "status": "current"
+  },
+  "hwL2mcGroupCfgTable": {
+    "class": "objecttype",
+    "description": "Table contains l2 multicast static group information for IGMP Snooping.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcGroupCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.6.1",
+    "status": "current"
+  },
+  "hwL2mcGroupExpires": {
+    "class": "objecttype",
+    "description": "When the group expires in the forwarding entry, that is, the aging time of the source group.",
+    "maxaccess": "read-only",
+    "name": "hwL2mcGroupExpires",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.5.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwL2mcGroupFilterFlag": {
+    "class": "objecttype",
+    "description": "The filtering mode: 1: include 2: exclude 3: invalid ",
+    "maxaccess": "read-only",
+    "name": "hwL2mcGroupFilterFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.5.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "exclude": 2,
+          "include": 1,
+          "invalid": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwL2mcGroupGroupAddress": {
+    "class": "objecttype",
+    "description": "The IP address of a multicast group.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcGroupGroupAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.5.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL2mcGroupHostFlag1": {
+    "class": "objecttype",
+    "description": "The mode to create an interface on the host: 1: static 2: dynamic 3: static and dynamic 4: invalid ",
+    "maxaccess": "read-only",
+    "name": "hwL2mcGroupHostFlag1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.5.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dynamic": 2,
+          "invalid": 4,
+          "static": 1,
+          "staticDynamic": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwL2mcGroupHostFlag2": {
+    "class": "objecttype",
+    "description": "Whether an interface on the host is created through SSM-mapping: 1: non-mapping 2: mapping ",
+    "maxaccess": "read-only",
+    "name": "hwL2mcGroupHostFlag2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.5.1.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mapping": 2,
+          "nonMapping": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwL2mcGroupInfo": {
+    "class": "objectidentity",
+    "name": "hwL2mcGroupInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.5"
+  },
+  "hwL2mcGroupInfoEntry": {
+    "class": "objecttype",
+    "description": "An entry is created for each active VLAN or VSI in the device create a forwarding table entry and delete when a forwarding table entry deleted.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcGroupVlanIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcGroupVsiName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcGroupGroupAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcGroupSourceAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcPortType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcGroupPortIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcGroupPortPeId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcGroupPortCeId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcGroupPeerAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcGroupVcOrSiteId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcGroupInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.5.1.1",
+    "status": "current"
+  },
+  "hwL2mcGroupInfoGroup": {
+    "class": "objectgroup",
+    "description": ".",
+    "name": "hwL2mcGroupInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcSourceUpTime"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcSourceExpires"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcGroupUpTime"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcGroupExpires"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcGroupFilterFlag"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcGroupHostFlag1"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcGroupHostFlag2"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcGroupRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.181.100.2.5",
+    "status": "current"
+  },
+  "hwL2mcGroupInfoTable": {
+    "class": "objecttype",
+    "description": "Table contains l2 multicast group information for IGMP Snooping.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcGroupInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.5.1",
+    "status": "current"
+  },
+  "hwL2mcGroupPeerAddress": {
+    "class": "objecttype",
+    "description": "The peer IP address of a PW interface. The value 0.0.0.0 indicates that the IP address is invalid.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcGroupPeerAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.5.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL2mcGroupPolicyCfgEntry": {
+    "class": "objecttype",
+    "description": "An entry is created for each active VLAN or VSI in the device when a group policy added.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwGroupPolicyVlanIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwGroupPolicyVsiName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcGroupPolicyCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.16.1.1",
+    "status": "current"
+  },
+  "hwL2mcGroupPolicyCfgInfo": {
+    "class": "objectidentity",
+    "name": "hwL2mcGroupPolicyCfgInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.16"
+  },
+  "hwL2mcGroupPolicyCfgInfoGroup": {
+    "class": "objectgroup",
+    "description": ".",
+    "name": "hwL2mcGroupPolicyCfgInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwGroupPolicyAclNum"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwGroupPolicyIgmpVersion"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwGroupPolicyRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.181.100.2.16",
+    "status": "current"
+  },
+  "hwL2mcGroupPolicyCfgTable": {
+    "class": "objecttype",
+    "description": "In this table, you can query or configure a group policy to filter entries on a port.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcGroupPolicyCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.16.1",
+    "status": "current"
+  },
+  "hwL2mcGroupPortCeId": {
+    "class": "objecttype",
+    "description": "The CE VID of an interface. The value ranges from 1 to 4095. The value 0 indicates that the PE VID is invalid. ",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcGroupPortCeId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.5.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwL2mcGroupPortIfIndex": {
+    "class": "objecttype",
+    "description": "The interface index. The value 0 indicates that the interface index is invalid.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcGroupPortIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.5.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwL2mcGroupPortPeId": {
+    "class": "objecttype",
+    "description": "The PE VID of an interface. The value ranges from 1 to 4095. The value 4095 indicates that the PE VID is invalid. ",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcGroupPortPeId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.5.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwL2mcGroupRowStatus": {
+    "class": "objecttype",
+    "description": "The row status.",
+    "maxaccess": "read-only",
+    "name": "hwL2mcGroupRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.5.1.1.100",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwL2mcGroupSourceAddress": {
+    "class": "objecttype",
+    "description": "The source IP address of a multicast group.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcGroupSourceAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.5.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL2mcGroupUpTime": {
+    "class": "objecttype",
+    "description": "How long the group exists in the forwarding entry.",
+    "maxaccess": "read-only",
+    "name": "hwL2mcGroupUpTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.5.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwL2mcGroupVcOrSiteId": {
+    "class": "objecttype",
+    "description": "The VC ID or SITE ID of a PW interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcGroupVcOrSiteId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.5.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwL2mcGroupVlanIndex": {
+    "class": "objecttype",
+    "description": "The VLAN ID, which is the configuration index in a VLAN. If a VSI is specified, the value is 4095. The value ranges from 1 to 4095. ",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcGroupVlanIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.5.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwL2mcGroupVsiName": {
+    "class": "objecttype",
+    "description": "The name of a VSI. If a VLAN is specified, the value is 0.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcGroupVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.5.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwL2mcIgmpPacketClearStats": {
+    "class": "objecttype",
+    "description": "Whether to clear the statistics of IGMP snooping. If the value is 1, it indicates that the statistics need to be cleared.",
+    "maxaccess": "read-write",
+    "name": "hwL2mcIgmpPacketClearStats",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.3.1.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwL2mcIgmpQuerierEnable": {
+    "class": "objecttype",
+    "description": "Whether the querier is enabled: 1: enabled 2: disabled The default value is 2. ",
+    "maxaccess": "read-create",
+    "name": "hwL2mcIgmpQuerierEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.2.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwL2mcIgmpSsmMappingEnable": {
+    "class": "objecttype",
+    "description": "Whether Ssm-Mapping is enabled: 1: enabled 2: disabled The default value is 2. ",
+    "maxaccess": "read-create",
+    "name": "hwL2mcIgmpSsmMappingEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.2.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwL2mcIgmpVersion": {
+    "class": "objecttype",
+    "description": "The version of the IGMP packets. The value ranges from 1 to 3. The default value is 2. ",
+    "maxaccess": "read-create",
+    "name": "hwL2mcIgmpVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.2.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "version1": 1,
+          "version2": 2,
+          "version3": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwL2mcLastMemQueryInterval": {
+    "class": "objecttype",
+    "description": "The last member query interval. The value ranges from 1 to 5, in seconds. The default value is 1, in seconds. ",
+    "maxaccess": "read-create",
+    "name": "hwL2mcLastMemQueryInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.2.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 5,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2mcLimitAcl": {
+    "class": "objecttype",
+    "description": "The number of ACL for the multicast groups that do not need to be configured with CAC limit. The ACL number ranges from 2000 to 3999. The default value is 0, indicating that the number is invalid. ",
+    "maxaccess": "read-create",
+    "name": "hwL2mcLimitAcl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.10.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 3999,
+            "min": 2000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2mcLimitBandWidth": {
+    "class": "objecttype",
+    "description": "The current bandwidth.",
+    "maxaccess": "read-only",
+    "name": "hwL2mcLimitBandWidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.10.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwL2mcLimitCfgRowStatus": {
+    "class": "objecttype",
+    "description": "The row status.",
+    "maxaccess": "read-create",
+    "name": "hwL2mcLimitCfgRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.10.1.1.100",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwL2mcLimitChnlName": {
+    "class": "objecttype",
+    "description": "The channel name.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcLimitChnlName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.10.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwL2mcLimitEntry": {
+    "class": "objecttype",
+    "description": "An entry is created for each IGMP snooping CAC in a VLAN or a VSI.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcLimitVlanIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcLimitVsiName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcLimitChnlName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcLimitEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.10.1.1",
+    "status": "current"
+  },
+  "hwL2mcLimitEntryCnt": {
+    "class": "objecttype",
+    "description": "The number of current forwarding entries.",
+    "maxaccess": "read-only",
+    "name": "hwL2mcLimitEntryCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.10.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwL2mcLimitInfo": {
+    "class": "objectidentity",
+    "name": "hwL2mcLimitInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.10"
+  },
+  "hwL2mcLimitInfoGroup": {
+    "class": "objectgroup",
+    "description": ".",
+    "name": "hwL2mcLimitInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcLimitMaxEntry"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcLimitEntryCnt"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcLimitMaxBandWidth"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcLimitBandWidth"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcLimitAcl"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcLimitCfgRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.181.100.2.10",
+    "status": "current"
+  },
+  "hwL2mcLimitMaxBandWidth": {
+    "class": "objecttype",
+    "description": "The maximum bandwidth. The value 0 indicates that the bandwidth is invalid.",
+    "maxaccess": "read-create",
+    "name": "hwL2mcLimitMaxBandWidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.10.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4194304,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2mcLimitMaxEntry": {
+    "class": "objecttype",
+    "description": "The maximum number of forwarding entries. The value 0 indicates that the number is invalid.",
+    "maxaccess": "read-create",
+    "name": "hwL2mcLimitMaxEntry",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.10.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2mcLimitTable": {
+    "class": "objecttype",
+    "description": "This table describes the configurations of IGMP snooping CAC in a VLAN or a VSI.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcLimitTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.10.1",
+    "status": "current"
+  },
+  "hwL2mcLimitVlanIndex": {
+    "class": "objecttype",
+    "description": "The VLAN ID, which is the configuration index in a VLAN. If a VSI is specified, the value is 0. If both hwVlanLimitVlanIndex and hwVlanLimitVSIName are invalid, the configuration is global. The value ranges from 1 to 4095. ",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcLimitVlanIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.10.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwL2mcLimitVsiName": {
+    "class": "objecttype",
+    "description": "The name of a VSI. If a VLAN is specified, the value is 0. If both hwVlanLimitVlanIndex and hwVlanLimitVSIName are invalid, the configuration is global.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcLimitVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.10.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwL2mcMaxQueryRespTime": {
+    "class": "objecttype",
+    "description": "The maximum response time. The value ranges from 1 to 25, in seconds. The default value is 10, in seconds. ",
+    "maxaccess": "read-create",
+    "name": "hwL2mcMaxQueryRespTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.2.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 25,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2mcMibCompliances": {
+    "class": "objectidentity",
+    "name": "hwL2mcMibCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.100.1"
+  },
+  "hwL2mcMibConformance": {
+    "class": "objectidentity",
+    "name": "hwL2mcMibConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.100"
+  },
+  "hwL2mcMibGroups": {
+    "class": "objectidentity",
+    "name": "hwL2mcMibGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.100.2"
+  },
+  "hwL2mcPortGroupPolicyCfgEntry": {
+    "class": "objecttype",
+    "description": "An entry is created for each active VLAN or VSI in the device when a group policy added.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwPortGroupPolicyPortType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwPortGroupPolicyPortIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwPortGroupPolicyPortPeId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwPortGroupPolicyPortCeId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwPortGroupPolicyPeerAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwPortGroupPolicyVcOrSiteId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwPortGroupPolicyVlanIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwPortGroupPolicyVsiName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcPortGroupPolicyCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.8.1.1",
+    "status": "current"
+  },
+  "hwL2mcPortGroupPolicyCfgInfo": {
+    "class": "objectidentity",
+    "name": "hwL2mcPortGroupPolicyCfgInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.8"
+  },
+  "hwL2mcPortGroupPolicyCfgInfoGroup": {
+    "class": "objectgroup",
+    "description": ".",
+    "name": "hwL2mcPortGroupPolicyCfgInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwPortGroupPolicyAclNum"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwPortGroupPolicyIgmpVersion"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwPortGroupPolicyRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.181.100.2.8",
+    "status": "current"
+  },
+  "hwL2mcPortGroupPolicyCfgTable": {
+    "class": "objecttype",
+    "description": "In this table, you can query or configure a group policy to filter entries on a port.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcPortGroupPolicyCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.8.1",
+    "status": "current"
+  },
+  "hwL2mcPortLimitEntry": {
+    "class": "objecttype",
+    "description": "An entry is created for each IGMP snooping CAC on an interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwPortLimitVlanIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwPortLimitVsiName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwPortLimitPortType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwPortLimitIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwPortLimitPeId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwPortLimitCeId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwPortLimitPeerAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwPortLimitVcOrSiteId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwPortLimitChnlName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcPortLimitEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.11.1.1",
+    "status": "current"
+  },
+  "hwL2mcPortLimitInfo": {
+    "class": "objectidentity",
+    "name": "hwL2mcPortLimitInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.11"
+  },
+  "hwL2mcPortLimitInfoGroup": {
+    "class": "objectgroup",
+    "description": ".",
+    "name": "hwL2mcPortLimitInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwPortLimitAcl"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwPortLimitMaxEntry"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwPortLimitEntryCnt"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwPortLimitMaxBandWidth"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwPortLimitBandWidth"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwPortLimitCfgRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.181.100.2.11",
+    "status": "current"
+  },
+  "hwL2mcPortLimitTable": {
+    "class": "objecttype",
+    "description": "This table describes the configurations of IGMP snooping CAC on an interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcPortLimitTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.11.1",
+    "status": "current"
+  },
+  "hwL2mcPortType": {
+    "class": "objecttype",
+    "description": "The interface type: 1: Invalid 2: PW interface 3: L2 interface 4: Encapsulation sub-interface 5: Termination sub-interface ",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcPortType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.5.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWPortType"
+    }
+  },
+  "hwL2mcPromptLeaveAclNum": {
+    "class": "objecttype",
+    "description": "Whether the prompt leave complies with the ACL rules. The ACL number can be set. The ACL number ranges from 2000 to 3999. The default value is 0, indicating that no ACL number is set. ",
+    "maxaccess": "read-create",
+    "name": "hwL2mcPromptLeaveAclNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.2.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 3999,
+            "min": 2000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2mcPromptLeaveEnable": {
+    "class": "objecttype",
+    "description": "Whether the prompt leave is enabled: 1: enabled 2: disabled The default value is 2. ",
+    "maxaccess": "read-create",
+    "name": "hwL2mcPromptLeaveEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.2.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwL2mcProxyGenQueryNum": {
+    "class": "objecttype",
+    "description": "The number of Query messages sent by the proxy in a VLAN or a VSI.",
+    "maxaccess": "read-only",
+    "name": "hwL2mcProxyGenQueryNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.3.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwL2mcProxyGroupQueryNum": {
+    "class": "objecttype",
+    "description": "The number of Query messages sent by the proxy in a VLAN or a VSI to a specified group.",
+    "maxaccess": "read-only",
+    "name": "hwL2mcProxyGroupQueryNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.3.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwL2mcProxyGroupSourceQueryNum": {
+    "class": "objecttype",
+    "description": "The number of Query messages sent by the proxy in a VLAN or a VSI to a specified source group.",
+    "maxaccess": "read-only",
+    "name": "hwL2mcProxyGroupSourceQueryNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.3.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwL2mcQueryInterval": {
+    "class": "objecttype",
+    "description": "The query interval. The value ranges from 1 to 65535, in seconds. The default value is 60, in seconds. ",
+    "maxaccess": "read-create",
+    "name": "hwL2mcQueryInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.2.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2mcRecvIgmpLeaveNum": {
+    "class": "objecttype",
+    "description": "The number of IGMP Leave messages received in a VLAN or a VSI.",
+    "maxaccess": "read-only",
+    "name": "hwL2mcRecvIgmpLeaveNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.3.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwL2mcRecvIgmpV1QueryNum": {
+    "class": "objecttype",
+    "description": "The number of IGMPv1 Query messages received in a VLAN or a VSI.",
+    "maxaccess": "read-only",
+    "name": "hwL2mcRecvIgmpV1QueryNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.3.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwL2mcRecvIgmpV1ReportNum": {
+    "class": "objecttype",
+    "description": "The number of IGMPv1 Report messages received in a VLAN or a VSI.",
+    "maxaccess": "read-only",
+    "name": "hwL2mcRecvIgmpV1ReportNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.3.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwL2mcRecvIgmpV2QueryNum": {
+    "class": "objecttype",
+    "description": "The number of IGMPv2 Query messages received in a VLAN or a VSI.",
+    "maxaccess": "read-only",
+    "name": "hwL2mcRecvIgmpV2QueryNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.3.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwL2mcRecvIgmpV2ReportNum": {
+    "class": "objecttype",
+    "description": "The number of IGMPv2 Report messages received in a VLAN or a VSI.",
+    "maxaccess": "read-only",
+    "name": "hwL2mcRecvIgmpV2ReportNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.3.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwL2mcRecvIgmpV3QueryNum": {
+    "class": "objecttype",
+    "description": "The number of IGMPv3 Query messages received in a VLAN or a VSI.",
+    "maxaccess": "read-only",
+    "name": "hwL2mcRecvIgmpV3QueryNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.3.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwL2mcRecvIgmpV3ReportNum": {
+    "class": "objecttype",
+    "description": "The number of IGMPv3 Report messages received in a VLAN or a VSI.",
+    "maxaccess": "read-only",
+    "name": "hwL2mcRecvIgmpV3ReportNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.3.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwL2mcRecvPimHelloNum": {
+    "class": "objecttype",
+    "description": "The number of PIM Hello messages received in a VLAN or a VSI.",
+    "maxaccess": "read-only",
+    "name": "hwL2mcRecvPimHelloNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.3.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwL2mcReportSuppressEnable": {
+    "class": "objecttype",
+    "description": "Whether the suppression of the IGMP Report message (proxy) is enabled: 1: enabled 2: disabled The default value is 2. ",
+    "maxaccess": "read-create",
+    "name": "hwL2mcReportSuppressEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.2.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwL2mcRobustCount": {
+    "class": "objecttype",
+    "description": "The robustness variable. The value ranges from 2 to 5. The default value is 2. ",
+    "maxaccess": "read-create",
+    "name": "hwL2mcRobustCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.2.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 5,
+            "min": 2
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2mcRouterAgingTime": {
+    "class": "objecttype",
+    "description": "The aging time of an interface on a router. The value ranges from 1 to 1000, in seconds. The default value is 180, which router port is created by Igmp Query message. And when it is created by PIM hello messge, the default value is the time of Holdtime in the message. ",
+    "maxaccess": "read-create",
+    "name": "hwL2mcRouterAgingTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2mcRouterPortCeId": {
+    "class": "objecttype",
+    "description": "The CE VID of an interface. The value ranges from 1 to 4095. The value 4095 indicates that the PE VID is invalid. ",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcRouterPortCeId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.13.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwL2mcRouterPortCfgEntry": {
+    "class": "objecttype",
+    "description": "An entry is created for each IGMP snooping static router port on an interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRouterPortCfgPortType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRouterPortCfgPortIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRouterPortCfgPortPeId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRouterPortCfgPortCeId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRouterPortCfgPeerAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRouterPortCfgVcOrSiteId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRouterPortCfgVlanIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRouterPortCfgVsiName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcRouterPortCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.14.1.1",
+    "status": "current"
+  },
+  "hwL2mcRouterPortCfgInfo": {
+    "class": "objectidentity",
+    "name": "hwL2mcRouterPortCfgInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.14"
+  },
+  "hwL2mcRouterPortCfgInfoGroup": {
+    "class": "objectgroup",
+    "description": ".",
+    "name": "hwL2mcRouterPortCfgInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRouterPortCfgRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.181.100.2.14",
+    "status": "current"
+  },
+  "hwL2mcRouterPortCfgPeerAddress": {
+    "class": "objecttype",
+    "description": "The peer IP address of a PW interface. The value 0.0.0.0 indicates that the IP address is invalid.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcRouterPortCfgPeerAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.14.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL2mcRouterPortCfgPortCeId": {
+    "class": "objecttype",
+    "description": "The CE VID of an interface. The value ranges from 1 to 4095. The value 4095 indicates that the PE VID is invalid. ",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcRouterPortCfgPortCeId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.14.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwL2mcRouterPortCfgPortIfIndex": {
+    "class": "objecttype",
+    "description": "The interface index. The value 0 indicates that the interface index is invalid.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcRouterPortCfgPortIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.14.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwL2mcRouterPortCfgPortPeId": {
+    "class": "objecttype",
+    "description": "The PE VID of an interface. The value ranges from 1 to 4095. The value 4095 indicates that the PE VID is invalid. ",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcRouterPortCfgPortPeId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.14.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwL2mcRouterPortCfgPortType": {
+    "class": "objecttype",
+    "description": "The interface type: 1: Invalid 2: PW interface 3: L2 interface 4: Encapsulation sub-interface 5: Termination sub-interface ",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcRouterPortCfgPortType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.14.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWPortType"
+    }
+  },
+  "hwL2mcRouterPortCfgRowStatus": {
+    "class": "objecttype",
+    "description": "The row status.",
+    "maxaccess": "read-create",
+    "name": "hwL2mcRouterPortCfgRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.14.1.1.100",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwL2mcRouterPortCfgTable": {
+    "class": "objecttype",
+    "description": "Table contains l2 multicast configuration of router port for IGMP Snooping.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcRouterPortCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.14.1",
+    "status": "current"
+  },
+  "hwL2mcRouterPortCfgVcOrSiteId": {
+    "class": "objecttype",
+    "description": "The VC ID or SITE ID of a PW interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcRouterPortCfgVcOrSiteId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.14.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwL2mcRouterPortCfgVlanIndex": {
+    "class": "objecttype",
+    "description": "The VLAN ID, which is the configuration index in a VLAN. If a VSI is specified, the value is 4095. The value ranges from 1 to 4095. ",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcRouterPortCfgVlanIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.14.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwL2mcRouterPortCfgVsiName": {
+    "class": "objecttype",
+    "description": "The name of a VSI. If a VLAN is specified, the value is 0.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcRouterPortCfgVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.14.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwL2mcRouterPortGroupExpires": {
+    "class": "objecttype",
+    "description": "The timeout period of the router port, that is, the aging time of the router port.",
+    "maxaccess": "read-only",
+    "name": "hwL2mcRouterPortGroupExpires",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.13.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwL2mcRouterPortGroupHostFlag1": {
+    "class": "objecttype",
+    "description": "The mode to create an interface on the host: 1: static 2: dynamic 3: static and dynamic ",
+    "maxaccess": "read-only",
+    "name": "hwL2mcRouterPortGroupHostFlag1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.13.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dynamic": 2,
+          "static": 1,
+          "staticDynamic": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwL2mcRouterPortGroupUpTime": {
+    "class": "objecttype",
+    "description": "How long the group exists in the forwarding entry.",
+    "maxaccess": "read-only",
+    "name": "hwL2mcRouterPortGroupUpTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.13.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwL2mcRouterPortIfIndex": {
+    "class": "objecttype",
+    "description": "The interface index. The value 0 indicates that the interface index is invalid.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcRouterPortIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.13.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwL2mcRouterPortInfo": {
+    "class": "objectidentity",
+    "name": "hwL2mcRouterPortInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.13"
+  },
+  "hwL2mcRouterPortInfoEntry": {
+    "class": "objecttype",
+    "description": "An entry is created for each IGMP snooping router port on an interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRouterPortVlanIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRouterPortVsiName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRouterPortType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRouterPortIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRouterPortPeId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRouterPortCeId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRouterPortPeerAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRouterPortVcOrSiteId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcRouterPortInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.13.1.1",
+    "status": "current"
+  },
+  "hwL2mcRouterPortInfoGroup": {
+    "class": "objectgroup",
+    "description": ".",
+    "name": "hwL2mcRouterPortInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRouterPortGroupUpTime"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRouterPortGroupExpires"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRouterPortGroupHostFlag1"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.181.100.2.13",
+    "status": "current"
+  },
+  "hwL2mcRouterPortInfoTable": {
+    "class": "objecttype",
+    "description": "Table contains l2 multicast router port information for IGMP Snooping.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcRouterPortInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.13.1",
+    "status": "current"
+  },
+  "hwL2mcRouterPortLearningEnable": {
+    "class": "objecttype",
+    "description": "Whether interface learning is enabled or not in a VLAN: 1: enabled 2: disabled The default value is 1. ",
+    "maxaccess": "read-create",
+    "name": "hwL2mcRouterPortLearningEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.2.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwL2mcRouterPortPeId": {
+    "class": "objecttype",
+    "description": "The PE VID of an interface. The value ranges from 1 to 4095. The value 4095 indicates that the PE VID is invalid. ",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcRouterPortPeId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.13.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwL2mcRouterPortPeerAddress": {
+    "class": "objecttype",
+    "description": "The peer IP address of a PW interface. The value 0.0.0.0 indicates that the IP address is invalid.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcRouterPortPeerAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.13.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL2mcRouterPortType": {
+    "class": "objecttype",
+    "description": "The interface type: 1: Invalid 2: PW interface 3: L2 interface 4: Encapsulation sub-interface 5: Termination sub-interface ",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcRouterPortType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.13.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWPortType"
+    }
+  },
+  "hwL2mcRouterPortVcOrSiteId": {
+    "class": "objecttype",
+    "description": "The VC ID or SITE ID of a PW interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcRouterPortVcOrSiteId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.13.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwL2mcRouterPortVlanIndex": {
+    "class": "objecttype",
+    "description": "The VLAN ID, which is the configuration index in a VLAN. If a VSI is specified, the value is 4095. The value ranges from 1 to 4095. ",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcRouterPortVlanIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.13.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwL2mcRouterPortVsiName": {
+    "class": "objecttype",
+    "description": "The name of a VSI. If a VLAN is specified, the value is 0.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcRouterPortVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.13.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwL2mcRowStatus": {
+    "class": "objecttype",
+    "description": "The row status.",
+    "maxaccess": "read-create",
+    "name": "hwL2mcRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.2.1.1.100",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwL2mcSendQueryNum": {
+    "class": "objecttype",
+    "description": "The number of IGMP Query messages (the source address is 0) in a VLAN or a VSI.",
+    "maxaccess": "read-only",
+    "name": "hwL2mcSendQueryNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.3.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwL2mcSendQuerySourceNum": {
+    "class": "objecttype",
+    "description": "The number of IGMP Query messages (the source address is not 0) in a VLAN or a VSI.",
+    "maxaccess": "read-only",
+    "name": "hwL2mcSendQuerySourceNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.3.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwL2mcSendRouterAlert": {
+    "class": "objecttype",
+    "description": "Whether to send the router-alert of a packet. The default value is true. ",
+    "maxaccess": "read-create",
+    "name": "hwL2mcSendRouterAlert",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.2.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwL2mcSourceExpires": {
+    "class": "objecttype",
+    "description": "The timeout period of the source group in the forwarding entry, that is, the aging time of the source group.",
+    "maxaccess": "read-only",
+    "name": "hwL2mcSourceExpires",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.5.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwL2mcSourceUpTime": {
+    "class": "objecttype",
+    "description": "How long the source group exists in the forwarding entry.",
+    "maxaccess": "read-only",
+    "name": "hwL2mcSourceUpTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.5.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwL2mcSsmAclNum": {
+    "class": "objecttype",
+    "description": "That SSM complies with the ACL number. The ACL number ranges from 2000 to 2999. The default value is 0, indicating that no ACL number is set. ",
+    "maxaccess": "read-create",
+    "name": "hwL2mcSsmAclNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.2.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 2999,
+            "min": 2000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2mcSsmGroupAddress": {
+    "class": "objecttype",
+    "description": "The IP address of a multicast group. ",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcSsmGroupAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.7.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL2mcSsmGroupLen": {
+    "class": "objecttype",
+    "description": "The mask length of a multicast group.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcSsmGroupLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.7.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32,
+            "min": 4
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwL2mcSsmSourceAddress": {
+    "class": "objecttype",
+    "description": "The source address of SSM-Mapping, which serves as an index of this table.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcSsmSourceAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.7.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwL2mcSsmSourceEntry": {
+    "class": "objecttype",
+    "description": "An entry is created for each active VLAN or VSI in the device add an entry for SSM-Mapping.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcSsmSourceVlanIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcSsmSourceVsiName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcSsmGroupAddress"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcSsmGroupLen"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcSsmSourceAddress"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcSsmSourceEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.7.1.1",
+    "status": "current"
+  },
+  "hwL2mcSsmSourceInfo": {
+    "class": "objectidentity",
+    "name": "hwL2mcSsmSourceInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.7"
+  },
+  "hwL2mcSsmSourceInfoGroup": {
+    "class": "objectgroup",
+    "description": ".",
+    "name": "hwL2mcSsmSourceInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcSsmSourceRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.181.100.2.7",
+    "status": "current"
+  },
+  "hwL2mcSsmSourceRowStatus": {
+    "class": "objecttype",
+    "description": "The row status.",
+    "maxaccess": "read-create",
+    "name": "hwL2mcSsmSourceRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.7.1.1.100",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwL2mcSsmSourceTable": {
+    "class": "objecttype",
+    "description": "This table contains the configuration of the source address list of SSM-Mapping.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcSsmSourceTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.7.1",
+    "status": "current"
+  },
+  "hwL2mcSsmSourceVlanIndex": {
+    "class": "objecttype",
+    "description": "The VLAN ID, which is the configuration index in a VLAN. If a VSI is specified, the value is 4095. The value ranges from 1 to 4095. ",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcSsmSourceVlanIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.7.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwL2mcSsmSourceVsiName": {
+    "class": "objecttype",
+    "description": "The name of a VSI. If a VLAN is specified, the value is 0.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcSsmSourceVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.7.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwL2mcStatisticsEntry": {
+    "class": "objecttype",
+    "description": "An entry is created for each active VLAN or VSI in the device and deleted when the VLAN or VSI becomes inactive.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcStatsVlanIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcStatsVsiName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcStatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.3.1.1",
+    "status": "current"
+  },
+  "hwL2mcStatisticsInfo": {
+    "class": "objectidentity",
+    "name": "hwL2mcStatisticsInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.3"
+  },
+  "hwL2mcStatisticsInfoGroup": {
+    "class": "objectgroup",
+    "description": ".",
+    "name": "hwL2mcStatisticsInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRecvIgmpV1ReportNum"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRecvIgmpV2ReportNum"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRecvIgmpV3ReportNum"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRecvIgmpLeaveNum"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRecvIgmpV1QueryNum"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRecvIgmpV2QueryNum"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRecvIgmpV3QueryNum"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcRecvPimHelloNum"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcSendQueryNum"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcSendQuerySourceNum"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcProxyGenQueryNum"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcProxyGroupQueryNum"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcProxyGroupSourceQueryNum"
+      },
+      {
+        "module": "HUAWEI-L2MULTICAST-MIB",
+        "object": "hwL2mcIgmpPacketClearStats"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.181.100.2.3",
+    "status": "current"
+  },
+  "hwL2mcStatisticsTable": {
+    "class": "objecttype",
+    "description": "Table contains VLAN or VSI statistics information for IGMP Snooping.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcStatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.3.1",
+    "status": "current"
+  },
+  "hwL2mcStatsVlanIndex": {
+    "class": "objecttype",
+    "description": "The VLAN ID, which is the configuration index in a VLAN. If a VSI is specified, the value is 4095. The value ranges from 1 to 4095. ",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcStatsVlanIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.3.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwL2mcStatsVsiName": {
+    "class": "objecttype",
+    "description": "The name of a VSI. If a VLAN is specified, the value is 0.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcStatsVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.3.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwL2mcVlanIndex": {
+    "class": "objecttype",
+    "description": "The VLAN ID, which is the configuration index in a VLAN. If a VSI is specified, the value is 4095. The value ranges from 1 to 4095. ",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcVlanIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwL2mcVsiName": {
+    "class": "objecttype",
+    "description": "The name of a VSI. If a VLAN is specified, the value is 0.",
+    "maxaccess": "not-accessible",
+    "name": "hwL2mcVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwPortGroupPolicyAclNum": {
+    "class": "objecttype",
+    "description": "The number of a basic ACL. The ACL number ranges from 2000 to 3999. The default value is 0, indicating that the value is invalid. ",
+    "maxaccess": "read-create",
+    "name": "hwPortGroupPolicyAclNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.8.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 3999,
+            "min": 2000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPortGroupPolicyIgmpVersion": {
+    "class": "objecttype",
+    "description": "The IGMP version. The value ranges from 0 to 3. The default is 0, indicating that no version is specified. ",
+    "maxaccess": "read-create",
+    "name": "hwPortGroupPolicyIgmpVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.8.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "version1": 1,
+          "version2": 2,
+          "version3": 3,
+          "versionAll": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPortGroupPolicyPeerAddress": {
+    "class": "objecttype",
+    "description": "The peer IP address of a PW interface. The value 0.0.0.0 indicates that the IP address is invalid.",
+    "maxaccess": "not-accessible",
+    "name": "hwPortGroupPolicyPeerAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.8.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwPortGroupPolicyPortCeId": {
+    "class": "objecttype",
+    "description": "The CE VID of an interface. The value ranges from 1 to 4095. The value 4095 indicates that the PE VID is invalid. ",
+    "maxaccess": "not-accessible",
+    "name": "hwPortGroupPolicyPortCeId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.8.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwPortGroupPolicyPortIfIndex": {
+    "class": "objecttype",
+    "description": "The interface index. The value 0 indicates that the interface index is invalid.",
+    "maxaccess": "not-accessible",
+    "name": "hwPortGroupPolicyPortIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.8.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwPortGroupPolicyPortPeId": {
+    "class": "objecttype",
+    "description": "The PE VID of an interface. The value ranges from 1 to 4095. The value 4095 indicates that the PE VID is invalid. ",
+    "maxaccess": "not-accessible",
+    "name": "hwPortGroupPolicyPortPeId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.8.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwPortGroupPolicyPortType": {
+    "class": "objecttype",
+    "description": "The interface type: 1: Invalid 2: PW interface 3: L2 interface 4: Encapsulation sub-interface 5: Termination sub-interface ",
+    "maxaccess": "not-accessible",
+    "name": "hwPortGroupPolicyPortType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.8.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWPortType"
+    }
+  },
+  "hwPortGroupPolicyRowStatus": {
+    "class": "objecttype",
+    "description": "The row status.",
+    "maxaccess": "read-create",
+    "name": "hwPortGroupPolicyRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.8.1.1.100",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwPortGroupPolicyVcOrSiteId": {
+    "class": "objecttype",
+    "description": "The VC ID or SITE ID of a PW interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwPortGroupPolicyVcOrSiteId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.8.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPortGroupPolicyVlanIndex": {
+    "class": "objecttype",
+    "description": "The VLAN ID, which is the configuration index in a VLAN. If a VSI is specified, the value is 4095. The value ranges from 1 to 4095. ",
+    "maxaccess": "not-accessible",
+    "name": "hwPortGroupPolicyVlanIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.8.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwPortGroupPolicyVsiName": {
+    "class": "objecttype",
+    "description": "The name of a VSI. If a VLAN is specified, the value is 0.",
+    "maxaccess": "not-accessible",
+    "name": "hwPortGroupPolicyVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.8.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwPortLimitAcl": {
+    "class": "objecttype",
+    "description": "The number of ACL for the multicast groups that do not need to be configured with CAC limit. The ACL number ranges from 2000 to 3999. The default value is 0, indicating that the number is invalid. ",
+    "maxaccess": "read-create",
+    "name": "hwPortLimitAcl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.11.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 3999,
+            "min": 2000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPortLimitBandWidth": {
+    "class": "objecttype",
+    "description": "The current bandwidth.",
+    "maxaccess": "read-only",
+    "name": "hwPortLimitBandWidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.11.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwPortLimitCeId": {
+    "class": "objecttype",
+    "description": "The CE VID of an interface. The value ranges from 1 to 4095. The value 4095 indicates that the PE VID is invalid. ",
+    "maxaccess": "not-accessible",
+    "name": "hwPortLimitCeId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.11.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwPortLimitCfgRowStatus": {
+    "class": "objecttype",
+    "description": "The row status.",
+    "maxaccess": "read-create",
+    "name": "hwPortLimitCfgRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.11.1.1.100",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwPortLimitChnlName": {
+    "class": "objecttype",
+    "description": "The channel name.",
+    "maxaccess": "not-accessible",
+    "name": "hwPortLimitChnlName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.11.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwPortLimitEntryCnt": {
+    "class": "objecttype",
+    "description": "The number of current forwarding entries.",
+    "maxaccess": "read-only",
+    "name": "hwPortLimitEntryCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.11.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwPortLimitIfIndex": {
+    "class": "objecttype",
+    "description": "The interface index. The value 0 indicates that the interface index is invalid.",
+    "maxaccess": "not-accessible",
+    "name": "hwPortLimitIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.11.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwPortLimitMaxBandWidth": {
+    "class": "objecttype",
+    "description": "The maximum bandwidth. The value 0 indicates that the bandwidth is invalid.",
+    "maxaccess": "read-create",
+    "name": "hwPortLimitMaxBandWidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.11.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4194304,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPortLimitMaxEntry": {
+    "class": "objecttype",
+    "description": "The maximum number of forwarding entries. The value 0 indicates that the number is invalid.",
+    "maxaccess": "read-create",
+    "name": "hwPortLimitMaxEntry",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.11.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPortLimitPeId": {
+    "class": "objecttype",
+    "description": "The PE VID of an interface. The value ranges from 1 to 4095. The value 4095 indicates that the PE VID is invalid. ",
+    "maxaccess": "not-accessible",
+    "name": "hwPortLimitPeId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.11.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwPortLimitPeerAddress": {
+    "class": "objecttype",
+    "description": "The peer IP address of a PW interface. The value 0.0.0.0 indicates that the IP address is invalid.",
+    "maxaccess": "not-accessible",
+    "name": "hwPortLimitPeerAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.11.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwPortLimitPortType": {
+    "class": "objecttype",
+    "description": "The interface type: 1: Invalid 2: PW interface 3: L2 interface 4: Encapsulation sub-interface 5: Termination sub-interface ",
+    "maxaccess": "not-accessible",
+    "name": "hwPortLimitPortType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.11.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWPortType"
+    }
+  },
+  "hwPortLimitVcOrSiteId": {
+    "class": "objecttype",
+    "description": "The VC ID or SITE ID of a PW interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwPortLimitVcOrSiteId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.11.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPortLimitVlanIndex": {
+    "class": "objecttype",
+    "description": "The VLAN ID, which is the configuration index in a VLAN. If a VSI is specified, the value is 4095. The value ranges from 1 to 4095. ",
+    "maxaccess": "not-accessible",
+    "name": "hwPortLimitVlanIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.11.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrAny"
+    }
+  },
+  "hwPortLimitVsiName": {
+    "class": "objecttype",
+    "description": "The name of a VSI. If a VLAN is specified, the value is 0.",
+    "maxaccess": "not-accessible",
+    "name": "hwPortLimitVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.11.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwSendQueryEnabled": {
+    "class": "objecttype",
+    "description": "The sending of query packets is enabled or disabled: 1: enabled 2: disabled The default value is 2. Note: Ensure that you query and configure this object after hwIgmpSnoopingEnabled is configured. ",
+    "maxaccess": "read-write",
+    "name": "hwSendQueryEnabled",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwSendQuerySourceIpAddr": {
+    "class": "objecttype",
+    "description": "The source IP addresses of the Query messages sent by a device. The value ranges from 0.0.0.1 to 223.255.255.255. The default value is 192.168.0.1. ",
+    "maxaccess": "read-write",
+    "name": "hwSendQuerySourceIpAddr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.181.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIdOrAny"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Integer32",
+      "Unsigned32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-L2MULTICAST-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:48 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-L2MULTICAST-MIB"
+  }
+}

@@ -1,0 +1,406 @@
+{
+  "hwHttpAclNum": {
+    "class": "objecttype",
+    "description": "The object indicates globally ACL the HTTP configuration. The value rangs from 2000 to 2999, user can modify HTTP server ACL number,By default, the ACL number is 0.",
+    "maxaccess": "read-write",
+    "name": "hwHttpAclNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.192.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 2999,
+            "min": 2000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwHttpCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for SNMP entities which implement the HUAWEI-HTTP-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-HTTP-MIB",
+        "object": "hwHttpConfigGroup"
+      },
+      {
+        "module": "HUAWEI-HTTP-MIB",
+        "object": "hwHttpInfoGroup"
+      }
+    ],
+    "name": "hwHttpCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.192.2.1.1",
+    "status": "current"
+  },
+  "hwHttpCompliances": {
+    "class": "objectidentity",
+    "name": "hwHttpCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.192.2.1"
+  },
+  "hwHttpConfigGroup": {
+    "class": "objectgroup",
+    "description": "The collection of objects which are used to configure the HTTP implementation behavior. This group is mandatory for agents which implement the HTTP.",
+    "name": "hwHttpConfigGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-HTTP-MIB",
+        "object": "hwHttpEnable"
+      },
+      {
+        "module": "HUAWEI-HTTP-MIB",
+        "object": "hwHttpPortNum"
+      },
+      {
+        "module": "HUAWEI-HTTP-MIB",
+        "object": "hwHttpAclNum"
+      },
+      {
+        "module": "HUAWEI-HTTP-MIB",
+        "object": "hwHttpTimeOut"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.192.2.2.1",
+    "status": "current"
+  },
+  "hwHttpConfiguration": {
+    "class": "objectidentity",
+    "name": "hwHttpConfiguration",
+    "oid": "1.3.6.1.4.1.2011.5.25.192.1.1"
+  },
+  "hwHttpConformance": {
+    "class": "objectidentity",
+    "name": "hwHttpConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.192.2"
+  },
+  "hwHttpEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "The object indicates globally enable or disable the HTTP configuration. If the hwHttpEnable is 1, HTTP server is enabled. If the hwHttpEnable is 2, HTTP server is disabled. By default, HTTP server is enabled.",
+    "maxaccess": "read-write",
+    "name": "hwHttpEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.192.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1
+        }
+      },
+      "type": "EnabledStatus"
+    }
+  },
+  "hwHttpGroups": {
+    "class": "objectidentity",
+    "name": "hwHttpGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.192.2.2"
+  },
+  "hwHttpInfoGroup": {
+    "class": "objectgroup",
+    "description": "The collection of objects indicates the information of HTTP server and users.",
+    "name": "hwHttpInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-HTTP-MIB",
+        "object": "hwHttpOnlineUserNum"
+      },
+      {
+        "module": "HUAWEI-HTTP-MIB",
+        "object": "hwHttpMaxUserNum"
+      },
+      {
+        "module": "HUAWEI-HTTP-MIB",
+        "object": "hwHttpUserName"
+      },
+      {
+        "module": "HUAWEI-HTTP-MIB",
+        "object": "hwHttpUserIpAddr"
+      },
+      {
+        "module": "HUAWEI-HTTP-MIB",
+        "object": "hwHttpUserLoginTime"
+      },
+      {
+        "module": "HUAWEI-HTTP-MIB",
+        "object": "hwHttpUserTimeOut"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.192.2.2.2",
+    "status": "current"
+  },
+  "hwHttpMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "R\u0026D NanJing, Huawei Technologies co.,Ltd. High hope mansion, Baixia road, Nanjing city Zip:100085 Http://www.huawei.com E-mail:support@huawei.com Zip:100000 ",
+    "description": "This file is a HTTP MIB. It provides the functions such as globally enabling or disabling the HTTP service, configuring the global port number, showing http server and users information.",
+    "lastupdated": "200903271630Z",
+    "name": "hwHttpMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.192",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwHttpMaxUserNum": {
+    "class": "objecttype",
+    "description": "The object indicates maximum number of concurrent server users allowed.",
+    "maxaccess": "read-only",
+    "name": "hwHttpMaxUserNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.192.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwHttpObjects": {
+    "class": "objectidentity",
+    "name": "hwHttpObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.192.1"
+  },
+  "hwHttpOnlineUserNum": {
+    "class": "objecttype",
+    "description": "The object indicates the number of concurrent server users online.",
+    "maxaccess": "read-only",
+    "name": "hwHttpOnlineUserNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.192.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 5,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwHttpPortNum": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 80
+      }
+    },
+    "description": "The object indicates globally port number the HTTP configuration. The value rangs from 1025 to 55535, User can modify HTTP server listen in port number, By default, HTTP server listen in 80 port.",
+    "maxaccess": "read-write",
+    "name": "hwHttpPortNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.192.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 80,
+            "min": 80
+          },
+          {
+            "max": 55535,
+            "min": 1025
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwHttpTimeOut": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "The object indicates globally overtime the HTTP configuration. The value rangs from 1 to 35791, User can modify HTTP server overtime interval, By default, The time is 3 minutes.",
+    "maxaccess": "read-write",
+    "name": "hwHttpTimeOut",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.192.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 35791,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwHttpUserIndex": {
+    "class": "objecttype",
+    "description": "The object indicates the user index of user has logined HTTP server. The value rangs from 1 to 5.",
+    "maxaccess": "not-accessible",
+    "name": "hwHttpUserIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.192.1.1.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 5,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwHttpUserInfoEntry": {
+    "class": "objecttype",
+    "description": "Entries of the HTTP user infomation configuration table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-HTTP-MIB",
+        "object": "hwHttpUserIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwHttpUserInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.192.1.1.7.1",
+    "status": "current"
+  },
+  "hwHttpUserInfoTable": {
+    "class": "objecttype",
+    "description": "HTTP user infomation configuration table.",
+    "maxaccess": "not-accessible",
+    "name": "hwHttpUserInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.192.1.1.7",
+    "status": "current"
+  },
+  "hwHttpUserIpAddr": {
+    "class": "objecttype",
+    "description": "The object indicates the source IP address of user has logined HTTP server.",
+    "maxaccess": "read-only",
+    "name": "hwHttpUserIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.192.1.1.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwHttpUserLoginTime": {
+    "class": "objecttype",
+    "description": "The object indicates the date and time of user logined HTTP server.",
+    "maxaccess": "read-only",
+    "name": "hwHttpUserLoginTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.192.1.1.7.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwHttpUserName": {
+    "class": "objecttype",
+    "description": "The object indicates the user name of user has logined HTTP server. It ranges from 1 to 64.",
+    "maxaccess": "read-only",
+    "name": "hwHttpUserName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.192.1.1.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwHttpUserTimeOut": {
+    "class": "objecttype",
+    "description": "The object indicates the overtime of user logined HTTP server.",
+    "maxaccess": "read-only",
+    "name": "hwHttpUserTimeOut",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.192.1.1.7.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "TimeTicks",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-HTTP-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:30 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-HTTP-MIB"
+  }
+}

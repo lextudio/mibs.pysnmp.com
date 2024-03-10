@@ -1,0 +1,410 @@
+{
+  "hwMG": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "The MG MIB module is defined to manage the configuration about Monitor-group. ",
+    "lastupdated": "201210081600Z",
+    "name": "hwMG",
+    "oid": "1.3.6.1.4.1.2011.5.25.312",
+    "organization": "Huawei Technologies Co.,Ltd."
+  },
+  "hwMGBindingInterfaceEntry": {
+    "class": "objecttype",
+    "description": "Entry of the binding interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MG-MIB",
+        "object": "hwMGMonitorGroupIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MG-MIB",
+        "object": "hwMGBindingInterfaceIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMGBindingInterfaceEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.312.1.2.1",
+    "status": "current"
+  },
+  "hwMGBindingInterfaceGroup": {
+    "class": "objectgroup",
+    "description": "Description of nodes on the binding interface in the interface monitoring group. The information includes the index of the down-weight of the binding interface.",
+    "name": "hwMGBindingInterfaceGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MG-MIB",
+        "object": "hwMGBindingInterfaceWeight"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.312.4.1.2",
+    "status": "current"
+  },
+  "hwMGBindingInterfaceIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the index of the binding interface in the interface monitoring group. The index identifies a unique binding interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwMGBindingInterfaceIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.312.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwMGBindingInterfaceTable": {
+    "class": "objecttype",
+    "description": "This table describes attributes of the binding interface in the interface monitoring group. The information includes the index and down-weight of the binding interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwMGBindingInterfaceTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.312.1.2",
+    "status": "current"
+  },
+  "hwMGBindingInterfaceWeight": {
+    "class": "objecttype",
+    "description": "This object indicates the down-weight of the binding interface in the interface monitoring group.",
+    "maxaccess": "read-write",
+    "name": "hwMGBindingInterfaceWeight",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.312.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMGMonitorGroupDelayTime": {
+    "class": "objecttype",
+    "description": "This object indicates the delay before the track interface goes Up, in seconds. The value is an integer ranging from 0 to 4294967295.",
+    "maxaccess": "read-write",
+    "name": "hwMGMonitorGroupDelayTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.312.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMGMonitorGroupDownWeight": {
+    "class": "objecttype",
+    "description": "This object indicates the sum of down-weights of the faulty binding interfaces in the interface monitoring group.",
+    "maxaccess": "read-only",
+    "name": "hwMGMonitorGroupDownWeight",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.312.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMGMonitorGroupEntry": {
+    "class": "objecttype",
+    "description": "Entry of the monitoring group.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MG-MIB",
+        "object": "hwMGMonitorGroupIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMGMonitorGroupEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.312.1.1.1",
+    "status": "current"
+  },
+  "hwMGMonitorGroupGroup": {
+    "class": "objectgroup",
+    "description": "Description of nodes in the interface monitoring group. The information includes the index and name of the interface monitoring group, the down-weight of the faulty binding interface, whether the association between the track interface and the interface monitoring group is enabled, and the delay before the track interface goes Up.",
+    "name": "hwMGMonitorGroupGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MG-MIB",
+        "object": "hwMGMonitorGroupName"
+      },
+      {
+        "module": "HUAWEI-MG-MIB",
+        "object": "hwMGMonitorGroupDownWeight"
+      },
+      {
+        "module": "HUAWEI-MG-MIB",
+        "object": "hwMGMonitorGroupStatus"
+      },
+      {
+        "module": "HUAWEI-MG-MIB",
+        "object": "hwMGMonitorGroupDelayTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.312.4.1.1",
+    "status": "current"
+  },
+  "hwMGMonitorGroupIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the index of the interface monitoring group. The index identifies a unique interface monitoring group.",
+    "maxaccess": "not-accessible",
+    "name": "hwMGMonitorGroupIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.312.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMGMonitorGroupName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of the interface monitoring group.",
+    "maxaccess": "read-only",
+    "name": "hwMGMonitorGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.312.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMGMonitorGroupObjects": {
+    "class": "objectidentity",
+    "name": "hwMGMonitorGroupObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.312.1"
+  },
+  "hwMGMonitorGroupStatus": {
+    "class": "objecttype",
+    "description": "This object indicates whether the association between the track interface and the interface monitoring group is enabled.",
+    "maxaccess": "read-write",
+    "name": "hwMGMonitorGroupStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.312.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMGMonitorGroupTable": {
+    "class": "objecttype",
+    "description": "This table describes attributes of the interface monitoring group. The information includes the index and name of the interface monitoring group, the down-weight of each faulty binding interface, whether the association between the track interface and the interface monitoring group is enabled, and the delay before the track interface goes Up.",
+    "maxaccess": "not-accessible",
+    "name": "hwMGMonitorGroupTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.312.1.1",
+    "status": "current"
+  },
+  "hwMGTrackInterfaceEntry": {
+    "class": "objecttype",
+    "description": "Entry of the track interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MG-MIB",
+        "object": "hwMGMonitorGroupIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MG-MIB",
+        "object": "hwMGTrackInterfaceIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMGTrackInterfaceEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.312.1.3.1",
+    "status": "current"
+  },
+  "hwMGTrackInterfaceGroup": {
+    "class": "objectgroup",
+    "description": "Description of nodes on the track interface. The information includes the index and down-weight of the track interface and the status of the association between the track interface and the interface monitoring group.",
+    "name": "hwMGTrackInterfaceGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MG-MIB",
+        "object": "hwMGTrackInterfaceWeight"
+      },
+      {
+        "module": "HUAWEI-MG-MIB",
+        "object": "hwMGTrackInterfaceTriggerStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.312.4.1.3",
+    "status": "current"
+  },
+  "hwMGTrackInterfaceIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the index of the track interface. The index identifies a unique track interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwMGTrackInterfaceIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.312.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwMGTrackInterfaceTable": {
+    "class": "objecttype",
+    "description": "This table describes attributes of the track interface. The information includes the index and down-weight of the track interface and the status of the association between the track interface and the interface monitoring group.",
+    "maxaccess": "not-accessible",
+    "name": "hwMGTrackInterfaceTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.312.1.3",
+    "status": "current"
+  },
+  "hwMGTrackInterfaceTriggerStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the status of the association between the track interface and the interface monitoring group. By default, the status is normal. triggerdown(2): If the sum of down-weights of the faulty binding interfaces in the interface monitoring group is greater than or equal to the down-weight of the track interface, the track interface is triggered to go Down. triggerup(1):If the track interface is triggered to go Down, and the sum of down-weights of the faulty binding interfaces in the interface monitoring group becomes less than the down-weight of the track interface, the track interface is triggered to go Up.",
+    "maxaccess": "read-only",
+    "name": "hwMGTrackInterfaceTriggerStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.312.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 3,
+          "triggerdown": 2,
+          "triggerup": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMGTrackInterfaceWeight": {
+    "class": "objecttype",
+    "description": "This object indicates the down-weight of the track interface.",
+    "maxaccess": "read-write",
+    "name": "hwMGTrackInterfaceWeight",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.312.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMonitorGroupCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-MG-MIB",
+        "object": "hwMGMonitorGroupGroup"
+      },
+      {
+        "module": "HUAWEI-MG-MIB",
+        "object": "hwMGBindingInterfaceGroup"
+      },
+      {
+        "module": "HUAWEI-MG-MIB",
+        "object": "hwMGTrackInterfaceGroup"
+      }
+    ],
+    "name": "hwMonitorGroupCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.312.4.2.1",
+    "status": "current"
+  },
+  "hwMonitorGroupCompliances": {
+    "class": "objectidentity",
+    "name": "hwMonitorGroupCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.312.4.2"
+  },
+  "hwMonitorGroupConformance": {
+    "class": "objectidentity",
+    "name": "hwMonitorGroupConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.312.4"
+  },
+  "hwMonitorGroupGroups": {
+    "class": "objectidentity",
+    "name": "hwMonitorGroupGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.312.4.1"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "iso",
+      "IpAddress",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Bits",
+      "Gauge32",
+      "Counter64",
+      "Unsigned32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-MG-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:15 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-MG-MIB"
+  }
+}

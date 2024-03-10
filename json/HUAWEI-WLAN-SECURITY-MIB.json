@@ -1,0 +1,3127 @@
+{
+  "hwAddressRedirectionAttackNotify": {
+    "class": "notificationtype",
+    "description": "Description.",
+    "name": "hwAddressRedirectionAttackNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApIndex"
+      },
+      {
+        "module": "HUAWEI-WLAN-RADIO-MIB",
+        "object": "hwRadioID"
+      },
+      {
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApMac"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwStaAssocBssid"
+      },
+      {
+        "module": "HUAWEI-WLAN-SERVICE-MIB",
+        "object": "hwWlanServiceEssSsid"
+      },
+      {
+        "module": "HUAWEI-WLAN-SERVICE-MIB",
+        "object": "hwWlanServiceStaMac"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.6.9.1.7",
+    "status": "current"
+  },
+  "hwLowSafeLevelAttackNotify": {
+    "class": "notificationtype",
+    "description": "Description.",
+    "name": "hwLowSafeLevelAttackNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApIndex"
+      },
+      {
+        "module": "HUAWEI-WLAN-RADIO-MIB",
+        "object": "hwRadioID"
+      },
+      {
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApMac"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwStaAssocBssid"
+      },
+      {
+        "module": "HUAWEI-WLAN-SERVICE-MIB",
+        "object": "hwWlanServiceEssSsid"
+      },
+      {
+        "module": "HUAWEI-WLAN-SERVICE-MIB",
+        "object": "hwWlanServiceStaMac"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.6.9.1.6",
+    "status": "current"
+  },
+  "hwStaAssocBssid": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwStaAssocBssid",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.9.2.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwStaAssociationFailCause": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwStaAssociationFailCause",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.9.2.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwStaAssociationFailCauseStr": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwStaAssociationFailCauseStr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.9.2.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStaAssociationFailNotify": {
+    "class": "notificationtype",
+    "description": "Description.",
+    "name": "hwStaAssociationFailNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApIndex"
+      },
+      {
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApMac"
+      },
+      {
+        "module": "HUAWEI-WLAN-RADIO-MIB",
+        "object": "hwRadioID"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwStaAssocBssid"
+      },
+      {
+        "module": "HUAWEI-WLAN-SERVICE-MIB",
+        "object": "hwWlanServiceEssSsid"
+      },
+      {
+        "module": "HUAWEI-WLAN-SERVICE-MIB",
+        "object": "hwWlanServiceStaMac"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwStaFailCodeType"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwStaAssociationFailCause"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwStaAssociationFailCauseStr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.6.9.1.2",
+    "status": "current"
+  },
+  "hwStaAuthEncryptModeNotMatchNotify": {
+    "class": "notificationtype",
+    "description": "Description.",
+    "name": "hwStaAuthEncryptModeNotMatchNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApIndex"
+      },
+      {
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApMac"
+      },
+      {
+        "module": "HUAWEI-WLAN-RADIO-MIB",
+        "object": "hwRadioID"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwStaAssocBssid"
+      },
+      {
+        "module": "HUAWEI-WLAN-SERVICE-MIB",
+        "object": "hwWlanServiceEssSsid"
+      },
+      {
+        "module": "HUAWEI-WLAN-SERVICE-MIB",
+        "object": "hwWlanServiceStaMac"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWlanStaAuthEncryptMode"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWlanVapAuthEncryptMode"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.6.9.1.9",
+    "status": "current"
+  },
+  "hwStaAuthErrorNotify": {
+    "class": "notificationtype",
+    "description": "Description.",
+    "name": "hwStaAuthErrorNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApIndex"
+      },
+      {
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApMac"
+      },
+      {
+        "module": "HUAWEI-WLAN-RADIO-MIB",
+        "object": "hwRadioID"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwStaAssocBssid"
+      },
+      {
+        "module": "HUAWEI-WLAN-SERVICE-MIB",
+        "object": "hwWlanServiceEssSsid"
+      },
+      {
+        "module": "HUAWEI-WLAN-SERVICE-MIB",
+        "object": "hwWlanServiceStaMac"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwStaAuthenticationMode"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwStaFailCodeType"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwStaAuthenticationFailCause"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwStaAuthenticationFailCauseStr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.6.9.1.1",
+    "status": "current"
+  },
+  "hwStaAuthenticationFailCause": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwStaAuthenticationFailCause",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.9.2.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwStaAuthenticationFailCauseStr": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwStaAuthenticationFailCauseStr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.9.2.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStaAuthenticationMode": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwStaAuthenticationMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.9.2.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwStaFailCodeType": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwStaFailCodeType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.9.2.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reasonCode": 1,
+          "statusCode": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwStationRepititiveAttackNotify": {
+    "class": "notificationtype",
+    "description": "Description.",
+    "name": "hwStationRepititiveAttackNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApIndex"
+      },
+      {
+        "module": "HUAWEI-WLAN-RADIO-MIB",
+        "object": "hwRadioID"
+      },
+      {
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApMac"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwStaAssocBssid"
+      },
+      {
+        "module": "HUAWEI-WLAN-SERVICE-MIB",
+        "object": "hwWlanServiceEssSsid"
+      },
+      {
+        "module": "HUAWEI-WLAN-SERVICE-MIB",
+        "object": "hwWlanServiceStaMac"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.6.9.1.4",
+    "status": "current"
+  },
+  "hwTamperAttackNotify": {
+    "class": "notificationtype",
+    "description": "Description.",
+    "name": "hwTamperAttackNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApIndex"
+      },
+      {
+        "module": "HUAWEI-WLAN-RADIO-MIB",
+        "object": "hwRadioID"
+      },
+      {
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApMac"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwStaAssocBssid"
+      },
+      {
+        "module": "HUAWEI-WLAN-SERVICE-MIB",
+        "object": "hwWlanServiceEssSsid"
+      },
+      {
+        "module": "HUAWEI-WLAN-SERVICE-MIB",
+        "object": "hwWlanServiceStaMac"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.6.9.1.5",
+    "status": "current"
+  },
+  "hwUserWithInvalidCerficationInbreakNetworkNotify": {
+    "class": "notificationtype",
+    "description": "Description.",
+    "name": "hwUserWithInvalidCerficationInbreakNetworkNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApIndex"
+      },
+      {
+        "module": "HUAWEI-WLAN-RADIO-MIB",
+        "object": "hwRadioID"
+      },
+      {
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApMac"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwStaAssocBssid"
+      },
+      {
+        "module": "HUAWEI-WLAN-SERVICE-MIB",
+        "object": "hwWlanServiceEssSsid"
+      },
+      {
+        "module": "HUAWEI-WLAN-SERVICE-MIB",
+        "object": "hwWlanServiceStaMac"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.6.9.1.3",
+    "status": "current"
+  },
+  "hwWepIDConflictNotify": {
+    "class": "notificationtype",
+    "description": "Description.",
+    "name": "hwWepIDConflictNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWepIDConflictTrapAPMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWepIDConflictTrapAPID"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWepIDConflictTrapRadioId"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWepIDConflictTrapPreSSID"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWepIDConflictTrapCurrSSID"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWepIDConflictTrapCipherIdx"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.6.9.1.8",
+    "status": "current"
+  },
+  "hwWepIDConflictTrapAPID": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWepIDConflictTrapAPID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.9.2.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWepIDConflictTrapAPMAC": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWepIDConflictTrapAPMAC",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.9.2.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwWepIDConflictTrapCipherIdx": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWepIDConflictTrapCipherIdx",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.9.2.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWepIDConflictTrapCurrSSID": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWepIDConflictTrapCurrSSID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.9.2.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWepIDConflictTrapPreSSID": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWepIDConflictTrapPreSSID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.9.2.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWepIDConflictTrapRadioId": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWepIDConflictTrapRadioId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.9.2.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanSecurity": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": " huawei HUAWEI-WLAN-SECURITY-MIB. ",
+    "lastupdated": "201402131000Z",
+    "name": "hwWlanSecurity",
+    "oid": "1.3.6.1.4.1.2011.6.139.6",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "Version: V1.02, add changes for V2R5",
+        "revision": "2014-02-13 10:00"
+      },
+      {
+        "description": "Version: V1.01, add changes for V2R3",
+        "revision": "2013-08-12 10:00"
+      },
+      {
+        "description": " V1.00, The first Draft.",
+        "revision": "2010-06-01 10:00"
+      }
+    ]
+  },
+  "hwWlanSecurityCompliance": {
+    "class": "modulecompliance",
+    "description": "Description.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecWEPDefaultKeysGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecWEPKeyMappingsGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthSuitesGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecBatchProfileInfoGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecNotifyGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecNotifyObjectsGroup"
+      }
+    ],
+    "name": "hwWlanSecurityCompliance",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.11.1.1",
+    "status": "current"
+  },
+  "hwWlanSecurityCompliances": {
+    "class": "objectidentity",
+    "name": "hwWlanSecurityCompliances",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.11.1"
+  },
+  "hwWlanSecurityConformance": {
+    "class": "objectidentity",
+    "name": "hwWlanSecurityConformance",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.11"
+  },
+  "hwWlanSecurityObject": {
+    "class": "objectidentity",
+    "name": "hwWlanSecurityObject",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.10"
+  },
+  "hwWlanSecurityObjectGroups": {
+    "class": "objectidentity",
+    "name": "hwWlanSecurityObjectGroups",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.11.2"
+  },
+  "hwWlanStaAuthEncryptMode": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlanStaAuthEncryptMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.9.2.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWlanVapAuthEncryptMode": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWlanVapAuthEncryptMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.9.2.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWsecAuthBKLifetime": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 43200
+      }
+    },
+    "description": "The maximum lifetime of a BK in the BK cache.",
+    "maxaccess": "read-write",
+    "name": "hwWsecAuthBKLifetime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    },
+    "units": "seconds"
+  },
+  "hwWsecAuthBKReauthThreshold": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 70
+      }
+    },
+    "description": "The percentage of the BK lifetime that should expire before a WAI/RSNA re-authentication occurs.",
+    "maxaccess": "read-write",
+    "name": "hwWsecAuthBKReauthThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    },
+    "units": "percentage"
+  },
+  "hwWsecAuthCertificateUpdateCount": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "The number of times messages in the WAPI Certificate Authentication Handshake protocol will be retried per Certificate Authentication Handshake attempt.",
+    "maxaccess": "read-write",
+    "name": "hwWsecAuthCertificateUpdateCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWsecAuthControlledAuthControl": {
+    "class": "objecttype",
+    "description": "This attribute indicates whether the entity enable the authentication. If the value is \u00270\u0027 which means \u0027authentication disabled\u0027, the state of the controlled port shall be set to \u0027authenticated\u0027; else the value is \u00271\u0027 which means \u0027authentication enabled\u0027, the state of the controlled port shall be based on the hwWsecAuthControlledPortControl.",
+    "maxaccess": "read-only",
+    "name": "hwWsecAuthControlledAuthControl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwWsecAuthControlledPortControl": {
+    "class": "objecttype",
+    "description": "This attribute, when the hwWsecAuthControlledAuthControl is set to true, shall be effective and indicate the methods by which the port is controlled. If the value is \u00270\u0027 which means \u0027auto\u0027, the state of the controlled port shall be based on the result of the authentication; else the value is \u00271\u0027 which means \u0027force unauthenticated\u0027, the state of the controlled port shall be unconditionally set to \u0027unauthenticated\u0027.",
+    "maxaccess": "read-only",
+    "name": "hwWsecAuthControlledPortControl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWsecAuthDot1XMethod": {
+    "class": "objecttype",
+    "description": " Leaf don\u0027t sustain for V2R3 on 2012/11/26. ",
+    "maxaccess": "read-write",
+    "name": "hwWsecAuthDot1XMethod",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWsecAuthExcludeUnencrypted": {
+    "class": "objecttype",
+    "description": "When this attribute is TRUE, the STA shall not indicate at the MAC service interface received MSDUs that have the Protected Frame subfield of the Frame Control field equal to zero. When this attribute is FALSE, the STA may accept MSDUs that have the Protected Frame subfield of the Frame Control field equal to zero. The default value of this attribute shall be FALSE.",
+    "maxaccess": "read-write",
+    "name": "hwWsecAuthExcludeUnencrypted",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwWsecAuthMulticastCipher": {
+    "class": "objecttype",
+    "description": "This object indicates the multicast cipher suite that this entity must adopt. The WAPI/RSNA information element shall adopt the value of this variable, which contains a 3-octet OUI and a one-octet cipher suite identifier. 0x00147201 : WPI-SMS4 0x000FAC01 : WEP-40 0x000FAC02 : TKIP 0x000FAC04 : CCMP-default in an RSNA 0x000FAC05 : WEP-104 0x000FAC06 : wep-128 0x000FAC07 : tkip-ccmp 0x00E0FC01 : null (no encryption), only for open system authentication ",
+    "maxaccess": "read-write",
+    "name": "hwWsecAuthMulticastCipher",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ccmp": 5,
+          "null": 6,
+          "tkip": 4,
+          "tkipCcmp": 7,
+          "wep104": 3,
+          "wep128": 8,
+          "wep40": 2,
+          "wpiSms4": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWsecAuthMulticastCipherSize": {
+    "class": "objecttype",
+    "description": "This object indicates the length in bit of the multicast cipher key. This should be 256 for in SMS4. The former 128bits is the encryption key and the latter 128bits is the message integrity check key. This should be 256 for in TKIP. The former 128bits is the encryption key and the latter 128bits is the message integrity check key. This should be 128 for in CCMP. The 128bits is the encryption key and the message integrity check key. This should be 40 for in WEP-40. The 40bits is the encryption key. This should be 40 for in WEP-104. The 104bits is the encryption key. This should be 40 for in WEP-128. The 128bits is the encryption key. ",
+    "maxaccess": "read-only",
+    "name": "hwWsecAuthMulticastCipherSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWsecAuthMulticastRekeyMethod": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "timeBased"
+      }
+    },
+    "description": "This object selects a mechanism for rekeying the WAPI/RSNA MSK. The default is time-based, once per day. Rekeying the MSK is only applicable to an entity acting in the Authenticator role.",
+    "maxaccess": "read-write",
+    "name": "hwWsecAuthMulticastRekeyMethod",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "packetBased": 3,
+          "timeBased": 2,
+          "timepacketBased": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWsecAuthMulticastRekeyPackets": {
+    "class": "objecttype",
+    "description": "A packet count (in 1000s of packets) after which the WAPI/RSNA MSK shall be refreshed. The packet counter shall start at the moment the MSK was set using the MLME-SETWPIKEYS.request primitive and it shall count all packets encrypted using the current MSK.",
+    "maxaccess": "read-write",
+    "name": "hwWsecAuthMulticastRekeyPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    },
+    "units": "1000 packets"
+  },
+  "hwWsecAuthMulticastRekeyStrict": {
+    "class": "objecttype",
+    "description": "This object signals that the MSK shall be refreshed whenever a STA leaves the BSS that possesses the MSK.",
+    "maxaccess": "read-write",
+    "name": "hwWsecAuthMulticastRekeyStrict",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwWsecAuthMulticastRekeyTime": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 86400
+      }
+    },
+    "description": "The time in seconds after which the WAPI/RSNA MSK shall be refreshed. The timer shall start at the moment the MSK was set using the MLME-SETWPIKEYS.request primitive.",
+    "maxaccess": "read-write",
+    "name": "hwWsecAuthMulticastRekeyTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    },
+    "units": "seconds"
+  },
+  "hwWsecAuthMulticastUpdateCount": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "The number of times Message 1 in the WAPI Multicast Key Announcement Handshake will be retried per MSK Handshake attempt. The number of times Message 1 in the RSNA Group Key Handshake will be retried per GTK Handshake attempt. ",
+    "maxaccess": "read-write",
+    "name": "hwWsecAuthMulticastUpdateCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWsecAuthOptionalImplemented": {
+    "class": "objecttype",
+    "description": "This attribute, when true, shall indicate that the WAPI, WPA, RSNA option is implemented; else, this attribute shall be false.",
+    "maxaccess": "read-only",
+    "name": "hwWsecAuthOptionalImplemented",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwWsecAuthPSKPassPhrase": {
+    "class": "objecttype",
+    "description": "The PSK, for when WAPI/RSNA in PSK mode is the selected AKM suite, is configured by hwWsecAuthPSKValue. An alternative manner of setting the PSK uses the password-to-key algorithm. This variable provides a means to enter a pass-phrase. When this object is written, the WAPI/RSNA entity shall use the password-to-key algorithm to derive a pre-shared and populate hwWsecAuthPSKValue with this key. This object is logically write-only. Reading this variable shall return unsuccessful status or null or zero.",
+    "maxaccess": "read-write",
+    "name": "hwWsecAuthPSKPassPhrase",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwWsecAuthPSKValue": {
+    "class": "objecttype",
+    "description": "The PSK for when WAPI/RSNA in PSK mode is the selected AKM suite. In that case, the BK/PMK will obtain its value from this object. This object is logically write-only. Reading this variable shall return unsuccessful status or null or zero. WAPI need 16 byte Hex, RSNA need 32 byte Hex. User should input Hex data for this node.",
+    "maxaccess": "read-write",
+    "name": "hwWsecAuthPSKValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWsecAuthPairwiseCipher": {
+    "class": "objecttype",
+    "description": "The selector of a supported pairwise cipher. It consists of an OUI (the first 3 octets) and a cipher suite identifier (the last octet). 0x00147201 : WPI-SMS4 0x000FAC00 : Use group cipher suite 0x000FAC01 : WEP-40 0x000FAC02 : TKIP 0x000FAC04 : CCMP-default in an RSNA 0x000FAC05 : WEP-104 0x000FAC06 : wep-128 0x000FAC07 : tkip-ccmp 0x00E0FC01 : null (no encryption), only for open system authentication The cipher suite selector 00-0F-AC:4 (CCMP) shall be the default cipher suite value. The cipher suite selectors 00-0F-AC:1 (WEP-40) and 00-0F-AC:5 (WEP-104) are only valid as a group cipher suite in a transition security network (TSN) to allow pre-RSNA devices to join the BSS. Use of CCMP as the group cipher suite with TKIP as the pairwise cipher suite shall not be supported. NOTE?If the STAs can support CCMP, then there is no need for a weaker data confidentiality protocol. The cipher suite selector 00-0F-AC:0 (Use group cipher suite) is only valid as the pairwise cipher suite. An AP may specify the selector 00-0F-AC:0 (Use group cipher suite) for a pairwise cipher suite if it does not cipher selection, this shall be the only pairwise cipher selection the AP advertises. If CCMP is enabled, then the AP supports pairwise keys, and thus the suite selector 00-0F-AC:0 (Use group cipher suite) shall not be a valid option. ",
+    "maxaccess": "read-write",
+    "name": "hwWsecAuthPairwiseCipher",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ccmp": 5,
+          "null": 6,
+          "tkip": 4,
+          "tkipCcmp": 7,
+          "wep104": 3,
+          "wep128": 8,
+          "wep40": 2,
+          "wpiSms4": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWsecAuthPairwiseCipherSize": {
+    "class": "objecttype",
+    "description": "This object indicates the length in bits of the pairwise cipher key. This should be 256 for TKIP and 128 for CCMP.",
+    "maxaccess": "read-only",
+    "name": "hwWsecAuthPairwiseCipherSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWsecAuthPreauthenticationEnabled": {
+    "class": "objecttype",
+    "description": "When this object is set to TRUE, this shall indicate that WAPI pre-authentication is enabled on this entity. This object requires that WAPI authentication of this profile Enabled.",
+    "maxaccess": "read-write",
+    "name": "hwWsecAuthPreauthenticationEnabled",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwWsecAuthPreauthenticationImplemented": {
+    "class": "objecttype",
+    "description": "This variable indicates whether the entity supports WAPI pre-authentication. This cannot be TRUE unless hwWsecAuthOptionImplemented is TRUE.",
+    "maxaccess": "read-only",
+    "name": "hwWsecAuthPreauthenticationImplemented",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwWsecAuthSATimeout": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 60
+      }
+    },
+    "description": "The maximum time a security association shall take to set up.",
+    "maxaccess": "read-write",
+    "name": "hwWsecAuthSATimeout",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    },
+    "units": "seconds"
+  },
+  "hwWsecAuthSuite": {
+    "class": "objecttype",
+    "description": "The selector of an AKM suite. It consists of an OUI (the first 3 octets) and a cipher suite identifier (the last octet). 0x00147201 : WAPI certification authentication 0x00147202 : WAPI preShare key authentication 0x000FAC01 : WPA1(WPA version 1) 802.1X authentication 0x000FAC02 : WPA1(WPA version 1) preShare key authentication 0x00E0FC01 : WPA2(WPA version 2) 802.1X authentication 0x00E0FC02 : WPA2(WPA version 2) preShare key authentication 0x00E0FC03 : share key (for WEP) 0x00E0FC04 : open system (no authentication) 0x00E0FC05 : wpa-wpa2-preShareKey 0x00E0FC06 : wpa-wpa2-8021x ",
+    "maxaccess": "read-only",
+    "name": "hwWsecAuthSuite",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 4,
+            "min": 4
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWsecAuthSuiteEnabled": {
+    "class": "objecttype",
+    "description": "This variable indicates whether the corresponding AKM suite is enabled/disabled.",
+    "maxaccess": "read-write",
+    "name": "hwWsecAuthSuiteEnabled",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwWsecAuthSuiteIndex": {
+    "class": "objecttype",
+    "description": "The auxiliary variable used as an index into the hwWsecAuthSuitesTable.",
+    "maxaccess": "not-accessible",
+    "name": "hwWsecAuthSuiteIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "openSystem": 8,
+          "shareKey": 7,
+          "wapiCertification": 1,
+          "wapiPreShareKey": 2,
+          "wpa18021x": 3,
+          "wpa1PreShareKey": 4,
+          "wpa1wpa28021x": 10,
+          "wpa1wpa2PreShareKey": 9,
+          "wpa28021x": 5,
+          "wpa2PreShareKey": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWsecAuthSuitesEntry": {
+    "class": "objecttype",
+    "description": "An entry (row) in the hwWsecAuthSuitesTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthSuiteIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwWsecAuthSuitesEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1",
+    "status": "current"
+  },
+  "hwWsecAuthSuitesGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWsecAuthSuitesGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthSuite"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthSuiteEnabled"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthPreauthenticationImplemented"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthPreauthenticationEnabled"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthUnicastKeysSupported"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthPairwiseCipher"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthPairwiseCipherSize"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthUnicastRekeyMethod"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthUnicastRekeyTime"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthUnicastRekeyPackets"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthMulticastCipher"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthMulticastCipherSize"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthMulticastRekeyMethod"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthMulticastRekeyTime"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthMulticastRekeyPackets"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthMulticastRekeyStrict"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthPSKValue"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthPSKPassPhrase"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthCertificateUpdateCount"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthMulticastUpdateCount"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthUnicastUpdateCount"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthBKLifetime"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthBKReauthThreshold"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthSATimeout"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthExcludeUnencrypted"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthDot1XMethod"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthControlledAuthControl"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthControlledPortControl"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecAuthOptionalImplemented"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.6.11.2.4",
+    "status": "current"
+  },
+  "hwWsecAuthSuitesTable": {
+    "class": "objecttype",
+    "description": "This table lists the AKM suites supported by this entity. Each AKM suite can be individually enabled and disabled. The AKM suite list in the RSN information element is formed using the information in this table.",
+    "maxaccess": "not-accessible",
+    "name": "hwWsecAuthSuitesTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4",
+    "status": "current"
+  },
+  "hwWsecAuthUnicastKeysSupported": {
+    "class": "objecttype",
+    "description": "This object indicates the number of the unicast keys that a WAPI/RSNA of this entity supports.",
+    "maxaccess": "read-only",
+    "name": "hwWsecAuthUnicastKeysSupported",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWsecAuthUnicastRekeyMethod": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "timeBased"
+      }
+    },
+    "description": "This object selects a mechanism for rekeying the WAPI/RSNA USK. The default is time-based, once per day. Rekeying the USK is only applicable to an entity acting in the AE or ASUE role.",
+    "maxaccess": "read-write",
+    "name": "hwWsecAuthUnicastRekeyMethod",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "packetBased": 3,
+          "timeBased": 2,
+          "timepacketBased": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWsecAuthUnicastRekeyPackets": {
+    "class": "objecttype",
+    "description": "A packet count (in 1000s of packets) after which the WAPI/RSNA USK shall be refreshed. The packet counter shall start at the moment the USK was set using the MLME-SETWPIKEYS.request primitive and it shall count all packets encrypted using the current USK.",
+    "maxaccess": "read-write",
+    "name": "hwWsecAuthUnicastRekeyPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    },
+    "units": "1000 packets"
+  },
+  "hwWsecAuthUnicastRekeyTime": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 86400
+      }
+    },
+    "description": "The time in seconds after which the WAPI/RSNA USK shall be refreshed. The timer shall start at the moment the USK was set using the MLME-SETWPIKEYS.request primitive.",
+    "maxaccess": "read-write",
+    "name": "hwWsecAuthUnicastRekeyTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    },
+    "units": "seconds"
+  },
+  "hwWsecAuthUnicastUpdateCount": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "The number of times Message 1 and Message 3 in the WAPI Unicast Key Negotiation Handshake will be retried per USK Handshake attempt. The number of times Message 1 and Message 3 in the RSNA 4-Way Handshake will be retried per 4-Way Handshake attempt. ",
+    "maxaccess": "read-write",
+    "name": "hwWsecAuthUnicastUpdateCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.4.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwWsecBatchProfileInfo": {
+    "class": "objectidentity",
+    "name": "hwWsecBatchProfileInfo",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.6"
+  },
+  "hwWsecBatchProfileInfoGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWsecBatchProfileInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecBatchProfileStartNumber"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecBatchProfileWantNumber"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecBatchProfileReturnNumber"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecBatchProfileName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.6.11.2.6",
+    "status": "current"
+  },
+  "hwWsecBatchProfileName": {
+    "class": "objecttype",
+    "description": "The names of security profile which are determined by node hwWsecBatchProfileStratNumber and node hwWsecBatchProfileWantNumber. each hwWsecProfileName name is divided by \u0027?\u0027.",
+    "maxaccess": "read-only",
+    "name": "hwWsecBatchProfileName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.6.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWsecBatchProfileReturnNumber": {
+    "class": "objecttype",
+    "description": "The ess number get in batch operation.",
+    "maxaccess": "read-only",
+    "name": "hwWsecBatchProfileReturnNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.6.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWsecBatchProfileStartNumber": {
+    "class": "objecttype",
+    "description": "The security profile start number in batch operation. This node is used with node hwWsecBatchProfileWantNumber, for example, hwWsecBatchProfileStartNumber is set to one, and hwWsecBatchProfileWantNumber is set to three, then get the node hwWsecBatchProfileReturnNumber,hwWsecBatchProfileName, that means start from the first security profile, get three security profile\u0027s name list. if it dose not exist three security profile, the hwWsecBatchProfileReturnNumber will be the real security profile number, otherwise, it is equal to hwWsecBatchProfileWantNumber.",
+    "maxaccess": "read-write",
+    "name": "hwWsecBatchProfileStartNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.6.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWsecBatchProfileWantNumber": {
+    "class": "objecttype",
+    "description": "The security profile number that want to get in batch operation.This node is used with node hwWsecBatchProfileWantNumber, for example, hwWsecBatchProfileStartNumber is set to one, and hwWsecBatchProfileWantNumber is set to three, then get the node hwWsecBatchProfileReturnNumber,hwWsecBatchProfileName, that means start from the first security profile, get three security profile\u0027s name list. if it dose not exist three security profile, the hwWsecBatchProfileReturnNumber will be the real security profile number, otherwise, it is equal to hwWsecBatchProfileWantNumber.",
+    "maxaccess": "read-write",
+    "name": "hwWsecBatchProfileWantNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.6.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWsecNotifications": {
+    "class": "objectidentity",
+    "name": "hwWsecNotifications",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.9"
+  },
+  "hwWsecNotify": {
+    "class": "objectidentity",
+    "name": "hwWsecNotify",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.9.1"
+  },
+  "hwWsecNotifyGroup": {
+    "class": "notificationgroup",
+    "description": "Description.",
+    "name": "hwWsecNotifyGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwStaAuthErrorNotify"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwStaAssociationFailNotify"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwUserWithInvalidCerficationInbreakNetworkNotify"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwStationRepititiveAttackNotify"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwTamperAttackNotify"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwLowSafeLevelAttackNotify"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwAddressRedirectionAttackNotify"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWepIDConflictNotify"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwStaAuthEncryptModeNotMatchNotify"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.6.11.2.7",
+    "status": "current"
+  },
+  "hwWsecNotifyObjects": {
+    "class": "objectidentity",
+    "name": "hwWsecNotifyObjects",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.9.2"
+  },
+  "hwWsecNotifyObjectsGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWsecNotifyObjectsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwStaAuthenticationMode"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwStaAuthenticationFailCause"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwStaAssociationFailCause"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwStaAssocBssid"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwStaFailCodeType"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWepIDConflictTrapAPMAC"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWepIDConflictTrapAPID"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWepIDConflictTrapRadioId"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWepIDConflictTrapPreSSID"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWepIDConflictTrapCurrSSID"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWepIDConflictTrapCipherIdx"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWlanStaAuthEncryptMode"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWlanVapAuthEncryptMode"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwStaAuthenticationFailCauseStr"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwStaAssociationFailCauseStr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.6.11.2.8",
+    "status": "current"
+  },
+  "hwWsecProfileAcCertFileName": {
+    "class": "objecttype",
+    "description": "AC certification file name",
+    "maxaccess": "read-write",
+    "name": "hwWsecProfileAcCertFileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWsecProfileAcCertState": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWsecProfileAcCertState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 2,
+          "valid": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWsecProfileAcPfxPassword": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWsecProfileAcPfxPassword",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWsecProfileAcPrvKeyFileName": {
+    "class": "objecttype",
+    "description": "AC private key file name",
+    "maxaccess": "read-write",
+    "name": "hwWsecProfileAcPrvKeyFileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWsecProfileAsuCertFileName": {
+    "class": "objecttype",
+    "description": "ASU certification file name",
+    "maxaccess": "read-write",
+    "name": "hwWsecProfileAsuCertFileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWsecProfileAsuCertState": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWsecProfileAsuCertState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 2,
+          "valid": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWsecProfileAsuIpAddr": {
+    "class": "objecttype",
+    "description": "ASU IP address for WAPI certification authentication",
+    "maxaccess": "read-write",
+    "name": "hwWsecProfileAsuIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwWsecProfileAsuPfxPassword": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWsecProfileAsuPfxPassword",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWsecProfileAsuType": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWsecProfileAsuType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.1.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 2,
+          "remote": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWsecProfileCaCertFileName": {
+    "class": "objecttype",
+    "description": "CA certification file name",
+    "maxaccess": "read-write",
+    "name": "hwWsecProfileCaCertFileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWsecProfileCaCertState": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwWsecProfileCaCertState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 2,
+          "valid": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWsecProfileCaPfxPassword": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWsecProfileCaPfxPassword",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWsecProfileEntry": {
+    "class": "objecttype",
+    "description": "WLAN access security profile entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwWsecProfileEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.1.1",
+    "status": "current"
+  },
+  "hwWsecProfileGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWsecProfileGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileWEPDataEncrypt"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileWEPDefaultKeyID"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileWEPKeyMappingLength"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileAsuIpAddr"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileCaCertFileName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileAsuCertFileName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileAcCertFileName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileAcPrvKeyFileName"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileRsnaVersion"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileWapiVersion"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileRowStatus"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileCaPfxPassword"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileCaCertState"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileAsuPfxPassword"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileAsuCertState"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileAcPfxPassword"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileAcCertState"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileKeyPfxPassword"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileAsuType"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileWpaPtkRekeySwitch"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileWpa2PtkRekeySwitch"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileWpaWpa2PtkRekeySwitch"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileWpaPtkRekeyInterval"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileWpa2PtkRekeyInterval"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileWpaWpa2PtkRekeyInterval"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.6.11.2.1",
+    "status": "current"
+  },
+  "hwWsecProfileKeyPfxPassword": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWsecProfileKeyPfxPassword",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWsecProfileName": {
+    "class": "objecttype",
+    "description": " WLAN access security profile Name. ",
+    "maxaccess": "read-write",
+    "name": "hwWsecProfileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWsecProfileRowStatus": {
+    "class": "objecttype",
+    "description": "Row status",
+    "maxaccess": "read-create",
+    "name": "hwWsecProfileRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwWsecProfileRsnaVersion": {
+    "class": "objecttype",
+    "description": "The highest WAPI/RSNA version this entity supports. See 7.3.2.9.",
+    "maxaccess": "read-only",
+    "name": "hwWsecProfileRsnaVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWsecProfileTable": {
+    "class": "objecttype",
+    "description": "WLAN access security profile table.",
+    "maxaccess": "not-accessible",
+    "name": "hwWsecProfileTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.1",
+    "status": "current"
+  },
+  "hwWsecProfileWEPDataEncrypt": {
+    "class": "objecttype",
+    "description": "When this attribute is TRUE, WEP data will be encrypted. When this attribute is FALSE, WEP data will not be encrypted. The default value of this attribute is FALSE.",
+    "maxaccess": "read-write",
+    "name": "hwWsecProfileWEPDataEncrypt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwWsecProfileWEPDefaultKeyID": {
+    "class": "objecttype",
+    "description": "This attribute shall indicate the use of the first, second, third, or fourth element of the WEPDefaultKeys array when set to values of zero, one, two, or three. The default value of this attribute shall be 0.",
+    "maxaccess": "read-write",
+    "name": "hwWsecProfileWEPDefaultKeyID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.1.1.3",
+    "reference": "IEEE Std 802.11-2007, 8.3.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 3,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwWsecProfileWEPKeyMappingLength": {
+    "class": "objecttype",
+    "description": "The maximum number of tuples that hwWsecWEPKeyMappings can hold.",
+    "maxaccess": "read-write",
+    "name": "hwWsecProfileWEPKeyMappingLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.1.1.4",
+    "reference": "IEEE Std 802.11-2007, 8.3.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWsecProfileWapiVersion": {
+    "class": "objecttype",
+    "description": "This object indicates the highest WAPI version that this entity supports.",
+    "maxaccess": "read-only",
+    "name": "hwWsecProfileWapiVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWsecProfileWpa2PtkRekeyInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 43200
+      }
+    },
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWsecProfileWpa2PtkRekeyInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.1.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 86400,
+            "min": 30
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwWsecProfileWpa2PtkRekeySwitch": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWsecProfileWpa2PtkRekeySwitch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.1.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWsecProfileWpaPtkRekeyInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 43200
+      }
+    },
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWsecProfileWpaPtkRekeyInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.1.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 86400,
+            "min": 30
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwWsecProfileWpaPtkRekeySwitch": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWsecProfileWpaPtkRekeySwitch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.1.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWsecProfileWpaWpa2PtkRekeyInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 43200
+      }
+    },
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWsecProfileWpaWpa2PtkRekeyInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.1.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 86400,
+            "min": 30
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwWsecProfileWpaWpa2PtkRekeySwitch": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwWsecProfileWpaWpa2PtkRekeySwitch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.1.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWsecStatsAuthenticationSuiteRequested": {
+    "class": "objecttype",
+    "description": "The selector of the last AKM suite requested.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsAuthenticationSuiteRequested",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "openSystem": 8,
+          "shareKey": 7,
+          "wapiCertification": 1,
+          "wapiPreShareKey": 2,
+          "wpa18021x": 3,
+          "wpa1PreShareKey": 4,
+          "wpa1wpa28021x": 10,
+          "wpa1wpa2PreShareKey": 9,
+          "wpa28021x": 5,
+          "wpa2PreShareKey": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWsecStatsAuthenticationSuiteSelected": {
+    "class": "objecttype",
+    "description": "The selector of the last AKM suite negotiated.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsAuthenticationSuiteSelected",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "openSystem": 8,
+          "shareKey": 7,
+          "wapiCertification": 1,
+          "wapiPreShareKey": 2,
+          "wpa18021x": 3,
+          "wpa1PreShareKey": 4,
+          "wpa1wpa28021x": 10,
+          "wpa1wpa2PreShareKey": 9,
+          "wpa28021x": 5,
+          "wpa2PreShareKey": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWsecStatsBKIDUsed": {
+    "class": "objecttype",
+    "description": "The selector of the last BKID of WAPI used in the last Unicast Key Negotiation Handshake. The selector of the last PMKID of RSNA used in the last 4-Way Handshake.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsBKIDUsed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWsecStatsCCMPDecryptErrors": {
+    "class": "objecttype",
+    "description": "The number of received MPDUs discarded by the CCMP decryption algorithm.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsCCMPDecryptErrors",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwWsecStatsCCMPReplays": {
+    "class": "objecttype",
+    "description": "The number of received CCMP MPDUs discarded by the replay mechanism.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsCCMPReplays",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwWsecStatsControlledPortStatus": {
+    "class": "objecttype",
+    "description": "This attribute indicates the state of the controlled port in a authenticator subsystem. If value is \u00271\u0027, the state is set to\u0027authenticated\u0027; else, the state is set to \u0027unauthenticated\u0027.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsControlledPortStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwWsecStatsEntry": {
+    "class": "objecttype",
+    "description": "An entry in the hwWsecStatsTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsSTAAddress"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwWsecStatsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1",
+    "status": "current"
+  },
+  "hwWsecStatsGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWsecStatsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsSTAAddress"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsVersion"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsBKIDUsed"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsAuthenticationSuiteSelected"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsUnicastCipherSelected"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsMulticastCipherSelected"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsAuthenticationSuiteRequested"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsUnicastCipherRequested"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsMulticastCipherRequested"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsWEPICVErrorCount"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsWEPExcludedCount"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsWEPUndecryptableCount"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsTKIPICVErrors"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsTKIPLocalMICFailures"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsTKIPRemoteMICFailures"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsTKIPReplays"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsCCMPReplays"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsCCMPDecryptErrors"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsWAISignatureErrors"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsWAIHMACErrors"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsWAIAuthenticationResultFailures"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsWAIDiscardCounters"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsWAITimeoutCounters"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsWAIFormatErrors"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsWAICertificateHandshakeFailures"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsWAIUnicastHandshakeFailures"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsWAIMulticastHandshakeFailures"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsWPIReplayCounter"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsWPIDecryptableErrors"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsWPIMICErrors"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsControlledPortStatus"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsNumberOfPTKSAReplayCounters"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsNumberOfGTKSAReplayCounters"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsTKIPCounterMeasuresInvoked"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecStatsWpa4WayHandshakeFailures"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.6.11.2.5",
+    "status": "current"
+  },
+  "hwWsecStatsMulticastCipherRequested": {
+    "class": "objecttype",
+    "description": "The selector of the last multicast cipher suite requested.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsMulticastCipherRequested",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ccmp": 5,
+          "null": 6,
+          "tkip": 4,
+          "tkipCcmp": 7,
+          "wep104": 3,
+          "wep128": 8,
+          "wep40": 2,
+          "wpiSms4": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWsecStatsMulticastCipherSelected": {
+    "class": "objecttype",
+    "description": "The selector of the last multicast cipher suite negotiated",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsMulticastCipherSelected",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ccmp": 5,
+          "null": 6,
+          "tkip": 4,
+          "tkipCcmp": 7,
+          "wep104": 3,
+          "wep128": 8,
+          "wep40": 2,
+          "wpiSms4": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWsecStatsNumberOfGTKSAReplayCounters": {
+    "class": "objecttype",
+    "description": "Specifies the number of GTKSA replay counters per association: 0 ?\u003e 1 replay counter, 1 ?\u003e 2 replay counters, 2 ?\u003e 4 replay counters, 3 ?\u003e 16 replay counters",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsNumberOfGTKSAReplayCounters",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWsecStatsNumberOfPTKSAReplayCounters": {
+    "class": "objecttype",
+    "description": "Specifies the number of PTKSA replay counters per association: 0 ?\u003e 1 replay counter, 1 ?\u003e 2 replay counters, 2 ?\u003e 4 replay counters, 3 ?\u003e 16 replay counters",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsNumberOfPTKSAReplayCounters",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWsecStatsSTAAddress": {
+    "class": "objecttype",
+    "description": "The MAC address of the STA to which the statistics in this conceptual row belong.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsSTAAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwWsecStatsTKIPCounterMeasuresInvoked": {
+    "class": "objecttype",
+    "description": "Counts the number of times that a TKIP MIC failure occurred two times within 60 s and TKIP countermeasures were invoked. This attribute counts both local and remote MIC failure events reported to this STA. It increments every time TKIP countermeasures are invoked",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsTKIPCounterMeasuresInvoked",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.34",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWsecStatsTKIPICVErrors": {
+    "class": "objecttype",
+    "description": "Counts the number of TKIP ICV errors encountered when decrypting packets for the STA.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsTKIPICVErrors",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwWsecStatsTKIPLocalMICFailures": {
+    "class": "objecttype",
+    "description": "Counts the number of MIC failures encountered when checking the integrity of packets received from the STA at this entity.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsTKIPLocalMICFailures",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwWsecStatsTKIPRemoteMICFailures": {
+    "class": "objecttype",
+    "description": "Counts the number of MIC failures encountered by the STA identified by dot11StatsSTAAddress and reported back to this entity.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsTKIPRemoteMICFailures",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwWsecStatsTKIPReplays": {
+    "class": "objecttype",
+    "description": "Counts the number of TKIP replay errors detected.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsTKIPReplays",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwWsecStatsTable": {
+    "class": "objecttype",
+    "description": "This table maintains per-STA statistics in an RSN. The entry with hwWsecStatsSTAAddress set to FF-FF-FF-FF-FF-FF shall contain statistics for broadcast/multicast traffic.",
+    "maxaccess": "not-accessible",
+    "name": "hwWsecStatsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5",
+    "status": "current"
+  },
+  "hwWsecStatsUnicastCipherRequested": {
+    "class": "objecttype",
+    "description": "The selector of the last unicast cipher suite requested",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsUnicastCipherRequested",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ccmp": 5,
+          "null": 6,
+          "tkip": 4,
+          "tkipCcmp": 7,
+          "wep104": 3,
+          "wep128": 8,
+          "wep40": 2,
+          "wpiSms4": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWsecStatsUnicastCipherSelected": {
+    "class": "objecttype",
+    "description": "The selector of the last unicast cipher suite negotiated.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsUnicastCipherSelected",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ccmp": 5,
+          "null": 6,
+          "tkip": 4,
+          "tkipCcmp": 7,
+          "wep104": 3,
+          "wep128": 8,
+          "wep40": 2,
+          "wpiSms4": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwWsecStatsVersion": {
+    "class": "objecttype",
+    "description": "The RSNA version with which the STA associated.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWsecStatsWAIAuthenticationResultFailures": {
+    "class": "objecttype",
+    "description": "This counter shall increment when the WAI authentication is unsuccessful.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsWAIAuthenticationResultFailures",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwWsecStatsWAICertificateHandshakeFailures": {
+    "class": "objecttype",
+    "description": "This counter shall increment when the WAI certificate authentication is unsuccessful.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsWAICertificateHandshakeFailures",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwWsecStatsWAIDiscardCounters": {
+    "class": "objecttype",
+    "description": "This counter shall increment when the received WAI packet is discarded.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsWAIDiscardCounters",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwWsecStatsWAIFormatErrors": {
+    "class": "objecttype",
+    "description": "This counter shall increment when there exists format error in the WAI packet.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsWAIFormatErrors",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwWsecStatsWAIHMACErrors": {
+    "class": "objecttype",
+    "description": "This counter shall increment when the message authentication code in the received WAI packet is wrong.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsWAIHMACErrors",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwWsecStatsWAIMulticastHandshakeFailures": {
+    "class": "objecttype",
+    "description": "This counter shall increment when the WAI multicast key announcement process is unsuccessful.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsWAIMulticastHandshakeFailures",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwWsecStatsWAISignatureErrors": {
+    "class": "objecttype",
+    "description": "This counter shall increment when the signature in the received WAI packet is wrong.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsWAISignatureErrors",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwWsecStatsWAITimeoutCounters": {
+    "class": "objecttype",
+    "description": "This counter shall increment when the WAI packet is timeout.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsWAITimeoutCounters",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwWsecStatsWAIUnicastHandshakeFailures": {
+    "class": "objecttype",
+    "description": "This counter shall increment when the WAI unicast key negotiation process is unsuccessful.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsWAIUnicastHandshakeFailures",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwWsecStatsWEPExcludedCount": {
+    "class": "objecttype",
+    "description": "This counter shall increment when a frame is received with the Protected Frame subfield of the Frame Control field set to zero and the value of hwWsecProfileExcludeUnencrypted causes that frame to be discarded.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsWEPExcludedCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwWsecStatsWEPICVErrorCount": {
+    "class": "objecttype",
+    "description": "This counter shall increment when a frame is received with the Protected Frame subfield of the Frame Control field set to one and the value of the ICV as received in the frame does not match the ICV value that is calculated for the contents of the received frame. ICV errors for TKIP are not counted in this variable but in hwWsecStatsTKIPICVErrors.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsWEPICVErrorCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwWsecStatsWEPUndecryptableCount": {
+    "class": "objecttype",
+    "description": "This counter shall increment when a frame is received with the Protected Frame subfield of the Frame Control field set to one and the WEPOn value for the key mapped to the transmitter\u0027s MAC address indicates that the frame should not have been encrypted or that frame is discarded due to the receiving STA not implementing the privacy option.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsWEPUndecryptableCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwWsecStatsWPIDecryptableErrors": {
+    "class": "objecttype",
+    "description": "The number of received MPDUs discarded by the WPI decryption algorithm because of no valid key.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsWPIDecryptableErrors",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwWsecStatsWPIMICErrors": {
+    "class": "objecttype",
+    "description": "The number of received MPDUs discarded because of the MIC check error during the WPI decryption.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsWPIMICErrors",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwWsecStatsWPIReplayCounter": {
+    "class": "objecttype",
+    "description": "The number of received WPI MPDUs discarded by the replay mechanism.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsWPIReplayCounter",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwWsecStatsWpa4WayHandshakeFailures": {
+    "class": "objecttype",
+    "description": "Counts the number of 4-Way Handshake failures.",
+    "maxaccess": "read-only",
+    "name": "hwWsecStatsWpa4WayHandshakeFailures",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.5.1.35",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWsecWEPDefaultKeyIndex": {
+    "class": "objecttype",
+    "description": "The auxiliary variable used to identify instances of the columnar objects in the WEP Default Keys Table. The value of this variable is equal to the WEPDefaultKeyID + 1",
+    "maxaccess": "not-accessible",
+    "name": "hwWsecWEPDefaultKeyIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwWsecWEPDefaultKeyValue": {
+    "class": "objecttype",
+    "description": "A WEP default secret hexadecimal key value. 10 byte for WEP-40, 26 byte for WEP-104, 32 byte for WEP-128. Reading this variable shall return unsuccessful status or null or zero.",
+    "maxaccess": "read-write",
+    "name": "hwWsecWEPDefaultKeyValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWsecWEPDefaultKeysEntry": {
+    "class": "objecttype",
+    "description": "An Entry (conceptual row) in the WEP Default Keys Table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecWEPDefaultKeyIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwWsecWEPDefaultKeysEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.2.1",
+    "status": "current"
+  },
+  "hwWsecWEPDefaultKeysGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWsecWEPDefaultKeysGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecWEPDefaultKeyValue"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecWEPPassPhrase"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.6.11.2.2",
+    "status": "current"
+  },
+  "hwWsecWEPDefaultKeysTable": {
+    "class": "objecttype",
+    "description": "Conceptual table for WEP default keys. This table shall contain the four WEP default secret key values corresponding to the four possible KeyID values. The WEP default secret keys are logically WRITE-ONLY. Attempts to read the entries in this table shall return unsuccessful status and values of null or zero. The default value of each WEP default key shall be null.",
+    "maxaccess": "not-accessible",
+    "name": "hwWsecWEPDefaultKeysTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.2",
+    "reference": "IEEE Std 802.11-2007, 8.3.2",
+    "status": "current"
+  },
+  "hwWsecWEPKeyMappingAddress": {
+    "class": "objecttype",
+    "description": "The MAC address of the STA for which the values from this key mapping entry are to be used.",
+    "maxaccess": "read-create",
+    "name": "hwWsecWEPKeyMappingAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwWsecWEPKeyMappingIndex": {
+    "class": "objecttype",
+    "description": "The auxiliary variable used to identify instances of the columnar objects in the WEP Key Mappings Table.",
+    "maxaccess": "not-accessible",
+    "name": "hwWsecWEPKeyMappingIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwWsecWEPKeyMappingStatus": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "active"
+      }
+    },
+    "description": "The status column used for creating, modifying, and deleting instances of the columnar objects in the WEP key mapping Table.",
+    "maxaccess": "read-create",
+    "name": "hwWsecWEPKeyMappingStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwWsecWEPKeyMappingValue": {
+    "class": "objecttype",
+    "description": "A WEP secret key value.",
+    "maxaccess": "read-create",
+    "name": "hwWsecWEPKeyMappingValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwWsecWEPKeyMappingWEPOn": {
+    "class": "objecttype",
+    "description": "Boolean as to whether WEP is to be used when communicating with the hwWsecWEPKeyMappingAddress STA.",
+    "maxaccess": "read-create",
+    "name": "hwWsecWEPKeyMappingWEPOn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwWsecWEPKeyMappingsEntry": {
+    "class": "objecttype",
+    "description": "An Entry (conceptual row) in the WEP Key Mappings Table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecProfileName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecWEPKeyMappingIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwWsecWEPKeyMappingsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.3.1",
+    "status": "current"
+  },
+  "hwWsecWEPKeyMappingsGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWsecWEPKeyMappingsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecWEPKeyMappingAddress"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecWEPKeyMappingWEPOn"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecWEPKeyMappingValue"
+      },
+      {
+        "module": "HUAWEI-WLAN-SECURITY-MIB",
+        "object": "hwWsecWEPKeyMappingStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.6.11.2.3",
+    "status": "current"
+  },
+  "hwWsecWEPKeyMappingsTable": {
+    "class": "objecttype",
+    "description": "Conceptual table for WEP Key Mappings. The MIB supports the ability to share a separate WEP key for each RA/TA pair. The Key Mappings Table contains zero or one entry for each MAC address and contains two fields for each entry: WEPOn and the corresponding WEP key. The WEP key mappings are logically WRITE-ONLY. Attempts to read the entries in this table shall return unsuccessful status and values of null or zero. The default value for all WEPOn fields is FALSE.",
+    "maxaccess": "not-accessible",
+    "name": "hwWsecWEPKeyMappingsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.3",
+    "reference": "IEEE Std 802.11-2007, 8.3.2",
+    "status": "current"
+  },
+  "hwWsecWEPPassPhrase": {
+    "class": "objecttype",
+    "description": "A WEP default secret ASCII key value. 5 byte for WEP-40, 13 byte for WEP-104, 16 byte for WEP-128. Reading this variable shall return unsuccessful status or null or zero.",
+    "maxaccess": "read-write",
+    "name": "hwWsecWEPPassPhrase",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.6.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "imports": {
+    "HUAWEI-WLAN-DEVICE-MIB": [
+      "hwApRegionIndex",
+      "hwApIndex",
+      "hwApMac"
+    ],
+    "HUAWEI-WLAN-MIB": [
+      "hwWlan"
+    ],
+    "HUAWEI-WLAN-RADIO-MIB": [
+      "hwRadioID"
+    ],
+    "HUAWEI-WLAN-SERVICE-MIB": [
+      "hwWlanServiceStaMac",
+      "hwWlanServiceEssSsid"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "Bits",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Counter64",
+      "Integer32",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString",
+      "TruthValue"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-WLAN-SECURITY-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:31 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-WLAN-SECURITY-MIB"
+  }
+}

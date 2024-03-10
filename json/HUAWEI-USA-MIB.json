@@ -1,0 +1,416 @@
+{
+  "hwAssociateType": {
+    "class": "objecttype",
+    "description": "AssociateUser type : 0 -arp,1 - dot1x, 2 - dhcp, 3 - http",
+    "maxaccess": "read-only",
+    "name": "hwAssociateType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.20.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "arp": 0,
+          "dhcp": 2,
+          "dot1x": 1,
+          "http": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAssociateUserEntry": {
+    "class": "objecttype",
+    "description": "Associate table of users",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-USA-MIB",
+        "object": "hwAssociateUserIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAssociateUserEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.20.1.2.1",
+    "status": "current"
+  },
+  "hwAssociateUserIndex": {
+    "class": "objecttype",
+    "description": "hwAssociateUserIndex",
+    "maxaccess": "read-only",
+    "name": "hwAssociateUserIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.20.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32767,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAssociateUserIp": {
+    "class": "objecttype",
+    "description": "AssociateUser ip.",
+    "maxaccess": "read-only",
+    "name": "hwAssociateUserIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.20.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwAssociateUserMac": {
+    "class": "objecttype",
+    "description": "AssociateUser mac.",
+    "maxaccess": "read-only",
+    "name": "hwAssociateUserMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.20.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwAssociateUserStates": {
+    "class": "objecttype",
+    "description": "AssociateUser status : 0 - IDLE, 1 - ASSOCIATED, 2 - UP",
+    "maxaccess": "read-only",
+    "name": "hwAssociateUserStates",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.20.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "associated": 1,
+          "idle": 0,
+          "up": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAssociateUserTable": {
+    "class": "objecttype",
+    "description": "The table describes USA configuration.",
+    "maxaccess": "not-accessible",
+    "name": "hwAssociateUserTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.20.1.2",
+    "status": "current"
+  },
+  "hwAuthenAccessPoint": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32"
+      }
+    },
+    "description": "authentication access-point. disable:2 , enable:1 ",
+    "maxaccess": "read-write",
+    "name": "hwAuthenAccessPoint",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.20.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwAuthenSpeedLimitInterval": {
+    "class": "objecttype",
+    "description": "The Global authentication limit interval.default : 30",
+    "maxaccess": "read-write",
+    "name": "hwAuthenSpeedLimitInterval",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.20.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAuthenSpeedLimitMaxNum": {
+    "class": "objecttype",
+    "description": "The Global authentication speed limit max-num.default : 60",
+    "maxaccess": "read-write",
+    "name": "hwAuthenSpeedLimitMaxNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.20.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwGlobalControlDownOffline": {
+    "class": "objecttype",
+    "description": "The Global port control-down offline.default : 0",
+    "maxaccess": "read-write",
+    "name": "hwGlobalControlDownOffline",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.20.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwGlobalLinkDownOffline": {
+    "class": "objecttype",
+    "description": "The Global port link-down offline.default : 0",
+    "maxaccess": "read-write",
+    "name": "hwGlobalLinkDownOffline",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.20.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwUSA": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "Please provide the descritpion.",
+    "lastupdated": "201008111600Z",
+    "name": "hwUSA",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.20",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "V1.00, initial version.",
+        "revision": "2010-08-11 16:00"
+      },
+      {
+        "description": "V1.01, initial version.",
+        "revision": "2010-09-11 16:00"
+      }
+    ]
+  },
+  "hwUSAConfigEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-USA-MIB",
+        "object": "hwUSAPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwUSAConfigEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.20.1.1.1",
+    "status": "current"
+  },
+  "hwUSAConfigTable": {
+    "class": "objecttype",
+    "description": "The table describes USA configuration.",
+    "maxaccess": "not-accessible",
+    "name": "hwUSAConfigTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.20.1.1",
+    "status": "current"
+  },
+  "hwUSAInterfaceName": {
+    "class": "objecttype",
+    "description": "The URL of portal.",
+    "maxaccess": "read-write",
+    "name": "hwUSAInterfaceName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.20.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwUSAObjects": {
+    "class": "objectidentity",
+    "name": "hwUSAObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.20.1"
+  },
+  "hwUSAPortIndex": {
+    "class": "objecttype",
+    "description": "USC Portindex.",
+    "maxaccess": "read-only",
+    "name": "hwUSAPortIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.20.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32767,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwUserDetectInterval": {
+    "class": "objecttype",
+    "description": "The Global user detect interval.default : 15",
+    "maxaccess": "read-write",
+    "name": "hwUserDetectInterval",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.20.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwUserDetectRetry": {
+    "class": "objecttype",
+    "description": "The Global detect retry times.default : 3",
+    "maxaccess": "read-write",
+    "name": "hwUserDetectRetry",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.20.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwUserSyncInterval": {
+    "class": "objecttype",
+    "description": "The Global user sync interval.default : 60",
+    "maxaccess": "read-write",
+    "name": "hwUserSyncInterval",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.20.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 3600,
+            "min": 60
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwBRASMib"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "OBJECT-TYPE",
+      "iso",
+      "Counter32",
+      "IpAddress",
+      "TimeTicks",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-USA-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:16 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-USA-MIB"
+  }
+}

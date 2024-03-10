@@ -1,0 +1,517 @@
+{
+  "hwSyslogAdminStatusObjectGroup": {
+    "class": "objectgroup",
+    "description": "The system log administrate status group.",
+    "name": "hwSyslogAdminStatusObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogEnableAdminStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.35.100.2.1",
+    "status": "current"
+  },
+  "hwSyslogCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the this module.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "hwSyslogAdminStatusObjectGroup"
+      },
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "hwSyslogServerObjectGroup"
+      },
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "hwSyslogPolicyGroupObjectGroup"
+      },
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "hwSyslogPolicyConfigObjectGroup"
+      }
+    ],
+    "name": "hwSyslogCompliance",
+    "oid": "1.3.6.1.4.1.2011.6.35.100.1.1",
+    "status": "current"
+  },
+  "hwSyslogCompliances": {
+    "class": "objectidentity",
+    "name": "hwSyslogCompliances",
+    "oid": "1.3.6.1.4.1.2011.6.35.100.1"
+  },
+  "hwSyslogConformance": {
+    "class": "objectidentity",
+    "name": "hwSyslogConformance",
+    "oid": "1.3.6.1.4.1.2011.6.35.100"
+  },
+  "hwSyslogObjectGroups": {
+    "class": "objectidentity",
+    "name": "hwSyslogObjectGroups",
+    "oid": "1.3.6.1.4.1.2011.6.35.100.2"
+  },
+  "hwSyslogPolicyConfigObjectGroup": {
+    "class": "objectgroup",
+    "description": "The system log policy config group.",
+    "name": "hwSyslogPolicyConfigObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogPolicyDescr"
+      },
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogUserType"
+      },
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogPolicyBoard"
+      },
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogPolicyIsp"
+      },
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogPolicyType"
+      },
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogGroupChoice"
+      },
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogPolicyRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.35.100.2.4",
+    "status": "current"
+  },
+  "hwSyslogPolicyGroupObjectGroup": {
+    "class": "objectgroup",
+    "description": "The system log policy group.",
+    "name": "hwSyslogPolicyGroupObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogPolicyGroupName"
+      },
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogPolicyGroupRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.35.100.2.3",
+    "status": "current"
+  },
+  "hwSyslogServerObjectGroup": {
+    "class": "objectgroup",
+    "description": "The system log server group.",
+    "name": "hwSyslogServerObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogServerIpAddress"
+      },
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogPolicyGroupNameSelect"
+      },
+      {
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogServerRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.35.100.2.2",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "huaweiUtility"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "Integer32",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Bits",
+      "Counter64",
+      "Unsigned32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-SYSLOG-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:06 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-SYSLOG-MIB"
+  },
+  "syslogEnableAdminStatus": {
+    "class": "objecttype",
+    "description": " The board supports the configuration of switch group of system log server. The configuration mode can be bit-domain setting, board is numbered 1 to 18, correspondingly to the bit of BIT1 to BIT18, 1 means enable, 0 means disable. ",
+    "maxaccess": "read-write",
+    "name": "syslogEnableAdminStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.35.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "syslogGroupChoice": {
+    "class": "objecttype",
+    "description": " The server group which the policy belongs to. When one policy belongs to more than one policy server group, name of policy server group can be separated by character \u0027;\u0027. ",
+    "maxaccess": "read-write",
+    "name": "syslogGroupChoice",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.35.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "syslogMIBObjects": {
+    "class": "moduleidentity",
+    "contactinfo": "Floor 5, Block 4, R\u0026D Building, Huawei Longgang Production Base, Shenzhen, P.R.C. http://www.huawei.com Zip: 518129 ",
+    "description": "The MIB contains objects of system log.",
+    "lastupdated": "200404240900Z",
+    "name": "syslogMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.6.35",
+    "organization": "Fix-Net Dept, Huawei Technologies Co.,Ltd."
+  },
+  "syslogPolicyBoard": {
+    "class": "objecttype",
+    "description": " The board which policy taking effect. ",
+    "maxaccess": "read-create",
+    "name": "syslogPolicyBoard",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.35.4.1.4",
+    "status": "current",
+    "syntax": {
+      "bits": {
+        "eighteenth": 18,
+        "eighth": 8,
+        "eleventh": 11,
+        "fifteenth": 15,
+        "fifth": 5,
+        "first": 1,
+        "fourteenth": 14,
+        "fouth": 4,
+        "ninth": 9,
+        "second": 2,
+        "seventennth": 17,
+        "seventh": 7,
+        "sixteenth": 16,
+        "sixth": 6,
+        "tenth": 10,
+        "third": 3,
+        "thirteenth": 13,
+        "twelfth": 12
+      },
+      "class": "type",
+      "type": "Bits"
+    }
+  },
+  "syslogPolicyConfigEntry": {
+    "class": "objecttype",
+    "description": " The entry of system server policy config table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogPolicyConfigIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "syslogPolicyConfigEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.35.4.1",
+    "status": "current"
+  },
+  "syslogPolicyConfigIndex": {
+    "class": "objecttype",
+    "description": " The index of system log policy config. ",
+    "maxaccess": "not-accessible",
+    "name": "syslogPolicyConfigIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.35.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1024,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "syslogPolicyConfigTable": {
+    "class": "objecttype",
+    "description": " The system server policy config table. ",
+    "maxaccess": "not-accessible",
+    "name": "syslogPolicyConfigTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.35.4",
+    "status": "current"
+  },
+  "syslogPolicyDescr": {
+    "class": "objecttype",
+    "description": " The description of policy. ",
+    "maxaccess": "read-create",
+    "name": "syslogPolicyDescr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.35.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "syslogPolicyGroupEntry": {
+    "class": "objecttype",
+    "description": "The entry of policy group control table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogPolicyGroupName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "syslogPolicyGroupEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.35.3.1",
+    "status": "current"
+  },
+  "syslogPolicyGroupName": {
+    "class": "objecttype",
+    "description": " The name of policy group. ",
+    "maxaccess": "read-only",
+    "name": "syslogPolicyGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.35.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "syslogPolicyGroupNameSelect": {
+    "class": "objecttype",
+    "description": " The name of policy group selected by the system log server, one server can only use one policy server group. ",
+    "maxaccess": "read-write",
+    "name": "syslogPolicyGroupNameSelect",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.35.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "syslogPolicyGroupRowStatus": {
+    "class": "objecttype",
+    "description": " The row status of policy group, used to add and delete.",
+    "maxaccess": "read-create",
+    "name": "syslogPolicyGroupRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.35.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "syslogPolicyGroupTable": {
+    "class": "objecttype",
+    "description": "The policy group control table.",
+    "maxaccess": "not-accessible",
+    "name": "syslogPolicyGroupTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.35.3",
+    "status": "current"
+  },
+  "syslogPolicyIsp": {
+    "class": "objecttype",
+    "description": " The selection of ISP, the null character means tracing operation log of all ISP. More than one ISP can be separated by character \u0027;\u0027, for example, if the policy can support 2 ISPs, it can express as ISP1; ISP2. ",
+    "maxaccess": "read-create",
+    "name": "syslogPolicyIsp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.35.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "syslogPolicyRowStatus": {
+    "class": "objecttype",
+    "description": " The row status, used to add and delete. ",
+    "maxaccess": "read-create",
+    "name": "syslogPolicyRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.35.4.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "syslogPolicyType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 7
+      }
+    },
+    "description": " The selection of system log filter type. ",
+    "maxaccess": "read-create",
+    "name": "syslogPolicyType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.35.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "callSyslog": 3,
+          "userOperSyslog": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "syslogServerEntry": {
+    "class": "objecttype",
+    "description": " The entry of the system log server table. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SYSLOG-MIB",
+        "object": "syslogServerIpAddress"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "syslogServerEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.35.2.1",
+    "status": "current"
+  },
+  "syslogServerIpAddress": {
+    "class": "objecttype",
+    "description": " The IP address of system log server ",
+    "maxaccess": "read-write",
+    "name": "syslogServerIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.35.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "syslogServerRowStatus": {
+    "class": "objecttype",
+    "description": " The row status, used to add and delete. ",
+    "maxaccess": "read-create",
+    "name": "syslogServerRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.35.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "syslogServerTable": {
+    "class": "objecttype",
+    "description": " The system log server table. ",
+    "maxaccess": "not-accessible",
+    "name": "syslogServerTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.35.2",
+    "status": "current"
+  },
+  "syslogUserType": {
+    "class": "objecttype",
+    "description": " Filtrating the system log information of different user type. ",
+    "maxaccess": "read-write",
+    "name": "syslogUserType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.35.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 0,
+          "dot1x": 101,
+          "l2dynamic": 4,
+          "l2static": 3,
+          "l2tp": 6,
+          "l3": 5,
+          "others": 200,
+          "portal": 1,
+          "ppp": 2,
+          "telnet": 7,
+          "wlan": 102
+        }
+      },
+      "type": "INTEGER"
+    }
+  }
+}

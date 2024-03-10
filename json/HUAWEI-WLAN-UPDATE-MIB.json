@@ -1,0 +1,1307 @@
+{
+  "hwApFlashProgress": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwApFlashProgress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwApTypeRegionUpdateAdminOper": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwApTypeRegionUpdateAdminOper",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cancel": 3,
+          "reset": 2,
+          "start": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwApTypeRegionUpdateEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApRegionIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwApTypeRegionUpdateEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.7.1",
+    "status": "current"
+  },
+  "hwApTypeRegionUpdateFilename": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwApTypeRegionUpdateFilename",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwApTypeRegionUpdatePercent": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwApTypeRegionUpdatePercent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.7.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwApTypeRegionUpdateResultInfo": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwApTypeRegionUpdateResultInfo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.7.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwApTypeRegionUpdateResultMask": {
+    "class": "objecttype",
+    "description": "Description.The result of ap update. Every bit is used to describe the ap updated successfully or unsuccessfully. 0 means success, and 1 means unsuccess. The value of this node is hexadecimal integer block. Each Byte describes 8 aps are updated successfully or unsuccessfully. For example, the first Byte describes ap 0~7 is updated successfully or unsuccessfully, and the second Byte describes ap 8~15 is updated successfully or unsuccessfully. Such as, if only ap 0,4,5,6,7,9 is updated unsuccessfully, the binary number is 11110001 and 00000010, the hexadecimal number is 0xF1 and 0x2, so the first Byte of this node is 0xF1, and the second Byte is 0x2. ",
+    "maxaccess": "read-only",
+    "name": "hwApTypeRegionUpdateResultMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwApTypeRegionUpdateRowStatus": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-create",
+    "name": "hwApTypeRegionUpdateRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.7.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwApTypeRegionUpdateTable": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwApTypeRegionUpdateTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.7",
+    "status": "current"
+  },
+  "hwApUpdateAdminOper": {
+    "class": "objecttype",
+    "description": "Ap update administration operation. start(1): start ap update. reset(2): reset all the ap with specifed type after update finished ",
+    "maxaccess": "read-create",
+    "name": "hwApUpdateAdminOper",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cancel": 3,
+          "reset": 2,
+          "start": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwApUpdateApIdSetMask": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwApUpdateApIdSetMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwApUpdateBeginNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when ap begin to update.",
+    "name": "hwApUpdateBeginNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApIndex"
+      },
+      {
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApMac"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.7.1.1",
+    "status": "current"
+  },
+  "hwApUpdateByFileName": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwApUpdateByFileName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.2.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwApUpdateConfig": {
+    "class": "objectidentity",
+    "name": "hwApUpdateConfig",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.1"
+  },
+  "hwApUpdateEntry": {
+    "class": "objecttype",
+    "description": "Ap UpdateEntry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApType"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwApUpdateEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.2.1",
+    "status": "current"
+  },
+  "hwApUpdateFTPIPAddress": {
+    "class": "objecttype",
+    "description": "FTP Server IP for Ap Update.",
+    "maxaccess": "read-write",
+    "name": "hwApUpdateFTPIPAddress",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwApUpdateFTPIPv6Address": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwApUpdateFTPIPv6Address",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 46,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwApUpdateFTPMaxConnectNum": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwApUpdateFTPMaxConnectNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwApUpdateFTPPassword": {
+    "class": "objecttype",
+    "description": "FTP Client Password for Ap Update.",
+    "maxaccess": "read-write",
+    "name": "hwApUpdateFTPPassword",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwApUpdateFTPUsername": {
+    "class": "objecttype",
+    "description": "FTP Client Username for Ap Update.",
+    "maxaccess": "read-write",
+    "name": "hwApUpdateFTPUsername",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwApUpdateFilename": {
+    "class": "objecttype",
+    "description": "The ap image filename of ap update.",
+    "maxaccess": "read-create",
+    "name": "hwApUpdateFilename",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwApUpdateMode": {
+    "class": "objecttype",
+    "description": "The mode of Ap Update. ftp(1): Ap Image Update by ftp. ac(2): Ap Image Update by ac-ap protocol. ",
+    "maxaccess": "read-write",
+    "name": "hwApUpdateMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ac": 2,
+          "ftp": 1,
+          "sftp": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwApUpdateNextOper": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwApUpdateNextOper",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.2.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notReset": 1,
+          "reset": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwApUpdateObjects": {
+    "class": "objectidentity",
+    "name": "hwApUpdateObjects",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3"
+  },
+  "hwApUpdateObjectsGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwApUpdateObjectsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateSFTPIPAddress"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateSFTPUsername"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateSFTPPassword"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateFTPMaxConnectNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateFTPIPv6Address"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateSFTPIPv6Address"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateSFTPMaxConnectNum"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateFilename"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateResultMask"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateAdminOper"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdatePercent"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateRowStatus"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateResultInfo"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApFlashProgress"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwMacApFlashProgress"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateApIdSetMask"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateResult"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateTime"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateByFileName"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateNextOper"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateFTPIPAddress"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateFTPUsername"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateFTPPassword"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateMode"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateProgressStatus"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateProgress"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwMacApUpdateProgressStatus"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwMacApUpdateProgress"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwSingleApUpdateAdminOper"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwSingleApUpdatePercent"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwSingleApUpdateResult"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwSingleApUpdateFilename"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwMacSingleApUpdateAdminOper"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwMacSingleApUpdatePercent"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwMacSingleApUpdateResult"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwMacSingleApUpdateFilename"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApTypeRegionUpdateFilename"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApTypeRegionUpdateResultMask"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApTypeRegionUpdateAdminOper"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApTypeRegionUpdatePercent"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApTypeRegionUpdateRowStatus"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApTypeRegionUpdateResultInfo"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.7.5.2.3",
+    "status": "current"
+  },
+  "hwApUpdatePercent": {
+    "class": "objecttype",
+    "description": "The percentage is only used for a online update operation. If the update begins, the percentage becomes 1. when some AP\u0027s update is finished, the percentage stands for the percentage which is the number of APs upgraded to the total number of APs. If the update is finished, the percentage will be 100.",
+    "maxaccess": "read-only",
+    "name": "hwApUpdatePercent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwApUpdateProgress": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwApUpdateProgress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwApUpdateProgressEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwApUpdateProgressEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.3.1",
+    "status": "current"
+  },
+  "hwApUpdateProgressStatus": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwApUpdateProgressStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apAcLinkDown": 11,
+          "blockFull": 27,
+          "efsAndApTypeMismatched": 7,
+          "efsAndVersionMismatched": 5,
+          "failToDownloadFile": 4,
+          "fileContentError": 8,
+          "fileLoading": 22,
+          "getFtpInfoFailed": 25,
+          "getSftpInfoFailed": 26,
+          "identifierErr": 23,
+          "insufficientApMemory": 3,
+          "invalidFileName": 6,
+          "modeChanged": 33,
+          "neitherNeedUpdateNorReset": 21,
+          "noNeedToUpdate": 12,
+          "noNeedUpdateNeedReset": 20,
+          "noResult": 18,
+          "noUpdateResult": -1,
+          "normalToStandby": 32,
+          "notInConfig": 24,
+          "readFileFailed": 31,
+          "receiveFileFailed": 15,
+          "retransferFileFailed": 16,
+          "sendFirstFileFailed": 14,
+          "succeedNeedReset": 34,
+          "updateCancel": 13,
+          "updateFailed": 2,
+          "updateOverMaxTime": 17,
+          "updateSuccessful": 1,
+          "updateTimeout": 10,
+          "updating": 0,
+          "waitForNextBatch": 19,
+          "writingMemoryError": 9
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwApUpdateProgressTable": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwApUpdateProgressTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.3",
+    "status": "current"
+  },
+  "hwApUpdateResult": {
+    "class": "objecttype",
+    "description": "Ap update result. 1 means success 2 means failure, unknown error 3 means failure, insufficient AP memory 4 means failure, fail to download the file 5 means failure, mismatch between the version in the EFS tail and the version in the file name 6 means failure, invalid file name 7 means failure, mismatch between the AP type in the EFS tail and the AP 8 means failure, file content error 9 means failure, writing flash memory failure 10 means failure, upgrade timeout 11 means failure, the communication between AP and AC fails ",
+    "maxaccess": "read-only",
+    "name": "hwApUpdateResult",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.2.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failureCommunicationFaultApAndAc": 11,
+          "failureDownloadFileFailure": 4,
+          "failureFileContentError": 8,
+          "failureInsufficientMemory": 3,
+          "failureInvalidFileName": 6,
+          "failureMismatchApTypeInEfs": 7,
+          "failureMismatchVersionEfsAndFileName": 5,
+          "failureTimeoutForUpgrade": 10,
+          "failureUnknownError": 2,
+          "failureWriteFlashFailure": 9,
+          "success": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwApUpdateResultInfo": {
+    "class": "objecttype",
+    "description": "The result of ap update. Every bit is used to describe the ap updated successfully or unsuccessfully. 0 means success, and 1 means unsuccess. The value of this node is hexadecimal integer block. Each Byte describes 8 aps are updated successfully or unsuccessfully. For example, the first Byte describes ap 0~7 is updated successfully or unsuccessfully, and the second Byte describes ap 8~15 is updated successfully or unsuccessfully. Such as, if only ap 0,4,5,6,7,9 is updated unsuccessfully, the binary number is 11110001 and 00000010, the hexadecimal number is 0xF1 and 0x2, so the first Byte of this node is 0xF1, and the second Byte is 0x2.",
+    "maxaccess": "read-only",
+    "name": "hwApUpdateResultInfo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwApUpdateResultMask": {
+    "class": "objecttype",
+    "description": "The result of ap update. Every bit is used to describe the ap updated successfully or unsuccessfully. 0 means success, and 1 means unsuccess. The value of this node is hexadecimal integer block. Each Byte describes 8 aps are updated successfully or unsuccessfully. For example, the first Byte describes ap 0~7 is updated successfully or unsuccessfully, and the second Byte describes ap 8~15 is updated successfully or unsuccessfully. Such as, if only ap 0,4,5,6,7,9 is updated unsuccessfully, the binary number is 11110001 and 00000010, the hexadecimal number is 0xF1 and 0x2, so the first Byte of this node is 0xF1, and the second Byte is 0x2.",
+    "maxaccess": "read-only",
+    "name": "hwApUpdateResultMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwApUpdateResultNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when ap has updated successfully or failed.",
+    "name": "hwApUpdateResultNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApIndex"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateResult"
+      },
+      {
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApMac"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateTime"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateByFileName"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateNextOper"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateResultStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.7.1.2",
+    "status": "current"
+  },
+  "hwApUpdateResultStatus": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwApUpdateResultStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.2.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwApUpdateRowStatus": {
+    "class": "objecttype",
+    "description": "Row status: mainly to support to add or delete the relationship of ap\u0027s type and the update filename. createAndGo(4): add a relationship. destroy(6): delete the relationship. ",
+    "maxaccess": "read-create",
+    "name": "hwApUpdateRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwApUpdateSFTPIPAddress": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwApUpdateSFTPIPAddress",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwApUpdateSFTPIPv6Address": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwApUpdateSFTPIPv6Address",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 46,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwApUpdateSFTPMaxConnectNum": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwApUpdateSFTPMaxConnectNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwApUpdateSFTPPassword": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwApUpdateSFTPPassword",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwApUpdateSFTPUsername": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwApUpdateSFTPUsername",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwApUpdateTable": {
+    "class": "objecttype",
+    "description": "Ap Update Table. The index of this table is hwApType. ",
+    "maxaccess": "not-accessible",
+    "name": "hwApUpdateTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.2",
+    "status": "current"
+  },
+  "hwApUpdateTime": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwApUpdateTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.2.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwApUpdateUbootNotMatchNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when ap uboot not match version.",
+    "name": "hwApUpdateUbootNotMatchNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApIndex"
+      },
+      {
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApMac"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.7.1.3",
+    "status": "current"
+  },
+  "hwMacApFlashProgress": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwMacApFlashProgress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMacApUpdateProgress": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwMacApUpdateProgress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMacApUpdateProgressEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApMac"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMacApUpdateProgressEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.4.1",
+    "status": "current"
+  },
+  "hwMacApUpdateProgressStatus": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwMacApUpdateProgressStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "apAcLinkDown": 11,
+          "blockFull": 27,
+          "efsAndApTypeMismatched": 7,
+          "efsAndVersionMismatched": 5,
+          "failToDownloadFile": 4,
+          "fileContentError": 8,
+          "fileLoading": 22,
+          "getFtpInfoFailed": 25,
+          "getSftpInfoFailed": 26,
+          "identifierErr": 23,
+          "insufficientApMemory": 3,
+          "invalidFileName": 6,
+          "modeChanged": 33,
+          "neitherNeedUpdateNorReset": 21,
+          "noNeedToUpdate": 12,
+          "noNeedUpdateNeedReset": 20,
+          "noResult": 18,
+          "noUpdateResult": -1,
+          "normalToStandby": 32,
+          "notInConfig": 24,
+          "readFileFailed": 31,
+          "receiveFileFailed": 15,
+          "retransferFileFailed": 16,
+          "sendFirstFileFailed": 14,
+          "succeedNeedReset": 34,
+          "updateCancel": 13,
+          "updateFailed": 2,
+          "updateOverMaxTime": 17,
+          "updateSuccessful": 1,
+          "updateTimeout": 10,
+          "updating": 0,
+          "waitForNextBatch": 19,
+          "writingMemoryError": 9
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMacApUpdateProgressTable": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacApUpdateProgressTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.4",
+    "status": "current"
+  },
+  "hwMacSingleApUpdateAdminOper": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwMacSingleApUpdateAdminOper",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cancel": 3,
+          "reset": 2,
+          "start": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMacSingleApUpdateEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApMac"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMacSingleApUpdateEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.6.1",
+    "status": "current"
+  },
+  "hwMacSingleApUpdateFilename": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-create",
+    "name": "hwMacSingleApUpdateFilename",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMacSingleApUpdatePercent": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwMacSingleApUpdatePercent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMacSingleApUpdateResult": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwMacSingleApUpdateResult",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failed": 1,
+          "success": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMacSingleApUpdateTable": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwMacSingleApUpdateTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.6",
+    "status": "current"
+  },
+  "hwSingleApUpdateAdminOper": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwSingleApUpdateAdminOper",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cancel": 3,
+          "reset": 2,
+          "start": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSingleApUpdateEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-WLAN-DEVICE-MIB",
+        "object": "hwApIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSingleApUpdateEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.5.1",
+    "status": "current"
+  },
+  "hwSingleApUpdateFilename": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-create",
+    "name": "hwSingleApUpdateFilename",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSingleApUpdatePercent": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwSingleApUpdatePercent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSingleApUpdateResult": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-only",
+    "name": "hwSingleApUpdateResult",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failed": 1,
+          "success": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSingleApUpdateTable": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwSingleApUpdateTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.3.5",
+    "status": "current"
+  },
+  "hwWlanUpdate": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "The MIB module defines the AP update operation.",
+    "lastupdated": "201411271000Z",
+    "name": "hwWlanUpdate",
+    "oid": "1.3.6.1.4.1.2011.6.139.7",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "The MIB module defines the AP update operation.",
+        "revision": "2014-11-27 10:00"
+      },
+      {
+        "description": " V1.01, Add for v2r5. ",
+        "revision": "2013-10-23 15:00"
+      },
+      {
+        "description": " V1.00, Inital version. ",
+        "revision": "2010-06-08 00:00"
+      },
+      {
+        "description": "V1.02, Add nine enum values in hwApUpdateResult leaf of hwWlanUpdateNotifyObjects",
+        "revision": "2010-11-10 00:00"
+      }
+    ]
+  },
+  "hwWlanUpdateCompliance": {
+    "class": "modulecompliance",
+    "description": "Description.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwWlanUpdateNotificationsGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwWlanUpdateNotifyObjectsGroup"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateObjectsGroup"
+      }
+    ],
+    "name": "hwWlanUpdateCompliance",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.5.1.1",
+    "status": "current"
+  },
+  "hwWlanUpdateCompliances": {
+    "class": "objectidentity",
+    "name": "hwWlanUpdateCompliances",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.5.1"
+  },
+  "hwWlanUpdateConformance": {
+    "class": "objectidentity",
+    "name": "hwWlanUpdateConformance",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.5"
+  },
+  "hwWlanUpdateNotifications": {
+    "class": "objectidentity",
+    "name": "hwWlanUpdateNotifications",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.1"
+  },
+  "hwWlanUpdateNotificationsGroup": {
+    "class": "notificationgroup",
+    "description": "Description.",
+    "name": "hwWlanUpdateNotificationsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateBeginNotify"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateResultNotify"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateUbootNotMatchNotify"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.7.5.2.1",
+    "status": "current"
+  },
+  "hwWlanUpdateNotifyObjects": {
+    "class": "objectidentity",
+    "name": "hwWlanUpdateNotifyObjects",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.2"
+  },
+  "hwWlanUpdateNotifyObjectsGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwWlanUpdateNotifyObjectsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateResult"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateTime"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateByFileName"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateNextOper"
+      },
+      {
+        "module": "HUAWEI-WLAN-UPDATE-MIB",
+        "object": "hwApUpdateResultStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.139.7.5.2.2",
+    "status": "current"
+  },
+  "hwWlanUpdateObjectGroups": {
+    "class": "objectidentity",
+    "name": "hwWlanUpdateObjectGroups",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.5.2"
+  },
+  "hwWlanUpdateObjects": {
+    "class": "objectidentity",
+    "name": "hwWlanUpdateObjects",
+    "oid": "1.3.6.1.4.1.2011.6.139.7.4"
+  },
+  "imports": {
+    "HUAWEI-WLAN-DEVICE-MIB": [
+      "hwApMac",
+      "hwApIndex",
+      "hwApType",
+      "hwApRegionIndex"
+    ],
+    "HUAWEI-WLAN-MIB": [
+      "hwWlan"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Integer32",
+      "Unsigned32",
+      "IpAddress",
+      "Bits",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "iso",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-WLAN-UPDATE-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:33 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-WLAN-UPDATE-MIB"
+  }
+}

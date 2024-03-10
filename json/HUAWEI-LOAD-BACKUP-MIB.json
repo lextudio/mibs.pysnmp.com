@@ -1,0 +1,1308 @@
+{
+  "hwBackupAndRestore": {
+    "class": "objecttype",
+    "description": "The running configuration in the system has been backup to flash or disk, or been restored from . ",
+    "maxaccess": "read-write",
+    "name": "hwBackupAndRestore",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.4.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "copyFlashToMem": 2,
+          "copyHardDiskToMem": 4,
+          "copyMemToFlash": 1,
+          "copyMemToHardDisk": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwBackupAndRestoreConfig": {
+    "class": "objectidentity",
+    "name": "hwBackupAndRestoreConfig",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.4"
+  },
+  "hwBackupAndRestoreConfigGroup": {
+    "class": "objectgroup",
+    "description": "The load and backup config group objects.",
+    "name": "hwBackupAndRestoreConfigGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwBackupAndRestore"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.6.3.2.6",
+    "status": "current"
+  },
+  "hwBackupBoardType": {
+    "class": "objecttype",
+    "description": " The type of backup board. ",
+    "maxaccess": "read-write",
+    "name": "hwBackupBoardType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWPCBType"
+    }
+  },
+  "hwBackupContent": {
+    "class": "objecttype",
+    "description": " The backup content. ",
+    "maxaccess": "read-write",
+    "name": "hwBackupContent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 5,
+          "bcdcInfo": 47,
+          "bill": 4,
+          "boardinfo": 60,
+          "configuration": 1,
+          "configurationCli": 42,
+          "configurationEfs": 41,
+          "configurationIni": 40,
+          "license": 49,
+          "log": 3,
+          "logciPa": 30,
+          "logicAfc": 25,
+          "logicCpld": 23,
+          "logicFpga": 22,
+          "logicPci": 24,
+          "patch": 18,
+          "program": 15,
+          "programApp": 21,
+          "programBios": 20,
+          "programBootFile": 29,
+          "programBsp": 34,
+          "programCurrent": 45,
+          "programDataFlow": 28,
+          "programDatabase": 19,
+          "programExtendedBios": 51,
+          "programFireware": 27,
+          "programMicroCode": 26,
+          "programOther": 46,
+          "resgeneral": 17,
+          "reslocal": 16,
+          "shellMacro": 2,
+          "webExp": 31,
+          "webHelp": 33,
+          "webNev": 32
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwBackupFailAlarm": {
+    "class": "notificationtype",
+    "description": " The back up failure alarm trap. ",
+    "name": "hwBackupFailAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwTrapBackupResult"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.0.1",
+    "status": "current"
+  },
+  "hwBackupFailAlarmSuccess": {
+    "class": "notificationtype",
+    "description": " The backup success notification. ",
+    "name": "hwBackupFailAlarmSuccess",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.0.3",
+    "status": "current"
+  },
+  "hwBackupFileName": {
+    "class": "objecttype",
+    "description": " The file name. ",
+    "maxaccess": "read-write",
+    "name": "hwBackupFileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 127,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwBackupMode": {
+    "class": "objecttype",
+    "description": " Load protocol:tftp and MODEM currently supported. ",
+    "maxaccess": "read-write",
+    "name": "hwBackupMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftp": 3,
+          "modem": 2,
+          "other": 4,
+          "tftp": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwBackupParaEntry": {
+    "class": "objecttype",
+    "description": " The backup parameter table entry. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBackupParaEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.2.1",
+    "status": "current"
+  },
+  "hwBackupParaTable": {
+    "class": "objecttype",
+    "description": " The backup parameter table. ",
+    "maxaccess": "not-accessible",
+    "name": "hwBackupParaTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.2",
+    "status": "current"
+  },
+  "hwBackupParaTableGroup": {
+    "class": "objectgroup",
+    "description": "The backup parameter group objects.",
+    "name": "hwBackupParaTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwBackupServerIpAddr"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwBackupMode"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwBackupFileName"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwBackupContent"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwBackupProcess"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwBackupUserName"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwBackupPassword"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwBackupBoardType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.6.3.2.2",
+    "status": "current"
+  },
+  "hwBackupPassword": {
+    "class": "objecttype",
+    "description": " The backup user name,which is necessary in FTP mode , which is necessary in FTP mode and unnecessary in TFTP mode. ",
+    "maxaccess": "read-write",
+    "name": "hwBackupPassword",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwBackupProcess": {
+    "class": "objecttype",
+    "description": " The Process of backuping. ",
+    "maxaccess": "read-only",
+    "name": "hwBackupProcess",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBackupServerIpAddr": {
+    "class": "objecttype",
+    "description": " The IP address of Server ",
+    "maxaccess": "read-write",
+    "name": "hwBackupServerIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwBackupUserName": {
+    "class": "objecttype",
+    "description": " The backup user namewhich is necessary in FTP mode and unnecessary in TFTP mode. ",
+    "maxaccess": "read-write",
+    "name": "hwBackupUserName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwConfEventCause": {
+    "class": "objecttype",
+    "description": " The configuration changed cause. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwConfEventCause",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.1.2.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "confChangedDirect": 1,
+          "confChangedDuration": 3,
+          "confSaved": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwConfigurationChangedEvent": {
+    "class": "notificationtype",
+    "description": " The configuration changed event alarm. ",
+    "name": "hwConfigurationChangedEvent",
+    "objects": [
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwConfEventCause"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.0.7",
+    "status": "current"
+  },
+  "hwCopyAndSaveFail": {
+    "class": "notificationtype",
+    "description": " Save configuration to flash failure trap. ",
+    "name": "hwCopyAndSaveFail",
+    "objects": [
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwCopyAndSaveResult"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.0.5",
+    "status": "current"
+  },
+  "hwCopyAndSaveResult": {
+    "class": "objecttype",
+    "description": " The failure cause definition node of the memory running copy and resume. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwCopyAndSaveResult",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "copyDeviceBusy": 8,
+          "copyDeviceError": 10,
+          "copyDeviceFull": 12,
+          "copyDeviceNotProgrammable": 11,
+          "copyDeviceOpenError": 9,
+          "copyFileChecksumError": 15,
+          "copyFileOpenError": 13,
+          "copyFileTransferError": 14,
+          "copyInProgress": 1,
+          "copyInvalidDestName": 6,
+          "copyInvalidOperation": 3,
+          "copyInvalidProtocol": 4,
+          "copyInvalidServerAddress": 7,
+          "copyInvalidSourceName": 5,
+          "copyNoMemory": 16,
+          "copyOperationSuccess": 2,
+          "copyUnknownFailure": 17
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCopyAndSaveSuccess": {
+    "class": "notificationtype",
+    "description": " Save configuration to flash success notification . ",
+    "name": "hwCopyAndSaveSuccess",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.0.6",
+    "status": "current"
+  },
+  "hwLoadAndBackupTrapsOID": {
+    "class": "objectidentity",
+    "name": "hwLoadAndBackupTrapsOID",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.0"
+  },
+  "hwLoadBackup": {
+    "class": "moduleidentity",
+    "contactinfo": "Floot 5 ,Block 4, R\u0026D Building, Huawei Longgang Production Base, Shenzhen, P.R.C. http://www.huawei.com Zip:518057 ",
+    "description": "Huawei load and backup mib.",
+    "lastupdated": "200304280900Z",
+    "name": "hwLoadBackup",
+    "oid": "1.3.6.1.4.1.2011.6.6",
+    "organization": "Fix-Net Dep, Huawei Technologies Co.,Ltd."
+  },
+  "hwLoadBackupCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the this module.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwLoadParaTableGroup"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwBackupParaTableGroup"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwTrapEventCausesGroup"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwTrapLoadBackupResultGroup"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwTrapLoadBackupTrapsGroup"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwBackupAndRestoreConfigGroup"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPatchTableGroup"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPatchStatTableGroup"
+      }
+    ],
+    "name": "hwLoadBackupCompliance",
+    "oid": "1.3.6.1.4.1.2011.6.6.3.1.1",
+    "status": "current"
+  },
+  "hwLoadBackupCompliances": {
+    "class": "objectidentity",
+    "name": "hwLoadBackupCompliances",
+    "oid": "1.3.6.1.4.1.2011.6.6.3.1"
+  },
+  "hwLoadBackupConformance": {
+    "class": "objectidentity",
+    "name": "hwLoadBackupConformance",
+    "oid": "1.3.6.1.4.1.2011.6.6.3"
+  },
+  "hwLoadBackupMon": {
+    "class": "objectidentity",
+    "name": "hwLoadBackupMon",
+    "oid": "1.3.6.1.4.1.2011.6.6.1"
+  },
+  "hwLoadBackupObjectGroups": {
+    "class": "objectidentity",
+    "name": "hwLoadBackupObjectGroups",
+    "oid": "1.3.6.1.4.1.2011.6.6.3.2"
+  },
+  "hwLoadBoardType": {
+    "class": "objecttype",
+    "description": " The board type the system supports. ",
+    "maxaccess": "read-write",
+    "name": "hwLoadBoardType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWPCBType"
+    }
+  },
+  "hwLoadContent": {
+    "class": "objecttype",
+    "description": " Load content: enum explanation ********************************************** program(1), -- program file configuration(2), -- configuration file patch(3), -- patch file shellMacro(4), resLocal(5), resGeneral(6), cpeDrive(7), programDatabase(8), -- database file programBios(9), -- bios file programApp(10), -- application program logicFpga(11), -- fpga logic file logicCpld(12), -- Cpld logic file logicPci(13), -- pci logic file logicAfc(14), -- afc logic file programMicroCode(15), -- micro code file programFirmware(16), -- application program of pinch board programHelp(17), programDataFlow(18), -- flow file of card management point programBootFile(19), -- Boot program file of board logciPa(20), -- Boot program file of board start webExp(21), -- web exp file web exp webNev(22), -- web nev file web nev webHelp(23), -- web help file web programBsp(24), -- bsp program file bsp configurationIni(40), -- configuration file of ini formatini configurationEfs(41), -- configuration file with the header of efs configurationCli(42), -- configuration file of command line format programCurrent(45), -- the program being run programOther(46), -- the program that has not been run presently license(49), -- license file programchipset(50), -- AC5 chipset load ",
+    "maxaccess": "read-write",
+    "name": "hwLoadContent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configuration": 2,
+          "configurationCli": 42,
+          "configurationEfs": 41,
+          "configurationIni": 40,
+          "cpeDrive": 7,
+          "license": 49,
+          "logciPa": 20,
+          "logicAfc": 14,
+          "logicCpld": 12,
+          "logicFpga": 11,
+          "logicPci": 13,
+          "patch": 3,
+          "program": 1,
+          "programApp": 10,
+          "programBios": 9,
+          "programBootFile": 19,
+          "programBsp": 24,
+          "programCurrent": 45,
+          "programDataFlow": 18,
+          "programDatabase": 8,
+          "programExtendedBios": 51,
+          "programFirmware": 16,
+          "programHelp": 17,
+          "programMicroCode": 15,
+          "programOther": 46,
+          "programchipset": 50,
+          "resGeneral": 6,
+          "resLocal": 5,
+          "shellMacro": 4,
+          "webExp": 21,
+          "webHelp": 23,
+          "webNev": 22
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLoadFailAlarm": {
+    "class": "notificationtype",
+    "description": " The load failure alarm trap. ",
+    "name": "hwLoadFailAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwTrapLoadResult"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.0.2",
+    "status": "current"
+  },
+  "hwLoadFailAlarmSuccess": {
+    "class": "notificationtype",
+    "description": " The load success notification. ",
+    "name": "hwLoadFailAlarmSuccess",
+    "objects": [
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.0.4",
+    "status": "current"
+  },
+  "hwLoadFileName": {
+    "class": "objecttype",
+    "description": " The file name. ",
+    "maxaccess": "read-write",
+    "name": "hwLoadFileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 127,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwLoadMode": {
+    "class": "objecttype",
+    "description": " The load protocol. ",
+    "maxaccess": "read-write",
+    "name": "hwLoadMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftp": 3,
+          "modem": 2,
+          "other": 255,
+          "smbLoadAnyBoards": 4,
+          "tftp": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLoadParaEntry": {
+    "class": "objecttype",
+    "description": " The load parameter table entry. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwLoadParaEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.1.1",
+    "status": "current"
+  },
+  "hwLoadParaTable": {
+    "class": "objecttype",
+    "description": " The load parameter table. ",
+    "maxaccess": "not-accessible",
+    "name": "hwLoadParaTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.1",
+    "status": "current"
+  },
+  "hwLoadParaTableGroup": {
+    "class": "objectgroup",
+    "description": "The load parameter group objects.",
+    "name": "hwLoadParaTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwLoadServerIpAddr"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwLoadMode"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwLoadFileName"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwLoadContent"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwLoadBoardType"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPortId"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwLoadProcess"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwLoadUserName"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwLoadPassword"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.6.3.2.1",
+    "status": "current"
+  },
+  "hwLoadPassword": {
+    "class": "objecttype",
+    "description": " The load user name,which is necessary in FTP mode , which is necessary in FTP mode and unnecessary in TFTP mode. ",
+    "maxaccess": "read-write",
+    "name": "hwLoadPassword",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwLoadProcess": {
+    "class": "objecttype",
+    "description": " The Process of loading. ",
+    "maxaccess": "read-only",
+    "name": "hwLoadProcess",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLoadServerIpAddr": {
+    "class": "objecttype",
+    "description": " The IP address of server. ",
+    "maxaccess": "read-write",
+    "name": "hwLoadServerIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwLoadUserName": {
+    "class": "objecttype",
+    "description": " The load user namewhich is necessary in FTP mode and unnecessary in TFTP mode. ",
+    "maxaccess": "read-write",
+    "name": "hwLoadUserName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwPatch": {
+    "class": "objectidentity",
+    "name": "hwPatch",
+    "oid": "1.3.6.1.4.1.2011.6.6.2"
+  },
+  "hwPatchAdminStatus": {
+    "class": "objecttype",
+    "description": " The operation of patch. ",
+    "maxaccess": "read-write",
+    "name": "hwPatchAdminStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "deactive": 2,
+          "remove": 3,
+          "running": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPatchDataLen": {
+    "class": "objecttype",
+    "description": " The length of patch data. ",
+    "maxaccess": "read-only",
+    "name": "hwPatchDataLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPatchDescription": {
+    "class": "objecttype",
+    "description": " The description of patch. ",
+    "maxaccess": "read-only",
+    "name": "hwPatchDescription",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwPatchEntry": {
+    "class": "objecttype",
+    "description": " The operation and enquiry table entry of patch. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPatchId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPatchEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.1.1",
+    "status": "current"
+  },
+  "hwPatchFuncNum": {
+    "class": "objecttype",
+    "description": " The number of functions in patch. ",
+    "maxaccess": "read-only",
+    "name": "hwPatchFuncNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPatchId": {
+    "class": "objecttype",
+    "description": " The patch number. ",
+    "maxaccess": "not-accessible",
+    "name": "hwPatchId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPatchOperState": {
+    "class": "objecttype",
+    "description": " The station of patch. ",
+    "maxaccess": "read-only",
+    "name": "hwPatchOperState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "patchActive": 1,
+          "patchDeActive": 2,
+          "patchInit": 3,
+          "patchRunning": 4,
+          "patchload": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPatchStatDataMax": {
+    "class": "objecttype",
+    "description": " The capacity of patch data area. ",
+    "maxaccess": "read-only",
+    "name": "hwPatchStatDataMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPatchStatDataUsed": {
+    "class": "objecttype",
+    "description": " The used patch data area. ",
+    "maxaccess": "read-only",
+    "name": "hwPatchStatDataUsed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPatchStatEntry": {
+    "class": "objecttype",
+    "description": " The table entry of statistics information of patch. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPatchStatEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.2.1",
+    "status": "current"
+  },
+  "hwPatchStatNumMax": {
+    "class": "objecttype",
+    "description": " The maximum patch number of system. ",
+    "maxaccess": "read-only",
+    "name": "hwPatchStatNumMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPatchStatTable": {
+    "class": "objecttype",
+    "description": " The table of statistics information of patch. ",
+    "maxaccess": "not-accessible",
+    "name": "hwPatchStatTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.2",
+    "status": "current"
+  },
+  "hwPatchStatTableGroup": {
+    "class": "objectgroup",
+    "description": "The patch statistics group objects.",
+    "name": "hwPatchStatTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPatchStatNumMax"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPatchStatTextMax"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPatchStatDataMax"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPatchStatTextUsed"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPatchStatDataUsed"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.6.3.2.8",
+    "status": "current"
+  },
+  "hwPatchStatTextMax": {
+    "class": "objecttype",
+    "description": " The capacity of patch code area. ",
+    "maxaccess": "read-only",
+    "name": "hwPatchStatTextMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPatchStatTextUsed": {
+    "class": "objecttype",
+    "description": " The used patch code area. ",
+    "maxaccess": "read-only",
+    "name": "hwPatchStatTextUsed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPatchTable": {
+    "class": "objecttype",
+    "description": " The operation and enquiry table of patch. ",
+    "maxaccess": "not-accessible",
+    "name": "hwPatchTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.1",
+    "status": "current"
+  },
+  "hwPatchTableGroup": {
+    "class": "objectgroup",
+    "description": "The patch table group objects.",
+    "name": "hwPatchTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPatchDescription"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPatchFuncNum"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPatchTextLen"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPatchDataLen"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPatchType"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPatchAdminStatus"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwPatchOperState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.6.3.2.7",
+    "status": "current"
+  },
+  "hwPatchTextLen": {
+    "class": "objecttype",
+    "description": " The length of patch code. ",
+    "maxaccess": "read-only",
+    "name": "hwPatchTextLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPatchType": {
+    "class": "objecttype",
+    "description": " The type of patch. ",
+    "maxaccess": "read-only",
+    "name": "hwPatchType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.2.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "common": 1,
+          "temporary": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPortId": {
+    "class": "objecttype",
+    "description": " The port index. ",
+    "maxaccess": "read-write",
+    "name": "hwPortId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwTrapBackupResult": {
+    "class": "objecttype",
+    "description": " Definition node of the backup failure cause. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwTrapBackupResult",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwTrapCauseOids": {
+    "class": "objectidentity",
+    "name": "hwTrapCauseOids",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.1"
+  },
+  "hwTrapEventCauses": {
+    "class": "objectidentity",
+    "name": "hwTrapEventCauses",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.1.2"
+  },
+  "hwTrapEventCausesGroup": {
+    "class": "objectgroup",
+    "description": "The trap event causes group objects.",
+    "name": "hwTrapEventCausesGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwConfEventCause"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.6.3.2.3",
+    "status": "current"
+  },
+  "hwTrapLoadBackupResult": {
+    "class": "objectidentity",
+    "name": "hwTrapLoadBackupResult",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.1.1"
+  },
+  "hwTrapLoadBackupResultGroup": {
+    "class": "objectgroup",
+    "description": "The load and backup result group objects.",
+    "name": "hwTrapLoadBackupResultGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwTrapLoadResult"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwTrapBackupResult"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwCopyAndSaveResult"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.6.3.2.4",
+    "status": "current"
+  },
+  "hwTrapLoadBackupTrapsGroup": {
+    "class": "notificationgroup",
+    "description": "The load and backup traps group objects.",
+    "name": "hwTrapLoadBackupTrapsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwBackupFailAlarm"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwLoadFailAlarm"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwBackupFailAlarmSuccess"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwLoadFailAlarmSuccess"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwCopyAndSaveFail"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwCopyAndSaveSuccess"
+      },
+      {
+        "module": "HUAWEI-LOAD-BACKUP-MIB",
+        "object": "hwConfigurationChangedEvent"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.6.3.2.5",
+    "status": "current"
+  },
+  "hwTrapLoadResult": {
+    "class": "objecttype",
+    "description": " The load result. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwTrapLoadResult",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "imports": {
+    "HUAWEI-DEVICE-MIB": [
+      "hwSlotIndex",
+      "hwFrameIndex"
+    ],
+    "HUAWEI-MIB": [
+      "huaweiUtility"
+    ],
+    "HUAWEI-TC-MIB": [
+      "HWPCBType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Gauge32",
+      "iso",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-LOAD-BACKUP-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:59 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-LOAD-BACKUP-MIB"
+  },
+  "snmpTraps": {
+    "class": "objectidentity",
+    "name": "snmpTraps",
+    "oid": "1.3.6.1.4.1.2011.6.6.1.3"
+  }
+}

@@ -1,0 +1,1561 @@
+{
+  "hwSepActivePortRole": {
+    "class": "objecttype",
+    "description": "The active port role: role value common 0x10 edge secondary 0x21 edge primary 0x22 no neighbor edge secondary 0x31 no neighbor edge primary 0x32",
+    "maxaccess": "read-only",
+    "name": "hwSepActivePortRole",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSepBlockPortHop": {
+    "class": "objecttype",
+    "description": "The hop count of the preffered blocking port. If the value of the object is set 0, the operation is delete configuration. If the mode of block port is not hop(3), the value is not have effect.",
+    "maxaccess": "read-create",
+    "name": "hwSepBlockPortHop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 512,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSepBlockPortIfname": {
+    "class": "objecttype",
+    "description": "The interface name of the preffered blocking port. if not set the value of hwSepBlockPortSysname, this configuration is not take effect. if the mode of block port is not name(4), this configuration is not take effect.",
+    "maxaccess": "read-create",
+    "name": "hwSepBlockPortIfname",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSepBlockPortMode": {
+    "class": "objecttype",
+    "description": "The way to choose the port to be blocked. if the value of the object is set 1, the optimal port. if the value of the object is set 2, the middle port. if the value of the object is set 3, the port with the designated hop(hwSepBlockPortHop). if the value of the object is set 4, the port with the designated system name(hwSepBlockPortSysname) and port name(hwSepBlockPortIfname). if the value of the object is set 5, the operation is delete configuration of the block port. BlockPortMode | BlockPortValue | active inactive -----------------------|------------------------------------------------------------------------------ optimal(1) | (1) (2/3/4) middle(2) | (2) (1/3/4) hop(3) | (3)(hwSepBlockPortHop) (1/2/4) name(4) | (4)(hwSepBlockPortSysname \u0026 hwSepBlockPortIfname) (1/2/3) ",
+    "maxaccess": "read-create",
+    "name": "hwSepBlockPortMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hop": 3,
+          "middle": 2,
+          "name": 4,
+          "null": 5,
+          "optimal": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSepBlockPortSysname": {
+    "class": "objecttype",
+    "description": "The system name of the preffered blocking port. if not set the value of hwSepBlockPortIfname, this configuration is not take effect. if the mode of block port is not name(4), this configuration is not task effect.",
+    "maxaccess": "read-create",
+    "name": "hwSepBlockPortSysname",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 20,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSepConfigPortRole": {
+    "class": "objecttype",
+    "description": "The configued port role: role value common 0x10 edge secondary 0x21 edge primary 0x22 no neighbor edge secondary 0x31 no neighbor edge primary 0x32",
+    "maxaccess": "read-create",
+    "name": "hwSepConfigPortRole",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSepControlVlanId": {
+    "class": "objecttype",
+    "description": "The control VLAN identifier of the SEP segment. If the value of the object is set 0, the operation is delete configuration.",
+    "maxaccess": "read-create",
+    "name": "hwSepControlVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSepDealSmartLinkFlush": {
+    "class": "objecttype",
+    "description": "If set 1, the SEP segment will deal the smart link flush-FDB packet",
+    "maxaccess": "read-create",
+    "name": "hwSepDealSmartLinkFlush",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.2.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwSepGlobalInfoGroup": {
+    "class": "objectgroup",
+    "description": "The group of global information.",
+    "name": "hwSepGlobalInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepResetPktCnt"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.223.2.1",
+    "status": "current"
+  },
+  "hwSepGroups": {
+    "class": "objectidentity",
+    "name": "hwSepGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.2"
+  },
+  "hwSepHop": {
+    "class": "objecttype",
+    "description": "The hop count of the port.",
+    "maxaccess": "not-accessible",
+    "name": "hwSepHop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 512,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSepMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "8090 Team Huawei Technologies Co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China http://www.huawei.com Zip:100085 ",
+    "description": "The private mib file includes the general extent information of the device.hwDatacomm(165).hwSepMIB. ",
+    "lastupdated": "200911171530Z",
+    "name": "hwSepMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.223",
+    "organization": "Huawei Technologies Co.,Ltd."
+  },
+  "hwSepNbrPortId": {
+    "class": "objecttype",
+    "description": "The identifier of the neighbor port. For example: 00.E0.6E.70.23.00.00.00 (hex) ",
+    "maxaccess": "read-only",
+    "name": "hwSepNbrPortId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 8,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSepObjects": {
+    "class": "objectidentity",
+    "name": "hwSepObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1"
+  },
+  "hwSepPortActivePriority": {
+    "class": "objecttype",
+    "description": "The active port priority.",
+    "maxaccess": "read-only",
+    "name": "hwSepPortActivePriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSepPortConfigPriority": {
+    "class": "objecttype",
+    "description": "The configured port priority.The default value is 64.",
+    "maxaccess": "read-create",
+    "name": "hwSepPortConfigPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSepPortEntry": {
+    "class": "objecttype",
+    "description": "The table includes the information of SEP ports. The index of the table is SEP segment identifier, port type, port identifier1, port identifier2, port identifier3, port identifier4. If it is an ethernet port including fast ethernet/gigabit ethernet/eth-trunk, the port type is 1, the port identifier1 is the IfIndex of the ethernet port. the other port identifier is for extension and not used currently, should be set 0.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepSegmentId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepPortType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepPortId1"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepPortId2"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepPortId3"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepPortId4"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSepPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1",
+    "status": "current"
+  },
+  "hwSepPortFwdState": {
+    "class": "objecttype",
+    "description": "The forwarding state of the port: state value discarding 1 forwarding 2",
+    "maxaccess": "read-only",
+    "name": "hwSepPortFwdState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discarding": 1,
+          "forwarding": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSepPortId": {
+    "class": "objecttype",
+    "description": "The port identifier. For example: 00.E0.6E.70.23.00.00.00 (hex). The first 6 bytes is the mac address of the device",
+    "maxaccess": "read-only",
+    "name": "hwSepPortId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 8,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSepPortId1": {
+    "class": "objecttype",
+    "description": "The port identifier1, when the hwSepPortType is 1, the value of the object is the IfIndex of the port.",
+    "maxaccess": "not-accessible",
+    "name": "hwSepPortId1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwSepPortId2": {
+    "class": "objecttype",
+    "description": "The port identifier2, Currently it is not used and only for extension, should be set 0.",
+    "maxaccess": "not-accessible",
+    "name": "hwSepPortId2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwSepPortId3": {
+    "class": "objecttype",
+    "description": "The port identifier3, Currently it is not used and only for extension, should be set 0.",
+    "maxaccess": "not-accessible",
+    "name": "hwSepPortId3",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwSepPortId4": {
+    "class": "objecttype",
+    "description": "The port identifier4, Currently it is not used and only for extension, should be set 0.",
+    "maxaccess": "not-accessible",
+    "name": "hwSepPortId4",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwSepPortInfoGroup": {
+    "class": "objectgroup",
+    "description": "The group of port information.",
+    "name": "hwSepPortInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepPortType"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepPortId1"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepPortId2"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepPortId3"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepPortId4"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepSysname"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepPortname"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepPortConfigPriority"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepPortActivePriority"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepConfigPortRole"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepActivePortRole"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepPortNbrState"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepNbrPortId"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepPortFwdState"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepRxNbrPktCnt"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepTxNbrPktCnt"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepRxLsaInfoPktCnt"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepTxLsaInfoPktCnt"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepRxLsaAckPktCnt"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepTxLsaAckPktCnt"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepRxPreemptReqPktCnt"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepTxPreemptReqPktCnt"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepRxPreemptAckPktCnt"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepTxPreemptAckPktCnt"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepRxTcPktCnt"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepTxTcPktCnt"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepRxEpaPktCnt"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepTxEpaPktCnt"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepResetPortPktCnt"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepPortRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.223.2.3",
+    "status": "current"
+  },
+  "hwSepPortNbrState": {
+    "class": "objecttype",
+    "description": "The state of the neighbor state machine: state value down 1 init 2 preup 3 up 4 conflict 5",
+    "maxaccess": "read-only",
+    "name": "hwSepPortNbrState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "conflict": 5,
+          "down": 1,
+          "init": 2,
+          "preup": 3,
+          "up": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSepPortRowStatus": {
+    "class": "objecttype",
+    "description": "Operation of CreateAndGo can be used to have a port join the SEP segment. and operation of Destroy be used to have a port leave the SEP segment.",
+    "maxaccess": "read-create",
+    "name": "hwSepPortRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.128",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwSepPortTable": {
+    "class": "objecttype",
+    "description": "The table includes the information of SEP ports",
+    "maxaccess": "not-accessible",
+    "name": "hwSepPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4",
+    "status": "current"
+  },
+  "hwSepPortType": {
+    "class": "objecttype",
+    "description": "The port type.Currently SEP just support ethernet port and the value is 1.",
+    "maxaccess": "not-accessible",
+    "name": "hwSepPortType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwSepPortname": {
+    "class": "objecttype",
+    "description": "The port name",
+    "maxaccess": "read-only",
+    "name": "hwSepPortname",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSepPreemptDelay": {
+    "class": "objecttype",
+    "description": "The preemption delay timer of the SEP segment. If the value of the object is set 0, the operation is delete configuration.",
+    "maxaccess": "read-create",
+    "name": "hwSepPreemptDelay",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 600,
+            "min": 15
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSepPreemptManual": {
+    "class": "objecttype",
+    "description": "Trigger the manual preemption by setting the object to be 1. When getting the object it will always be 0.",
+    "maxaccess": "read-create",
+    "name": "hwSepPreemptManual",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSepProtectedInstanceList": {
+    "class": "objecttype",
+    "description": " The protected instance list of the SEP segment",
+    "maxaccess": "read-create",
+    "name": "hwSepProtectedInstanceList",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.2.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 512,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSepResetPktCnt": {
+    "class": "objecttype",
+    "description": "Reset the packet counter of all running SEP ports. The value of hwSepResetPktCnt is unused(65535) when it is read. The value of hwSepResetPktCnt must be clear(1) when it is set.",
+    "maxaccess": "read-write",
+    "name": "hwSepResetPktCnt",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "unused": 65535
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSepResetPortPktCnt": {
+    "class": "objecttype",
+    "description": "Reset the packet counter of the port in the SEP segment. The value of hwSepResetPktCnt is unused(65535) when it is read. The value of hwSepResetPktCnt must be clear(1) when it is set.",
+    "maxaccess": "read-write",
+    "name": "hwSepResetPortPktCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "unused": 65535
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSepRxEpaPktCnt": {
+    "class": "objecttype",
+    "description": "The number of received topology change packets.",
+    "maxaccess": "read-only",
+    "name": "hwSepRxEpaPktCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSepRxLsaAckPktCnt": {
+    "class": "objecttype",
+    "description": "The number of received LSA acknowledgement packets.",
+    "maxaccess": "read-only",
+    "name": "hwSepRxLsaAckPktCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSepRxLsaInfoPktCnt": {
+    "class": "objecttype",
+    "description": "The number of received LSA information packets.",
+    "maxaccess": "read-only",
+    "name": "hwSepRxLsaInfoPktCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSepRxNbrPktCnt": {
+    "class": "objecttype",
+    "description": "The number of received neighbor packets.",
+    "maxaccess": "read-only",
+    "name": "hwSepRxNbrPktCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSepRxPreemptAckPktCnt": {
+    "class": "objecttype",
+    "description": "The number of received preemption acknowledgement packets.",
+    "maxaccess": "read-only",
+    "name": "hwSepRxPreemptAckPktCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSepRxPreemptReqPktCnt": {
+    "class": "objecttype",
+    "description": "The number of received preemption request packets.",
+    "maxaccess": "read-only",
+    "name": "hwSepRxPreemptReqPktCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSepRxTcPktCnt": {
+    "class": "objecttype",
+    "description": "The number of received topology change packets.",
+    "maxaccess": "read-only",
+    "name": "hwSepRxTcPktCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSepSegmentEntry": {
+    "class": "objecttype",
+    "description": "The table includes the information of SEP segments. The index of the table is SEP segment id.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepSegmentId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSepSegmentEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.2.1",
+    "status": "current"
+  },
+  "hwSepSegmentId": {
+    "class": "objecttype",
+    "description": "SEP segment Identifier.",
+    "maxaccess": "not-accessible",
+    "name": "hwSepSegmentId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1024,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSepSegmentInfoGroup": {
+    "class": "objectgroup",
+    "description": "The group of segment information.",
+    "name": "hwSepSegmentInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepSegmentId"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepControlVlanId"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepPreemptManual"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepPreemptDelay"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepBlockPortMode"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepBlockPortHop"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepBlockPortSysname"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepBlockPortIfname"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepTcNotifySep"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepTcNotifyRrpp"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepTcNotifyStp"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepTcNotifyVpls"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepTcNotifyVll"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepTcNotifySmartLinkCtrlVlan"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepDealSmartLinkFlush"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepProtectedInstanceList"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepTcProtectionInterval"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepSegmentRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.223.2.2",
+    "status": "current"
+  },
+  "hwSepSegmentRowStatus": {
+    "class": "objecttype",
+    "description": "Operation of CreateAndGo can be used to create a new SEP segment, and operation of Destroy be used to destroy an existent SEP segment.",
+    "maxaccess": "read-create",
+    "name": "hwSepSegmentRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.2.1.128",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwSepSegmentTable": {
+    "class": "objecttype",
+    "description": "The table includes the information of SEP segments.",
+    "maxaccess": "not-accessible",
+    "name": "hwSepSegmentTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.2",
+    "status": "current"
+  },
+  "hwSepSysname": {
+    "class": "objecttype",
+    "description": "The system name.",
+    "maxaccess": "read-only",
+    "name": "hwSepSysname",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 20,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSepTcNotifyRrpp": {
+    "class": "objecttype",
+    "description": "If set 1, the topology change event of the SEP segment will be notified to RRPP",
+    "maxaccess": "read-create",
+    "name": "hwSepTcNotifyRrpp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwSepTcNotifySep": {
+    "class": "objecttype",
+    "description": "The bitmap of the SEP segments to which the topology change event will be notified ",
+    "maxaccess": "read-create",
+    "name": "hwSepTcNotifySep",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 129,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSepTcNotifySmartLinkCtrlVlan": {
+    "class": "objecttype",
+    "description": "If set control vlan, the topology change event of the SEP segment will be notified to Smart-Link. If the value of the object is set 0, the operation is delete configuration.",
+    "maxaccess": "read-create",
+    "name": "hwSepTcNotifySmartLinkCtrlVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.2.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSepTcNotifyStp": {
+    "class": "objecttype",
+    "description": "If set 1, the topology change event of the SEP segment will be notified to STP",
+    "maxaccess": "read-create",
+    "name": "hwSepTcNotifyStp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwSepTcNotifyVll": {
+    "class": "objecttype",
+    "description": "If set 1, the topology change event of the SEP segment will be notified to VLL",
+    "maxaccess": "read-create",
+    "name": "hwSepTcNotifyVll",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.2.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwSepTcNotifyVpls": {
+    "class": "objecttype",
+    "description": "If set 1, the topology change event of the SEP segment will be notified to VPLS",
+    "maxaccess": "read-create",
+    "name": "hwSepTcNotifyVpls",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwSepTcProtectionInterval": {
+    "class": "objecttype",
+    "description": "The interval of tc-protection, the default value is 2.",
+    "maxaccess": "read-create",
+    "name": "hwSepTcProtectionInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.2.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSepTopoActivePortRole": {
+    "class": "objecttype",
+    "description": "The active port role: role value common 0x10 edge secondary 0x21 edge primary 0x22 no neighbor edge secondary 0x31 no neighbor edge primary 0x32",
+    "maxaccess": "read-only",
+    "name": "hwSepTopoActivePortRole",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSepTopoBrotherPortId": {
+    "class": "objecttype",
+    "description": "The brother port identifier. For example: 00.E0.6E.70.23.00.00.00 (hex). The first 6 bytes is the mac address of the device",
+    "maxaccess": "read-only",
+    "name": "hwSepTopoBrotherPortId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 8,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSepTopoConfigPortRole": {
+    "class": "objecttype",
+    "description": "The configued port role: role value common 0x10 edge secondary 0x21 edge primary 0x22 no neighbor edge secondary 0x31 no neighbor edge primary 0x32",
+    "maxaccess": "read-only",
+    "name": "hwSepTopoConfigPortRole",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSepTopoNbrPortId": {
+    "class": "objecttype",
+    "description": "The neighbor port identifier. For example: 00.E0.6E.70.23.00.00.00 (hex). The first 6 bytes is the mac address of the device",
+    "maxaccess": "read-only",
+    "name": "hwSepTopoNbrPortId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 8,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSepTopoPortActivePriority": {
+    "class": "objecttype",
+    "description": "The active port priority.",
+    "maxaccess": "read-only",
+    "name": "hwSepTopoPortActivePriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSepTopoPortConfigPriority": {
+    "class": "objecttype",
+    "description": "The configured port priority.The default value is 64.",
+    "maxaccess": "read-only",
+    "name": "hwSepTopoPortConfigPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSepTopoPortFwdState": {
+    "class": "objecttype",
+    "description": "The forwarding state of the port: state value discarding 1 forwarding 2",
+    "maxaccess": "read-only",
+    "name": "hwSepTopoPortFwdState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.3.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discarding": 1,
+          "forwarding": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSepTopoPortLinkState": {
+    "class": "objecttype",
+    "description": "The link state of the port: state value link down 1 link up 2",
+    "maxaccess": "read-only",
+    "name": "hwSepTopoPortLinkState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.3.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "up": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSepTopoPortNbrState": {
+    "class": "objecttype",
+    "description": "The state of the neighbor state machine: state value down 1 init 2 preup 3 up 4 conflict 5",
+    "maxaccess": "read-only",
+    "name": "hwSepTopoPortNbrState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "conflict": 5,
+          "down": 1,
+          "init": 2,
+          "preup": 3,
+          "up": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSepTopoPortname": {
+    "class": "objecttype",
+    "description": "The port name.",
+    "maxaccess": "read-only",
+    "name": "hwSepTopoPortname",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSepTopoSysname": {
+    "class": "objecttype",
+    "description": "The system name.",
+    "maxaccess": "read-only",
+    "name": "hwSepTopoSysname",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 20,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSepTopologyEntry": {
+    "class": "objecttype",
+    "description": "The table includes the information of the topology of the SEP segment. The index of the table is the segment identifier and the hop count of the port.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepSegmentId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepHop"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSepTopologyEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.3.1",
+    "status": "current"
+  },
+  "hwSepTopologyInfoGroup": {
+    "class": "objectgroup",
+    "description": "The group of topology information.",
+    "name": "hwSepTopologyInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepHop"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepPortId"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepTopoSysname"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepTopoPortname"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepTopoPortConfigPriority"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepTopoPortActivePriority"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepTopoConfigPortRole"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepTopoActivePortRole"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepTopoPortNbrState"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepTopoNbrPortId"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepTopoPortLinkState"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepTopoPortFwdState"
+      },
+      {
+        "module": "HUAWEI-SEP-MIB",
+        "object": "hwSepTopoBrotherPortId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.223.2.4",
+    "status": "current"
+  },
+  "hwSepTopologyTable": {
+    "class": "objecttype",
+    "description": "The table includes the information of the topology of the SEP segment.",
+    "maxaccess": "not-accessible",
+    "name": "hwSepTopologyTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.3",
+    "status": "current"
+  },
+  "hwSepTxEpaPktCnt": {
+    "class": "objecttype",
+    "description": "The number of transmitted topology change packets.",
+    "maxaccess": "read-only",
+    "name": "hwSepTxEpaPktCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSepTxLsaAckPktCnt": {
+    "class": "objecttype",
+    "description": "The number of transmitted LSA acknowledgement packets.",
+    "maxaccess": "read-only",
+    "name": "hwSepTxLsaAckPktCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSepTxLsaInfoPktCnt": {
+    "class": "objecttype",
+    "description": "The number of transmitted LSA information packets.",
+    "maxaccess": "read-only",
+    "name": "hwSepTxLsaInfoPktCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSepTxNbrPktCnt": {
+    "class": "objecttype",
+    "description": "The number of transmited neighbor packets.",
+    "maxaccess": "read-only",
+    "name": "hwSepTxNbrPktCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSepTxPreemptAckPktCnt": {
+    "class": "objecttype",
+    "description": "The number of transmitted preemption acknowledgement packets.",
+    "maxaccess": "read-only",
+    "name": "hwSepTxPreemptAckPktCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSepTxPreemptReqPktCnt": {
+    "class": "objecttype",
+    "description": "The number of transmitted preemption request packets.",
+    "maxaccess": "read-only",
+    "name": "hwSepTxPreemptReqPktCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSepTxTcPktCnt": {
+    "class": "objecttype",
+    "description": "The number of transmitted topology change packets.",
+    "maxaccess": "read-only",
+    "name": "hwSepTxTcPktCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.223.1.4.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "Integer32",
+      "MODULE-IDENTITY",
+      "InterfaceIndex",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "ifName"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-SEP-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:55 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-SEP-MIB"
+  }
+}

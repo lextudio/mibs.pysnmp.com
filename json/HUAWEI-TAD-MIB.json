@@ -1,0 +1,768 @@
+{
+  "HWEnableValue": {
+    "class": "textualconvention",
+    "description": "A simple status value for the object.",
+    "name": "HWEnableValue",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwTAD": {
+    "class": "moduleidentity",
+    "contactinfo": "VRP Platform Team Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China http://www.huawei.com Zip:100085",
+    "description": "The Custom damping MIB module is defined to manage the configuration under system or interface view.",
+    "lastupdated": "200606281600Z",
+    "name": "hwTAD",
+    "oid": "1.3.6.1.4.1.2011.5.25.128",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwTADAlarmEntry": {
+    "class": "objecttype",
+    "description": "The entry of an alarm.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADAlarmIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADAlarmType"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTADAlarmEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.2.1",
+    "status": "current"
+  },
+  "hwTADAlarmFigure": {
+    "class": "objecttype",
+    "description": "This figure is used to evaluate the stability of the alarm. Large value means un-stability.",
+    "maxaccess": "read-only",
+    "name": "hwTADAlarmFigure",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwTADAlarmFlappingCount": {
+    "class": "objecttype",
+    "description": "How many times alarm\u0027s status changed.",
+    "maxaccess": "read-only",
+    "name": "hwTADAlarmFlappingCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTADAlarmGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing device level control and status information for the alarm.",
+    "name": "hwTADAlarmGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADAlarmIfDown"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADAlarmLog"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADAlarmStatus"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADAlarmInFilter"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADAlarmFigure"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADAlarmInSuppress"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADAlarmFlappingCount"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADAlarmSuppressCount"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.128.2.1.2",
+    "status": "current"
+  },
+  "hwTADAlarmIfDown": {
+    "class": "objecttype",
+    "description": "Whether this alarm leads to interface down. In default lais, lof and los are enabled to lead interface down.",
+    "maxaccess": "read-write",
+    "name": "hwTADAlarmIfDown",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwTADAlarmIfIndex": {
+    "class": "objecttype",
+    "description": "Index number of the interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwTADAlarmIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwTADAlarmInFilter": {
+    "class": "objecttype",
+    "description": "Whether this alarm is in filtering status. 1 means alarm is in filtering status, 2 means alarm isn\u0027t in filtering status.",
+    "maxaccess": "read-only",
+    "name": "hwTADAlarmInFilter",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "in": 1,
+          "out": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwTADAlarmInSuppress": {
+    "class": "objecttype",
+    "description": "Whether this alarm is in suppressing status. 1 means alarm is in suppressing status, 2 means alarm isn\u0027t in suppressing status.",
+    "maxaccess": "read-only",
+    "name": "hwTADAlarmInSuppress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "suppressed": 1,
+          "unsuppressed": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwTADAlarmLog": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "Whether this alarm will be logged. In default all alarm types won\u0027t be logged.",
+    "maxaccess": "read-write",
+    "name": "hwTADAlarmLog",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwTADAlarmStatus": {
+    "class": "objecttype",
+    "description": "The status of the alarm. 1 means alarm is up, 2 means alarm is down.",
+    "maxaccess": "read-only",
+    "name": "hwTADAlarmStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwTADAlarmSuppressCount": {
+    "class": "objecttype",
+    "description": "How many times alarm is suppressed.",
+    "maxaccess": "read-only",
+    "name": "hwTADAlarmSuppressCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTADAlarmTable": {
+    "class": "objecttype",
+    "description": "Transmission alarm damping alarm configuration table.",
+    "maxaccess": "not-accessible",
+    "name": "hwTADAlarmTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.2",
+    "status": "current"
+  },
+  "hwTADAlarmType": {
+    "class": "objecttype",
+    "description": "Index number of the alarm. The range is from 1 to 22, corresponding to: auais, batca, lais, lof, lom, lop, los, lrdi, lrei, oof, pais, prdi, prei, pplm, rdool, rrool, sdbere, sfbere, trool, puneq, lcd, wlnk.",
+    "maxaccess": "not-accessible",
+    "name": "hwTADAlarmType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auais": 1,
+          "b3tca": 2,
+          "lais": 3,
+          "lcd": 21,
+          "lof": 4,
+          "lom": 5,
+          "lop": 6,
+          "los": 7,
+          "lrdi": 8,
+          "lrei": 9,
+          "oof": 10,
+          "pais": 11,
+          "pplm": 14,
+          "prdi": 12,
+          "prei": 13,
+          "puneq": 20,
+          "rdool": 15,
+          "rrool": 16,
+          "sdbere": 17,
+          "sfbere": 18,
+          "trool": 19,
+          "wlnk": 22
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwTADB3tcaThreshold": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 6
+      }
+    },
+    "description": "B3tca threshold in form of 10e-n.",
+    "maxaccess": "read-write",
+    "name": "hwTADB3tcaThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 9,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTADCeiling": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 6000
+      }
+    },
+    "description": "The ceiling value. Figure-of-merit can\u0027t exceed this value. The ceiling value must be larger than suppressing value.",
+    "maxaccess": "read-write",
+    "name": "hwTADCeiling",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 20000,
+            "min": 1001
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTADConformance": {
+    "class": "objectidentity",
+    "name": "hwTADConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.2"
+  },
+  "hwTADDampingEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "Whether damping function is enabled.",
+    "maxaccess": "read-write",
+    "name": "hwTADDampingEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwTADDecayNg": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1000
+      }
+    },
+    "description": "The half decay time when alarm status is up. Unit: millisecond.",
+    "maxaccess": "read-write",
+    "name": "hwTADDecayNg",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10000,
+            "min": 500
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTADDecayOk": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1000
+      }
+    },
+    "description": "The half decay time when alarm status is down. Unit: millisecond.",
+    "maxaccess": "read-write",
+    "name": "hwTADDecayOk",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10000,
+            "min": 500
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTADFilterEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "Whether filter function is enabled.",
+    "maxaccess": "read-write",
+    "name": "hwTADFilterEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnableValue"
+    }
+  },
+  "hwTADFilterExpireTime": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 50
+      }
+    },
+    "description": "How long the alarm will be postponed to process. Unit: millisecond.",
+    "maxaccess": "read-write",
+    "name": "hwTADFilterExpireTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10000,
+            "min": 20
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTADGroups": {
+    "class": "objectidentity",
+    "name": "hwTADGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.2.1"
+  },
+  "hwTADInterfaceEntry": {
+    "class": "objecttype",
+    "description": "The entry of a SDH or SONET interface with damping function enabled.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADInterfaceIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTADInterfaceEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1",
+    "status": "current"
+  },
+  "hwTADInterfaceGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing device level control and status information for the interface.",
+    "name": "hwTADInterfaceGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADFilterEnable"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADFilterExpireTime"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADDampingEnable"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADSuppress"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADCeiling"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADReuse"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADDecayOk"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADDecayNg"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADResetStatistics"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADResetTime"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADB3tcaThreshold"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADSdbereThreshold"
+      },
+      {
+        "module": "HUAWEI-TAD-MIB",
+        "object": "hwTADSfbereThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.128.2.1.1",
+    "status": "current"
+  },
+  "hwTADInterfaceIndex": {
+    "class": "objecttype",
+    "description": "Index number of the interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwTADInterfaceIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwTADInterfaceTable": {
+    "class": "objecttype",
+    "description": "Transmission alarm damping interface configuration table.",
+    "maxaccess": "not-accessible",
+    "name": "hwTADInterfaceTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1",
+    "status": "current"
+  },
+  "hwTADObjects": {
+    "class": "objectidentity",
+    "name": "hwTADObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1"
+  },
+  "hwTADResetStatistics": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "Whether to reset alarm statistics. 1 means resetting statistics once.",
+    "maxaccess": "read-write",
+    "name": "hwTADResetStatistics",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "unreset": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwTADResetTime": {
+    "class": "objecttype",
+    "description": "Last reset time.",
+    "maxaccess": "read-only",
+    "name": "hwTADResetTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwTADReuse": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 750
+      }
+    },
+    "description": "The reusing value. When figure-of-merit becomes lower than this value. The alarm will be reused (exit from suppressing status). The reusing value must be less than suppressing value.",
+    "maxaccess": "read-write",
+    "name": "hwTADReuse",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 19998,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTADSdbereThreshold": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 6
+      }
+    },
+    "description": "Sdbere threshold in form of 10e-n.",
+    "maxaccess": "read-write",
+    "name": "hwTADSdbereThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 9,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTADSfbereThreshold": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "Sfbere threshold in form of 10e-n.",
+    "maxaccess": "read-write",
+    "name": "hwTADSfbereThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 9,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwTADSuppress": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2000
+      }
+    },
+    "description": "The suppressing value. When figure-of-merit of alarm exceeds this value, this alarm will be damped.",
+    "maxaccess": "read-write",
+    "name": "hwTADSuppress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.128.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 19999,
+            "min": 2
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Integer32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter64",
+      "Unsigned32",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-TAD-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:08 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-TAD-MIB"
+  }
+}

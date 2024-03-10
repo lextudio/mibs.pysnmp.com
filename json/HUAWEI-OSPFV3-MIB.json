@@ -1,0 +1,4061 @@
+{
+  "HWHelloRange": {
+    "class": "textualconvention",
+    "description": "The range of intervals on which hello messages are exchanged.",
+    "name": "HWHelloRange",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "HWOspfv3AreaIdTc": {
+    "class": "textualconvention",
+    "description": "An OSPFv3 Area Identifier",
+    "displayhint": "d",
+    "name": "HWOspfv3AreaIdTc",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "HWOspfv3DeadIntRangeTc": {
+    "class": "textualconvention",
+    "description": "The range, in seconds, of dead interval value.",
+    "displayhint": "d",
+    "name": "HWOspfv3DeadIntRangeTc",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "HWOspfv3IfInstIdTc": {
+    "class": "textualconvention",
+    "description": "An OSPFv3 interface instance ID",
+    "displayhint": "d",
+    "name": "HWOspfv3IfInstIdTc",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "HWOspfv3LsIdTC": {
+    "class": "textualconvention",
+    "description": "A unique 32-bit identifier of the piece of the routing domain that is being described by a link state advertisement. In contrast to OSPFv2, the Link State ID (LSID) has no addressing semantics.",
+    "displayhint": "d",
+    "name": "HWOspfv3LsIdTC",
+    "reference": "OSPF Version 2, Section 12.1.4, Link State ID",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "HWOspfv3LsaAgeTC": {
+    "class": "textualconvention",
+    "description": "The age of the link state advertisement in seconds. The high-order bit of the LS age field is considered the DoNotAge bit for support of on-demand circuits.",
+    "displayhint": "d",
+    "name": "HWOspfv3LsaAgeTC",
+    "reference": "OSPF Version 2, Section 12.1.1, LS age; Extending OSPF to Support Demand Circuits, Section 2.2, The LS age field",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 3600,
+            "min": 0
+          },
+          {
+            "max": 36368,
+            "min": 32768
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "HWOspfv3LsaSequenceTC": {
+    "class": "textualconvention",
+    "description": "The sequence number field is a signed 32-bit integer. It is used to detect old and duplicate link state advertisements. The space of sequence numbers is linearly ordered. The larger the sequence number, the more recent the advertisement.",
+    "displayhint": "d",
+    "name": "HWOspfv3LsaSequenceTC",
+    "reference": "OSPF Version 2, Section 12.1.6, LS sequence number",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "HWOspfv3RouterIdTc": {
+    "class": "textualconvention",
+    "description": "A 32-bit, unsigned integer uniquely identifying the router in the Autonomous System. To ensure uniqueness, this may default to the value of one of the router\u0027s IPv4 host addresses if IPv4 is configured on the router.",
+    "displayhint": "d",
+    "name": "HWOspfv3RouterIdTc",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "HWOspfv3UpToRefreshIntervalTc": {
+    "class": "textualconvention",
+    "description": "The values one might be able to configure for variables bounded by the Refresh Interval",
+    "displayhint": "d",
+    "name": "HWOspfv3UpToRefreshIntervalTc",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 3600,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwOspfv3": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "The MIB module for OSPF version 3. Copyright (C) The Internet Society (2006). This version of this MIB module is part of RFC draft-ietf-ospf-ospfv3-mib-11; see the RFC itself for full legal notices.",
+    "lastupdated": "201505031110Z",
+    "name": "hwOspfv3",
+    "oid": "1.3.6.1.4.1.2011.5.25.147",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "Added hwOspfv3IntraAreaRouterIdConflictRecovered to indicates process id",
+        "revision": "2015-05-03 11:10"
+      },
+      {
+        "description": "Added hwOspfv3IntraAreaRouterIdConflictRecovered to indicates the routerid conflict recovered",
+        "revision": "2015-04-03 11:10"
+      },
+      {
+        "description": "Initial version, published as RFC xxxx",
+        "revision": "2007-06-12 21:00"
+      }
+    ]
+  },
+  "hwOspfv3AdminStatus": {
+    "class": "objecttype",
+    "description": "The administrative status of OSPFv3 in the router. The value \u0027enabled\u0027 denotes that the OSPFv3 Process is active on at least one interface; \u0027disabled\u0027 disables it on all interfaces.",
+    "maxaccess": "read-write",
+    "name": "hwOspfv3AdminStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Status"
+    }
+  },
+  "hwOspfv3AreaAggregateAreaId": {
+    "class": "objecttype",
+    "description": "The Area the Address Aggregate is to be found within.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3AreaAggregateAreaId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.11.1.1",
+    "reference": "OSPF Version 2, Appendix C.2 Area parameters",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3AreaIdTc"
+    }
+  },
+  "hwOspfv3AreaAggregateAreaLsdbType": {
+    "class": "objecttype",
+    "description": "The type of the Address Aggregate. This field specifies the Area Lsdb type that this Address Aggregate applies to.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3AreaAggregateAreaLsdbType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.11.1.2",
+    "reference": "OSPF Version 2, Appendix A.4.1 The Link State Advertisement header",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interAreaPrefixLsa": 8195,
+          "nssaExternalLsa": 8199
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv3AreaAggregateEffect": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "advertiseMatching"
+      }
+    },
+    "description": "Prefixes subsumed by ranges either trigger the advertisement of the indicated aggregate (advertiseMatching), or result in the prefix not being advertised at all outside the area.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv3AreaAggregateEffect",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.11.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "advertiseMatching": 1,
+          "doNotAdvertiseMatching": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv3AreaAggregateEntry": {
+    "class": "objecttype",
+    "description": "A range of IPv6 prefixes specified by a prefix/prefix length pair. Note that if ranges are configured such that one range subsumes another range the most specific match is the preferred one.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaAggregateAreaId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaAggregateAreaLsdbType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaAggregatePrefixType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaAggregatePrefix"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaAggregatePrefixLength"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3AreaAggregateEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.11.1",
+    "reference": "OSPF Version 2, Appendix C.2 Area parameters",
+    "status": "current"
+  },
+  "hwOspfv3AreaAggregateGroup": {
+    "class": "objectgroup",
+    "description": "These area aggregate objects used required for aggregating OSPFv3 prefixes for summarization across areas.",
+    "name": "hwOspfv3AreaAggregateGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaAggregateRowStatus"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaAggregateEffect"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.147.2.1.11",
+    "status": "current"
+  },
+  "hwOspfv3AreaAggregatePrefix": {
+    "class": "objecttype",
+    "description": "The IPv6 Prefix.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3AreaAggregatePrefix",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.11.1.5",
+    "reference": "OSPF Version 2, Appendix C.2 Area parameters",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwOspfv3AreaAggregatePrefixLength": {
+    "class": "objecttype",
+    "description": "The length of the prefix (in bits). A prefix can not be shorter than 0 bits.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3AreaAggregatePrefixLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.11.1.6",
+    "reference": "OSPF Version 2, Appendix C.2 Area parameters",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 1
+          }
+        ]
+      },
+      "type": "InetAddressPrefixLength"
+    },
+    "units": "bits"
+  },
+  "hwOspfv3AreaAggregatePrefixType": {
+    "class": "objecttype",
+    "description": "The prefix type of ospfv3AreaAggregatePrefix. Only IPv6 addresses are expected.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3AreaAggregatePrefixType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.11.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwOspfv3AreaAggregateRowStatus": {
+    "class": "objecttype",
+    "description": "This object permits management of the table by facilitating actions such as row creation, construction and destruction. The value of this object has no effect on whether other objects in this conceptual row can be modified.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv3AreaAggregateRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.11.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwOspfv3AreaAggregateTable": {
+    "class": "objecttype",
+    "description": "A range of IPv6 prefixes specified by a prefix/prefix length pair. Note that if ranges are configured such that one range subsumes another range the most specific match is the preferred one.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3AreaAggregateTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.11",
+    "status": "current"
+  },
+  "hwOspfv3AreaAsBdrRtrCount": {
+    "class": "objecttype",
+    "description": "The total number of Autonomous System border routers reachable within this area. This is initially zero, and is calculated in each SPF Pass.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3AreaAsBdrRtrCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwOspfv3AreaBdrRtrCount": {
+    "class": "objecttype",
+    "description": "The total number of area border routers reachable within this area. This is initially zero, and is calculated in each SPF Pass.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3AreaBdrRtrCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwOspfv3AreaBdrRtrStatus": {
+    "class": "objecttype",
+    "description": "A flag to note whether this router is an area border router.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3AreaBdrRtrStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.1.4",
+    "reference": "OSPF Version 2, Section 3 Splitting the AS into Areas",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwOspfv3AreaEntry": {
+    "class": "objecttype",
+    "description": "Information describing the configured parameters and cumulative statistics of one of the router\u0027s attached areas.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3AreaEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.2.1",
+    "status": "current"
+  },
+  "hwOspfv3AreaGroup": {
+    "class": "objectgroup",
+    "description": "These objects are used for OSPFv3 systems supporting areas.",
+    "name": "hwOspfv3AreaGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaImportAsExtern"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaSpfRuns"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaBdrRtrCount"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaAsBdrRtrCount"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaScopeLsaCount"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaScopeLsaCksumSum"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaSummary"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaRowStatus"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaStubMetric"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaNssaTranslatorRole"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaNssaTranslatorState"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaNssaTranslatorStabInterval"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaNssaTranslatorEvents"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.147.2.1.2",
+    "status": "current"
+  },
+  "hwOspfv3AreaId": {
+    "class": "objecttype",
+    "description": "A 32-bit integer uniquely identifying an area. Area ID 0 is used for the OSPFv3 backbone.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3AreaId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.2.1.1",
+    "reference": "OSPF Version 2, Appendix C.2 Area parameters",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3AreaIdTc"
+    }
+  },
+  "hwOspfv3AreaIdIndex": {
+    "class": "objecttype",
+    "description": "A 32-bit integer uniquely identifying an area. Area ID 0 is used for the OSPFv3 backbone.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3AreaIdIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.12.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3AreaIdTc"
+    }
+  },
+  "hwOspfv3AreaImportAsExtern": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "importExternal"
+      }
+    },
+    "description": "Indicates whether an area is a Stub area, NSSA, or standard area. AS-scope LSAs are not imported into Stub Areas or NSSAs. NSSAs import AS-External data as NSSA LSAs which have Area-scope",
+    "maxaccess": "read-create",
+    "name": "hwOspfv3AreaImportAsExtern",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.2.1.2",
+    "reference": "OSPF Version 2, Appendix C.2 Area parameters",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "importExternal": 1,
+          "importNoExternal": 2,
+          "importNssa": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv3AreaLsdbAdvertisement": {
+    "class": "objecttype",
+    "description": "The entire Link State Advertisement, including its header.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3AreaLsdbAdvertisement",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.4.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwOspfv3AreaLsdbAge": {
+    "class": "objecttype",
+    "description": "This field is the age of the link state advertisement in seconds.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3AreaLsdbAge",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.4.1.6",
+    "reference": "OSPF Version 2, Section 12.1.1 LS age",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3LsaAgeTC"
+    },
+    "units": "seconds"
+  },
+  "hwOspfv3AreaLsdbAreaId": {
+    "class": "objecttype",
+    "description": "The 32-bit identifier of the Area from which the LSA was received.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3AreaLsdbAreaId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.4.1.1",
+    "reference": "OSPF Version 2, Appendix C.2 Area parameters",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3AreaIdTc"
+    }
+  },
+  "hwOspfv3AreaLsdbChecksum": {
+    "class": "objecttype",
+    "description": "This field is the checksum of the complete contents of the advertisement, excepting the age field. The age field is excepted so that an advertisement\u0027s age can be incremented without updating the checksum. The checksum used is the same that is used for ISO connectionless datagrams; it is commonly referred to as the Fletcher checksum.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3AreaLsdbChecksum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.4.1.7",
+    "reference": "OSPF Version 2, Section 12.1.7 LS checksum",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwOspfv3AreaLsdbEntry": {
+    "class": "objecttype",
+    "description": "A single Area-Scope Link State Advertisement.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaLsdbAreaId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaLsdbType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaLsdbRouterId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaLsdbLsId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3AreaLsdbEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.4.1",
+    "status": "current"
+  },
+  "hwOspfv3AreaLsdbGroup": {
+    "class": "objectgroup",
+    "description": "These objects are used for OSPFv3 systems that display their Area-scope link state database.",
+    "name": "hwOspfv3AreaLsdbGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaLsdbSequence"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaLsdbAge"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaLsdbChecksum"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaLsdbAdvertisement"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaLsdbTypeKnown"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.147.2.1.4",
+    "status": "current"
+  },
+  "hwOspfv3AreaLsdbLsId": {
+    "class": "objecttype",
+    "description": "The Link State ID is an LS Type Specific field containing a unique identifier; it identifies the piece of the routing domain that is being described by the advertisement. In contrast to OSPFv2, the LSID has no addressing semantics.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3AreaLsdbLsId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwOspfv3AreaLsdbRouterId": {
+    "class": "objecttype",
+    "description": "The 32-bit number that uniquely identifies the originating router in the Autonomous System.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3AreaLsdbRouterId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.4.1.3",
+    "reference": "OSPF Version 2, Appendix C.1 Global parameters",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3RouterIdTc"
+    }
+  },
+  "hwOspfv3AreaLsdbSequence": {
+    "class": "objecttype",
+    "description": "The sequence number field is a signed 32-bit integer. It is used to detect old and duplicate link state advertisements. The space of sequence numbers is linearly ordered. The larger the sequence number the more recent the advertisement.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3AreaLsdbSequence",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.4.1.5",
+    "reference": "OSPF Version 2, Section 12.1.6 LS sequence number",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3LsaSequenceTC"
+    }
+  },
+  "hwOspfv3AreaLsdbTable": {
+    "class": "objecttype",
+    "description": "The OSPFv3 Process\u0027s Area-Scope Link State Database.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3AreaLsdbTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.4",
+    "status": "current"
+  },
+  "hwOspfv3AreaLsdbType": {
+    "class": "objecttype",
+    "description": "The type of the link state advertisement. Each link state type has a separate advertisement format. Area-Scope LSAs unrecognized by the router are also stored in this database.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3AreaLsdbType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwOspfv3AreaLsdbTypeKnown": {
+    "class": "objecttype",
+    "description": "Indicates whether the LSA type is recognized by this Router.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3AreaLsdbTypeKnown",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.4.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwOspfv3AreaNssaTranslatorEvents": {
+    "class": "objecttype",
+    "description": "Indicates the number of Translator state changes that have occurred since the last start-up of the OSPFv3 routing process. Discontinuities in the value of this counter can occur at re-initialization of the management system and at other times as indicated by the value of ospfv3DiscontinuityTime.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3AreaNssaTranslatorEvents",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.2.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwOspfv3AreaNssaTranslatorRole": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "candidate"
+      }
+    },
+    "description": "Indicates an NSSA border router\u0027s policy to perform NSSA translation of NSSA-LSAs into AS-External-LSAs.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv3AreaNssaTranslatorRole",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "always": 1,
+          "candidate": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv3AreaNssaTranslatorStabInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 40
+      }
+    },
+    "description": "The stability interval defined as the number of seconds after an elected translator determines its services are no longer required that it should continue to perform its translation duties.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv3AreaNssaTranslatorStabInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.2.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwOspfv3AreaNssaTranslatorState": {
+    "class": "objecttype",
+    "description": "Indicates if and how an NSSA border router is performing NSSA translation of NSSA-LSAs into AS-External-LSAs. When this object is set to \u0027enabled\u0027, the NSSA border router\u0027s ospfv3AreaNssaTranslatorRole has been set to \u0027always\u0027. When this object is set to \u0027elected\u0027, a candidate NSSA border router is translating NSSA-LSAs into AS-External-LSAs. When this object is set to \u0027disabled\u0027, a candidate NSSA Border router is NOT translating NSSA-LSAs into AS-External-LSAs.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3AreaNssaTranslatorState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 3,
+          "elected": 2,
+          "enabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv3AreaRowStatus": {
+    "class": "objecttype",
+    "description": "This object permits management of the table by facilitating actions such as row creation, construction and destruction. The value of this object has no effect on whether other objects in this conceptual row can be modified.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv3AreaRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwOspfv3AreaScopeLsaCksumSum": {
+    "class": "objecttype",
+    "description": "The 32-bit unsigned sum of the Area-Scope link state advertisements\u0027 LS checksums contained in this area\u0027s link state database. The sum can be used to determine if there has been a change in a router\u0027s link state database, and to compare the link-state database of two routers.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3AreaScopeLsaCksumSum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwOspfv3AreaScopeLsaCount": {
+    "class": "objecttype",
+    "description": "The total number of Area-Scope link state advertisements in this area\u0027s link state database.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3AreaScopeLsaCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwOspfv3AreaSpfRuns": {
+    "class": "objecttype",
+    "description": "The number of times that the intra-area route table has been calculated using this area\u0027s link state database. This is typically done using Dijkstra\u0027s algorithm.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3AreaSpfRuns",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwOspfv3AreaStubMetric": {
+    "class": "objecttype",
+    "description": "The metric value advertised for the default route into Stub and NSSA areas.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv3AreaStubMetric",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "BigMetric"
+    }
+  },
+  "hwOspfv3AreaSummary": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "sendAreaSummary"
+      }
+    },
+    "description": "The variable ospfv3AreaSummary controls the import of Inter-Area LSAs into stub and NSSA areas. It has no effect on other areas. If it is noAreaSummary, the router will neither originate nor propagate Inter-Area LSAs into the stub or NSSA area. It will rely entirely on its default route. If it is sendAreaSummary, the router will both summarize and propagate Inter-Area LSAs.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv3AreaSummary",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAreaSummary": 1,
+          "sendAreaSummary": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv3AreaTable": {
+    "class": "objecttype",
+    "description": "Information describing the configured parameters and cumulative statistics of the router\u0027s attached areas.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3AreaTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.2",
+    "reference": "OSPF Version 2, Section 6 The Area Data Structure",
+    "status": "current"
+  },
+  "hwOspfv3AsBdrRtrStatus": {
+    "class": "objecttype",
+    "description": "A flag to note whether this router is configured as an Autonomous System border router.",
+    "maxaccess": "read-write",
+    "name": "hwOspfv3AsBdrRtrStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.1.5",
+    "reference": "OSPF Version 2, Section 3.3 Classification of routers",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwOspfv3AsLsdbAdvertisement": {
+    "class": "objecttype",
+    "description": "The entire Link State Advertisement, including its header.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3AsLsdbAdvertisement",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwOspfv3AsLsdbAge": {
+    "class": "objecttype",
+    "description": "This field is the age of the link state advertisement in seconds.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3AsLsdbAge",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.3.1.5",
+    "reference": "OSPF Version 2, Section 12.1.1 LS age",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3LsaAgeTC"
+    },
+    "units": "seconds"
+  },
+  "hwOspfv3AsLsdbChecksum": {
+    "class": "objecttype",
+    "description": "This field is the checksum of the complete contents of the advertisement, excepting the age field. The age field is excepted so that an advertisement\u0027s age can be incremented without updating the checksum. The checksum used is the same that is used for ISO connectionless datagrams; it is commonly referred to as the Fletcher checksum.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3AsLsdbChecksum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.3.1.6",
+    "reference": "OSPF Version 2, Section 12.1.7 LS checksum",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwOspfv3AsLsdbEntry": {
+    "class": "objecttype",
+    "description": "A single AS-Scope Link State Advertisement.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AsLsdbType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AsLsdbRouterId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AsLsdbLsId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3AsLsdbEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.3.1",
+    "status": "current"
+  },
+  "hwOspfv3AsLsdbGroup": {
+    "class": "objectgroup",
+    "description": "These objects are used for OSPFv3 systems that display their AS-scope link state database.",
+    "name": "hwOspfv3AsLsdbGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AsLsdbSequence"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AsLsdbAge"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AsLsdbChecksum"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AsLsdbAdvertisement"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AsLsdbTypeKnown"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.147.2.1.3",
+    "status": "current"
+  },
+  "hwOspfv3AsLsdbLsId": {
+    "class": "objecttype",
+    "description": "The Link State ID is an LS Type Specific field containing a unique identifier; it identifies the piece of the routing domain that is being described by the advertisement. In contrast to OSPFv2, the LSID has no addressing semantics.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3AsLsdbLsId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwOspfv3AsLsdbRouterId": {
+    "class": "objecttype",
+    "description": "The 32 bit number that uniquely identifies the originating router in the Autonomous System.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3AsLsdbRouterId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.3.1.2",
+    "reference": "OSPF Version 2, Appendix C.1 Global parameters",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3RouterIdTc"
+    }
+  },
+  "hwOspfv3AsLsdbSequence": {
+    "class": "objecttype",
+    "description": "The sequence number field is a signed 32-bit integer. It is used to detect old and duplicate link state advertisements. The space of sequence numbers is linearly ordered. The larger the sequence number the more recent the advertisement.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3AsLsdbSequence",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.3.1.4",
+    "reference": "OSPF Version 2, Section 12.1.6 LS sequence number",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3LsaSequenceTC"
+    }
+  },
+  "hwOspfv3AsLsdbTable": {
+    "class": "objecttype",
+    "description": "The OSPFv3 Process\u0027s AS-Scope Link State Database.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3AsLsdbTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.3",
+    "status": "current"
+  },
+  "hwOspfv3AsLsdbType": {
+    "class": "objecttype",
+    "description": "The type of the link state advertisement. Each link state type has a separate advertisement format. AS-Scope LSAs not recognized by the router may be stored in the database.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3AsLsdbType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwOspfv3AsLsdbTypeKnown": {
+    "class": "objecttype",
+    "description": "Indicates whether the LSA type is recognized by this Router.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3AsLsdbTypeKnown",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwOspfv3AsScopeLsaCksumSum": {
+    "class": "objecttype",
+    "description": "The 32-bit unsigned sum of the LS checksums of the AS-scoped link state advertisements contained in the link state database. This sum can be used to determine if there has been a change in a router\u0027s link state database, and to compare the link state database of two routers.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3AsScopeLsaCksumSum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwOspfv3AsScopeLsaCount": {
+    "class": "objecttype",
+    "description": "The number of AS-Scope (e.g. AS-External) link state advertisements in the link state database.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3AsScopeLsaCount",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwOspfv3AuthSequenceNumWrap": {
+    "class": "notificationtype",
+    "description": "An hwOspfv3AuthSequenceNumWrap notification indicates that the 64-bit authentication sequence number has wrapped. When this notification is received, all the keys must be reset to avoid the possibility of replay attacks.",
+    "name": "hwOspfv3AuthSequenceNumWrap",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3RouterId"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.147.0.14",
+    "status": "current"
+  },
+  "hwOspfv3BasicGroup": {
+    "class": "objectgroup",
+    "description": "These objects are used for managing/monitoring OSPFv3 global parameters.",
+    "name": "hwOspfv3BasicGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3RouterId"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AdminStatus"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VersionNumber"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaBdrRtrStatus"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AsBdrRtrStatus"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AsScopeLsaCount"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AsScopeLsaCksumSum"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3OriginateNewLsas"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3RxNewLsas"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3ExtLsaCount"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3ExtAreaLsdbLimit"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3RestartSupport"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3RestartInterval"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3RestartStatus"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3RestartAge"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3RestartExitRc"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NotificationEnable"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3ReferenceBandwidth"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.147.2.1.1",
+    "status": "current"
+  },
+  "hwOspfv3CfgNbrEntry": {
+    "class": "objecttype",
+    "description": "The information regarding a single configured neighbor or neighbor discovered by lower-level protocols such as Inverse Neighbor Discovery.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3CfgNbrIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3CfgNbrIfInstId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3CfgNbrRtrId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3CfgNbrEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.9.1",
+    "reference": "OSPF Version 2, Section 10 The Neighbor Data Structure",
+    "status": "current"
+  },
+  "hwOspfv3CfgNbrGroup": {
+    "class": "objectgroup",
+    "description": "These configured neighbor objects are used for managing/monitoring OSPFv3 configured neighbors.",
+    "name": "hwOspfv3CfgNbrGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3CfgNbrPriority"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3CfgNbrRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.147.2.1.9",
+    "status": "current"
+  },
+  "hwOspfv3CfgNbrIfIndex": {
+    "class": "objecttype",
+    "description": "The local link ID of the link over which the neighbor can be reached.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3CfgNbrIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.9.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwOspfv3CfgNbrIfInstId": {
+    "class": "objecttype",
+    "description": "Interface instance over which the neighbor can be reached. This ID has local link significance only.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3CfgNbrIfInstId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.9.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3IfInstIdTc"
+    }
+  },
+  "hwOspfv3CfgNbrPriority": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "The priority of this neighbor in the designated router election algorithm. The value 0 signifies that the neighbor is not eligible to become the designated router on this particular network.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv3CfgNbrPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.9.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DesignatedRouterPriority"
+    }
+  },
+  "hwOspfv3CfgNbrRowStatus": {
+    "class": "objecttype",
+    "description": "This object permits management of the table by facilitating actions such as row creation, construction and destruction. The value of this object has no effect on whether other objects in this conceptual row can be modified.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv3CfgNbrRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.9.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwOspfv3CfgNbrRtrId": {
+    "class": "objecttype",
+    "description": "A 32-bit integer uniquely identifying the static neighbor router in the Autonomous System.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3CfgNbrRtrId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.9.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3RouterIdTc"
+    }
+  },
+  "hwOspfv3CfgNbrTable": {
+    "class": "objecttype",
+    "description": "A table of configured, non-virtual neighbor information.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3CfgNbrTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.9",
+    "reference": "OSPF Version 2, Section 10 The Neighbor Data Structure",
+    "status": "current"
+  },
+  "hwOspfv3Compliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3BasicGroup"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaGroup"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfGroup"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtIfGroup"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NbrGroup"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3CfgNbrGroup"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtNbrGroup"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaAggregateGroup"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AsLsdbGroup"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaLsdbGroup"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3LinkLsdbGroup"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NotificationObjectGroup"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NotificationGroup"
+      }
+    ],
+    "name": "hwOspfv3Compliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.2.2.1",
+    "status": "current"
+  },
+  "hwOspfv3Compliances": {
+    "class": "objectidentity",
+    "name": "hwOspfv3Compliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.2.2"
+  },
+  "hwOspfv3ConfigErrorType": {
+    "class": "objecttype",
+    "description": "Potential types of configuration conflicts. Used by the ospfv3ConfigError and ospfv3ConfigVirtError notifications. When the last value of a notification using this object is needed, but no notifications of that type have been sent, this value pertaining to this object should be returned as noError",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwOspfv3ConfigErrorType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.12.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "areaMismatch": 2,
+          "badVersion": 1,
+          "deadIntervalMismatch": 6,
+          "duplicateRouterId": 9,
+          "helloIntervalMismatch": 5,
+          "mtuMismatch": 8,
+          "noError": 10,
+          "optionMismatch": 7,
+          "unknownNbmaNbr": 3,
+          "unknownVirtualNbr": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv3Conformance": {
+    "class": "objectidentity",
+    "name": "hwOspfv3Conformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.2"
+  },
+  "hwOspfv3ExtAreaLsdbLimit": {
+    "class": "objecttype",
+    "description": "The maximum number of non-default AS-external-LSAs entries that can be stored in the link state database. If the value is -1, then there is no limit. When the number of non-default AS-external-LSAs in a router\u0027s link-state database reaches ospfv3ExtAreaLsdbLimit, the router enters Overflow state. The router never holds more than ospfv3ExtAreaLsdbLimit non-default AS-external-LSAs in its database. Ospfv3ExtAreaLsdbLimit MUST be set identically in all routers attached to the OSPFv3 backbone and/or any regular OSPFv3 area. (i.e., OSPFv3 stub areas and NSSAs are excluded).",
+    "maxaccess": "read-write",
+    "name": "hwOspfv3ExtAreaLsdbLimit",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": -1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwOspfv3ExtLsaCount": {
+    "class": "objecttype",
+    "description": "The number of AS-Scope External(LS type 0x4005) link state advertisements in the link state database",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3ExtLsaCount",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwOspfv3GeneralGroup": {
+    "class": "objectidentity",
+    "name": "hwOspfv3GeneralGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.1"
+  },
+  "hwOspfv3Groups": {
+    "class": "objectidentity",
+    "name": "hwOspfv3Groups",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.2.1"
+  },
+  "hwOspfv3IfAdminStatus": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "enabled"
+      }
+    },
+    "description": "The OSPFv3 interface\u0027s administrative status. The value formed on the interface, and the interface will be advertised as an internal route to some area. The value \u0027disabled\u0027 denotes that the interface is external to OSPFv3.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv3IfAdminStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Status"
+    }
+  },
+  "hwOspfv3IfAreaId": {
+    "class": "objecttype",
+    "description": "A 32-bit integer uniquely identifying the area to which the interface connects. Area ID 0 is used for the OSPFv3 backbone.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv3IfAreaId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3AreaIdTc"
+    }
+  },
+  "hwOspfv3IfBackupDesignatedRouter": {
+    "class": "objecttype",
+    "description": "The Router ID of the Backup Designated Router.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3IfBackupDesignatedRouter",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.6.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3RouterIdTc"
+    }
+  },
+  "hwOspfv3IfConfigError": {
+    "class": "notificationtype",
+    "description": "An ospfv3IfConfigError notification signifies that a packet has been received on a non-virtual interface from a router whose configuration parameters conflict with this router\u0027s configuration parameters. Note that the event optionMismatch should cause a notification only if it prevents an adjacency from forming.",
+    "name": "hwOspfv3IfConfigError",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3RouterId"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfState"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3PacketSrc"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3ConfigErrorType"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3PacketType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.147.0.4",
+    "status": "current"
+  },
+  "hwOspfv3IfDesignatedRouter": {
+    "class": "objecttype",
+    "description": "The Router ID of the Designated Router.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3IfDesignatedRouter",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.6.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3RouterIdTc"
+    }
+  },
+  "hwOspfv3IfEntry": {
+    "class": "objecttype",
+    "description": "The OSPFv3 Interface Entry describes one interface from the viewpoint of OSPFv3.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfInstId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3IfEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.6.1",
+    "status": "current"
+  },
+  "hwOspfv3IfEvents": {
+    "class": "objecttype",
+    "description": "The number of times this OSPFv3 interface has changed its state, or an error has occurred.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3IfEvents",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.6.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwOspfv3IfGroup": {
+    "class": "objectgroup",
+    "description": "These interface objects used for managing/monitoring OSPFv3 interfaces.",
+    "name": "hwOspfv3IfGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfAreaId"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfType"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfAdminStatus"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfRtrPriority"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfTransitDelay"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfRetransInterval"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfHelloInterval"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfRtrDeadInterval"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfState"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfDesignatedRouter"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfBackupDesignatedRouter"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfEvents"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfRowStatus"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfMetricValue"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfLinkScopeLsaCount"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfLinkLsaCksumSum"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfPollInterval"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfMulticastForwarding"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.147.2.1.6",
+    "status": "current"
+  },
+  "hwOspfv3IfHelloInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 10
+      }
+    },
+    "description": "The length of time, in seconds, between the Hello packets that the router sends on the interface. This value must be the same for all routers attached to a common network.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv3IfHelloInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.6.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWHelloRange"
+    },
+    "units": "seconds"
+  },
+  "hwOspfv3IfIndex": {
+    "class": "objecttype",
+    "description": "The interface index of this OSPFv3 interface. It corresponds to the interface index of the IPv6 interface on which OSPFv3 is configured.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3IfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwOspfv3IfInstId": {
+    "class": "objecttype",
+    "description": "Enables multiple interface instances of OSPFv3 to be run over a single link. Each protocol instance would be assigned a separate ID. This ID has local link significance only.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3IfInstId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3IfInstIdTc"
+    }
+  },
+  "hwOspfv3IfLinkLsaCksumSum": {
+    "class": "objecttype",
+    "description": "The 32-bit unsigned sum of the Link-Scope link state advertisements\u0027 LS checksums contained in this link\u0027s link state database. The sum can be used to determine if there has been a change in a router\u0027s link state database, and to compare the link state database of two routers.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3IfLinkLsaCksumSum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.6.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwOspfv3IfLinkScopeLsaCount": {
+    "class": "objecttype",
+    "description": "The total number of Link-Scope link state advertisements in this link\u0027s link state database.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3IfLinkScopeLsaCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.6.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwOspfv3IfMetricValue": {
+    "class": "objecttype",
+    "description": "The metric assigned to this interface. The default value of the Metric is Reference Bandwidth / ifSpeed. The value of the reference bandwidth is configured by the ospfv3ReferenceBandwidth object.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv3IfMetricValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.6.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Metric"
+    }
+  },
+  "hwOspfv3IfMulticastForwarding": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "blocked"
+      }
+    },
+    "description": "The way multicasts should forwarded on this interface; not forwarded, forwarded as data link multicasts, or forwarded as data link unicasts. Data link multicasting is not meaningful on point to point and NBMA interfaces, and setting ospfv3MulticastForwarding to 0 effectively disables all multicast forwarding.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv3IfMulticastForwarding",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.6.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blocked": 1,
+          "multicast": 2,
+          "unicast": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv3IfName": {
+    "class": "objecttype",
+    "description": "The interface name",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwOspfv3IfName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.12.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwOspfv3IfPollInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 120
+      }
+    },
+    "description": "The larger time interval, in seconds, between the Hello packets sent to an inactive non-broadcast multi-access neighbor.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv3IfPollInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.6.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    },
+    "units": "seconds"
+  },
+  "hwOspfv3IfRetransInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": "The number of seconds between link state advertisement retransmissions, for adjacencies belonging to this interface. This value is also used when retransmitting database description and link state request packets.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv3IfRetransInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.6.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3UpToRefreshIntervalTc"
+    },
+    "units": "seconds"
+  },
+  "hwOspfv3IfRowStatus": {
+    "class": "objecttype",
+    "description": "This object permits management of the table by facilitating actions such as row creation, construction and destruction. The value of this object has no effect on whether other objects in this conceptual row can be modified.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv3IfRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.6.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwOspfv3IfRtrDeadInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 40
+      }
+    },
+    "description": "The number of seconds that a router\u0027s Hello packets have not been seen before its neighbors declare the router down on the interface. This should be some multiple of the Hello interval. This value must be the same for all routers attached to a common network.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv3IfRtrDeadInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.6.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3DeadIntRangeTc"
+    },
+    "units": "seconds"
+  },
+  "hwOspfv3IfRtrPriority": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "The priority of this interface. Used in multi-access networks, this field is used in the designated router election algorithm. The value 0 signifies that the router is not eligible to become the designated router on this particular network. In the event of a tie in this value, routers will use their Router ID as a tie breaker.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv3IfRtrPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.6.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DesignatedRouterPriority"
+    }
+  },
+  "hwOspfv3IfRxBadPacket": {
+    "class": "notificationtype",
+    "description": "An ospfv3IfRxBadPacket notification signifies that an OSPFv3 packet that cannot be parsed has been received on a non-virtual interface.",
+    "name": "hwOspfv3IfRxBadPacket",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3RouterId"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfState"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3PacketSrc"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3PacketType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.147.0.6",
+    "status": "current"
+  },
+  "hwOspfv3IfState": {
+    "class": "objecttype",
+    "description": "The OSPFv3 Interface State.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3IfState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.6.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backupDesignatedRouter": 6,
+          "designatedRouter": 5,
+          "down": 1,
+          "loopback": 2,
+          "otherDesignatedRouter": 7,
+          "pointToPoint": 4,
+          "waiting": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv3IfStateChange": {
+    "class": "notificationtype",
+    "description": "An ospfv3IfStateChange notification signifies that there has been a change in the state of a non-virtual OSPFv3 interface. This notification should be generated when the interface state regresses (e.g., goes from Dr to Down) or progresses to a terminal state (i.e., Point-to-Point, DR Other, Dr, or Backup).",
+    "name": "hwOspfv3IfStateChange",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3RouterId"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfState"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfName"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfStateChgReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.147.0.8",
+    "status": "current"
+  },
+  "hwOspfv3IfStateChgReason": {
+    "class": "objecttype",
+    "description": "Interface state change reason.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwOspfv3IfStateChgReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.12.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backupSeenOccured": 4,
+          "interfaceDown": 8,
+          "interfaceUp": 2,
+          "loopInd": 6,
+          "neighborChangeEventOccured": 5,
+          "noEvent": 1,
+          "unloopInd": 7,
+          "waitTimerExpired": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv3IfTable": {
+    "class": "objecttype",
+    "description": "The OSPFv3 Interface Table describes the interfaces from the viewpoint of OSPFv3.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3IfTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.6",
+    "reference": "OSPF Version 2, Appendix C.3 Router interface parameters",
+    "status": "current"
+  },
+  "hwOspfv3IfTransitDelay": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "The estimated number of seconds it takes to transmit a link state update packet over this interface.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv3IfTransitDelay",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.6.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3UpToRefreshIntervalTc"
+    },
+    "units": "seconds"
+  },
+  "hwOspfv3IfType": {
+    "class": "objecttype",
+    "description": "The OSPFv3 interface type.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv3IfType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "broadcast": 1,
+          "loopback": 4,
+          "nbma": 2,
+          "p2mpNonbroadcast": 6,
+          "pointToMultipoint": 5,
+          "pointToPoint": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv3IntraAreaRouterIdConflictRecovered": {
+    "class": "notificationtype",
+    "description": "The object is used to monitor router ID conflict recovery in an intra area.",
+    "name": "hwOspfv3IntraAreaRouterIdConflictRecovered",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3ProcessId"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaIdIndex"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3RouterId"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NewRouterId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.147.0.15",
+    "status": "current"
+  },
+  "hwOspfv3LastAuthKeyExpiry": {
+    "class": "notificationtype",
+    "description": "An hwOspfv3LastAuthKeyExpiry notification indicates that the last key associated with an interface has expired. When this notification is received, either the lifetime of the key should be extended or a new key should be configured.",
+    "name": "hwOspfv3LastAuthKeyExpiry",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3RouterId"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.147.0.13",
+    "status": "current"
+  },
+  "hwOspfv3LinkLsdbAdvertisement": {
+    "class": "objecttype",
+    "description": "The entire Link State Advertisement, including its header.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3LinkLsdbAdvertisement",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.5.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwOspfv3LinkLsdbAge": {
+    "class": "objecttype",
+    "description": "This field is the age of the link state advertisement in seconds.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3LinkLsdbAge",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.5.1.7",
+    "reference": "OSPF Version 2, Section 12.1.1 LS age",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3LsaAgeTC"
+    },
+    "units": "seconds"
+  },
+  "hwOspfv3LinkLsdbChecksum": {
+    "class": "objecttype",
+    "description": "This field is the checksum of the complete contents of the advertisement, excepting the age field. The age field is excepted so that an advertisement\u0027s age can be incremented without updating the checksum. The checksum used is the same that is used for ISO connectionless datagrams; it is commonly referred to as the Fletcher checksum.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3LinkLsdbChecksum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.5.1.8",
+    "reference": "OSPF Version 2, Section 12.1.7 LS checksum",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwOspfv3LinkLsdbEntry": {
+    "class": "objecttype",
+    "description": "A single Link-Scope Link State Advertisement.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3LinkLsdbIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3LinkLsdbIfInstId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3LinkLsdbType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3LinkLsdbRouterId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3LinkLsdbLsId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3LinkLsdbEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.5.1",
+    "status": "current"
+  },
+  "hwOspfv3LinkLsdbGroup": {
+    "class": "objectgroup",
+    "description": "These objects are used for OSPFv3 systems that display their Link-scope link state database.",
+    "name": "hwOspfv3LinkLsdbGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3LinkLsdbSequence"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3LinkLsdbAge"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3LinkLsdbChecksum"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3LinkLsdbAdvertisement"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3LinkLsdbTypeKnown"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.147.2.1.5",
+    "status": "current"
+  },
+  "hwOspfv3LinkLsdbIfIndex": {
+    "class": "objecttype",
+    "description": "The identifier of the link from which the LSA was received.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3LinkLsdbIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwOspfv3LinkLsdbIfInstId": {
+    "class": "objecttype",
+    "description": "The identifier of the interface instance from which the LSA was received.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3LinkLsdbIfInstId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3IfInstIdTc"
+    }
+  },
+  "hwOspfv3LinkLsdbLsId": {
+    "class": "objecttype",
+    "description": "The Link State ID is an LS Type Specific field containing a unique identifier; it identifies the piece of the routing domain that is being described by the advertisement. In contrast to OSPFv2, the LSID has no addressing semantics.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3LinkLsdbLsId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.5.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3LsIdTC"
+    }
+  },
+  "hwOspfv3LinkLsdbRouterId": {
+    "class": "objecttype",
+    "description": "The 32 bit number that uniquely identifies the originating router in the Autonomous System.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3LinkLsdbRouterId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.5.1.4",
+    "reference": "OSPF Version 2, Appendix C.1 Global parameters",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3RouterIdTc"
+    }
+  },
+  "hwOspfv3LinkLsdbSequence": {
+    "class": "objecttype",
+    "description": "The sequence number field is a signed 32-bit integer. It is used to detect old and duplicate link state advertisements. The space of sequence numbers is linearly ordered. The larger the sequence number the more recent the advertisement.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3LinkLsdbSequence",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.5.1.6",
+    "reference": "OSPF Version 2, Section 12.1.6 LS sequence number",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3LsaSequenceTC"
+    }
+  },
+  "hwOspfv3LinkLsdbTable": {
+    "class": "objecttype",
+    "description": "The OSPFv3 Process\u0027s Link-Scope Link State Database.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3LinkLsdbTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.5",
+    "status": "current"
+  },
+  "hwOspfv3LinkLsdbType": {
+    "class": "objecttype",
+    "description": "The type of the link state advertisement. Each link state type has a separate advertisement format. Link-Scope LSAs unrecognized by the router are also stored in this database.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3LinkLsdbType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwOspfv3LinkLsdbTypeKnown": {
+    "class": "objecttype",
+    "description": "Indicates whether the LSA type is recognized by this Router.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3LinkLsdbTypeKnown",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.5.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwOspfv3NbrAddress": {
+    "class": "objecttype",
+    "description": "The IPv6 address of the neighbor associated with the local link.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3NbrAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.8.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwOspfv3NbrAddressType": {
+    "class": "objecttype",
+    "description": "The address type of ospfv3NbrAddress. Only IPv6 addresses without zone index are expected.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3NbrAddressType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.8.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwOspfv3NbrEntry": {
+    "class": "objecttype",
+    "description": "The information regarding a single neighbor.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NbrIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NbrIfInstId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NbrRtrId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3NbrEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.8.1",
+    "reference": "OSPF Version 2, Section 10 The Neighbor Data Structure",
+    "status": "current"
+  },
+  "hwOspfv3NbrEvents": {
+    "class": "objecttype",
+    "description": "The number of times this neighbor relationship has changed state, or an error has occurred.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3NbrEvents",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.8.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwOspfv3NbrGroup": {
+    "class": "objectgroup",
+    "description": "These neighbor objects are used for managing/monitoring OSPFv3 neighbors.",
+    "name": "hwOspfv3NbrGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NbrAddressType"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NbrAddress"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NbrOptions"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NbrPriority"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NbrState"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NbrEvents"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NbrLsRetransQLen"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NbrHelloSuppressed"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NbrIfId"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NbrRestartHelperStatus"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NbrRestartHelperAge"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NbrRestartHelperExitRc"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.147.2.1.8",
+    "status": "current"
+  },
+  "hwOspfv3NbrHelloSuppressed": {
+    "class": "objecttype",
+    "description": "Indicates whether Hellos are being suppressed to the neighbor",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3NbrHelloSuppressed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.8.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwOspfv3NbrIfId": {
+    "class": "objecttype",
+    "description": "The interface ID that the neighbor advertises in its Hello Packets on this link, that is, the neighbor\u0027s local interface index.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3NbrIfId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.8.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwOspfv3NbrIfIndex": {
+    "class": "objecttype",
+    "description": "The local link ID of the link over which the neighbor can be reached.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3NbrIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwOspfv3NbrIfInstId": {
+    "class": "objecttype",
+    "description": "Interface instance over which the neighbor can be reached. This ID has local link significance only.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3NbrIfInstId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.8.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3IfInstIdTc"
+    }
+  },
+  "hwOspfv3NbrLsRetransQLen": {
+    "class": "objecttype",
+    "description": "The current length of the retransmission queue.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3NbrLsRetransQLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.8.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwOspfv3NbrOptions": {
+    "class": "objecttype",
+    "description": "A Bit Mask corresponding to the neighbor\u0027s options field.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3NbrOptions",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.8.1.6",
+    "reference": "OSPF Version 3, Appendix A.2 the Options field",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwOspfv3NbrPriority": {
+    "class": "objecttype",
+    "description": "The priority of this neighbor in the designated router election algorithm. The value 0 signifies that the neighbor is not eligible to become the designated router on this particular network.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3NbrPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.8.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DesignatedRouterPriority"
+    }
+  },
+  "hwOspfv3NbrRestartHelperAge": {
+    "class": "objecttype",
+    "description": "Remaining time in current OSPFv3 Graceful restart interval, if the router is acting as a restart helper for the neighbor.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3NbrRestartHelperAge",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.8.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3UpToRefreshIntervalTc"
+    },
+    "units": "seconds"
+  },
+  "hwOspfv3NbrRestartHelperExitRc": {
+    "class": "objecttype",
+    "description": "Describes the outcome of the last attempt at acting as a Graceful restart helper for the neighbor. none:............no restart has yet been attempted. inProgress:......a restart attempt is currently underway. completed:.......the last restart completed successfully. timedOut:........the last restart timed out. topologyChanged:.the last restart was aborted due to a topology change.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3NbrRestartHelperExitRc",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.8.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "completed": 3,
+          "inProgress": 2,
+          "none": 1,
+          "timedOut": 4,
+          "topologyChanged": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv3NbrRestartHelperStatus": {
+    "class": "objecttype",
+    "description": "Indicates whether the router is acting as a Graceful restart helper for the neighbor.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3NbrRestartHelperStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.8.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "helping": 2,
+          "notHelping": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv3NbrRestartHelperStatusChange": {
+    "class": "notificationtype",
+    "description": "An ospfv3NbrRestartHelperStatusChange notification signifies that there has been a change in the graceful restart helper state for the neighbor. This notification should be generated when the neighbor restart helper status transitions for a neighbor.",
+    "name": "hwOspfv3NbrRestartHelperStatusChange",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3RouterId"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NbrRestartHelperStatus"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NbrRestartHelperAge"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NbrRestartHelperExitRc"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.147.0.10",
+    "status": "current"
+  },
+  "hwOspfv3NbrRtrId": {
+    "class": "objecttype",
+    "description": "A 32-bit integer uniquely identifying the neighboring router in the Autonomous System.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3NbrRtrId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.8.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3RouterIdTc"
+    }
+  },
+  "hwOspfv3NbrState": {
+    "class": "objecttype",
+    "description": "The State of the relationship with this Neighbor.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3NbrState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.8.1.8",
+    "reference": "OSPF Version 2, Section 10.1 Neighbor States",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "attempt": 2,
+          "down": 1,
+          "exchange": 6,
+          "exchangeStart": 5,
+          "full": 8,
+          "init": 3,
+          "loading": 7,
+          "twoWay": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv3NbrStateChange": {
+    "class": "notificationtype",
+    "description": "An ospfv3NbrStateChange notification signifies that there has been a change in the state of a non-virtual OSPFv3 neighbor. This notification should be generated when the neighbor state regresses (e.g., goes from Attempt or Full to 1-Way or Down) or progresses to a terminal state (e.g., 2-Way or Full). When an neighbor transitions from or to Full on non-broadcast multi-access and broadcast networks, the notification should be generated by the designated router. A designated router transitioning to Down will be noted by ospfIfStateChange.",
+    "name": "hwOspfv3NbrStateChange",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3RouterId"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NbrState"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfName"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NbrStateChgReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.147.0.2",
+    "status": "current"
+  },
+  "hwOspfv3NbrStateChgReason": {
+    "class": "objecttype",
+    "description": "Neighbor state change reason.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwOspfv3NbrStateChgReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.12.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "establishedAdjacency": 9,
+          "exchangeDone": 6,
+          "inactivityTimerExpired": 13,
+          "linkDown": 14,
+          "loadingDone": 8,
+          "mismatchInSeqNumber": 10,
+          "nbrKilled": 12,
+          "negotiationDone": 5,
+          "noEvent": 1,
+          "receivedBadLSRequest": 7,
+          "receivedHelloPacket": 2,
+          "receivedOneWay": 11,
+          "receivedTwoWay": 4,
+          "start": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv3NbrTable": {
+    "class": "objecttype",
+    "description": "A table of non-virtual neighbor information.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3NbrTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.8",
+    "reference": "OSPF Version 2, Section 10 The Neighbor Data Structure",
+    "status": "current"
+  },
+  "hwOspfv3NewRouterId": {
+    "class": "objecttype",
+    "description": "A 32-bit integer uniquely identifying the router in the Autonomous System. To ensure uniqueness, this may default to the value of one of the router\u0027s IPv4 host addresses, represented as a 32-bit unsigned integer, if IPv4 is configured on the router.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3NewRouterId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.12.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3RouterIdTc"
+    }
+  },
+  "hwOspfv3NotificationEnable": {
+    "class": "objecttype",
+    "description": "If this object is set to true(1), then it enables the generation of OSPFv3 Notifications. If it is set to false(2), these notifications are not generated. Configured values MUST survive an agent reboot.",
+    "maxaccess": "read-write",
+    "name": "hwOspfv3NotificationEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwOspfv3NotificationEntry": {
+    "class": "objectidentity",
+    "name": "hwOspfv3NotificationEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.12"
+  },
+  "hwOspfv3NotificationGroup": {
+    "class": "notificationgroup",
+    "description": "This group is used for OSPFv3 notifications",
+    "name": "hwOspfv3NotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtIfStateChange"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NbrStateChange"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtNbrStateChange"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfConfigError"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtIfConfigError"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfRxBadPacket"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtIfRxBadPacket"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfStateChange"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3RestartStatusChange"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NbrRestartHelperStatusChange"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtNbrRestartHelperStatusChange"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NssaTranslatorStatusChange"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3LastAuthKeyExpiry"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AuthSequenceNumWrap"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IntraAreaRouterIdConflictRecovered"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.147.2.1.13",
+    "status": "current"
+  },
+  "hwOspfv3NotificationObjectGroup": {
+    "class": "objectgroup",
+    "description": "These objects are used to record notification parameters",
+    "name": "hwOspfv3NotificationObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3ConfigErrorType"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3PacketType"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3PacketSrc"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfName"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfStateChgReason"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NbrStateChgReason"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3ProcessId"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaIdIndex"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NewRouterId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.147.2.1.12",
+    "status": "current"
+  },
+  "hwOspfv3Notifications": {
+    "class": "objectidentity",
+    "name": "hwOspfv3Notifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.0"
+  },
+  "hwOspfv3NssaTranslatorStatusChange": {
+    "class": "notificationtype",
+    "description": "An ospfv3NssaTranslatorStatusChange notification indicates that there has been a change in the router\u0027s ability to translate OSPFv3 NSSA LSAs into OSPFv3 External LSAs. This notification should be generated when the Translator Status transitions from or to any defined status on a per area basis.",
+    "name": "hwOspfv3NssaTranslatorStatusChange",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3RouterId"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaNssaTranslatorState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.147.0.12",
+    "status": "current"
+  },
+  "hwOspfv3Objects": {
+    "class": "objectidentity",
+    "name": "hwOspfv3Objects",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1"
+  },
+  "hwOspfv3OriginateNewLsas": {
+    "class": "objecttype",
+    "description": "The number of new link-state advertisements that have been originated. This number is incremented each time the router originates a new LSA.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3OriginateNewLsas",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwOspfv3PacketSrc": {
+    "class": "objecttype",
+    "description": "The IPv6 address of an inbound packet that cannot be identified by a neighbor instance. When the last value of a notification using this object is needed, but no notifications of that type have been sent, the value pertaining to this object should be returned as 0. Only IPv6 addresses without zone index are expected.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwOspfv3PacketSrc",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.12.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwOspfv3PacketType": {
+    "class": "objecttype",
+    "description": "OSPFv3 packet types. When the last value of a notification using this object is needed, but no notifications of that type have been sent, the value pertaining to this object should be returned as nullPacket",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwOspfv3PacketType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.12.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dbDescript": 2,
+          "hello": 1,
+          "lsAck": 5,
+          "lsReq": 3,
+          "lsUpdate": 4,
+          "nullPacket": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv3ProcessId": {
+    "class": "objecttype",
+    "description": "The process ID indicates the OSPFv3 process number. The value ranges from 1 to 65535.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3ProcessId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.12.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwOspfv3ReadOnlyCompliance": {
+    "class": "modulecompliance",
+    "description": "When this MIB module is implemented without support for read-create (i.e., in read-only mode), the implementation can claim read-only compliance. Such a device can then be monitored, but cannot be configured with this MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3BasicGroup"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaGroup"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfGroup"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtIfGroup"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NbrGroup"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3CfgNbrGroup"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtNbrGroup"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaAggregateGroup"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AsLsdbGroup"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3AreaLsdbGroup"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3LinkLsdbGroup"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NotificationObjectGroup"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NotificationGroup"
+      }
+    ],
+    "name": "hwOspfv3ReadOnlyCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.2.2.2",
+    "status": "current"
+  },
+  "hwOspfv3ReferenceBandwidth": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 100000
+      }
+    },
+    "description": "Reference bandwidth in kilobits per second for calculating default interface metrics. The default value is 100,000 KBPS (100 MBPS). This object is persistent, and when written, the entity SHOULD save the change to non-volatile storage.",
+    "maxaccess": "read-write",
+    "name": "hwOspfv3ReferenceBandwidth",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwOspfv3RestartAge": {
+    "class": "objecttype",
+    "description": "Remaining time in current OSPFv3 Graceful restart interval.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3RestartAge",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3UpToRefreshIntervalTc"
+    },
+    "units": "seconds"
+  },
+  "hwOspfv3RestartExitRc": {
+    "class": "objecttype",
+    "description": "Describes the outcome of the last attempt at a Graceful restart. none:............no restart has yet been attempted. inProgress:......a restart attempt is currently underway. completed:.......the last restart completed successfully. timedOut:........the last restart timed out. topologyChanged:.the last restart was aborted due to a topology change.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3RestartExitRc",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "completed": 3,
+          "inProgress": 2,
+          "none": 1,
+          "timedOut": 4,
+          "topologyChanged": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv3RestartInterval": {
+    "class": "objecttype",
+    "description": "Configured OSPFv3 Graceful restart timeout interval.",
+    "maxaccess": "read-write",
+    "name": "hwOspfv3RestartInterval",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3UpToRefreshIntervalTc"
+    },
+    "units": "seconds"
+  },
+  "hwOspfv3RestartStatus": {
+    "class": "objecttype",
+    "description": "The current status of OSPFv3 Graceful restart capability.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3RestartStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notRestarting": 1,
+          "plannedRestart": 2,
+          "unplannedRestart": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv3RestartStatusChange": {
+    "class": "notificationtype",
+    "description": "An ospfv3RestartStatusChange notification signifies that there has been a change in the graceful restart state for the router. This notification should be generated when the router restart status changes.",
+    "name": "hwOspfv3RestartStatusChange",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3RouterId"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3RestartStatus"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3RestartInterval"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3RestartExitRc"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.147.0.9",
+    "status": "current"
+  },
+  "hwOspfv3RestartSupport": {
+    "class": "objecttype",
+    "description": "The router\u0027s support for OSPFv3 Graceful restart. Options include: no restart support, only planned restarts or both planned and unplanned restarts.",
+    "maxaccess": "read-write",
+    "name": "hwOspfv3RestartSupport",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "plannedAndUnplanned": 3,
+          "plannedOnly": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv3RouterId": {
+    "class": "objecttype",
+    "description": "A 32-bit integer uniquely identifying the router in the Autonomous System. To ensure uniqueness, this may default to the value of one of the router\u0027s IPv4 host addresses, represented as a 32-bit unsigned integer, if IPv4 is configured on the router.",
+    "maxaccess": "read-write",
+    "name": "hwOspfv3RouterId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3RouterIdTc"
+    }
+  },
+  "hwOspfv3RxNewLsas": {
+    "class": "objecttype",
+    "description": "The number of link state advertisements received determined to be new instantiations. This number does not include newer instantiations of self-originated link state advertisements.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3RxNewLsas",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwOspfv3VersionNumber": {
+    "class": "objecttype",
+    "description": "The version number of OSPF for IPv6 is 3.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3VersionNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "version3": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv3VirtIfAreaId": {
+    "class": "objecttype",
+    "description": "The Transit Area that the Virtual Link traverses. By definition, this is not Area 0",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3VirtIfAreaId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3AreaIdTc"
+    }
+  },
+  "hwOspfv3VirtIfConfigError": {
+    "class": "notificationtype",
+    "description": "An ospfv3VirtIfConfigError notification signifies that a packet has been received on a virtual interface from a router whose configuration parameters conflict with this router\u0027s configuration parameters. Note that the event optionMismatch should cause a notification only if it prevents an adjacency from forming.",
+    "name": "hwOspfv3VirtIfConfigError",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3RouterId"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtIfState"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3ConfigErrorType"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3PacketType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.147.0.5",
+    "status": "current"
+  },
+  "hwOspfv3VirtIfEntry": {
+    "class": "objecttype",
+    "description": "Information about a single Virtual Interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtIfAreaId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtIfNeighbor"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3VirtIfEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.7.1",
+    "status": "current"
+  },
+  "hwOspfv3VirtIfEvents": {
+    "class": "objecttype",
+    "description": "The number of state changes or error events on this Virtual Link",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3VirtIfEvents",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.7.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwOspfv3VirtIfGroup": {
+    "class": "objectgroup",
+    "description": "These virtual interface objects are used for managing/monitoring OSPFv3 virtual interfaces.",
+    "name": "hwOspfv3VirtIfGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtIfIndex"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtIfInstId"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtIfTransitDelay"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtIfRetransInterval"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtIfHelloInterval"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtIfRtrDeadInterval"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtIfState"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtIfEvents"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtIfRowStatus"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtIfLinkScopeLsaCount"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtIfLinkLsaCksumSum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.147.2.1.7",
+    "status": "current"
+  },
+  "hwOspfv3VirtIfHelloInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 10
+      }
+    },
+    "description": "The length of time, in seconds, between the Hello packets that the router sends on the interface. This value must be the same for the virtual neighbor.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv3VirtIfHelloInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.7.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HelloRange"
+    },
+    "units": "seconds"
+  },
+  "hwOspfv3VirtIfIndex": {
+    "class": "objecttype",
+    "description": "The local interface index assigned to this OSPFv3 virtual interface. It is advertised in Hello\u0027s sent over the virtual link and in the router\u0027s router-LSAs.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3VirtIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwOspfv3VirtIfInstId": {
+    "class": "objecttype",
+    "description": "Specifies the interface instance ID to be used for the virtual interface. This ID has local link significance only.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3VirtIfInstId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.7.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3IfInstIdTc"
+    }
+  },
+  "hwOspfv3VirtIfLinkLsaCksumSum": {
+    "class": "objecttype",
+    "description": "The 32-bit unsigned sum of the Link-Scope link-state advertisements\u0027 LS checksums contained in this virtual link\u0027s link-state database. The sum can be used to determine if there has been a change in a router\u0027s link state database, and to compare the link state database of two routers.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3VirtIfLinkLsaCksumSum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.7.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwOspfv3VirtIfLinkScopeLsaCount": {
+    "class": "objecttype",
+    "description": "The total number of Link-Scope link state advertisements in this virtual link\u0027s link state database.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3VirtIfLinkScopeLsaCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.7.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwOspfv3VirtIfNeighbor": {
+    "class": "objecttype",
+    "description": "The Router ID of the Virtual Neighbor.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3VirtIfNeighbor",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3RouterIdTc"
+    }
+  },
+  "hwOspfv3VirtIfRetransInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": "The number of seconds between link state advertisement retransmissions, for adjacencies belonging to this interface. This value is also used when retransmitting database description and link state request packets. This value should be well over the expected round-trip time.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv3VirtIfRetransInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.7.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3UpToRefreshIntervalTc"
+    },
+    "units": "seconds"
+  },
+  "hwOspfv3VirtIfRowStatus": {
+    "class": "objecttype",
+    "description": "This object permits management of the table by facilitating actions such as row creation, construction and destruction. The value of this object has no effect on whether other objects in this conceptual row can be modified.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv3VirtIfRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.7.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwOspfv3VirtIfRtrDeadInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 40
+      }
+    },
+    "description": "The number of seconds that a router\u0027s Hello packets have not been seen before its neighbors declare the router down. This should be some multiple of the Hello interval. This value must be the same for the virtual neighbor.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv3VirtIfRtrDeadInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.7.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3DeadIntRangeTc"
+    },
+    "units": "seconds"
+  },
+  "hwOspfv3VirtIfRxBadPacket": {
+    "class": "notificationtype",
+    "description": "An ospfv3VirtIfRxBadPacket notification signifies that an OSPFv3 packet that cannot be parsed has been received on a virtual interface.",
+    "name": "hwOspfv3VirtIfRxBadPacket",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3RouterId"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtIfState"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3PacketType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.147.0.7",
+    "status": "current"
+  },
+  "hwOspfv3VirtIfState": {
+    "class": "objecttype",
+    "description": "OSPFv3 virtual interface states. The same encoding as the hwOspfv3IfTable is used.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3VirtIfState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.7.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "pointToPoint": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv3VirtIfStateChange": {
+    "class": "notificationtype",
+    "description": "An ospfv3VirtIfStateChange notification signifies that there has been a change in the state of an OSPFv3 virtual interface. This notification should be generated when the interface state regresses (e.g., goes from Point-to-Point to Down) or progresses to a terminal state (i.e., Point-to-Point).",
+    "name": "hwOspfv3VirtIfStateChange",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3RouterId"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtIfState"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3IfStateChgReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.147.0.1",
+    "status": "current"
+  },
+  "hwOspfv3VirtIfTable": {
+    "class": "objecttype",
+    "description": "Information about this router\u0027s virtual interfaces.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3VirtIfTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.7",
+    "reference": "OSPF Version 2, Appendix C.4 Virtual link parameters",
+    "status": "current"
+  },
+  "hwOspfv3VirtIfTransitDelay": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "The estimated number of seconds it takes to transmit a link state update packet over this interface.",
+    "maxaccess": "read-create",
+    "name": "hwOspfv3VirtIfTransitDelay",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.7.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3UpToRefreshIntervalTc"
+    },
+    "units": "seconds"
+  },
+  "hwOspfv3VirtNbrAddress": {
+    "class": "objecttype",
+    "description": "The IPv6 address advertised by this Virtual Neighbor. It must be a Global scope address.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3VirtNbrAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.10.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwOspfv3VirtNbrAddressType": {
+    "class": "objecttype",
+    "description": "The address type of ospfv3VirtNbrAddress. Only IPv6 addresses without zone index are expected.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3VirtNbrAddressType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.10.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwOspfv3VirtNbrArea": {
+    "class": "objecttype",
+    "description": "The Transit Area Identifier.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3VirtNbrArea",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.10.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3AreaIdTc"
+    }
+  },
+  "hwOspfv3VirtNbrEntry": {
+    "class": "objecttype",
+    "description": "Virtual neighbor information.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtNbrArea"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtNbrRtrId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3VirtNbrEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.10.1",
+    "status": "current"
+  },
+  "hwOspfv3VirtNbrEvents": {
+    "class": "objecttype",
+    "description": "The number of times this virtual link has changed its state, or an error has occurred.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3VirtNbrEvents",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.10.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwOspfv3VirtNbrGroup": {
+    "class": "objectgroup",
+    "description": "These virtual neighbor objects are used for managing/monitoring OSPFv3 virtual neighbors.",
+    "name": "hwOspfv3VirtNbrGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtNbrIfIndex"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtNbrIfInstId"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtNbrAddressType"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtNbrAddress"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtNbrOptions"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtNbrState"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtNbrEvents"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtNbrLsRetransQLen"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtNbrHelloSuppressed"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtNbrIfId"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtNbrRestartHelperStatus"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtNbrRestartHelperAge"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtNbrRestartHelperExitRc"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.147.2.1.10",
+    "status": "current"
+  },
+  "hwOspfv3VirtNbrHelloSuppressed": {
+    "class": "objecttype",
+    "description": "Indicates whether Hellos are being suppressed to the neighbor",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3VirtNbrHelloSuppressed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.10.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwOspfv3VirtNbrIfId": {
+    "class": "objecttype",
+    "description": "The interface ID that the neighbor advertises in its Hello Packets on this virtual link, that is, the neighbor\u0027s local interface ID.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3VirtNbrIfId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.10.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwOspfv3VirtNbrIfIndex": {
+    "class": "objecttype",
+    "description": "The local interface ID for the virtual link over which the neighbor can be reached.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3VirtNbrIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.10.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwOspfv3VirtNbrIfInstId": {
+    "class": "objecttype",
+    "description": "The interface instance for the virtual link over which the neighbor can be reached.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3VirtNbrIfInstId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.10.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3IfInstIdTc"
+    }
+  },
+  "hwOspfv3VirtNbrLsRetransQLen": {
+    "class": "objecttype",
+    "description": "The current length of the retransmission queue.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3VirtNbrLsRetransQLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.10.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwOspfv3VirtNbrOptions": {
+    "class": "objecttype",
+    "description": "A Bit Mask corresponding to the neighbor\u0027s options field.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3VirtNbrOptions",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.10.1.7",
+    "reference": "OSPF Version 3, Appendix A.2 the Options field",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwOspfv3VirtNbrRestartHelperAge": {
+    "class": "objecttype",
+    "description": "Remaining time in current OSPFv3 Graceful restart interval, if the router is acting as a restart helper for the neighbor.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3VirtNbrRestartHelperAge",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.10.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3UpToRefreshIntervalTc"
+    },
+    "units": "seconds"
+  },
+  "hwOspfv3VirtNbrRestartHelperExitRc": {
+    "class": "objecttype",
+    "description": "Describes the outcome of the last attempt at acting as a Graceful restart helper for the neighbor. none:............no restart has yet been attempted. inProgress:......a restart attempt is currently underway. completed:.......the last restart completed successfully. timedOut:........the last restart timed out. topologyChanged:.the last restart was aborted due to a topology change.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3VirtNbrRestartHelperExitRc",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.10.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "completed": 3,
+          "inProgress": 2,
+          "none": 1,
+          "timedOut": 4,
+          "topologyChanged": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv3VirtNbrRestartHelperStatus": {
+    "class": "objecttype",
+    "description": "Indicates whether the router is acting as a Graceful restart helper for the neighbor.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3VirtNbrRestartHelperStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.10.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "helping": 2,
+          "notHelping": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv3VirtNbrRestartHelperStatusChange": {
+    "class": "notificationtype",
+    "description": "An ospfv3VirtNbrRestartHelperStatusChange notification signifies that there has been a change in the graceful restart helper state for the virtual neighbor. This notification should be generated when the virtual neighbor restart helper status transitions for a virtual neighbor.",
+    "name": "hwOspfv3VirtNbrRestartHelperStatusChange",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3RouterId"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtNbrRestartHelperStatus"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtNbrRestartHelperAge"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtNbrRestartHelperExitRc"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.147.0.11",
+    "status": "current"
+  },
+  "hwOspfv3VirtNbrRtrId": {
+    "class": "objecttype",
+    "description": "A 32-bit integer uniquely identifying the neighboring router in the Autonomous System.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3VirtNbrRtrId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.10.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWOspfv3RouterIdTc"
+    }
+  },
+  "hwOspfv3VirtNbrState": {
+    "class": "objecttype",
+    "description": "The state of the Virtual Neighbor Relationship.",
+    "maxaccess": "read-only",
+    "name": "hwOspfv3VirtNbrState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.10.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "attempt": 2,
+          "down": 1,
+          "exchange": 6,
+          "exchangeStart": 5,
+          "full": 8,
+          "init": 3,
+          "loading": 7,
+          "twoWay": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwOspfv3VirtNbrStateChange": {
+    "class": "notificationtype",
+    "description": "An ospfv3VirtNbrStateChange notification signifies that there has been a change in the state of an OSPFv3 virtual neighbor. This notification should be generated when the neighbor state regresses (e.g., goes from Attempt or Full to 1-Way or Down) or progresses to a terminal state (e.g., Full).",
+    "name": "hwOspfv3VirtNbrStateChange",
+    "objects": [
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3RouterId"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3VirtNbrState"
+      },
+      {
+        "module": "HUAWEI-OSPFV3-MIB",
+        "object": "hwOspfv3NbrStateChgReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.147.0.3",
+    "status": "current"
+  },
+  "hwOspfv3VirtNbrTable": {
+    "class": "objecttype",
+    "description": "A table of virtual neighbor information.",
+    "maxaccess": "not-accessible",
+    "name": "hwOspfv3VirtNbrTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.147.1.10",
+    "reference": "OSPF Version 2, Section 15 Virtual Links",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddressPrefixLength",
+      "InetAddress"
+    ],
+    "OSPF-MIB": [
+      "HelloRange",
+      "Metric",
+      "BigMetric",
+      "DesignatedRouterPriority",
+      "Status"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "mib-2",
+      "Gauge32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "Counter64",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "MibIdentifier"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-OSPFV3-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:35 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-OSPFV3-MIB"
+  }
+}

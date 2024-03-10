@@ -1,0 +1,722 @@
+{
+  "hwBRASPPPoX": {
+    "class": "moduleidentity",
+    "contactinfo": "Floor 5, Block 4, R\u0026D Building, Huawei Longgang Production Base, Shenzhen, P.R.C. http://www.huawei.com Zip:518057 ",
+    "description": "The MIB contains objects of module PPP.",
+    "lastupdated": "200403031508Z",
+    "name": "hwBRASPPPoX",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2",
+    "organization": "Huawei Technologies Co., Ltd. "
+  },
+  "hwPPPoXMibObjects": {
+    "class": "objectidentity",
+    "name": "hwPPPoXMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.1"
+  },
+  "hwPppAcName": {
+    "class": "objecttype",
+    "description": " AcName. ",
+    "maxaccess": "read-write",
+    "name": "hwPppAcName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.1.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPppAuthMode": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "PPP authentication method. ",
+    "maxaccess": "read-write",
+    "name": "hwPppAuthMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 2,
+          "chap": 1,
+          "mschapv1": 3,
+          "mschapv2": 4,
+          "pap": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPppCHAPUserName": {
+    "class": "objecttype",
+    "description": "Config CHAP authentication username. ",
+    "maxaccess": "read-write",
+    "name": "hwPppCHAPUserName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 65,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPppCHAPUserPassword": {
+    "class": "objecttype",
+    "description": "Config CHAP authentication password(only support simple password). ",
+    "maxaccess": "read-write",
+    "name": "hwPppCHAPUserPassword",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPppCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the this module.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-BRAS-PPPoX-MIB",
+        "object": "hwPppConfigGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-PPPoX-MIB",
+        "object": "hwPppVTBindGroup"
+      }
+    ],
+    "name": "hwPppCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.2.1.1",
+    "status": "current"
+  },
+  "hwPppCompliances": {
+    "class": "objectidentity",
+    "name": "hwPppCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.2.1"
+  },
+  "hwPppConfigEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-PPPoX-MIB",
+        "object": "hwVtIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPppConfigEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.1.1.1",
+    "status": "current"
+  },
+  "hwPppConfigGroup": {
+    "class": "objectgroup",
+    "description": "The ppp config group.",
+    "name": "hwPppConfigGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-PPPoX-MIB",
+        "object": "hwVtIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-PPPoX-MIB",
+        "object": "hwPppAuthMode"
+      },
+      {
+        "module": "HUAWEI-BRAS-PPPoX-MIB",
+        "object": "hwPppNegTimeout"
+      },
+      {
+        "module": "HUAWEI-BRAS-PPPoX-MIB",
+        "object": "hwPppKeepInterval"
+      },
+      {
+        "module": "HUAWEI-BRAS-PPPoX-MIB",
+        "object": "hwPppKeepRetransmit"
+      },
+      {
+        "module": "HUAWEI-BRAS-PPPoX-MIB",
+        "object": "hwPppCHAPUserName"
+      },
+      {
+        "module": "HUAWEI-BRAS-PPPoX-MIB",
+        "object": "hwPppCHAPUserPassword"
+      },
+      {
+        "module": "HUAWEI-BRAS-PPPoX-MIB",
+        "object": "hwPppPAPUserName"
+      },
+      {
+        "module": "HUAWEI-BRAS-PPPoX-MIB",
+        "object": "hwPppPAPUserPassword"
+      },
+      {
+        "module": "HUAWEI-BRAS-PPPoX-MIB",
+        "object": "hwPppServiceName1"
+      },
+      {
+        "module": "HUAWEI-BRAS-PPPoX-MIB",
+        "object": "hwPppServiceName2"
+      },
+      {
+        "module": "HUAWEI-BRAS-PPPoX-MIB",
+        "object": "hwPppServiceName3"
+      },
+      {
+        "module": "HUAWEI-BRAS-PPPoX-MIB",
+        "object": "hwPppServiceName4"
+      },
+      {
+        "module": "HUAWEI-BRAS-PPPoX-MIB",
+        "object": "hwPppServiceName5"
+      },
+      {
+        "module": "HUAWEI-BRAS-PPPoX-MIB",
+        "object": "hwPppServiceName6"
+      },
+      {
+        "module": "HUAWEI-BRAS-PPPoX-MIB",
+        "object": "hwPppServiceName7"
+      },
+      {
+        "module": "HUAWEI-BRAS-PPPoX-MIB",
+        "object": "hwPppServiceName8"
+      },
+      {
+        "module": "HUAWEI-BRAS-PPPoX-MIB",
+        "object": "hwPppServiceNameType"
+      },
+      {
+        "module": "HUAWEI-BRAS-PPPoX-MIB",
+        "object": "hwPppAcName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.2.2.1",
+    "status": "current"
+  },
+  "hwPppConfigTable": {
+    "class": "objecttype",
+    "description": "PPP configuration information table. ",
+    "maxaccess": "not-accessible",
+    "name": "hwPppConfigTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.1.1",
+    "status": "current"
+  },
+  "hwPppConformance": {
+    "class": "objectidentity",
+    "name": "hwPppConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.2"
+  },
+  "hwPppGroups": {
+    "class": "objectidentity",
+    "name": "hwPppGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.2.2"
+  },
+  "hwPppKeepInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 20
+      }
+    },
+    "description": "Config interval of sending ECHO packet(second). ",
+    "maxaccess": "read-write",
+    "name": "hwPppKeepInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "seconds"
+  },
+  "hwPppKeepRetransmit": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "Config retransmission times of ECHO packet.",
+    "maxaccess": "read-write",
+    "name": "hwPppKeepRetransmit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPppNegTimeout": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "Config PPP overtime. ",
+    "maxaccess": "read-write",
+    "name": "hwPppNegTimeout",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPppPAPUserName": {
+    "class": "objecttype",
+    "description": "Config PAP authentication username. ",
+    "maxaccess": "read-write",
+    "name": "hwPppPAPUserName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 65,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPppPAPUserPassword": {
+    "class": "objecttype",
+    "description": "Config PAP authentication password(only support simple password). ",
+    "maxaccess": "read-write",
+    "name": "hwPppPAPUserPassword",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPppServiceName1": {
+    "class": "objecttype",
+    "description": " Service name one . ",
+    "maxaccess": "read-write",
+    "name": "hwPppServiceName1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPppServiceName2": {
+    "class": "objecttype",
+    "description": " Service name two . ",
+    "maxaccess": "read-write",
+    "name": "hwPppServiceName2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPppServiceName3": {
+    "class": "objecttype",
+    "description": " Service name three . ",
+    "maxaccess": "read-write",
+    "name": "hwPppServiceName3",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPppServiceName4": {
+    "class": "objecttype",
+    "description": " Service name four . ",
+    "maxaccess": "read-write",
+    "name": "hwPppServiceName4",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.1.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPppServiceName5": {
+    "class": "objecttype",
+    "description": " Service name five . ",
+    "maxaccess": "read-write",
+    "name": "hwPppServiceName5",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.1.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPppServiceName6": {
+    "class": "objecttype",
+    "description": " Service name six . ",
+    "maxaccess": "read-write",
+    "name": "hwPppServiceName6",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.1.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPppServiceName7": {
+    "class": "objecttype",
+    "description": " Service name seven . ",
+    "maxaccess": "read-write",
+    "name": "hwPppServiceName7",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.1.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPppServiceName8": {
+    "class": "objecttype",
+    "description": " Service name eight . ",
+    "maxaccess": "read-write",
+    "name": "hwPppServiceName8",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.1.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPppServiceNameType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "Config servicename kind of match. 1 exact match. 2 fuzzy match(default). ",
+    "maxaccess": "read-write",
+    "name": "hwPppServiceNameType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.1.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "exactMatch": 1,
+          "normalMatch": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPppVTBindEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-PPPoX-MIB",
+        "object": "hwPppVTBindIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPppVTBindEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.1.2.1",
+    "status": "current"
+  },
+  "hwPppVTBindGroup": {
+    "class": "objectgroup",
+    "description": "The ppp VT Bind group.",
+    "name": "hwPppVTBindGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-PPPoX-MIB",
+        "object": "hwPppVTBindIfIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-PPPoX-MIB",
+        "object": "hwVtNumber"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.2.2.2",
+    "status": "current"
+  },
+  "hwPppVTBindIfIndex": {
+    "class": "objecttype",
+    "description": "Interface index. ",
+    "maxaccess": "read-only",
+    "name": "hwPppVTBindIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwPppVTBindTable": {
+    "class": "objecttype",
+    "description": "PPP VT and interface binding configuration information table. ",
+    "maxaccess": "not-accessible",
+    "name": "hwPppVTBindTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.1.2",
+    "status": "current"
+  },
+  "hwVtIndex": {
+    "class": "objecttype",
+    "description": "Vt index. ",
+    "maxaccess": "read-only",
+    "name": "hwVtIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1023,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwVtNumber": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 65535
+      }
+    },
+    "description": "Vt index. ",
+    "maxaccess": "read-write",
+    "name": "hwVtNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.2.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1023,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwBRASMib"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "MibIdentifier",
+      "Unsigned32",
+      "Bits",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-BRAS-PPPoX-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:46:50 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-BRAS-PPPoX-MIB"
+  }
+}

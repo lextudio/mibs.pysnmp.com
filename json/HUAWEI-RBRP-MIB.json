@@ -1,0 +1,846 @@
+{
+  "EnabledStatus": {
+    "class": "textualconvention",
+    "description": "A simple status value for the object.",
+    "name": "EnabledStatus",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRBRPClearStatisticPacket": {
+    "class": "objecttype",
+    "description": "Clear the statistics information of RBRP packets.",
+    "maxaccess": "read-write",
+    "name": "hwRBRPClearStatisticPacket",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.5.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwRBRPClearUnreadyStatus": {
+    "class": "notificationtype",
+    "description": "The Unready status restore. When a Ready status is present, a notification may be generated.",
+    "name": "hwRBRPClearUnreadyStatus",
+    "objects": [
+      {
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPPreemptedEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.117.2.3",
+    "status": "current"
+  },
+  "hwRBRPConformance": {
+    "class": "objectidentity",
+    "name": "hwRBRPConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.3"
+  },
+  "hwRBRPCurrentStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the status of a device in specific group. Now support four state:Unready, Ready, Standby, and Active.",
+    "maxaccess": "read-only",
+    "name": "hwRBRPCurrentStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.6.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRBRPDeviceIDConflict": {
+    "class": "notificationtype",
+    "description": "The device id conflict defect. When a device id conflict defect is present, a notification may be generated.",
+    "name": "hwRBRPDeviceIDConflict",
+    "objects": [
+      {
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPCurrentStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.117.2.1",
+    "status": "current"
+  },
+  "hwRBRPDeviceId": {
+    "class": "objecttype",
+    "description": "This object distinguishes a specific device from other devices in the groups.",
+    "maxaccess": "not-accessible",
+    "name": "hwRBRPDeviceId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwRBRPGroupCfgEntry": {
+    "class": "objecttype",
+    "description": "An entry, which contains configuration information for a specific group, is created for each group in the device and deleted when the device exit the group.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPGroupCfgGroupID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRBRPGroupCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.3.1",
+    "status": "current"
+  },
+  "hwRBRPGroupCfgGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwRBRPGroupCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPPriorityValue"
+      },
+      {
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPPreemptDelayValue"
+      },
+      {
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPGroupCfgRowStatus"
+      },
+      {
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPStatePromptSwitchEnable"
+      },
+      {
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPPreemptedEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.117.3.1.3",
+    "status": "current"
+  },
+  "hwRBRPGroupCfgGroupID": {
+    "class": "objecttype",
+    "description": "This object distinguishes a specific group from other groups in the device.",
+    "maxaccess": "not-accessible",
+    "name": "hwRBRPGroupCfgGroupID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRBRPGroupCfgRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus, Now support three value:CreateAndGo,Active,Destroy.",
+    "maxaccess": "read-create",
+    "name": "hwRBRPGroupCfgRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.3.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwRBRPGroupCfgTable": {
+    "class": "objecttype",
+    "description": "Table contains group based configuration information for RBRP.",
+    "maxaccess": "not-accessible",
+    "name": "hwRBRPGroupCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.3",
+    "status": "current"
+  },
+  "hwRBRPGroupID": {
+    "class": "objecttype",
+    "description": "This object distinguishes a specific group from other groups in the device.",
+    "maxaccess": "not-accessible",
+    "name": "hwRBRPGroupID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRBRPGroupInfoEntry": {
+    "class": "objecttype",
+    "description": "An entry contains RBRP group information.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPGroupID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPDeviceId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRBRPGroupInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.6.1",
+    "status": "current"
+  },
+  "hwRBRPGroupInfoGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwRBRPGroupInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPCurrentStatus"
+      },
+      {
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPPriority"
+      },
+      {
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPSecondaryRPRMacAddress"
+      },
+      {
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPPrimaryRPRMacAddress"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.117.3.1.6",
+    "status": "current"
+  },
+  "hwRBRPGroupInfoTable": {
+    "class": "objecttype",
+    "description": "Table contains RBRP group information.",
+    "maxaccess": "not-accessible",
+    "name": "hwRBRPGroupInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.6",
+    "status": "current"
+  },
+  "hwRBRPGroupRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus, Now support three value:CreateAndGo,Active,Destroy.",
+    "maxaccess": "read-create",
+    "name": "hwRBRPGroupRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.4.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwRBRPGroups": {
+    "class": "objectidentity",
+    "name": "hwRBRPGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.3.1"
+  },
+  "hwRBRPLocalDeviceID": {
+    "class": "objecttype",
+    "description": "Set the identity which distinguishes local device from other devices in a specific group.",
+    "maxaccess": "read-write",
+    "name": "hwRBRPLocalDeviceID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwRBRPLoclaDeveceIDGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwRBRPLoclaDeveceIDGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPLocalDeviceID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.117.3.1.1",
+    "status": "current"
+  },
+  "hwRBRPMIB": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": "The MIB module for RBRP feature. RPR Bridge Redundancy Protocol (RBRP) is the protocol for detecting and initializing the intersection ring configuration, and providing protection for data transfer from one rpr ring to another one via intersection rpr stations.",
+    "lastupdated": "200703310130Z",
+    "name": "hwRBRPMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.117",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwRBRPMibObject": {
+    "class": "objectidentity",
+    "name": "hwRBRPMibObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1"
+  },
+  "hwRBRPPGGroupID": {
+    "class": "objecttype",
+    "description": "This object distinguishes a specific group from other groups in the device.",
+    "maxaccess": "not-accessible",
+    "name": "hwRBRPPGGroupID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRBRPPGRingIfCfgEntry": {
+    "class": "objecttype",
+    "description": "An entry contains configuration information of ring-if in specific group.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPPGGroupID"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPRingType"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRBRPPGRingIfCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.4.1",
+    "status": "current"
+  },
+  "hwRBRPPGRingIfCfgGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwRBRPPGRingIfCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPRGRingIfIndex"
+      },
+      {
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPGroupRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.117.3.1.4",
+    "status": "current"
+  },
+  "hwRBRPPGRingIfCfgTable": {
+    "class": "objecttype",
+    "description": "Table contains configuration information of ring-if in specific group.",
+    "maxaccess": "not-accessible",
+    "name": "hwRBRPPGRingIfCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.4",
+    "status": "current"
+  },
+  "hwRBRPPStatisEntry": {
+    "class": "objecttype",
+    "description": "An entry contains statistics information of RBRP packets.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPStatisGroupID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRBRPPStatisEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.5.1",
+    "status": "current"
+  },
+  "hwRBRPPStatisGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwRBRPPStatisGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPStatisRevPacketsNum"
+      },
+      {
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPStatisRevByteNum"
+      },
+      {
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPStatisSendPacketsNum"
+      },
+      {
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPStatisSendByteNum"
+      },
+      {
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPClearStatisticPacket"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.117.3.1.5",
+    "status": "current"
+  },
+  "hwRBRPPStatisTable": {
+    "class": "objecttype",
+    "description": "Table contains statistics information of RBRP packets.",
+    "maxaccess": "not-accessible",
+    "name": "hwRBRPPStatisTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.5",
+    "status": "current"
+  },
+  "hwRBRPPreemptDelayValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 120
+      }
+    },
+    "description": "This object is used to set the delay for the station moving from the active state to the ready state after preempted.",
+    "maxaccess": "read-create",
+    "name": "hwRBRPPreemptDelayValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.3.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1200,
+            "min": 60
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRBRPPreemptedEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disabled"
+      }
+    },
+    "description": "If PreemptedEnable is configured in a device which is in active status in a specific group, its status could be preempted by device with larger priority value.",
+    "maxaccess": "read-create",
+    "name": "hwRBRPPreemptedEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.3.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwRBRPPrimaryRPRMacAddress": {
+    "class": "objecttype",
+    "description": "This object indicates the mac address of rpr station on the primary rpr ring.",
+    "maxaccess": "read-only",
+    "name": "hwRBRPPrimaryRPRMacAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.6.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwRBRPPriority": {
+    "class": "objecttype",
+    "description": "This object indicates the priority of a device in specific group.",
+    "maxaccess": "read-only",
+    "name": "hwRBRPPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.6.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRBRPPriorityValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 100
+      }
+    },
+    "description": "This object indicates the device\u0027s priority which determines the status of a device in a specific group. The non-unready device with the largest priority value is in active status. When a device\u0027s priority is equal to another device\u0027s, the DeviceId will be the determining factor of a device\u0027s status.",
+    "maxaccess": "read-create",
+    "name": "hwRBRPPriorityValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRBRPRGRingIfIndex": {
+    "class": "objecttype",
+    "description": "RPR logic interface index.",
+    "maxaccess": "read-create",
+    "name": "hwRBRPRGRingIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.4.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwRBRPRingIfIndex": {
+    "class": "objecttype",
+    "description": "RPR logic interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwRBRPRingIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwRBRPRingType": {
+    "class": "objecttype",
+    "description": "This object indicates a ring-if is on the primary rpr ring or on the secondary rpr ring.",
+    "maxaccess": "not-accessible",
+    "name": "hwRBRPRingType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRBRPSecondaryRPRMacAddress": {
+    "class": "objecttype",
+    "description": "This object indicates the mac address of rpr station on the secondary rpr ring.",
+    "maxaccess": "read-only",
+    "name": "hwRBRPSecondaryRPRMacAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.6.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwRBRPStatePromptSwitchEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disabled"
+      }
+    },
+    "description": "If StatePromptSwitchEnable is configured on a common station which belongs to a specific group, The common station moves from standby state to active state promptly when multiple-site faults occur to the primary ring.",
+    "maxaccess": "read-create",
+    "name": "hwRBRPStatePromptSwitchEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.3.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwRBRPStatisGroupID": {
+    "class": "objecttype",
+    "description": "This object distinguishes a specific group from other groups in the device.",
+    "maxaccess": "not-accessible",
+    "name": "hwRBRPStatisGroupID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRBRPStatisRevByteNum": {
+    "class": "objecttype",
+    "description": "This object indicates the number of RBRP bytes received from a specific group.",
+    "maxaccess": "read-only",
+    "name": "hwRBRPStatisRevByteNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.5.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwRBRPStatisRevPacketsNum": {
+    "class": "objecttype",
+    "description": "This object indicates the number of RBRP packets received from a specific group.",
+    "maxaccess": "read-only",
+    "name": "hwRBRPStatisRevPacketsNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.5.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwRBRPStatisSendByteNum": {
+    "class": "objecttype",
+    "description": "This object indicates the number of RBRP bytes sendedd to a specific group.",
+    "maxaccess": "read-only",
+    "name": "hwRBRPStatisSendByteNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.5.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwRBRPStatisSendPacketsNum": {
+    "class": "objecttype",
+    "description": "This object indicates the number of RBRP packets sendedd to a specific group.",
+    "maxaccess": "read-only",
+    "name": "hwRBRPStatisSendPacketsNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.5.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwRBRPTrapGroup": {
+    "class": "notificationgroup",
+    "description": "Description.",
+    "name": "hwRBRPTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPClearUnreadyStatus"
+      },
+      {
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPDeviceIDConflict"
+      },
+      {
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPUnreadyStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.117.3.1.7",
+    "status": "current"
+  },
+  "hwRBRPTraps": {
+    "class": "objectidentity",
+    "name": "hwRBRPTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.2"
+  },
+  "hwRBRPUnreadyStatus": {
+    "class": "notificationtype",
+    "description": "The Unready status defect. When an Unready status defect is present, a notification may be generated.",
+    "name": "hwRBRPUnreadyStatus",
+    "objects": [
+      {
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPPreemptedEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.117.2.2",
+    "status": "current"
+  },
+  "hwRBRPWrapToNormalEntry": {
+    "class": "objecttype",
+    "description": "An entry contains WrapToNormalDelay information of ring-if in the device.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPRingIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRBRPWrapToNormalEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.2.1",
+    "status": "current"
+  },
+  "hwRBRPWrapToNormalGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwRBRPWrapToNormalGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-RBRP-MIB",
+        "object": "hwRBRPWrapToNormalVal"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.117.3.1.2",
+    "status": "current"
+  },
+  "hwRBRPWrapToNormalTable": {
+    "class": "objecttype",
+    "description": "Table contains WrapToNormalDelay information in the ring-if .",
+    "maxaccess": "not-accessible",
+    "name": "hwRBRPWrapToNormalTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.2",
+    "status": "current"
+  },
+  "hwRBRPWrapToNormalVal": {
+    "class": "objecttype",
+    "description": "This object sets WrapToNormalDelay time of ring-if.",
+    "maxaccess": "read-write",
+    "name": "hwRBRPWrapToNormalVal",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.117.1.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "Integer32",
+      "IpAddress",
+      "MibIdentifier",
+      "Bits",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "MacAddress",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-RBRP-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:47 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-RBRP-MIB"
+  }
+}

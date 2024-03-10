@@ -1,0 +1,399 @@
+{
+  "L2VpnDownReason": {
+    "class": "textualconvention",
+    "description": "The type indicates the reason of VC\u0027s status down.",
+    "name": "L2VpnDownReason",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "l2VpnDeleteVC": 6,
+          "l2VpnEncapIfDown": 5,
+          "l2VpnLabelRelease": 4,
+          "l2VpnLabelWithdraw": 3,
+          "l2VpnReasonOk": 0,
+          "l2VpnSessionDown": 1,
+          "l2VpnTunnelDown": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "L2VpnEncapsType": {
+    "class": "textualconvention",
+    "description": "An indication of the L2Vpn\u0027s encapsulation type.",
+    "name": "L2VpnEncapsType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "l2VpnEncapsAtmAal5": 2,
+          "l2VpnEncapsAtmCellTransport": 3,
+          "l2VpnEncapsAtmCellVcc": 9,
+          "l2VpnEncapsAtmCellVpc": 10,
+          "l2VpnEncapsCem": 8,
+          "l2VpnEncapsEthernet": 5,
+          "l2VpnEncapsFr": 1,
+          "l2VpnEncapsHdlc": 6,
+          "l2VpnEncapsIpInterworking": 64,
+          "l2VpnEncapsMpls": 11,
+          "l2VpnEncapsPpp": 7,
+          "l2VpnEncapsUnsupported": 255,
+          "l2VpnEncapsVlan": 4,
+          "l2VpnEncapsVpls": 12
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "L2VpnState": {
+    "class": "textualconvention",
+    "description": "An indication of the L2Vpn\u0027s state.",
+    "name": "L2VpnState",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "l2VpnStateDown": 0,
+          "l2VpnStateUp": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsVpls": {
+    "class": "moduleidentity",
+    "contactinfo": "R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com",
+    "description": "The HUAWEI-VPLS-MIB contains objects to manage VPLS.",
+    "lastupdated": "200305080900Z",
+    "name": "hwMplsVpls",
+    "oid": "1.3.6.1.4.1.2011.5.12.5",
+    "organization": "Huawei Technologies Co., Ltd."
+  },
+  "hwVplsMIBCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-VPLS-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-VPLS-MIB",
+        "object": "hwVplsVCStateGroup"
+      }
+    ],
+    "name": "hwVplsMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.12.5.3.1.1",
+    "status": "current"
+  },
+  "hwVplsMIBCompliances": {
+    "class": "objectidentity",
+    "name": "hwVplsMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.12.5.3.1"
+  },
+  "hwVplsMIBConformance": {
+    "class": "objectidentity",
+    "name": "hwVplsMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.5.12.5.3"
+  },
+  "hwVplsMIBGroups": {
+    "class": "objectidentity",
+    "name": "hwVplsMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.12.5.3.2"
+  },
+  "hwVplsMIBObjects": {
+    "class": "objectidentity",
+    "name": "hwVplsMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.12.5.1"
+  },
+  "hwVplsMIBTraps": {
+    "class": "objectidentity",
+    "name": "hwVplsMIBTraps",
+    "oid": "1.3.6.1.4.1.2011.5.12.5.2"
+  },
+  "hwVplsVCClientIf": {
+    "class": "objecttype",
+    "description": "This object indicates the ifIndex of VC\u0027s client interface.",
+    "maxaccess": "read-only",
+    "name": "hwVplsVCClientIf",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.5.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwVplsVCDownReason": {
+    "class": "objecttype",
+    "description": "This object indicates the reason of VC\u0027s status down.",
+    "maxaccess": "read-only",
+    "name": "hwVplsVCDownReason",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.5.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "L2VpnDownReason"
+    }
+  },
+  "hwVplsVCEncapsType": {
+    "class": "objecttype",
+    "description": "This object indicates the VC\u0027s encapsulation type.",
+    "maxaccess": "read-only",
+    "name": "hwVplsVCEncapsType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.5.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "L2VpnEncapsType"
+    }
+  },
+  "hwVplsVCId": {
+    "class": "objecttype",
+    "description": "This object indicates the VC\u0027s ID.",
+    "maxaccess": "read-only",
+    "name": "hwVplsVCId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.5.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Gauge32"
+    }
+  },
+  "hwVplsVCL2Mtu": {
+    "class": "objecttype",
+    "description": "This object indicates the VC\u0027s layer2 MTU.",
+    "maxaccess": "read-only",
+    "name": "hwVplsVCL2Mtu",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.5.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwVplsVCLocalLabel": {
+    "class": "objecttype",
+    "description": "This object indicates the VC\u0027s local label.",
+    "maxaccess": "read-only",
+    "name": "hwVplsVCLocalLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.5.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwVplsVCRemoteLabel": {
+    "class": "objecttype",
+    "description": "This object indicates the VC\u0027s remote label.",
+    "maxaccess": "read-only",
+    "name": "hwVplsVCRemoteLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.5.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "hwVplsVCState": {
+    "class": "objecttype",
+    "description": "This object indicates the VC\u0027s state.",
+    "maxaccess": "read-only",
+    "name": "hwVplsVCState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.5.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "L2VpnState"
+    }
+  },
+  "hwVplsVCStateDown": {
+    "class": "notificationtype",
+    "description": "This notification indicates the VC\u0027s state changes to down.",
+    "name": "hwVplsVCStateDown",
+    "objects": [
+      {
+        "module": "HUAWEI-VPLS-MIB",
+        "object": "hwVplsVCId"
+      },
+      {
+        "module": "HUAWEI-VPLS-MIB",
+        "object": "hwVplsVCEncapsType"
+      },
+      {
+        "module": "HUAWEI-VPLS-MIB",
+        "object": "hwVplsVCDownReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.5.2.1",
+    "status": "current"
+  },
+  "hwVplsVCStateEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of a VC state entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-MIB",
+        "object": "hwVplsVCId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-VPLS-MIB",
+        "object": "hwVplsVCEncapsType"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwVplsVCStateEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.12.5.1.1.1",
+    "status": "current"
+  },
+  "hwVplsVCStateGroup": {
+    "class": "objectgroup",
+    "description": "The VPLS\u0027s VC state group.",
+    "name": "hwVplsVCStateGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-VPLS-MIB",
+        "object": "hwVplsVCId"
+      },
+      {
+        "module": "HUAWEI-VPLS-MIB",
+        "object": "hwVplsVCEncapsType"
+      },
+      {
+        "module": "HUAWEI-VPLS-MIB",
+        "object": "hwVplsVCClientIf"
+      },
+      {
+        "module": "HUAWEI-VPLS-MIB",
+        "object": "hwVplsVCLocalLabel"
+      },
+      {
+        "module": "HUAWEI-VPLS-MIB",
+        "object": "hwVplsVCRemoteLabel"
+      },
+      {
+        "module": "HUAWEI-VPLS-MIB",
+        "object": "hwVplsVCTunnelLabel"
+      },
+      {
+        "module": "HUAWEI-VPLS-MIB",
+        "object": "hwVplsVCL2Mtu"
+      },
+      {
+        "module": "HUAWEI-VPLS-MIB",
+        "object": "hwVplsVCState"
+      },
+      {
+        "module": "HUAWEI-VPLS-MIB",
+        "object": "hwVplsVCDownReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.5.3.2.1",
+    "status": "current"
+  },
+  "hwVplsVCStateTable": {
+    "class": "objecttype",
+    "description": "This table contains the VPLS\u0027s VC state.",
+    "maxaccess": "not-accessible",
+    "name": "hwVplsVCStateTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.12.5.1.1",
+    "status": "current"
+  },
+  "hwVplsVCStateUp": {
+    "class": "notificationtype",
+    "description": "This notification indicates the VC\u0027s state changes to up.",
+    "name": "hwVplsVCStateUp",
+    "objects": [
+      {
+        "module": "HUAWEI-VPLS-MIB",
+        "object": "hwVplsVCId"
+      },
+      {
+        "module": "HUAWEI-VPLS-MIB",
+        "object": "hwVplsVCEncapsType"
+      },
+      {
+        "module": "HUAWEI-VPLS-MIB",
+        "object": "hwVplsVCDownReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.5.2.2",
+    "status": "current"
+  },
+  "hwVplsVCTunnelLabel": {
+    "class": "objecttype",
+    "description": "This object indicates the VC\u0027s tunnel label.",
+    "maxaccess": "read-only",
+    "name": "hwVplsVCTunnelLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.5.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwMpls"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Integer32",
+      "MibIdentifier",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-VPLS-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:26 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-VPLS-MIB"
+  }
+}

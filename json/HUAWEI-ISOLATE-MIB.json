@@ -1,0 +1,268 @@
+{
+  "hwAmIsolateDstIfIndex": {
+    "class": "objecttype",
+    "description": "Destination port IfIndex.",
+    "maxaccess": "not-accessible",
+    "name": "hwAmIsolateDstIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.247.1.2.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwAmIsolateEntry": {
+    "class": "objecttype",
+    "description": "Entries of the Am-isolation table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISOLATE-MIB",
+        "object": "hwAmIsolateSrcIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISOLATE-MIB",
+        "object": "hwAmIsolateDstIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAmIsolateEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.247.1.2.3.1",
+    "status": "current"
+  },
+  "hwAmIsolateRowStatus": {
+    "class": "objecttype",
+    "description": "Operation status.",
+    "maxaccess": "read-create",
+    "name": "hwAmIsolateRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.247.1.2.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAmIsolateSrcIfIndex": {
+    "class": "objecttype",
+    "description": "Source port IfIndex.",
+    "maxaccess": "not-accessible",
+    "name": "hwAmIsolateSrcIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.247.1.2.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwAmIsolateTable": {
+    "class": "objecttype",
+    "description": "Am-isolation table.",
+    "maxaccess": "not-accessible",
+    "name": "hwAmIsolateTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.247.1.2.3",
+    "status": "current"
+  },
+  "hwIsolateComformance": {
+    "class": "modulecompliance",
+    "description": "Isolate comformance.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-ISOLATE-MIB",
+        "object": "hwIsolateGroup"
+      }
+    ],
+    "name": "hwIsolateComformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.247.3",
+    "status": "current"
+  },
+  "hwIsolateGroup": {
+    "class": "objectgroup",
+    "description": "This group is mandatory for agents which implement the Isolation.",
+    "name": "hwIsolateGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ISOLATE-MIB",
+        "object": "hwPortIsolateMode"
+      },
+      {
+        "module": "HUAWEI-ISOLATE-MIB",
+        "object": "hwPortIsolateRowStatus"
+      },
+      {
+        "module": "HUAWEI-ISOLATE-MIB",
+        "object": "hwAmIsolateRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.247.1.2.4",
+    "status": "current"
+  },
+  "hwIsolateMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com",
+    "description": "This file is an extension of ISOLATE-MIB.",
+    "lastupdated": "201403121528Z",
+    "name": "hwIsolateMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.247",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "V2.00, modify node.",
+        "revision": "2014-03-12 15:28"
+      },
+      {
+        "description": "V1.00, initial version.",
+        "revision": "2010-08-11 16:00"
+      }
+    ]
+  },
+  "hwIsolateObjects": {
+    "class": "objectidentity",
+    "name": "hwIsolateObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.247.1"
+  },
+  "hwIsolateTable": {
+    "class": "objectidentity",
+    "name": "hwIsolateTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.247.1.2"
+  },
+  "hwPortIsolateEntry": {
+    "class": "objecttype",
+    "description": "Entries of the Port-isolation table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISOLATE-MIB",
+        "object": "hwPortIsolateIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISOLATE-MIB",
+        "object": "hwPortIsolateGroupId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPortIsolateEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.247.1.2.2.1",
+    "status": "current"
+  },
+  "hwPortIsolateGroupId": {
+    "class": "objecttype",
+    "description": "Port-isolation GroupId.",
+    "maxaccess": "not-accessible",
+    "name": "hwPortIsolateGroupId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.247.1.2.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPortIsolateIfIndex": {
+    "class": "objecttype",
+    "description": "Port IfIndex.",
+    "maxaccess": "not-accessible",
+    "name": "hwPortIsolateIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.247.1.2.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwPortIsolateMode": {
+    "class": "objecttype",
+    "description": "Global Isolation Mode. If the HwPortIsolateMode is 1, mode is layer2. If the HwPortIsolateMode is 2, mode is all. By default, mode is layer2.",
+    "maxaccess": "read-write",
+    "name": "hwPortIsolateMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.247.1.2.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPortIsolateRowStatus": {
+    "class": "objecttype",
+    "description": "Operation status.",
+    "maxaccess": "read-create",
+    "name": "hwPortIsolateRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.247.1.2.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwPortIsolateTable": {
+    "class": "objecttype",
+    "description": "Port-isolation table.",
+    "maxaccess": "not-accessible",
+    "name": "hwPortIsolateTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.247.1.2.2",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "IpAddress",
+      "Counter64",
+      "Bits",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Unsigned32",
+      "iso",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-ISOLATE-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:43 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-ISOLATE-MIB"
+  }
+}

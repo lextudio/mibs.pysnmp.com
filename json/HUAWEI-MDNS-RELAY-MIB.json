@@ -1,0 +1,239 @@
+{
+  "hwMdnsRelayCfgEntry": {
+    "class": "objecttype",
+    "description": "The mDNS relay configuration table struct.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MDNS-RELAY-MIB",
+        "object": "hwMdnsRelayVlanId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMdnsRelayCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.326.1.3.1",
+    "status": "current"
+  },
+  "hwMdnsRelayCfgTable": {
+    "class": "objecttype",
+    "description": "This item shows the configuration of mDNS relay.",
+    "maxaccess": "not-accessible",
+    "name": "hwMdnsRelayCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.326.1.3",
+    "status": "current"
+  },
+  "hwMdnsRelayEnable": {
+    "class": "objecttype",
+    "description": "This item shows the enable status of mDNS relay.",
+    "maxaccess": "read-write",
+    "name": "hwMdnsRelayEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.326.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMdnsRelayGatewayIPGlobal": {
+    "class": "objecttype",
+    "description": "This item shows the mDNS gateway ip. Users can also set gateway ip through this item ",
+    "maxaccess": "read-write",
+    "name": "hwMdnsRelayGatewayIPGlobal",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.326.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMdnsRelayMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com",
+    "description": "This MIB describes mDNS objects used for mDNS relay configuration.",
+    "lastupdated": "201401061116Z",
+    "name": "hwMdnsRelayMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.326",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "This MIB describes modify mDNS objects.",
+        "revision": "2014-01-06 11:16"
+      },
+      {
+        "description": "The MIB contains objects of huawei-esap-mDNS.",
+        "revision": "2014-01-06 11:16"
+      }
+    ]
+  },
+  "hwMdnsRelayMIBCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for entities which implement the hwMdnsRelayMIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-MDNS-RELAY-MIB",
+        "object": "hwMdnsRelayMibGroup"
+      }
+    ],
+    "name": "hwMdnsRelayMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.326.2.2.1",
+    "status": "current"
+  },
+  "hwMdnsRelayMIBCompliances": {
+    "class": "objectidentity",
+    "name": "hwMdnsRelayMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.326.2.2"
+  },
+  "hwMdnsRelayMibConformance": {
+    "class": "objectidentity",
+    "name": "hwMdnsRelayMibConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.326.2"
+  },
+  "hwMdnsRelayMibGroup": {
+    "class": "objectgroup",
+    "description": "This is the mDNS relay cfg group.",
+    "name": "hwMdnsRelayMibGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MDNS-RELAY-MIB",
+        "object": "hwMdnsRelayGatewayIPGlobal"
+      },
+      {
+        "module": "HUAWEI-MDNS-RELAY-MIB",
+        "object": "hwMdnsRelaySourceIPGlobal"
+      },
+      {
+        "module": "HUAWEI-MDNS-RELAY-MIB",
+        "object": "hwMdnsRelayVlanId"
+      },
+      {
+        "module": "HUAWEI-MDNS-RELAY-MIB",
+        "object": "hwMdnsRelayEnable"
+      },
+      {
+        "module": "HUAWEI-MDNS-RELAY-MIB",
+        "object": "hwMdnsRelayProbeInterval"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.326.2.1.1",
+    "status": "current"
+  },
+  "hwMdnsRelayMibGroups": {
+    "class": "objectidentity",
+    "name": "hwMdnsRelayMibGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.326.2.1"
+  },
+  "hwMdnsRelayObjects": {
+    "class": "objectidentity",
+    "name": "hwMdnsRelayObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.326.1"
+  },
+  "hwMdnsRelayProbeInterval": {
+    "class": "objecttype",
+    "description": "This item shows the service probe interval of mDNS relay. Users can also set service probe interval through this item.",
+    "maxaccess": "read-write",
+    "name": "hwMdnsRelayProbeInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.326.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 38400,
+            "min": 60
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMdnsRelaySourceIPGlobal": {
+    "class": "objecttype",
+    "description": " This item shows the source ip of mDNS relay. Users can also set source ip through this item. ",
+    "maxaccess": "read-write",
+    "name": "hwMdnsRelaySourceIPGlobal",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.326.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMdnsRelayVlanId": {
+    "class": "objecttype",
+    "description": "The VLAN-ID or other identifier referring to this VLAN.",
+    "maxaccess": "not-accessible",
+    "name": "hwMdnsRelayVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.326.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter64",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-MDNS-RELAY-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:12 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-MDNS-RELAY-MIB"
+  }
+}

@@ -1,0 +1,1030 @@
+{
+  "hwConfigControlVlanId": {
+    "class": "objecttype",
+    "description": "The control VLAN identifier of the ERPS ring. If the value of the object is set 0, the operation is to delete configuration.",
+    "maxaccess": "read-create",
+    "name": "hwConfigControlVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwConfigDescription": {
+    "class": "objecttype",
+    "description": "A textual description of the ERPS ring. It is mandatory that this only contain no more than 80 printable ASCII characters.",
+    "maxaccess": "read-create",
+    "name": "hwConfigDescription",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 80,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwConfigGuardTimerSettingValue": {
+    "class": "objecttype",
+    "description": "The setting value of the ring\u0027s guard timer.",
+    "maxaccess": "read-create",
+    "name": "hwConfigGuardTimerSettingValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 200,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "centiseconds"
+  },
+  "hwConfigHoldoffTimerSettingValue": {
+    "class": "objecttype",
+    "description": "The setting value of the ring\u0027s hold-off timer.",
+    "maxaccess": "read-create",
+    "name": "hwConfigHoldoffTimerSettingValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "deciseconds"
+  },
+  "hwConfigPortConfigRole": {
+    "class": "objecttype",
+    "description": "The configued port role: role value common 0x10 rplOwner 0x21",
+    "maxaccess": "read-create",
+    "name": "hwConfigPortConfigRole",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwConfigPortId1": {
+    "class": "objecttype",
+    "description": "The port identifier1, when the hwConfigPortType is 1, the value of the object is the IfIndex of the port.",
+    "maxaccess": "not-accessible",
+    "name": "hwConfigPortId1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwConfigPortId2": {
+    "class": "objecttype",
+    "description": "The port identifier2, Currently it is not used and only for extension, should be set 0.",
+    "maxaccess": "not-accessible",
+    "name": "hwConfigPortId2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwConfigPortId3": {
+    "class": "objecttype",
+    "description": "The port identifier3, Currently it is not used and only for extension, should be set 0.",
+    "maxaccess": "not-accessible",
+    "name": "hwConfigPortId3",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwConfigPortId4": {
+    "class": "objecttype",
+    "description": "The port identifier4, Currently it is not used and only for extension, should be set 0.",
+    "maxaccess": "not-accessible",
+    "name": "hwConfigPortId4",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwConfigPortRowStatus": {
+    "class": "objecttype",
+    "description": "Operation of CreateAndGo can be used to have a port join the ERPS ring. and operation of Destroy be used to have a port leave the ERPS ring.",
+    "maxaccess": "read-create",
+    "name": "hwConfigPortRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwConfigPortType": {
+    "class": "objecttype",
+    "description": "The port type.Currently ERPS just supports ethernet port and the value is 1.",
+    "maxaccess": "not-accessible",
+    "name": "hwConfigPortType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwConfigProtectedInstanceList": {
+    "class": "objecttype",
+    "description": " The protected instance list of the ERPS ring.",
+    "maxaccess": "read-create",
+    "name": "hwConfigProtectedInstanceList",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 512,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwConfigRapsMel": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 7
+      }
+    },
+    "description": "The MEL is the maintenance entity group(MEG) level providing a communication channel for the ring RAPS information.",
+    "maxaccess": "read-create",
+    "name": "hwConfigRapsMel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwConfigResetRapsPktCnt": {
+    "class": "objecttype",
+    "description": "Reset the RAPS packets counter of the ERPS ring\u0027s ports. The value is unused(65535) when it is read. And it must be clear(1) when it is set.",
+    "maxaccess": "read-create",
+    "name": "hwConfigResetRapsPktCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "unused": 65535
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwConfigRingId": {
+    "class": "objecttype",
+    "description": "ERPS ring Identifier.",
+    "maxaccess": "not-accessible",
+    "name": "hwConfigRingId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwConfigRingRowStatus": {
+    "class": "objecttype",
+    "description": "Operation of CreateAndGo can be used to create a new ERPS ring, and operation of Destroy be used to destroy an existent ERPS ring.",
+    "maxaccess": "read-create",
+    "name": "hwConfigRingRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwConfigWtrTimerSettingValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": "The setting value of the ring\u0027s wait to restore timer.",
+    "maxaccess": "read-create",
+    "name": "hwConfigWtrTimerSettingValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 12,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "minutes"
+  },
+  "hwErpsGlobalInfoGroup": {
+    "class": "objectgroup",
+    "description": "The group of global information.",
+    "name": "hwErpsGlobalInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwErpsGlobalResetRapsPktCnt"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.256.2.1",
+    "status": "current"
+  },
+  "hwErpsGlobalResetRapsPktCnt": {
+    "class": "objecttype",
+    "description": "Reset the RAPS packets counter of all running ERPS ports. The value is unused(65535) when it is read. And it must be clear(1) when it is set.",
+    "maxaccess": "read-write",
+    "name": "hwErpsGlobalResetRapsPktCnt",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "unused": 65535
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwErpsGroups": {
+    "class": "objectidentity",
+    "name": "hwErpsGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.2"
+  },
+  "hwErpsMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "8090 Team Huawei Technologies Co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China http://www.huawei.com Zip:100085 ",
+    "description": "The private mib file includes the general extent information of the device.hwDatacomm(25).hwErpsMIB. ",
+    "lastupdated": "201107051557Z",
+    "name": "hwErpsMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.256",
+    "organization": "Huawei Technologies Co.,Ltd."
+  },
+  "hwErpsObjects": {
+    "class": "objectidentity",
+    "name": "hwErpsObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1"
+  },
+  "hwErpsPortConfigEntry": {
+    "class": "objecttype",
+    "description": "The table includes the configuration of ERPS ports. The index of the table is ERPS ring identifier, port type, port identifier1, port identifier2, port identifier3, port identifier4. If it is an ethernet port including fast ethernet/gigabit ethernet/eth-trunk, the port type is 1, the port identifier1 is the IfIndex of the ethernet port. the other port identifier is for extension and not used currently, should be set 0.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigRingId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortId1"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortId2"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortId3"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortId4"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwErpsPortConfigEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.4.1",
+    "status": "current"
+  },
+  "hwErpsPortConfigInfoGroup": {
+    "class": "objectgroup",
+    "description": "The group of port configuration.",
+    "name": "hwErpsPortConfigInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortRowStatus"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortConfigRole"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.256.2.4",
+    "status": "current"
+  },
+  "hwErpsPortConfigTable": {
+    "class": "objecttype",
+    "description": "The table includes the configuration of ERPS ports.",
+    "maxaccess": "not-accessible",
+    "name": "hwErpsPortConfigTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.4",
+    "status": "current"
+  },
+  "hwErpsPortStatisticsEntry": {
+    "class": "objecttype",
+    "description": "The table includes the Statistics of ERPS ports. The index of the table is ERPS ring identifier, port type, port identifier1, port identifier2, port identifier3, port identifier4. If it is an ethernet port including fast ethernet/gigabit ethernet/eth-trunk, the port type is 1, the port identifier1 is the IfIndex of the ethernet port. the other port identifier is for extension and not used currently, should be set 0.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigRingId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortId1"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortId2"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortId3"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortId4"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwErpsPortStatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.6.1",
+    "status": "current"
+  },
+  "hwErpsPortStatisticsInfoGroup": {
+    "class": "objectgroup",
+    "description": "The group of port information.",
+    "name": "hwErpsPortStatisticsInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwRxRapsSfPktCnt"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwTxRapsSfPktCnt"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwRxRapsNrPktCnt"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwTxRapsNrPktCnt"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwRxRapsNrRbPktCnt"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwTxRapsNrRbPktCnt"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.256.2.6",
+    "status": "current"
+  },
+  "hwErpsPortStatisticsTable": {
+    "class": "objecttype",
+    "description": "The table includes the statistics of ERPS ports.",
+    "maxaccess": "not-accessible",
+    "name": "hwErpsPortStatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.6",
+    "status": "current"
+  },
+  "hwErpsPortStatusEntry": {
+    "class": "objecttype",
+    "description": "The table includes the status of ERPS ports. The index of the table is ERPS ring identifier, port type, port identifier1, port identifier2, port identifier3, port identifier4. If it is an ethernet port including fast ethernet/gigabit ethernet/eth-trunk, the port type is 1, the port identifier1 is the IfIndex of the ethernet port. the other port identifier is for extension and not used currently, should be set 0.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigRingId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortId1"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortId2"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortId3"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigPortId4"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwErpsPortStatusEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.5.1",
+    "status": "current"
+  },
+  "hwErpsPortStatusInfoGroup": {
+    "class": "objectgroup",
+    "description": "The group of port status.",
+    "name": "hwErpsPortStatusInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwPortStatusActiveRole"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwPortStatusSignalStatus"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwPortStatusFwdStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.256.2.5",
+    "status": "current"
+  },
+  "hwErpsPortStatusTable": {
+    "class": "objecttype",
+    "description": "The table includes the status of ERPS ports.",
+    "maxaccess": "not-accessible",
+    "name": "hwErpsPortStatusTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.5",
+    "status": "current"
+  },
+  "hwErpsRingConfigEntry": {
+    "class": "objecttype",
+    "description": "The table includes the configurtion of ERPS rings. The index of the table is ERPS ring id.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigRingId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwErpsRingConfigEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2.1",
+    "status": "current"
+  },
+  "hwErpsRingConfigInfoGroup": {
+    "class": "objectgroup",
+    "description": "The group of ring configuration.",
+    "name": "hwErpsRingConfigInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigRingRowStatus"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigDescription"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigControlVlanId"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigProtectedInstanceList"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigWtrTimerSettingValue"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigGuardTimerSettingValue"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigHoldoffTimerSettingValue"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigResetRapsPktCnt"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigRapsMel"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.256.2.2",
+    "status": "current"
+  },
+  "hwErpsRingConfigTable": {
+    "class": "objecttype",
+    "description": "The table includes the configurtion of ERPS rings.",
+    "maxaccess": "not-accessible",
+    "name": "hwErpsRingConfigTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.2",
+    "status": "current"
+  },
+  "hwErpsRingStatusEntry": {
+    "class": "objecttype",
+    "description": "The table includes the status of ERPS rings. The index of the table is ERPS ring id.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwConfigRingId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwErpsRingStatusEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.3.1",
+    "status": "current"
+  },
+  "hwErpsRingStatusInfoGroup": {
+    "class": "objectgroup",
+    "description": "The group of ring status.",
+    "name": "hwErpsRingStatusInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwStatusWtrTimerRunningValue"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwStatusGuardTimerRunningValue"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwStatusHoldoffTimerRunningValue"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwStatusMachineState"
+      },
+      {
+        "module": "HUAWEI-ERPS-MIB",
+        "object": "hwStatusTopoLastChangeTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.256.2.3",
+    "status": "current"
+  },
+  "hwErpsRingStatusTable": {
+    "class": "objecttype",
+    "description": "The table includes the status of ERPS rings.",
+    "maxaccess": "not-accessible",
+    "name": "hwErpsRingStatusTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.3",
+    "status": "current"
+  },
+  "hwPortStatusActiveRole": {
+    "class": "objecttype",
+    "description": "The active port role: role value common 0x10 rplOwner 0x21",
+    "maxaccess": "read-only",
+    "name": "hwPortStatusActiveRole",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPortStatusFwdStatus": {
+    "class": "objecttype",
+    "description": "The forwarding status of the port: state value discarding 1 forwarding 2",
+    "maxaccess": "read-only",
+    "name": "hwPortStatusFwdStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discarding": 1,
+          "forwarding": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPortStatusSignalStatus": {
+    "class": "objecttype",
+    "description": "The signal status of the port: state value failed 1 nonFailed 2",
+    "maxaccess": "read-only",
+    "name": "hwPortStatusSignalStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failed": 1,
+          "nonFailed": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRxRapsNrPktCnt": {
+    "class": "objecttype",
+    "description": "The number of received RAPS NR packets.",
+    "maxaccess": "read-only",
+    "name": "hwRxRapsNrPktCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwRxRapsNrRbPktCnt": {
+    "class": "objecttype",
+    "description": "The number of received RAPS NRRB packets.",
+    "maxaccess": "read-only",
+    "name": "hwRxRapsNrRbPktCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwRxRapsSfPktCnt": {
+    "class": "objecttype",
+    "description": "The number of received RAPS SF packets.",
+    "maxaccess": "read-only",
+    "name": "hwRxRapsSfPktCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwStatusGuardTimerRunningValue": {
+    "class": "objecttype",
+    "description": "The running value of the ring\u0027s guard timer.",
+    "maxaccess": "read-only",
+    "name": "hwStatusGuardTimerRunningValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 200,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "centiseconds"
+  },
+  "hwStatusHoldoffTimerRunningValue": {
+    "class": "objecttype",
+    "description": "The running value of the ring\u0027s hold-off timer.",
+    "maxaccess": "read-only",
+    "name": "hwStatusHoldoffTimerRunningValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "deciseconds"
+  },
+  "hwStatusMachineState": {
+    "class": "objecttype",
+    "description": "The Finite-state machine\u0027s state of the ERPS ring. state value idle 1 protection 2 manualSwitch 3 forcedSwitch 4 pending 5 ",
+    "maxaccess": "read-only",
+    "name": "hwStatusMachineState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forcedSwitch": 4,
+          "idle": 1,
+          "manualSwitch": 3,
+          "pending": 5,
+          "protection": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwStatusTopoLastChangeTime": {
+    "class": "objecttype",
+    "description": "The time since last topology change of the ring.",
+    "maxaccess": "read-only",
+    "name": "hwStatusTopoLastChangeTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwStatusWtrTimerRunningValue": {
+    "class": "objecttype",
+    "description": "The running value of the ring\u0027s wait to restore timer.",
+    "maxaccess": "read-only",
+    "name": "hwStatusWtrTimerRunningValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 720,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "seconds"
+  },
+  "hwTxRapsNrPktCnt": {
+    "class": "objecttype",
+    "description": "The number of transmitted RAPS NR packets.",
+    "maxaccess": "read-only",
+    "name": "hwTxRapsNrPktCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTxRapsNrRbPktCnt": {
+    "class": "objecttype",
+    "description": "The number of transmitted RAPS NRRB packets.",
+    "maxaccess": "read-only",
+    "name": "hwTxRapsNrRbPktCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.6.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwTxRapsSfPktCnt": {
+    "class": "objecttype",
+    "description": "The number of transmitted RAPS SF packets.",
+    "maxaccess": "read-only",
+    "name": "hwTxRapsSfPktCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.256.1.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "Bits",
+      "MibIdentifier",
+      "iso",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-ERPS-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:20 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-ERPS-MIB"
+  }
+}

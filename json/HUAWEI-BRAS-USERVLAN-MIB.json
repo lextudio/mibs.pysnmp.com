@@ -1,0 +1,294 @@
+{
+  "hwQueryUserInnerVlan": {
+    "class": "objecttype",
+    "description": "The inner-vlan of uservlan.",
+    "maxaccess": "read-only",
+    "name": "hwQueryUserInnerVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrNone"
+    }
+  },
+  "hwQueryUserOuterVlan": {
+    "class": "objecttype",
+    "description": "The outer-vlan of uservlan.",
+    "maxaccess": "read-only",
+    "name": "hwQueryUserOuterVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrNone"
+    }
+  },
+  "hwQueryUserVlanEntry": {
+    "class": "objecttype",
+    "description": "Entry of hwQueryUserVlanTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-USERVLAN-MIB",
+        "object": "hwQueryUserVlanIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-USERVLAN-MIB",
+        "object": "hwQueryUserInnerVlan"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-USERVLAN-MIB",
+        "object": "hwQueryUserOuterVlan"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwQueryUserVlanEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.1.2.1",
+    "status": "current"
+  },
+  "hwQueryUserVlanIfIndex": {
+    "class": "objecttype",
+    "description": "Interface Index(es).",
+    "maxaccess": "read-only",
+    "name": "hwQueryUserVlanIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwQueryUserVlanTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "hwQueryUserVlanTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.1.2",
+    "status": "current"
+  },
+  "hwQueryUserVlanTableGroup": {
+    "class": "objectgroup",
+    "description": "Query user vlan table.",
+    "name": "hwQueryUserVlanTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-USERVLAN-MIB",
+        "object": "hwQueryUserVlanIfIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-USERVLAN-MIB",
+        "object": "hwQueryUserInnerVlan"
+      },
+      {
+        "module": "HUAWEI-BRAS-USERVLAN-MIB",
+        "object": "hwQueryUserOuterVlan"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.2.1.2.2",
+    "status": "current"
+  },
+  "hwUSERVLAN": {
+    "class": "moduleidentity",
+    "contactinfo": " NanJing Institute,Huawei Technologies Co.,Ltd. HuiHong Mansion,No.91 BaiXia Rd. NanJing, P.R. of China Zipcode:210001 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": " The USERVLAN mib is for all datacomm product. ",
+    "lastupdated": "200508101200Z",
+    "name": "hwUSERVLAN",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12",
+    "organization": "Huawei Technologies Co., Ltd. "
+  },
+  "hwUserInnerEndVlan": {
+    "class": "objecttype",
+    "description": "The end inner-vlan of uservlan.",
+    "maxaccess": "read-write",
+    "name": "hwUserInnerEndVlan",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwUserInnerStartVlan": {
+    "class": "objecttype",
+    "description": "The start inner-vlan\u0027s of uservlan.",
+    "maxaccess": "read-write",
+    "name": "hwUserInnerStartVlan",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwUserVlanCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the this module.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-BRAS-USERVLAN-MIB",
+        "object": "hwUserVlanTableGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-USERVLAN-MIB",
+        "object": "hwQueryUserVlanTableGroup"
+      }
+    ],
+    "name": "hwUserVlanCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.2.1.1",
+    "status": "current"
+  },
+  "hwUserVlanCompliances": {
+    "class": "objectidentity",
+    "name": "hwUserVlanCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.2.1"
+  },
+  "hwUserVlanConformance": {
+    "class": "objectidentity",
+    "name": "hwUserVlanConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.2"
+  },
+  "hwUserVlanIfIndex": {
+    "class": "objecttype",
+    "description": "Interface Index(es).",
+    "maxaccess": "read-write",
+    "name": "hwUserVlanIfIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwUserVlanObjectGroups": {
+    "class": "objectidentity",
+    "name": "hwUserVlanObjectGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.2.1.2"
+  },
+  "hwUserVlanOpType": {
+    "class": "objecttype",
+    "description": " 1 : set uservlan, 2 : undo userlvlan.",
+    "maxaccess": "read-write",
+    "name": "hwUserVlanOpType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "set": 1,
+          "undo": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwUserVlanOuterVlan": {
+    "class": "objecttype",
+    "description": "The outer-vlan of uservlan.",
+    "maxaccess": "read-write",
+    "name": "hwUserVlanOuterVlan",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwUserVlanTable": {
+    "class": "objectidentity",
+    "name": "hwUserVlanTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.1.1"
+  },
+  "hwUserVlanTableGroup": {
+    "class": "objectgroup",
+    "description": "User vlan table.",
+    "name": "hwUserVlanTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-USERVLAN-MIB",
+        "object": "hwUserVlanIfIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-USERVLAN-MIB",
+        "object": "hwUserInnerStartVlan"
+      },
+      {
+        "module": "HUAWEI-BRAS-USERVLAN-MIB",
+        "object": "hwUserInnerEndVlan"
+      },
+      {
+        "module": "HUAWEI-BRAS-USERVLAN-MIB",
+        "object": "hwUserVlanOuterVlan"
+      },
+      {
+        "module": "HUAWEI-BRAS-USERVLAN-MIB",
+        "object": "hwUserVlanOpType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.2.1.2.1",
+    "status": "current"
+  },
+  "hwhwUSERVLANMibObjects": {
+    "class": "objectidentity",
+    "name": "hwhwUSERVLANMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.12.1"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwBRASMib"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId",
+      "VlanIdOrNone"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-BRAS-USERVLAN-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:46:57 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-BRAS-USERVLAN-MIB"
+  }
+}

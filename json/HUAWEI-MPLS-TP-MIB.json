@@ -1,0 +1,843 @@
+{
+  "hwMplsTPGeneralGroup": {
+    "class": "objectgroup",
+    "description": "Indicate the atrributes of the TP tunnel.",
+    "name": "hwMplsTPGeneralGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelOperStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelIngressInstance"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelEgressInstance"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpLspType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.305.3.2.1",
+    "status": "current"
+  },
+  "hwMplsTPNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "Indicate the notification type.",
+    "name": "hwMplsTPNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelDownClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelDown"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelResume"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelSwitch"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpLspOamDlocClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpLspOamDloc"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpLspOamRdiClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpLspOamRdi"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpLspOamMisconnectionEncapClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpLspOamMisconnectionEncap"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpLspOamMisconnectionDiscrClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpLspOamMisconnectionDiscr"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpLspOamMisconnectionMEPClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpLspOamMisconnectionMEP"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpLspOamMisconnectionSECClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpLspOamMisconnectionSEC"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.305.3.2.2",
+    "status": "current"
+  },
+  "hwMplsTpCompliance": {
+    "class": "modulecompliance",
+    "description": "Description.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTPGeneralGroup"
+      }
+    ],
+    "name": "hwMplsTpCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.305.3.1.1",
+    "status": "current"
+  },
+  "hwMplsTpCompliances": {
+    "class": "objectidentity",
+    "name": "hwMplsTpCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.305.3.1"
+  },
+  "hwMplsTpConformance": {
+    "class": "objectidentity",
+    "name": "hwMplsTpConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.305.3"
+  },
+  "hwMplsTpEgressGlobalId": {
+    "class": "objecttype",
+    "description": "The GlobalId is defined to uniquely identify an Ingress LSR operator.This Value idefines a globally unique Attachment Interface Identifier (AII). That AII is composed of three parts: a Global_ID that uniquely identifies an operator, a prefix, and, finally, an attachment circuit identifier.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTpEgressGlobalId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.305.1.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMplsTpGlobalObjects": {
+    "class": "objectidentity",
+    "name": "hwMplsTpGlobalObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.305.1.2"
+  },
+  "hwMplsTpGroups": {
+    "class": "objectidentity",
+    "name": "hwMplsTpGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.305.3.2"
+  },
+  "hwMplsTpIngressGlobalId": {
+    "class": "objecttype",
+    "description": "The GlobalId is defined to uniquely identify an Ingress LSR operator.This Value idefines a globally unique Attachment Interface Identifier (AII). That AII is composed of three parts: a Global_ID that uniquely identifies an operator, a prefix, and, finally, an attachment circuit identifier.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTpIngressGlobalId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.305.1.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMplsTpLspEntry": {
+    "class": "objecttype",
+    "description": "An entry in this table represents information on a single TP LSP which is represented by a session\u0027s index triple (hwMplsTpTunnelIngressInstance, hwMplsTpTunnelEgressInstance, hwMplsTpLspType).",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelIngressIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelIngressInstance"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelIngressLSRId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpIngressGlobalId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelEgressIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelEgressInstance"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelEgressLSRId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpEgressGlobalId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTpLspEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.305.1.1.2.1",
+    "reference": "1. RFC 2863 - The Interfaces Group MIB, McCloghrie, K., and F. Kastenholtz, June 2000 ",
+    "status": "current"
+  },
+  "hwMplsTpLspOamDloc": {
+    "class": "notificationtype",
+    "description": " This object is used to indicates the connectivity fault of the link.",
+    "name": "hwMplsTpLspOamDloc",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpLspType"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.305.2.3.2",
+    "status": "current"
+  },
+  "hwMplsTpLspOamDlocClear": {
+    "class": "notificationtype",
+    "description": " This object indicates that the link recovers from a connectivity fault.",
+    "name": "hwMplsTpLspOamDlocClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpLspType"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.305.2.3.1",
+    "status": "current"
+  },
+  "hwMplsTpLspOamMisconnectionDiscr": {
+    "class": "notificationtype",
+    "description": "This object indicates that the link receivs from an misconnection discription defect.",
+    "name": "hwMplsTpLspOamMisconnectionDiscr",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpLspType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.305.2.3.8",
+    "status": "current"
+  },
+  "hwMplsTpLspOamMisconnectionDiscrClear": {
+    "class": "notificationtype",
+    "description": "This object indicates that the link recovers from an misconnection discription defect.",
+    "name": "hwMplsTpLspOamMisconnectionDiscrClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpLspType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.305.2.3.7",
+    "status": "current"
+  },
+  "hwMplsTpLspOamMisconnectionEncap": {
+    "class": "notificationtype",
+    "description": "This object indicates that the link receivs from an misconnection encap defect.",
+    "name": "hwMplsTpLspOamMisconnectionEncap",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpLspType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.305.2.3.6",
+    "status": "current"
+  },
+  "hwMplsTpLspOamMisconnectionEncapClear": {
+    "class": "notificationtype",
+    "description": "This object indicates that the link recovers from an misconnection encap defect.",
+    "name": "hwMplsTpLspOamMisconnectionEncapClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpLspType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.305.2.3.5",
+    "status": "current"
+  },
+  "hwMplsTpLspOamMisconnectionMEP": {
+    "class": "notificationtype",
+    "description": "This object indicates the link receivs an unexpect MEG-ID defect.",
+    "name": "hwMplsTpLspOamMisconnectionMEP",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpLspType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.305.2.3.10",
+    "status": "current"
+  },
+  "hwMplsTpLspOamMisconnectionMEPClear": {
+    "class": "notificationtype",
+    "description": "This object indicates that the link recovers from an unexpect MEG-ID defect.",
+    "name": "hwMplsTpLspOamMisconnectionMEPClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpLspType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.305.2.3.9",
+    "status": "current"
+  },
+  "hwMplsTpLspOamMisconnectionSEC": {
+    "class": "notificationtype",
+    "description": "This object indicates that the link receivs from an Misconnection SEC defect.",
+    "name": "hwMplsTpLspOamMisconnectionSEC",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpLspType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.305.2.3.12",
+    "status": "current"
+  },
+  "hwMplsTpLspOamMisconnectionSECClear": {
+    "class": "notificationtype",
+    "description": "This object indicates that the link recovers from an Misconnection SEC defect .",
+    "name": "hwMplsTpLspOamMisconnectionSECClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpLspType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.305.2.3.11",
+    "status": "current"
+  },
+  "hwMplsTpLspOamRdi": {
+    "class": "notificationtype",
+    "description": " This object is used to indicates the remote defect of the link.",
+    "name": "hwMplsTpLspOamRdi",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpLspType"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.305.2.3.4",
+    "status": "current"
+  },
+  "hwMplsTpLspOamRdiClear": {
+    "class": "notificationtype",
+    "description": " This object indicates that the link recovers from a remote defect.",
+    "name": "hwMplsTpLspOamRdiClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpLspType"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.305.2.3.3",
+    "status": "current"
+  },
+  "hwMplsTpLspTable": {
+    "class": "objecttype",
+    "description": "A table of all TP lsps seen by a given sys-tem.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTpLspTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.305.1.1.2",
+    "status": "current"
+  },
+  "hwMplsTpLspTrap": {
+    "class": "objectidentity",
+    "name": "hwMplsTpLspTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.305.2.3"
+  },
+  "hwMplsTpLspType": {
+    "class": "objecttype",
+    "description": "The type of LSP connection. Options: 1. protection(1) -indicates that the lsp type of this tunnel is protection lsp. 2. working(2) -indicates that the lsp type of this tunnel is working lsp. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsTpLspType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.305.1.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "protection": 1,
+          "working": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsTpMib": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "This MIB is used for defining the HUAWEI private extended Transport Profile of Multiprotocol Label Switching (MPLS-TP) MIB object. All MIB objects are used to describe private managed objects and trap definitions for MPLS-TP.",
+    "lastupdated": "201007131535Z",
+    "name": "hwMplsTpMib",
+    "oid": "1.3.6.1.4.1.2011.5.25.305",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "V1.00,Initial LSPM IETFTP MIB",
+        "revision": "2012-03-20 10:00"
+      }
+    ]
+  },
+  "hwMplsTpNotifications": {
+    "class": "objectidentity",
+    "name": "hwMplsTpNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.305.2"
+  },
+  "hwMplsTpObjects": {
+    "class": "objectidentity",
+    "name": "hwMplsTpObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.305.1"
+  },
+  "hwMplsTpTables": {
+    "class": "objectidentity",
+    "name": "hwMplsTpTables",
+    "oid": "1.3.6.1.4.1.2011.5.25.305.1.1"
+  },
+  "hwMplsTpTrapObjects": {
+    "class": "objectidentity",
+    "name": "hwMplsTpTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.305.2.1"
+  },
+  "hwMplsTpTunnelAdminStatus": {
+    "class": "objecttype",
+    "description": "Indicates the management status of this tunnel.Reference to MPLS-TE-STD-MIB. Options: 1. up(1) -indicates the management status of this tunnel is up. 2. down(2) -indicates the management status of this tunnel is down. 3. testing(3) -indicates the tunnel is used in some test mode. ",
+    "maxaccess": "read-only",
+    "name": "hwMplsTpTunnelAdminStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.305.1.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "testing": 3,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsTpTunnelDown": {
+    "class": "notificationtype",
+    "description": "This notification is generated when a mplsTpTunnelOperStatus object for one of the configured tunnels is about to enter the down state from some other state (but not from the notPresent state). This other state is indicated by the included value of mplsTpTunnelOperStatus.",
+    "name": "hwMplsTpTunnelDown",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelOperStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.305.2.2.2",
+    "status": "current"
+  },
+  "hwMplsTpTunnelDownClear": {
+    "class": "notificationtype",
+    "description": "This notification is generated when a mplsTpTunnelOperStatus object for one of the configured tunnels is about to leave the down state and transition into some other state (but not into the notPresent state). This other state is indicated by the included value of mplsTpTunnelOperStatus.",
+    "name": "hwMplsTpTunnelDownClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelOperStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.305.2.2.1",
+    "status": "current"
+  },
+  "hwMplsTpTunnelEgressIndex": {
+    "class": "objecttype",
+    "description": "Identity of the egress LSR associated with this tunnel instance.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTpTunnelEgressIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.305.1.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MplsTunnelIndex"
+    }
+  },
+  "hwMplsTpTunnelEgressInstance": {
+    "class": "objecttype",
+    "description": "Uniquely identifies a particular instance of a tunnel between a pair of egress and ingress LSRs.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsTpTunnelEgressInstance",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.305.1.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MplsTunnelInstanceIndex"
+    }
+  },
+  "hwMplsTpTunnelEgressLSRId": {
+    "class": "objecttype",
+    "description": "Identity of the egress LSR associated with this tunnel instance.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTpTunnelEgressLSRId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.305.1.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MplsExtendedTunnelId"
+    }
+  },
+  "hwMplsTpTunnelEntry": {
+    "class": "objecttype",
+    "description": "A tp-tunnel needs to be uniquely identified across an MPLS-TP network. Indexes hwMplsTpTunnelIngressIndex, hwMplsTpTunnelIngressLSRId, hwMplsTpIngressGlobalId, hwMplsTpTunnelEgressIndex, hwMplsTpTunnelEgressLSRId and hwMplsTpEgressGlobalId uniquely identifies a tunnel across an MPLS-TP network. The indexes of this entry are hwMplsTpTunnelIngressIndex, hwMplsTpTunnelIngressLSRId, hwMplsTpIngressGlobalId, hwMplsTpTunnelEgressIndex, hwMplsTpTunnelEgressLSRId and hwMplsTpEgressGlobalId.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelIngressIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelIngressLSRId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpIngressGlobalId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelEgressIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelEgressLSRId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpEgressGlobalId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTpTunnelEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.305.1.1.1.1",
+    "reference": "1. RFC 2863 - The Interfaces Group MIB, McCloghrie, K., and F. Kastenholtz, June 2000 ",
+    "status": "current"
+  },
+  "hwMplsTpTunnelIfName": {
+    "class": "objecttype",
+    "description": "Indicates the tp-tunnel interface name. The object is only valid at the ingress.",
+    "maxaccess": "read-only",
+    "name": "hwMplsTpTunnelIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.305.1.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwMplsTpTunnelIngressIndex": {
+    "class": "objecttype",
+    "description": "Identity of the ingress LSR associated with this tunnel instance. This value SHOULD be equal to the Tunnel Sender Address in the Sender Template object and MAY be equal to the Extended Tunnel Id field in the SESSION object.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTpTunnelIngressIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.305.1.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MplsTunnelIndex"
+    }
+  },
+  "hwMplsTpTunnelIngressInstance": {
+    "class": "objecttype",
+    "description": "Uniquely identifies a particular instance of a tunnel between a pair of ingress and egress LSRs.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsTpTunnelIngressInstance",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.305.1.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MplsTunnelInstanceIndex"
+    }
+  },
+  "hwMplsTpTunnelIngressLSRId": {
+    "class": "objecttype",
+    "description": "Identity of the ingress LSR associated with this tp-tunnel instance. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTpTunnelIngressLSRId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.305.1.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MplsExtendedTunnelId"
+    }
+  },
+  "hwMplsTpTunnelOperStatus": {
+    "class": "objecttype",
+    "description": "Indicates the actual operational status of this tunnel, which is but not limited to the status of this tunnel of a certain period.Reference to MPLS-TE-STD-MIB. Options: 1. up(1) -indicates that the operational status of this tunnel is up. 2. down(2) -indicates that the operational status of this tunnel is down. 3. testing(3) -indicates that the tunnel is used in some test mode. 4. unknown(4) -indicates the invalid value. 5. dormant(5) -indicates that the status can not be determined. 6. notPresent(6) -indicates that some component is missing 7. lowerLayerDown(7) -indicates the Down state due to the state of lower layer interfaces. ",
+    "maxaccess": "read-only",
+    "name": "hwMplsTpTunnelOperStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.305.1.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dormant": 5,
+          "down": 2,
+          "lowerLayerDown": 7,
+          "notPresent": 6,
+          "testing": 3,
+          "unknown": 4,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsTpTunnelResume": {
+    "class": "notificationtype",
+    "description": "This object is used to indicate that data switching from protection Lsp to Working Lsp.",
+    "name": "hwMplsTpTunnelResume",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.305.2.2.3",
+    "status": "current"
+  },
+  "hwMplsTpTunnelSwitch": {
+    "class": "notificationtype",
+    "description": "This object is used to indicate that data switching from protection Lsp to Working Lsp.",
+    "name": "hwMplsTpTunnelSwitch",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-TP-MIB",
+        "object": "hwMplsTpTunnelIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.305.2.2.4",
+    "status": "current"
+  },
+  "hwMplsTpTunnelTable": {
+    "class": "objecttype",
+    "description": "A tp-tunnel needs to be uniquely identified across an MPLS-TP network. Indexes hwMplsTpTunnelIngressIndex, hwMplsTpTunnelIngressLSRId, hwMplsTpIngressGlobalId, hwMplsTpTunnelEgressIndex, hwMplsTpTunnelEgressLSRId and hwMplsTpEgressGlobalId uniquely identifies a tunnel across an MPLS-TP network. The indexes of this table are hwMplsTpTunnelIngressIndex, hwMplsTpTunnelIngressLSRId, hwMplsTpIngressGlobalId, hwMplsTpTunnelEgressIndex, hwMplsTpTunnelEgressLSRId and hwMplsTpEgressGlobalId.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTpTunnelTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.305.1.1.1",
+    "status": "current"
+  },
+  "hwMplsTpTunnelTrap": {
+    "class": "objectidentity",
+    "name": "hwMplsTpTunnelTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.305.2.2"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifName"
+    ],
+    "MPLS-TC-STD-MIB": [
+      "MplsTunnelInstanceIndex",
+      "MplsExtendedTunnelId",
+      "MplsTunnelIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "TimeTicks",
+      "Counter32",
+      "iso",
+      "Bits",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Gauge32",
+      "Unsigned32",
+      "BITS"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-MPLS-TP-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:23 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-MPLS-TP-MIB"
+  }
+}

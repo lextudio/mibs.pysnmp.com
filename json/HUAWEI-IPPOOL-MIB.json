@@ -1,0 +1,7108 @@
+{
+  "hwAllIPv6AddressIdleNum": {
+    "class": "objecttype",
+    "description": "The free IPv6 address number.",
+    "maxaccess": "read-only",
+    "name": "hwAllIPv6AddressIdleNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.22.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAllIPv6AddressTotalNum": {
+    "class": "objecttype",
+    "description": "The total IPv6 address number.",
+    "maxaccess": "read-only",
+    "name": "hwAllIPv6AddressTotalNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.22.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAllIPv6AddressUsedNum": {
+    "class": "objecttype",
+    "description": "The used IPv6 address number.",
+    "maxaccess": "read-only",
+    "name": "hwAllIPv6AddressUsedNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.22.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAllIPv6AddressUsedPercent": {
+    "class": "objecttype",
+    "description": "The percent of used IPv6 address.",
+    "maxaccess": "read-only",
+    "name": "hwAllIPv6AddressUsedPercent",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.22.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAllIPv6ConflictAddressNum": {
+    "class": "objecttype",
+    "description": "The conflict IPv6 address number.",
+    "maxaccess": "read-only",
+    "name": "hwAllIPv6ConflictAddressNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.22.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAllIPv6ExcludeAddressNum": {
+    "class": "objecttype",
+    "description": "The excluded IPv6 address number.",
+    "maxaccess": "read-only",
+    "name": "hwAllIPv6ExcludeAddressNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.22.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAllNDRAPrefixConflictNum": {
+    "class": "objecttype",
+    "description": "The conflict NDRA prefix number.",
+    "maxaccess": "read-only",
+    "name": "hwAllNDRAPrefixConflictNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.22.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAllNDRAPrefixExcludeNum": {
+    "class": "objecttype",
+    "description": "The excluded NDRA prefix number.",
+    "maxaccess": "read-only",
+    "name": "hwAllNDRAPrefixExcludeNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.22.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAllNDRAPrefixFreeNum": {
+    "class": "objecttype",
+    "description": "The free NDRA prefix number.",
+    "maxaccess": "read-only",
+    "name": "hwAllNDRAPrefixFreeNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.22.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAllNDRAPrefixTotalNum": {
+    "class": "objecttype",
+    "description": "The total NDRA prefix number.",
+    "maxaccess": "read-only",
+    "name": "hwAllNDRAPrefixTotalNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.22.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAllNDRAPrefixUsedNum": {
+    "class": "objecttype",
+    "description": "The used NDRA prefix number.",
+    "maxaccess": "read-only",
+    "name": "hwAllNDRAPrefixUsedNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.22.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAllNDRAPrefixUsedPercent": {
+    "class": "objecttype",
+    "description": "The percent of used IPv6 NDRA prefix.",
+    "maxaccess": "read-only",
+    "name": "hwAllNDRAPrefixUsedPercent",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.22.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAllPDPrefixConflictNum": {
+    "class": "objecttype",
+    "description": "The conflict PD prefix number.",
+    "maxaccess": "read-only",
+    "name": "hwAllPDPrefixConflictNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.22.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAllPDPrefixExcludeNum": {
+    "class": "objecttype",
+    "description": "The excluded PD prefix number.",
+    "maxaccess": "read-only",
+    "name": "hwAllPDPrefixExcludeNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.22.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAllPDPrefixFreeNum": {
+    "class": "objecttype",
+    "description": "The free PD prefix number.",
+    "maxaccess": "read-only",
+    "name": "hwAllPDPrefixFreeNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.22.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAllPDPrefixTotalNum": {
+    "class": "objecttype",
+    "description": "The total PD prefix number.",
+    "maxaccess": "read-only",
+    "name": "hwAllPDPrefixTotalNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.22.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAllPDPrefixUsedNum": {
+    "class": "objecttype",
+    "description": "The used PD prefix number.",
+    "maxaccess": "read-only",
+    "name": "hwAllPDPrefixUsedNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.22.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAllPDPrefixUsedPercent": {
+    "class": "objecttype",
+    "description": "The percent of used IPv6 PD prefix.",
+    "maxaccess": "read-only",
+    "name": "hwAllPDPrefixUsedPercent",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.22.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwAllocUserIPFailAlarm": {
+    "class": "notificationtype",
+    "description": " 1 Notice/Trap name: allocate user IP fail alarm. 2 Notice/Trap generation cause: there are no enough IP addresses for users. 3 Repair suggestion: Check whether there are enough addresses in IP pool of the domain.",
+    "name": "hwAllocUserIPFailAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.3",
+    "status": "current"
+  },
+  "hwDHCPServerAddr": {
+    "class": "objecttype",
+    "description": "IP address of the DHCP server.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwDHCPServerAddr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDhcpServerDown": {
+    "class": "notificationtype",
+    "description": " Description: The DHCP server does not respond. This alarm is generated if the network is unstable, the DHCP server is Down, or there is not any available address in the DHCP server when a user applies for an address to the external DHCP server. Parameter: IP address of the DHCP server, address pool that the user expects (the address pool is identified by the gateway address because there may be multiple address pools on a server), VPN instance name, The reason of that DHCP server is set down status. ",
+    "name": "hwDhcpServerDown",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwDHCPServerAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolRouterIPAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwDhcpSvrVrfName"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwDhcpSvrDownReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.4",
+    "status": "current"
+  },
+  "hwDhcpServerEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwDhcpServerIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpServerEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.8.1",
+    "status": "current"
+  },
+  "hwDhcpServerIndex": {
+    "class": "objecttype",
+    "description": "The index of DHCP server.",
+    "maxaccess": "read-only",
+    "name": "hwDhcpServerIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4095,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpServerTable": {
+    "class": "objecttype",
+    "description": "DHCP server configuration table.",
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpServerTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.8",
+    "status": "current"
+  },
+  "hwDhcpServerTableGroup": {
+    "class": "objectgroup",
+    "description": "The HUAWEI IP pool DHCP server configure group.",
+    "name": "hwDhcpServerTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwDhcpServerIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolDhcpServerIP"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolDhcpServerVRFName"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolDhcpServerState"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolDhcpServerSendDisvSpdNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolDhcpServerSendDisvSpdSec"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolDhcpServerDeadCount"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolDhcpServerNakCount"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolDhcpServerTimeout"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolDhcpServerDeadTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.10",
+    "status": "current"
+  },
+  "hwDhcpSvrDownReason": {
+    "class": "objecttype",
+    "description": "DHCP server down reason.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwDhcpSvrDownReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwDhcpSvrGroupEntry": {
+    "class": "objecttype",
+    "description": "DESCRIPTION.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolDhcpSvrGroupIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSvrGroupEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.5.1",
+    "status": "current"
+  },
+  "hwDhcpSvrGroupTable": {
+    "class": "objecttype",
+    "description": "Configuration table of the DHCP server group. To monitor the status of the remote DHCP server, you need to configure the local DHCP server. You can configure a maximum of 4094 DHCP server groups. Each server group consists of two DHCP servers. Select the server based on the server status.",
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpSvrGroupTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.5",
+    "status": "current"
+  },
+  "hwDhcpSvrGroupTableGroup": {
+    "class": "objectgroup",
+    "description": "The HUAWEI DHCP service group configuration group.",
+    "name": "hwDhcpSvrGroupTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolDhcpSvrGroupIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolDhcpSvrGroupName"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpSvrPriAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpSvrScdiAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpSvrPriState"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpScdPriState"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpSvrAutoRelease"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpSvrRefCount"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpSvrRowStatus"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpSvrPriVpnInstance"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpSvrScdVpnInstance"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpSvrSouce"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.5",
+    "status": "current"
+  },
+  "hwDhcpSvrVrfName": {
+    "class": "objecttype",
+    "description": "DHCP VPN instance name.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwDhcpSvrVrfName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwDhcpv6ServerEntry": {
+    "class": "objecttype",
+    "description": "The configuration of DHCPv6 server table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwDhcpv6SvrIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpv6ServerEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.23.1",
+    "status": "current"
+  },
+  "hwDhcpv6ServerIP": {
+    "class": "objecttype",
+    "description": "The IPv6 address of DHCPv6 server.",
+    "maxaccess": "read-only",
+    "name": "hwDhcpv6ServerIP",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.23.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Ipv6Address"
+    }
+  },
+  "hwDhcpv6ServerIfIndex": {
+    "class": "objecttype",
+    "description": "The IfIndex of DHCPv6 server.",
+    "maxaccess": "read-only",
+    "name": "hwDhcpv6ServerIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.23.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpv6ServerSendSolicitSpeedNum": {
+    "class": "objecttype",
+    "description": "The speed of sending solicit packet.",
+    "maxaccess": "read-write",
+    "name": "hwDhcpv6ServerSendSolicitSpeedNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.23.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpv6ServerSendSolicitSpeedSec": {
+    "class": "objecttype",
+    "description": "The interval of solicit packets sent by DHCPv6 server. ",
+    "maxaccess": "read-write",
+    "name": "hwDhcpv6ServerSendSolicitSpeedSec",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.23.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpv6ServerState": {
+    "class": "objecttype",
+    "description": "The state of DHCPv6 server.",
+    "maxaccess": "read-only",
+    "name": "hwDhcpv6ServerState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.23.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpv6ServerTable": {
+    "class": "objecttype",
+    "description": " DHCPv6 server configuration table. ",
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpv6ServerTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.23",
+    "status": "current"
+  },
+  "hwDhcpv6ServerVRFName": {
+    "class": "objecttype",
+    "description": "The name of VPN instance for the DHCPv6 server. ",
+    "maxaccess": "read-only",
+    "name": "hwDhcpv6ServerVRFName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.23.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDhcpv6SvrAlgorithm": {
+    "class": "objecttype",
+    "description": "The algorithm of selecting DHCPv6 server.",
+    "maxaccess": "read-create",
+    "name": "hwDhcpv6SvrAlgorithm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.20.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loadingshare": 2,
+          "masterbackup": 1,
+          "polling": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDhcpv6SvrGroupEntry": {
+    "class": "objecttype",
+    "description": "The configuration list of DHCPv6 server group.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwDhcpv6SvrGroupIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpv6SvrGroupEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.20.1",
+    "status": "current"
+  },
+  "hwDhcpv6SvrGroupIndex": {
+    "class": "objecttype",
+    "description": "The index of DHCPv6 server group.",
+    "maxaccess": "read-only",
+    "name": "hwDhcpv6SvrGroupIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.20.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4095,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpv6SvrGroupName": {
+    "class": "objecttype",
+    "description": "The name of DHCPv6 server group.",
+    "maxaccess": "read-create",
+    "name": "hwDhcpv6SvrGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.20.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDhcpv6SvrGroupRowStatus": {
+    "class": "objecttype",
+    "description": "Row admin status. Support adding, modification and deletion.",
+    "maxaccess": "read-create",
+    "name": "hwDhcpv6SvrGroupRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.20.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwDhcpv6SvrGroupTable": {
+    "class": "objecttype",
+    "description": " The configuration table of the DHCPv6 server group. ",
+    "maxaccess": "not-accessible",
+    "name": "hwDhcpv6SvrGroupTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.20",
+    "status": "current"
+  },
+  "hwDhcpv6SvrGroupTableGroup": {
+    "class": "objectgroup",
+    "description": ".",
+    "name": "hwDhcpv6SvrGroupTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwDhcpv6SvrGroupIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwDhcpv6SvrGroupName"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpv6SvrAddr1"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpv6SvrAddr2"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpv6PriSvrState"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpv6ScdSvrState"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpv6SvrAutoRelease"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpv6SvrGroupRefCount"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwDhcpv6SvrInterface1"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwDhcpv6SvrInterface2"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwDhcpv6SvrAlgorithm"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwDhcpv6SvrWeight1"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwDhcpv6SvrWeight2"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpv6Svr1VrfName"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpv6Svr2VrfName"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwDhcpv6SvrGroupRowStatus"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwDhcpv6SvrSourceInterface"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.22",
+    "status": "current"
+  },
+  "hwDhcpv6SvrIndex": {
+    "class": "objecttype",
+    "description": "The index of DHCPv6 server.",
+    "maxaccess": "read-only",
+    "name": "hwDhcpv6SvrIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.23.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4095,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpv6SvrInterface1": {
+    "class": "objecttype",
+    "description": "The outer interface of primary DHCPv6 server.",
+    "maxaccess": "read-create",
+    "name": "hwDhcpv6SvrInterface1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.20.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwDhcpv6SvrInterface2": {
+    "class": "objecttype",
+    "description": "The outer interface of secondary DHCPv6 server.",
+    "maxaccess": "read-create",
+    "name": "hwDhcpv6SvrInterface2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.20.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwDhcpv6SvrSourceInterface": {
+    "class": "objecttype",
+    "description": "The interface name whose IP address is the source IP address carried in the packets sent to the server.",
+    "maxaccess": "read-create",
+    "name": "hwDhcpv6SvrSourceInterface",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.20.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 47,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDhcpv6SvrWeight1": {
+    "class": "objecttype",
+    "description": "The weight of primary DHCPv6 server.",
+    "maxaccess": "read-create",
+    "name": "hwDhcpv6SvrWeight1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.20.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDhcpv6SvrWeight2": {
+    "class": "objecttype",
+    "description": "The weight of secondary DHCPv6 server.",
+    "maxaccess": "read-create",
+    "name": "hwDhcpv6SvrWeight2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.20.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPAddress": {
+    "class": "objecttype",
+    "description": "IP address.",
+    "maxaccess": "read-only",
+    "name": "hwIPAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIPAddressStatus": {
+    "class": "objecttype",
+    "description": "Status of the address.",
+    "maxaccess": "read-write",
+    "name": "hwIPAddressStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "conflictive": 3,
+          "idle": 0,
+          "occupied": 1,
+          "prohibitive": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIPAddressStatusEntry": {
+    "class": "objecttype",
+    "description": "DESCRIPTION.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPSectionIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPAddress"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIPAddressStatusEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.4.1",
+    "status": "current"
+  },
+  "hwIPAddressStatusTable": {
+    "class": "objecttype",
+    "description": "Address status table. It supports the query and setting of status of the local address pool. It does not support the query and setting of status of the remote address pool for the following reasons: 1. The status of the remote address pool cannot be set. 2. The remote and local address pools map different status tables, with different indexes. 3. The remote address pool is managed by the remote equipment, rather than the local equipment. The local equipment displays only the approximate status of the remote address pool.",
+    "maxaccess": "not-accessible",
+    "name": "hwIPAddressStatusTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.4",
+    "status": "current"
+  },
+  "hwIPConflictTotalNum": {
+    "class": "objecttype",
+    "description": "Number of conflicting addresses on the equipment.",
+    "maxaccess": "read-only",
+    "name": "hwIPConflictTotalNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.7.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPDhcpOption": {
+    "class": "objecttype",
+    "description": "Value of the option.",
+    "maxaccess": "read-write",
+    "name": "hwIPDhcpOption",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.9.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIPDhcpOption1": {
+    "class": "objecttype",
+    "description": "Value of the option.",
+    "maxaccess": "read-write",
+    "name": "hwIPDhcpOption1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIPDhcpOption2": {
+    "class": "objecttype",
+    "description": "Value of the option.",
+    "maxaccess": "read-write",
+    "name": "hwIPDhcpOption2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIPDhcpOption3": {
+    "class": "objecttype",
+    "description": "Value of the option.",
+    "maxaccess": "read-write",
+    "name": "hwIPDhcpOption3",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIPDhcpOption4": {
+    "class": "objecttype",
+    "description": "Value of the option.",
+    "maxaccess": "read-write",
+    "name": "hwIPDhcpOption4",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIPDhcpOptionId": {
+    "class": "objecttype",
+    "description": "Option ID. When IP addresses are allocated by the built-in DHCP sever, the option is a configuration parameter, which needs to be defined and explained by the carrier.",
+    "maxaccess": "read-only",
+    "name": "hwIPDhcpOptionId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.9.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 254,
+            "min": 2
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPDhcpOptionId1": {
+    "class": "objecttype",
+    "description": "Option ID. When IP addresses are allocated by the built-in DHCP sever, the option is a configuration parameter, which needs to be defined and explained by the carrier.",
+    "maxaccess": "read-write",
+    "name": "hwIPDhcpOptionId1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 128
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPDhcpOptionId2": {
+    "class": "objecttype",
+    "description": "Option ID. When IP addresses are allocated by the built-in DHCP sever, the option is a configuration parameter, which needs to be defined and explained by the carrier.",
+    "maxaccess": "read-write",
+    "name": "hwIPDhcpOptionId2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 128
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPDhcpOptionId3": {
+    "class": "objecttype",
+    "description": "Option ID. When IP addresses are allocated by the built-in DHCP sever, the option is a configuration parameter, which needs to be defined and explained by the carrier.",
+    "maxaccess": "read-write",
+    "name": "hwIPDhcpOptionId3",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 128
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPDhcpOptionId4": {
+    "class": "objecttype",
+    "description": "Option ID. When IP addresses are allocated by the built-in DHCP sever, the option is a configuration parameter, which needs to be defined and explained by the carrier.",
+    "maxaccess": "read-write",
+    "name": "hwIPDhcpOptionId4",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 128
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPDhcpOptionRowStatus": {
+    "class": "objecttype",
+    "description": "This object is used to configuration new rows in this table, modify existing rows, and to delete existing rows.Only three actions are used: active(1), createAndGo(4), destroy(6). while configuration new option, you must specify option type and value",
+    "maxaccess": "read-create",
+    "name": "hwIPDhcpOptionRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.9.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIPDhcpOptionSubId": {
+    "class": "objecttype",
+    "description": "Sub Option ID. When IP addresses are allocated by the built-in DHCP sever, the option is a configuration parameter, which needs to be defined and explained by the carrier.",
+    "maxaccess": "read-only",
+    "name": "hwIPDhcpOptionSubId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.14.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 254,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPDhcpOptionSubRowStatus": {
+    "class": "objecttype",
+    "description": "This object is used to configuration new rows in this table, modify existing rows, and to delete existing rows.Only three actions are used: active(1), createAndGo(4), destroy(6). while configuration new suboption, you must specify suboption type and value",
+    "maxaccess": "read-create",
+    "name": "hwIPDhcpOptionSubRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.14.1.50",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIPDhcpOptionSubType": {
+    "class": "objecttype",
+    "description": "Value indicates the type of sub-option, 1-ip, 2-string.",
+    "maxaccess": "read-create",
+    "name": "hwIPDhcpOptionSubType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.14.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "string": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIPDhcpOptionSubValue": {
+    "class": "objecttype",
+    "description": "Value of the sub-option.",
+    "maxaccess": "read-create",
+    "name": "hwIPDhcpOptionSubValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.14.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIPDhcpReplyOptionId": {
+    "class": "objecttype",
+    "description": "This object is used to configuration option code which is needed to reply to client according to specified option value in DHCP request, Option code, from 2 to 254, include 2 and 254, exclude 3,6,15,44,46,50-54,57-60,82",
+    "maxaccess": "read-only",
+    "name": "hwIPDhcpReplyOptionId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.15.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 254,
+            "min": 2
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPDhcpReplyOptionRowStatus": {
+    "class": "objecttype",
+    "description": "This object is used to configuration new rows in this table, modify existing rows, and to delete existing rows.Only three actions are used: active(1), createAndGo(4), destroy(6). while configuration new option, you must specify option type and value",
+    "maxaccess": "read-create",
+    "name": "hwIPDhcpReplyOptionRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.15.1.50",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIPDhcpReplyOptionSub": {
+    "class": "objecttype",
+    "description": "Value of the sub-option.",
+    "maxaccess": "read-create",
+    "name": "hwIPDhcpReplyOptionSub",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.15.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 128,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIPDhcpReplyOptionSubId": {
+    "class": "objecttype",
+    "description": "Sub Option ID. When IP addresses are allocated by the built-in DHCP sever, the option is a configuration parameter, which needs to be defined and explained by the carrier.",
+    "maxaccess": "read-only",
+    "name": "hwIPDhcpReplyOptionSubId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.15.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 254,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPDhcpReplyOptionSubType": {
+    "class": "objecttype",
+    "description": "Value indicates the type of sub-option, 1-ip, 2-string, 3-hex.",
+    "maxaccess": "read-create",
+    "name": "hwIPDhcpReplyOptionSubType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.15.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hex": 3,
+          "ip": 1,
+          "string": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIPDhcpScdPriState": {
+    "class": "objecttype",
+    "description": "Status of the secondary DHCP server.",
+    "maxaccess": "read-only",
+    "name": "hwIPDhcpScdPriState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.5.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stop": 0,
+          "use": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIPDhcpSpecOption": {
+    "class": "objecttype",
+    "description": "Option ID. Option code from DHCP request of client.",
+    "maxaccess": "read-only",
+    "name": "hwIPDhcpSpecOption",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.15.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIPDhcpSpecOptionId": {
+    "class": "objecttype",
+    "description": "Option ID. Option code from DHCP request of client.",
+    "maxaccess": "read-only",
+    "name": "hwIPDhcpSpecOptionId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.15.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 60,
+            "min": 60
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPDhcpSvrAutoRelease": {
+    "class": "objecttype",
+    "description": "Whether the server supports the Release packet.",
+    "maxaccess": "read-write",
+    "name": "hwIPDhcpSvrAutoRelease",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.5.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIPDhcpSvrIPRsv": {
+    "class": "objecttype",
+    "description": "mode of IP addresses reserving. 1 indicates leasing management, 2 indicates MAC binding, and other values are invalid. ",
+    "maxaccess": "read-write",
+    "name": "hwIPDhcpSvrIPRsv",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPDhcpSvrPriAddr": {
+    "class": "objecttype",
+    "description": "Primary IP address of the DHCP server group.",
+    "maxaccess": "read-write",
+    "name": "hwIPDhcpSvrPriAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIPDhcpSvrPriState": {
+    "class": "objecttype",
+    "description": "Status of the primary DHCP server.",
+    "maxaccess": "read-only",
+    "name": "hwIPDhcpSvrPriState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.5.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stop": 0,
+          "use": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIPDhcpSvrPriVpnInstance": {
+    "class": "objecttype",
+    "description": "VPN instance of the primary DHCP server.",
+    "maxaccess": "read-create",
+    "name": "hwIPDhcpSvrPriVpnInstance",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.5.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIPDhcpSvrRefCount": {
+    "class": "objecttype",
+    "description": "Number of times the server group is referenced.",
+    "maxaccess": "read-only",
+    "name": "hwIPDhcpSvrRefCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.5.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4096,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPDhcpSvrRowStatus": {
+    "class": "objecttype",
+    "description": "DHCP server row status.",
+    "maxaccess": "read-create",
+    "name": "hwIPDhcpSvrRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.5.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIPDhcpSvrScdVpnInstance": {
+    "class": "objecttype",
+    "description": "VPN instance of the secondary DHCP server.",
+    "maxaccess": "read-create",
+    "name": "hwIPDhcpSvrScdVpnInstance",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.5.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIPDhcpSvrScdiAddr": {
+    "class": "objecttype",
+    "description": "Secondary IP address of the DHCP server group.",
+    "maxaccess": "read-write",
+    "name": "hwIPDhcpSvrScdiAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIPDhcpSvrSouce": {
+    "class": "objecttype",
+    "description": "DHCP source interface address.",
+    "maxaccess": "read-create",
+    "name": "hwIPDhcpSvrSouce",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.5.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 47,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIPDhcpv6PriSvrState": {
+    "class": "objecttype",
+    "description": "The status of primary DNS.",
+    "maxaccess": "read-only",
+    "name": "hwIPDhcpv6PriSvrState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.20.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIPDhcpv6ScdSvrState": {
+    "class": "objecttype",
+    "description": "The status of secondary DNS.",
+    "maxaccess": "read-only",
+    "name": "hwIPDhcpv6ScdSvrState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.20.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIPDhcpv6Svr1VrfName": {
+    "class": "objecttype",
+    "description": "The vpn instance name of primary DHCPv6 server.",
+    "maxaccess": "read-create",
+    "name": "hwIPDhcpv6Svr1VrfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.20.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIPDhcpv6Svr2VrfName": {
+    "class": "objecttype",
+    "description": "The vpn instance name of secondary DHCPv6 server.",
+    "maxaccess": "read-create",
+    "name": "hwIPDhcpv6Svr2VrfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.20.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIPDhcpv6SvrAddr1": {
+    "class": "objecttype",
+    "description": "The primary DNS address.",
+    "maxaccess": "read-create",
+    "name": "hwIPDhcpv6SvrAddr1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.20.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Ipv6Address"
+    }
+  },
+  "hwIPDhcpv6SvrAddr2": {
+    "class": "objecttype",
+    "description": "The seconday DNS address.",
+    "maxaccess": "read-create",
+    "name": "hwIPDhcpv6SvrAddr2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.20.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Ipv6Address"
+    }
+  },
+  "hwIPDhcpv6SvrAutoRelease": {
+    "class": "objecttype",
+    "description": "The flag indicating whether server will automaticly send DHCPv6 release packet.",
+    "maxaccess": "read-create",
+    "name": "hwIPDhcpv6SvrAutoRelease",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.20.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIPDhcpv6SvrGroupRefCount": {
+    "class": "objecttype",
+    "description": "The referenced count of DHCPv6 server group.",
+    "maxaccess": "read-only",
+    "name": "hwIPDhcpv6SvrGroupRefCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.20.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4096,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPDnsSuffix": {
+    "class": "objecttype",
+    "description": "DNS suffix, a string of 0-50 characters. If the value is 0, it indicates that the suffix is deleted.",
+    "maxaccess": "read-write",
+    "name": "hwIPDnsSuffix",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 50,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIPExcludeTotalNum": {
+    "class": "objecttype",
+    "description": "Number of excluded addresses on the equipment.",
+    "maxaccess": "read-only",
+    "name": "hwIPExcludeTotalNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.7.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPIdleTotalNum": {
+    "class": "objecttype",
+    "description": "Number of idle addresses on the equipment.",
+    "maxaccess": "read-only",
+    "name": "hwIPIdleTotalNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.7.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolAlgorithm": {
+    "class": "objecttype",
+    "description": "The ipv4 remote pool algorithm.",
+    "maxaccess": "read-write",
+    "name": "hwIPPoolAlgorithm",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.27.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIPPoolAvailableStatus": {
+    "class": "objecttype",
+    "description": "Whether the address is prohibited.",
+    "maxaccess": "read-write",
+    "name": "hwIPPoolAvailableStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolConflictAutoRecycleInterval": {
+    "class": "objecttype",
+    "description": "The flag indicates whether funtion of conflict auto recycle is enabled.",
+    "maxaccess": "read-create",
+    "name": "hwIPPoolConflictAutoRecycleInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 1440,
+            "min": 30
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolConstantIndex": {
+    "class": "objectidentity",
+    "name": "hwIPPoolConstantIndex",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.26"
+  },
+  "hwIPPoolConstantIndexEnable": {
+    "class": "objecttype",
+    "description": "Enable IP Pool Constant index function.",
+    "maxaccess": "read-write",
+    "name": "hwIPPoolConstantIndexEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.26.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolConstantIndexFail": {
+    "class": "notificationtype",
+    "description": " The constance index of ip pool recover failure. ",
+    "name": "hwIPPoolConstantIndexFail",
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.11",
+    "status": "current"
+  },
+  "hwIPPoolConstantIndexGroup": {
+    "class": "objectgroup",
+    "description": "Enable IP Pool Constant index function.",
+    "name": "hwIPPoolConstantIndexGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolConstantIndexEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.27",
+    "status": "current"
+  },
+  "hwIPPoolDAPApplyUnsuccessful": {
+    "class": "notificationtype",
+    "description": " Fail to apply for the address segment. ",
+    "name": "hwIPPoolDAPApplyUnsuccessful",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolName"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolRouterIPAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolRouterIPMask"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolDAPReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.22",
+    "status": "current"
+  },
+  "hwIPPoolDAPDeviceSubnetFull": {
+    "class": "notificationtype",
+    "description": " The number of address segments dynamically allocated to the device reached the maximum number allowed. ",
+    "name": "hwIPPoolDAPDeviceSubnetFull",
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.25",
+    "status": "current"
+  },
+  "hwIPPoolDAPName": {
+    "class": "objecttype",
+    "description": "DAP name.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIPPoolDAPName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 253,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIPPoolDAPReason": {
+    "class": "objecttype",
+    "description": "Failure Cause of Address Segment Application.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIPPoolDAPReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIPPoolDAPReleaseUnsuccessful": {
+    "class": "notificationtype",
+    "description": " Fail to release the address segment. ",
+    "name": "hwIPPoolDAPReleaseUnsuccessful",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolName"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolRouterIPAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolRouterIPMask"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolDAPReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.23",
+    "status": "current"
+  },
+  "hwIPPoolDAPSubnetFull": {
+    "class": "notificationtype",
+    "description": " The number of address segments dynamically allocated to the device reached the upper limit allowed by the dynamic address pool. ",
+    "name": "hwIPPoolDAPSubnetFull",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolName"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolDAPName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.24",
+    "status": "current"
+  },
+  "hwIPPoolDNSIPAddrString": {
+    "class": "objecttype",
+    "description": "String of DNS server ip addresses for DHCP clients. Since mostly 8 ip addresses can be configured for a pool totally, a string is defined to get or configure 8 ip addresses at a time",
+    "maxaccess": "read-write",
+    "name": "hwIPPoolDNSIPAddrString",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 129,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIPPoolDNSIPAddrStringUndo": {
+    "class": "objecttype",
+    "description": "A DNS server ip address to be deleted. This object is only for deleting a given ip address of DNS server.",
+    "maxaccess": "read-write",
+    "name": "hwIPPoolDNSIPAddrStringUndo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 129,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIPPoolDhcpServerDeadCount": {
+    "class": "objecttype",
+    "description": "The threshold of no response packets from DHCP server, when the number count over the threshold, DHCP server is changed from up to down status. The default value is 1.",
+    "maxaccess": "read-write",
+    "name": "hwIPPoolDhcpServerDeadCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.8.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolDhcpServerDeadTime": {
+    "class": "objecttype",
+    "description": "The interval of DHCP server automatically recover up status, the time unit is minute and default value is 3 minutes.",
+    "maxaccess": "read-write",
+    "name": "hwIPPoolDhcpServerDeadTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.8.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolDhcpServerIP": {
+    "class": "objecttype",
+    "description": "The IP address of DHCP server.",
+    "maxaccess": "read-only",
+    "name": "hwIPPoolDhcpServerIP",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.8.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIPPoolDhcpServerNakCount": {
+    "class": "objecttype",
+    "description": "The threshold of nak packets from DHCP server, when nak packets count over the threshold, DHCP server is changed from up to down status. The default value is 10.",
+    "maxaccess": "read-write",
+    "name": "hwIPPoolDhcpServerNakCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.8.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolDhcpServerSendDisvSpdNum": {
+    "class": "objecttype",
+    "description": "The send discovering speed number.",
+    "maxaccess": "read-write",
+    "name": "hwIPPoolDhcpServerSendDisvSpdNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.8.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolDhcpServerSendDisvSpdSec": {
+    "class": "objecttype",
+    "description": "The interval of discovery packets sent by DHCP server. ",
+    "maxaccess": "read-write",
+    "name": "hwIPPoolDhcpServerSendDisvSpdSec",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.8.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolDhcpServerState": {
+    "class": "objecttype",
+    "description": "The state of DHCP server.",
+    "maxaccess": "read-only",
+    "name": "hwIPPoolDhcpServerState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.8.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIPPoolDhcpServerTimeout": {
+    "class": "objecttype",
+    "description": "The timeout interval for response packet,the time unit is second and default value is 25 seconds.",
+    "maxaccess": "read-write",
+    "name": "hwIPPoolDhcpServerTimeout",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.8.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 60,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolDhcpServerVRFName": {
+    "class": "objecttype",
+    "description": "The name of VPN instance for the master DHCP server. ",
+    "maxaccess": "read-only",
+    "name": "hwIPPoolDhcpServerVRFName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.8.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIPPoolDhcpSvrGroupIndex": {
+    "class": "objecttype",
+    "description": "Index of a DHCP server group. When you create an address pool, the equipment adds the hwIPPoolDhcpSvrGroupIndex entry by default and sends it to the NMS.",
+    "maxaccess": "read-only",
+    "name": "hwIPPoolDhcpSvrGroupIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4095,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolDhcpSvrGroupName": {
+    "class": "objecttype",
+    "description": "Name of the DHCP server group.",
+    "maxaccess": "read-create",
+    "name": "hwIPPoolDhcpSvrGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIPPoolDomainSearchList": {
+    "class": "objecttype",
+    "description": " The domain search list which is used to fill content of DHCP packet option 119. ",
+    "maxaccess": "read-only",
+    "name": "hwIPPoolDomainSearchList",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.13.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIPPoolDomainSearchListEntry": {
+    "class": "objecttype",
+    "description": "The configuration list of IP address pool DomainSearchList table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolDomainSearchList"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIPPoolDomainSearchListEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.13.1",
+    "status": "current"
+  },
+  "hwIPPoolDomainSearchListGroup": {
+    "class": "objectgroup",
+    "description": "Set the domain search list name which is uesed to fill content of DHCP packet option 119.",
+    "name": "hwIPPoolDomainSearchListGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolDomainSearchList"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolDomainSearchListRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.15",
+    "status": "current"
+  },
+  "hwIPPoolDomainSearchListRowStatus": {
+    "class": "objecttype",
+    "description": " Row status of IP pool DomainSearchList. Support CreateAndGo and Destroy. ",
+    "maxaccess": "read-create",
+    "name": "hwIPPoolDomainSearchListRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.13.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIPPoolDomainSearchListTable": {
+    "class": "objecttype",
+    "description": " Set the domain search list which is uesed to fill content of DHCP packet option 119. The option is passed from the DHCP Server to the DHCP Client to specify the domain search list used when resolving hostnames using DNS. ",
+    "maxaccess": "not-accessible",
+    "name": "hwIPPoolDomainSearchListTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.13",
+    "status": "current"
+  },
+  "hwIPPoolEntry": {
+    "class": "objecttype",
+    "description": "The configuration list of IP address pool, which is used to configure the relevant attributes of the IP address pool inside the device.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIPPoolEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1",
+    "status": "current"
+  },
+  "hwIPPoolExtEntry": {
+    "class": "objecttype",
+    "description": "DESCRIPTION.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIPPoolExtEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1",
+    "status": "current"
+  },
+  "hwIPPoolExtTable": {
+    "class": "objecttype",
+    "description": "Extend table of the local address pool. When IP addresses are allocated by the built-in DHCP servers, you need to configure the lease and option.",
+    "maxaccess": "not-accessible",
+    "name": "hwIPPoolExtTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3",
+    "status": "current"
+  },
+  "hwIPPoolGroupBoundByDomainNum": {
+    "class": "objecttype",
+    "description": " The number of IP Pool Groups referenced in domains. ",
+    "maxaccess": "read-only",
+    "name": "hwIPPoolGroupBoundByDomainNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.12.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1024,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolGroupDisplayEntry": {
+    "class": "objecttype",
+    "description": "The configuration list of IP address pool display group table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIPPoolGroupDisplayEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.12.1",
+    "status": "current"
+  },
+  "hwIPPoolGroupDisplayTable": {
+    "class": "objecttype",
+    "description": " Display table of the address pool group. ",
+    "maxaccess": "not-accessible",
+    "name": "hwIPPoolGroupDisplayTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.12",
+    "status": "current"
+  },
+  "hwIPPoolGroupDisplayTableGroup": {
+    "class": "objectgroup",
+    "description": "A table for displaying HUAWEI IP pool group.",
+    "name": "hwIPPoolGroupDisplayTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupIncludePoolNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupBoundByDomainNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupIPTotalNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupIPUsedNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupIPConflictedNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupIPDisableNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupIPDesignatedNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupIPFreeNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupIPUsedPercent"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.14",
+    "status": "current"
+  },
+  "hwIPPoolGroupEntry": {
+    "class": "objecttype",
+    "description": "The configuration list of IP address pool group, which is used to configure the relevant attributes of the IP address pool group inside the device.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIPPoolGroupEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.10.1",
+    "status": "current"
+  },
+  "hwIPPoolGroupExtEntry": {
+    "class": "objecttype",
+    "description": "The configuration list of IP address pool group extension table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupExtIncludePoolName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIPPoolGroupExtEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.11.1",
+    "status": "current"
+  },
+  "hwIPPoolGroupExtIncludePoolMoveOrder": {
+    "class": "objecttype",
+    "description": "The order of IP Pool in IP Pool Group. Specify the move order to adjust the order of the IP Pool in IP Pool Group. Only supoort set operation.",
+    "maxaccess": "read-create",
+    "name": "hwIPPoolGroupExtIncludePoolMoveOrder",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.11.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1024,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolGroupExtIncludePoolName": {
+    "class": "objecttype",
+    "description": " The IP Pool referenced in IP Pool Group. ",
+    "maxaccess": "read-only",
+    "name": "hwIPPoolGroupExtIncludePoolName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.11.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIPPoolGroupExtRowStatus": {
+    "class": "objecttype",
+    "description": " Row status of IP pool group extension. Support CreateAndGo and Destroy. ",
+    "maxaccess": "read-create",
+    "name": "hwIPPoolGroupExtRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.11.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIPPoolGroupExtTable": {
+    "class": "objecttype",
+    "description": "Configuration extension table of the address pool group. The extension table can set the order of an IP pool in IP Pool Group. The extension table can be used to dereference an IP pool in IP pool Group. ",
+    "maxaccess": "not-accessible",
+    "name": "hwIPPoolGroupExtTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.11",
+    "status": "current"
+  },
+  "hwIPPoolGroupExtTableGroup": {
+    "class": "objectgroup",
+    "description": "The HUAWEI Ip pool group extension configuration group.",
+    "name": "hwIPPoolGroupExtTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupExtIncludePoolName"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupExtIncludePoolMoveOrder"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupExtRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.13",
+    "status": "current"
+  },
+  "hwIPPoolGroupIPConflictedNum": {
+    "class": "objecttype",
+    "description": " The Conflicted number of IP in IP Pool Group. ",
+    "maxaccess": "read-only",
+    "name": "hwIPPoolGroupIPConflictedNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.12.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolGroupIPDesignatedNum": {
+    "class": "objecttype",
+    "description": " The Designated number of IP in IP Pool Group. ",
+    "maxaccess": "read-only",
+    "name": "hwIPPoolGroupIPDesignatedNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.12.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolGroupIPDisableNum": {
+    "class": "objecttype",
+    "description": " The Disable number of IP in IP Pool Group. ",
+    "maxaccess": "read-only",
+    "name": "hwIPPoolGroupIPDisableNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.12.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolGroupIPFreeNum": {
+    "class": "objecttype",
+    "description": " The Free number of IP in IP Pool Group. ",
+    "maxaccess": "read-only",
+    "name": "hwIPPoolGroupIPFreeNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.12.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolGroupIPTotalNum": {
+    "class": "objecttype",
+    "description": " The Total number of IP in IP Pool Group. ",
+    "maxaccess": "read-only",
+    "name": "hwIPPoolGroupIPTotalNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.12.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolGroupIPUsedNum": {
+    "class": "objecttype",
+    "description": " The Used number of IP in IP Pool Group. ",
+    "maxaccess": "read-only",
+    "name": "hwIPPoolGroupIPUsedNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.12.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolGroupIPUsedPercent": {
+    "class": "objecttype",
+    "description": " The Used Percent of IP in IP Pool Group. ",
+    "maxaccess": "read-only",
+    "name": "hwIPPoolGroupIPUsedPercent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.12.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1024,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolGroupIncludePoolNum": {
+    "class": "objecttype",
+    "description": " The number of IP Pools referenced in IP Pool Group. ",
+    "maxaccess": "read-only",
+    "name": "hwIPPoolGroupIncludePoolNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.12.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1024,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolGroupIncludeUndo": {
+    "class": "objecttype",
+    "description": "Whether dereference all IP Pools in Pool Group. Only support dereference all IP Pools in this operation. If dereference Pool one by one is needed, please use IPPoolGroupExtTable. ",
+    "maxaccess": "read-create",
+    "name": "hwIPPoolGroupIncludeUndo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.10.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIPPoolGroupIndex": {
+    "class": "objecttype",
+    "description": "Exclusive index of IP pool group.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIPPoolGroupIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolGroupName": {
+    "class": "objecttype",
+    "description": " Name of an IP Pool Group. ",
+    "maxaccess": "read-only",
+    "name": "hwIPPoolGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.10.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIPPoolGroupRowStatus": {
+    "class": "objecttype",
+    "description": " Row status of IP Pool Group. Support Active, CreateAndGo and Destroy. ",
+    "maxaccess": "read-create",
+    "name": "hwIPPoolGroupRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.10.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIPPoolGroupTable": {
+    "class": "objecttype",
+    "description": "Configuration table of the address Pool Group. IP Pool Group support an aggregation of IP Pools. Many Ip Pools of different gateway can be referenced by IP Pool Group. The max number of IP Pools referenced by an Ip Pool Group is 1024 ",
+    "maxaccess": "not-accessible",
+    "name": "hwIPPoolGroupTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.10",
+    "status": "current"
+  },
+  "hwIPPoolGroupTableGroup": {
+    "class": "objectgroup",
+    "description": "The HUAWEI Ip pool group configuration group.",
+    "name": "hwIPPoolGroupTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupName"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupVPNInstance"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupIncludeUndo"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.12",
+    "status": "current"
+  },
+  "hwIPPoolGroupVPNInstance": {
+    "class": "objecttype",
+    "description": " Vpn instance of an address Pool Group. Vpn instance of All IP Pools must accord with the vpn instance of IP Pool Group. Use string \u0027--\u0027 to undo vpn instance in Pool Group. ",
+    "maxaccess": "read-create",
+    "name": "hwIPPoolGroupVPNInstance",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.10.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIPPoolHighAddr": {
+    "class": "objecttype",
+    "description": "The highest IP address in the pool.",
+    "maxaccess": "read-only",
+    "name": "hwIPPoolHighAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIPPoolIPAddrLease": {
+    "class": "objecttype",
+    "description": "IP address lease: 0~(1000*24*60-1)(m) unit: minute. It is allowed not to specify the lease during the adding. The default value is 3*24*60(m).",
+    "maxaccess": "read-create",
+    "name": "hwIPPoolIPAddrLease",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolIPConflictNum": {
+    "class": "objecttype",
+    "description": "the number of conflict addresses.",
+    "maxaccess": "read-only",
+    "name": "hwIPPoolIPConflictNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolIPExcludeNum": {
+    "class": "objecttype",
+    "description": "the number of exclude addresses.",
+    "maxaccess": "read-only",
+    "name": "hwIPPoolIPExcludeNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolIPIdleNum": {
+    "class": "objecttype",
+    "description": "the number of idle addresses.",
+    "maxaccess": "read-only",
+    "name": "hwIPPoolIPIdleNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolIPTotalNum": {
+    "class": "objecttype",
+    "description": "the number of total addresses.",
+    "maxaccess": "read-only",
+    "name": "hwIPPoolIPTotalNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolIPUsedNum": {
+    "class": "objecttype",
+    "description": "the number of used addresses.",
+    "maxaccess": "read-only",
+    "name": "hwIPPoolIPUsedNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolIPUsedPercent": {
+    "class": "objecttype",
+    "description": "used percent.",
+    "maxaccess": "read-only",
+    "name": "hwIPPoolIPUsedPercent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolIndex": {
+    "class": "objecttype",
+    "description": "Exclusive index of address pool.",
+    "maxaccess": "read-only",
+    "name": "hwIPPoolIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4095,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolIpAddrRebinding": {
+    "class": "objecttype",
+    "description": "ip address rebinding: 0~(1000*24*60-1)(m) unit: minute. It is allowed not to specify the renewal during the adding. The default value is 3780(m)",
+    "maxaccess": "read-create",
+    "name": "hwIPPoolIpAddrRebinding",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolIpAddrRenewal": {
+    "class": "objecttype",
+    "description": "ip address renewal: 0~(1000*24*60-1)(m) unit: minute. It is allowed not to specify the renewal during the adding. The default value is 2160(m)",
+    "maxaccess": "read-create",
+    "name": "hwIPPoolIpAddrRenewal",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolLowAddr": {
+    "class": "objecttype",
+    "description": "The lowest IP address in the pool.",
+    "maxaccess": "read-only",
+    "name": "hwIPPoolLowAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIPPoolMibObjects": {
+    "class": "objectidentity",
+    "name": "hwIPPoolMibObjects",
+    "oid": "1.3.6.1.4.1.2011.6.8.1"
+  },
+  "hwIPPoolMibTrap": {
+    "class": "objectidentity",
+    "name": "hwIPPoolMibTrap",
+    "oid": "1.3.6.1.4.1.2011.6.8.2"
+  },
+  "hwIPPoolNBNSIPAddrString": {
+    "class": "objecttype",
+    "description": "String of NetBIOS server ip addresses for DHCP clients. Since mostly 8 ip addresses can be configured for a pool totally, so a string is defined to get or configure 8 ip addresses at a time",
+    "maxaccess": "read-write",
+    "name": "hwIPPoolNBNSIPAddrString",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 129,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIPPoolNBNSIPAddrStringUndo": {
+    "class": "objecttype",
+    "description": "A NetBIOS server ip address to delete. This object is only for deleting a given ip address of NetBIOS server",
+    "maxaccess": "read-write",
+    "name": "hwIPPoolNBNSIPAddrStringUndo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 129,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIPPoolName": {
+    "class": "objecttype",
+    "description": "IP address pool name, the service module guarantees the exclusiveness of the name.",
+    "maxaccess": "read-create",
+    "name": "hwIPPoolName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 35,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIPPoolNetwork": {
+    "class": "objecttype",
+    "description": "Network ip address of a DHCP Server global pool. To delete a configured network ip, please set hwDHCPSGlobalPoolConfigUndoFlag to 1",
+    "maxaccess": "read-create",
+    "name": "hwIPPoolNetwork",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIPPoolNetworkMask": {
+    "class": "objecttype",
+    "description": "Net mask of a DHCP Server global pool(network). The SET operation to this object ought to be with the SET of hwDHCPSGlobalPoolNetwork together, and any SET operation alone to this object will be regarded as an invalid operation. When a network ip of a DHCP server global pool was deleted, the net mask would also be deleted automatically, and no further operation needed",
+    "maxaccess": "read-create",
+    "name": "hwIPPoolNetworkMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIPPoolNum": {
+    "class": "objecttype",
+    "description": "Number of configured addresses pools.",
+    "maxaccess": "read-only",
+    "name": "hwIPPoolNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.7.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolOptionEntry": {
+    "class": "objecttype",
+    "description": "DESCRIPTION.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpOptionId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIPPoolOptionEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.9.1",
+    "status": "current"
+  },
+  "hwIPPoolOptionExtEntry": {
+    "class": "objecttype",
+    "description": "DESCRIPTION.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpOptionId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpOptionSubId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIPPoolOptionExtEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.14.1",
+    "status": "current"
+  },
+  "hwIPPoolOptionExtTable": {
+    "class": "objecttype",
+    "description": "A Ext table for configuring options to DHCP server pools, include option code type and value and so on .",
+    "maxaccess": "not-accessible",
+    "name": "hwIPPoolOptionExtTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.14",
+    "status": "current"
+  },
+  "hwIPPoolOptionExtTableGroup": {
+    "class": "objectgroup",
+    "description": "A table for configuring options to DHCP server pools, include suboption code type and value and so on .",
+    "name": "hwIPPoolOptionExtTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpOptionSubId"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpOptionSubType"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpOptionSubValue"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpOptionSubRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.16",
+    "status": "current"
+  },
+  "hwIPPoolOptionTable": {
+    "class": "objecttype",
+    "description": "A table for configuring options to DHCP server pools, include option code type and value and so on .",
+    "maxaccess": "not-accessible",
+    "name": "hwIPPoolOptionTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.9",
+    "status": "current"
+  },
+  "hwIPPoolOptionTableGroup": {
+    "class": "objectgroup",
+    "description": "A table for configuring options to DHCP server pools, include option code type and value and so on .",
+    "name": "hwIPPoolOptionTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpOptionId"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpOption"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpOptionRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.11",
+    "status": "current"
+  },
+  "hwIPPoolPDUnshareOnly": {
+    "class": "objecttype",
+    "description": "The flag indicates whether the prefix pool only for DHCPv6 IA_PD. The node is valid only for delegation prefix pool.",
+    "maxaccess": "read-write",
+    "name": "hwIPPoolPDUnshareOnly",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.16.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIPPoolPriDNSIPAddr": {
+    "class": "objecttype",
+    "description": "Primary DNS IP address. By default, it is 255.255.255.255.",
+    "maxaccess": "read-create",
+    "name": "hwIPPoolPriDNSIPAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIPPoolPriNBNSIPAddr": {
+    "class": "objecttype",
+    "description": "Primary Netbios IP address. By default, it is 255.255.255.255.",
+    "maxaccess": "read-create",
+    "name": "hwIPPoolPriNBNSIPAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIPPoolReplyOptionEntry": {
+    "class": "objecttype",
+    "description": "DESCRIPTION.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpSpecOptionId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpSpecOption"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpReplyOptionId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpReplyOptionSubId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIPPoolReplyOptionEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.15.1",
+    "status": "current"
+  },
+  "hwIPPoolReplyOptionGroup": {
+    "class": "objectgroup",
+    "description": "Dhcp reply options which will be replied to client in according to specified option value of DHCP client request ",
+    "name": "hwIPPoolReplyOptionGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpSpecOptionId"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpSpecOption"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpReplyOptionId"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpReplyOptionSubId"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpReplyOptionSubType"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpReplyOptionSub"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpReplyOptionRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.17",
+    "status": "current"
+  },
+  "hwIPPoolReplyOptionTable": {
+    "class": "objecttype",
+    "description": "A table for configuring options which will be replied to client in according to specified option value of DHCP client request ",
+    "maxaccess": "not-accessible",
+    "name": "hwIPPoolReplyOptionTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.15",
+    "status": "current"
+  },
+  "hwIPPoolReqNum": {
+    "class": "objecttype",
+    "description": "The number of the request packet.",
+    "maxaccess": "read-only",
+    "name": "hwIPPoolReqNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolReqSucNum": {
+    "class": "objecttype",
+    "description": "The number of the effective request packet.",
+    "maxaccess": "read-only",
+    "name": "hwIPPoolReqSucNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPPoolRouterIPAddr": {
+    "class": "objecttype",
+    "description": "Gateway IP address. By default, the mask is 255.255.255.255.",
+    "maxaccess": "read-create",
+    "name": "hwIPPoolRouterIPAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIPPoolRouterIPMask": {
+    "class": "objecttype",
+    "description": "Gateway mask. By default, the mask is 255.255.255.255.",
+    "maxaccess": "read-create",
+    "name": "hwIPPoolRouterIPMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIPPoolRouterUnnumberedIfName": {
+    "class": "objecttype",
+    "description": "unnumbered interface name.",
+    "maxaccess": "read-create",
+    "name": "hwIPPoolRouterUnnumberedIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIPPoolSIPAddr1": {
+    "class": "objecttype",
+    "description": "SIP Server IP address",
+    "maxaccess": "read-create",
+    "name": "hwIPPoolSIPAddr1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIPPoolSIPAddr2": {
+    "class": "objecttype",
+    "description": "SIP Server IP address",
+    "maxaccess": "read-create",
+    "name": "hwIPPoolSIPAddr2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIPPoolSIPName1": {
+    "class": "objecttype",
+    "description": "The name of SIP server. 0 indicates to delete the SIP server. ",
+    "maxaccess": "read-write",
+    "name": "hwIPPoolSIPName1",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIPPoolSIPName2": {
+    "class": "objecttype",
+    "description": "The name of SIP server. 0 indicates to delete the SIP server. ",
+    "maxaccess": "read-write",
+    "name": "hwIPPoolSIPName2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.3.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIPPoolSecDNSIPAddr": {
+    "class": "objecttype",
+    "description": "Second DNS IP address. By default, it is 255.255.255.255.",
+    "maxaccess": "read-create",
+    "name": "hwIPPoolSecDNSIPAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIPPoolSecNBNSIPAddr": {
+    "class": "objecttype",
+    "description": "Second Netbios IP address. By default, it is 255.255.255.255.",
+    "maxaccess": "read-create",
+    "name": "hwIPPoolSecNBNSIPAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIPPoolSetting": {
+    "class": "objectidentity",
+    "name": "hwIPPoolSetting",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.27"
+  },
+  "hwIPPoolStatistic": {
+    "class": "objectidentity",
+    "name": "hwIPPoolStatistic",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.7"
+  },
+  "hwIPPoolStatus": {
+    "class": "objecttype",
+    "description": "Row admin status, either Add or Delete. Supports adding and deletion.",
+    "maxaccess": "read-create",
+    "name": "hwIPPoolStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIPPoolTable": {
+    "class": "objecttype",
+    "description": "The configuration table of IP address pool.",
+    "maxaccess": "not-accessible",
+    "name": "hwIPPoolTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1",
+    "status": "current"
+  },
+  "hwIPPoolTrapOid": {
+    "class": "objectidentity",
+    "name": "hwIPPoolTrapOid",
+    "oid": "1.3.6.1.4.1.2011.6.8.2.1"
+  },
+  "hwIPPoolTraps": {
+    "class": "objectidentity",
+    "name": "hwIPPoolTraps",
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0"
+  },
+  "hwIPPoolTrapsDefine": {
+    "class": "objectidentity",
+    "name": "hwIPPoolTrapsDefine",
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2"
+  },
+  "hwIPPoolType": {
+    "class": "objecttype",
+    "description": "Value indicates the type of pool, 1-local, 2-relay, 3-server, 4-localRuiSlave.",
+    "maxaccess": "read-create",
+    "name": "hwIPPoolType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "localRuiSlave": 4,
+          "relay": 2,
+          "server": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIPPoolVPNInstance": {
+    "class": "objecttype",
+    "description": "IP VPN-instance name.",
+    "maxaccess": "read-create",
+    "name": "hwIPPoolVPNInstance",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIPSectionAvailableNum": {
+    "class": "objecttype",
+    "description": "The number of available addresses.",
+    "maxaccess": "read-only",
+    "name": "hwIPSectionAvailableNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65536,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPSectionConflict": {
+    "class": "objecttype",
+    "description": "The number of conflict addresses.",
+    "maxaccess": "read-only",
+    "name": "hwIPSectionConflict",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65536,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPSectionDesc": {
+    "class": "objecttype",
+    "description": "IP section DESCRIPTION, which can be empty.",
+    "maxaccess": "read-create",
+    "name": "hwIPSectionDesc",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIPSectionEntry": {
+    "class": "objecttype",
+    "description": "IPSection Entry. IP section configuration table, used to manage the IP address of user. There are at most eight address sections to each address pool. Its indexes are hwIPPoolIndex (from the external) and HwIPSectionIndex.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPSectionIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIPSectionEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.2.1",
+    "status": "current"
+  },
+  "hwIPSectionHighAddr": {
+    "class": "objecttype",
+    "description": "End of address.",
+    "maxaccess": "read-create",
+    "name": "hwIPSectionHighAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIPSectionIndex": {
+    "class": "objecttype",
+    "description": "Index of address section.",
+    "maxaccess": "read-only",
+    "name": "hwIPSectionIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPSectionInvalid": {
+    "class": "objecttype",
+    "description": "The number of invalid addresses.",
+    "maxaccess": "read-only",
+    "name": "hwIPSectionInvalid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65536,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPSectionLength": {
+    "class": "objecttype",
+    "description": "IP section\u0027s length.",
+    "maxaccess": "read-only",
+    "name": "hwIPSectionLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65536,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPSectionLowAddr": {
+    "class": "objecttype",
+    "description": "Start of address.",
+    "maxaccess": "read-create",
+    "name": "hwIPSectionLowAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIPSectionRowStatus": {
+    "class": "objecttype",
+    "description": "Row admin status, either Add or Delete.",
+    "maxaccess": "read-create",
+    "name": "hwIPSectionRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIPSectionTable": {
+    "class": "objecttype",
+    "description": "The configuration table of IP section.",
+    "maxaccess": "not-accessible",
+    "name": "hwIPSectionTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.2",
+    "status": "current"
+  },
+  "hwIPSectionUsedNum": {
+    "class": "objecttype",
+    "description": "The number of Used addresses.",
+    "maxaccess": "read-only",
+    "name": "hwIPSectionUsedNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65536,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPTotalNum": {
+    "class": "objecttype",
+    "description": "The total number of IP address.",
+    "maxaccess": "read-only",
+    "name": "hwIPTotalNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.7.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPUsedPercent": {
+    "class": "objecttype",
+    "description": "The percent of used IP address.",
+    "maxaccess": "read-only",
+    "name": "hwIPUsedPercent",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.7.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPUsedTotalNum": {
+    "class": "objecttype",
+    "description": "Number of addresses in use on the equipment.",
+    "maxaccess": "read-only",
+    "name": "hwIPUsedTotalNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.7.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPV6AddressStatusEntry": {
+    "class": "objecttype",
+    "description": "DESCRIPTION.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PrefixIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6Address"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIPV6AddressStatusEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.24.1",
+    "status": "current"
+  },
+  "hwIPV6AddressStatusTable": {
+    "class": "objecttype",
+    "description": "A table for configuring the status of ipv6 address which in ipv6 local preifx ",
+    "maxaccess": "not-accessible",
+    "name": "hwIPV6AddressStatusTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.24",
+    "status": "current"
+  },
+  "hwIPV6AddressStatusTableGroup": {
+    "class": "objectgroup",
+    "description": "The HUAWEI IPv6 address status configuration group.",
+    "name": "hwIPV6AddressStatusTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6Address"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6AddressStatus"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6LocalPrefixName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.25",
+    "status": "current"
+  },
+  "hwIPV6PrefixStatusEntry": {
+    "class": "objecttype",
+    "description": "DESCRIPTION.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PrefixIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIpv6Prefix"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIPV6PrefixStatusEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.25.1",
+    "status": "current"
+  },
+  "hwIPV6PrefixStatusTable": {
+    "class": "objecttype",
+    "description": "A table for configuring the status of ipv6 prefix which in ipv6 delegation preifx ",
+    "maxaccess": "not-accessible",
+    "name": "hwIPV6PrefixStatusTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.25",
+    "status": "current"
+  },
+  "hwIPV6PrefixStatusTableGroup": {
+    "class": "objectgroup",
+    "description": "The HUAWEI IPv6 prefix status configuration group.",
+    "name": "hwIPV6PrefixStatusTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIpv6Prefix"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIpv6PrefixLen"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PrefixStatus"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6DelegationPrefixName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.26",
+    "status": "current"
+  },
+  "hwIPv6Address": {
+    "class": "objecttype",
+    "description": "Ipv6Address.",
+    "maxaccess": "read-only",
+    "name": "hwIPv6Address",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.24.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Ipv6Address"
+    }
+  },
+  "hwIPv6AddressConflictNum": {
+    "class": "objecttype",
+    "description": "The conflict IPv6 address number of IPv6 address pool.",
+    "maxaccess": "read-only",
+    "name": "hwIPv6AddressConflictNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.18.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6AddressExcludeNum": {
+    "class": "objecttype",
+    "description": "The excluded IPv6 address number of IPv6 address pool.",
+    "maxaccess": "read-only",
+    "name": "hwIPv6AddressExcludeNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.18.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6AddressExhaustAlarm": {
+    "class": "notificationtype",
+    "description": " The IPv6 addresses in the IPv6 pool is exhausted. ",
+    "name": "hwIPv6AddressExhaustAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PoolIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PoolName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.20",
+    "status": "current"
+  },
+  "hwIPv6AddressExhaustAlarmResume": {
+    "class": "notificationtype",
+    "description": " The IPv6 addresses exhausted alarm cleared. ",
+    "name": "hwIPv6AddressExhaustAlarmResume",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PoolIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PoolName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.21",
+    "status": "current"
+  },
+  "hwIPv6AddressFreeNum": {
+    "class": "objecttype",
+    "description": "The free IPv6 address number of IPv6 address pool.",
+    "maxaccess": "read-only",
+    "name": "hwIPv6AddressFreeNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.18.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6AddressStatus": {
+    "class": "objecttype",
+    "description": "Ipv6Address status: idle(0) occupied(1) prohibitive(2) conflictive(3). Status can set idle(0) when prohibitive(2) conflictive(3) reserved(7),set prohibitive(2) when idle(0).",
+    "maxaccess": "read-write",
+    "name": "hwIPv6AddressStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.24.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "conflictive": 3,
+          "flex": 4,
+          "idle": 0,
+          "occupied": 1,
+          "prohibitive": 2,
+          "radius": 6,
+          "reserved": 7,
+          "static": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIPv6AddressTotalNum": {
+    "class": "objecttype",
+    "description": "The total IPv6 address number of IPv6 address pool.",
+    "maxaccess": "read-only",
+    "name": "hwIPv6AddressTotalNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.18.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6AddressUsedNum": {
+    "class": "objecttype",
+    "description": "The used IPv6 address number of IPv6 address pool.",
+    "maxaccess": "read-only",
+    "name": "hwIPv6AddressUsedNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.18.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6AddressUsedPercent": {
+    "class": "objecttype",
+    "description": "The percent of used IPv6 addressof IPv6 address pool.",
+    "maxaccess": "read-only",
+    "name": "hwIPv6AddressUsedPercent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.18.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6BindPrefix": {
+    "class": "objecttype",
+    "description": "The binding prefix of client.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6BindPrefix",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.19.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Ipv6AddressPrefix"
+    }
+  },
+  "hwIPv6ClientDuid": {
+    "class": "objecttype",
+    "description": "The client duid.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6ClientDuid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.19.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 28,
+            "min": 8
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIPv6DelegationPrefixName": {
+    "class": "objecttype",
+    "description": "Ipv6 Delegation prefix\u0027s name.",
+    "maxaccess": "read-only",
+    "name": "hwIPv6DelegationPrefixName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.25.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIPv6DuidBindPrefixEntry": {
+    "class": "objecttype",
+    "description": "The binding of client\u0027s DUID and prefix.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PrefixIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6ClientDuid"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIPv6DuidBindPrefixEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.19.1",
+    "status": "current"
+  },
+  "hwIPv6DuidBindPrefixRowStatus": {
+    "class": "objecttype",
+    "description": "Row admin status. Support adding and deletion.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6DuidBindPrefixRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.19.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIPv6DuidBindPrefixTable": {
+    "class": "objecttype",
+    "description": " The binding of client DUID and prefix. ",
+    "maxaccess": "not-accessible",
+    "name": "hwIPv6DuidBindPrefixTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.19",
+    "status": "current"
+  },
+  "hwIPv6DuidBindPrefixTableGroup": {
+    "class": "objectgroup",
+    "description": ".",
+    "name": "hwIPv6DuidBindPrefixTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6ClientDuid"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6BindPrefix"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6DuidBindPrefixRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.21",
+    "status": "current"
+  },
+  "hwIPv6FreeAddressNum": {
+    "class": "objecttype",
+    "description": "The free address number of IPv6 addres pool.",
+    "maxaccess": "read-only",
+    "name": "hwIPv6FreeAddressNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.18.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6FreePrefixNum": {
+    "class": "objecttype",
+    "description": "The free prefix number of IPv6 addres pool.",
+    "maxaccess": "read-only",
+    "name": "hwIPv6FreePrefixNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.18.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6LinkAddress": {
+    "class": "objecttype",
+    "description": "The link address of the IPv6 remote prefix pool. This node is valid only for remote prefix pool.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6LinkAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.16.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Ipv6Address"
+    }
+  },
+  "hwIPv6LocalPrefixName": {
+    "class": "objecttype",
+    "description": "Ipv6 Local prefix\u0027s name.",
+    "maxaccess": "read-only",
+    "name": "hwIPv6LocalPrefixName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.24.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIPv6NDRAPrefixConflictNum": {
+    "class": "objecttype",
+    "description": "The conflict NDRA prefix number of IPv6 address pool.",
+    "maxaccess": "read-only",
+    "name": "hwIPv6NDRAPrefixConflictNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.18.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6NDRAPrefixExcludeNum": {
+    "class": "objecttype",
+    "description": "The excluded NDRA prefix number of IPv6 address pool.",
+    "maxaccess": "read-only",
+    "name": "hwIPv6NDRAPrefixExcludeNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.18.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6NDRAPrefixFreeNum": {
+    "class": "objecttype",
+    "description": "The free NDRA prefix number of IPv6 address pool.",
+    "maxaccess": "read-only",
+    "name": "hwIPv6NDRAPrefixFreeNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.18.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6NDRAPrefixTotalNum": {
+    "class": "objecttype",
+    "description": "The total NDRA prefix number of IPv6 address pool.",
+    "maxaccess": "read-only",
+    "name": "hwIPv6NDRAPrefixTotalNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.18.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6NDRAPrefixUsedNum": {
+    "class": "objecttype",
+    "description": "The used NDRA prefix number of IPv6 address pool.",
+    "maxaccess": "read-only",
+    "name": "hwIPv6NDRAPrefixUsedNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.18.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6NDRAPrefixUsedPercent": {
+    "class": "objecttype",
+    "description": "The percent of used IPv6 NDRA prefix of IPv6 address pool.",
+    "maxaccess": "read-only",
+    "name": "hwIPv6NDRAPrefixUsedPercent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.18.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6PDPrefixConflictNum": {
+    "class": "objecttype",
+    "description": "The conflict PD prefix number of IPv6 address pool.",
+    "maxaccess": "read-only",
+    "name": "hwIPv6PDPrefixConflictNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.18.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6PDPrefixExcludeNum": {
+    "class": "objecttype",
+    "description": "The excluded PD prefix number of IPv6 address pool.",
+    "maxaccess": "read-only",
+    "name": "hwIPv6PDPrefixExcludeNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.18.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6PDPrefixFreeNum": {
+    "class": "objecttype",
+    "description": "The free PD prefix number of IPv6 address pool.",
+    "maxaccess": "read-only",
+    "name": "hwIPv6PDPrefixFreeNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.18.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6PDPrefixTotalNum": {
+    "class": "objecttype",
+    "description": "The total PD prefix number of IPv6 address pool.",
+    "maxaccess": "read-only",
+    "name": "hwIPv6PDPrefixTotalNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.18.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6PDPrefixUsedNum": {
+    "class": "objecttype",
+    "description": "The used PD prefix number of IPv6 address pool.",
+    "maxaccess": "read-only",
+    "name": "hwIPv6PDPrefixUsedNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.18.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6PDPrefixUsedPercent": {
+    "class": "objecttype",
+    "description": "The percent of used IPv6 PD prefix of IPv6 address pool.",
+    "maxaccess": "read-only",
+    "name": "hwIPv6PDPrefixUsedPercent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.18.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6PoolAFTRName": {
+    "class": "objecttype",
+    "description": "Configure the name of Address Family Transition Router.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6PoolAFTRName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.17.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 63,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIPv6PoolAlgorithm": {
+    "class": "objecttype",
+    "description": "The ipv6 remote pool algorithm.",
+    "maxaccess": "read-write",
+    "name": "hwIPv6PoolAlgorithm",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.27.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIPv6PoolAvailableStatus": {
+    "class": "objecttype",
+    "description": "The flag indicating whether IPv6 address pool is locked.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6PoolAvailableStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.17.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIPv6PoolConstantIndexFail": {
+    "class": "notificationtype",
+    "description": " The constance index of ipv6 pool recover failure. ",
+    "name": "hwIPv6PoolConstantIndexFail",
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.13",
+    "status": "current"
+  },
+  "hwIPv6PoolDnsIPAddr": {
+    "class": "objecttype",
+    "description": "The DNS of IPv6 addres pool. The format to set value is : operator+space+primary DNS+space+secondary DNS. operator: 1-Add, 2-Delete.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6PoolDnsIPAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.17.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 81,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIPv6PoolDnsSearchList": {
+    "class": "objecttype",
+    "description": "The DNS search list of IPv6 addres pool.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6PoolDnsSearchList",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.17.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIPv6PoolEntry": {
+    "class": "objecttype",
+    "description": "The configuration list of IPv6 address pool.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PoolIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIPv6PoolEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.17.1",
+    "status": "current"
+  },
+  "hwIPv6PoolIndex": {
+    "class": "objecttype",
+    "description": "The index of IPv6 addres pool.",
+    "maxaccess": "read-only",
+    "name": "hwIPv6PoolIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.17.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1023,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6PoolName": {
+    "class": "objecttype",
+    "description": "The name of IPv6 addres pool.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6PoolName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.17.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIPv6PoolPreference": {
+    "class": "objecttype",
+    "description": "The preference of IPv6 addres pool.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6PoolPreference",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.17.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6PoolPrefixName": {
+    "class": "objecttype",
+    "description": "The prefix pool name of IPv6 addres pool.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6PoolPrefixName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.17.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIPv6PoolRapidCommitFlag": {
+    "class": "objecttype",
+    "description": "The flag indicating whether DHCPv6 rapid-commit is enabled.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6PoolRapidCommitFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.17.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIPv6PoolRebindingPercent": {
+    "class": "objecttype",
+    "description": "The rebinding time percent of IPv6 addres pool. When hwIPv6PoolRebindingPercent is specified, you need also specify hwIPv6PoolRenewPercent.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6PoolRebindingPercent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.17.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 99,
+            "min": 10
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6PoolRenewPercent": {
+    "class": "objecttype",
+    "description": "The renew time percent of IPv6 addres pool. When hwIPv6PoolRenewPercent is specified, you need also specify hwIPv6PoolRebindingPercent.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6PoolRenewPercent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.17.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 99,
+            "min": 10
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6PoolRowStatus": {
+    "class": "objecttype",
+    "description": "Row admin status. Support adding, modification and deletion.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6PoolRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.17.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIPv6PoolStatistic": {
+    "class": "objectidentity",
+    "name": "hwIPv6PoolStatistic",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.22"
+  },
+  "hwIPv6PoolStatisticGroup": {
+    "class": "objectgroup",
+    "description": "The HUAWEI IPv6 pool statistics group.",
+    "name": "hwIPv6PoolStatisticGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIpv6PoolNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIpv6AddressIdleTotalNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIpv6PrefixIdleTotalNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIpv6AddressUsedTotalNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIpv6PrefixUsedTotalNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwAllIPv6AddressTotalNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwAllIPv6AddressUsedNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwAllIPv6AddressIdleNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwAllIPv6ConflictAddressNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwAllIPv6ExcludeAddressNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwAllIPv6AddressUsedPercent"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwAllNDRAPrefixTotalNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwAllNDRAPrefixUsedNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwAllNDRAPrefixFreeNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwAllNDRAPrefixConflictNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwAllNDRAPrefixExcludeNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwAllNDRAPrefixUsedPercent"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwAllPDPrefixTotalNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwAllPDPrefixUsedNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwAllPDPrefixFreeNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwAllPDPrefixConflictNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwAllPDPrefixExcludeNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwAllPDPrefixUsedPercent"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.24",
+    "status": "current"
+  },
+  "hwIPv6PoolStatusEntry": {
+    "class": "objecttype",
+    "description": "The configuration list of IPv6 address pool\u0027s usage.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PoolIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIPv6PoolStatusEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.18.1",
+    "status": "current"
+  },
+  "hwIPv6PoolStatusTable": {
+    "class": "objecttype",
+    "description": " The configuration table of IPv6 address pool\u0027s usage. ",
+    "maxaccess": "not-accessible",
+    "name": "hwIPv6PoolStatusTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.18",
+    "status": "current"
+  },
+  "hwIPv6PoolStatusTableGroup": {
+    "class": "objectgroup",
+    "description": ".",
+    "name": "hwIPv6PoolStatusTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6FreeAddressNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6UsedAddressNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6FreePrefixNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6UsedPrefixNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6AddressTotalNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6AddressUsedNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6AddressFreeNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6AddressConflictNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6AddressExcludeNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6AddressUsedPercent"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6NDRAPrefixTotalNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6NDRAPrefixUsedNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6NDRAPrefixFreeNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6NDRAPrefixConflictNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6NDRAPrefixExcludeNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6NDRAPrefixUsedPercent"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PDPrefixTotalNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PDPrefixUsedNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PDPrefixFreeNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PDPrefixConflictNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PDPrefixExcludeNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PDPrefixUsedPercent"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.20",
+    "status": "current"
+  },
+  "hwIPv6PoolTable": {
+    "class": "objecttype",
+    "description": " The configuration table of IPv6 address pool. ",
+    "maxaccess": "not-accessible",
+    "name": "hwIPv6PoolTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.17",
+    "status": "current"
+  },
+  "hwIPv6PoolTableGroup": {
+    "class": "objectgroup",
+    "description": ".",
+    "name": "hwIPv6PoolTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PoolIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PoolName"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PoolType"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PoolPrefixName"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PoolDnsIPAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PoolDnsSearchList"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PoolPreference"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PoolAvailableStatus"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PoolRenewPercent"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PoolRebindingPercent"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PoolRapidCommitFlag"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PoolUnicastOption"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PoolAFTRName"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PoolRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.19",
+    "status": "current"
+  },
+  "hwIPv6PoolType": {
+    "class": "objecttype",
+    "description": "The type of IPv6 addres pool.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6PoolType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.17.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delegation": 2,
+          "local": 1,
+          "relay": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIPv6PoolUnicastOption": {
+    "class": "objecttype",
+    "description": "The flag indicating whether DHCPv6 server unicast option is enabled.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6PoolUnicastOption",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.17.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIPv6Prefix": {
+    "class": "objecttype",
+    "description": "The prefix of IPv6 prefix pool. This node is valid only for local and delegation prefix pool.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6Prefix",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.16.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Ipv6AddressPrefix"
+    }
+  },
+  "hwIPv6PrefixAdvPreferredLifetime": {
+    "class": "objecttype",
+    "description": "The preferred lifetime(seconds) of IPv6 prefix pool.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6PrefixAdvPreferredLifetime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.16.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6PrefixAdvValidLifetime": {
+    "class": "objecttype",
+    "description": "The valid lifetime(seconds) of the IPv6 prefix.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6PrefixAdvValidLifetime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.16.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6PrefixAvailableStatus": {
+    "class": "objecttype",
+    "description": "The flag indicating whether the IPv6 prefix pool is locked.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6PrefixAvailableStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.16.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIPv6PrefixConstantIndexFail": {
+    "class": "notificationtype",
+    "description": " The constance index of ipv6 prefix pool recover failure. ",
+    "name": "hwIPv6PrefixConstantIndexFail",
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.12",
+    "status": "current"
+  },
+  "hwIPv6PrefixDelegatingLen": {
+    "class": "objecttype",
+    "description": "The delegating prefix length of IPv6 prefix pool. Note that 0 is not a configurable value. This node is valid only for local and delegation prefix pool.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6PrefixDelegatingLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.16.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6PrefixEntry": {
+    "class": "objecttype",
+    "description": "The configuration list of IPv6 prefix pool.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PrefixIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIPv6PrefixEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.16.1",
+    "status": "current"
+  },
+  "hwIPv6PrefixIndex": {
+    "class": "objecttype",
+    "description": "The index of IPv6 prefix pool.",
+    "maxaccess": "read-only",
+    "name": "hwIPv6PrefixIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.16.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1023,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6PrefixLen": {
+    "class": "objecttype",
+    "description": "The prefix length of IPv6 prefix pool. Note that 0 is not a configurable value.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6PrefixLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.16.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6PrefixName": {
+    "class": "objecttype",
+    "description": "The name of IPv6 prefix pool",
+    "maxaccess": "read-create",
+    "name": "hwIPv6PrefixName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.16.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIPv6PrefixReservedFlag": {
+    "class": "objecttype",
+    "description": "The reserved flag of the IPv6 prefix pool. 0-none reserved, 1-mac reserved, 2-mac plus lease reserved, 3-duid reserved, 4-duid plus lease reserved.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6PrefixReservedFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.16.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "duidPlusLeaseReserved": 4,
+          "duidReserved": 3,
+          "macPlusLeaseReserved": 2,
+          "macReserved": 1,
+          "noneReserved": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIPv6PrefixRowStatus": {
+    "class": "objecttype",
+    "description": "Row admin status. Support adding, modification and deletion.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6PrefixRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.16.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIPv6PrefixStatus": {
+    "class": "objecttype",
+    "description": "Ipv6 Prefix status:idle(0) occupied(1) prohibitive(2) conflictive(3). Status can set idle(0) when prohibitive(2) conflictive(3) reserved(7),set prohibitive(2) when idle(0).",
+    "maxaccess": "read-write",
+    "name": "hwIPv6PrefixStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.25.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "binded": 8,
+          "conflictive": 3,
+          "flex": 4,
+          "idle": 0,
+          "occupied": 1,
+          "prohibitive": 2,
+          "radius": 6,
+          "reserved": 7,
+          "static": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIPv6PrefixTable": {
+    "class": "objecttype",
+    "description": " The configuration table of IPv6 prefix pool. ",
+    "maxaccess": "not-accessible",
+    "name": "hwIPv6PrefixTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.16",
+    "status": "current"
+  },
+  "hwIPv6PrefixTableGroup": {
+    "class": "objectgroup",
+    "description": ".",
+    "name": "hwIPv6PrefixTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PrefixIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PrefixName"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PrefixType"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6Prefix"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PrefixLen"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PrefixDelegatingLen"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PrefixAdvPreferredLifetime"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PrefixAdvValidLifetime"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PrefixAvailableStatus"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6VPNInstance"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PrefixReservedFlag"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6LinkAddress"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6SlaacUnsharedFlag"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PrefixRowStatus"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolPDUnshareOnly"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.18",
+    "status": "current"
+  },
+  "hwIPv6PrefixType": {
+    "class": "objecttype",
+    "description": "The type of IPv6 prefix pool.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6PrefixType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.16.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delegation": 2,
+          "local": 1,
+          "remote": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIPv6RemotePoolAvailableStatus": {
+    "class": "objecttype",
+    "description": "The flag indicating whether remote address pool is locked.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6RemotePoolAvailableStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.21.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIPv6RemotePoolDhcpv6SvrGroupName": {
+    "class": "objecttype",
+    "description": "The DHCPv6 server group name of remote address pool.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6RemotePoolDhcpv6SvrGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.21.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIPv6RemotePoolEntry": {
+    "class": "objecttype",
+    "description": "The configuration list of IPv6 remote address pool.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6RemotePoolIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIPv6RemotePoolEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.21.1",
+    "status": "current"
+  },
+  "hwIPv6RemotePoolExportHostRouteFlag": {
+    "class": "objecttype",
+    "description": "The flag indicating whether to export ipv6 host route.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6RemotePoolExportHostRouteFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.21.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIPv6RemotePoolExportHostRouteIPv6Address": {
+    "class": "objecttype",
+    "description": "The flag indicating whether to export host\u0027s ipv6 address route .",
+    "maxaccess": "read-create",
+    "name": "hwIPv6RemotePoolExportHostRouteIPv6Address",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.21.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIPv6RemotePoolExportHostRouteNDPrefix": {
+    "class": "objecttype",
+    "description": "The flag indicating whether to export host\u0027s nd prefix route.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6RemotePoolExportHostRouteNDPrefix",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.21.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIPv6RemotePoolExportHostRoutePDPrefix": {
+    "class": "objecttype",
+    "description": "The flag indicating whether to export host\u0027s pd prefix route.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6RemotePoolExportHostRoutePDPrefix",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.21.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIPv6RemotePoolIndex": {
+    "class": "objecttype",
+    "description": "The index of remote address pool.",
+    "maxaccess": "read-only",
+    "name": "hwIPv6RemotePoolIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.21.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1023,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6RemotePoolName": {
+    "class": "objecttype",
+    "description": "The name of remote address pool.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6RemotePoolName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.21.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIPv6RemotePoolPrefixName": {
+    "class": "objecttype",
+    "description": "The prefix pool name of remote address pool.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6RemotePoolPrefixName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.21.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIPv6RemotePoolRowStatus": {
+    "class": "objecttype",
+    "description": "Row admin status. Support adding, modification and deletion.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6RemotePoolRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.21.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIPv6RemotePoolTable": {
+    "class": "objecttype",
+    "description": " The configuration table of IPv6 remote address pool. ",
+    "maxaccess": "not-accessible",
+    "name": "hwIPv6RemotePoolTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.21",
+    "status": "current"
+  },
+  "hwIPv6RemotePoolTableGroup": {
+    "class": "objectgroup",
+    "description": ".",
+    "name": "hwIPv6RemotePoolTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6RemotePoolIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6RemotePoolName"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6RemotePoolPrefixName"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6RemotePoolDhcpv6SvrGroupName"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6RemotePoolAvailableStatus"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6RemotePoolExportHostRouteFlag"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6RemotePoolRowStatus"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6RemotePoolExportHostRouteIPv6Address"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6RemotePoolExportHostRoutePDPrefix"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6RemotePoolExportHostRouteNDPrefix"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6RemotePoolWeight"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.23",
+    "status": "current"
+  },
+  "hwIPv6RemotePoolWeight": {
+    "class": "objecttype",
+    "description": "The weight of this Remote IPv6 pool.",
+    "maxaccess": "read-write",
+    "name": "hwIPv6RemotePoolWeight",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.21.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6SlaacUnsharedFlag": {
+    "class": "objecttype",
+    "description": "The flag indicates whether prefix pool is used in unshared-mode. The node is valid only for delegation prefix pool.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6SlaacUnsharedFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.16.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIPv6UsedAddressNum": {
+    "class": "objecttype",
+    "description": "The used address number of IPv6 addres pool.",
+    "maxaccess": "read-only",
+    "name": "hwIPv6UsedAddressNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.18.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6UsedPrefixNum": {
+    "class": "objecttype",
+    "description": "The used prefix number of IPv6 addres pool.",
+    "maxaccess": "read-only",
+    "name": "hwIPv6UsedPrefixNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.18.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIPv6VPNInstance": {
+    "class": "objecttype",
+    "description": "The vpn instance name of the IPv6 prefix pool.",
+    "maxaccess": "read-create",
+    "name": "hwIPv6VPNInstance",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.16.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIpAddressStatusTableGroup": {
+    "class": "objectgroup",
+    "description": "The HUAWEI IP address status configuration group.",
+    "name": "hwIpAddressStatusTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPAddress"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPAddressStatus"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwPoolName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.4",
+    "status": "current"
+  },
+  "hwIpPoolCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting this module.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIpPoolTableGroup"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIpSectionTableGroup"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIpPoolExtTableGroup"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIpAddressStatusTableGroup"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwDhcpSvrGroupTableGroup"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemotePoolTableGroup"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwDhcpServerTableGroup"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIpPoolStatisticGroup"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIpPoolTrapOidGroup"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIpPoolTrapsGroup"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupTableGroup"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupExtTableGroup"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupDisplayTableGroup"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PrefixTableGroup"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PoolTableGroup"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PoolStatusTableGroup"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6DuidBindPrefixTableGroup"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwDhcpv6SvrGroupTableGroup"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6RemotePoolTableGroup"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PoolStatisticGroup"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPV6AddressStatusTableGroup"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPV6PrefixStatusTableGroup"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolConstantIndexGroup"
+      }
+    ],
+    "name": "hwIpPoolCompliance",
+    "oid": "1.3.6.1.4.1.2011.6.8.3.1.1",
+    "status": "current"
+  },
+  "hwIpPoolCompliances": {
+    "class": "objectidentity",
+    "name": "hwIpPoolCompliances",
+    "oid": "1.3.6.1.4.1.2011.6.8.3.1"
+  },
+  "hwIpPoolExtTableGroup": {
+    "class": "objectgroup",
+    "description": "The HUAWEI IP pool extension configuration group.",
+    "name": "hwIpPoolExtTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolAvailableStatus"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpOptionId1"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpOption1"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpOptionId2"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpOption2"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpOptionId3"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpOption3"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpOptionId4"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpOption4"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDnsSuffix"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPDhcpSvrIPRsv"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIpAddrRenewal"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIpAddrRebinding"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolSIPAddr1"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolSIPAddr2"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolSIPName1"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolSIPName2"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.3",
+    "status": "current"
+  },
+  "hwIpPoolMIBConformance": {
+    "class": "objectidentity",
+    "name": "hwIpPoolMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.6.8.3"
+  },
+  "hwIpPoolObjectGroups": {
+    "class": "objectidentity",
+    "name": "hwIpPoolObjectGroups",
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2"
+  },
+  "hwIpPoolStatisticGroup": {
+    "class": "objectgroup",
+    "description": "The HUAWEI IP pool statistics group.",
+    "name": "hwIpPoolStatisticGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPIdleTotalNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPUsedTotalNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPConflictTotalNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPExcludeTotalNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPTotalNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPUsedPercent"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.7",
+    "status": "current"
+  },
+  "hwIpPoolTableGroup": {
+    "class": "objectgroup",
+    "description": "The HUAWEI IP pool configuration group.",
+    "name": "hwIpPoolTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolName"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolRouterIPAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolRouterIPMask"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolPriDNSIPAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolSecDNSIPAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolPriNBNSIPAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolSecNBNSIPAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIPAddrLease"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolStatus"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolVPNInstance"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolType"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolNetwork"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolNetworkMask"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIPTotalNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIPUsedNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIPConflictNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIPExcludeNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIPIdleNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIPUsedPercent"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolDNSIPAddrString"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolDNSIPAddrStringUndo"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolNBNSIPAddrString"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolNBNSIPAddrStringUndo"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.1",
+    "status": "current"
+  },
+  "hwIpPoolTrapOidGroup": {
+    "class": "objectgroup",
+    "description": "The HUAWEI IP pool trap OID group.",
+    "name": "hwIpPoolTrapOidGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwUserIPAddress"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwDHCPServerAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwDhcpSvrVrfName"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwDhcpSvrDownReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.8",
+    "status": "current"
+  },
+  "hwIpPoolTrapsGroup": {
+    "class": "notificationgroup",
+    "description": "The HUAWEI IP pool traps group.",
+    "name": "hwIpPoolTrapsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwUserIPConflictAlarm"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwUserIPLeaseAlarm"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwAllocUserIPFailAlarm"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwDhcpServerDown"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwLocalIPPoolDifferWithServer"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwUsedIPReachThreshold"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwUsedIPReachThresholdResume"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwUsedDeleteUnnumberedRouter"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwPoolGroupUsedIPReachThreshold"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwPoolGroupUsedIPReachThresholdResume"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolConstantIndexFail"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PrefixConstantIndexFail"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PoolConstantIndexFail"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwUsedIPExhaust"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwUsedIPExhaustResume"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwPoolGroupUsedIPExhaust"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwPoolGroupUsedIPExhaustResume"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwUsedIPv6AddressAlarm"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwUsedIPv6AddressAlarmResume"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6AddressExhaustAlarm"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6AddressExhaustAlarmResume"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.9",
+    "status": "current"
+  },
+  "hwIpSectionTableGroup": {
+    "class": "objectgroup",
+    "description": "The HUAWEI IP section configuration group.",
+    "name": "hwIpSectionTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPSectionIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPSectionDesc"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPSectionLowAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPSectionHighAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPSectionLength"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPSectionUsedNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPSectionConflict"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPSectionInvalid"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPSectionAvailableNum"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPSectionRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.2",
+    "status": "current"
+  },
+  "hwIppool": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "The MIB contains objects of module IPPOOL.",
+    "lastupdated": "201508120000Z",
+    "name": "hwIppool",
+    "oid": "1.3.6.1.4.1.2011.6.8",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "Modify V2.12-V2.13 mod hwIPPoolType for supporting local rui-slave address pool.",
+        "revision": "2015-08-12 00:00"
+      },
+      {
+        "description": "Modify V2.11-V2.12 mod for DAP warning fail reason.",
+        "revision": "2015-03-31 00:00"
+      },
+      {
+        "description": "Modify V2.10-V2.11 mod for hwIPv6RemotePoolExportHostRoutePDprefix.",
+        "revision": "2015-02-11 00:00"
+      },
+      {
+        "description": "Modify V2.09-V2.10 add for pool weight and DAP warning.",
+        "revision": "2014-12-26 00:00"
+      },
+      {
+        "description": "V2.08-V2.09 add for pool weight and DAP warning.",
+        "revision": "2014-12-26 00:00"
+      },
+      {
+        "description": "V2.07-V2.08 add four dhcpv6 server support polling.",
+        "revision": "2014-07-25 00:00"
+      },
+      {
+        "description": " V1.2-V1.3 add four nodes.",
+        "revision": "2014-03-14 00:00"
+      },
+      {
+        "description": "The MIB contains objects of module IPPOOL.",
+        "revision": "2013-11-28 00:00"
+      },
+      {
+        "description": "The MIB contains objects of module IPPOOL.",
+        "revision": "2013-11-08 00:00"
+      },
+      {
+        "description": " V1.3-V1.4 add three nodes for export NA/PD/ND route,three table for DHCP enhence.",
+        "revision": "2013-10-17 00:00"
+      },
+      {
+        "description": " V1.2-V1.3 add four nodes.",
+        "revision": "2013-07-27 00:00"
+      },
+      {
+        "description": " V1.1-V1.2 add two nodes for dhcp server down.",
+        "revision": "2013-07-19 00:00"
+      },
+      {
+        "description": "V1.0-V1.1 increate option/s size from 64 to 255.",
+        "revision": "2013-05-22 00:00"
+      }
+    ]
+  },
+  "hwIpv6AddressIdleTotalNum": {
+    "class": "objecttype",
+    "description": "Number of idle IPv6 addresses on the equipment.",
+    "maxaccess": "read-only",
+    "name": "hwIpv6AddressIdleTotalNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.22.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpv6AddressUsedTotalNum": {
+    "class": "objecttype",
+    "description": "Number of IPv6 addresses in use on the equipment.",
+    "maxaccess": "read-only",
+    "name": "hwIpv6AddressUsedTotalNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.22.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpv6PoolNum": {
+    "class": "objecttype",
+    "description": "Number of configured IPv6 address pools.",
+    "maxaccess": "read-only",
+    "name": "hwIpv6PoolNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.22.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpv6Prefix": {
+    "class": "objecttype",
+    "description": "Ipv6Prefix.",
+    "maxaccess": "read-only",
+    "name": "hwIpv6Prefix",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.25.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Ipv6AddressPrefix"
+    }
+  },
+  "hwIpv6PrefixIdleTotalNum": {
+    "class": "objecttype",
+    "description": "Number of idle IPv6 prefixes on the equipment.",
+    "maxaccess": "read-only",
+    "name": "hwIpv6PrefixIdleTotalNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.22.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpv6PrefixLen": {
+    "class": "objecttype",
+    "description": "Ipv6PrefixLength.",
+    "maxaccess": "read-only",
+    "name": "hwIpv6PrefixLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.25.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpv6PrefixUsedTotalNum": {
+    "class": "objecttype",
+    "description": "Number of IPv6 prefixes in use on the equipment.",
+    "maxaccess": "read-only",
+    "name": "hwIpv6PrefixUsedTotalNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.22.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwLocalIPPoolDifferWithServer": {
+    "class": "notificationtype",
+    "description": " The configuration of the IP address pool on the DHCP server is not the same as the configuration of the remote address pool on the local equipment. Solution: Check whether the configuration of the IP address pool on the DHCP server, including the gateway address, mask, and the address range, is the same as the configuration of the remote address pool on the local equipment. ",
+    "name": "hwLocalIPPoolDifferWithServer",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.5",
+    "status": "current"
+  },
+  "hwPoolGroupUsedIPExhaust": {
+    "class": "notificationtype",
+    "description": " The number of IP addresses in the IP pool group is exhausted. ",
+    "name": "hwPoolGroupUsedIPExhaust",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.16",
+    "status": "current"
+  },
+  "hwPoolGroupUsedIPExhaustResume": {
+    "class": "notificationtype",
+    "description": " The number of IP addresses in the IP pool group is under the exhaust. ",
+    "name": "hwPoolGroupUsedIPExhaustResume",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.17",
+    "status": "current"
+  },
+  "hwPoolGroupUsedIPReachThreshold": {
+    "class": "notificationtype",
+    "description": " The number of used IP addresses in the IP pool group exceeds the threshold. Repair suggestion: Check the configuration of the IP address pool group. ",
+    "name": "hwPoolGroupUsedIPReachThreshold",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.9",
+    "status": "current"
+  },
+  "hwPoolGroupUsedIPReachThresholdResume": {
+    "class": "notificationtype",
+    "description": " The number of used IP addresses in the IP pool group is under the threshold. ",
+    "name": "hwPoolGroupUsedIPReachThresholdResume",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolGroupName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.10",
+    "status": "current"
+  },
+  "hwPoolName": {
+    "class": "objecttype",
+    "description": "IP address pool name.",
+    "maxaccess": "read-only",
+    "name": "hwPoolName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwRemoteIPPoolAvailableStatus": {
+    "class": "objecttype",
+    "description": "Whether the address pool is locked, 0: locked, 1: not locked.",
+    "maxaccess": "read-write",
+    "name": "hwRemoteIPPoolAvailableStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "locked": 0,
+          "unlocked": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRemoteIPPoolDhcpGroupName": {
+    "class": "objecttype",
+    "description": "DHCP server group name.",
+    "maxaccess": "read-only",
+    "name": "hwRemoteIPPoolDhcpGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwRemoteIPPoolDhcpSvrGroupID": {
+    "class": "objecttype",
+    "description": "Name of the associated DHCP server group.",
+    "maxaccess": "read-write",
+    "name": "hwRemoteIPPoolDhcpSvrGroupID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4096,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRemoteIPPoolIndex": {
+    "class": "objecttype",
+    "description": "Index of an address pool. When you create an address pool, the equipment adds the hwRemoteIPPoolIndex x entry by default and sends it the NMS. ",
+    "maxaccess": "read-only",
+    "name": "hwRemoteIPPoolIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4095,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRemoteIPPoolLeaseManageEnable": {
+    "class": "objecttype",
+    "description": "Whether the address pool lease manage is enable, 0: diable, 1: enable.",
+    "maxaccess": "read-write",
+    "name": "hwRemoteIPPoolLeaseManageEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwRemoteIPPoolName": {
+    "class": "objecttype",
+    "description": "Name of an address pool. The service module ensures that the name is unique.",
+    "maxaccess": "read-create",
+    "name": "hwRemoteIPPoolName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwRemoteIPPoolPriDNSIPAddress": {
+    "class": "objecttype",
+    "description": "IP address of the active DNS server.",
+    "maxaccess": "read-write",
+    "name": "hwRemoteIPPoolPriDNSIPAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwRemoteIPPoolPriNBNSIPAddress": {
+    "class": "objecttype",
+    "description": "IP address of the active NBNS server.",
+    "maxaccess": "read-write",
+    "name": "hwRemoteIPPoolPriNBNSIPAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwRemoteIPPoolRouterIPAddr": {
+    "class": "objecttype",
+    "description": "IP address of the gateway.",
+    "maxaccess": "read-write",
+    "name": "hwRemoteIPPoolRouterIPAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwRemoteIPPoolRouterIPMask": {
+    "class": "objecttype",
+    "description": "IP address mask.",
+    "maxaccess": "read-write",
+    "name": "hwRemoteIPPoolRouterIPMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwRemoteIPPoolRowStatus": {
+    "class": "objecttype",
+    "description": " Row status of IP pool. ",
+    "maxaccess": "read-create",
+    "name": "hwRemoteIPPoolRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwRemoteIPPoolSecDNSIPAddress": {
+    "class": "objecttype",
+    "description": "IP address of the standby DNS server.",
+    "maxaccess": "read-write",
+    "name": "hwRemoteIPPoolSecDNSIPAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwRemoteIPPoolSecNBNSIPAddress": {
+    "class": "objecttype",
+    "description": "IP address of the standby NBNS server.",
+    "maxaccess": "read-write",
+    "name": "hwRemoteIPPoolSecNBNSIPAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwRemoteIPPoolVPNInstance": {
+    "class": "objecttype",
+    "description": "IP VPN-instance name.",
+    "maxaccess": "read-write",
+    "name": "hwRemoteIPPoolVPNInstance",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwRemoteIPPoolWeight": {
+    "class": "objecttype",
+    "description": "The weight of this Remote IP pool.",
+    "maxaccess": "read-write",
+    "name": "hwRemoteIPPoolWeight",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwRemotePoolEntry": {
+    "class": "objecttype",
+    "description": "DESCRIPTION.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRemotePoolEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6.1",
+    "status": "current"
+  },
+  "hwRemotePoolTable": {
+    "class": "objecttype",
+    "description": "Configuration table of the remote address pool. The remote address pool must be configured on the local equipment in the following cases: Users obtain IP addresses through the built-in DHCP client and need to renew the addresses. The equipment needs to record the IP addresses to be renewed. The equipment needs to report the routes of the users.",
+    "maxaccess": "not-accessible",
+    "name": "hwRemotePoolTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.8.1.6",
+    "status": "current"
+  },
+  "hwRemotePoolTableGroup": {
+    "class": "objectgroup",
+    "description": "The HUAWEI remote pool configuration group.",
+    "name": "hwRemotePoolTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolName"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolRouterIPAddr"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolRouterIPMask"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolDhcpSvrGroupID"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolAvailableStatus"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolRowStatus"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolPriDNSIPAddress"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolSecDNSIPAddress"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolPriNBNSIPAddress"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolSecNBNSIPAddress"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolVPNInstance"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolDhcpGroupName"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolLeaseManageEnable"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwRemoteIPPoolWeight"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.3.2.6",
+    "status": "current"
+  },
+  "hwUsedDeleteUnnumberedRouter": {
+    "class": "notificationtype",
+    "description": " The interface is unnumbered by the pool. ",
+    "name": "hwUsedDeleteUnnumberedRouter",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.8",
+    "status": "current"
+  },
+  "hwUsedIPExhaust": {
+    "class": "notificationtype",
+    "description": " The number of IP addresses in the IP pool is exhausted. ",
+    "name": "hwUsedIPExhaust",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.14",
+    "status": "current"
+  },
+  "hwUsedIPExhaustResume": {
+    "class": "notificationtype",
+    "description": " The number of IP addresses in the IP pool is under the exhaust. ",
+    "name": "hwUsedIPExhaustResume",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.15",
+    "status": "current"
+  },
+  "hwUsedIPReachThreshold": {
+    "class": "notificationtype",
+    "description": " The number of used IP addresses in the pool exceeds the threshold. Repair suggestion: Check the configuration of the IP address pool. ",
+    "name": "hwUsedIPReachThreshold",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.6",
+    "status": "current"
+  },
+  "hwUsedIPReachThresholdResume": {
+    "class": "notificationtype",
+    "description": " The number of used IP addresses in the pool is under the threshold. ",
+    "name": "hwUsedIPReachThresholdResume",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.7",
+    "status": "current"
+  },
+  "hwUsedIPv6AddressAlarm": {
+    "class": "notificationtype",
+    "description": " The number of used IPv6 addresses in the pool exceeds the threshold. Repair suggestion: Check the configuration of the IP address pool. ",
+    "name": "hwUsedIPv6AddressAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PoolIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PoolName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.18",
+    "status": "current"
+  },
+  "hwUsedIPv6AddressAlarmResume": {
+    "class": "notificationtype",
+    "description": " The number of used IPv6 addresses in the IP pool group is under the threshold. ",
+    "name": "hwUsedIPv6AddressAlarmResume",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PoolIndex"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPv6PoolName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.19",
+    "status": "current"
+  },
+  "hwUserIPAddress": {
+    "class": "objecttype",
+    "description": "IP address of the user.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwUserIPAddress",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.8.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwUserIPConflictAlarm": {
+    "class": "notificationtype",
+    "description": " 1 Notice/Trap name: IP address conflict error. 2 Notice/Trap generation cause: user IP address conflict. 3 Repair suggestions: Check whether to renew configuring the BAS IP pool. Check whether the IP address of BAS interface conflicts user IP address.",
+    "name": "hwUserIPConflictAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwUserIPAddress"
+      },
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwIPPoolName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.1",
+    "status": "current"
+  },
+  "hwUserIPLeaseAlarm": {
+    "class": "notificationtype",
+    "description": " 1 Notice/Trap name: IP address lease alarm. 2 Notice/Trap generation cause: The user IP lease is over. 3 Repair suggestion: Check whether to renew configuring BAS IP pool.",
+    "name": "hwUserIPLeaseAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-IPPOOL-MIB",
+        "object": "hwUserIPAddress"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.8.2.2.0.2",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "huaweiUtility"
+    ],
+    "IPV6-TC": [
+      "Ipv6AddressIfIdentifier",
+      "Ipv6AddressPrefix",
+      "Ipv6Address"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Counter64",
+      "iso",
+      "Bits",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-IPPOOL-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:39 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-IPPOOL-MIB"
+  }
+}

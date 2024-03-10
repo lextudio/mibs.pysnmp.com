@@ -1,0 +1,925 @@
+{
+  "hwMplsApsLost": {
+    "class": "notificationtype",
+    "description": " Tunnel protection group did not receive APS frames from protection tunnel. ",
+    "name": "hwMplsApsLost",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsWorkTunnName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.4.5",
+    "status": "current"
+  },
+  "hwMplsApsLostRecovery": {
+    "class": "notificationtype",
+    "description": " Tunnel protection group received APS frames from protection tunnel. ",
+    "name": "hwMplsApsLostRecovery",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsWorkTunnName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.4.6",
+    "status": "current"
+  },
+  "hwMplsApsMismatch": {
+    "class": "notificationtype",
+    "description": " Trap information indicates fully incompatible provisioning and working/protection configuration mismatch are detected by APS frame. ",
+    "name": "hwMplsApsMismatch",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsWorkTunnName"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsApsMismatchReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.4.3",
+    "status": "current"
+  },
+  "hwMplsApsMismatchReason": {
+    "class": "objecttype",
+    "description": "Indicates the alarm reason as below: 1. Bridge type mismatch, one side is 1:1 (Selector Bridge) protection, the other side is 1+1 (Permanent Bridge) protection; 2. Channel type mismatch, one side has APS channel, the other side has no APS channel; 3. Switching type mismatch, one side is bidirectional switching, the other side is unidirectional switching; 4. Operation type mismatch, one side is revertive operation, the other side is non-revertive operation; 5. Traffic request mismatch, one side selects working connection, the other side selects protection connection; ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsApsMismatchReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bridge": 1,
+          "channel": 2,
+          "operation": 4,
+          "switching": 3,
+          "traffic": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsApsMismatchRecovery": {
+    "class": "notificationtype",
+    "description": " Trap information indicates fully incompatible provisioning and working/protection configuration mismatch recovery are detected by APS frame. ",
+    "name": "hwMplsApsMismatchRecovery",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsWorkTunnName"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsApsMismatchReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.4.4",
+    "status": "current"
+  },
+  "hwMplsOam": {
+    "class": "moduleidentity",
+    "contactinfo": "R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com",
+    "description": "The HUAWEI-MPLSOAM-MIB contains objects to configure OAM module. The Operation, Administration and Maintenance (OAM) is an effective means for decreasing the cost of network maintenance. The MPLS OAM is used to administrate and maintain MPLS. ",
+    "lastupdated": "200504271724Z",
+    "name": "hwMplsOam",
+    "oid": "1.3.6.1.4.1.2011.5.12.7",
+    "organization": "Huawei Technologies Co., Ltd."
+  },
+  "hwMplsOamPs": {
+    "class": "objectidentity",
+    "name": "hwMplsOamPs",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1"
+  },
+  "hwMplsOamPsCompliances": {
+    "class": "objectidentity",
+    "name": "hwMplsOamPsCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.100.1"
+  },
+  "hwMplsOamPsConformance": {
+    "class": "objectidentity",
+    "name": "hwMplsOamPsConformance",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.100"
+  },
+  "hwMplsOamPsGroupCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for mpls oam ps.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsGroup"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsVcPsGroup"
+      }
+    ],
+    "name": "hwMplsOamPsGroupCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.100.1.1",
+    "status": "current"
+  },
+  "hwMplsOamPsGroups": {
+    "class": "objectidentity",
+    "name": "hwMplsOamPsGroups",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.100.2"
+  },
+  "hwMplsPsCfgHoldOff": {
+    "class": "objecttype",
+    "description": "The time between declaration of signal degrade or signal fail, and the initialization of the protection switching algorithm. step is 100ms.maximum is 10s.",
+    "maxaccess": "read-only",
+    "name": "hwMplsPsCfgHoldOff",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMplsPsCfgProtectTunnId": {
+    "class": "objecttype",
+    "description": "Protect-tunnel id(session-tunnel-id).",
+    "maxaccess": "read-only",
+    "name": "hwMplsPsCfgProtectTunnId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMplsPsCfgRevertiveMode": {
+    "class": "objecttype",
+    "description": "Revertive mode is a protection switching mode where revertive action (switch back to the working LSP) is taken after the working LSP is repaired.And switching does not occur in a non-revertive mode. 1: revertive; 2: non-revertive; ",
+    "maxaccess": "read-only",
+    "name": "hwMplsPsCfgRevertiveMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMplsPsCfgType": {
+    "class": "objecttype",
+    "description": "The type of protection switch which is configured. 1: 1:1 2: 1+1 3: shared mesh 4: packet 1:1",
+    "maxaccess": "read-only",
+    "name": "hwMplsPsCfgType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMplsPsCfgWTR": {
+    "class": "objecttype",
+    "description": "Wait to Restore timer is only applicable for the revertive mode and applies to a working LSP,It prevents reversion back to select the working LSP until the Wait to Restore timer has expired.The default value is 12 minutes.step is 30s.",
+    "maxaccess": "read-only",
+    "name": "hwMplsPsCfgWTR",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 60,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMplsPsEntry": {
+    "class": "objecttype",
+    "description": "An entry in this table is created by an LSR for every protection group capable of supporting mpls ps.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMplsPsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.1.1",
+    "status": "current"
+  },
+  "hwMplsPsGroup": {
+    "class": "objectgroup",
+    "description": "The compliance statement for mpls oam ps management.",
+    "name": "hwMplsPsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsType"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsWorkTunnName"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsWorkTunnId"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsProtectTunnName"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsProtectTunnId"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsRevertiveMode"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsWTR"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsHoldOff"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsSwitchCondition"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsWorkTunnelState"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsProtTunnelState"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsSwitchResult"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsCfgType"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsCfgProtectTunnId"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsCfgRevertiveMode"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsCfgWTR"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsCfgHoldOff"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsRowStatus"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwTunnPsTrapOpen"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsVCPsIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.100.2.1",
+    "status": "current"
+  },
+  "hwMplsPsHoldOff": {
+    "class": "objecttype",
+    "description": "The time between declaration of signal degrade or signal fail, and the initialization of the protection switching algorithm. step is 100ms.maximum is 10s.",
+    "maxaccess": "read-only",
+    "name": "hwMplsPsHoldOff",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMplsPsIndex": {
+    "class": "objecttype",
+    "description": "This is a unique index for an entry in the mplspsEntry. ",
+    "maxaccess": "read-only",
+    "name": "hwMplsPsIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsPsNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "Description.",
+    "name": "hwMplsPsNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsSwitchPtoW"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsSwitchWtoP"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsApsMismatch"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsApsMismatchRecovery"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.100.2.3",
+    "status": "current"
+  },
+  "hwMplsPsNotifications": {
+    "class": "objectidentity",
+    "name": "hwMplsPsNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.4"
+  },
+  "hwMplsPsObjects": {
+    "class": "objectidentity",
+    "name": "hwMplsPsObjects",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3"
+  },
+  "hwMplsPsProtTunnelState": {
+    "class": "objecttype",
+    "description": "The state of protection tunnel state in one protection group, whether it is in detection, 1: it is outof defect 2: it enters defect",
+    "maxaccess": "read-only",
+    "name": "hwMplsPsProtTunnelState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMplsPsProtectTunnId": {
+    "class": "objecttype",
+    "description": "Protect-tunnel id(session-tunnel-id).",
+    "maxaccess": "read-only",
+    "name": "hwMplsPsProtectTunnId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMplsPsProtectTunnName": {
+    "class": "objecttype",
+    "description": "The name of protect-tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwMplsPsProtectTunnName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMplsPsRevertiveMode": {
+    "class": "objecttype",
+    "description": "Revertive mode is a protection switching mode where revertive action (switch back to the working LSP) is taken after the working LSP is repaired.And switching does not occur in a non-revertive mode. 1: revertive; 2: non-revertive; ",
+    "maxaccess": "read-only",
+    "name": "hwMplsPsRevertiveMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMplsPsRowStatus": {
+    "class": "objecttype",
+    "description": "This variable is used to create, modify, and delete a row in this table. 1: active 2: not in service 3: not ready 4: create and go 5: create and wait 6: destroy",
+    "maxaccess": "read-only",
+    "name": "hwMplsPsRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwMplsPsSwitchCondition": {
+    "class": "objecttype",
+    "description": "The current switch condition of the protection group. 1: clear,This command clears all of the externally initiated switch commands listed below; 2: lockout of protection,Fix the selector position on the working LSP,Prevents the selector from switching to the protection LSP when it is selecting the working LSP. Switches the selector from the protection to the working LSP when it is selecting the protection LSP; 3: forced protection,Switches the selector from the working LSP to the protection LSP (unless a higher priority switch request (i.e., LoP) is in effect); 4: signal fail,for 1:1,Signal Fail (SF) is declared when the source of the protection domain enters the Defect State by receiving a BDI packet (from the return LSP or out of band). 5: manual switch for working-lsp,Switches the selector from the working LSP to the protection LSP (unless an equal or higher priority switch request (i.e., LoP, FS, SF or MS) is in effect); 6: manual switch for protection-lsp,Switches the selector from the protection LSP to the working LSP (unless an equal or higher priority switch request (i.e., LoP, FS, SF or MS) is in effect). 7: WTR-timer; 8: HoldOff-timer; 9: Others; The pripority of the commands are: clear \u003e lockout of protection \u003e force switch \u003e manual switch for working lsp = manual switch for protection lsp",
+    "maxaccess": "read-only",
+    "name": "hwMplsPsSwitchCondition",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 9,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMplsPsSwitchPtoW": {
+    "class": "notificationtype",
+    "description": "This notification is generated when switching from protection-lsp to working-lsp occured.",
+    "name": "hwMplsPsSwitchPtoW",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsWorkTunnName"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsWorkTunnId"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsProtectTunnName"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsProtectTunnId"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsSwitchResult"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.4.1",
+    "status": "current"
+  },
+  "hwMplsPsSwitchResult": {
+    "class": "objecttype",
+    "description": "Which tunnel is used to transfer the data stream. 1: working-tunnel 2: protection-tunnel",
+    "maxaccess": "read-only",
+    "name": "hwMplsPsSwitchResult",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMplsPsSwitchWtoP": {
+    "class": "notificationtype",
+    "description": "This notification is generated when switching from woking-lsp to protection-lsp occured. ",
+    "name": "hwMplsPsSwitchWtoP",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsWorkTunnName"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsWorkTunnId"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsProtectTunnName"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsProtectTunnId"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsPsSwitchResult"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.4.2",
+    "status": "current"
+  },
+  "hwMplsPsTable": {
+    "class": "objecttype",
+    "description": "This table specifies per-protection-group MPLS PS capability and associated information. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsPsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.1",
+    "status": "current"
+  },
+  "hwMplsPsType": {
+    "class": "objecttype",
+    "description": "The type of protection switch,can be 1:1,1+1,shared mesh, packet 1+1,the default choice is 1:1. In the 1+1 architecture type, a protection LSP is dedicated to each working LSP with the working LSP bridged onto the protection LSP at the source of the protection domain. The traffic on working and protection LSPs is transmitted simultaneously to the sink of the protection domain, where a selection between the working and protection LSP is made, based on some predetermined criteria, such as defect indication. In the 1:1 architecture type, a protection LSP is dedicated to each working LSP. The working traffic is transmitted either by working or protection LSP. In the shared mesh architecture type, possible sharing of protection capacity between disjoint link, node in the network is achieved while guaranteeing recovery from a single failure. In the packet 1+1 architecture type, the traffic is transmitted simultaneously onto two possibly disjoint routed LSPs to the sink of the protection domain. Each pair of duplicate transmitted packets is assigned the same identifier (sequence number) but distinct from the other pairs of duplicate packets. At the sink of the protection domain packet level selection mechanism is employed to select one of the two possibly received copies of each packet. 1: 1:1 protection switching,; 2: 1+1 protection switching; 3: shared mesh protection swiching; 4: packet 1+1 protection switching. ",
+    "maxaccess": "read-only",
+    "name": "hwMplsPsType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMplsPsWTR": {
+    "class": "objecttype",
+    "description": "Wait to Restore timer is only applicable for the revertive mode and applies to a working LSP,It prevents reversion back to select the working LSP until the Wait to Restore timer has expired.The default value is 12 minutes.step is 30s.",
+    "maxaccess": "read-only",
+    "name": "hwMplsPsWTR",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 60,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMplsPsWorkTunnId": {
+    "class": "objecttype",
+    "description": "Work-tunnel id(session-tunnel-id).",
+    "maxaccess": "read-only",
+    "name": "hwMplsPsWorkTunnId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMplsPsWorkTunnName": {
+    "class": "objecttype",
+    "description": "The name of work-tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwMplsPsWorkTunnName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMplsPsWorkTunnelState": {
+    "class": "objecttype",
+    "description": "The state of working tunnel state in one protection group, whether it is in detection, 1: it is outof defect 2: it enters defect ",
+    "maxaccess": "read-only",
+    "name": "hwMplsPsWorkTunnelState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMplsTeReverseLspLsrId": {
+    "class": "objecttype",
+    "description": "Description.it is used for command \u0027 mpls te reverse-lsp lsr-id X.X.X.X tunnel-id XX\u0027",
+    "maxaccess": "read-create",
+    "name": "hwMplsTeReverseLspLsrId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMplsTeReverseLspName": {
+    "class": "objecttype",
+    "description": "Description.it is used for command \u0027 mpls te reverse-lsp lspname\u0027",
+    "maxaccess": "read-create",
+    "name": "hwMplsTeReverseLspName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMplsTeReverseLspTunnId": {
+    "class": "objecttype",
+    "description": "Description.it is used for command \u0027 mpls te reverse-lsp lsr-id X.X.X.X tunnel-id XX\u0027",
+    "maxaccess": "read-create",
+    "name": "hwMplsTeReverseLspTunnId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMplsVCPsEntry": {
+    "class": "objecttype",
+    "description": "this table for these commands 1.mpls te protection tunnel XXX 2. mpls te reverse-lsp { lsp-name XXXX | lsr-id X.X.X.X tunnel-id x } 3. mpls te reserved-for-binding ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsVCPsIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMplsVCPsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.3.1",
+    "status": "current"
+  },
+  "hwMplsVCPsIfIndex": {
+    "class": "objecttype",
+    "description": "Description.the index of working tunnel interface of Protection group ",
+    "maxaccess": "read-only",
+    "name": "hwMplsVCPsIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwMplsVCPsTNLBinding": {
+    "class": "objecttype",
+    "description": "Description.it is used by command \u0027 mpls te reserved-for-binding \u0027",
+    "maxaccess": "read-create",
+    "name": "hwMplsVCPsTNLBinding",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwMplsVCPsTable": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsVCPsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.3",
+    "status": "current"
+  },
+  "hwMplsVcPsGroup": {
+    "class": "objectgroup",
+    "description": "The compliance statement for mpls oam ps reverse lsp.",
+    "name": "hwMplsVcPsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsVCPsTNLBinding"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsTeReverseLspName"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsVcPsRowStatus"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsTeReverseLspLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLSOAM-PS-MIB",
+        "object": "hwMplsTeReverseLspTunnId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.100.2.2",
+    "status": "current"
+  },
+  "hwMplsVcPsRowStatus": {
+    "class": "objecttype",
+    "description": "Description. 1: active; 2: notInservice; 3: notReady; 4: CreateAndGo; 5: CreateAndWait; 6: destroy;",
+    "maxaccess": "read-create",
+    "name": "hwMplsVcPsRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwTunnPsTrapOpen": {
+    "class": "objecttype",
+    "description": "1:enable; 2:disable;",
+    "maxaccess": "read-only",
+    "name": "hwTunnPsTrapOpen",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.12.7.1.3.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwMpls"
+    ],
+    "HUAWEI-MPLS-EXTEND-MIB": [
+      "hwMplsTunnelSignalProto"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
+      "iso",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-MPLSOAM-PS-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:27 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-MPLSOAM-PS-MIB"
+  }
+}

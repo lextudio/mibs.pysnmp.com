@@ -1,0 +1,707 @@
+{
+  "HWFacilityType": {
+    "class": "textualconvention",
+    "description": "Specify loghost facility which generates messages.",
+    "name": "HWFacilityType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local0": 16,
+          "local1": 17,
+          "local2": 18,
+          "local3": 19,
+          "local4": 20,
+          "local5": 21,
+          "local6": 22,
+          "local7": 23
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWMessageLevel": {
+    "class": "textualconvention",
+    "description": "Specify level of message of info-center. Currently, following levels of message are provided: emergencies(0): alerts(1): critical(2): errors(3): warnings(4): notifications(5): informational(6): debugging(7): ",
+    "name": "HWMessageLevel",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alerts": 1,
+          "critical": 2,
+          "debugging": 7,
+          "emergencies": 0,
+          "errors": 3,
+          "informational": 6,
+          "notifications": 5,
+          "warnings": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwICChannel": {
+    "class": "objectidentity",
+    "name": "hwICChannel",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.3"
+  },
+  "hwICChannelEntry": {
+    "class": "objecttype",
+    "description": "The channel entry of INFO CENTER.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICChannelIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwICChannelEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.3.1.1",
+    "status": "current"
+  },
+  "hwICChannelIndex": {
+    "class": "objecttype",
+    "description": "The index of this table.",
+    "maxaccess": "not-accessible",
+    "name": "hwICChannelIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.3.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwICChannelName": {
+    "class": "objecttype",
+    "description": "The name of channel. The channel name must be different from each other.",
+    "maxaccess": "read-write",
+    "name": "hwICChannelName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.3.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 30,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwICChannelTable": {
+    "class": "objecttype",
+    "description": "A table of INFO CENTER channel.",
+    "maxaccess": "not-accessible",
+    "name": "hwICChannelTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.3.1",
+    "status": "current"
+  },
+  "hwICEnable": {
+    "class": "objecttype",
+    "description": "The object control the state of INFO CENTER. If the state is false, the device stop to generate or record message through INFO CENTER. All the log, diagnose log and trap won\u0027t record.",
+    "maxaccess": "read-write",
+    "name": "hwICEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwICInsufficientSpace": {
+    "class": "notificationtype",
+    "description": "The notification for insufficient space.",
+    "name": "hwICInsufficientSpace",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.2.3",
+    "status": "current"
+  },
+  "hwICLogBufferLose": {
+    "class": "notificationtype",
+    "description": "The notification for logfile buffer lose.",
+    "name": "hwICLogBufferLose",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.2.4",
+    "status": "current"
+  },
+  "hwICLogFile": {
+    "class": "objectidentity",
+    "name": "hwICLogFile",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.6"
+  },
+  "hwICLogFileAging": {
+    "class": "notificationtype",
+    "description": "The notification for logfile aging.",
+    "name": "hwICLogFileAging",
+    "objects": [
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLogFileName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.212.2.2",
+    "status": "current"
+  },
+  "hwICLogFileName": {
+    "class": "objecttype",
+    "description": "The logfile name.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwICLogFileName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.6.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 256,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwICLogFileStorageThrd": {
+    "class": "notificationtype",
+    "description": "The notification for logfile storage limit.",
+    "name": "hwICLogFileStorageThrd",
+    "objects": [
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLogFileType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.212.2.1",
+    "status": "current"
+  },
+  "hwICLogFileType": {
+    "class": "objecttype",
+    "description": "The logfile type.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwICLogFileType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.6.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "diag": 2,
+          "log": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwICLogFilter": {
+    "class": "objectidentity",
+    "name": "hwICLogFilter",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.5"
+  },
+  "hwICLogFilterEntry": {
+    "class": "objecttype",
+    "description": "The log entry of INFO CENTER.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICChannelIndex"
+      },
+      {
+        "implied": 1,
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICModuleName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwICLogFilterEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.5.1.1",
+    "status": "current"
+  },
+  "hwICLogFilterLevel": {
+    "class": "objecttype",
+    "description": "The level of log message.",
+    "maxaccess": "read-create",
+    "name": "hwICLogFilterLevel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.5.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWMessageLevel"
+    }
+  },
+  "hwICLogFilterRowStatus": {
+    "class": "objecttype",
+    "description": "The status of this table entry.",
+    "maxaccess": "read-create",
+    "name": "hwICLogFilterRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.5.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwICLogFilterState": {
+    "class": "objecttype",
+    "description": "The switch state of log.",
+    "maxaccess": "read-create",
+    "name": "hwICLogFilterState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.5.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 2,
+          "on": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwICLogFilterTable": {
+    "class": "objecttype",
+    "description": "A table of INFO CENTER module.",
+    "maxaccess": "not-accessible",
+    "name": "hwICLogFilterTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.5.1",
+    "status": "current"
+  },
+  "hwICLoghost": {
+    "class": "objectidentity",
+    "name": "hwICLoghost",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.2"
+  },
+  "hwICLoghostChannel": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "The channel which the loghost receives message. The value of this object identifies the index of the channel in the Channel Table. The value is referenced from hwICChannelTable.",
+    "maxaccess": "read-create",
+    "name": "hwICLoghostChannel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.2.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwICLoghostEntry": {
+    "class": "objecttype",
+    "description": "Information about a configuration loghost in the system.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLoghostIpAddressType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLoghostIpAddress"
+      },
+      {
+        "implied": 1,
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLoghostVpnInstance"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwICLoghostEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.2.2.1",
+    "status": "current"
+  },
+  "hwICLoghostFacility": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "local7"
+      }
+    },
+    "description": "The operations staff can selectively filter the messages with priority which consists of facility that generates the message and severity of the message.",
+    "maxaccess": "read-create",
+    "name": "hwICLoghostFacility",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.2.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWFacilityType"
+    }
+  },
+  "hwICLoghostIpAddress": {
+    "class": "objecttype",
+    "description": "The ip address of the specified loghost.",
+    "maxaccess": "read-only",
+    "name": "hwICLoghostIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.2.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwICLoghostIpAddressType": {
+    "class": "objecttype",
+    "description": "The ip address type of loghost.",
+    "maxaccess": "read-only",
+    "name": "hwICLoghostIpAddressType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.2.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwICLoghostLanguage": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "english"
+      }
+    },
+    "description": "The language of a loghost. If chinese is selected, the information which the loghost receives is chinese content.",
+    "maxaccess": "read-create",
+    "name": "hwICLoghostLanguage",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.2.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "chinese": 1,
+          "english": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwICLoghostRowStatus": {
+    "class": "objecttype",
+    "description": "The row status of this table.",
+    "maxaccess": "read-create",
+    "name": "hwICLoghostRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.2.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwICLoghostSourceInterface": {
+    "class": "objecttype",
+    "description": "The object indicates the source interface which the loghost binding when send log. All loghosts use the same source interface. The value is referenced from ifEntry.",
+    "maxaccess": "read-write",
+    "name": "hwICLoghostSourceInterface",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.2.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 63,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwICLoghostTable": {
+    "class": "objecttype",
+    "description": "The table indicates the configuration of loghost.",
+    "maxaccess": "not-accessible",
+    "name": "hwICLoghostTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.2.2",
+    "status": "current"
+  },
+  "hwICLoghostVpnInstance": {
+    "class": "objecttype",
+    "description": "The vpn instance which the loghost uses. ",
+    "maxaccess": "read-only",
+    "name": "hwICLoghostVpnInstance",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.2.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwICModule": {
+    "class": "objectidentity",
+    "name": "hwICModule",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.4"
+  },
+  "hwICModuleEntry": {
+    "class": "objecttype",
+    "description": "The module entry of syslog.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICModuleIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwICModuleEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.4.1.1",
+    "status": "current"
+  },
+  "hwICModuleIndex": {
+    "class": "objecttype",
+    "description": "The index of this table.",
+    "maxaccess": "not-accessible",
+    "name": "hwICModuleIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.4.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwICModuleName": {
+    "class": "objecttype",
+    "description": "The name of module.",
+    "maxaccess": "read-only",
+    "name": "hwICModuleName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.4.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 24,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwICModuleTable": {
+    "class": "objecttype",
+    "description": "A table of INFO CENTER module.",
+    "maxaccess": "not-accessible",
+    "name": "hwICModuleTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1.4.1",
+    "status": "current"
+  },
+  "hwInfoCenter": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "Add hwICLogBufferLose.",
+    "lastupdated": "201508171544Z",
+    "name": "hwInfoCenter",
+    "oid": "1.3.6.1.4.1.2011.5.25.212",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "Add hwICInsufficientSpace.",
+        "revision": "2015-08-17 15:44"
+      },
+      {
+        "description": "To compile on linux",
+        "revision": "2014-08-05 11:50"
+      },
+      {
+        "description": "The HUAWEI-INFO-CENTER-MIB contains objects to manage the system info-center configuration. It defines the model used to represent configuration data that exists elsewhere in the system and in peripheral devices. The MIB is proper for system configuration. NMS can query configuration change log message and operate configuration. There are no constraints on this MIB.",
+        "revision": "2014-12-16 17:06"
+      },
+      {
+        "description": "The initial revision of this MIB module .",
+        "revision": "2013-07-11 16:40"
+      },
+      {
+        "description": "The initial revision of this MIB module .",
+        "revision": "2013-07-05 17:10"
+      },
+      {
+        "description": "The initial revision of this MIB module .",
+        "revision": "2011-08-08 12:00"
+      }
+    ]
+  },
+  "hwInfoCenterCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-INFOCENTER-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwInfoCenterGroup"
+      }
+    ],
+    "name": "hwInfoCenterCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.3.1.1",
+    "status": "current"
+  },
+  "hwInfoCenterCompliances": {
+    "class": "objectidentity",
+    "name": "hwInfoCenterCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.3.1"
+  },
+  "hwInfoCenterConformance": {
+    "class": "objectidentity",
+    "name": "hwInfoCenterConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.3"
+  },
+  "hwInfoCenterGroup": {
+    "class": "objectgroup",
+    "description": "The infocenter group.",
+    "name": "hwInfoCenterGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICEnable"
+      },
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLoghostSourceInterface"
+      },
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLogFileType"
+      },
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLogFileName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.212.3.2.1",
+    "status": "current"
+  },
+  "hwInfoCenterGroups": {
+    "class": "objectidentity",
+    "name": "hwInfoCenterGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.3.2"
+  },
+  "hwInfoCenterNotifications": {
+    "class": "objectidentity",
+    "name": "hwInfoCenterNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.2"
+  },
+  "hwInfoCenterObjects": {
+    "class": "objectidentity",
+    "name": "hwInfoCenterObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.212.1"
+  },
+  "hwInfoCenterTrapGroup": {
+    "class": "notificationgroup",
+    "description": "The infocenter trap group.",
+    "name": "hwInfoCenterTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLogFileStorageThrd"
+      },
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLogFileAging"
+      },
+      {
+        "module": "HUAWEI-INFOCENTER-MIB",
+        "object": "hwICLogBufferLose"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.212.3.2.2",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "MibIdentifier",
+      "IpAddress",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Bits",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-INFOCENTER-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:34 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-INFOCENTER-MIB"
+  }
+}

@@ -1,0 +1,853 @@
+{
+  "hwDatacomm": {
+    "class": "objectidentity",
+    "name": "hwDatacomm",
+    "oid": "1.3.6.1.4.1.2011.5.25"
+  },
+  "hwSuperLagBfdSessId": {
+    "class": "objecttype",
+    "description": "The ID of BFD session which is bind to a super LAG. When the status of the link is changed, BFD will notify super LAG.",
+    "maxaccess": "read-create",
+    "name": "hwSuperLagBfdSessId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8191,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSuperLagCompliances": {
+    "class": "objectidentity",
+    "name": "hwSuperLagCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.3.1"
+  },
+  "hwSuperLagConformance": {
+    "class": "objectidentity",
+    "name": "hwSuperLagConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.3"
+  },
+  "hwSuperLagEntry": {
+    "class": "objecttype",
+    "description": "Super LAG entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSuperLagEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1",
+    "status": "current"
+  },
+  "hwSuperLagFullCompliance": {
+    "class": "modulecompliance",
+    "description": "Description.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagGroup"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagMemberGroup"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagNotificationGroup"
+      }
+    ],
+    "name": "hwSuperLagFullCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.3.1.1",
+    "status": "current"
+  },
+  "hwSuperLagGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwSuperLagGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagSystemId"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagPri"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagStatus"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagStatusReason"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagPeerIpAddr"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagSourceIpAddr"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagReceiveFailTimeMultiple"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagSendPeriod"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagPacketReceive"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagPacketSend"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagPacketRecDrop"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagPacketSndDrop"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagPeerSystemId"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagPeerPri"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagPeerReceiveFailTime"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagSecurityKeyType"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagSecurityKey"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagBfdSessId"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagResetCounter"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.178.3.2.1",
+    "status": "current"
+  },
+  "hwSuperLagGroups": {
+    "class": "objectidentity",
+    "name": "hwSuperLagGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.3.2"
+  },
+  "hwSuperLagId": {
+    "class": "objecttype",
+    "description": "The ID of the super LAG, it is the index of the super LAG.",
+    "maxaccess": "not-accessible",
+    "name": "hwSuperLagId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSuperLagMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "Contact-info.",
+    "description": "Description.",
+    "lastupdated": "200810211010Z",
+    "name": "hwSuperLagMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.178",
+    "organization": "Organization."
+  },
+  "hwSuperLagMemberEntry": {
+    "class": "objecttype",
+    "description": "Member Entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagMemberParentSuperLagId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagMemberType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagMemberId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSuperLagMemberEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1",
+    "status": "current"
+  },
+  "hwSuperLagMemberGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwSuperLagMemberGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagMemberStatus"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagMemberStatusReason"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagMemberWorkMode"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagMemberLocaPhylLinkStatus"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagMemberRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.178.3.2.2",
+    "status": "current"
+  },
+  "hwSuperLagMemberId": {
+    "class": "objecttype",
+    "description": "The ID of the member.",
+    "maxaccess": "not-accessible",
+    "name": "hwSuperLagMemberId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwSuperLagMemberLocaPhylLinkStatus": {
+    "class": "objecttype",
+    "description": "The local physical link status of the member. 1:up 2:down",
+    "maxaccess": "read-only",
+    "name": "hwSuperLagMemberLocaPhylLinkStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSuperLagMemberParentSuperLagId": {
+    "class": "objecttype",
+    "description": "The ID of the super LAG which the member is belonged to.",
+    "maxaccess": "not-accessible",
+    "name": "hwSuperLagMemberParentSuperLagId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSuperLagMemberRowStatus": {
+    "class": "objecttype",
+    "description": "Current operation status of the row.Used to manage the creation and deletion of conceptual rows.",
+    "maxaccess": "read-create",
+    "name": "hwSuperLagMemberRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.50",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwSuperLagMemberStatus": {
+    "class": "objecttype",
+    "description": "The member status. 1:backup 2:master.",
+    "maxaccess": "read-only",
+    "name": "hwSuperLagMemberStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backup": 1,
+          "master": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSuperLagMemberStatusChange": {
+    "class": "notificationtype",
+    "description": "The event is generated when the status of the memeber is changed or the status reason of the memeber is changed.",
+    "name": "hwSuperLagMemberStatusChange",
+    "objects": [
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagMemberStatus"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagMemberStatusReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.178.2.2",
+    "status": "current"
+  },
+  "hwSuperLagMemberStatusReason": {
+    "class": "objecttype",
+    "description": "The reason for the member is in the current status. forceBackup(1):The work mode of the member is force-backup forceMaster(2):The work mode of the member is force-master suplagInit(3):The work mode of the member is auto, the status of parent super LAG is INITIALIZE suplagBackup(4):The work mode of the member is auto, the status of parent super LAG is BACKUP suplagMaster(5):The work mode of the member is auto, the status of parent super LAG is MASTER peerMemberDown(6):The status of the members belonged to the peer super LAG is down peerMemberUp(7):The status of the members belonged to the peer super LAG is up",
+    "maxaccess": "read-only",
+    "name": "hwSuperLagMemberStatusReason",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forceBackup": 1,
+          "forceMaster": 2,
+          "peerMemberDown": 6,
+          "peerMemberUp": 7,
+          "suplagBackup": 4,
+          "suplagInit": 3,
+          "suplagMaster": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSuperLagMemberTable": {
+    "class": "objecttype",
+    "description": "The member table of a super LAG.",
+    "maxaccess": "not-accessible",
+    "name": "hwSuperLagMemberTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2",
+    "status": "current"
+  },
+  "hwSuperLagMemberType": {
+    "class": "objecttype",
+    "description": "The type of the member. Now is EthTrunk only. 1:EthTrunk",
+    "maxaccess": "not-accessible",
+    "name": "hwSuperLagMemberType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSuperLagMemberWorkMode": {
+    "class": "objecttype",
+    "description": "The work mode of the member. 1:auto 2:forceBackup 3:forceMaster",
+    "maxaccess": "read-create",
+    "name": "hwSuperLagMemberWorkMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "forceBackup": 2,
+          "forceMaster": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSuperLagNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "Description.",
+    "name": "hwSuperLagNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagStatusChange"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagMemberStatusChange"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.178.3.2.3",
+    "status": "current"
+  },
+  "hwSuperLagObjects": {
+    "class": "objectidentity",
+    "name": "hwSuperLagObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1"
+  },
+  "hwSuperLagPacketRecDrop": {
+    "class": "objecttype",
+    "description": "The number of the droped packets when the packets are received.",
+    "maxaccess": "read-only",
+    "name": "hwSuperLagPacketRecDrop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSuperLagPacketReceive": {
+    "class": "objecttype",
+    "description": "The number of the received packets.",
+    "maxaccess": "read-only",
+    "name": "hwSuperLagPacketReceive",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSuperLagPacketSend": {
+    "class": "objecttype",
+    "description": "The number of the sending packets.",
+    "maxaccess": "read-only",
+    "name": "hwSuperLagPacketSend",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSuperLagPacketSndDrop": {
+    "class": "objecttype",
+    "description": "The number of the droped packets when the packets are send out.",
+    "maxaccess": "read-only",
+    "name": "hwSuperLagPacketSndDrop",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwSuperLagPeerIpAddr": {
+    "class": "objecttype",
+    "description": "The IP address of the peer super LAG.",
+    "maxaccess": "read-create",
+    "name": "hwSuperLagPeerIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwSuperLagPeerPri": {
+    "class": "objecttype",
+    "description": "The priority of the peer super LAG.",
+    "maxaccess": "read-only",
+    "name": "hwSuperLagPeerPri",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 254,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSuperLagPeerReceiveFailTime": {
+    "class": "objecttype",
+    "description": "The fail time of the peer super LAG for receiving packets.The unit is 100ms",
+    "maxaccess": "read-only",
+    "name": "hwSuperLagPeerReceiveFailTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 5000,
+            "min": 15
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSuperLagPeerSystemId": {
+    "class": "objecttype",
+    "description": "The system ID of peer super LAG,it is a physical address.",
+    "maxaccess": "read-only",
+    "name": "hwSuperLagPeerSystemId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "PhysAddress"
+    }
+  },
+  "hwSuperLagPri": {
+    "class": "objecttype",
+    "description": "The priority of the super LAG. The default is 100.",
+    "maxaccess": "read-create",
+    "name": "hwSuperLagPri",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 254,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSuperLagReceiveFailTimeMultiple": {
+    "class": "objecttype",
+    "description": "The fail time of the super LAG for receiving packets. It is the multiple of sending period.",
+    "maxaccess": "read-create",
+    "name": "hwSuperLagReceiveFailTimeMultiple",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 50,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSuperLagResetCounter": {
+    "class": "objecttype",
+    "description": "Reset hwSuperLagPacketReceive,hwSuperLagPacketSend,hwSuperLagPacketRecDrop,hwSuperLagPacketSndDrop.",
+    "maxaccess": "read-create",
+    "name": "hwSuperLagResetCounter",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSuperLagRowStatus": {
+    "class": "objecttype",
+    "description": "Current operation status of the row.Used to manage the creation and deletion of conceptual rows.",
+    "maxaccess": "read-create",
+    "name": "hwSuperLagRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.50",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwSuperLagSecurityKey": {
+    "class": "objecttype",
+    "description": "This is the security key. It is must be hex number and the most number is 16. If hwSuperLagSecurityKeyType is simple, you can get the key. If hwSuperLagSecurityKeyType is cipher, the system returns a random character string with 24 bytes.",
+    "maxaccess": "read-create",
+    "name": "hwSuperLagSecurityKey",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 24,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSuperLagSecurityKeyType": {
+    "class": "objecttype",
+    "description": "The mode of the security key. 1:The simple encrypt mode; 2:The cipher encrypt mode.",
+    "maxaccess": "read-create",
+    "name": "hwSuperLagSecurityKeyType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cipher": 2,
+          "simple": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSuperLagSendPeriod": {
+    "class": "objecttype",
+    "description": "The period for sending packets of the super LAG. The unit is 100ms",
+    "maxaccess": "read-create",
+    "name": "hwSuperLagSendPeriod",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 5
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSuperLagSourceIpAddr": {
+    "class": "objecttype",
+    "description": "The source IP address of the super LAG.",
+    "maxaccess": "read-create",
+    "name": "hwSuperLagSourceIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwSuperLagStatus": {
+    "class": "objecttype",
+    "description": "The status of the super LAG. 1:initialize 2:backup 3:master",
+    "maxaccess": "read-only",
+    "name": "hwSuperLagStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backup": 2,
+          "initialize": 1,
+          "master": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSuperLagStatusChange": {
+    "class": "notificationtype",
+    "description": "The event is generated when the status of the super LAG is changed or the status reason of the super LAG is changed.",
+    "name": "hwSuperLagStatusChange",
+    "objects": [
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagStatus"
+      },
+      {
+        "module": "HUAWEI-SUPERLAG-MIB",
+        "object": "hwSuperLagStatusReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.178.2.1",
+    "status": "current"
+  },
+  "hwSuperLagStatusReason": {
+    "class": "objecttype",
+    "description": "The reason for the super LAG is in the current status. pri(1):Priority calculation timeout(2):Receiving timer timeout bfdDown(3):BFD detected the control link between the PE and peer down peerTimeout(4):Receiving timer of the peer timeout peerBfdDown(5):BFD of the peer detected the control link between the PE and peer down allMemberDown(6):All SuperLagMembers of the superlag down init(7):The initial superlag. ",
+    "maxaccess": "read-only",
+    "name": "hwSuperLagStatusReason",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allMemberDown": 6,
+          "bfdDown": 3,
+          "init": 7,
+          "peerBfdDown": 5,
+          "peerTimeout": 4,
+          "pri": 1,
+          "timeout": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSuperLagSystemId": {
+    "class": "objecttype",
+    "description": "The system ID of the super LAG, it is a physical address.",
+    "maxaccess": "read-only",
+    "name": "hwSuperLagSystemId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "PhysAddress"
+    }
+  },
+  "hwSuperLagTable": {
+    "class": "objecttype",
+    "description": "The super LAG table.",
+    "maxaccess": "not-accessible",
+    "name": "hwSuperLagTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.1.1",
+    "status": "current"
+  },
+  "hwSuperLagTraps": {
+    "class": "objectidentity",
+    "name": "hwSuperLagTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.178.2"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "huaweiMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "iso",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "Gauge32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "PhysAddress",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString",
+      "TruthValue",
+      "TimeStamp"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-SUPERLAG-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:01 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-SUPERLAG-MIB"
+  }
+}

@@ -1,0 +1,979 @@
+{
+  "hwATK": {
+    "class": "objectidentity",
+    "name": "hwATK",
+    "oid": "1.3.6.1.4.1.2011.5.25.10"
+  },
+  "hwATKComm": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": " V1.00 The HUAWEI-ATK-MIB contains objects to manage the ATCKDF(Attack Defence) configuration for all products. ",
+    "lastupdated": "200304110900Z",
+    "name": "hwATKComm",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwAtkCommCompliance": {
+    "class": "objectidentity",
+    "name": "hwAtkCommCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.3.1"
+  },
+  "hwAtkCommConformance": {
+    "class": "objectidentity",
+    "name": "hwAtkCommConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.3"
+  },
+  "hwAtkCommIcmpFloodGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwAtkCommIcmpFloodGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkIPIcmpFloodSpeed"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkIPIcmpFloodStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.3.2.4",
+    "status": "current"
+  },
+  "hwAtkCommMibGroups": {
+    "class": "objectidentity",
+    "name": "hwAtkCommMibGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.3.2"
+  },
+  "hwAtkCommSynFloodGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwAtkCommSynFloodGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkIPSynFloodSynSpeed"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkIPSynFloodHalfMax"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkIPSynFloodHalfAge"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkIPSynFloodProxy"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkIPSynFloodStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.3.2.2",
+    "status": "current"
+  },
+  "hwAtkCommUdpFloodGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwAtkCommUdpFloodGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkIPUdpFloodSpeed"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkIPUdpFloodStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.3.2.3",
+    "status": "current"
+  },
+  "hwAtkFragFlagSw": {
+    "class": "objecttype",
+    "description": "The switch indicates whether inspecting the flag for fragment.",
+    "maxaccess": "read-write",
+    "name": "hwAtkFragFlagSw",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAtkFraggleSw": {
+    "class": "objecttype",
+    "description": "The switch indicates whether inspecting Fraggle attack.",
+    "maxaccess": "read-write",
+    "name": "hwAtkFraggleSw",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAtkGlobalCfgGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwAtkGlobalCfgGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkIpSpoofingSw"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkLandSw"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkSmurfSw"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkFraggleSw"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkWinNukeSw"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkIcmpRedirectSw"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkIcmpUnReachSw"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkSourceRouteSw"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkRouteRecordSw"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkTracertSw"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkTcpFlagSw"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkPingOfDeathSw"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkTeardropSw"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkFragFlagSw"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkIPSweepSw"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkIpSweepSpeed"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkIPSweepBlsTime"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkPortScanSw"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkPortScanSpeed"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkPortScanBlsTime"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkLargeIcmpSw"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkIcmpLength"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkSynFloodSw"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkUdpFloodSw"
+      },
+      {
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkIcmpFloodSw"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.3.2.1",
+    "status": "current"
+  },
+  "hwAtkGlobalMibObjects": {
+    "class": "objectidentity",
+    "name": "hwAtkGlobalMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.1"
+  },
+  "hwAtkIPIcmpFloodSpeed": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1000
+      }
+    },
+    "description": " The maximum speed of ICMP packets to the host. when the speed of ICMP packets to the host reach the maximum, system will drop the subsequent ICMP packets to this host, until the speed decline to 80 percent of the maximum. ",
+    "maxaccess": "read-create",
+    "name": "hwAtkIPIcmpFloodSpeed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.2.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtkIPIcmpFloodStatus": {
+    "class": "objecttype",
+    "description": "The status of a row, can be CreateAndGo or Destroy currently.",
+    "maxaccess": "read-create",
+    "name": "hwAtkIPIcmpFloodStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.2.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAtkIPMibObjects": {
+    "class": "objectidentity",
+    "name": "hwAtkIPMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.2"
+  },
+  "hwAtkIPSweepBlsTime": {
+    "class": "objecttype",
+    "description": "The time to add a host to blacklist when find it is sweeping.",
+    "maxaccess": "read-write",
+    "name": "hwAtkIPSweepBlsTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtkIPSweepSw": {
+    "class": "objecttype",
+    "description": "The switch indicates whether inspecting IP sweep attack.",
+    "maxaccess": "read-write",
+    "name": "hwAtkIPSweepSw",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAtkIPSynFloodHalfAge": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 20
+      }
+    },
+    "description": "The age of TCP incomplete connections.",
+    "maxaccess": "read-create",
+    "name": "hwAtkIPSynFloodHalfAge",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtkIPSynFloodHalfMax": {
+    "class": "objecttype",
+    "description": "The maximum incomplete connection for the host.",
+    "maxaccess": "read-create",
+    "name": "hwAtkIPSynFloodHalfMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtkIPSynFloodProxy": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "auto"
+      }
+    },
+    "description": "The switch of TCP proxy, this switch decides the action of proxy. The switch has three status: auto, on, off.",
+    "maxaccess": "read-create",
+    "name": "hwAtkIPSynFloodProxy",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.2.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "off": 3,
+          "on": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwAtkIPSynFloodStatus": {
+    "class": "objecttype",
+    "description": "The status of a row, can be CreateAndGo or Destroy currently.",
+    "maxaccess": "read-create",
+    "name": "hwAtkIPSynFloodStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.2.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAtkIPSynFloodSynSpeed": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1000
+      }
+    },
+    "description": "The maximum speed of SYN packets to the host. when the speed of SYN packets to the host reach the maximum, system will start the TCP proxy.",
+    "maxaccess": "read-create",
+    "name": "hwAtkIPSynFloodSynSpeed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtkIPUdpFloodSpeed": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1000
+      }
+    },
+    "description": " The maximum speed of UDP packets to the host. when the speed of UDP packets to the host reach the maximum, system will drop the subsequent UDP packets to this host, until the speed decline to 80 percent of the maximum. ",
+    "maxaccess": "read-create",
+    "name": "hwAtkIPUdpFloodSpeed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.2.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtkIPUdpFloodStatus": {
+    "class": "objecttype",
+    "description": "The status of a row, can be CreateAndGo or Destroy currently.",
+    "maxaccess": "read-create",
+    "name": "hwAtkIPUdpFloodStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.2.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwAtkIcmpFloodIP": {
+    "class": "objecttype",
+    "description": "The IP address of host to be protected.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtkIcmpFloodIP",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.2.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwAtkIcmpFloodIPEntry": {
+    "class": "objecttype",
+    "description": " ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkIcmpFloodIP"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAtkIcmpFloodIPEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.2.3.1",
+    "status": "current"
+  },
+  "hwAtkIcmpFloodIPTable": {
+    "class": "objecttype",
+    "description": "The table define the parameters of ICMP flood defence for hosts.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtkIcmpFloodIPTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.2.3",
+    "status": "current"
+  },
+  "hwAtkIcmpFloodSw": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "The switch indicates whether inspecting ICMP flooding attack.",
+    "maxaccess": "read-write",
+    "name": "hwAtkIcmpFloodSw",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAtkIcmpLength": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 4000
+      }
+    },
+    "description": "The maximum length of ICMP packets allowed to pass the system.",
+    "maxaccess": "read-write",
+    "name": "hwAtkIcmpLength",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 8
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtkIcmpRedirectSw": {
+    "class": "objecttype",
+    "description": "The switch indicates whether blocking ICMP re-direction packets.",
+    "maxaccess": "read-write",
+    "name": "hwAtkIcmpRedirectSw",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAtkIcmpUnReachSw": {
+    "class": "objecttype",
+    "description": "The switch indicates whether blocking ICMP unreachable packets.",
+    "maxaccess": "read-write",
+    "name": "hwAtkIcmpUnReachSw",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAtkIpSpoofingSw": {
+    "class": "objecttype",
+    "description": "The switch indicates whether inspecting IP spoofing attack.",
+    "maxaccess": "read-write",
+    "name": "hwAtkIpSpoofingSw",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAtkIpSweepSpeed": {
+    "class": "objecttype",
+    "description": "The maximum speed of IP sweeping.",
+    "maxaccess": "read-write",
+    "name": "hwAtkIpSweepSpeed",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtkLandSw": {
+    "class": "objecttype",
+    "description": "The switch indicates whether inspecting Land attack.",
+    "maxaccess": "read-write",
+    "name": "hwAtkLandSw",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAtkLargeIcmpSw": {
+    "class": "objecttype",
+    "description": "The switch indicates whether blocking large icmp packets.",
+    "maxaccess": "read-write",
+    "name": "hwAtkLargeIcmpSw",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAtkPingOfDeathSw": {
+    "class": "objecttype",
+    "description": "The switch indicates whether inspecting ping-of-death attack.",
+    "maxaccess": "read-write",
+    "name": "hwAtkPingOfDeathSw",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAtkPortScanBlsTime": {
+    "class": "objecttype",
+    "description": "The time to add a host to blacklist when find it is scanning port.",
+    "maxaccess": "read-write",
+    "name": "hwAtkPortScanBlsTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtkPortScanSpeed": {
+    "class": "objecttype",
+    "description": "The maximum speed of port scanning.",
+    "maxaccess": "read-write",
+    "name": "hwAtkPortScanSpeed",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwAtkPortScanSw": {
+    "class": "objecttype",
+    "description": "The switch indicates whether inspecting port scan attack.",
+    "maxaccess": "read-write",
+    "name": "hwAtkPortScanSw",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAtkRouteRecordSw": {
+    "class": "objecttype",
+    "description": "The switch indicates whether blocking packets with route record option.",
+    "maxaccess": "read-write",
+    "name": "hwAtkRouteRecordSw",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAtkSmurfSw": {
+    "class": "objecttype",
+    "description": "The switch indicates whether inspecting Smurf attack.",
+    "maxaccess": "read-write",
+    "name": "hwAtkSmurfSw",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAtkSourceRouteSw": {
+    "class": "objecttype",
+    "description": "The switch indicates whether blocking packets with source route option.",
+    "maxaccess": "read-write",
+    "name": "hwAtkSourceRouteSw",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAtkSynFloodIP": {
+    "class": "objecttype",
+    "description": "The IP address of host to be protected.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtkSynFloodIP",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwAtkSynFloodIPEntry": {
+    "class": "objecttype",
+    "description": " ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkSynFloodIP"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAtkSynFloodIPEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.2.1.1",
+    "status": "current"
+  },
+  "hwAtkSynFloodIPTable": {
+    "class": "objecttype",
+    "description": "The table define the parameters of SYN flood defence for hosts.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtkSynFloodIPTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.2.1",
+    "status": "current"
+  },
+  "hwAtkSynFloodSw": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "The switch indicates whether inspecting SYN flooding attack.",
+    "maxaccess": "read-write",
+    "name": "hwAtkSynFloodSw",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAtkTcpFlagSw": {
+    "class": "objecttype",
+    "description": "The switch indicates whether inspecting the flag of TCP packets.",
+    "maxaccess": "read-write",
+    "name": "hwAtkTcpFlagSw",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAtkTeardropSw": {
+    "class": "objecttype",
+    "description": "The switch indicates whether inspecting teardrop attack.",
+    "maxaccess": "read-write",
+    "name": "hwAtkTeardropSw",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAtkTracertSw": {
+    "class": "objecttype",
+    "description": "The switch indicates whether blocking packets of tracert.",
+    "maxaccess": "read-write",
+    "name": "hwAtkTracertSw",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAtkUdpFloodIP": {
+    "class": "objecttype",
+    "description": "The IP address of host to be protected.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtkUdpFloodIP",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.2.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwAtkUdpFloodIPEntry": {
+    "class": "objecttype",
+    "description": " ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "MPLS-VPN-MIB",
+        "object": "mplsVpnVrfName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ATK-MIB",
+        "object": "hwAtkUdpFloodIP"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwAtkUdpFloodIPEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.2.2.1",
+    "status": "current"
+  },
+  "hwAtkUdpFloodIPTable": {
+    "class": "objecttype",
+    "description": "The table define the parameters of UDP flood defence for hosts.",
+    "maxaccess": "not-accessible",
+    "name": "hwAtkUdpFloodIPTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.2.2",
+    "status": "current"
+  },
+  "hwAtkUdpFloodSw": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "The switch indicates whether inspecting UDP flooding attack.",
+    "maxaccess": "read-write",
+    "name": "hwAtkUdpFloodSw",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwAtkWinNukeSw": {
+    "class": "objecttype",
+    "description": "The switch indicates whether inspecting WinNuke attack.",
+    "maxaccess": "read-write",
+    "name": "hwAtkWinNukeSw",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.10.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "MPLS-VPN-MIB": [
+      "mplsVpnVrfName"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso",
+      "Counter64",
+      "Counter32",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-ATK-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:46:40 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-ATK-MIB"
+  }
+}

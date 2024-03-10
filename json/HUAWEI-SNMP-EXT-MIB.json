@@ -1,0 +1,125 @@
+{
+  "hwSnmpExtCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for implementing the Huawei extended SNMP MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-SNMP-EXT-MIB",
+        "object": "hwSnmpExtRuleGroup"
+      }
+    ],
+    "name": "hwSnmpExtCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.164.2.2.1",
+    "status": "current"
+  },
+  "hwSnmpExtCompliances": {
+    "class": "objectidentity",
+    "name": "hwSnmpExtCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.164.2.2"
+  },
+  "hwSnmpExtConformance": {
+    "class": "objectidentity",
+    "name": "hwSnmpExtConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.164.2"
+  },
+  "hwSnmpExtErrorCodeEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disabled"
+      }
+    },
+    "description": "Enabled or disabled SNMP extended error status.",
+    "maxaccess": "read-write",
+    "name": "hwSnmpExtErrorCodeEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.164.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwSnmpExtGroups": {
+    "class": "objectidentity",
+    "name": "hwSnmpExtGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.164.2.1"
+  },
+  "hwSnmpExtMIB": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": " Some attribute of SNMP extended content. ",
+    "lastupdated": "200801090000Z",
+    "name": "hwSnmpExtMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.164",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwSnmpExtMIBObjects": {
+    "class": "objectidentity",
+    "name": "hwSnmpExtMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.164.1"
+  },
+  "hwSnmpExtRuleGroup": {
+    "class": "objectgroup",
+    "description": "Collection of objects needed for SNMP extended configuration.",
+    "name": "hwSnmpExtRuleGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SNMP-EXT-MIB",
+        "object": "hwSnmpExtErrorCodeEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.164.2.1.1",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifDescr"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Counter64",
+      "MibIdentifier",
+      "Integer32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Bits",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-SNMP-EXT-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:00 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-SNMP-EXT-MIB"
+  }
+}

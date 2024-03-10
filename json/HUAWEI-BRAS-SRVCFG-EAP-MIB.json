@@ -1,0 +1,1997 @@
+{
+  "hwBRASSrvcfgEap": {
+    "class": "moduleidentity",
+    "contactinfo": " NanJing Institute,Huawei Technologies Co.,Ltd. HuiHong Mansion,No.91 BaiXia Rd. NanJing, P.R. of China Zipcode:210001 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": "The MIB contains objects of module SRVCFG.",
+    "lastupdated": "200912151800Z",
+    "name": "hwBRASSrvcfgEap",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4",
+    "organization": "Huawei Technologies Co., Ltd."
+  },
+  "hwDot1xAuthStatus": {
+    "class": "objecttype",
+    "description": "authenticate status.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xAuthStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.14.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwDot1xAuthenMethod": {
+    "class": "objecttype",
+    "description": "Specify system authentication method.",
+    "maxaccess": "read-write",
+    "name": "hwDot1xAuthenMethod",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "chap": 1,
+          "eap": 3,
+          "pap": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDot1xAuthenticationTimeout": {
+    "class": "objecttype",
+    "description": "Timeout time of authentication.",
+    "maxaccess": "read-write",
+    "name": "hwDot1xAuthenticationTimeout",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 300,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xDhcpTrigger": {
+    "class": "objecttype",
+    "description": "Trigger system authentication when receiving DHCP packet(s).",
+    "maxaccess": "read-write",
+    "name": "hwDot1xDhcpTrigger",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwDot1xEAPEndPapChap": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "chap"
+      }
+    },
+    "description": "Type of eap end.",
+    "maxaccess": "read-write",
+    "name": "hwDot1xEAPEndPapChap",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "chap": 1,
+          "pap": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDot1xForceDomain": {
+    "class": "objecttype",
+    "description": " ",
+    "maxaccess": "read-write",
+    "name": "hwDot1xForceDomain",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.14.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 128,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwDot1xGlobal": {
+    "class": "objecttype",
+    "description": "The Global 802.1x configuration. Enable this before you want to enable other interfaces 802.1x authentication.",
+    "maxaccess": "read-write",
+    "name": "hwDot1xGlobal",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwDot1xHandshake": {
+    "class": "objecttype",
+    "description": "Shake hand of 802.1x.",
+    "maxaccess": "read-write",
+    "name": "hwDot1xHandshake",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwDot1xHandshakeCount": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "Max handshake times.",
+    "maxaccess": "read-write",
+    "name": "hwDot1xHandshakeCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xHandshakeInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 20
+      }
+    },
+    "description": "Handshake interval.",
+    "maxaccess": "read-write",
+    "name": "hwDot1xHandshakeInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1800,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xHandshakeSwitch": {
+    "class": "objecttype",
+    "description": "Handshake switch.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xHandshakeSwitch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwDot1xIfEAPEnd": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "Whether to end the eap packet.",
+    "maxaccess": "read-write",
+    "name": "hwDot1xIfEAPEnd",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwDot1xIfSendEAPSIMParameter": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "Whether to send parameter of eap-sim.",
+    "maxaccess": "read-write",
+    "name": "hwDot1xIfSendEAPSIMParameter",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwDot1xMacByPass": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32"
+      }
+    },
+    "description": "Enable dot1x-macbypass function.",
+    "maxaccess": "read-create",
+    "name": "hwDot1xMacByPass",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.14.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwDot1xModemVersion": {
+    "class": "objecttype",
+    "description": "Specify version of modem at this port.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xModemVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.14.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwDot1xPortConfigEntry": {
+    "class": "objecttype",
+    "description": "An entry in the 802.1x configuration table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xPortIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDot1xPortConfigEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.14.1",
+    "status": "current"
+  },
+  "hwDot1xPortConfigGroup": {
+    "class": "objectgroup",
+    "description": "The Dot1x Port Config group.",
+    "name": "hwDot1xPortConfigGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xGlobal"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xAuthenMethod"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xDhcpTrigger"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xHandshake"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xQuietPeriod"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xRetry"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xTimerHandshakePeriod"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xTimerQuietPeriod"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xTimerServerTimeout"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xTimerClientTimeout"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xTimerTxPeriod"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xReauthenPeriod"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xPortSwitch"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xPortGuestVlan"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xPortMaxUser"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xPortControl"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xPortMethod"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xPortReauthen"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xMacByPass"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xModemVersion"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xQuietFailTimes"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.4.2.2",
+    "status": "current"
+  },
+  "hwDot1xPortConfigTable": {
+    "class": "objecttype",
+    "description": "The table describes 802.1x configuration information of template.",
+    "maxaccess": "not-accessible",
+    "name": "hwDot1xPortConfigTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.14",
+    "status": "current"
+  },
+  "hwDot1xPortControl": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "auto"
+      }
+    },
+    "description": "Specify port authenticated status.",
+    "maxaccess": "read-create",
+    "name": "hwDot1xPortControl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.14.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "authorizedForce": 2,
+          "auto": 1,
+          "unauthorizedForce": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDot1xPortGuestVlan": {
+    "class": "objecttype",
+    "description": "Specify guest vlan configuration information for ports.",
+    "maxaccess": "read-create",
+    "name": "hwDot1xPortGuestVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.14.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanIdOrNone"
+    }
+  },
+  "hwDot1xPortIndex": {
+    "class": "objecttype",
+    "description": "The Index of L2-Switch Interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwDot1xPortIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.14.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1280,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xPortMaxUser": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 256
+      }
+    },
+    "description": "Specify maximal on-line user number per port.",
+    "maxaccess": "read-create",
+    "name": "hwDot1xPortMaxUser",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.14.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8192,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xPortMethod": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "mac"
+      }
+    },
+    "description": "Specify port controlled method.",
+    "maxaccess": "read-create",
+    "name": "hwDot1xPortMethod",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.14.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mac": 1,
+          "port": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDot1xPortReauthen": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32"
+      }
+    },
+    "description": "Enable periodic reauthentication of the client.",
+    "maxaccess": "read-create",
+    "name": "hwDot1xPortReauthen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.14.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwDot1xPortRowStatus": {
+    "class": "objecttype",
+    "description": " ",
+    "maxaccess": "read-create",
+    "name": "hwDot1xPortRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.14.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwDot1xPortSwitch": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32"
+      }
+    },
+    "description": "Whether to enable 802.1x on this interface.",
+    "maxaccess": "read-create",
+    "name": "hwDot1xPortSwitch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.14.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwDot1xPortTrapGroup": {
+    "class": "notificationgroup",
+    "description": "The Dot1x\u0027s Notification group.",
+    "name": "hwDot1xPortTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwSrvcfgEapMaxUserAlarm"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.4.2.3",
+    "status": "current"
+  },
+  "hwDot1xQuietFailTimes": {
+    "class": "objecttype",
+    "description": "Failure times before adding to the quiet table.",
+    "maxaccess": "read-write",
+    "name": "hwDot1xQuietFailTimes",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xQuietPeriod": {
+    "class": "objecttype",
+    "description": "Enable quiet period function.",
+    "maxaccess": "read-write",
+    "name": "hwDot1xQuietPeriod",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwDot1xReauthenPeriod": {
+    "class": "objecttype",
+    "description": "Reauthenticate period.",
+    "maxaccess": "read-write",
+    "name": "hwDot1xReauthenPeriod",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7200,
+            "min": 60
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xReauthenticationTimeout": {
+    "class": "objecttype",
+    "description": "Re-authentication interval in seconds.",
+    "maxaccess": "read-write",
+    "name": "hwDot1xReauthenticationTimeout",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xRequestCount": {
+    "class": "objecttype",
+    "description": "Max number of re-transmission events.",
+    "maxaccess": "read-write",
+    "name": "hwDot1xRequestCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xRequestInterval": {
+    "class": "objecttype",
+    "description": "Timeout time of waiting for the response of a request message.",
+    "maxaccess": "read-write",
+    "name": "hwDot1xRequestInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 300,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xRetry": {
+    "class": "objecttype",
+    "description": "Specify maximal request times.",
+    "maxaccess": "read-write",
+    "name": "hwDot1xRetry",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xRowStatus": {
+    "class": "objecttype",
+    "description": " ",
+    "maxaccess": "read-create",
+    "name": "hwDot1xRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwDot1xSessDispByMacHandShakeSwitch": {
+    "class": "objecttype",
+    "description": "The HandShake Switch of the user online.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xSessDispByMacHandShakeSwitch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.18.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwDot1xSessDispByMacIfName": {
+    "class": "objecttype",
+    "description": "The interface name of the online user.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xSessDispByMacIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.18.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwDot1xSessDispByMacReauth": {
+    "class": "objecttype",
+    "description": "The Reauthenticate status of the user online.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xSessDispByMacReauth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.18.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwDot1xSessDispByMacTemplateIndex": {
+    "class": "objecttype",
+    "description": "The Template Index of the user using.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xSessDispByMacTemplateIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.18.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 256,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xSessDispByMacUserIndex": {
+    "class": "objecttype",
+    "description": "The index of the user.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xSessDispByMacUserIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.18.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 49151,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xSessDispByMacUserMac": {
+    "class": "objecttype",
+    "description": "The mac of the user online.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xSessDispByMacUserMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.18.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwDot1xSessDispByMacUserQinqId": {
+    "class": "objecttype",
+    "description": "The Qinq Id of the user.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xSessDispByMacUserQinqId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.18.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xSessDispByMacUserState": {
+    "class": "objecttype",
+    "description": "The authenticate status of the user online.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xSessDispByMacUserState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.18.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwDot1xSessDispByMacUserVlanId": {
+    "class": "objecttype",
+    "description": "The vlan Id of the user.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xSessDispByMacUserVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.18.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xSessDispByPortHandShakeSwitch": {
+    "class": "objecttype",
+    "description": "The HandShake Switch of the user online.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xSessDispByPortHandShakeSwitch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.16.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwDot1xSessDispByPortIfName": {
+    "class": "objecttype",
+    "description": "The interface name of the online user.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xSessDispByPortIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.16.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwDot1xSessDispByPortIndex": {
+    "class": "objecttype",
+    "description": "The Index of port Interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwDot1xSessDispByPortIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.16.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1280,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xSessDispByPortReauth": {
+    "class": "objecttype",
+    "description": "The Reauthenticate status of the user online.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xSessDispByPortReauth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.16.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwDot1xSessDispByPortTemplateIndex": {
+    "class": "objecttype",
+    "description": "The Template Index of the user using.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xSessDispByPortTemplateIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.16.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 256,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xSessDispByPortUserIndex": {
+    "class": "objecttype",
+    "description": "The Index of User.",
+    "maxaccess": "not-accessible",
+    "name": "hwDot1xSessDispByPortUserIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.16.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 49151,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xSessDispByPortUserMac": {
+    "class": "objecttype",
+    "description": "The mac of the user online.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xSessDispByPortUserMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.16.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwDot1xSessDispByPortUserQinqId": {
+    "class": "objecttype",
+    "description": "The Qinq Id of the user.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xSessDispByPortUserQinqId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.16.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xSessDispByPortUserState": {
+    "class": "objecttype",
+    "description": "The authenticate status of the user online.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xSessDispByPortUserState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.16.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwDot1xSessDispByPortUserVlanId": {
+    "class": "objecttype",
+    "description": "The vlan Id of the user.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xSessDispByPortUserVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.16.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xSessDispBySlotHandShakeSwitch": {
+    "class": "objecttype",
+    "description": "The HandShake Switch of the user online.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xSessDispBySlotHandShakeSwitch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.17.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwDot1xSessDispBySlotIfName": {
+    "class": "objecttype",
+    "description": "The interface name of the online user.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xSessDispBySlotIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.17.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwDot1xSessDispBySlotIndex": {
+    "class": "objecttype",
+    "description": "The Index of Slot.",
+    "maxaccess": "not-accessible",
+    "name": "hwDot1xSessDispBySlotIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.17.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1280,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xSessDispBySlotReauth": {
+    "class": "objecttype",
+    "description": "The Reauthenticate status of the user online.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xSessDispBySlotReauth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.17.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwDot1xSessDispBySlotTemplateIndex": {
+    "class": "objecttype",
+    "description": "The Template Index of the user using.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xSessDispBySlotTemplateIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.17.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 256,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xSessDispBySlotUserIndex": {
+    "class": "objecttype",
+    "description": "The Index of user.",
+    "maxaccess": "not-accessible",
+    "name": "hwDot1xSessDispBySlotUserIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.17.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 49151,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xSessDispBySlotUserMac": {
+    "class": "objecttype",
+    "description": "The mac of the user online.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xSessDispBySlotUserMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.17.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwDot1xSessDispBySlotUserQinqId": {
+    "class": "objecttype",
+    "description": "The Qinq Id of the user.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xSessDispBySlotUserQinqId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.17.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xSessDispBySlotUserState": {
+    "class": "objecttype",
+    "description": "The authenticate status of the user online.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xSessDispBySlotUserState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.17.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwDot1xSessDispBySlotUserVlanId": {
+    "class": "objecttype",
+    "description": "The vlan Id of the user.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xSessDispBySlotUserVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.17.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xSessionDisplayByMacEntry": {
+    "class": "objecttype",
+    "description": "An entry in the Mac display table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xSessDispByMacUserMac"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDot1xSessionDisplayByMacEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.18.1",
+    "status": "current"
+  },
+  "hwDot1xSessionDisplayByMacTable": {
+    "class": "objecttype",
+    "description": "The table displays the infomations of the online users according to the Mac.",
+    "maxaccess": "not-accessible",
+    "name": "hwDot1xSessionDisplayByMacTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.18",
+    "status": "current"
+  },
+  "hwDot1xSessionDisplayByPortEntry": {
+    "class": "objecttype",
+    "description": "An entry in the port display table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xSessDispByPortIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xSessDispByPortUserIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDot1xSessionDisplayByPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.16.1",
+    "status": "current"
+  },
+  "hwDot1xSessionDisplayByPortTable": {
+    "class": "objecttype",
+    "description": "The table displays the infomations of the online users according to the port.",
+    "maxaccess": "not-accessible",
+    "name": "hwDot1xSessionDisplayByPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.16",
+    "status": "current"
+  },
+  "hwDot1xSessionDisplayBySlotEntry": {
+    "class": "objecttype",
+    "description": "An entry in the Slot display table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xSessDispBySlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xSessDispBySlotUserIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDot1xSessionDisplayBySlotEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.17.1",
+    "status": "current"
+  },
+  "hwDot1xSessionDisplayBySlotTable": {
+    "class": "objecttype",
+    "description": "The table displays the infomations of the online users according to the Slot.",
+    "maxaccess": "not-accessible",
+    "name": "hwDot1xSessionDisplayBySlotTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.17",
+    "status": "current"
+  },
+  "hwDot1xSystemConfigEntry": {
+    "class": "objecttype",
+    "description": "Description.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xTemplateIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDot1xSystemConfigEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.1.1",
+    "status": "current"
+  },
+  "hwDot1xSystemConfigGroup": {
+    "class": "objectgroup",
+    "description": "The Dot1x System Config group.",
+    "name": "hwDot1xSystemConfigGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xTemplateIndex"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xHandshakeSwitch"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xHandshakeCount"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xHandshakeInterval"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xIfEAPEnd"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xEAPEndPapChap"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xIfSendEAPSIMParameter"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.4.2.1",
+    "status": "current"
+  },
+  "hwDot1xSystemConfigGroups": {
+    "class": "objectidentity",
+    "name": "hwDot1xSystemConfigGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.4.2"
+  },
+  "hwDot1xSystemConfigTable": {
+    "class": "objecttype",
+    "description": "The table describes 802.1x configuration information of template.",
+    "maxaccess": "not-accessible",
+    "name": "hwDot1xSystemConfigTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.1",
+    "status": "current"
+  },
+  "hwDot1xTemplateIndex": {
+    "class": "objecttype",
+    "description": "802.1x template index.",
+    "maxaccess": "read-only",
+    "name": "hwDot1xTemplateIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 256,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xTimerClientTimeout": {
+    "class": "objecttype",
+    "description": "Value of Client timeout.",
+    "maxaccess": "read-write",
+    "name": "hwDot1xTimerClientTimeout",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 120,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xTimerHandshakePeriod": {
+    "class": "objecttype",
+    "description": "Value of handshake interval with 802.1x supplicant.",
+    "maxaccess": "read-write",
+    "name": "hwDot1xTimerHandshakePeriod",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1024,
+            "min": 5
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xTimerQuietPeriod": {
+    "class": "objecttype",
+    "description": "Interval following failed authentication.",
+    "maxaccess": "read-write",
+    "name": "hwDot1xTimerQuietPeriod",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 3600,
+            "min": 10
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xTimerServerTimeout": {
+    "class": "objecttype",
+    "description": "Value of server timeout.",
+    "maxaccess": "read-write",
+    "name": "hwDot1xTimerServerTimeout",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 120,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDot1xTimerTxPeriod": {
+    "class": "objecttype",
+    "description": "Interval between identity requests.",
+    "maxaccess": "read-write",
+    "name": "hwDot1xTimerTxPeriod",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 120,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEapFailure": {
+    "class": "objecttype",
+    "description": "EAP_FAILURE",
+    "maxaccess": "read-only",
+    "name": "hwEapFailure",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.19.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEapKey": {
+    "class": "objecttype",
+    "description": "EAP_KEY",
+    "maxaccess": "read-only",
+    "name": "hwEapKey",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.19.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEapLogOff": {
+    "class": "objecttype",
+    "description": "EAP_LOGOFF",
+    "maxaccess": "read-only",
+    "name": "hwEapLogOff",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.19.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEapReqChallenge": {
+    "class": "objecttype",
+    "description": "EAP_REQ/CHALLENGE",
+    "maxaccess": "read-only",
+    "name": "hwEapReqChallenge",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.19.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEapReqID": {
+    "class": "objecttype",
+    "description": "EAP_REQ/ID",
+    "maxaccess": "read-only",
+    "name": "hwEapReqID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.19.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEapRespChallenge": {
+    "class": "objecttype",
+    "description": "EAP_RESP/CHALLENGE",
+    "maxaccess": "read-only",
+    "name": "hwEapRespChallenge",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.19.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEapRespID": {
+    "class": "objecttype",
+    "description": "EAP_RESP/ID",
+    "maxaccess": "read-only",
+    "name": "hwEapRespID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.19.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEapStart": {
+    "class": "objecttype",
+    "description": "EAP_START",
+    "maxaccess": "read-only",
+    "name": "hwEapStart",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.19.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEapSuccess": {
+    "class": "objecttype",
+    "description": "EAP_SUCCESS",
+    "maxaccess": "read-only",
+    "name": "hwEapSuccess",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.19.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEapTrapOid": {
+    "class": "objectidentity",
+    "name": "hwEapTrapOid",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.3.1"
+  },
+  "hwEapTraps": {
+    "class": "objectidentity",
+    "name": "hwEapTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.3.2.0"
+  },
+  "hwEapTrapsDefine": {
+    "class": "objectidentity",
+    "name": "hwEapTrapsDefine",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.3.2"
+  },
+  "hwEapUserPortMaxNum": {
+    "class": "notificationtype",
+    "description": " 1 Notice/Trap name: Reach the eap port user threshold 2 Notice/Trap generation cause: the number of the online eap user in this port reaches the threshold ",
+    "name": "hwEapUserPortMaxNum",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwEapUserPortMaxNumThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.3.2.0.1",
+    "status": "current"
+  },
+  "hwEapUserPortMaxNumResume": {
+    "class": "notificationtype",
+    "description": " 1 Notice/Trap name: under the eap port user threshold 2 Notice/Trap generation cause: the number of the online eap user in this port is under the threshold ",
+    "name": "hwEapUserPortMaxNumResume",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwEapUserPortMaxNumThresholdResume"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.3.2.0.2",
+    "status": "current"
+  },
+  "hwEapUserPortMaxNumThreshold": {
+    "class": "objecttype",
+    "description": "hwEapUserPortMaxNumThreshold",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEapUserPortMaxNumThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEapUserPortMaxNumThresholdResume": {
+    "class": "objecttype",
+    "description": "hwEapUserPortMaxNumThresholdResume",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEapUserPortMaxNumThresholdResume",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEapUserSlot": {
+    "class": "objecttype",
+    "description": "Slot",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEapUserSlot",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEapUserSlotMaxNum": {
+    "class": "notificationtype",
+    "description": " 1 Notice/Trap name: Reach the eap slot user threshold 2 Notice/Trap generation cause: the number of the online eap user in this slot reaches the threshold ",
+    "name": "hwEapUserSlotMaxNum",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwEapUserSlot"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwEapUserSlotMaxNumThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.3.2.0.3",
+    "status": "current"
+  },
+  "hwEapUserSlotMaxNumThreshold": {
+    "class": "objecttype",
+    "description": "hwEapUserSlotMaxNumThreshold",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEapUserSlotMaxNumThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEapUserTotalMaxNum": {
+    "class": "notificationtype",
+    "description": " 1 Notice/Trap name: Reach the eap total user threshold 2 Notice/Trap generation cause: the number of the online eap user in this device reaches the threshold ",
+    "name": "hwEapUserTotalMaxNum",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwEapUserTotalMaxNumThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.3.2.0.4",
+    "status": "current"
+  },
+  "hwEapUserTotalMaxNumThreshold": {
+    "class": "objecttype",
+    "description": "hwEapUserTotalMaxNumThreshold",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEapUserTotalMaxNumThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPacketStatisticsEntry": {
+    "class": "objecttype",
+    "description": "An entry in the table of packet statistics display .",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwSlotIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPacketStatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.19.1",
+    "status": "current"
+  },
+  "hwPacketStatisticsTable": {
+    "class": "objecttype",
+    "description": "The table displays the packet statistics of the Slot.",
+    "maxaccess": "not-accessible",
+    "name": "hwPacketStatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.19",
+    "status": "current"
+  },
+  "hwSlotIndex": {
+    "class": "objecttype",
+    "description": "Slot number",
+    "maxaccess": "read-only",
+    "name": "hwSlotIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1.19.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSrvcfgEapCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the this module.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xSystemConfigGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB",
+        "object": "hwDot1xPortConfigGroup"
+      }
+    ],
+    "name": "hwSrvcfgEapCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.4.1.1",
+    "status": "current"
+  },
+  "hwSrvcfgEapCompliances": {
+    "class": "objectidentity",
+    "name": "hwSrvcfgEapCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.4.1"
+  },
+  "hwSrvcfgEapConformance": {
+    "class": "objectidentity",
+    "name": "hwSrvcfgEapConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.4"
+  },
+  "hwSrvcfgEapMaxUserAlarm": {
+    "class": "notificationtype",
+    "description": "The number of ahthenticate users is reached the max number. ",
+    "name": "hwSrvcfgEapMaxUserAlarm",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.2.1",
+    "status": "current"
+  },
+  "hwSrvcfgEapMibObjects": {
+    "class": "objectidentity",
+    "name": "hwSrvcfgEapMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.1"
+  },
+  "hwSrvcfgEapMibTraps": {
+    "class": "objectidentity",
+    "name": "hwSrvcfgEapMibTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.2"
+  },
+  "hwSrvcfgEapMibUserLimitTraps": {
+    "class": "objectidentity",
+    "name": "hwSrvcfgEapMibUserLimitTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.4.3"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwBRASMib"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifDescr"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId",
+      "VlanIdOrNone"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Counter32",
+      "MibIdentifier",
+      "iso",
+      "Counter64",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "RowStatus",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-BRAS-SRVCFG-EAP-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:46:54 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-BRAS-SRVCFG-EAP-MIB"
+  }
+}

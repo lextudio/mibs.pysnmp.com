@@ -1,0 +1,483 @@
+{
+  "hwAuthenticationMode": {
+    "class": "objecttype",
+    "description": "The authentication mode of the user interface.",
+    "maxaccess": "read-create",
+    "name": "hwAuthenticationMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.3.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aaa": 3,
+          "none": 1,
+          "password": 2,
+          "undefined": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwInterfaceType": {
+    "class": "objecttype",
+    "description": "The type of the user interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwInterfaceType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.3.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vty": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLineCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for entities that support the huawei LINE MIB.",
+    "name": "hwLineCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.3.1.1",
+    "status": "current"
+  },
+  "hwLineCompliances": {
+    "class": "objectidentity",
+    "name": "hwLineCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.3.1"
+  },
+  "hwLineConformance": {
+    "class": "objectidentity",
+    "name": "hwLineConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.3"
+  },
+  "hwLineGroups": {
+    "class": "objectidentity",
+    "name": "hwLineGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.3.2"
+  },
+  "hwLineMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "VRP Team Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China http://www.huawei.com Zip:100085 ",
+    "description": "HUAWEI-LINE-MIB is used to configure and query attributes of connections through management interfaces by users, such as the maximum number of Telnet connections and login information about users. ",
+    "lastupdated": "200907311624Z",
+    "name": "hwLineMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.207",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwLineNotification": {
+    "class": "objectidentity",
+    "name": "hwLineNotification",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.2"
+  },
+  "hwLineNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "The collection of notifications in the module.",
+    "name": "hwLineNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwVtyNumExceed"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserLogin"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.207.3.2.1",
+    "status": "current"
+  },
+  "hwLineObjects": {
+    "class": "objectidentity",
+    "name": "hwLineObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1"
+  },
+  "hwLineUserInfoGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects on Clock setting level information.",
+    "name": "hwLineUserInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoIndex"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoName"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoIpAddr"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoChannel"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.207.3.2.2",
+    "status": "current"
+  },
+  "hwLoginUserInfo": {
+    "class": "objectidentity",
+    "name": "hwLoginUserInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.2"
+  },
+  "hwLoginUserInfoEntry": {
+    "class": "objecttype",
+    "description": "This table describes information about user login.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwLoginUserInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.2.1.1",
+    "status": "current"
+  },
+  "hwLoginUserInfoTable": {
+    "class": "objecttype",
+    "description": "This table is used to display the user information for login.",
+    "maxaccess": "not-accessible",
+    "name": "hwLoginUserInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.2.1",
+    "status": "current"
+  },
+  "hwMaxVtyNumber": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the maximum number of Telnet connections. The value ranges from 0 to 15. The default value is 5.",
+    "maxaccess": "read-write",
+    "name": "hwMaxVtyNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMaxVtyNumberGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects on vty number information.",
+    "name": "hwMaxVtyNumberGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwMaxVtyNumber"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.207.3.2.3",
+    "status": "current"
+  },
+  "hwProtocol": {
+    "class": "objecttype",
+    "description": "The protocol of the user interface.",
+    "maxaccess": "read-create",
+    "name": "hwProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.3.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 3,
+          "ssh": 2,
+          "telnet": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwTelnetSet": {
+    "class": "objectidentity",
+    "name": "hwTelnetSet",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.1"
+  },
+  "hwUserInfoChannel": {
+    "class": "objecttype",
+    "description": "This object indicates the channel number of the user for login.",
+    "maxaccess": "read-only",
+    "name": "hwUserInfoChannel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwUserInfoIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the index of the user information for login.",
+    "maxaccess": "not-accessible",
+    "name": "hwUserInfoIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwUserInfoIpAddr": {
+    "class": "objecttype",
+    "description": "This object indicates the IP address of the user for login.",
+    "maxaccess": "read-only",
+    "name": "hwUserInfoIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 47,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwUserInfoName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of the user for login.",
+    "maxaccess": "read-only",
+    "name": "hwUserInfoName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwUserInterface": {
+    "class": "objectidentity",
+    "name": "hwUserInterface",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.3"
+  },
+  "hwUserInterfaceEntry": {
+    "class": "objecttype",
+    "description": "This table describes information about user Interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwInterfaceType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInterfaceIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwUserInterfaceEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.3.1.1",
+    "status": "current"
+  },
+  "hwUserInterfaceIndex": {
+    "class": "objecttype",
+    "description": "The index of the user interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwUserInterfaceIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.3.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 20,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwUserInterfaceRowStatus": {
+    "class": "objecttype",
+    "description": "RowStatus for this Table.",
+    "maxaccess": "read-create",
+    "name": "hwUserInterfaceRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.3.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwUserInterfaceTable": {
+    "class": "objecttype",
+    "description": "This table describes information about user Interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwUserInterfaceTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.207.1.3.1",
+    "status": "current"
+  },
+  "hwUserLogin": {
+    "class": "notificationtype",
+    "description": "When a user logs in through Telnet/Stelnet, the user name, IP address for login, and used tunnel are reported.",
+    "name": "hwUserLogin",
+    "objects": [
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoName"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoIpAddr"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoChannel"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.207.2.2",
+    "status": "current"
+  },
+  "hwUserLoginFail": {
+    "class": "notificationtype",
+    "description": "When a user fails to log in through Telnet/Stelnet, the user name, IP address for login, and used tunnel are reported.",
+    "name": "hwUserLoginFail",
+    "objects": [
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoName"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoIpAddr"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoChannel"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.207.2.3",
+    "status": "current"
+  },
+  "hwUserLogout": {
+    "class": "notificationtype",
+    "description": "When a user logs out of the Telnet/Stelnet server, the user name, IP address for logout, and used tunnel are reported.",
+    "name": "hwUserLogout",
+    "objects": [
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoName"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoIpAddr"
+      },
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwUserInfoChannel"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.207.2.4",
+    "status": "current"
+  },
+  "hwVtyNumExceed": {
+    "class": "notificationtype",
+    "description": "This object indicates the alarm reported when the number of Telnet users reaches the maximum number of Telnet connections. In addition, the maximum number of Telnet connections is displayed.",
+    "name": "hwVtyNumExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-LINE-MIB",
+        "object": "hwMaxVtyNumber"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.207.2.1",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Gauge32",
+      "Unsigned32",
+      "iso",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-LINE-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:57 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-LINE-MIB"
+  }
+}

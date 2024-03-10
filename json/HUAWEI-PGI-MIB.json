@@ -1,0 +1,207 @@
+{
+  "hwPortGroupIsolation": {
+    "class": "moduleidentity",
+    "contactinfo": "Platform Team Huawei Technologies Co. Ltd. Hai-Dian District Beijing P.R. China http://www.huawei.com Zip:100085",
+    "description": "MIB of Port Group Isolation module The HUAWEI-PGI-MIB is defined to configure and display the status of port group.",
+    "lastupdated": "200701010000Z",
+    "name": "hwPortGroupIsolation",
+    "oid": "1.3.6.1.4.1.2011.5.25.144",
+    "organization": "Huawei Technologies Co. Ltd."
+  },
+  "hwPortGroupIsolationCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-PGI-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-PGI-MIB",
+        "object": "hwPortGroupIsolationObjectGroup"
+      }
+    ],
+    "name": "hwPortGroupIsolationCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.144.3.1.1",
+    "status": "current"
+  },
+  "hwPortGroupIsolationCompliances": {
+    "class": "objectidentity",
+    "name": "hwPortGroupIsolationCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.144.3.1"
+  },
+  "hwPortGroupIsolationConfigEntry": {
+    "class": "objecttype",
+    "description": "Detailed information of a specified isolation group.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PGI-MIB",
+        "object": "hwPortGroupIsolationIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPortGroupIsolationConfigEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.144.1.1.1",
+    "status": "current"
+  },
+  "hwPortGroupIsolationConfigRowStatus": {
+    "class": "objecttype",
+    "description": "This object is responsible for managing the creation and deletion of rows, which support active status and CreatAndGo, destroy operation. ",
+    "maxaccess": "read-create",
+    "name": "hwPortGroupIsolationConfigRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.144.1.1.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwPortGroupIsolationConfigTable": {
+    "class": "objecttype",
+    "description": "A table containing information about status of isolation group.",
+    "maxaccess": "not-accessible",
+    "name": "hwPortGroupIsolationConfigTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.144.1.1",
+    "status": "current"
+  },
+  "hwPortGroupIsolationConformance": {
+    "class": "objectidentity",
+    "name": "hwPortGroupIsolationConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.144.3"
+  },
+  "hwPortGroupIsolationGroupID": {
+    "class": "objecttype",
+    "description": "The ID of group that port joins in.",
+    "maxaccess": "read-create",
+    "name": "hwPortGroupIsolationGroupID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.144.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPortGroupIsolationGroups": {
+    "class": "objectidentity",
+    "name": "hwPortGroupIsolationGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.144.3.3"
+  },
+  "hwPortGroupIsolationIfName": {
+    "class": "objecttype",
+    "description": "The name of port that joins the port isolation group.",
+    "maxaccess": "read-create",
+    "name": "hwPortGroupIsolationIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.144.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPortGroupIsolationIndex": {
+    "class": "objecttype",
+    "description": "The index of port isolation group entry.",
+    "maxaccess": "not-accessible",
+    "name": "hwPortGroupIsolationIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.144.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1024,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPortGroupIsolationMibObjects": {
+    "class": "objectidentity",
+    "name": "hwPortGroupIsolationMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.144.1"
+  },
+  "hwPortGroupIsolationObjectGroup": {
+    "class": "objectgroup",
+    "description": "The PGI attribute group.",
+    "name": "hwPortGroupIsolationObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PGI-MIB",
+        "object": "hwPortGroupIsolationIfName"
+      },
+      {
+        "module": "HUAWEI-PGI-MIB",
+        "object": "hwPortGroupIsolationGroupID"
+      },
+      {
+        "module": "HUAWEI-PGI-MIB",
+        "object": "hwPortGroupIsolationConfigRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.144.3.3.1",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Bits",
+      "Gauge32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-PGI-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:38 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-PGI-MIB"
+  }
+}

@@ -1,0 +1,297 @@
+{
+  "hwBufferCurrentTotal": {
+    "class": "objecttype",
+    "description": " The object indicates the total number of the buffer currently. ",
+    "maxaccess": "read-only",
+    "name": "hwBufferCurrentTotal",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBufferCurrentUsed": {
+    "class": "objecttype",
+    "description": " The object indicates the used number of the buffer currently. ",
+    "maxaccess": "read-only",
+    "name": "hwBufferCurrentUsed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBufferEntry": {
+    "class": "objecttype",
+    "description": " The Entries of hwBufferTable. The hwBufferTable is indexed by hwFrameIndex, hwSlotIndex, hwBufferModuleIndex and hwBufferSize. hwFrameIndex - the index of frame of the device. for example, hwFrameIndex equals 0 in NE16. hwSlotIndex - the slot number of the device, the MAX value varies with different types of devices. hwBufferModuleIndex - for the purpose of extension.In single CPU devices (NE16,eg.),hwBufferModuleIndex equals 0. hwBufferSize - the size in bytes of the buffer,such as 32 bytes,64 bytes, ...,etc. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MEMORY-MIB",
+        "object": "hwBufferModuleIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MEMORY-MIB",
+        "object": "hwBufferSize"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBufferEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.2.1",
+    "status": "current"
+  },
+  "hwBufferModuleIndex": {
+    "class": "objecttype",
+    "description": " The object is used only for the purpose of extension,In single CPU devices (NE16,eg.),hwBufferModuleIndex equals 0. ",
+    "maxaccess": "not-accessible",
+    "name": "hwBufferModuleIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBufferSize": {
+    "class": "objecttype",
+    "description": " The object indicates the size of the buffers in bytes, such as 32 bytes, 64 bytes,...,etc. ",
+    "maxaccess": "not-accessible",
+    "name": "hwBufferSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwBufferTable": {
+    "class": "objecttype",
+    "description": " This table provides the inquiry of buffer utilization statistics of device. The type of the buffer is classified by size: 32 bytes, 64 bytes,...,etc. ",
+    "maxaccess": "not-accessible",
+    "name": "hwBufferTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.2",
+    "status": "current"
+  },
+  "hwMemoryDev": {
+    "class": "moduleidentity",
+    "contactinfo": " ADDR: HUAWEI TECHNOLOGY CO.,LTD,SHEZHEN CHINA Tel: 86-755-26540808 ",
+    "description": " This mib module defines the memory information. NMS can query memory utilization statistics from device by the mib. ",
+    "lastupdated": "200212290900Z",
+    "name": "hwMemoryDev",
+    "oid": "1.3.6.1.4.1.2011.6.3.5",
+    "organization": "HAUWEI MIB Standard community "
+  },
+  "hwMemoryDevEntry": {
+    "class": "objecttype",
+    "description": " The Entries of hwMemoryDevTable. The table is indexed by hwFrameIndex, hwSlotIndex and hwMemoryDevModuleIndex, hwFrameIndex - the index of frame of the device. for example, hwFrameIndex equals 0 in NE16. hwSlotIndex - the slot number of the device, the MAX value varies with different devices. hwMemoryDevModuleIndex - for the purpose of extension.In single CPU devices (NE16,eg.), its value equals 0. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DEVICE-MIB",
+        "object": "hwSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MEMORY-MIB",
+        "object": "hwMemoryDevModuleIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMemoryDevEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1.1",
+    "status": "current"
+  },
+  "hwMemoryDevFail": {
+    "class": "objecttype",
+    "description": " The object indicates the count of memory allocation failures. ",
+    "maxaccess": "read-only",
+    "name": "hwMemoryDevFail",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMemoryDevFailNoMem": {
+    "class": "objecttype",
+    "description": " The object indicates the count of memory allocation failures due to no free memory. ",
+    "maxaccess": "read-only",
+    "name": "hwMemoryDevFailNoMem",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMemoryDevFree": {
+    "class": "objecttype",
+    "description": " The object indicates the free size of the memory in bytes. ",
+    "maxaccess": "read-only",
+    "name": "hwMemoryDevFree",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMemoryDevLargestFree": {
+    "class": "objecttype",
+    "description": " The object indicates the largest number of contiguous bytes from the memory that are currently unused on the managed object. ",
+    "maxaccess": "read-only",
+    "name": "hwMemoryDevLargestFree",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMemoryDevModuleIndex": {
+    "class": "objecttype",
+    "description": " The object is used only for the purpose of extension,In single CPU devices (NE16,eg.), hwMemoryDevModuleIndex equals 0. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMemoryDevModuleIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwMemoryDevRawSliceUsed": {
+    "class": "objecttype",
+    "description": " The object indicates the used size of the raw slice memory in bytes. ",
+    "maxaccess": "read-only",
+    "name": "hwMemoryDevRawSliceUsed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMemoryDevSize": {
+    "class": "objecttype",
+    "description": " The object indicates the total size of the memory in bytes, which is on the managed object. ",
+    "maxaccess": "read-only",
+    "name": "hwMemoryDevSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMemoryDevTable": {
+    "class": "objecttype",
+    "description": " This table provides the information of all memory utilization statistics of device. It contains the total size, the free size, the used size, and so on. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMemoryDevTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.3.5.1",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-DEVICE-MIB": [
+      "hwFrameIndex",
+      "hwSlotIndex"
+    ],
+    "HUAWEI-MIB": [
+      "hwDev"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "iso",
+      "TimeTicks",
+      "IpAddress",
+      "Bits",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Unsigned32",
+      "Integer32",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-MEMORY-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:13 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-MEMORY-MIB"
+  }
+}

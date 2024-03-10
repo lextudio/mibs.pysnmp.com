@@ -1,0 +1,506 @@
+{
+  "hwInnerLinkAdminState": {
+    "class": "objecttype",
+    "description": "The administrative state for this object, and it is possible to set the state when needed. A value of locked means the resource is administratively prohibited from use. A value of shuttingDown means that usage is administratively limited to current instances of use. A value of unlocked means the resource is not administratively prohibited from use.",
+    "maxaccess": "read-write",
+    "name": "hwInnerLinkAdminState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "locked": 2,
+          "notSupported": 1,
+          "shuttingDown": 3,
+          "unlocked": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwInnerLinkAlarmLight": {
+    "class": "objecttype",
+    "description": "The alarm status for this entity. It is decided by the alarm status of the physical links which compose the logical link. When no bits of this attribute are set, then none of the status conditions described below are present. When the value of under repair is set, the resource is currently being repaired. When the value of critical is set, one or more critical alarms are active against the resource. When the value of major is set, one or more major alarms are active against the resource. When the value of minor is set, one or more minor alarms are active against the resource. When the value of warning is set, one or more warning alarms are active against the resource. When the value of indeterminate is set, one or more alarms of indeterminate severity are active against the resource. When the value of alarm outstanding is set, one or more alarms is active against the resource. The fault may or may not be disabling.",
+    "maxaccess": "read-only",
+    "name": "hwInnerLinkAlarmLight",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.2.1.11",
+    "status": "current",
+    "syntax": {
+      "bits": {
+        "alarmOutstanding": 5,
+        "critical": 2,
+        "indeterminate": 7,
+        "major": 3,
+        "minor": 4,
+        "notSupported": 0,
+        "underRepair": 1,
+        "warning": 6
+      },
+      "class": "type",
+      "type": "Bits"
+    }
+  },
+  "hwInnerLinkCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI Inner Link MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkGroup"
+      }
+    ],
+    "name": "hwInnerLinkCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.3.1.1",
+    "status": "current"
+  },
+  "hwInnerLinkCompliances": {
+    "class": "objectidentity",
+    "name": "hwInnerLinkCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.3.1"
+  },
+  "hwInnerLinkConformance": {
+    "class": "objectidentity",
+    "name": "hwInnerLinkConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.3"
+  },
+  "hwInnerLinkEntry": {
+    "class": "objecttype",
+    "description": "Information about a particular inner link entity. Each entry provides left and right vitural port and status of the link to NMS to manage the links.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwInnerLinkEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.2.1",
+    "status": "current"
+  },
+  "hwInnerLinkGroup": {
+    "class": "objectgroup",
+    "description": "HUAWEI Inner Link group.",
+    "name": "hwInnerLinkGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkLeftPortPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkLeftPortPhysicalName"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkRightPortPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkRightPortPhysicalName"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkLeftFrameType"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkLeftFrameId"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkLeftPortId"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkRightFrameType"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkRightFrameId"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkRightPortId"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkType"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkAdminState"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkOperState"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkAlarmLight"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.158.3.2.1",
+    "status": "current"
+  },
+  "hwInnerLinkGroups": {
+    "class": "objectidentity",
+    "name": "hwInnerLinkGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.3.2"
+  },
+  "hwInnerLinkIndex": {
+    "class": "objecttype",
+    "description": "The index for this entry.It comprises of left frame ID, right frame ID and type of the logical link.",
+    "maxaccess": "not-accessible",
+    "name": "hwInnerLinkIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwInnerLinkLeftFrameId": {
+    "class": "objecttype",
+    "description": "Frame ID of the link\u0027s left point.",
+    "maxaccess": "read-only",
+    "name": "hwInnerLinkLeftFrameId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwInnerLinkLeftFrameType": {
+    "class": "objecttype",
+    "description": "Frame type of the link\u0027s left point. A value of centralChassis means the central frame in the system which can manage the system. A value of lineChassis means a frame managed by the central frame.",
+    "maxaccess": "read-only",
+    "name": "hwInnerLinkLeftFrameType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "centralChassis": 2,
+          "lineChassis": 3,
+          "unknown": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwInnerLinkLeftPortId": {
+    "class": "objecttype",
+    "description": "Port ID of the link\u0027s left virtual port.",
+    "maxaccess": "read-only",
+    "name": "hwInnerLinkLeftPortId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwInnerLinkLeftPortPhysicalIndex": {
+    "class": "objecttype",
+    "description": "To describe physical entity index of left port of the physical link which is part of the corresponding inner logical link.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwInnerLinkLeftPortPhysicalIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "PhysicalIndex"
+    }
+  },
+  "hwInnerLinkLeftPortPhysicalName": {
+    "class": "objecttype",
+    "description": "To describe physical entity name of left port of the physical link which is part of the corresponding inner logical link.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwInnerLinkLeftPortPhysicalName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwInnerLinkMIB": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": "The private mib file includes the general information of inner links between frames in cluster system.",
+    "lastupdated": "200710241430Z",
+    "name": "hwInnerLinkMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.158",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwInnerLinkMIBObjPrefix": {
+    "class": "objectidentity",
+    "name": "hwInnerLinkMIBObjPrefix",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.1"
+  },
+  "hwInnerLinkMIBObjects": {
+    "class": "objectidentity",
+    "name": "hwInnerLinkMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1"
+  },
+  "hwInnerLinkNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "Inner Link Notification group.",
+    "name": "hwInnerLinkNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkOnePhysicalLinkUp"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkOnePhysicalLinkDown"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.158.3.2.2",
+    "status": "current"
+  },
+  "hwInnerLinkOnePhysicalLinkDown": {
+    "class": "notificationtype",
+    "description": "One physical link of the corrresponding inner logical link is unavailable.",
+    "name": "hwInnerLinkOnePhysicalLinkDown",
+    "objects": [
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkLeftPortPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkLeftPortPhysicalName"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkRightPortPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkRightPortPhysicalName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.158.2.1.2",
+    "status": "current"
+  },
+  "hwInnerLinkOnePhysicalLinkUp": {
+    "class": "notificationtype",
+    "description": "One physical link of the corrresponding inner logical link is available.",
+    "name": "hwInnerLinkOnePhysicalLinkUp",
+    "objects": [
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkLeftPortPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkLeftPortPhysicalName"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkRightPortPhysicalIndex"
+      },
+      {
+        "module": "HUAWEI-INNER-LINK-MIB",
+        "object": "hwInnerLinkRightPortPhysicalName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.158.2.1.1",
+    "status": "current"
+  },
+  "hwInnerLinkOperState": {
+    "class": "objecttype",
+    "description": "The operational state for this object. A value of mostPhyChannelUp means most of the physical links consisting of the logical link are working well. It\u0027s possible that none of the physical links is wrong. A value of partPhyChannelUp means several physical links of the logical link are broken down. A value of mostPhyChannelDown means most of the physical links of the logical link are down. It\u0027s possible that none of the physical links is ok. ",
+    "maxaccess": "read-only",
+    "name": "hwInnerLinkOperState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mostPhyChannelDown": 4,
+          "mostPhyChannelUp": 2,
+          "partPhyChannelUp": 3,
+          "unknown": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwInnerLinkRightFrameId": {
+    "class": "objecttype",
+    "description": "Frame ID of the link\u0027s right point.",
+    "maxaccess": "read-only",
+    "name": "hwInnerLinkRightFrameId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwInnerLinkRightFrameType": {
+    "class": "objecttype",
+    "description": "Frame type of the link\u0027s right point.",
+    "maxaccess": "read-only",
+    "name": "hwInnerLinkRightFrameType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "centralChassis": 2,
+          "lineChassis": 3,
+          "unknown": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwInnerLinkRightPortId": {
+    "class": "objecttype",
+    "description": "Port ID of the link\u0027s right virtual port.",
+    "maxaccess": "read-only",
+    "name": "hwInnerLinkRightPortId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwInnerLinkRightPortPhysicalIndex": {
+    "class": "objecttype",
+    "description": "To describe physical entity index of right port of the physical link which is part of the corresponding inner logical link.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwInnerLinkRightPortPhysicalIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "PhysicalIndex"
+    }
+  },
+  "hwInnerLinkRightPortPhysicalName": {
+    "class": "objecttype",
+    "description": "To describe physical entity name of right port of the physical link which is part of the corresponding inner logical link.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwInnerLinkRightPortPhysicalName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwInnerLinkTable": {
+    "class": "objecttype",
+    "description": "This table contains one row per inner link entity. Each inner link is composed of all physical links of the same kind between two frames. It describes the status of the inner link between frames in NE5000E Cluster system.",
+    "maxaccess": "not-accessible",
+    "name": "hwInnerLinkTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.2",
+    "status": "current"
+  },
+  "hwInnerLinkTraps": {
+    "class": "objectidentity",
+    "name": "hwInnerLinkTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.2"
+  },
+  "hwInnerLinkTrapsPrefix": {
+    "class": "objectidentity",
+    "name": "hwInnerLinkTrapsPrefix",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.2.1"
+  },
+  "hwInnerLinkType": {
+    "class": "objecttype",
+    "description": "Inner link type between the frames. A value of controlChannel means a kind of logical link through which control messages\u0027re transferred. A value of monitorChannel means a kind of logical control link which only exists between the central chassises. A value of forwardChannel mean a kind of logical link which is used for data forwarding.",
+    "maxaccess": "read-only",
+    "name": "hwInnerLinkType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.158.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "controlChannel": 2,
+          "forwardChannel": 4,
+          "monitorChannel": 3,
+          "unknown": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "imports": {
+    "ENTITY-MIB": [
+      "PhysicalIndex"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Gauge32",
+      "BITS",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "TimeTicks",
+      "Counter32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-INNER-LINK-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:35 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-INNER-LINK-MIB"
+  }
+}

@@ -1,0 +1,2105 @@
+{
+  "HwFlashOperationStatus": {
+    "class": "textualconvention",
+    "description": "The status of the specified operation can be one of the follows. opInProgress(1) : the operation is in process. opSuccess(2) : the operation has been completed successfully. opInvalid(3) : the command is invalid or command-protocol-device combination is unsupported by the system. opInvalidProtocol(4) :invalid protocol is specified opInvalidSourceName(5) :invalid source file name is specified. opInvalidDestName(6) :invalid target name is specified. opInvalidServerAddress(7) :invalid server address is specified opDeviceBusy(8) :the device is in use and locked by another process opDeviceOpenError(9) :invalid device name is specified. opDeviceError(10) : device read, write or erase error opDeviceNotProgrammable(11) :device is read-only but a write or erase operation was specified opDeviceFull(12) : device is filled to capacity opFileOpenError(13) :invalid file name; file not found in partition opFileTransferError(14) :file transfer was unsuccessful opFileChecksumError(15) :file checksum in Flash is invalid opNoMemory(16) :system is running in low on memory opAuthFail(17) :authentication failure opUnknownFailure(18) :failure which is unknown opAbort(19) : transfer operation has been abort opInvalidSourceAddress(20) : transfer operation has been abort opInvalidSourceInterface(21) : transfer operation has been abort opCurrentVersionFileConfilt(22) : conflict between target file and system file",
+    "name": "HwFlashOperationStatus",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "opAbort": 19,
+          "opAuthFail": 17,
+          "opCurrentVersionFileConfilt": 22,
+          "opDeviceBusy": 8,
+          "opDeviceError": 10,
+          "opDeviceFull": 12,
+          "opDeviceNotProgrammable": 11,
+          "opDeviceOpenError": 9,
+          "opFileChecksumError": 15,
+          "opFileOpenError": 13,
+          "opFileTransferError": 14,
+          "opInProgress": 1,
+          "opInvalid": 3,
+          "opInvalidDestName": 6,
+          "opInvalidProtocol": 4,
+          "opInvalidServerAddress": 7,
+          "opInvalidSourceAddress": 20,
+          "opInvalidSourceInterface": 21,
+          "opInvalidSourceName": 5,
+          "opNoMemory": 16,
+          "opSuccess": 2,
+          "opUnknownFailure": 18
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HwFlashPartitionStatus": {
+    "class": "textualconvention",
+    "description": "If the flash partition is not programmable, the value will be \u0027readOnly(1)\u0027; If the current image is running from this partition, the value will be \u0027runFromFlash(2)\u0027; If the flash partition is programmable, the value will be \u0027readWrite(3) \u0027. ",
+    "name": "HwFlashPartitionStatus",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "readOnly": 1,
+          "readWrite": 3,
+          "runFromFlash": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HwFlashPartitionUpgradeMode": {
+    "class": "textualconvention",
+    "description": "Flash partition upgrade method, ie., method by which new files can be downloaded into the partition. FLH stands for Flash Load Helper, a feature provided on run-from-Flash systems for upgrading Flash. This feature uses the bootstrap code in ROMs to help in automatic download. This object should be retrieved if the partition status is runFromFlash(2). If the partition status is readOnly(1), the upgrade method would depend on the reason for the readOnly status. For eg., it may simply be a matter of installing the programming jumper, or it may require execution of a later version of software that supports the Flash chips. unknown(1) - the current system image does not know how Flash can be programmed. A possible method would be to reload the ROM image and perform the upgrade manually. rxbootFLH(2) - the Flash Load Helper is available to download files to Flash. A copy-to-flash command can be used and this system image will automatically reload the Rxboot image in ROM and direct it to carry out the download request. direct(3) - will be done directly by this image. ",
+    "name": "HwFlashPartitionUpgradeMode",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "direct": 3,
+          "rxbootFLH": 2,
+          "unknown": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "huaweiFlashDevice": {
+    "class": "objectidentity",
+    "name": "huaweiFlashDevice",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1"
+  },
+  "huaweiFlashMIBConformance": {
+    "class": "objectidentity",
+    "name": "huaweiFlashMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.6.9.2"
+  },
+  "huaweiFlashMIBGroups": {
+    "class": "objectidentity",
+    "name": "huaweiFlashMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.6.9.2.2"
+  },
+  "huaweiFlashManMIBObjects": {
+    "class": "objectidentity",
+    "name": "huaweiFlashManMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.6.9.1"
+  },
+  "huaweiFlashNotification": {
+    "class": "objectidentity",
+    "name": "huaweiFlashNotification",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.3"
+  },
+  "huaweiFlashOperate": {
+    "class": "objectidentity",
+    "name": "huaweiFlashOperate",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2"
+  },
+  "huaweiFlhFileEntry": {
+    "class": "objecttype",
+    "description": "An entry in the table of Flash file properties for each initialized Flash partition. Each entry represents a file and gives details about the file. An entry is indexed using the device number, partition number within the device, and file number within the partition. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhFileIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "huaweiFlhFileEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.2.1.1",
+    "status": "current"
+  },
+  "huaweiFlhFileTable": {
+    "class": "objecttype",
+    "description": "Table of information for files in a Flash partition. ",
+    "maxaccess": "not-accessible",
+    "name": "huaweiFlhFileTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.2.1",
+    "status": "current"
+  },
+  "huaweiFlhOpEntry": {
+    "class": "objecttype",
+    "description": "A Flash copy operation entry. Each entry consists of a command, a source, and optional parameters such as protocol to be used, a destination, a server address, etc. A management station wishing to create an entry should first generate a pseudo-random serial number to be used as the index to this sparse table. The station should then create the associated instance of the row status object. It must also, either in the same or in successive PDUs, create the associated instance of the command and parameter objects. It should also modify the default values for any of the parameter objects if the defaults are not appropriate. Once the appropriate instances of all the command objects have been created, either by an explicit SNMP set request or by default, the row status should be set to active to initiate the operation. Note that this entire procedure may be initiated via a single set request which specifies a row status of createAndGo as well as specifies valid values for the non-defaulted parameter objects. Once an operation has been activated, it cannot be stopped. Once the operation completes, the management station should retrieve the value of the status object (and time if desired), and delete the entry. In order to prevent old entries from clogging the table, entries will be aged out, but an entry will never be deleted within 5 minutes of completing. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "huaweiFlhOpEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1",
+    "status": "current"
+  },
+  "huaweiFlhOpTable": {
+    "class": "objecttype",
+    "description": "A table of Flash copy operation entries. Each entry represents a Flash copy operation (to or from Flash) that has been initiated. ",
+    "maxaccess": "not-accessible",
+    "name": "huaweiFlhOpTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1",
+    "status": "current"
+  },
+  "huaweiStorageDevice": {
+    "class": "objectidentity",
+    "name": "huaweiStorageDevice",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.4"
+  },
+  "hwFlash": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "The HUAWEI-FLASH-MIB contains objects to manage the device flash cards and flash card operations. There are no constraints on this MIB. ",
+    "lastupdated": "201502100001Z",
+    "name": "hwFlash",
+    "oid": "1.3.6.1.4.1.2011.6.9",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "The HUAWEI-FLASH-MIB contains objects to manage the device flash cards and flash card operations. There are no constraints on this MIB. ",
+        "revision": "2015-02-10 00:01"
+      },
+      {
+        "description": "The HUAWEI-FLASH-MIB contains objects to manage the device flash cards and flash card operations. There are no constraints on this MIB. ",
+        "revision": "2015-01-26 00:01"
+      },
+      {
+        "description": "The HUAWEI-FLASH-MIB contains objects to manage the device flash cards and flash card operations. There are no constraints on this MIB. ",
+        "revision": "2014-12-15 00:01"
+      },
+      {
+        "description": "The HUAWEI-FLASH-MIB contains objects to manage the device flash cards and flash card operations. There are no constraints on this MIB. ",
+        "revision": "2013-07-09 00:01"
+      },
+      {
+        "description": "The initial revision of this MIB module .",
+        "revision": "2002-07-01 00:00"
+      }
+    ]
+  },
+  "hwFlashChips": {
+    "class": "objectidentity",
+    "name": "hwFlashChips",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.3"
+  },
+  "hwFlashEntry": {
+    "class": "objecttype",
+    "description": " The entries of hwFlashTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwFlashEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.2.1",
+    "status": "current"
+  },
+  "hwFlashPartitions": {
+    "class": "objectidentity",
+    "name": "hwFlashPartitions",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4"
+  },
+  "hwFlashTable": {
+    "class": "objecttype",
+    "description": "This table gives the properties of all the flashes on the device . ",
+    "maxaccess": "not-accessible",
+    "name": "hwFlashTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.2",
+    "status": "current"
+  },
+  "hwFlhChipDescr": {
+    "class": "objecttype",
+    "description": " The description of the flash chip. e.g. \u0027Intel 27F008SA\u0027 ",
+    "maxaccess": "read-only",
+    "name": "hwFlhChipDescr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.3.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwFlhChipEntry": {
+    "class": "objecttype",
+    "description": "The entry of hwFlhChipTable",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhChipSerialNo"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwFlhChipEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.3.1.1",
+    "status": "current"
+  },
+  "hwFlhChipEraseTimes": {
+    "class": "objecttype",
+    "description": "This object will provide a cumulative count (since last system boot up or initialization) of the number of erase retries that were done in the chip. Typically, a maximum of 2000 retries are done in a single erase zone (which may be a full chip or a portion, depending on the chip technology) before flagging an erase error. A management station is expected to get this object for each chip in a partition after an erase failure in that partition. To keep a track of retries for a given erase operation, the management station would have to retrieve the values for the concerned chips before and after any erase operation. Note that erase may be done through an independent command, or through a copy-to-flash command. ",
+    "maxaccess": "read-only",
+    "name": "hwFlhChipEraseTimes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.3.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwFlhChipEraseTimesLimit": {
+    "class": "objecttype",
+    "description": "The maximum number of erase retries done within an erase sector before declaring an erase failure. ",
+    "maxaccess": "read-only",
+    "name": "hwFlhChipEraseTimesLimit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.3.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwFlhChipGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects on chip level information. ",
+    "name": "hwFlhChipGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhChipID"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhChipDescr"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhChipWriteTimesLimit"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhChipWriteTimes"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhChipEraseTimesLimit"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhChipEraseTimes"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.9.2.2.3",
+    "status": "current"
+  },
+  "hwFlhChipID": {
+    "class": "objecttype",
+    "description": "The manufacturer and device code for a chip. The device code is in the lower byte.And The manufacturer code is in the Upper byte. Unknown chip code is presented as 00:00. ",
+    "maxaccess": "read-only",
+    "name": "hwFlhChipID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.3.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 5,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwFlhChipNum": {
+    "class": "objecttype",
+    "description": "The chip numbers in the flash device. ",
+    "maxaccess": "read-only",
+    "name": "hwFlhChipNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFlhChipSerialNo": {
+    "class": "objecttype",
+    "description": "Index of hwFlhChipTable.",
+    "maxaccess": "not-accessible",
+    "name": "hwFlhChipSerialNo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.3.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFlhChipTable": {
+    "class": "objecttype",
+    "description": "Table of Flash device chip properties for each initialized Flash device. This table is meant primarily for aiding error diagnosis. ",
+    "maxaccess": "not-accessible",
+    "name": "hwFlhChipTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.3.1",
+    "status": "current"
+  },
+  "hwFlhChipWriteTimes": {
+    "class": "objecttype",
+    "description": "This object will provide a cumulative count (since last system boot up or initialization) of the number of write retries that were done in the chip. If no writes have been done to Flash, the count will be zero. Typically, a maximum of 25 retries are done on a single location before flagging a write error. A management station is expected to get this object for each chip in a partition after a write failure in that partition. To keep a track of retries for a given write operation, the management station would have to retrieve the values for the concerned chips before and after any write operation. It is a cumulative count of write retries that were done in the chip. ",
+    "maxaccess": "read-only",
+    "name": "hwFlhChipWriteTimes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.3.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwFlhChipWriteTimesLimit": {
+    "class": "objecttype",
+    "description": "The maximum number of write retries done at any single location before declaring a write failure. ",
+    "maxaccess": "read-only",
+    "name": "hwFlhChipWriteTimesLimit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.3.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwFlhDescr": {
+    "class": "objecttype",
+    "description": "Description of the purpose of the flash device on the system. ",
+    "maxaccess": "read-only",
+    "name": "hwFlhDescr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwFlhFileChecksum": {
+    "class": "objecttype",
+    "description": " The file checksum located in the header of file. ",
+    "maxaccess": "read-only",
+    "name": "hwFlhFileChecksum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.2.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwFlhFileGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects on file level information. ",
+    "name": "hwFlhFileGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhFileName"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhFileSize"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhFileStatus"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhFileChecksum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.9.2.2.5",
+    "status": "current"
+  },
+  "hwFlhFileIndex": {
+    "class": "objecttype",
+    "description": "The index of the table .",
+    "maxaccess": "not-accessible",
+    "name": "hwFlhFileIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFlhFileName": {
+    "class": "objecttype",
+    "description": " A valid file name supported by the file system. ",
+    "maxaccess": "read-only",
+    "name": "hwFlhFileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwFlhFileSize": {
+    "class": "objecttype",
+    "description": "The file size in bytes, which doesn\u0027t include the file header of filesystem. The minimum value of it will be 1. ",
+    "maxaccess": "read-only",
+    "name": "hwFlhFileSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwFlhFileStatus": {
+    "class": "objecttype",
+    "description": "The status maybe follows: deleted(1):The file is in recycle. checksumWrong(2):The checksum of file is invalid; valid(3):A valid file. ",
+    "maxaccess": "read-only",
+    "name": "hwFlhFileStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deleted": 1,
+          "invalidChecksum": 2,
+          "valid": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFlhFileTime": {
+    "class": "objecttype",
+    "description": " The file checksum located in the header of file. ",
+    "maxaccess": "read-only",
+    "name": "hwFlhFileTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.2.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeStamp"
+    }
+  },
+  "hwFlhFiles": {
+    "class": "objectidentity",
+    "name": "hwFlhFiles",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.2"
+  },
+  "hwFlhGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects on Flash device level information. ",
+    "name": "hwFlhGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSupportNum"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSize"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPos"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhName"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhChipNum"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhDescr"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhInitTime"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhRemovable"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartitionBool"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhMinPartitionSize"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhMaxPartitions"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartitionNum"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.9.2.2.1",
+    "status": "current"
+  },
+  "hwFlhIndex": {
+    "class": "objecttype",
+    "description": "The index of hwFlashTable. It has the minimum value of 1, and maximum value of the same as the value of hwFlhSupportNum.",
+    "maxaccess": "read-only",
+    "name": "hwFlhIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFlhInitTime": {
+    "class": "objecttype",
+    "description": "The system time at which device was initialized. For fixed devices, this will be the system\u0027s boot up time. For removable devices, it will be the time at which the device was inserted. It may be a later time if device was inserted later. If a device can be partitioned and repartitioned, it will be the time of repartitioning.",
+    "maxaccess": "read-only",
+    "name": "hwFlhInitTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeStamp"
+    }
+  },
+  "hwFlhMIBCompliance": {
+    "class": "modulecompliance",
+    "description": " The compliance statement for entities that support the huawei Flash MIB. ",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhGroup"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhChipGroup"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartitionGroup"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhFileGroup"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperationGroup"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhNotificationGroup"
+      }
+    ],
+    "name": "hwFlhMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.6.9.2.1.1",
+    "status": "current"
+  },
+  "hwFlhMIBCompliances": {
+    "class": "objectidentity",
+    "name": "hwFlhMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.6.9.2.1"
+  },
+  "hwFlhMaxPartitions": {
+    "class": "objecttype",
+    "description": "The maximum count of partitions which the system supports for this Flash device.If hwFlhPartitionBool is false, the object value is 1.",
+    "maxaccess": "read-only",
+    "name": "hwFlhMaxPartitions",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.2.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFlhMinPartitionSize": {
+    "class": "objecttype",
+    "description": "Minimum partition size the device supported. If hwFlhDevicePartitionBool is false, the value of this object is the same as hwFlhDeviceSize. ",
+    "maxaccess": "read-only",
+    "name": "hwFlhMinPartitionSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    },
+    "units": "bytes"
+  },
+  "hwFlhName": {
+    "class": "objecttype",
+    "description": "The flash device name used to refer to the device within the system. ",
+    "maxaccess": "read-only",
+    "name": "hwFlhName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwFlhNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "The collection of notifications in the module",
+    "name": "hwFlhNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperNotification"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSyncSuccessNotification"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSyncFailNotification"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.9.2.2.7",
+    "status": "current"
+  },
+  "hwFlhOperDestinationFile": {
+    "class": "objecttype",
+    "description": "Specifies the destination file name to be transferred . It may be located on flash or remote server. It may include the file path if it is applicable. If it is not specified , the destination file name is the same as source file name for application.",
+    "maxaccess": "read-create",
+    "name": "hwFlhOperDestinationFile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwFlhOperEndNotification": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": " If the value of it is specified \u0027true\u0027,a notification will be generated at the end of the operation. Otherwise no notification will be generated. ",
+    "maxaccess": "read-create",
+    "name": "hwFlhOperEndNotification",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwFlhOperErrorReason": {
+    "class": "objecttype",
+    "description": "The failure reason of operation.",
+    "maxaccess": "read-only",
+    "name": "hwFlhOperErrorReason",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwFlhOperIndex": {
+    "class": "objecttype",
+    "description": " Specifies the index of an entry. It is a random value when creating an entry.",
+    "maxaccess": "not-accessible",
+    "name": "hwFlhOperIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFlhOperMemSize": {
+    "class": "objecttype",
+    "description": "This object specifies the reserved space (in KBs) guaranteed by a host. The value 0 indicates that no space need be reserved. The default value is 0. This object is optional when hwFlhOperType is specified as net2FlashWithErase or net2FlashWithoutErase in the Set operation. This object is unavailable when hwFlhOperType is specified as flash2Net or delete in the Set operation. ",
+    "maxaccess": "read-create",
+    "name": "hwFlhOperMemSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwFlhOperNotification": {
+    "class": "notificationtype",
+    "description": "A hwFlhOperNotification is sent only when hwFlhOperEndNotification is true.",
+    "name": "hwFlhOperNotification",
+    "objects": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.9.1.3.1",
+    "status": "current"
+  },
+  "hwFlhOperPassword": {
+    "class": "objecttype",
+    "description": "Remote user password for copy via ftp protocol. Optional. This object will be ignored for protocols other than ftp and sftp. ",
+    "maxaccess": "read-create",
+    "name": "hwFlhOperPassword",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwFlhOperProgress": {
+    "class": "objecttype",
+    "description": "The progress described as the time taken for the operation. ",
+    "maxaccess": "read-only",
+    "name": "hwFlhOperProgress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwFlhOperProtocol": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "ftp"
+      }
+    },
+    "description": "Specifies the protocol used to transfer file. The default value of it is ftp. When hwFlhOperProtocol is specified as SFTP, only password authentication-type is valid. ",
+    "maxaccess": "read-create",
+    "name": "hwFlhOperProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftp": 1,
+          "sftp": 2,
+          "tftp": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFlhOperRowStatus": {
+    "class": "objecttype",
+    "description": "The status of this table entry. When the status is active : (1) In the situation that the specified transfer operation by ftp/tftp is in progress, the transfer operation will be aborted if the status is set to notInService. (2) In any other situations, the specified operation will not be aborted even if the status is set to notInService. ",
+    "maxaccess": "read-create",
+    "name": "hwFlhOperRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwFlhOperServerAddress": {
+    "class": "objecttype",
+    "description": " The address of remote host acting as server for any operation. ",
+    "maxaccess": "read-create",
+    "name": "hwFlhOperServerAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwFlhOperServerIpv6Address": {
+    "class": "objecttype",
+    "description": "The address of remote host acting as Ipv6 server for any operation.",
+    "maxaccess": "read-create",
+    "name": "hwFlhOperServerIpv6Address",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 46,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwFlhOperServerPort": {
+    "class": "objecttype",
+    "description": "This object specifies the SFTP/FTP server port that is used for file transfer only if the value of hwFlhOperProtocol is sftp/ftp. The default SFTP server port is 22 if no port is specified. The default FTP server port is 21 if no port is specified. If the value of hwFlhOperProtocol is not sftp/ftp, this object is ignored by the implementation. ",
+    "maxaccess": "read-create",
+    "name": "hwFlhOperServerPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFlhOperServerUser": {
+    "class": "objecttype",
+    "description": " When use ftp or sftp to transfer files, the user name must be specified by this node. ",
+    "maxaccess": "read-create",
+    "name": "hwFlhOperServerUser",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwFlhOperSourceAddress": {
+    "class": "objecttype",
+    "description": "The source IP address. When hwFlhOperType is specified as net2FlashWithErase, net2FlashWithoutErase or flash2Net, the source IP address of the client may be specified or not. Default is 0.0.0.0 . If the source type is set to both of IP address and interface, the former has the priority.",
+    "maxaccess": "read-create",
+    "name": "hwFlhOperSourceAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwFlhOperSourceFile": {
+    "class": "objecttype",
+    "description": "Specifies the Source file name to be transferred . It may be located on flash or remote server. It may include the file path if it is applicable. It must be specified. ",
+    "maxaccess": "read-create",
+    "name": "hwFlhOperSourceFile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwFlhOperSourceInterface": {
+    "class": "objecttype",
+    "description": "The name of the source interface.When hwFlhOperType is specified as net2FlashWithErase,net2FlashWithoutErase or flash2Net,the source interface of the FTP/TFTP client may be specified or not. If the source type is set to both of IP address and interface,the former has the priority.",
+    "maxaccess": "read-create",
+    "name": "hwFlhOperSourceInterface",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 47,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwFlhOperStatus": {
+    "class": "objecttype",
+    "description": "The status of operation. The status of the specified operation can be one of the follows. opInProgress(1) : the operation is in process. opSuccess(2) : the operation has been completed successfully. opInvalid(3) : the command is invalid or command-protocol-device combination is unsupported by the system. opInvalidProtocol(4) :invalid protocol is specified opInvalidSourceName(5) :invalid source file name is specified. opInvalidDestName(6) :invalid target name is specified. opInvalidServerAddress(7) :invalid server address is specified opDeviceBusy(8) :the device is in use and locked by another process opDeviceOpenError(9) :invalid device name is specified. opDeviceError(10) : device read, write or erase error opDeviceNotProgrammable(11) :device is read-only but a write or erase operation was specified opDeviceFull(12) : device is filled to capacity opFileOpenError(13) :invalid file name; file not found in partition opFileTransferError(14) :file transfer was unsuccessfull opFileChecksumError(15) :file checksum in Flash si invalid opNoMemory(16) :system is running in low on memory opAuthFail(17) :authentication failure opUnknownFailure(18) :failure which is unknown opAbort(19) : transfer operation has been aborted opInvalidSourceAddress(20) : invalid source IP is specified. opInvalidSourceInterface(21) : invalid source interface is specified. opCurrentVersionFileConfilt(22) : conflict between target file and system file",
+    "maxaccess": "read-only",
+    "name": "hwFlhOperStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HwFlashOperationStatus"
+    }
+  },
+  "hwFlhOperTotalFileLength": {
+    "class": "objecttype",
+    "description": "The total length of the file, in bytes.",
+    "maxaccess": "read-create",
+    "name": "hwFlhOperTotalFileLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFlhOperTransferProgress": {
+    "class": "objecttype",
+    "description": "The transfer progress of the file.",
+    "maxaccess": "read-only",
+    "name": "hwFlhOperTransferProgress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFlhOperType": {
+    "class": "objecttype",
+    "description": "Specifies the operation to be executed. net2FlashWithErase Copy a file to flash; erase flash before copy. Use the FTP protocol or SFTP protocol. net2FlashWithoutErase Same with net2FlashWithErase. flash2Net Copy a file from flash using the FTP protocol or SFTP protocol. delete delete file or directory by source file name. ",
+    "maxaccess": "read-create",
+    "name": "hwFlhOperType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delete": 4,
+          "flash2Net": 3,
+          "net2FlashWithErase": 1,
+          "net2FlashWithoutErase": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFlhOperVpnInstanceName": {
+    "class": "objecttype",
+    "description": "The vpn instance name of the file server.",
+    "maxaccess": "read-create",
+    "name": "hwFlhOperVpnInstanceName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwFlhOperationGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects of flash operations. ",
+    "name": "hwFlhOperationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperType"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperProtocol"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperServerAddress"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperServerUser"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperPassword"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperSourceFile"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperDestinationFile"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperStatus"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperEndNotification"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperProgress"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperRowStatus"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperServerPort"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperSourceAddress"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperSourceInterface"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperMemSize"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSyncType"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSyncRange"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSyncSourcePath"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSyncSourceFile"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSyncDestinationPath"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSyncDestinationFile"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSyncRowStatus"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhOperServerIpv6Address"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.9.2.2.6",
+    "status": "current"
+  },
+  "hwFlhPartChecksumMethod": {
+    "class": "objecttype",
+    "description": " The Checksum algorithm identifier checksum method which the file system uses. ",
+    "maxaccess": "read-only",
+    "name": "hwFlhPartChecksumMethod",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "simpleCRC": 3,
+          "simpleChecksum": 1,
+          "undefined": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFlhPartFileNameLen": {
+    "class": "objecttype",
+    "description": " The maximum length of file name in the system. ",
+    "maxaccess": "read-only",
+    "name": "hwFlhPartFileNameLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 256,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFlhPartFileNum": {
+    "class": "objecttype",
+    "description": "The number of all the file in the flash partition.",
+    "maxaccess": "read-only",
+    "name": "hwFlhPartFileNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwFlhPartFirstChip": {
+    "class": "objecttype",
+    "description": " The first chip\u0027s sequence number in the partition, by which a chip can be indexed in chip table. ",
+    "maxaccess": "read-only",
+    "name": "hwFlhPartFirstChip",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFlhPartIndex": {
+    "class": "objecttype",
+    "description": "The one of indexes which specifies a partition in system. It is the sequence number of partitions. ",
+    "maxaccess": "not-accessible",
+    "name": "hwFlhPartIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFlhPartLastChip": {
+    "class": "objecttype",
+    "description": " The last chip\u0027s sequence number in the partition, by which a chip can be indexed in chip table. ",
+    "maxaccess": "read-only",
+    "name": "hwFlhPartLastChip",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFlhPartName": {
+    "class": "objecttype",
+    "description": " The name of flash partition. It was referred by the system.",
+    "maxaccess": "read-only",
+    "name": "hwFlhPartName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwFlhPartRequireErase": {
+    "class": "objecttype",
+    "description": "Indicates whether the partition of flash needed to be erased or not before write operation on it.",
+    "maxaccess": "read-only",
+    "name": "hwFlhPartRequireErase",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwFlhPartSpace": {
+    "class": "objecttype",
+    "description": " The total space of the flash partition. The following should be satisfied: hwFlhPartSpace = n*hwFlhMinPartitionSize ",
+    "maxaccess": "read-only",
+    "name": "hwFlhPartSpace",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    },
+    "units": "bytes"
+  },
+  "hwFlhPartSpaceFree": {
+    "class": "objecttype",
+    "description": "The Flash partition\u0027s free space. ",
+    "maxaccess": "read-only",
+    "name": "hwFlhPartSpaceFree",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Gauge32"
+    },
+    "units": "bytes"
+  },
+  "hwFlhPartStatus": {
+    "class": "objecttype",
+    "description": "The flash partition status. If device is not programmable the value of it will be \u0027readOnly(1)\u0027; If the current image is running from this partition, the value of it will be \u0027runFromFlash(2)\u0027; If device is programmable the value of it will be \u0027readWrite(3) \u0027. ",
+    "maxaccess": "read-only",
+    "name": "hwFlhPartStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HwFlashPartitionStatus"
+    }
+  },
+  "hwFlhPartUpgradeMode": {
+    "class": "objecttype",
+    "description": "The upgrade method of Flash partition, ie., method by which new files can be downloaded into the partition. FLH stands for Flash Load Helper, a feature provided on run-from-Flash systems for upgrading Flash. This feature uses the bootstrap code in ROMs to help in automatic download. This object should be retrieved if the partition status is runFromFlash(2). If the partition status is readOnly(1), the upgrade method would depend on the reason for the readOnly status. For eg., it may simply be a matter of installing the programming jumper, or it may require execution of a later version of software that supports the Flash chips. unknown(1) - the current system image does not know how Flash can be programmed. A possible method would be to reload the ROM image and perform the upgrade manually. rxbootFLH(2) - the Flash Load Helper is available to download files to Flash. A copy-to-flash command can be used and this system image will automatically reload the Rxboot image in ROM and direct it to carry out the download request. direct(3) - will be done directly by this image.",
+    "maxaccess": "read-only",
+    "name": "hwFlhPartUpgradeMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HwFlashPartitionUpgradeMode"
+    }
+  },
+  "hwFlhPartitionBool": {
+    "class": "objecttype",
+    "description": "The object indicates whether the flash indexed can be partitioned or not. The true(1) value indicates the flash device CAN be partitioned. The false(2) value indicates the flash device CANNOT be partitioned.The actual partition state depends on the value of hwFlhDevicePartions.",
+    "maxaccess": "read-write",
+    "name": "hwFlhPartitionBool",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwFlhPartitionEntry": {
+    "class": "objecttype",
+    "description": "An entry in the table of flash partition properties for each initialized flash partition. Each entry will be indexed by a device number and a partition number within the device. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwFlhPartitionEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.1.1",
+    "status": "current"
+  },
+  "hwFlhPartitionGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing on partition level information. ",
+    "name": "hwFlhPartitionGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartFirstChip"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartLastChip"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartSpace"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartSpaceFree"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartFileNum"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartChecksumMethod"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartStatus"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartUpgradeMode"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartName"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartRequireErase"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhPartFileNameLen"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.9.2.2.4",
+    "status": "current"
+  },
+  "hwFlhPartitionNum": {
+    "class": "objecttype",
+    "description": "The actual number of partitions supported by the system for this Flash device.If hwFlhPartitionBool is false, the object value is 1.",
+    "maxaccess": "read-only",
+    "name": "hwFlhPartitionNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.2.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwFlhPartitionTable": {
+    "class": "objecttype",
+    "description": "Table of flash device partition properties for each initialized flash partition. Whenever there is no explicit partitioning done, a single partition spanning the entire device will be assumed to exist. There will therefore always be at least one partition on a device. ",
+    "maxaccess": "not-accessible",
+    "name": "hwFlhPartitionTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.4.1",
+    "status": "current"
+  },
+  "hwFlhPos": {
+    "class": "objecttype",
+    "description": "The position of the flash device on the system.This object is an index of entPhysicalTable in ENTITY-MIB . If the value of this object is 0, the main processor is indicated.",
+    "maxaccess": "read-only",
+    "name": "hwFlhPos",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFlhRemovable": {
+    "class": "objecttype",
+    "description": "The object indicates whether the flash indexed can be removed or not. The true(1) value indicates the flash device CAN be removed .The false(2) value indicates the flash device CANNOT be removed .",
+    "maxaccess": "read-only",
+    "name": "hwFlhRemovable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwFlhSize": {
+    "class": "objecttype",
+    "description": "Specifies the total size of the Flash device indexed by hwFlhIndex. The value will be zero if the flash is removed for a removable device.",
+    "maxaccess": "read-only",
+    "name": "hwFlhSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    },
+    "units": "bytes"
+  },
+  "hwFlhSupportNum": {
+    "class": "objecttype",
+    "description": "Specifies the total number of flash which the system supported. The MIB should not be loaded if there is no flash on the device, therefore the value of the object is at least 1.",
+    "maxaccess": "read-only",
+    "name": "hwFlhSupportNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFlhSyncDestinationFile": {
+    "class": "objecttype",
+    "description": "The destination file name to be transferred . It is combine with the hwFlhSyncDestinationPath to specify the absolute file name. It must be specified.",
+    "maxaccess": "read-create",
+    "name": "hwFlhSyncDestinationFile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwFlhSyncDestinationPath": {
+    "class": "objecttype",
+    "description": "The destination board path to be transferred. It must be specified.",
+    "maxaccess": "read-create",
+    "name": "hwFlhSyncDestinationPath",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwFlhSyncEntry": {
+    "class": "objecttype",
+    "description": "A Flash synchronize operation entry. Each entry consists of a synchronize command, such as copy,delete etc.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSyncIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwFlhSyncEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.2.1",
+    "status": "current"
+  },
+  "hwFlhSyncFailNotification": {
+    "class": "notificationtype",
+    "description": "A hwFlhSyncFailNotification is sent when the file copy operation failed.",
+    "name": "hwFlhSyncFailNotification",
+    "objects": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSyncSourceFile"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSyncDestinationFile"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.9.1.3.3",
+    "status": "current"
+  },
+  "hwFlhSyncIndex": {
+    "class": "objecttype",
+    "description": "Specifies the index of an entry. It is a random value when creating an entry.",
+    "maxaccess": "not-accessible",
+    "name": "hwFlhSyncIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFlhSyncRange": {
+    "class": "objecttype",
+    "description": "Synchronize operation range to be executed. designate Net designate a object to be handled as synchronize destination; all Net make all chassis and all board as handled object;",
+    "maxaccess": "read-create",
+    "name": "hwFlhSyncRange",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 2,
+          "designate": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFlhSyncRowStatus": {
+    "class": "objecttype",
+    "description": "The row status of this table entry.",
+    "maxaccess": "read-create",
+    "name": "hwFlhSyncRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwFlhSyncSourceFile": {
+    "class": "objecttype",
+    "description": "The source file name to be transferred . It is located on the flash of the mainboard of a chassis. It is combine with the hwFlhSyncSourcePath to specify the absolute file name. It must be specified.",
+    "maxaccess": "read-create",
+    "name": "hwFlhSyncSourceFile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwFlhSyncSourcePath": {
+    "class": "objecttype",
+    "description": "The source board path to be transferred. It must be specified.",
+    "maxaccess": "read-create",
+    "name": "hwFlhSyncSourcePath",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwFlhSyncSuccessNotification": {
+    "class": "notificationtype",
+    "description": "A hwFlhSyncSuccessNotification is sent when the file copy operation successful.",
+    "name": "hwFlhSyncSuccessNotification",
+    "objects": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSyncSourceFile"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwFlhSyncDestinationFile"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.9.1.3.2",
+    "status": "current"
+  },
+  "hwFlhSyncTable": {
+    "class": "objecttype",
+    "description": "A table of Flash synchronize operate include copy/delete etc.",
+    "maxaccess": "not-accessible",
+    "name": "hwFlhSyncTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.2",
+    "status": "current"
+  },
+  "hwFlhSyncType": {
+    "class": "objecttype",
+    "description": "Synchronize operation type to be executed. net2FlashCopy Net operate copy a file from one board to another;",
+    "maxaccess": "read-create",
+    "name": "hwFlhSyncType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.2.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "net2FlashCopy": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwStorageDescr": {
+    "class": "objecttype",
+    "description": "Description of the purpose of the storage devices on the system. ",
+    "maxaccess": "read-only",
+    "name": "hwStorageDescr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.4.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwStorageEntry": {
+    "class": "objecttype",
+    "description": " The entries of hwStorageTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwStorageIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwStorageEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.4.2.1",
+    "status": "current"
+  },
+  "hwStorageGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwStorageGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwStorageType"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwStorageSpace"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwStorageSpaceFree"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwStorageName"
+      },
+      {
+        "module": "HUAWEI-FLASH-MAN-MIB",
+        "object": "hwStorageDescr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.6.9.2.2.8",
+    "status": "current"
+  },
+  "hwStorageIndex": {
+    "class": "objecttype",
+    "description": "The index of hwStorageTable. It has the minimum value of 1. ",
+    "maxaccess": "not-accessible",
+    "name": "hwStorageIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.4.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwStorageName": {
+    "class": "objecttype",
+    "description": "The storage devices name used to refer to the device within the system. ",
+    "maxaccess": "read-only",
+    "name": "hwStorageName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.4.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwStorageSpace": {
+    "class": "objecttype",
+    "description": "Specifies the total size of the storage devices indexed by hwStorageTable.",
+    "maxaccess": "read-only",
+    "name": "hwStorageSpace",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.4.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    },
+    "units": "kbytes"
+  },
+  "hwStorageSpaceFree": {
+    "class": "objecttype",
+    "description": "The free space of the storage devices. ",
+    "maxaccess": "read-only",
+    "name": "hwStorageSpaceFree",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.4.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    },
+    "units": "kbytes"
+  },
+  "hwStorageTable": {
+    "class": "objecttype",
+    "description": "This table gives the properties of all the storage devices on the device . ",
+    "maxaccess": "not-accessible",
+    "name": "hwStorageTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.4.2",
+    "status": "current"
+  },
+  "hwStorageType": {
+    "class": "objecttype",
+    "description": "The type of all the storage devices on the device ",
+    "maxaccess": "read-only",
+    "name": "hwStorageType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.6.9.1.4.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cfCard": 3,
+          "flash": 1,
+          "hardDisk": 2,
+          "sdCard": 5,
+          "usbDisk": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "huaweiUtility"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "iso",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "TimeStamp"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-FLASH-MAN-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:46:41 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-FLASH-MAN-MIB"
+  }
+}

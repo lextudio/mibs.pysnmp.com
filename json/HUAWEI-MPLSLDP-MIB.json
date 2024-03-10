@@ -1,0 +1,3205 @@
+{
+  "hwLdpBackOffTimerInit": {
+    "class": "objecttype",
+    "description": "This object indicates the initial value of backoff timer. Default: 15 Unit: seconds ",
+    "maxaccess": "read-write",
+    "name": "hwLdpBackOffTimerInit",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483,
+            "min": 5
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLdpBackOffTimerMax": {
+    "class": "objecttype",
+    "description": "This object indicates the maximum value of backoff timer. Default: 120 Unit: seconds ",
+    "maxaccess": "read-write",
+    "name": "hwLdpBackOffTimerMax",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483,
+            "min": 5
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLdpCapabilityAnnouncementConfig": {
+    "class": "objecttype",
+    "description": "The value of this object identifies whether LDP has Capability-Announcement ability.",
+    "maxaccess": "read-write",
+    "name": "hwLdpCapabilityAnnouncementConfig",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.38",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwLdpCapabilityConfig": {
+    "class": "objecttype",
+    "description": "This object indicates the global configuration or deletion of the LDP capability. Before enabling LDP capability, ensure that the MPLS capability is enabled globally.",
+    "maxaccess": "read-write",
+    "name": "hwLdpCapabilityConfig",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwLdpDeleteGtsmAll": {
+    "class": "objecttype",
+    "description": "This object indicates the deletion of the global GTSM configurations. Options: 1. delete(1) -indicates that global GTSM configurations are to be deleted. 2. ready(2) -indicates that it is ready to delete global GTSM configurations. ",
+    "maxaccess": "read-write",
+    "name": "hwLdpDeleteGtsmAll",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delete": 1,
+          "ready": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLdpGlobalRemotePwe3": {
+    "class": "objecttype",
+    "description": "This object indicates the configuration or deletion of the policy for the LDP remote session. When the object is enabled, it is forbidden to send mapping message to the remote peer. By default, the policy is disabled, which means that there is no limitation to send mapping message to the remote peer.",
+    "maxaccess": "read-write",
+    "name": "hwLdpGlobalRemotePwe3",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwLdpGrCapabilityConfig": {
+    "class": "objecttype",
+    "description": "This object indicates the configuration or deletion of the LDP GR capability.",
+    "maxaccess": "read-write",
+    "name": "hwLdpGrCapabilityConfig",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwLdpGrNeighborLivenessTimer": {
+    "class": "objecttype",
+    "description": "This object indicates the way to configure the value of GR neighbor life timer. When the status of hwLdpGrCapabilityConfig is enabled, the default value returned by the object is valid. Unit: seconds ",
+    "maxaccess": "read-write",
+    "name": "hwLdpGrNeighborLivenessTimer",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwLdpGrReconnectTimer": {
+    "class": "objecttype",
+    "description": "This object indicates the way to configure the value of GR reconnect timer. When the status of hwLdpGrCapabilityConfig is enabled, the default value returned by the object is valid. Unit: seconds ",
+    "maxaccess": "read-write",
+    "name": "hwLdpGrReconnectTimer",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwLdpGrRecoveryTimer": {
+    "class": "objecttype",
+    "description": "This object indicates the way to configure the value of GR recovery timer. When the status of hwLdpGrCapabilityConfig is enabled, the default value returned by the object is valid. Unit: seconds ",
+    "maxaccess": "read-write",
+    "name": "hwLdpGrRecoveryTimer",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwLdpGracefulDeleteCapability": {
+    "class": "objecttype",
+    "description": "This object indicates whether the LDP graceful-delete capability is enabled.",
+    "maxaccess": "read-write",
+    "name": "hwLdpGracefulDeleteCapability",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.65",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwLdpGracefulDeleteTimer": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the value of a graceful-delete timer. When the status of hwLdpGracefulDeleteCapability is enabled, the default value returned by the object is valid. Default: 5 Unit: seconds ",
+    "maxaccess": "read-write",
+    "name": "hwLdpGracefulDeleteTimer",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.66",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLdpHelloSendTimer": {
+    "class": "objecttype",
+    "description": "This object indicates the value of LDP Hello send timer. Default: 0 Unit: seconds ",
+    "maxaccess": "read-create",
+    "name": "hwLdpHelloSendTimer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.54.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLdpHelloTimer": {
+    "class": "objecttype",
+    "description": "This object indicates the value of Hello hold timer. By default, the value of the timer is 15 seconds. Default: 15 Unit: seconds ",
+    "maxaccess": "read-create",
+    "name": "hwLdpHelloTimer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.54.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLdpIgpSyncTimer": {
+    "class": "objecttype",
+    "description": "This object indicates the value of IGP-Sync timer. By default, the timer is set to 10 seconds. Default: 10 Unit: seconds ",
+    "maxaccess": "read-create",
+    "name": "hwLdpIgpSyncTimer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.54.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLdpInBoundPolicyPeerAllIpPrefix": {
+    "class": "objecttype",
+    "description": "This object indicates the IP prefix list name of routes for a global inbound LDP policy. The default value is NULL. If the object is set with a value, the value of hwLdpInBoundPolicyPeerAllRange must be set as ipprefix.",
+    "maxaccess": "read-write",
+    "name": "hwLdpInBoundPolicyPeerAllIpPrefix",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.64",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLdpInBoundPolicyPeerAllRange": {
+    "class": "objecttype",
+    "description": "This object indicates the range of routes for a global inbound LDP policy. The default value is all. If the object is set as ipprefix, the value of hwLdpInBoundPolicyPeerAllIpPrefix must be set together.",
+    "maxaccess": "read-write",
+    "name": "hwLdpInBoundPolicyPeerAllRange",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.63",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "host": 4,
+          "ipprefix": 3,
+          "none": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLdpInterfaceEntry": {
+    "class": "objecttype",
+    "description": "An entry of the LDP interface table, used to configure and display the LDP negotiation parameters on the interface enabled with LDP capabilities. The index of this entry is hwLdpInterfaceIndex. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpInterfaceIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwLdpInterfaceEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.54.1",
+    "status": "current"
+  },
+  "hwLdpInterfaceIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the interface index. You can get the correct interface index based on ifIndex of ifTable.",
+    "maxaccess": "not-accessible",
+    "name": "hwLdpInterfaceIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.54.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwLdpInterfaceLabelAdvertisementMode": {
+    "class": "objecttype",
+    "description": "This object indicates the label distribution mode. Options: 1. dod(1) -indicates that the label distribution mode is dod. 2. du(2) -indicates that the label distribution mode is du. Default: du ",
+    "maxaccess": "read-create",
+    "name": "hwLdpInterfaceLabelAdvertisementMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.54.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dod": 1,
+          "du": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLdpInterfaceLocalLsrIdIfIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the way to specify the interface that the local LDP LSR-ID based on interface is assigned to. Value: 0..2147483647 The default value of the object for the public interface is the interface that the global LDP LSR ID is assigned to. If the global LDP LSR ID is not assigned to any interface, then the value of the object is 0. If set 0, the value of the object will be the default value. The default value of the object for the private interface is the interface that the global LDP LSR ID of VPN Instance is assigned to. Based on mplsL3VpnIfConfRowStatus of mplsL3VpnIfConfTable, you can find which interface belongs to the VPN. The interface which the object specified must be bound with the same VPN instance with the interface which is configured. ",
+    "maxaccess": "read-create",
+    "name": "hwLdpInterfaceLocalLsrIdIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.54.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwLdpInterfaceRowStatus": {
+    "class": "objecttype",
+    "description": "This object indicates whether one entry of hwLdpInterfaceTable is created or destroyed. The value of this object can be CreatAndGo or Destroy. When the value of the object is set as CreatAndGo, and the entry is correctly created, the status of the object will change into active.",
+    "maxaccess": "read-create",
+    "name": "hwLdpInterfaceRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.54.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwLdpInterfaceTable": {
+    "class": "objecttype",
+    "description": "This table is used to configure or delete the LDP capability on the interface. The index of this table is hwLdpInterfaceIndex. ",
+    "maxaccess": "not-accessible",
+    "name": "hwLdpInterfaceTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.54",
+    "status": "current"
+  },
+  "hwLdpKeepAliveSendTimer": {
+    "class": "objecttype",
+    "description": "This object indicates the value of LDP Keepalive send timer. Default: 0 Unit: seconds ",
+    "maxaccess": "read-create",
+    "name": "hwLdpKeepAliveSendTimer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.54.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLdpKeepAliveTimer": {
+    "class": "objecttype",
+    "description": "This object indicates the value of Keepalive timer. Default: 45 Unit: seconds ",
+    "maxaccess": "read-create",
+    "name": "hwLdpKeepAliveTimer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.54.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 30
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLdpLocalAndRemoteOperationalSessionNumber": {
+    "class": "objecttype",
+    "description": "This object indicates the number of local and remote LDP operational sessions.",
+    "maxaccess": "read-only",
+    "name": "hwLdpLocalAndRemoteOperationalSessionNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.73.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwLdpLocalOperationalSessionNumber": {
+    "class": "objecttype",
+    "description": "This object indicates the number of local LDP operational sessions.",
+    "maxaccess": "read-only",
+    "name": "hwLdpLocalOperationalSessionNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.73.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwLdpLongestMatch": {
+    "class": "objecttype",
+    "description": "This object indicates that the LDP is enabled with the function of searching for routes according to the longest match rule to establish LSPs. Default: disabled ",
+    "maxaccess": "read-write",
+    "name": "hwLdpLongestMatch",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwLdpLspDownDownstreamPeerLsrId": {
+    "class": "objecttype",
+    "description": "This object indicates the failed router\u0027s downstream peer\u0027s LSR ID.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwLdpLspDownDownstreamPeerLsrId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.72",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MplsLdpIdentifier"
+    }
+  },
+  "hwLdpLspDownMplsLsrId": {
+    "class": "objecttype",
+    "description": "This object indicates the LSR ID of failed router.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwLdpLspDownMplsLsrId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.68",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MplsLsrIdentifier"
+    }
+  },
+  "hwLdpLspDownOutIfIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the outgoing interface index of the failed router.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwLdpLspDownOutIfIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.69",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwLdpLspDownOutIfMainIp": {
+    "class": "objecttype",
+    "description": "This object indicates the main ip address of the failed router\u0027s outgoing interface.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwLdpLspDownOutIfMainIp",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.70",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwLdpLspDownOutIfState": {
+    "class": "objecttype",
+    "description": "The state of the failed router\u0027s outgoing interface. Options: 1. up(1) -indicates that the state of the outgoing interface is Up. 2. down(2) -indicates that the state of the outgoing interface is Down. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwLdpLspDownOutIfState",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.71",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLdpLspDownReason": {
+    "class": "objecttype",
+    "description": "The LDP LSP down reason. Options: 1. other(1) -indicates other reasons. 2. session down(2) -indicates the ldp session went down. 3. route change(3) -indicates the route changed. 4. cannot recovery from GR(4) -indicates LSP cannot recovery from graceful-restart. 5. policy change(5) -indicates the policy changed. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwLdpLspDownReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.67",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "canNotRecoveryFromGr": 4,
+          "other": 1,
+          "policyChange": 5,
+          "routeChange": 3,
+          "sessionDown": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLdpLspDownReasonGroup": {
+    "class": "objectgroup",
+    "description": "Information about Ldp ingress Lsp down reason.",
+    "name": "hwLdpLspDownReasonGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpLspDownReason"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpLspDownMplsLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpLspDownOutIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpLspDownOutIfMainIp"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpLspDownOutIfState"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpLspDownDownstreamPeerLsrId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.143.3.2.10",
+    "status": "current"
+  },
+  "hwLdpLsrId": {
+    "class": "objecttype",
+    "description": "This object indicates the way to change the LDP LSR ID. The default LDP LSR ID has the same value as the MPLS LSR ID. It is recommended not to change the LDP LSR ID unless necessary.",
+    "maxaccess": "read-write",
+    "name": "hwLdpLsrId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwLdpMtuApplyTlv": {
+    "class": "objecttype",
+    "description": "This object conflicts with the object hwLdpMtuSignaling. If the object is enabled, it indicates that the MTU TLV type in the LDP message is 0x601 according to the RFC 3988.",
+    "maxaccess": "read-write",
+    "name": "hwLdpMtuApplyTlv",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwLdpMtuSignaling": {
+    "class": "objecttype",
+    "description": "This object indicates the configuration or deletion of the MTU signaling function. By default, the MTU signaling function is enabled, and the MTU TLV type in the LDP message is 0x900. ",
+    "maxaccess": "read-write",
+    "name": "hwLdpMtuSignaling",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwLdpOutBoundPolicyPeerAllBgpIpPrefix": {
+    "class": "objecttype",
+    "description": "This object indicates the IP prefix list name of BGP routes for a global outbound LDP policy. The default value is NULL. If the object is set with a value, the value of hwLdpOutBoundPolicyPeerAllBgpRange must be set as ipprefix.",
+    "maxaccess": "read-write",
+    "name": "hwLdpOutBoundPolicyPeerAllBgpIpPrefix",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.62",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLdpOutBoundPolicyPeerAllBgpRange": {
+    "class": "objecttype",
+    "description": "This object indicates the range of BGP routes for a global outbound LDP policy. The default value is all. If the object is set as ipprefix, the value of hwLdpOutBoundPolicyPeerAllBgpIpPrefix must be set together.",
+    "maxaccess": "read-write",
+    "name": "hwLdpOutBoundPolicyPeerAllBgpRange",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.61",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "ipprefix": 3,
+          "none": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLdpOutBoundPolicyPeerAllFecIpPrefix": {
+    "class": "objecttype",
+    "description": "This object indicates the IP prefix list name of IGP routes for a global outbound LDP policy. The default value is NULL. If the object is set with a value, the value of hwLdpOutBoundPolicyPeerAllRange must be set as ipprefix.",
+    "maxaccess": "read-write",
+    "name": "hwLdpOutBoundPolicyPeerAllFecIpPrefix",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.60",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLdpOutBoundPolicyPeerAllRange": {
+    "class": "objecttype",
+    "description": "This object indicates the range of IGP routes for a global outbound LDP policy. The default value is all. If the object is set as ipprefix, the value of hwLdpOutBoundPolicyPeerAllFecIpPrefix must be set together.",
+    "maxaccess": "read-write",
+    "name": "hwLdpOutBoundPolicyPeerAllRange",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.59",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "host": 4,
+          "ipprefix": 3,
+          "none": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLdpOutBoundSplitHorizonAll": {
+    "class": "objecttype",
+    "description": "This object indicates the way to set the flag of global split horizon. Default: disabled ",
+    "maxaccess": "read-write",
+    "name": "hwLdpOutBoundSplitHorizonAll",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwLdpPeerEntry": {
+    "class": "objecttype",
+    "description": "An entry of the peer feature table, used to configure and display features, such as the MD5 password and split horizon policy negotiated with the local peer. The index of this entry is hwLdpPeerLsrId. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpPeerLsrId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwLdpPeerEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.52.1",
+    "status": "current"
+  },
+  "hwLdpPeerGroupEntry": {
+    "class": "objecttype",
+    "description": "An entry of this table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpPeerGroupName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwLdpPeerGroupEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.58.1",
+    "status": "current"
+  },
+  "hwLdpPeerGroupInBoundIpPrefix": {
+    "class": "objecttype",
+    "description": "This object indicates the IP prefix list name of routes for an inbound policy. If the object is set with a value, the value of hwLdpPeerGroupInBoundRange must be set as ipprefix.",
+    "maxaccess": "read-create",
+    "name": "hwLdpPeerGroupInBoundIpPrefix",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.58.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLdpPeerGroupInBoundRange": {
+    "class": "objecttype",
+    "description": "This object indicates the route range for an inbound policy. The default value is clear. If the object is set as ipprefix, the value of hwLdpPeerGroupInBoundIpPrefix must be set together.",
+    "maxaccess": "read-create",
+    "name": "hwLdpPeerGroupInBoundRange",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.58.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "host": 4,
+          "ipprefix": 3,
+          "none": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLdpPeerGroupName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of a peer group.",
+    "maxaccess": "not-accessible",
+    "name": "hwLdpPeerGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.58.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 110,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLdpPeerGroupOutBoundBgpIpPrefix": {
+    "class": "objecttype",
+    "description": "This object indicates the IP prefix list name of BGP routes for an outbound policy. If the object is set with a value, the value of hwLdpPeerGroupOutBoundBgpRange must be set as ipprefix.",
+    "maxaccess": "read-create",
+    "name": "hwLdpPeerGroupOutBoundBgpIpPrefix",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.58.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLdpPeerGroupOutBoundBgpRange": {
+    "class": "objecttype",
+    "description": "This object indicates the range of BGP routes for an outbound policy. The default value is clear. If the object is set as ipprefix, the value of hwLdpPeerGroupOutBoundBgpIpPrefix must be set together.",
+    "maxaccess": "read-create",
+    "name": "hwLdpPeerGroupOutBoundBgpRange",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.58.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "ipprefix": 3,
+          "none": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLdpPeerGroupOutBoundFecIpPrefix": {
+    "class": "objecttype",
+    "description": "This object indicates the IP prefix list name of IGP routes for an outbound policy. If the object is set with a value, the value of hwLdpPeerGroupOutBoundRange must be set as ipprefix.",
+    "maxaccess": "read-create",
+    "name": "hwLdpPeerGroupOutBoundFecIpPrefix",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.58.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLdpPeerGroupOutBoundRange": {
+    "class": "objecttype",
+    "description": "This object indicates the range of IGP routes for an outbound policy. The default value is clear. If the object is set as ipprefix, the value of hwLdpPeerGroupOutBoundFecIpPrefix must be set together.",
+    "maxaccess": "read-create",
+    "name": "hwLdpPeerGroupOutBoundRange",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.58.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "host": 4,
+          "ipprefix": 3,
+          "none": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLdpPeerGroupRowStatus": {
+    "class": "objecttype",
+    "description": "This object indicates whether one entry of hwLdpPolicyPeerGroupTable is created or destroyed. The value of this object is CreatAndGo or Destroy. When the value of the object is set to CreatAndGo, and the entry is correctly created, the status of the object will change into active.",
+    "maxaccess": "read-create",
+    "name": "hwLdpPeerGroupRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.58.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwLdpPeerGroupTable": {
+    "class": "objecttype",
+    "description": "This table is used to configure an LDP peer group. ",
+    "maxaccess": "not-accessible",
+    "name": "hwLdpPeerGroupTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.58",
+    "status": "current"
+  },
+  "hwLdpPeerGtsmHops": {
+    "class": "objecttype",
+    "description": "This object indicates the number of GTSM hops. The valid number of GTSM hops ranges from 1 to 255. To clear the configuration of GTSM hops, set the number of GTSM hops as 0.",
+    "maxaccess": "read-create",
+    "name": "hwLdpPeerGtsmHops",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.52.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLdpPeerInBoundPolicyFecIpPrefix": {
+    "class": "objecttype",
+    "description": "This object indicates the IP prefix list name for the inbound policy. If the object is set with a value, the value of hwLdpPeerInBoundPolicyRange must be set as ipprefix.",
+    "maxaccess": "read-create",
+    "name": "hwLdpPeerInBoundPolicyFecIpPrefix",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.52.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLdpPeerInBoundPolicyRange": {
+    "class": "objecttype",
+    "description": "This object indicates the route range for the inbound policy. The default value is clear. If the object is set as ipprefix, the value of hwLdpPeerInBoundPolicyFecIpPrefix must be set together.",
+    "maxaccess": "read-create",
+    "name": "hwLdpPeerInBoundPolicyRange",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.52.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "host": 4,
+          "ipprefix": 3,
+          "none": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLdpPeerKeychainName": {
+    "class": "objecttype",
+    "description": "This object indicates the Keychain name. To cancel the Keychain authentication, set the Keychain name length as 0.",
+    "maxaccess": "read-create",
+    "name": "hwLdpPeerKeychainName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.52.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLdpPeerLsrId": {
+    "class": "objecttype",
+    "description": "This object indicates the LSR ID of the LDP peer.",
+    "maxaccess": "not-accessible",
+    "name": "hwLdpPeerLsrId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.52.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwLdpPeerMd5Password": {
+    "class": "objecttype",
+    "description": "This object indicates the MD5 password of LDP neighbor. To delete the password, set the password length as zero. When read, it always returns an Octet string with the length of zero. ",
+    "maxaccess": "read-create",
+    "name": "hwLdpPeerMd5Password",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.52.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLdpPeerMd5Type": {
+    "class": "objecttype",
+    "description": "This object indicates the Md5 type. Options: 1. cipher(1) -indicates that the MD5 password is in cipher text mode. 2. plain(2) -indicates that the MD5 password is in plain text mode. 3. null(3) -indicates that the MD5 type is null, which means that the MD5 authentication is not configured for the LDP peer. ",
+    "maxaccess": "read-create",
+    "name": "hwLdpPeerMd5Type",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.52.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cipher": 1,
+          "null": 3,
+          "plain": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLdpPeerOutBoundPolicyBgpIpPrefix": {
+    "class": "objecttype",
+    "description": "This object indicates the IP prefix list name of BGP routes for the outbound policy. If the object is set with a value, the value of hwLdpPeerOutBoundPolicyBgpRange must be set as ipprefix.",
+    "maxaccess": "read-create",
+    "name": "hwLdpPeerOutBoundPolicyBgpIpPrefix",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.52.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLdpPeerOutBoundPolicyBgpRange": {
+    "class": "objecttype",
+    "description": "This object indicates the range of BGP routes for an outbound policy. The default value is clear. If the object is set as ipprefix, the value of hwLdpPeerOutBoundPolicyBgpIpPrefix must be set together.",
+    "maxaccess": "read-create",
+    "name": "hwLdpPeerOutBoundPolicyBgpRange",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.52.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "ipprefix": 3,
+          "none": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLdpPeerOutBoundPolicyFecIpPrefix": {
+    "class": "objecttype",
+    "description": "This object indicates the IP prefix list name of IGP routes for an outbound policy. If the object is set with a value, the value of hwLdpPeerOutBoundPolicyRange must be set as ipprefix.",
+    "maxaccess": "read-create",
+    "name": "hwLdpPeerOutBoundPolicyFecIpPrefix",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.52.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLdpPeerOutBoundPolicyRange": {
+    "class": "objecttype",
+    "description": "This object indicates the range of IGP routes for an outbound policy. The default value is clear. If the object is set as ipprefix, the value of hwLdpPeerOutBoundPolicyFecIpPrefix must be set together.",
+    "maxaccess": "read-create",
+    "name": "hwLdpPeerOutBoundPolicyRange",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.52.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "host": 4,
+          "ipprefix": 3,
+          "none": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLdpPeerReset": {
+    "class": "objecttype",
+    "description": "This object indicates the reset of the neighbor services. Options: 1. reset(1) -indicates that the neighbor services will be reset. Only when the object is ready, can this value take effect. 2. ready(2) -indicates that it is ready to reset the neighbor services. This value cannot be set. ",
+    "maxaccess": "read-create",
+    "name": "hwLdpPeerReset",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.52.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 2,
+          "reset": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLdpPeerRowStatus": {
+    "class": "objecttype",
+    "description": "This object indicates whether one entry of hwLdpPeerTable is created or destroyed. The value of this object can be CreatAndGo or Destroy. When the value of the object is set as CreatAndGo, and the entry is correctly created, the status of the object will change into active.",
+    "maxaccess": "read-create",
+    "name": "hwLdpPeerRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.52.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwLdpPeerSplitHorizon": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disabled"
+      }
+    },
+    "description": "This object indicates the way to set the flag of split horizon for the specified LDP peer. Default: disabled ",
+    "maxaccess": "read-create",
+    "name": "hwLdpPeerSplitHorizon",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.52.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwLdpPeerTable": {
+    "class": "objecttype",
+    "description": "This object is used to configure the LDP peer. The index of this table is hwLdpPeerLsrId. ",
+    "maxaccess": "not-accessible",
+    "name": "hwLdpPeerTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.52",
+    "status": "current"
+  },
+  "hwLdpPolicyPeerGroupGroup": {
+    "class": "objectgroup",
+    "description": "Information about Ldp Policies of peer groups.",
+    "name": "hwLdpPolicyPeerGroupGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpPeerGroupOutBoundRange"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpPeerGroupOutBoundFecIpPrefix"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpPeerGroupOutBoundBgpRange"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpPeerGroupOutBoundBgpIpPrefix"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpPeerGroupInBoundRange"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpPeerGroupInBoundIpPrefix"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpPeerGroupRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.143.3.2.15",
+    "status": "current"
+  },
+  "hwLdpPropagateIpPrefix": {
+    "class": "objecttype",
+    "description": "This object indicates the configuration or deletion of the transit policy for the LDP. The object has a valid length ranging from 1 to 169 characters. The length 0 characters shows that the transit policy is deleted.",
+    "maxaccess": "read-write",
+    "name": "hwLdpPropagateIpPrefix",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLdpRemoteEntityEntry": {
+    "class": "objecttype",
+    "description": "This object is used to configure or delete the LDP remote peer. The index of this entry is hwLdpRemoteName. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpRemoteName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwLdpRemoteEntityEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.51.1",
+    "status": "current"
+  },
+  "hwLdpRemoteEntityTable": {
+    "class": "objecttype",
+    "description": "This object is used to configure or delete the LDP remote peer. The index of this table is hwLdpRemoteName. ",
+    "maxaccess": "not-accessible",
+    "name": "hwLdpRemoteEntityTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.51",
+    "status": "current"
+  },
+  "hwLdpRemoteHelloSendTimer": {
+    "class": "objecttype",
+    "description": "This object indicates the value of LDP Hello send timer. By default, the value of the timer is 0, configuration does not take effect. Default: 0 Unit: seconds ",
+    "maxaccess": "read-create",
+    "name": "hwLdpRemoteHelloSendTimer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.51.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLdpRemoteHelloTimer": {
+    "class": "objecttype",
+    "description": "This object indicates the value of LDP Hello hold timer. Default: 45 Unit: seconds ",
+    "maxaccess": "read-create",
+    "name": "hwLdpRemoteHelloTimer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.51.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLdpRemoteIgpSyncTimer": {
+    "class": "objecttype",
+    "description": "This object indicates the value of IGP-Sync timer. Default: 10 Unit: seconds ",
+    "maxaccess": "read-create",
+    "name": "hwLdpRemoteIgpSyncTimer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.51.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLdpRemoteIp": {
+    "class": "objecttype",
+    "description": "This object indicates the configuration of the remote peer LSR ID. If being set, the ID cannot be modified. To modify the ID, delete the original ID and create a new one. If the ID is set as 0.0.0.0, it indicates that the ID is deleted.",
+    "maxaccess": "read-create",
+    "name": "hwLdpRemoteIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.51.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwLdpRemoteIpAutoDoDRequest": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disabled"
+      }
+    },
+    "description": "This object identifies whether the remote peer is enabled with the capability of automatically sending a DoD request. Default: disabled ",
+    "maxaccess": "read-create",
+    "name": "hwLdpRemoteIpAutoDoDRequest",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.51.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwLdpRemoteIpAutoDoDRequestBlock": {
+    "class": "objecttype",
+    "description": "This object indicates whether the remote ip auto dod request function blocked. Default: disabled ",
+    "maxaccess": "read-create",
+    "name": "hwLdpRemoteIpAutoDoDRequestBlock",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.51.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwLdpRemoteKeepaliveSendTimer": {
+    "class": "objecttype",
+    "description": "This object indicates the value of LDP Keepalive send timer. By default, the value of the timer is 0, configuration does not take effect. Default: 0 Unit: seconds ",
+    "maxaccess": "read-create",
+    "name": "hwLdpRemoteKeepaliveSendTimer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.51.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLdpRemoteKeepaliveTimer": {
+    "class": "objecttype",
+    "description": "This object indicates the value of LDP Keepalive timer. Default: 45 Unit: seconds ",
+    "maxaccess": "read-create",
+    "name": "hwLdpRemoteKeepaliveTimer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.51.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 30
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLdpRemoteLabelAdvertisementMode": {
+    "class": "objecttype",
+    "description": "This object indicates the label distribution mode. Options: 1. dod(1) -indicates that the label distribution mode is dod. 2. du(2) -indicates that the label distribution mode is du. Default: du ",
+    "maxaccess": "read-create",
+    "name": "hwLdpRemoteLabelAdvertisementMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.51.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dod": 1,
+          "du": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLdpRemoteLocalLsrIdIfIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the way to specify the interface that the local LDP LSR-ID based on remote entity is assigned to. Value: 0..2147483647 The default value of the object is the interface that the global LDP LSR ID is assigned to. If the global LDP LSR ID is not assigned to any interface, then the value of the object is 0. If set 0, the value of the object will be the default value. ",
+    "maxaccess": "read-create",
+    "name": "hwLdpRemoteLocalLsrIdIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.51.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwLdpRemoteName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of the LDP remote peer. Range: 1-32 characters ",
+    "maxaccess": "not-accessible",
+    "name": "hwLdpRemoteName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.51.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwLdpRemoteOperationalSessionNumber": {
+    "class": "objecttype",
+    "description": "This object indicates the number of remote LDP operational sessions.",
+    "maxaccess": "read-only",
+    "name": "hwLdpRemoteOperationalSessionNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.73.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwLdpRemotePeerAutoDodRequest": {
+    "class": "objecttype",
+    "description": "The value of this object identifies whether the remote peer is globally enabled with the capability of automatically sending a DoD request.",
+    "maxaccess": "read-write",
+    "name": "hwLdpRemotePeerAutoDodRequest",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.37",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwLdpRemotePwe3": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disabled"
+      }
+    },
+    "description": "This object indicates the configuration or deletion of the policy for the remote LDP session. When the object is enabled, it is forbidden to send the mapping message to the remote peer. Default: disabled ",
+    "maxaccess": "read-create",
+    "name": "hwLdpRemotePwe3",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.51.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwLdpRemoteRowStatus": {
+    "class": "objecttype",
+    "description": "This object indicates whether one entry of hwLdpRemoteEntityTable is created or destroyed. The value of this object can be CreatAndGo or Destroy. When the value of the object is set as CreatAndGo, and the entry is correctly created, the status of the object will change into active.",
+    "maxaccess": "read-create",
+    "name": "hwLdpRemoteRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.51.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwLdpReset": {
+    "class": "objecttype",
+    "description": "This object indicates the reset of the LDP protocol. Options: 1. reset(1) -indicates the reset of the LDP protocol. 2. resetall(2) -indicates the reset of all LDP instances. 3. ready(3) -indicates that it is ready to reset LDP. This value cannot be set. ",
+    "maxaccess": "read-write",
+    "name": "hwLdpReset",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 3,
+          "reset": 1,
+          "resetall": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLdpSessionStatistics": {
+    "class": "objectidentity",
+    "name": "hwLdpSessionStatistics",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.73"
+  },
+  "hwLdpStaticFrrProtectTimer": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 10
+      }
+    },
+    "description": "This object indicates the value of static FRR protect timer. Default: 10 Unit: seconds ",
+    "maxaccess": "read-create",
+    "name": "hwLdpStaticFrrProtectTimer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.54.1.11",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 30,
+            "min": 5
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLdpTotalOperationalSessionNumber": {
+    "class": "objecttype",
+    "description": "This object indicates the total number of LDP operational sessions.",
+    "maxaccess": "read-only",
+    "name": "hwLdpTotalOperationalSessionNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.73.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwLdpTransportAddressIfIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the way to specify the interface that the Transport Address is assigned to. Value: 0..2147483647 The default value of the object for the public interface is the interface that the LDP LSR ID is assigned to. If the LDP LSR ID is not assigned to any interface, then the value of the object is 0, and 0 cannot be set. The default value of the object for the private interface is the private interface itself. Based on mplsL3VpnIfConfRowStatus of mplsL3VpnIfConfTable, you can find which interface belongs to the VPN. The interface must be bound with the same VPN instance. ",
+    "maxaccess": "read-create",
+    "name": "hwLdpTransportAddressIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.54.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndexOrZero"
+    }
+  },
+  "hwLdpVpnEntry": {
+    "class": "objecttype",
+    "description": "This object is used to configure or delete the LDP multi-instance. The index of this entry is hwLdpVpnInstanceId. Make sure the relevant VPN instance is already created. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpVpnInstanceId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwLdpVpnEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.50.1",
+    "status": "current"
+  },
+  "hwLdpVpnGracefulDeleteCapability": {
+    "class": "objecttype",
+    "description": "This object indicates whether the LDP graceful-delete capability is enabled for a VPN instance.",
+    "maxaccess": "read-create",
+    "name": "hwLdpVpnGracefulDeleteCapability",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.50.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwLdpVpnGracefulDeleteTimer": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the value of a graceful-delete timer for a VPN instance. When the status of hwLdpVpnGracefulDeleteCapability is enabled, the default value returned by the object is valid. Default: 5 Unit: seconds ",
+    "maxaccess": "read-create",
+    "name": "hwLdpVpnGracefulDeleteTimer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.50.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLdpVpnInstanceId": {
+    "class": "objecttype",
+    "description": "This object indicates the ID of the VPN instance. You can find the correct VPN instance ID based on hwL3vpnVrfIndex of hwL3vpnStatisticsTable.",
+    "maxaccess": "not-accessible",
+    "name": "hwLdpVpnInstanceId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.50.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwLdpVpnLsrId": {
+    "class": "objecttype",
+    "description": "This object indicates the way to configure the LDP LSR ID. If the value of the LDP LSR ID is the same as the value of the MPLS LSR ID, the LDP LSR ID is deleted. It is recommended not to change the LDP LSR ID unless necessary.",
+    "maxaccess": "read-create",
+    "name": "hwLdpVpnLsrId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.50.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwLdpVpnPeerEntry": {
+    "class": "objecttype",
+    "description": "An entry of the VPN peer feature table, used to configure and display features, such as the MD5 password and split horizon policy negotiated with the local peer on the VPN. The indexs of this entry are hwLdpVpnInstanceId, hwLdpVpnPeerLsrId. Make sure the corresponding LDP VPN-instance is already created in hwLdpVpnTable. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpVpnInstanceId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpVpnPeerLsrId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwLdpVpnPeerEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.53.1",
+    "status": "current"
+  },
+  "hwLdpVpnPeerKeychainName": {
+    "class": "objecttype",
+    "description": "This object indicates the Keychain name. To cancel the Keychain authentication, set the Keychain name length as 0.",
+    "maxaccess": "read-create",
+    "name": "hwLdpVpnPeerKeychainName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.53.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLdpVpnPeerLsrId": {
+    "class": "objecttype",
+    "description": "This object indicates the LSR ID of the LDP peer.",
+    "maxaccess": "not-accessible",
+    "name": "hwLdpVpnPeerLsrId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.53.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwLdpVpnPeerMd5Password": {
+    "class": "objecttype",
+    "description": "This object indicates the MD5 password of VPN LDP neighbor. To delete the password, set the password length as zero. When read, it always returns an Octet string with the length of zero. ",
+    "maxaccess": "read-create",
+    "name": "hwLdpVpnPeerMd5Password",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.53.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLdpVpnPeerMd5Type": {
+    "class": "objecttype",
+    "description": "This object indicates the Md5 type. 1. cipher(1) -indicates that the MD5 password is in cipher text mode. 2. plain(2) -indicates that the MD5 password is in plain text mode. 3. null(3) -indicates that the MD5 type is null, which means that the MD5 authentication is not configured for the LDP peer. ",
+    "maxaccess": "read-create",
+    "name": "hwLdpVpnPeerMd5Type",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.53.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cipher": 1,
+          "null": 3,
+          "plain": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLdpVpnPeerReset": {
+    "class": "objecttype",
+    "description": "This object indicates the reset of the neighbor services. Options: 1. reset(1) -indicates that the neighbor services will be reset. Only when the object is ready, can this value take effect. 2. ready(2) -indicates that it is ready to reset the neighbor services. This value cannot be set. ",
+    "maxaccess": "read-create",
+    "name": "hwLdpVpnPeerReset",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.53.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 2,
+          "reset": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLdpVpnPeerRowStatus": {
+    "class": "objecttype",
+    "description": "This object indicates whether one entry of hwLdpVpnPeerTable is created or destroyed. The value of this object can be CreatAndGo or Destroy. When the value of the object is set as CreatAndGo, and the entry is correctly created, the status of the object will change into active.",
+    "maxaccess": "read-create",
+    "name": "hwLdpVpnPeerRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.53.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwLdpVpnPeerSplitHorizon": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disabled"
+      }
+    },
+    "description": "This object indicates the way to set the flag of split horizon for the specified LDP peer. Default: disabled ",
+    "maxaccess": "read-create",
+    "name": "hwLdpVpnPeerSplitHorizon",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.53.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwLdpVpnPeerTable": {
+    "class": "objecttype",
+    "description": "This table is used to create and delete peer configurations in the LDP multi-instance. The indexs of this table are hwLdpVpnInstanceId, hwLdpVpnPeerLsrId. Make sure the corresponding LDP VPN-instance is already created in hwLdpVpnTable. ",
+    "maxaccess": "not-accessible",
+    "name": "hwLdpVpnPeerTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.53",
+    "status": "current"
+  },
+  "hwLdpVpnReset": {
+    "class": "objecttype",
+    "description": "This object indicates the reset of the LDP multi-instance corresponding to the VPN. Options: 1.reset(1) -indicates that the LDP multi-instance will be reset. 2.ready(2) -indicates that it is ready to reset ldp multi-instance. This value cannot be set. ",
+    "maxaccess": "read-create",
+    "name": "hwLdpVpnReset",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.50.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 2,
+          "reset": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLdpVpnRowStatus": {
+    "class": "objecttype",
+    "description": "This object indicates whether one entry of hwLdpVpnTable is created or destroyed. The value of this object can be CreatAndGo or Destroy. When the value of the object is set as CreatAndGo, and the entry is correctly created, the status of the object will change into active.",
+    "maxaccess": "read-create",
+    "name": "hwLdpVpnRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.50.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwLdpVpnSplitHorizonAll": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disabled"
+      }
+    },
+    "description": "This object indicates the way to set the flag of split horizon for all LDP VPN peers. Default: disabled ",
+    "maxaccess": "read-create",
+    "name": "hwLdpVpnSplitHorizonAll",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.50.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwLdpVpnTable": {
+    "class": "objecttype",
+    "description": "This object is used to configure or delete the LDP multi-instance. The index of this table is hwLdpVpnInstanceId. Make sure the relevant VPN instance is already created. ",
+    "maxaccess": "not-accessible",
+    "name": "hwLdpVpnTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.50",
+    "status": "current"
+  },
+  "hwMplsFrrLspTrigger": {
+    "class": "objecttype",
+    "description": "This object indicates the way to configure the LDP policy of global instance for LDP Auto FRR. Options: 1. all(1) -indicates that all FECs are triggered for the IGP. 2. none(2) -indicates that no FEC is triggered for the IGP. 3. host(3) -indicates that the host FEC is triggered for the IGP. 4. ipprefix(4) -indicates that the ip-prefix list is triggered for the IGP. If the object is set as ipprefix, the value of hwMplsFrrLspTriggerIpPrefix must be set together. Default: host ",
+    "maxaccess": "read-write",
+    "name": "hwMplsFrrLspTrigger",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "host": 3,
+          "ipPrefix": 4,
+          "none": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsFrrLspTriggerIpPrefix": {
+    "class": "objecttype",
+    "description": "This object indicates the IP prefix when configuring LDP Auto FRR for the public network instance. The object has a valid length ranging from 1 to 169 characters. If the object is set with a value, the value of hwMplsFrrLspTrigger must be set as ipprefix.",
+    "maxaccess": "read-write",
+    "name": "hwMplsFrrLspTriggerIpPrefix",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMplsLdp": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "This MIB contains private managed object and notification trap definitions for MPLS LDP.",
+    "lastupdated": "201411061640Z",
+    "name": "hwMplsLdp",
+    "oid": "1.3.6.1.4.1.2011.5.25.143",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "V2.46, delete LDP GR timer range\u0027s validity check, include hwLdpGrNeighborLivenessTimer,hwLdpGrReconnectTimer,hwLdpGrRecoveryTimer.",
+        "revision": "2014-11-06 16:40"
+      },
+      {
+        "description": "V2.45, add hwMplsLdpSessionDownReason object type sessionProtectTimerExp(30).",
+        "revision": "2014-08-22 11:26"
+      },
+      {
+        "description": "V2.44, add four nodes for LDP session statistics: hwLdpLocalOperationalSessionNumber, hwLdpRemoteOperationalSessionNumber, hwLdpLocalAndRemoteOperationalSessionNumber and hwLdpTotalOperationalSessionNumber.",
+        "revision": "2014-05-28 11:26"
+      },
+      {
+        "description": "V2.43, add hwMplsLdpSessionDownReason object type modifyMp2mp(29).",
+        "revision": "2014-01-15 16:00"
+      },
+      {
+        "description": "V2.42, add hwMplsLdpSessionDownReason object type modifyP2mp(28).",
+        "revision": "2013-07-15 16:00"
+      },
+      {
+        "description": "V2.41, add trap hwMplsLdpHostIngressLspDownClear, hwMplsLdpHostIngressLspDown, and the trap VB: hwLdpLspDownReason, hwLdpLspDownMplsLsrId, hwLdpLspDownOutIfIndex, hwLdpLspDownOutIfMainIp, hwLdpLspDownOutIfState, hwLdpLspDownDownstreamPeerLsrId.",
+        "revision": "2013-06-14 10:00"
+      },
+      {
+        "description": "V2.30, modify the name for these nodes:hwLdpPolicyPeerGroupOutBoundRange, hwLdpPolicyPeerGroupOutBoundFecIpPrefix, hwLdpPolicyPeerGroupOutBoundBgpRange, hwLdpPolicyPeerGroupOutBoundBgpIpPrefix, hwLdpPolicyPeerGroupInBoundRange, hwLdpPolicyPeerGroupInBoundIpPrefix, hwLdpPolicyPeerGroupRowStatus.correct name is :hwLdpPeerGroupOutBoundRange,hwLdpPeerGroupOutBoundFecIpPrefix, hwLdpPeerGroupOutBoundBgpRange, hwLdpPeerGroupOutBoundBgpIpPrefix, hwLdpPeerGroupInBoundRange, hwLdpPeerGroupInBoundIpPrefix, hwLdpPeerGroupRowStatus.",
+        "revision": "2013-01-15 10:00"
+      },
+      {
+        "description": "V2.20, add two nodes hwLdpRemoteLocalLsrIdIfIndex and hwLdpInterfaceLocalLsrIdIfIndex.",
+        "revision": "2013-01-07 10:00"
+      },
+      {
+        "description": "V2.10, set the length of hwLdpPeerGroupName.",
+        "revision": "2012-07-14 10:00"
+      },
+      {
+        "description": "V2.02, delete the default value in the description for these nodes: hwLdpGrReconnectTimer, hwLdpGrRecoveryTimer, hwLdpGrNeighborLivenessTimer.",
+        "revision": "2011-11-16 10:00"
+      },
+      {
+        "description": "V2.01, modify the description for these nodes: hwMplsLdpSessionTable, hwMplsLdpSessionEntry, hwMplsLdpSessionStateTable, hwMplsLdpSessionStateEntry, hwMplsLspTriggerIpPrefix, hwMplsLspTriggerBgpRouteIpPrefix, hwLdpDeleteGtsmAll, hwMplsFrrLspTriggerIpPrefix, hwLdpVpnTable, hwLdpVpnEntry, hwMplsVpnFrrLspTriggerIpPrefix, hwLdpRemoteEntityTable, hwLdpRemoteEntityEntry, hwLdpPeerTable. change the SYNTAX from DisplayString to OCTET STRING for these nodes: hwLdpPropagateIpPrefix, hwMplsLspTriggerIpPrefix, hwMplsLspTriggerBgpRouteIpPrefix, hwMplsFrrLspTriggerIpPrefix, hwMplsVpnFrrLspTriggerIpPrefix.",
+        "revision": "2011-09-28 10:00"
+      },
+      {
+        "description": "V2.00, modify the description for these nodes, hwMplsLspTriggerIpPrefix, hwMplsLspTrigger, hwMplsFrrLspTriggerIpPrefix, hwMplsFrrLspTrigger, hwLdpOutBoundPolicyPeerAllFecIpPrefix, hwLdpOutBoundPolicyPeerAllRange, hwLdpInBoundPolicyPeerAllIpPrefix, hwLdpInBoundPolicyPeerAllRange, hwLdpOutBoundPolicyPeerAllBgpIpPrefix, hwLdpOutBoundPolicyPeerAllBgpRange, hwMplsVpnFrrLspTrigger, hwMplsVpnFrrLspTriggerIpPrefix, hwLdpPeerOutBoundPolicyRange, hwLdpPeerOutBoundPolicyFecIpPrefix, hwLdpPeerOutBoundPolicyBgpRange, hwLdpPeerOutBoundPolicyBgpIpPrefix, hwLdpPeerOutBoundPolicyFecRange, hwLdpPeerInBoundPolicyFecIpPrefix, hwLdpPeerGroupOutBoundRange, hwLdpPeerGroupOutBoundFecIpPrefix, hwLdpPeerGroupOutBoundBgpRange, hwLdpPeerGroupOutBoundBgpIpPrefix, hwLdpPeerGroupInBoundRange, hwLdpPeerGroupInBoundIpPrefix.",
+        "revision": "2011-09-07 10:00"
+      },
+      {
+        "description": "V1.03, add four nodes for MPLS LDP Graceful-Delete, hwLdpVpnGracefulDeleteCapability, hwLdpVpnGracefulDeleteTimer, hwLdpGracefulDeleteCapability, hwLdpGracefulDeleteTimer.",
+        "revision": "2011-05-10 10:00"
+      },
+      {
+        "description": "V1.02, some description is modified.",
+        "revision": "2010-08-11 16:00"
+      },
+      {
+        "description": "V1.01, some nodes support the set operation.",
+        "revision": "2010-07-12 16:00"
+      },
+      {
+        "description": "V1.00, initial version.",
+        "revision": "2009-03-10 16:00"
+      }
+    ]
+  },
+  "hwMplsLdpCompliances": {
+    "class": "modulecompliance",
+    "description": "The Compliance statement for systems supporting the HUAWEI-MPLSLDP-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpInfoGroup"
+      }
+    ],
+    "name": "hwMplsLdpCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.3.1",
+    "status": "current"
+  },
+  "hwMplsLdpConformance": {
+    "class": "objectidentity",
+    "name": "hwMplsLdpConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.3"
+  },
+  "hwMplsLdpFrrProtectGroup": {
+    "class": "objectgroup",
+    "description": "Information about Ldp FRR protect timer.",
+    "name": "hwMplsLdpFrrProtectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpStaticFrrProtectTimer"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.143.3.2.16",
+    "status": "obsolete"
+  },
+  "hwMplsLdpGlobalGroup": {
+    "class": "objectgroup",
+    "description": "Information about Ldp Global configuration.",
+    "name": "hwMplsLdpGlobalGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpCapabilityConfig"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpPropagateIpPrefix"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpGlobalRemotePwe3"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpMtuSignaling"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpMtuApplyTlv"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpGrCapabilityConfig"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpGrNeighborLivenessTimer"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpGrReconnectTimer"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpGrRecoveryTimer"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLspTrigger"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLspTriggerIpPrefix"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLspTriggerBgpRoute"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLspTriggerBgpRouteIpPrefix"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpReset"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpOutBoundSplitHorizonAll"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpDeleteGtsmAll"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsFrrLspTrigger"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsFrrLspTriggerIpPrefix"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpBackOffTimerInit"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpBackOffTimerMax"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpLongestMatch"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.143.3.2.4",
+    "status": "current"
+  },
+  "hwMplsLdpGroup": {
+    "class": "objectidentity",
+    "name": "hwMplsLdpGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.3.2"
+  },
+  "hwMplsLdpHostIngressLspDown": {
+    "class": "notificationtype",
+    "description": "A trap is sent when all the ingress lsp of a specified FEC went down.",
+    "name": "hwMplsLdpHostIngressLspDown",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpLspFec"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpLspDownReason"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpLspDownMplsLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpLspDownOutIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpLspDownOutIfMainIp"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpLspDownOutIfState"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpLspDownDownstreamPeerLsrId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.143.2.4",
+    "status": "current"
+  },
+  "hwMplsLdpHostIngressLspDownClear": {
+    "class": "notificationtype",
+    "description": "A trap is sent to clear the down trap of a specified FEC\u0027s ingress lsp.",
+    "name": "hwMplsLdpHostIngressLspDownClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpLspFec"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.143.2.3",
+    "status": "current"
+  },
+  "hwMplsLdpHostIngressLspDownNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "Notification information included in the mib.",
+    "name": "hwMplsLdpHostIngressLspDownNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpHostIngressLspDownClear"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpHostIngressLspDown"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.143.3.2.11",
+    "status": "current"
+  },
+  "hwMplsLdpInfo": {
+    "class": "objectidentity",
+    "name": "hwMplsLdpInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1"
+  },
+  "hwMplsLdpInfoGroup": {
+    "class": "objectgroup",
+    "description": "Infomation about LDP LSP.",
+    "name": "hwMplsLdpInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpLspDownReason"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpLspFec"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpLspInLabel"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpLspOutLabel"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpSessionAge"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpSessionIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpSessionAgeStatus"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpSessionPeerLabelResourceStatus"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpSessionLocalLabelResourceStatus"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpSessionLabelAdvMode"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpSessionKeepAliveMsgSent"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpSessionKeepAliveMsgReceived"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpSessionKeepAliveTimer"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpSessionRecoveryTimer"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpSessionReconnectTimer"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpSessionMd5Flag"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpSessionFtFlag"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpSessionRole"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpSessionState"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpSessionTcpConnectionState"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpSessionLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpRemotePeerAutoDodRequest"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpCapabilityAnnouncementConfig"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpSessionDownReason"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpProcessName"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpLspOutIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpOutBoundPolicyPeerAllRange"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpOutBoundPolicyPeerAllFecIpPrefix"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpOutBoundPolicyPeerAllBgpRange"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpOutBoundPolicyPeerAllBgpIpPrefix"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpInBoundPolicyPeerAllRange"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpInBoundPolicyPeerAllIpPrefix"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpGracefulDeleteCapability"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpGracefulDeleteTimer"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpLspDownReason"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpLspDownMplsLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpLspDownOutIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpLspDownOutIfMainIp"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpLspDownOutIfState"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpLspDownDownstreamPeerLsrId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.143.3.2.1",
+    "status": "current"
+  },
+  "hwMplsLdpInterfaceGroup": {
+    "class": "objectgroup",
+    "description": "Information about Ldp interface capability.",
+    "name": "hwMplsLdpInterfaceGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpKeepAliveTimer"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpIgpSyncTimer"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpHelloTimer"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpTransportAddressIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpKeepAliveSendTimer"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpHelloSendTimer"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpInterfaceLabelAdvertisementMode"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpInterfaceLocalLsrIdIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpInterfaceRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.143.3.2.9",
+    "status": "current"
+  },
+  "hwMplsLdpLspDown": {
+    "class": "notificationtype",
+    "description": "When the trap indicating that a session is down is sent, the cause for the down LSP session is displayed.",
+    "name": "hwMplsLdpLspDown",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpLspFec"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpLspInLabel"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpLspOutLabel"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpLspOutIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpLspDownReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.143.2.2",
+    "status": "obsolete"
+  },
+  "hwMplsLdpLspDownNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "No use.",
+    "name": "hwMplsLdpLspDownNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpLspDown"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.143.3.2.3",
+    "status": "obsolete"
+  },
+  "hwMplsLdpLspDownReason": {
+    "class": "objecttype",
+    "description": "This object indicates the cause that the LSP becomes Down. Options: 1. routeDelete(1) -indicates that a route has been deleted. 2. lspmNotify(2) -indicates that LSPM notify. 3. canNotRecoveryFromGr(3) -indicates that the recovery from GR was failed. 4. recvReleaseMsg(4) -indicates that the release message was received. 5. recvWithdrawMsg(5) -indicates that the withdraw message was received. 6. upStreamLost(6) -indicates that the upstream route was lost. 7. downStreamLost(7) -indicates that the downstream route was lost. 8. otherReason(8) -indicates that another cause was involved. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsLdpLspDownReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "canNotRecoveryFromGr": 3,
+          "downStreamLost": 7,
+          "lspmNotify": 2,
+          "otherReason": 8,
+          "recvReleaseMsg": 4,
+          "recvWithdrawMsg": 5,
+          "routeDelete": 1,
+          "upStreamLost": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsLdpLspFec": {
+    "class": "objecttype",
+    "description": "This object indicates the destination address of an LSP. The value is either a destination IP address or a prefix of an IP address.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsLdpLspFec",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwMplsLdpLspInLabel": {
+    "class": "objecttype",
+    "description": "This object indicates that labels are pushed into all the packets for direct MPLS forwarding.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsLdpLspInLabel",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwMplsLdpLspOutIfIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the index of the outgoing interface of the LSP.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsLdpLspOutIfIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwMplsLdpLspOutLabel": {
+    "class": "objecttype",
+    "description": "This object indicates that all the packets swap labels for MPLS forwarding.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsLdpLspOutLabel",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwMplsLdpNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "Notification information included in the mib.",
+    "name": "hwMplsLdpNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpSessionDown"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.143.3.2.2",
+    "status": "obsolete"
+  },
+  "hwMplsLdpPeerGroup": {
+    "class": "objectgroup",
+    "description": "Information about Ldp Peer.",
+    "name": "hwMplsLdpPeerGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpPeerMd5Type"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpPeerMd5Password"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpPeerGtsmHops"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpPeerSplitHorizon"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpPeerReset"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpPeerKeychainName"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpPeerOutBoundPolicyRange"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpPeerOutBoundPolicyFecIpPrefix"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpPeerOutBoundPolicyBgpRange"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpPeerOutBoundPolicyBgpIpPrefix"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpPeerInBoundPolicyRange"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpPeerInBoundPolicyFecIpPrefix"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpPeerRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.143.3.2.7",
+    "status": "current"
+  },
+  "hwMplsLdpProcessName": {
+    "class": "objecttype",
+    "description": "This object indicates the process name of LDP running on the router. By default, the value is LDP.",
+    "maxaccess": "read-only",
+    "name": "hwMplsLdpProcessName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMplsLdpRemoteEntityGroup": {
+    "class": "objectgroup",
+    "description": "Information about remote entity.",
+    "name": "hwMplsLdpRemoteEntityGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpRemoteIp"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpRemotePwe3"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpRemoteKeepaliveTimer"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpRemoteHelloTimer"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpRemoteKeepaliveSendTimer"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpRemoteHelloSendTimer"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpRemoteIgpSyncTimer"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpRemoteIpAutoDoDRequest"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpRemoteIpAutoDoDRequestBlock"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpRemoteLabelAdvertisementMode"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpRemoteLocalLsrIdIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpRemoteRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.143.3.2.6",
+    "status": "current"
+  },
+  "hwMplsLdpSessionAge": {
+    "class": "objecttype",
+    "description": "This object indicates the duration since the session is set up.",
+    "maxaccess": "read-only",
+    "name": "hwMplsLdpSessionAge",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.7.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwMplsLdpSessionAgeStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the existence time of the session.",
+    "maxaccess": "read-only",
+    "name": "hwMplsLdpSessionAgeStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.8.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwMplsLdpSessionDown": {
+    "class": "notificationtype",
+    "description": "When the trap indicating that a session is down is sent, the cause for the down LDP session is displayed. ",
+    "name": "hwMplsLdpSessionDown",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpSessionDownReason"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpSessionIfIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.143.2.1",
+    "status": "obsolete"
+  },
+  "hwMplsLdpSessionDownReason": {
+    "class": "objecttype",
+    "description": "This object indicates the cause that the session becomes Down. Options: 1. sessionUp(0) -indicates that the session was Up. 2. helloHoldTimerExp(1) -indicates that the Hello hold timer expired. 3. ssnHoldTimerExp(2) -indicates that the session hold timer expired. 4. resetMplsLdp(3) -indicates MPLS LDP was reset. 5. undoMplsLdp(4) -indicates that MPLS LDP was disabled. 6. undoMpls(5) -indicates that MPLS was disabled. 7. undoMplsLdpRemotePeer(6) -indicates that the remote peer was deleted. 8. modifyGRConfig(7) -indicates that GR capability was modified. 9. modifyGRTimer(8) -indicates that the GR timer was modified. 10. modifyKeepaliveTimer(9) -indicates that the keepalive timer was modified. 11. modifyMD5Config(10) -indicates that MD5 was configured. 12. ssnRoleSwitch(11) -indicates that the session role was switched. 13. modifyMTUConfig(12) -indicates that the MTU was modified. 14. modifyTransportAddress(13) -indicates that the transport address was modified. 15. modifyLDPLsrID(14) -indicates that the LDP LSR ID was modified. 16. recvNotification(15) -indicates that the notification message was received. 17. transportAddressNotMatch(16) -indicates that the transport address was not matched. 18. protocolGR(17) -indicates that the protocol GR was in processing. 19. ifStatusChanged(18) -indicates that the interface status was changed. 20. tcpDown(19) -indicates that TCP was Down. 21. otherReason(20) -indicates that another cause was involved. 22. sentNotification(21) -indicates that the notification was sent. 23. canntBuildSessionRelation(22) -indicates that the session relation cannot be built. 24. receiveErrorMessageFromPeer(23) -indicates that error message from peer was received. 25. receiveSocketError(24) -indicates that error pakcet from socket was received. 26. sessionDelete(25) -indicates that the session was deleted. 27. modifyCapabilityAnnouncementConfig(26) -indicates that the capability-announcement was modified. 28. modifyLocalLsrID(27) -indicates that the Local LSR ID was modified. 29. modifyP2MP(28) -indicates that the mLDP P2MP was modified. 30. modifyMP2MP(29) -indicates that the mLDP MP2MP was modified. 31. sessionProtectTimerExp(30) -indicates that the session protection timer expired. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsLdpSessionDownReason",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "canntBuildSessionRelation": 22,
+          "helloHoldTimerExp": 1,
+          "ifStatusChanged": 18,
+          "modifyCapabilityAnnouncementConfig": 26,
+          "modifyGRConfig": 7,
+          "modifyGRTimer": 8,
+          "modifyKeepaliveTimer": 9,
+          "modifyLDPLsrID": 14,
+          "modifyLocalLsrID": 27,
+          "modifyMD5Config": 10,
+          "modifyMP2MP": 29,
+          "modifyMTUConfig": 12,
+          "modifyP2MP": 28,
+          "modifyTransportAddress": 13,
+          "otherReason": 20,
+          "protocolGR": 17,
+          "receiveErrorMessageFromPeer": 23,
+          "receiveSocketError": 24,
+          "recvNotification": 15,
+          "resetMplsLdp": 3,
+          "sentNotification": 21,
+          "sessionDelete": 25,
+          "sessionProtectTimerExp": 30,
+          "sessionUp": 0,
+          "ssnHoldTimerExp": 2,
+          "ssnRoleSwitch": 11,
+          "tcpDown": 19,
+          "transportAddressNotMatch": 16,
+          "undoMpls": 5,
+          "undoMplsLdp": 4,
+          "undoMplsLdpRemotePeer": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsLdpSessionEntry": {
+    "class": "objecttype",
+    "description": "This object is used to display the session parameters and session age. The index of this entry is hwMplsLdpSessionPeerLsrId. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpSessionPeerLsrId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMplsLdpSessionEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.7.1",
+    "status": "current"
+  },
+  "hwMplsLdpSessionFtFlag": {
+    "class": "objecttype",
+    "description": "This object indicates whether the FT of the session is enabled.",
+    "maxaccess": "read-only",
+    "name": "hwMplsLdpSessionFtFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.8.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMplsLdpSessionIfIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the index of the interface on which the session is established.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsLdpSessionIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMplsLdpSessionKeepAliveMsgReceived": {
+    "class": "objecttype",
+    "description": "This object indicates the number of the KeepAlive messages that the session obtains.",
+    "maxaccess": "read-only",
+    "name": "hwMplsLdpSessionKeepAliveMsgReceived",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.8.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsLdpSessionKeepAliveMsgSent": {
+    "class": "objecttype",
+    "description": "This object indicates the number of the KeepAlive messages that the session sends.",
+    "maxaccess": "read-only",
+    "name": "hwMplsLdpSessionKeepAliveMsgSent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.8.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsLdpSessionKeepAliveTimer": {
+    "class": "objecttype",
+    "description": "This object indicates the value of the KeepAlive timer after the negotiation. Unit: seconds ",
+    "maxaccess": "read-only",
+    "name": "hwMplsLdpSessionKeepAliveTimer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.8.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsLdpSessionLabelAdvMode": {
+    "class": "objecttype",
+    "description": "This object indicates the label distribution mode of the session.",
+    "maxaccess": "read-only",
+    "name": "hwMplsLdpSessionLabelAdvMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.8.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMplsLdpSessionLocalLabelResourceStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the status of the local label resources of the session.",
+    "maxaccess": "read-only",
+    "name": "hwMplsLdpSessionLocalLabelResourceStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.8.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMplsLdpSessionLsrId": {
+    "class": "objecttype",
+    "description": "This object indicates the ID of the local LSR.",
+    "maxaccess": "read-only",
+    "name": "hwMplsLdpSessionLsrId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.8.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MplsLdpIdentifier"
+    }
+  },
+  "hwMplsLdpSessionMd5Flag": {
+    "class": "objecttype",
+    "description": "This object indicates whether the MD5 is enabled for the peer.",
+    "maxaccess": "read-only",
+    "name": "hwMplsLdpSessionMd5Flag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.8.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMplsLdpSessionPeerId": {
+    "class": "objecttype",
+    "description": "This object indicates the LSR ID of the LDP peer to which the session is connected.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsLdpSessionPeerId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MplsLdpIdentifier"
+    }
+  },
+  "hwMplsLdpSessionPeerLabelResourceStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the status of the label resources of the LDP peer.",
+    "maxaccess": "read-only",
+    "name": "hwMplsLdpSessionPeerLabelResourceStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.8.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMplsLdpSessionPeerLsrId": {
+    "class": "objecttype",
+    "description": "This object indicates the LSR ID of the peer in a session.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsLdpSessionPeerLsrId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MplsLdpIdentifier"
+    }
+  },
+  "hwMplsLdpSessionReconnectTimer": {
+    "class": "objecttype",
+    "description": "This object indicates the value of the GR reconnection timer after the negotiation. Unit: seconds ",
+    "maxaccess": "read-only",
+    "name": "hwMplsLdpSessionReconnectTimer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.8.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsLdpSessionRecoveryTimer": {
+    "class": "objecttype",
+    "description": "This object indicates the value of the GR recovery timer after the negotiation. Unit: seconds ",
+    "maxaccess": "read-only",
+    "name": "hwMplsLdpSessionRecoveryTimer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.8.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsLdpSessionRole": {
+    "class": "objecttype",
+    "description": "This object indicates the session roles.",
+    "maxaccess": "read-only",
+    "name": "hwMplsLdpSessionRole",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.8.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMplsLdpSessionState": {
+    "class": "objecttype",
+    "description": "This object indicates the current status of the session.",
+    "maxaccess": "read-only",
+    "name": "hwMplsLdpSessionState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.8.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMplsLdpSessionStateEntry": {
+    "class": "objecttype",
+    "description": "This object is used to display the detailed state parameters of the session. The index of this entry is hwMplsLdpSessionPeerId. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsLdpSessionPeerId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMplsLdpSessionStateEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.8.1",
+    "status": "current"
+  },
+  "hwMplsLdpSessionStateTable": {
+    "class": "objecttype",
+    "description": "This object is used to display the detailed state parameters of the session. The index of this table is hwMplsLdpSessionPeerId. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsLdpSessionStateTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.8",
+    "status": "current"
+  },
+  "hwMplsLdpSessionStatisticsGroup": {
+    "class": "objectgroup",
+    "description": "Information about Ldp Session Statistics.",
+    "name": "hwMplsLdpSessionStatisticsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpLocalOperationalSessionNumber"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpRemoteOperationalSessionNumber"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpLocalAndRemoteOperationalSessionNumber"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpTotalOperationalSessionNumber"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.143.3.2.17",
+    "status": "current"
+  },
+  "hwMplsLdpSessionTable": {
+    "class": "objecttype",
+    "description": "This object is used to display the session parameters and session age. The index of this table is hwMplsLdpSessionPeerLsrId. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsLdpSessionTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.7",
+    "status": "current"
+  },
+  "hwMplsLdpSessionTcpConnectionState": {
+    "class": "objecttype",
+    "description": "This object indicates the TCP link status of the session.",
+    "maxaccess": "read-only",
+    "name": "hwMplsLdpSessionTcpConnectionState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.8.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMplsLdpTrap": {
+    "class": "objectidentity",
+    "name": "hwMplsLdpTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.2"
+  },
+  "hwMplsLdpVpnGlobalGroup": {
+    "class": "objectgroup",
+    "description": "Information about Ldp Vpn configuration.",
+    "name": "hwMplsLdpVpnGlobalGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpVpnLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpVpnSplitHorizonAll"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpVpnReset"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsVpnFrrLspTrigger"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwMplsVpnFrrLspTriggerIpPrefix"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpVpnGracefulDeleteCapability"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpVpnGracefulDeleteTimer"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpVpnRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.143.3.2.5",
+    "status": "current"
+  },
+  "hwMplsLdpVpnPeerGroup": {
+    "class": "objectgroup",
+    "description": "Information about Ldp Vpn Peer.",
+    "name": "hwMplsLdpVpnPeerGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpVpnPeerMd5Type"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpVpnPeerMd5Password"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpVpnPeerSplitHorizon"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpVpnPeerReset"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpVpnPeerKeychainName"
+      },
+      {
+        "module": "HUAWEI-MPLSLDP-MIB",
+        "object": "hwLdpVpnPeerRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.143.3.2.8",
+    "status": "current"
+  },
+  "hwMplsLspTrigger": {
+    "class": "objecttype",
+    "description": "This object indicates the way to configure the LDP policy for the ingress LSP and egress LSP. Options: 1. all(1) -indicates that all FECs are triggered for the IGP. 2. none(2) -indicates that no FEC is triggered for the IGP. 3. host(3) -indicates that the host FEC is triggered for the IGP. 4. ipprefix(4) -indicates that the ip-prefix list is triggered for the IGP. If the object is set as ipprefix, the value of hwMplsLspTriggerIpPrefix must be set together. Default: host ",
+    "maxaccess": "read-write",
+    "name": "hwMplsLspTrigger",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "host": 3,
+          "ipprefix": 4,
+          "none": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsLspTriggerBgpRoute": {
+    "class": "objecttype",
+    "description": "This object indicates the policy of triggering the BGP route to create the LDP LSP. Default: disabled ",
+    "maxaccess": "read-write",
+    "name": "hwMplsLspTriggerBgpRoute",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwMplsLspTriggerBgpRouteIpPrefix": {
+    "class": "objecttype",
+    "description": "This object indicates the IP prefix when triggering the BGP route to create the LDP LSP. The object has a valid length ranging from 1 to 169 characters. ",
+    "maxaccess": "read-write",
+    "name": "hwMplsLspTriggerBgpRouteIpPrefix",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMplsLspTriggerIpPrefix": {
+    "class": "objecttype",
+    "description": "This object indicates the IP prefix when configuring the LDP policy for the ingress LSP and egress LSP. The object has a valid length ranging from 1 to 169 characters. If the object is set with a value, the value of hwMplsLspTrigger must be set as ipprefix.",
+    "maxaccess": "read-write",
+    "name": "hwMplsLspTriggerIpPrefix",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMplsVpnFrrLspTrigger": {
+    "class": "objecttype",
+    "description": "This object indicates the way to configure the LDP policy of vpn instance for LDP Auto FRR. Options: 1. all(1) -indicates that all FECs are triggered for the IGP. 2. none(2) -indicates that no FEC is triggered for the IGP. 3. host(3) -indicates that the host FEC is triggered for the IGP. 4. ipprefix(4) -indicates that the ip-prefix list is triggered for the IGP. If the object is set as ipprefix, the value of hwMplsVpnFrrLspTriggerIpPrefix must be set together. ",
+    "maxaccess": "read-create",
+    "name": "hwMplsVpnFrrLspTrigger",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.50.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "host": 3,
+          "ipPrefix": 4,
+          "none": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsVpnFrrLspTriggerIpPrefix": {
+    "class": "objecttype",
+    "description": "This object indicates the IP prefix when configuring the LDP policy of vpn instance for LDP Auto FRR. The object has a valid length ranging from 1 to 169 characters. If the object is set with a value, the value of hwMplsVpnFrrLspTrigger must be set as ipprefix.",
+    "maxaccess": "read-create",
+    "name": "hwMplsVpnFrrLspTriggerIpPrefix",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.143.1.50.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress"
+    ],
+    "MPLS-TC-STD-MIB": [
+      "MplsLdpIdentifier",
+      "MplsLsrIdentifier"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Counter32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Unsigned32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "iso",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-MPLSLDP-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:24 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-MPLSLDP-MIB"
+  }
+}

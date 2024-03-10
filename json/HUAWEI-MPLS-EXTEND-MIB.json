@@ -1,0 +1,5769 @@
+{
+  "hwExtendTrapGroup": {
+    "class": "notificationgroup",
+    "description": "Indicate the traps.",
+    "name": "hwExtendTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTeFrrProtAval"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTeFrrProtNotAval"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsStaticLspUp"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsStaticLspDown"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsStaticCRLspUp"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsStaticCRLspDown"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTeFrrSwitch"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTeFrrResume"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelHSBSwitch"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelHSBResume"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOBSwitch"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOBResume"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelChangeBw"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelTpOamLossSD"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamSDRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamLoss"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamLossRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamAis"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamAisRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamRdi"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamRdiRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamMeg"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamMegRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamMep"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamMepRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamSF"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamSFRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamPeriod"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamPeriodRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamLck"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamLckRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamExcess"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamExcessRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamMisMatch"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamMisMatchRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamMisMerge"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamMisMergeRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamUnknown"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamUnknownRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamBDI"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamBDIRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamFail"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamFailRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelPrimaryUp"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelPrimaryDown"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelHotstandbyUp"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelHotstandbyDown"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOrdinaryUp"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOrdinaryDown"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelBesteffortUp"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelBesteffortDown"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTeAutoTunnelDownClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTeAutoTunnelPrimaryDownClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelBBSwitch"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelBBResume"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsExtTunnelDown"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsExtTunnelDownClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamLocalLock"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsOamLocalLockRecovery"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamLoss"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamLossClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamLoss"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamLossClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamRDI"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamRDIClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamRDI"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamRDIClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamUnexpectedMEG"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamUnexpectedMEGClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamUnexpectedMEG"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamUnexpectedMEGClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamUnexpectedPeriod"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamUnexpectedPeriodClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamUnexpectedPeriod"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamUnexpectedPeriodClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamExcess"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamExcessClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamExcess"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamExcessClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamSD"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamSDClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamSD"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamSDClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamSF"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamSFClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamSF"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamSFClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestAPSSwitch"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestAPSResume"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastAPSSwitch"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastAPSResume"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestAPSSwitchFail"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestAPSSwitchFailClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastAPSSwitchFail"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastAPSSwitchFailClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingSwitch"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingResume"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestAPSLost"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestAPSLostClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastAPSLost"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastAPSLostClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestAPSMismatch"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestAPSMismatchClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastAPSMismatch"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastAPSMismatchClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamUnexpectedMEP"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingWestOamUnexpectedMEPClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamUnexpectedMEP"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingEastOamUnexpectedMEPClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDelete"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspTotalCountExceed"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspTotalCountExceedClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspThresholdExceedClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelThresholdExceedClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelTotalCountExceed"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelTotalCountExceedClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceThresholdExceed"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceThresholdExceedClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceTotalCountExceed"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceTotalCountExceedClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspLoopBack"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspLoopBackClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelCommitLost"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelCommitLostClear"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelHotstandbySwitch"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelHotstandbyResume"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.2.1",
+    "status": "current"
+  },
+  "hwLspTrap": {
+    "class": "objectidentity",
+    "name": "hwLspTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1"
+  },
+  "hwMplsDsTeGroup": {
+    "class": "objectgroup",
+    "description": "Indicate the atrributes about DS-TE.",
+    "name": "hwMplsDsTeGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelCt0Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelCt1Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelCt2Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelCt3Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelCt4Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelCt5Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelCt6Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelCt7Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspClassType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspBandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTeClassClassType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTeClassPriority"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTeClassDescription"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsGlobalBcModel"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsGlobalWorkMode"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsIfBc7Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsIfBc6Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsIfBc5Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsIfBc4Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsIfBc3Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsIfBc2Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsIfBc1Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsIfBc0Bandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsIfMaxResvBandwidth"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.1.3",
+    "status": "current"
+  },
+  "hwMplsDynamicLabelCurrentCount": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the current count of the dynamic label.",
+    "maxaccess": "read-only",
+    "name": "hwMplsDynamicLabelCurrentCount",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.3.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsDynamicLabelThresholdExceed": {
+    "class": "notificationtype",
+    "description": " This object indicates that label usage has exceeded the threshold. ",
+    "name": "hwMplsDynamicLabelThresholdExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelTotalCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelThresholdUpperLimit"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelThresholdLowerLimit"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.67",
+    "status": "current"
+  },
+  "hwMplsDynamicLabelThresholdExceedClear": {
+    "class": "notificationtype",
+    "description": " This object indicates that label usage has resumed from exceeding the threshold. ",
+    "name": "hwMplsDynamicLabelThresholdExceedClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelTotalCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelThresholdUpperLimit"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelThresholdLowerLimit"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.68",
+    "status": "current"
+  },
+  "hwMplsDynamicLabelThresholdLowerLimit": {
+    "class": "objecttype",
+    "description": "The lower limit threshold value (%) of dynamic label, default value is 70.",
+    "maxaccess": "read-only",
+    "name": "hwMplsDynamicLabelThresholdLowerLimit",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.3.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsDynamicLabelThresholdUpperLimit": {
+    "class": "objecttype",
+    "description": "The upper limit threshold value (%) of dynamic label, default value is 80.",
+    "maxaccess": "read-only",
+    "name": "hwMplsDynamicLabelThresholdUpperLimit",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.3.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsDynamicLabelTotalCount": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the total permit count of dynamic label.",
+    "maxaccess": "read-only",
+    "name": "hwMplsDynamicLabelTotalCount",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.3.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsDynamicLabelTotalCountExceed": {
+    "class": "notificationtype",
+    "description": " This object indicates that label count has reached the total count. ",
+    "name": "hwMplsDynamicLabelTotalCountExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelTotalCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelCurrentCount"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.69",
+    "status": "current"
+  },
+  "hwMplsDynamicLabelTotalCountExceedClear": {
+    "class": "notificationtype",
+    "description": " This object indicates that label usage count has resumed from reaching the total count. ",
+    "name": "hwMplsDynamicLabelTotalCountExceedClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelTotalCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelCurrentCount"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.70",
+    "status": "current"
+  },
+  "hwMplsEgressLsrId": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the egress LSR ID.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsEgressLsrId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MplsLsrIdentifier"
+    }
+  },
+  "hwMplsExtTunnelDown": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the status of te tunnel changes to Down.",
+    "name": "hwMplsExtTunnelDown",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOperStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownReason"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownLSRID"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownIfIpAddrType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownIfIpAddr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.58",
+    "status": "current"
+  },
+  "hwMplsExtTunnelDownClear": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the down alarm of te tunnel was cleared.",
+    "name": "hwMplsExtTunnelDownClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOperStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownReason"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.59",
+    "status": "current"
+  },
+  "hwMplsExtendCompliances": {
+    "class": "objectidentity",
+    "name": "hwMplsExtendCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.2"
+  },
+  "hwMplsExtendConformance": {
+    "class": "objectidentity",
+    "name": "hwMplsExtendConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6"
+  },
+  "hwMplsExtendGroups": {
+    "class": "objectidentity",
+    "name": "hwMplsExtendGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.1"
+  },
+  "hwMplsExtendMib": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "This MIB is used for defining the HUAWEI private extended Multiprotocol Label Switching (MPLS) MIB object. All MIB objects are used to describe private managed objects and trap definitions for MPLS.",
+    "lastupdated": "201508011200Z",
+    "name": "hwMplsExtendMib",
+    "oid": "1.3.6.1.4.1.2011.5.25.121",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "V2.39, add a new alarm, hwMplsTunnelHotstandbySwitch hwMplsTunnelHotstandbyResume.",
+        "revision": "2015-08-01 12:00"
+      },
+      {
+        "description": "V2.38, modify enum hwMplsResourceType for supporting MPLS CSPF resource total exceed alarm.",
+        "revision": "2015-04-11 12:00"
+      },
+      {
+        "description": "V2.37, add for hwMplsTunnelStatisticsTable.",
+        "revision": "2015-03-31 14:19"
+      },
+      {
+        "description": "V2.36, add enum hwMplsResourceType for supporting MPLS CSPF resource total exceed alarm.",
+        "revision": "2015-03-19 17:00"
+      },
+      {
+        "description": "V2.35, modify hwMplsIngressLsrId hwMplsEgressLsrId.",
+        "revision": "2015-01-22 19:16"
+      },
+      {
+        "description": "V2.34, modify hwMplsTeFrrSwitch.",
+        "revision": "2015-01-12 20:16"
+      },
+      {
+        "description": "V2.33, add hwMplsTunnelCommitLost hwMplsTunnelCommitLostClear.",
+        "revision": "2014-11-21 18:00"
+      },
+      {
+        "description": "V2.32, add hwMplsLspLoopBack hwMplsLspLoopBackClear hwMplsSessionTunnelId hwMplsLocalLspId hwMplsIngressLsrId hwMplsEgressLsrId hwMplsLspName.",
+        "revision": "2014-11-14 18:00"
+      },
+      {
+        "description": "V2.31, add enum ldpTotalLocalAdjacency to hwMplsResourceType for supporting MPLS resource total and threshold exceed alarm.",
+        "revision": "2014-11-06 16:30"
+      },
+      {
+        "description": "V2.30, add enum outSegment and autoPrimaryTunnelIf to hwMplsResourceType for supporting MPLS resource total exceed alarm.",
+        "revision": "2014-08-12 14:50"
+      },
+      {
+        "description": "V2.29, add enum privateNetBgp to hwMplsLspProtocol for supporting private network bgp lsp threshold alarm.",
+        "revision": "2014-07-21 14:27"
+      },
+      {
+        "description": "V2.28, add traps: hwMplsResourceThresholdExceed, hwMplsResourceThresholdExceedClear, hwMplsResourceTotalCountExceed, hwMplsResourceTotalCountExceedClear.",
+        "revision": "2014-06-16 14:17"
+      },
+      {
+        "description": "V2.27, modify hwStaticLspDownReason for add invalid ring reason .",
+        "revision": "2014-02-17 19:05"
+      },
+      {
+        "description": "V2.26, modify hwStaticLspDownReason for configure update.",
+        "revision": "2014-02-07 11:00"
+      },
+      {
+        "description": "V2.25, modify hwStaticLspDownReason for tunnel dowm.",
+        "revision": "2014-01-27 11:00"
+      },
+      {
+        "description": "V2.24, add enum ldpfrr, rsvp, totalLsp and totalCrLsp to hwMplsLspProtocol for supporting ldp frr, rsvp lsp, total lsp, total cr lsp threshold alarm.",
+        "revision": "2014-01-13 13:45"
+      },
+      {
+        "description": "V2.23, add enum bgp and bgpv6 to hwMplsLspProtocol for supporting bgp and bgp ipv6 lsp threshold alarm.",
+        "revision": "2013-11-07 17:45"
+      },
+      {
+        "description": "V2.22, add table: hwMplsTrafficStatisticsStaticLspTable.",
+        "revision": "2013-09-11 17:45"
+      },
+      {
+        "description": "V2.21, modify hwMplsRingSwitch, hwMplsRingResume.",
+        "revision": "2013-04-13 16:52"
+      },
+      {
+        "description": "V2.20, add the description of hwmplsDynamicLabelThresholdexceed,hwmplsDynamicLabelThresholdexceedClear,hwmplsDynamicLabeltotalcountexceed,hwmplsDynamicLabeltotalcountexceedClear.",
+        "revision": "2013-01-14 15:25"
+      },
+      {
+        "description": "V2.07, modify the description of hwMplsLspTotalCountExceed.",
+        "revision": "2012-07-05 20:25"
+      },
+      {
+        "description": "V2.06, add traps: hwmplslspThresholdexceed, hwmplslspthresholdexceedclear, hwmplslsptotalcountexceed, hwmplslsptotalcountexceedclear.",
+        "revision": "2012-06-08 14:05"
+      },
+      {
+        "description": "V2.05, add traps: hwmplstunneldelete; modify hwmplsoamtunnellock to hwmplsoamlocallock; modify hwmplstunnellockrecovery to hwmplslocallockrecovery.",
+        "revision": "2012-06-05 11:00"
+      },
+      {
+        "description": "V2.05, add traps: from hwMplsRingWestOamLoss to hwMplsRingEastOamUnexpectedMepClear.",
+        "revision": "2012-05-09 11:00"
+      },
+      {
+        "description": "V2.04, add traps: hwMplsoamTunnellock, hwMplsoamTunnellockRecovery.",
+        "revision": "2012-05-04 11:00"
+      },
+      {
+        "description": "V2.03, add traps: hwMplsExtTunnelDown, hwMplsExtTunnelDownClear.",
+        "revision": "2011-11-29 11:00"
+      },
+      {
+        "description": "V2.02, add traps: hwMplsTunnelBBSwitch, hwMplsTunnelBBResume.",
+        "revision": "2011-11-18 11:00"
+      },
+      {
+        "description": "V2.01, add traps: hwMplsTeAutoTunnelDownClear, hwMplsTeAutoTunnelPrimaryDownClear.",
+        "revision": "2011-10-24 11:00"
+      },
+      {
+        "description": "V2.00, delete Defval clause in these nodes: hwMplsTunnelDownReason, hwMplsTunnelLspType.",
+        "revision": "2011-07-30 11:00"
+      },
+      {
+        "description": "V1.02, modified the MIB description.",
+        "revision": "2010-11-23 11:55"
+      },
+      {
+        "description": "V1.01, modified the MIB description.",
+        "revision": "2010-07-13 15:35"
+      },
+      {
+        "description": "V1.00, initial LSPM MIB.",
+        "revision": "2006-06-30 15:54"
+      }
+    ]
+  },
+  "hwMplsExtendMibTunnel": {
+    "class": "objectidentity",
+    "name": "hwMplsExtendMibTunnel",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1"
+  },
+  "hwMplsExtendTrap": {
+    "class": "objectidentity",
+    "name": "hwMplsExtendTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2"
+  },
+  "hwMplsGlobalBcModel": {
+    "class": "objecttype",
+    "description": "Bandwidth Constraint Model currently used by this LSR. Options: 1. rdm(1) -indicates that the bandwidth constraint model is RDM. 2. mam(2) -indicates that the bandwidth constraint model is MAM. 3. extendMam(3) -indicates that the bandwidth constraint model is ExtendMam.",
+    "maxaccess": "read-only",
+    "name": "hwMplsGlobalBcModel",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.3.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "extendMam": 3,
+          "mam": 2,
+          "rdm": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsGlobalGroup": {
+    "class": "objectgroup",
+    "description": "For mpls global object.",
+    "name": "hwMplsGlobalGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelTotalCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelThresholdUpperLimit"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDynamicLabelThresholdLowerLimit"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.1.8",
+    "status": "current"
+  },
+  "hwMplsGlobalObject": {
+    "class": "objectidentity",
+    "name": "hwMplsGlobalObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.3"
+  },
+  "hwMplsGlobalWorkMode": {
+    "class": "objecttype",
+    "description": "The work mode of DS-TE system, default mode is nonstandard. Options: 1. standard(1) -indicates work mode of DS-TE system is standard 2. nonstandard(2) -indicates work mode of DS-TE system is nonstandard",
+    "maxaccess": "read-only",
+    "name": "hwMplsGlobalWorkMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.3.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonstandard": 2,
+          "standard": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsIfBc0Bandwidth": {
+    "class": "objecttype",
+    "description": "The bandwidth of Class-Type 0 (CT0) in this tunnel. Unit: kbit/s ",
+    "maxaccess": "read-only",
+    "name": "hwMplsIfBc0Bandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    },
+    "units": "kilobits per second"
+  },
+  "hwMplsIfBc1Bandwidth": {
+    "class": "objecttype",
+    "description": "The bandwidth of Class-Type 1 (CT1) in this tunnel. Unit: kbit/s ",
+    "maxaccess": "read-only",
+    "name": "hwMplsIfBc1Bandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    },
+    "units": "kilobits per second"
+  },
+  "hwMplsIfBc2Bandwidth": {
+    "class": "objecttype",
+    "description": "The bandwidth of Class-Type 2 (CT2) in this tunnel. Unit: kbit/s ",
+    "maxaccess": "read-only",
+    "name": "hwMplsIfBc2Bandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.7.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    },
+    "units": "kilobits per second"
+  },
+  "hwMplsIfBc3Bandwidth": {
+    "class": "objecttype",
+    "description": "The bandwidth of Class-Type 3 (CT3) in this tunnel. Unit: kbit/s ",
+    "maxaccess": "read-only",
+    "name": "hwMplsIfBc3Bandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.7.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    },
+    "units": "kilobits per second"
+  },
+  "hwMplsIfBc4Bandwidth": {
+    "class": "objecttype",
+    "description": "The bandwidth of Class-Type 4 (CT4) in this tunnel. Unit: kbit/s ",
+    "maxaccess": "read-only",
+    "name": "hwMplsIfBc4Bandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.7.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    },
+    "units": "kilobits per second"
+  },
+  "hwMplsIfBc5Bandwidth": {
+    "class": "objecttype",
+    "description": "The bandwidth of Class-Type 5 (CT5) in this tunnel. Unit: kbit/s ",
+    "maxaccess": "read-only",
+    "name": "hwMplsIfBc5Bandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.7.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    },
+    "units": "kilobits per second"
+  },
+  "hwMplsIfBc6Bandwidth": {
+    "class": "objecttype",
+    "description": "The bandwidth of Class-Type 6 (CT6) in this tunnel. Unit: kbit/s ",
+    "maxaccess": "read-only",
+    "name": "hwMplsIfBc6Bandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.7.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    },
+    "units": "kilobits per second"
+  },
+  "hwMplsIfBc7Bandwidth": {
+    "class": "objecttype",
+    "description": "The bandwidth of Class-Type 7 (CT7) in this tunnel. Unit: kbit/s ",
+    "maxaccess": "read-only",
+    "name": "hwMplsIfBc7Bandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.7.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    },
+    "units": "kilobits per second"
+  },
+  "hwMplsIfBcEntry": {
+    "class": "objecttype",
+    "description": "This table describes bandwidth constraints associated with MPLS TE enabled interfaces. The index of this entry is ifIndex.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMplsIfBcEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.7.1",
+    "status": "current"
+  },
+  "hwMplsIfBcTable": {
+    "class": "objecttype",
+    "description": "This table describes bandwidth constraints associated with MPLS TE enabled interfaces. The index of this table is ifIndex.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsIfBcTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.7",
+    "status": "current"
+  },
+  "hwMplsIfMaxResvBandwidth": {
+    "class": "objecttype",
+    "description": "The maximum reservable bandwidth on this interface. Unit: kbit/s ",
+    "maxaccess": "read-only",
+    "name": "hwMplsIfMaxResvBandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    },
+    "units": "kilobits per second"
+  },
+  "hwMplsIngressLsrId": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the ingress LSR ID.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsIngressLsrId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MplsLsrIdentifier"
+    }
+  },
+  "hwMplsLocalLspId": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the LSP ID.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsLocalLspId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMplsLspCurrentCount": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the current count of the lsp.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsLspCurrentCount",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMplsLspGroup": {
+    "class": "objectgroup",
+    "description": "For mpls lsp object.",
+    "name": "hwMplsLspGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspTotalCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspProtocol"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.1.9",
+    "status": "current"
+  },
+  "hwMplsLspLoopBack": {
+    "class": "notificationtype",
+    "description": " This object indicates that the lsp was looped back. ",
+    "name": "hwMplsLspLoopBack",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsSessionTunnelId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLocalLspId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsIngressLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsEgressLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.75",
+    "status": "current"
+  },
+  "hwMplsLspLoopBackClear": {
+    "class": "notificationtype",
+    "description": " This object indicates that loopback of the LSP is restored. ",
+    "name": "hwMplsLspLoopBackClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsSessionTunnelId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLocalLspId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsIngressLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsEgressLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.76",
+    "status": "current"
+  },
+  "hwMplsLspName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of an bidirectional static CR-LSP.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsLspName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwMplsLspProtocol": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the protocol of the lsp which exceeds the threshold or total count. Options: 1.ldp(1) -indicates the lsp is ldp lsp. 2.bgp(2) -indicates the lsp is bgp lsp. 3.bgpv6(3) -indicates the lsp is bgpv6 lsp. 4.ldpfrr(4) -indicates the lsp is ldp frr lsp. 5.rsvp(5) -indicates the lsp is rsvp te lsp. 6.totalLsp(6) -indicates the lsp is total lsp. 7.totalCrLsp(7) -indicates the lsp is total cr-lsp. 8.ldpIngress(8) -indicates the lsp is ldp ingress lsp. 9.ldpTransit(9) -indicates the lsp is ldp transit lsp. 10.ldpEgress(10) -indicates the lsp is ldp egress lsp. 11.bgpIngress(11) -indicates the lsp is bgp ingress lsp. 12.bgpEgress(12) -indicates the lsp is bgp egress lsp. 13.bgpv6Ingress(13) -indicates the lsp is bgpv6 ingress lsp. 14.bgpv6Egress(14) -indicates the lsp is bgpv6 egress lsp. 15.rsvpIngress(15) -indicates the lsp is rsvp te ingress lsp. 16.rsvpTransit(16) -indicates the lsp is rsvp te transit lsp. 17.rsvpEgress(17) -indicates the lsp is rsvp te egress lsp. 18.totalLspIngress(18) -indicates the lsp is total ingress lsp. 19.totalLspTransit(19) -indicates the lsp is total transit lsp. 20.totalLspEgress(20) -indicates the lsp is total egress lsp. 21.totalCrLspIngress(21) -indicates the lsp is total ingress cr-lsp. 22.totalCrLspTransit(22) -indicates the lsp is total transit cr-lsp. 23.totalCrLspEgress(23) -indicates the lsp is total egress cr-lsp. 24.totalPublicNetLspIngressTransit(24) -indicates the lsp is total ingress and transit public netwrok lsp. 25.totalPublicNetLspTransitEgress(25) -indicates the lsp is total transit and egress public network cr-lsp. 26.privateNetBgp(26) -indicates the lsp is private network bgp lsp. 27.unknown(100) -indicates the lsp type is unknown. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsLspProtocol",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bgp": 2,
+          "bgpEgress": 12,
+          "bgpIngress": 11,
+          "bgpv6": 3,
+          "bgpv6Egress": 14,
+          "bgpv6Ingress": 13,
+          "ldp": 1,
+          "ldpEgress": 10,
+          "ldpIngress": 8,
+          "ldpTransit": 9,
+          "ldpfrr": 4,
+          "privateNetBgp": 26,
+          "rsvp": 5,
+          "rsvpEgress": 17,
+          "rsvpIngress": 15,
+          "rsvpTransit": 16,
+          "totalCrLsp": 7,
+          "totalCrLspEgress": 23,
+          "totalCrLspIngress": 21,
+          "totalCrLspTransit": 22,
+          "totalLsp": 6,
+          "totalLspEgress": 20,
+          "totalLspIngress": 18,
+          "totalLspTransit": 19,
+          "totalPublicNetLspIngressTransit": 24,
+          "totalPublicNetLspTransitEgress": 25,
+          "unknown": 100
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsLspStatistics": {
+    "class": "objectidentity",
+    "name": "hwMplsLspStatistics",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4"
+  },
+  "hwMplsLspStatisticsEgressLspCount": {
+    "class": "objecttype",
+    "description": "This object indicates the number of egress LSPs of a specified type.",
+    "maxaccess": "read-only",
+    "name": "hwMplsLspStatisticsEgressLspCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsLspStatisticsEntry": {
+    "class": "objecttype",
+    "description": "hwMplsLspStatisticsTable is used to display the number of ingress LSPs, transit LSPs, or egress LSPs of specified types. The index of this entry is hwMplsLspStatisticsLspType.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspStatisticsLspType"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMplsLspStatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.1.1",
+    "status": "current"
+  },
+  "hwMplsLspStatisticsGroup": {
+    "class": "objectgroup",
+    "description": "Indicate LSP statistics.",
+    "name": "hwMplsLspStatisticsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspStatisticsIngressLspCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspStatisticsTransitLspCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspStatisticsEgressLspCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspStatisticsTotalLspCount"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.1.4",
+    "status": "current"
+  },
+  "hwMplsLspStatisticsIngressLspCount": {
+    "class": "objecttype",
+    "description": "This object indicates the number of ingress LSPs of a specified type.",
+    "maxaccess": "read-only",
+    "name": "hwMplsLspStatisticsIngressLspCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsLspStatisticsLspType": {
+    "class": "objecttype",
+    "description": "This object indicates the LSP type. Options: 1. staticLsp(1) -indicates the static LSP. 2. staticCrLsp(2) -indicates the static CR-LSP. 3. ldpLsp(3) -indicates the LDP LSP. 4. rsvpCrLsp(4) -indicates the RSVP LSP. 5. bgpLsp(5) -indicates the BGP LSP. 6. asbrLsp(6) -indicates the ASBR LSP. 7. bgpIpv6Lsp(7) -indicates the BGP IPv6 LSP. 8. l3vpnIpv6Lsp(8)-indicates the L3VPN IPv6 LSP. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsLspStatisticsLspType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "asbrLsp": 6,
+          "bgpIpv6Lsp": 7,
+          "bgpLsp": 5,
+          "l3vpnIpv6Lsp": 8,
+          "ldpLsp": 3,
+          "rsvpCrLsp": 4,
+          "staticCrLsp": 2,
+          "staticLsp": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsLspStatisticsTable": {
+    "class": "objecttype",
+    "description": "hwMplsLspStatisticsTable is used to display the number of ingress LSPs, transit LSPs, or egress LSPs of specified types. The index of this table is hwMplsLspStatisticsLspType.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsLspStatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.1",
+    "status": "current"
+  },
+  "hwMplsLspStatisticsTotalLspCount": {
+    "class": "objecttype",
+    "description": "This object indicates the total number of the ingress LSPs, transit LSPs and egress LSP of specified types.",
+    "maxaccess": "read-only",
+    "name": "hwMplsLspStatisticsTotalLspCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsLspStatisticsTransitLspCount": {
+    "class": "objecttype",
+    "description": "This object indicates the number of transit LSPs of a specified type.",
+    "maxaccess": "read-only",
+    "name": "hwMplsLspStatisticsTransitLspCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsLspThreshold": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the threshold of the lsp.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsLspThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMplsLspThresholdExceed": {
+    "class": "notificationtype",
+    "description": " This object indicates that lsp count has exceeded the threshold. ",
+    "name": "hwMplsLspThresholdExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspProtocol"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspThreshold"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspTotalCount"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.63",
+    "status": "current"
+  },
+  "hwMplsLspThresholdExceedClear": {
+    "class": "notificationtype",
+    "description": " This object indicates that lsp count has resumed from exceeding the threshold. ",
+    "name": "hwMplsLspThresholdExceedClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspProtocol"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.64",
+    "status": "current"
+  },
+  "hwMplsLspTotalCount": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the total permit count of lsp.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsLspTotalCount",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMplsLspTotalCountExceed": {
+    "class": "notificationtype",
+    "description": " This object indicates that lsp count has reached the total count. ",
+    "name": "hwMplsLspTotalCountExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspProtocol"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspTotalCount"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.65",
+    "status": "current"
+  },
+  "hwMplsLspTotalCountExceedClear": {
+    "class": "notificationtype",
+    "description": " This object indicates that lsp count has resumed from reaching the total count. ",
+    "name": "hwMplsLspTotalCountExceedClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLspProtocol"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.66",
+    "status": "current"
+  },
+  "hwMplsLspTrafficStatisticGroup": {
+    "class": "objectgroup",
+    "description": "Indicate the traffic statistic of the LSP.",
+    "name": "hwMplsLspTrafficStatisticGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTrafficStatisticsStaticLspForwardInBytes"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTrafficStatisticsStaticLspForwardInPackets"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTrafficStatisticsStaticLspForwardOutBytes"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTrafficStatisticsStaticLspForwardOutPackets"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTrafficStatisticsStaticLspBackwardInBytes"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTrafficStatisticsStaticLspBackwardInPackets"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTrafficStatisticsStaticLspBackwardOutBytes"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTrafficStatisticsStaticLspBackwardOutPackets"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.1.10",
+    "status": "current"
+  },
+  "hwMplsModuleCompliance": {
+    "class": "modulecompliance",
+    "description": "hwMplsModuleCompliance",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspGroup"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelGroup"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsDsTeGroup"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingGroup"
+      }
+    ],
+    "name": "hwMplsModuleCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.2.3",
+    "status": "current"
+  },
+  "hwMplsOamAis": {
+    "class": "notificationtype",
+    "description": " This object indicates that TP OAM detected an alarm indication signal. ",
+    "name": "hwMplsOamAis",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.20",
+    "status": "current"
+  },
+  "hwMplsOamAisRecovery": {
+    "class": "notificationtype",
+    "description": " This object indicates that TP OAM no longer detected alarm indication signals. ",
+    "name": "hwMplsOamAisRecovery",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.21",
+    "status": "current"
+  },
+  "hwMplsOamBDI": {
+    "class": "notificationtype",
+    "description": " This object indicates that MPLS OAM detected the tunnel received BDI alarm. ",
+    "name": "hwMplsOamBDI",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.42",
+    "status": "current"
+  },
+  "hwMplsOamBDIRecovery": {
+    "class": "notificationtype",
+    "description": " This object indicates that MPLS OAM detected the tunnel received BDI alarm end. ",
+    "name": "hwMplsOamBDIRecovery",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.43",
+    "status": "current"
+  },
+  "hwMplsOamExcess": {
+    "class": "notificationtype",
+    "description": " This object indicates that MPLS OAM detected the tunnel received excess alarm. ",
+    "name": "hwMplsOamExcess",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.34",
+    "status": "current"
+  },
+  "hwMplsOamExcessRecovery": {
+    "class": "notificationtype",
+    "description": " This object indicates that MPLS OAM detected the tunnel received excess alarm end. ",
+    "name": "hwMplsOamExcessRecovery",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.35",
+    "status": "current"
+  },
+  "hwMplsOamFail": {
+    "class": "notificationtype",
+    "description": " This object indicates that MPLS OAM detected the tunnel received OAMFAIL alarm. ",
+    "name": "hwMplsOamFail",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.44",
+    "status": "current"
+  },
+  "hwMplsOamFailRecovery": {
+    "class": "notificationtype",
+    "description": " This object indicates that MPLS OAM detected the tunnel received OAMFAIL alarm end. ",
+    "name": "hwMplsOamFailRecovery",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.45",
+    "status": "current"
+  },
+  "hwMplsOamLck": {
+    "class": "notificationtype",
+    "description": " This object indicates that TP OAM detected the service level of the tunnel has been locked. ",
+    "name": "hwMplsOamLck",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.32",
+    "status": "current"
+  },
+  "hwMplsOamLckRecovery": {
+    "class": "notificationtype",
+    "description": " This object indicates that TP OAM detected the service level of the tunnel has not been locked. ",
+    "name": "hwMplsOamLckRecovery",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.33",
+    "status": "current"
+  },
+  "hwMplsOamLocalLock": {
+    "class": "notificationtype",
+    "description": " This object indicates that TP OAM detected the tunnel has been locked. ",
+    "name": "hwMplsOamLocalLock",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.60",
+    "status": "current"
+  },
+  "hwMplsOamLocalLockRecovery": {
+    "class": "notificationtype",
+    "description": " This object indicates that TP OAM detected the tunnel has not been locked. ",
+    "name": "hwMplsOamLocalLockRecovery",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.61",
+    "status": "current"
+  },
+  "hwMplsOamLoss": {
+    "class": "notificationtype",
+    "description": " This object indicates that TP OAM detected tunnel connectivity faults. ",
+    "name": "hwMplsOamLoss",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.18",
+    "status": "current"
+  },
+  "hwMplsOamLossRecovery": {
+    "class": "notificationtype",
+    "description": " This object indicates that TP OAM did not detect tunnel connectivity faults. ",
+    "name": "hwMplsOamLossRecovery",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.19",
+    "status": "current"
+  },
+  "hwMplsOamMeg": {
+    "class": "notificationtype",
+    "description": " This object indicates that the names configured on the two ends of the tunnel are inconsistent. ",
+    "name": "hwMplsOamMeg",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.24",
+    "status": "current"
+  },
+  "hwMplsOamMegRecovery": {
+    "class": "notificationtype",
+    "description": " This object indicates that the names configured on the two ends of the tunnel now are consistent. ",
+    "name": "hwMplsOamMegRecovery",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.25",
+    "status": "current"
+  },
+  "hwMplsOamMep": {
+    "class": "notificationtype",
+    "description": " This object indicates that the MEP-IDs configured on the two ends of the tunnel are inconsistent. ",
+    "name": "hwMplsOamMep",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.26",
+    "status": "current"
+  },
+  "hwMplsOamMepRecovery": {
+    "class": "notificationtype",
+    "description": " This object indicates that the MEP-IDs configured on the two ends of the tunnel now are consistent. ",
+    "name": "hwMplsOamMepRecovery",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.27",
+    "status": "current"
+  },
+  "hwMplsOamMisMatch": {
+    "class": "notificationtype",
+    "description": " This object indicates that MPLS OAM detected the tunnel received MisMatch alarm. ",
+    "name": "hwMplsOamMisMatch",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.36",
+    "status": "current"
+  },
+  "hwMplsOamMisMatchRecovery": {
+    "class": "notificationtype",
+    "description": " This object indicates that MPLS OAM detected the tunnel received MisMatch alarm end. ",
+    "name": "hwMplsOamMisMatchRecovery",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.37",
+    "status": "current"
+  },
+  "hwMplsOamMisMerge": {
+    "class": "notificationtype",
+    "description": " This object indicates that MPLS OAM detected the tunnel received MisMerge alarm. ",
+    "name": "hwMplsOamMisMerge",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.38",
+    "status": "current"
+  },
+  "hwMplsOamMisMergeRecovery": {
+    "class": "notificationtype",
+    "description": " This object indicates that MPLS OAM detected the tunnel received MisMerge alarm end. ",
+    "name": "hwMplsOamMisMergeRecovery",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.39",
+    "status": "current"
+  },
+  "hwMplsOamPeriod": {
+    "class": "notificationtype",
+    "description": " This object indicates that the TP OAM detection periods on the two ends of the tunnel are inconsistent. ",
+    "name": "hwMplsOamPeriod",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.30",
+    "status": "current"
+  },
+  "hwMplsOamPeriodRecovery": {
+    "class": "notificationtype",
+    "description": " This object indicates that the TP OAM detection periods on the two ends of the tunnel now are consistent. ",
+    "name": "hwMplsOamPeriodRecovery",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.31",
+    "status": "current"
+  },
+  "hwMplsOamRdi": {
+    "class": "notificationtype",
+    "description": " This object indicates that TP OAM detected remote defects. ",
+    "name": "hwMplsOamRdi",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.22",
+    "status": "current"
+  },
+  "hwMplsOamRdiRecovery": {
+    "class": "notificationtype",
+    "description": " This object indicates that the remote defects detected by TP OAM were removed. ",
+    "name": "hwMplsOamRdiRecovery",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.23",
+    "status": "current"
+  },
+  "hwMplsOamSDRecovery": {
+    "class": "notificationtype",
+    "description": " This object indicates that the loss ratio of the packets carried by the tunnel dropped below the first threshold. ",
+    "name": "hwMplsOamSDRecovery",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.17",
+    "status": "current"
+  },
+  "hwMplsOamSF": {
+    "class": "notificationtype",
+    "description": " This object indicates that the loss ratio of the packets carried by the tunnel exceeded the second threshold in the local link. ",
+    "name": "hwMplsOamSF",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.28",
+    "status": "current"
+  },
+  "hwMplsOamSFRecovery": {
+    "class": "notificationtype",
+    "description": " This object indicates that the loss ratio of the packets carried by the tunnel dropped below the second threshold in the local link. ",
+    "name": "hwMplsOamSFRecovery",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.29",
+    "status": "current"
+  },
+  "hwMplsOamUnknown": {
+    "class": "notificationtype",
+    "description": " This object indicates that MPLS OAM detected the tunnel received Unknown alarm. ",
+    "name": "hwMplsOamUnknown",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.40",
+    "status": "current"
+  },
+  "hwMplsOamUnknownRecovery": {
+    "class": "notificationtype",
+    "description": " This object indicates that MPLS OAM detected the tunnel received Unknown alarm end. ",
+    "name": "hwMplsOamUnknownRecovery",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.41",
+    "status": "current"
+  },
+  "hwMplsObsoleteGroup": {
+    "class": "objectgroup",
+    "description": "Indicate the OBSOLETE objects of MPLS.",
+    "name": "hwMplsObsoleteGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelFrrConfigOper"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.1.5",
+    "status": "obsolete"
+  },
+  "hwMplsResourceCurrentCount": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the number of the resources.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsResourceCurrentCount",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMplsResourceGroup": {
+    "class": "objectgroup",
+    "description": "For mpls resource object.",
+    "name": "hwMplsResourceGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceThreshold"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceTotalCount"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.1.11",
+    "status": "current"
+  },
+  "hwMplsResourceThreshold": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the threshold for the number of the resources.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsResourceThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMplsResourceThresholdExceed": {
+    "class": "notificationtype",
+    "description": " This object indicates that the number of MPLS resources has exceeded the upper threshold. ",
+    "name": "hwMplsResourceThresholdExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceCurrentCount"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceThreshold"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceTotalCount"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.71",
+    "status": "current"
+  },
+  "hwMplsResourceThresholdExceedClear": {
+    "class": "notificationtype",
+    "description": " This object indicates that the number of MPLS resources has fallen below the lower threshold. ",
+    "name": "hwMplsResourceThresholdExceedClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.72",
+    "status": "current"
+  },
+  "hwMplsResourceTotalCount": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the maximum number of allowed resources.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsResourceTotalCount",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMplsResourceTotalCountExceed": {
+    "class": "notificationtype",
+    "description": " This object indicates that the number of MPLS resources has reached the maximum number. ",
+    "name": "hwMplsResourceTotalCountExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceTotalCount"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.73",
+    "status": "current"
+  },
+  "hwMplsResourceTotalCountExceedClear": {
+    "class": "notificationtype",
+    "description": " This object indicates that the number of MPLS resources fallen below the recovery number. ",
+    "name": "hwMplsResourceTotalCountExceedClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsResourceType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.74",
+    "status": "current"
+  },
+  "hwMplsResourceType": {
+    "class": "objecttype",
+    "description": "The value of this object identifies that the number of MPLS resources has exceeded the threshold or the maximum number. Options: 1.autoBypassTunnelIf(1) -Indicates that the resource is auto bypass tunnel interface. 2.p2mpAutoTunnelIf(2) -Indicates that the resource is P2MP auto tunnel interface. 3.teBfd(3) -Indicates that the resource is dynamic BFD for TE LSP. 4.ldpBfd(4) -Indicates that the resource is dynamic BFD for LDP LSP. 5.mldpTotalTree(5) -Indicates that the resource is the total number of MLDP trees. 6.mldpTotalBranch(6) -Indicates that the resource is the total number of MLDP branches. 7.ldpTotalRemoteAdjacency(7) -Indicates that the resource is LDP total remote adjacency. 8.outSegment(8) -Indicates that the resource is LDP outSegment. 9.autoPrimaryTunnelIf(9) -Indicates that the resource is auto primary tunnel interface. 10.ldpTotalLocalAdjacency(10) -Indicates that the resource is LDP total local adjacency. 11.cspfNode(11) -Indicates that the resource is cspf node. 12.cspfLink(12) -Indicates that the resource is cspf link. 13.cspfNlsa(13) -Indicates that the resource is cspf nlsa. 14.cspfSrlg(14) -Indicates that the resource is cspf srlg. 15.unknown(100) -Indicates that the resource type is unknown. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsResourceType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autoBypassTunnelIf": 1,
+          "autoPrimaryTunnelIf": 9,
+          "cspfLink": 12,
+          "cspfNlsa": 13,
+          "cspfNode": 11,
+          "cspfSrlg": 14,
+          "ldpBfd": 4,
+          "ldpTotalLocalAdjacency": 10,
+          "ldpTotalRemoteAdjacency": 7,
+          "mldpTotalBranch": 6,
+          "mldpTotalTree": 5,
+          "outSegment": 8,
+          "p2mpAutoTunnelIf": 2,
+          "teBfd": 3,
+          "unknown": 100
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsRingDirection": {
+    "class": "objecttype",
+    "description": "Indicates the direction of the MPLS ring.",
+    "maxaccess": "read-only",
+    "name": "hwMplsRingDirection",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMplsRingEastAPSLost": {
+    "class": "notificationtype",
+    "description": " The notification indicates that APS packets are missing in the east of the MPLS ring. ",
+    "name": "hwMplsRingEastAPSLost",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.41",
+    "status": "current"
+  },
+  "hwMplsRingEastAPSLostClear": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the hwMplsRingEastAPSLost alarm was cleared. ",
+    "name": "hwMplsRingEastAPSLostClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.42",
+    "status": "current"
+  },
+  "hwMplsRingEastAPSMismatch": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the source ID carried by APS packets received in the east is different from the peer source ID configured for the east state machine on the MPLS ring. ",
+    "name": "hwMplsRingEastAPSMismatch",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.45",
+    "status": "current"
+  },
+  "hwMplsRingEastAPSMismatchClear": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the hwMplsRingEastAPSMismatch alarm was cleared. ",
+    "name": "hwMplsRingEastAPSMismatchClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.46",
+    "status": "current"
+  },
+  "hwMplsRingEastAPSResume": {
+    "class": "notificationtype",
+    "description": " The notification indicates that APS switches back in the east of the MPLS ring. ",
+    "name": "hwMplsRingEastAPSResume",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.34",
+    "status": "current"
+  },
+  "hwMplsRingEastAPSSwitch": {
+    "class": "notificationtype",
+    "description": " The notification indicates that APS switching occurs in the east of the MPLS ring. ",
+    "name": "hwMplsRingEastAPSSwitch",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.33",
+    "status": "current"
+  },
+  "hwMplsRingEastAPSSwitchFail": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the remote APS switching fails in the east of the MPLS ring. ",
+    "name": "hwMplsRingEastAPSSwitchFail",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.37",
+    "status": "current"
+  },
+  "hwMplsRingEastAPSSwitchFailClear": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the hwMplsRingEastAPSSwitchFail alarm was cleared. ",
+    "name": "hwMplsRingEastAPSSwitchFailClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.38",
+    "status": "current"
+  },
+  "hwMplsRingEastOamExcess": {
+    "class": "notificationtype",
+    "description": " The notification indicates that five or more CV/FFD packets are correctly received within three consecutive cycles in the east of the MPLS ring. ",
+    "name": "hwMplsRingEastOamExcess",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.21",
+    "status": "current"
+  },
+  "hwMplsRingEastOamExcessClear": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the hwMplsRingEastOamExcess alarm was cleared. ",
+    "name": "hwMplsRingEastOamExcessClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.22",
+    "status": "current"
+  },
+  "hwMplsRingEastOamLoss": {
+    "class": "notificationtype",
+    "description": " The notification indicates that no expected CV/FFD packet is received for three consecutive cycles in the east of the MPLS ring. ",
+    "name": "hwMplsRingEastOamLoss",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.5",
+    "status": "current"
+  },
+  "hwMplsRingEastOamLossClear": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the hwMplsRingEastOamLoss alarm was cleared. ",
+    "name": "hwMplsRingEastOamLossClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.6",
+    "status": "current"
+  },
+  "hwMplsRingEastOamRDI": {
+    "class": "notificationtype",
+    "description": " The notification indicates that RDI packets are received in the east of the MPLS ring, indicating that a fault occurs on the forward ring. ",
+    "name": "hwMplsRingEastOamRDI",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.9",
+    "status": "current"
+  },
+  "hwMplsRingEastOamRDIClear": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the hwMplsRingEastOamRDI alarm was cleared. ",
+    "name": "hwMplsRingEastOamRDIClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.10",
+    "status": "current"
+  },
+  "hwMplsRingEastOamSD": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the number of packets for connectivity check received in the east of the MPLS ring is smaller than the SD threshold. ",
+    "name": "hwMplsRingEastOamSD",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.25",
+    "status": "current"
+  },
+  "hwMplsRingEastOamSDClear": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the hwMplsRingEastOamSD alarm was cleared. ",
+    "name": "hwMplsRingEastOamSDClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.26",
+    "status": "current"
+  },
+  "hwMplsRingEastOamSF": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the number of packets for connectivity check received in the east of the MPLS ring is smaller than the SF threshold. ",
+    "name": "hwMplsRingEastOamSF",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.29",
+    "status": "current"
+  },
+  "hwMplsRingEastOamSFClear": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the hwMplsRingEastOamSF alarm was cleared. ",
+    "name": "hwMplsRingEastOamSFClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.30",
+    "status": "current"
+  },
+  "hwMplsRingEastOamUnexpectedMEG": {
+    "class": "notificationtype",
+    "description": " The notification indicates that a CCM frame carrying a correct MEG level but incorrect MEG ID is received in the east of the MPLS ring. ",
+    "name": "hwMplsRingEastOamUnexpectedMEG",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.13",
+    "status": "current"
+  },
+  "hwMplsRingEastOamUnexpectedMEGClear": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the hwMplsRingEastOamUnexpectedMEG alarm was cleared. ",
+    "name": "hwMplsRingEastOamUnexpectedMEGClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.14",
+    "status": "current"
+  },
+  "hwMplsRingEastOamUnexpectedMEP": {
+    "class": "notificationtype",
+    "description": " The notification indicates that a CCM frame carrying a correct MEG level and correct MEG ID but not the expected MEP ID is received in the east of the MPLS ring. ",
+    "name": "hwMplsRingEastOamUnexpectedMEP",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.49",
+    "status": "current"
+  },
+  "hwMplsRingEastOamUnexpectedMEPClear": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the hwMplsRingEastOamUnexpectedMEP alarm was cleared. ",
+    "name": "hwMplsRingEastOamUnexpectedMEPClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.50",
+    "status": "current"
+  },
+  "hwMplsRingEastOamUnexpectedPeriod": {
+    "class": "notificationtype",
+    "description": " The notification indicates that a CCM frame carrying a correct MEG level, MEG ID, and MEP ID but incorrect period value is received in the east MEP of the MPLS ring. ",
+    "name": "hwMplsRingEastOamUnexpectedPeriod",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.17",
+    "status": "current"
+  },
+  "hwMplsRingEastOamUnexpectedPeriodClear": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the hwMplsRingEastOamUnexpectedPeriod alarm was cleared. ",
+    "name": "hwMplsRingEastOamUnexpectedPeriodClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.18",
+    "status": "current"
+  },
+  "hwMplsRingEntry": {
+    "class": "objecttype",
+    "description": "Indicates the table information of the MPLS ring.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMplsRingEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.1.1",
+    "status": "current"
+  },
+  "hwMplsRingGroup": {
+    "class": "objectgroup",
+    "description": "For mpls ring trap object.",
+    "name": "hwMplsRingGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingNodeID"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingDirection"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingSwitchReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.1.7",
+    "status": "current"
+  },
+  "hwMplsRingID": {
+    "class": "objecttype",
+    "description": "Indicates the ID of the MPLS ring. ",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsRingID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsRingMib": {
+    "class": "objectidentity",
+    "name": "hwMplsRingMib",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7"
+  },
+  "hwMplsRingName": {
+    "class": "objecttype",
+    "description": "Indicates the name of MPLS ring.",
+    "maxaccess": "read-only",
+    "name": "hwMplsRingName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMplsRingNodeID": {
+    "class": "objecttype",
+    "description": "Indicates the ID of the current Node on the MPLS ring.",
+    "maxaccess": "read-only",
+    "name": "hwMplsRingNodeID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsRingResume": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the MPLS ring resumed. ",
+    "name": "hwMplsRingResume",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingNodeID"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingDirection"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.2",
+    "status": "obsolete"
+  },
+  "hwMplsRingSwitch": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the MPLS ring switched. ",
+    "name": "hwMplsRingSwitch",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingNodeID"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingDirection"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingSwitchReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.1",
+    "status": "obsolete"
+  },
+  "hwMplsRingSwitchReason": {
+    "class": "objecttype",
+    "description": "Indicates the switch reason of the MPLS ring.",
+    "maxaccess": "read-only",
+    "name": "hwMplsRingSwitchReason",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMplsRingTable": {
+    "class": "objecttype",
+    "description": "Indicates the table information of the MPLS ring.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsRingTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.1",
+    "status": "current"
+  },
+  "hwMplsRingTrap": {
+    "class": "objectidentity",
+    "name": "hwMplsRingTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2"
+  },
+  "hwMplsRingWestAPSLost": {
+    "class": "notificationtype",
+    "description": " The notification indicates that APS packets are missing in the west of the MPLS ring. ",
+    "name": "hwMplsRingWestAPSLost",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.39",
+    "status": "current"
+  },
+  "hwMplsRingWestAPSLostClear": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the hwMplsRingWestAPSLost alarm was cleared. ",
+    "name": "hwMplsRingWestAPSLostClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.40",
+    "status": "current"
+  },
+  "hwMplsRingWestAPSMismatch": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the source ID carried by APS packets received in the west is different from the peer source ID configured for the west state machine on the MPLS ring. ",
+    "name": "hwMplsRingWestAPSMismatch",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.43",
+    "status": "current"
+  },
+  "hwMplsRingWestAPSMismatchClear": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the hwMplsRingWestAPSMismatch alarm was cleared. ",
+    "name": "hwMplsRingWestAPSMismatchClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.44",
+    "status": "current"
+  },
+  "hwMplsRingWestAPSResume": {
+    "class": "notificationtype",
+    "description": " The notification indicates that APS switches back in the west of the MPLS ring. ",
+    "name": "hwMplsRingWestAPSResume",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.32",
+    "status": "current"
+  },
+  "hwMplsRingWestAPSSwitch": {
+    "class": "notificationtype",
+    "description": " The notification indicates that APS switching occurs in the west of the MPLS ring. ",
+    "name": "hwMplsRingWestAPSSwitch",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.31",
+    "status": "current"
+  },
+  "hwMplsRingWestAPSSwitchFail": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the remote APS switching fails in the west of the MPLS ring. ",
+    "name": "hwMplsRingWestAPSSwitchFail",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.35",
+    "status": "current"
+  },
+  "hwMplsRingWestAPSSwitchFailClear": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the hwMplsRingWestAPSSwitchFail alarm was cleared. ",
+    "name": "hwMplsRingWestAPSSwitchFailClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.36",
+    "status": "current"
+  },
+  "hwMplsRingWestOamExcess": {
+    "class": "notificationtype",
+    "description": " The notification indicates that five or more CV/FFD packets are correctly received within three consecutive cycles in the west of the MPLS ring. ",
+    "name": "hwMplsRingWestOamExcess",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.19",
+    "status": "current"
+  },
+  "hwMplsRingWestOamExcessClear": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the hwMplsRingWestOamExcess alarm was cleared. ",
+    "name": "hwMplsRingWestOamExcessClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.20",
+    "status": "current"
+  },
+  "hwMplsRingWestOamLoss": {
+    "class": "notificationtype",
+    "description": " The notification indicates that no expected CV/FFD packet is received for three consecutive cycles in the west of the MPLS ring. ",
+    "name": "hwMplsRingWestOamLoss",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.3",
+    "status": "current"
+  },
+  "hwMplsRingWestOamLossClear": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the hwMplsRingWestOamLoss alarm was cleared. ",
+    "name": "hwMplsRingWestOamLossClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.4",
+    "status": "current"
+  },
+  "hwMplsRingWestOamRDI": {
+    "class": "notificationtype",
+    "description": " The notification indicates that RDI packets are received in the west of the MPLS ring, indicating that a fault occurs on the forward ring. ",
+    "name": "hwMplsRingWestOamRDI",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.7",
+    "status": "current"
+  },
+  "hwMplsRingWestOamRDIClear": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the hwMplsRingWestOamRDI alarm was cleared. ",
+    "name": "hwMplsRingWestOamRDIClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.8",
+    "status": "current"
+  },
+  "hwMplsRingWestOamSD": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the number of packets for connectivity check received in the west of the MPLS ring is smaller than the SD threshold. ",
+    "name": "hwMplsRingWestOamSD",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.23",
+    "status": "current"
+  },
+  "hwMplsRingWestOamSDClear": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the hwMplsRingWestOamSD alarm was cleared. ",
+    "name": "hwMplsRingWestOamSDClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.24",
+    "status": "current"
+  },
+  "hwMplsRingWestOamSF": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the number of packets for connectivity check received in the west of the MPLS ring is smaller than the SF threshold. ",
+    "name": "hwMplsRingWestOamSF",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.27",
+    "status": "current"
+  },
+  "hwMplsRingWestOamSFClear": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the hwMplsRingWestOamSF alarm was cleared. ",
+    "name": "hwMplsRingWestOamSFClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.28",
+    "status": "current"
+  },
+  "hwMplsRingWestOamUnexpectedMEG": {
+    "class": "notificationtype",
+    "description": " The notification indicates that a CCM frame carrying a correct MEG level but incorrect MEG ID is received in the west of the MPLS ring. ",
+    "name": "hwMplsRingWestOamUnexpectedMEG",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.11",
+    "status": "current"
+  },
+  "hwMplsRingWestOamUnexpectedMEGClear": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the hwMplsRingWestOamUnexpectedMEG alarm was cleared. ",
+    "name": "hwMplsRingWestOamUnexpectedMEGClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.12",
+    "status": "current"
+  },
+  "hwMplsRingWestOamUnexpectedMEP": {
+    "class": "notificationtype",
+    "description": " The notification indicates that a CCM frame carrying a correct MEG level and correct MEG ID but not the expected MEP ID is received in the west of the MPLS ring. ",
+    "name": "hwMplsRingWestOamUnexpectedMEP",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.47",
+    "status": "current"
+  },
+  "hwMplsRingWestOamUnexpectedMEPClear": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the hwMplsRingWestOamUnexpectedMEP alarm was cleared. ",
+    "name": "hwMplsRingWestOamUnexpectedMEPClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.48",
+    "status": "current"
+  },
+  "hwMplsRingWestOamUnexpectedPeriod": {
+    "class": "notificationtype",
+    "description": " The notification indicates that a CCM frame carrying a correct MEG level, MEG ID, and MEP ID but incorrect period value is received in the west MEP of the MPLS ring. ",
+    "name": "hwMplsRingWestOamUnexpectedPeriod",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.15",
+    "status": "current"
+  },
+  "hwMplsRingWestOamUnexpectedPeriodClear": {
+    "class": "notificationtype",
+    "description": " The notification indicates that the hwMplsRingWestOamUnexpectedPeriod alarm was cleared. ",
+    "name": "hwMplsRingWestOamUnexpectedPeriodClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.7.2.16",
+    "status": "current"
+  },
+  "hwMplsSessionTunnelId": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the Tunnel ID.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsSessionTunnelId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMplsStaticCRLspDown": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the status of referred static CR-LSP changes to Down.",
+    "name": "hwMplsStaticCRLspDown",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspInIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspInIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspDownReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.4",
+    "status": "current"
+  },
+  "hwMplsStaticCRLspUp": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the status of referred static CR-LSP changes to Up.",
+    "name": "hwMplsStaticCRLspUp",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspInIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspInIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspDownReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.3",
+    "status": "current"
+  },
+  "hwMplsStaticLspDown": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the status of referred static LSP changes to Down.",
+    "name": "hwMplsStaticLspDown",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspInIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspInIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspDownReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.2",
+    "status": "current"
+  },
+  "hwMplsStaticLspUp": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the status of referred static LSP changes to Up.",
+    "name": "hwMplsStaticLspUp",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspInIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspInIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspDownReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.1",
+    "status": "current"
+  },
+  "hwMplsTeAutoTunnelDownClear": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the TE Auto tunnel Down alarm was cleared.",
+    "name": "hwMplsTeAutoTunnelDownClear",
+    "objects": [
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelAdminStatus"
+      },
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelOperStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.54",
+    "status": "current"
+  },
+  "hwMplsTeAutoTunnelPrimaryDownClear": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the Down alarm about the primary LSP in the TE Auto tunnel was cleared.",
+    "name": "hwMplsTeAutoTunnelPrimaryDownClear",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.55",
+    "status": "current"
+  },
+  "hwMplsTeClassClassType": {
+    "class": "objecttype",
+    "description": "This value represents a Class-Type supported on the LSR. Options: 1. ct0(1) -indicates that the class type of static CR-LSP is ct0. 2. ct1(2) -indicates that the class type of static CR-LSP is ct1. 3. ct2(3) -indicates that the class type of static CR-LSP is ct2. 4. ct3(4) -indicates that the class type of static CR-LSP is ct3. 5. ct4(5) -indicates that the class type of static CR-LSP is ct4. 6. ct5(6) -indicates that the class type of static CR-LSP is ct5. 7. ct6(7) -indicates that the class type of static CR-LSP is ct6. 8. ct7(8) -indicates that the class type of static CR-LSP is ct7. ",
+    "maxaccess": "read-only",
+    "name": "hwMplsTeClassClassType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ct0": 1,
+          "ct1": 2,
+          "ct2": 3,
+          "ct3": 4,
+          "ct4": 5,
+          "ct5": 6,
+          "ct6": 7,
+          "ct7": 8
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsTeClassDescription": {
+    "class": "objecttype",
+    "description": "Textual description of the TE-Class defined by this row.",
+    "maxaccess": "read-only",
+    "name": "hwMplsTeClassDescription",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwMplsTeClassEntry": {
+    "class": "objecttype",
+    "description": "TE-class mapping is a set of a maximum of eight TE-class items. TE-class is a \u003cClass-Type, Priority\u003e pair, such as TE-Class[1] = \u003cCT0, 5\u003e. A (setup/holding) priority associated with an LSP valid only if it appears as a pair with the Class-Type. Class-Types and priorities can be randomly paired up. You can define a maximum of eight \u003cClass-Type, Priority\u003e pairs. The LSR is considered to support a particular Class-Type only if it appears in the definition of the eight possible TE-Classes. It is suggested that all the LSRs in the domain use the same TE-Class mapping. The index of this entry is hwMplsTeClassId.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTeClassId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTeClassEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.6.1",
+    "status": "current"
+  },
+  "hwMplsTeClassId": {
+    "class": "objecttype",
+    "description": "This value represents the index of the TE-Class configured on this LSR.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTeClassId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsTeClassPriority": {
+    "class": "objecttype",
+    "description": "This value represents the preemption priority (setup or holding) supported for a particular class-type, on the LSR. Range: 0-7 Default: 7 ",
+    "maxaccess": "read-only",
+    "name": "hwMplsTeClassPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsTeClassTable": {
+    "class": "objecttype",
+    "description": "TE-class mapping is a set of a maximum of eight TE-class items. TE-class is a \u003cClass-Type, Priority\u003e pair, such as TE-Class[1] = \u003cCT0, 5\u003e. A (setup/holding) priority associated with an LSP valid only if it appears as a pair with the Class-Type. Class-Types and priorities can be randomly paired up. You can define a maximum of eight \u003cClass-Type, Priority\u003e pairs. The LSR is considered to support a particular Class-Type only if it appears in the definition of the eight possible TE-Classes. It is suggested that all the LSRs in the domain use the same TE-Class mapping. The index of this table is hwMplsTeClassId.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTeClassTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.6",
+    "status": "current"
+  },
+  "hwMplsTeFrrProtAval": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the primary tunnel is bound to bypass tunnel.",
+    "name": "hwMplsTeFrrProtAval",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrRouteDBBypassIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrRouteDBInnerLabel"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.5",
+    "status": "current"
+  },
+  "hwMplsTeFrrProtNotAval": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the primary tunnel is unbound to bypass tunnel.",
+    "name": "hwMplsTeFrrProtNotAval",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrRouteDBBypassIfIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.6",
+    "status": "current"
+  },
+  "hwMplsTeFrrResume": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the primary tunnel is switched back from the bypass tunnel.",
+    "name": "hwMplsTeFrrResume",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOperStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.8",
+    "status": "current"
+  },
+  "hwMplsTeFrrSwitch": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the primary tunnel is switches to the bypass tunnel.",
+    "name": "hwMplsTeFrrSwitch",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOperStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsSessionTunnelId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsLocalLspId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsIngressLsrId"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsEgressLsrId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.7",
+    "status": "current"
+  },
+  "hwMplsTeVpnAllocatedBandwidth": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the bandwidth used by VPN QoS, in Kbps. Unit: kbit/s",
+    "maxaccess": "read-only",
+    "name": "hwMplsTeVpnAllocatedBandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.9.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsTeVpnMaxBandwidth": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the bandwidth the TE tunnel can provide for VPN QoS. Unit: kbit/s",
+    "maxaccess": "read-only",
+    "name": "hwMplsTeVpnMaxBandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.9.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsTeVpnQosEntry": {
+    "class": "objecttype",
+    "description": "This table is used to display VPN QoS information of a specified TE Tunnel according to TunnelID. The index of this entry is hwMplsTnlID.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTnlID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTeVpnQosEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.9.1",
+    "status": "current"
+  },
+  "hwMplsTeVpnQosTable": {
+    "class": "objecttype",
+    "description": "This table is used to display VPN QoS information of a specified TE Tunnel according to TunnelID. The index of this table is hwMplsTnlID.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTeVpnQosTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.9",
+    "status": "current"
+  },
+  "hwMplsTnlID": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the TE tunnel ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTnlID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.9.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsTrafficStatisticsStaticLspBackwardInBytes": {
+    "class": "objecttype",
+    "description": "An estimate of the backward of bistatic LSP\u0027s current incoming traffic statistics in units of bytes. For a sub-layer which has no concept of traffic statistics, this object should be zero. Unit: bytes",
+    "maxaccess": "read-only",
+    "name": "hwMplsTrafficStatisticsStaticLspBackwardInBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    },
+    "units": "bytes"
+  },
+  "hwMplsTrafficStatisticsStaticLspBackwardInPackets": {
+    "class": "objecttype",
+    "description": "An estimate of the backward of bistatic LSP\u0027s current incoming traffic statistics in units of packets. For a sub-layer which has no concept of traffic statistics, this object should be zero. Unit: packets",
+    "maxaccess": "read-only",
+    "name": "hwMplsTrafficStatisticsStaticLspBackwardInPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    },
+    "units": "packets"
+  },
+  "hwMplsTrafficStatisticsStaticLspBackwardOutBytes": {
+    "class": "objecttype",
+    "description": "An estimate of the backward of bistatic LSP\u0027s current outgoing traffic statistics in units of bytes. For a sub-layer which has no concept of traffic statistics, this object should be zero. Unit: bytes",
+    "maxaccess": "read-only",
+    "name": "hwMplsTrafficStatisticsStaticLspBackwardOutBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    },
+    "units": "bytes"
+  },
+  "hwMplsTrafficStatisticsStaticLspBackwardOutPackets": {
+    "class": "objecttype",
+    "description": "An estimate of the backward of bistatic LSP\u0027s current outgoing traffic statistics in units of packets. For a sub-layer which has no concept of traffic statistics, this object should be zero. Unit: packets",
+    "maxaccess": "read-only",
+    "name": "hwMplsTrafficStatisticsStaticLspBackwardOutPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    },
+    "units": "packets"
+  },
+  "hwMplsTrafficStatisticsStaticLspEntry": {
+    "class": "objecttype",
+    "description": "Indicates the traffic statistics of a LSP. The indexes of this entry is hwMplsTrafficStatisticsStaticLspName.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTrafficStatisticsStaticLspName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTrafficStatisticsStaticLspEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.2.1",
+    "status": "current"
+  },
+  "hwMplsTrafficStatisticsStaticLspForwardInBytes": {
+    "class": "objecttype",
+    "description": "An estimate of the forward of bistatic LSP\u0027s current incoming traffic statistics in units of bytes. For a sub-layer which has no concept of traffic statistics, this object should be zero. Unit: bytes",
+    "maxaccess": "read-only",
+    "name": "hwMplsTrafficStatisticsStaticLspForwardInBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    },
+    "units": "bytes"
+  },
+  "hwMplsTrafficStatisticsStaticLspForwardInPackets": {
+    "class": "objecttype",
+    "description": "An estimate of the forward of bistatic LSP\u0027s current incoming traffic statistics in units of packets. For a sub-layer which has no concept of traffic statistics, this object should be zero. Unit: packets",
+    "maxaccess": "read-only",
+    "name": "hwMplsTrafficStatisticsStaticLspForwardInPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    },
+    "units": "packets"
+  },
+  "hwMplsTrafficStatisticsStaticLspForwardOutBytes": {
+    "class": "objecttype",
+    "description": "An estimate of the forward of bistatic LSP\u0027s current outgoing traffic statistics in units of bytes. For a sub-layer which has no concept of traffic statistics, this object should be zero. Unit: bytes",
+    "maxaccess": "read-only",
+    "name": "hwMplsTrafficStatisticsStaticLspForwardOutBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    },
+    "units": "bytes"
+  },
+  "hwMplsTrafficStatisticsStaticLspForwardOutPackets": {
+    "class": "objecttype",
+    "description": "An estimate of the forward of bistatic LSP\u0027s current outgoing traffic statistics in units of packets. For a sub-layer which has no concept of traffic statistics, this object should be zero. Unit: packets",
+    "maxaccess": "read-only",
+    "name": "hwMplsTrafficStatisticsStaticLspForwardOutPackets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    },
+    "units": "packets"
+  },
+  "hwMplsTrafficStatisticsStaticLspName": {
+    "class": "objecttype",
+    "description": "Indicates the name of the static LSP or CR-LSP. The name is appointed when the static LSP or CR-LSP is created.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTrafficStatisticsStaticLspName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwMplsTrafficStatisticsStaticLspTable": {
+    "class": "objecttype",
+    "description": "Indicates the traffic statistics of a LSP. The indexes of this table is hwMplsTrafficStatisticsStaticLspName.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTrafficStatisticsStaticLspTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.4.2",
+    "status": "current"
+  },
+  "hwMplsTrapGroup": {
+    "class": "objectgroup",
+    "description": "For mpls trap object.",
+    "name": "hwMplsTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownReason"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownLSRID"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownIfIpAddrType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownIfIpAddr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.1.6",
+    "status": "current"
+  },
+  "hwMplsTrapObjects": {
+    "class": "objectidentity",
+    "name": "hwMplsTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2"
+  },
+  "hwMplsTunnelAdminStatus": {
+    "class": "objecttype",
+    "description": "Indicates the management status of this tunnel.Reference to MPLS-TE-STD-MIB. Options: 1. up(1) -indicates the management status of this tunnel is up. 2. down(2) -indicates the management status of this tunnel is down. 3. testing(3) -indicates the tunnel is used in some test mode. ",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelAdminStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "testing": 3,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsTunnelBBResume": {
+    "class": "notificationtype",
+    "description": "This notification indicates that data is switched from the Best-effort backup CR-LSP to the primary CR-LSP.",
+    "name": "hwMplsTunnelBBResume",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOperStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.57",
+    "status": "current"
+  },
+  "hwMplsTunnelBBSwitch": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the primary CR-LSP is Down and the Best-effort backup CR-LSP is Up.",
+    "name": "hwMplsTunnelBBSwitch",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOperStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.56",
+    "status": "current"
+  },
+  "hwMplsTunnelBandwidth": {
+    "class": "objecttype",
+    "description": "Indicates the bandwidth used by this tunnel. Unit: kbit/s ",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelBandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwMplsTunnelBesteffortDown": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the status of the RSVP-TE Best-effort LSP changes to Down.",
+    "name": "hwMplsTunnelBesteffortDown",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownReason"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownLSRID"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownIfIpAddrType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownIfIpAddr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.53",
+    "status": "current"
+  },
+  "hwMplsTunnelBesteffortUp": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the status of the RSVP-TE Best-effort LSP changes to Up.",
+    "name": "hwMplsTunnelBesteffortUp",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.52",
+    "status": "current"
+  },
+  "hwMplsTunnelChangeBw": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the bandwidth of the tunnel is changed.",
+    "name": "hwMplsTunnelChangeBw",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelPreBandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelNextBandwidth"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.15",
+    "status": "current"
+  },
+  "hwMplsTunnelClassType": {
+    "class": "objecttype",
+    "description": "Indicates the bandwidth type used by this tunnel. Options: 1. bc0(1) -indicates the bandwidth type is bc0. 2. bc1(2) -indicates the bandwidth type is bc1. 3. invalidValue(3) -indicates the invalid value. ",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelClassType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bc0": 1,
+          "bc1": 2,
+          "invalidValue": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsTunnelCommitLost": {
+    "class": "notificationtype",
+    "description": " This object indicates that, after the device saves MPLS TE tunnel configurations, the device commits only some MPLS tunnel configurations. ",
+    "name": "hwMplsTunnelCommitLost",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.77",
+    "status": "current"
+  },
+  "hwMplsTunnelCommitLostClear": {
+    "class": "notificationtype",
+    "description": " This object indicates that, after the device saves MPLS TE tunnel configurations, the device commits all MPLS tunnel configurations. ",
+    "name": "hwMplsTunnelCommitLostClear",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.78",
+    "status": "current"
+  },
+  "hwMplsTunnelCt0Bandwidth": {
+    "class": "objecttype",
+    "description": "The bandwidth of Class-Type 0 (CT0) in this tunnel, in kbit/s. If all CT bandwidths are 0s, it means that this tunnel\u0027s Class-Type is CT0, and bandwidth is 0 kbit/s. Unit: kbit/s",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelCt0Bandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    },
+    "units": "kilobits per second"
+  },
+  "hwMplsTunnelCt1Bandwidth": {
+    "class": "objecttype",
+    "description": "The bandwidth of Class-Type 1 (CT1) in this tunnel, in kbit/s. Unit: kbit/s",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelCt1Bandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    },
+    "units": "kilobits per second"
+  },
+  "hwMplsTunnelCt2Bandwidth": {
+    "class": "objecttype",
+    "description": "The bandwidth of Class-Type 2 (CT2) in this tunnel, in kbit/s. Unit: kbit/s",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelCt2Bandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    },
+    "units": "kilobits per second"
+  },
+  "hwMplsTunnelCt3Bandwidth": {
+    "class": "objecttype",
+    "description": "The bandwidth of Class-Type 3 (CT3) in this tunnel, in kbit/s. Unit: kbit/s",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelCt3Bandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    },
+    "units": "kilobits per second"
+  },
+  "hwMplsTunnelCt4Bandwidth": {
+    "class": "objecttype",
+    "description": "The bandwidth of Class-Type 4 (CT4) in this tunnel, in kbit/s. Unit: kbit/s",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelCt4Bandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    },
+    "units": "kilobits per second"
+  },
+  "hwMplsTunnelCt5Bandwidth": {
+    "class": "objecttype",
+    "description": "The bandwidth of Class-Type 5 (CT5) in this tunnel, in kbit/s. Unit: kbit/s",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelCt5Bandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    },
+    "units": "kilobits per second"
+  },
+  "hwMplsTunnelCt6Bandwidth": {
+    "class": "objecttype",
+    "description": "The bandwidth of Class-Type 6 (CT6) in this tunnel, in kbit/s. Unit: kbit/s",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelCt6Bandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    },
+    "units": "kilobits per second"
+  },
+  "hwMplsTunnelCt7Bandwidth": {
+    "class": "objecttype",
+    "description": "The bandwidth of Class-Type 7 (CT7) in this tunnel, in kbit/s. Unit: kbit/s",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelCt7Bandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    },
+    "units": "kilobits per second"
+  },
+  "hwMplsTunnelDelete": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the mpls te tunnel was deleted.",
+    "name": "hwMplsTunnelDelete",
+    "objects": [
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelAdminStatus"
+      },
+      {
+        "module": "MPLS-TE-STD-MIB",
+        "object": "mplsTunnelOperStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.62",
+    "status": "current"
+  },
+  "hwMplsTunnelDown": {
+    "class": "notificationtype",
+    "description": "The hwMplsTunnelDown trap indicates that the staus of the tunnel changes into Down.",
+    "name": "hwMplsTunnelDown",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOperStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.14",
+    "status": "obsolete"
+  },
+  "hwMplsTunnelDownIfIpAddr": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the IP address of the error interface on a tunnel.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsTunnelDownIfIpAddr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwMplsTunnelDownIfIpAddrType": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the IP address type of the error interface on a tunnel.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsTunnelDownIfIpAddrType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwMplsTunnelDownLSRID": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the LSR ID of the error node on a tunnel.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsTunnelDownLSRID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MplsLsrIdentifier"
+    }
+  },
+  "hwMplsTunnelDownReason": {
+    "class": "objecttype",
+    "description": "Indicates the alarm reason as below: 1. Other; 2. Static LSP down; 3. Static CR-LSP down; 4. The out interface of the RSVP LSP ingress is down; 5. The resource of RSVP LSP is preempted; 6. RSVP message timeout; 7. RSVP neighbor lost; 8. The bypass-tunnel is down or is unbinded with main tunnel, as bypass-tunnel is in used; 9. CSPF compute fail; 10.User shutdown the tunnel; 11.TPOAM indicates the connectivity fault of the link; 12.TPOAM indicates receive alarm indication signal defect of the link; 13.TPOAM indicates the remote defect of the link; 14.TPOAM indicates receive unexpected MEG-ID defect of the link; 15.TPOAM indicates receive unexpected MEP-ID defect of the link; 16.TPOAM indicates packet lost exceed signal fault threshold in the local link; 17.TPOAM indicates packet unexpected period defect of the link; 18.MPLS OAM connectivity fault; 19.MPLS OAM TTSI excess; 20.MPLS OAM TTSI mismatch; 21.MPLS OAM TTSI merge error; 22.MPLS OAM unknown error; 23.MPLS OAM BDI; 24.MPLS OAM FDI; 25.MPLS OAM signal fail; 26.MPLS OAM signal degrade; 27.MPLS OAM fail; 28.Service resume; 29.Service delete; 100. Clear.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsTunnelDownReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bypassTunnelDownOrUnbinded": 8,
+          "clear": 100,
+          "cspfComputeFail": 9,
+          "mplsOamBdi": 23,
+          "mplsOamDOamFail": 27,
+          "mplsOamExcess": 19,
+          "mplsOamFdi": 24,
+          "mplsOamLocv": 18,
+          "mplsOamMisMatch": 20,
+          "mplsOamMisMerge": 21,
+          "mplsOamSD": 26,
+          "mplsOamSF": 25,
+          "mplsOamUnknown": 22,
+          "other": 1,
+          "outIfDown": 4,
+          "resourcePreempted": 5,
+          "rsvpMessageTimeout": 6,
+          "rsvpNeighborLost": 7,
+          "serviceDelete": 29,
+          "serviceResume": 28,
+          "staticCrlspDown": 3,
+          "staticLspDown": 2,
+          "tpoamAlarmIndicationSignal": 12,
+          "tpoamLossOfContinuity": 11,
+          "tpoamLossSF": 16,
+          "tpoamPeriod": 17,
+          "tpoamRemoteDefectIndication": 13,
+          "tpoamUnexpectedMEG": 14,
+          "tpoamUnexpectedMEP": 15,
+          "userShutdown": 10
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsTunnelEgressLSRId": {
+    "class": "objecttype",
+    "description": "Indicates the egress LSR ID of this tunnel. Reference to MPLS-TE-STD-MIB.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTunnelEgressLSRId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MplsExtendedTunnelId"
+    }
+  },
+  "hwMplsTunnelEntry": {
+    "class": "objecttype",
+    "description": "A tunnel needs to be uniquely identified across an MPLS network. Indexes hwMplsTunnelIndex and hwMplsTunnelInstance uniquely identify a tunnel on the LSR originating the tunnel. hwMplsTunnelIngressLSRId uniquely identifies a tunnel across an MPLS network. The last index hwMplsTunnelEgressLSRId is useful in identifying all instances of a tunnel that are terminated on the same egress LSR. The indexes of this entry are hwMplsTunnelIndex, hwMplsTunnelInstance, hwMplsTunnelIngressLSRId and hwMplsTunnelEgressLSRId.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInstance"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelIngressLSRId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelEgressLSRId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTunnelEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1",
+    "reference": "1. RFC 2863 - The Interfaces Group MIB, McCloghrie, K., and F. Kastenholtz, June 2000 ",
+    "status": "current"
+  },
+  "hwMplsTunnelFrrARHopTableIndex": {
+    "class": "objecttype",
+    "description": "Indicates the table index of the protection type adopted by each hop of the primary tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelFrrARHopTableIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsTunnelFrrBandwidth": {
+    "class": "objecttype",
+    "description": "Indicates the protecting bandwidth of auto-bypass tunnel. Its value is defined by the configuration on the primary tunnel. Unit: kbit/s",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelFrrBandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsTunnelFrrBypassTableIndex": {
+    "class": "objecttype",
+    "description": "Indicates the index of the bypass tunnel table, that is, the LSP ID of the bypass tunnel. The bypass table shows interfaces protected by specified bypass tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelFrrBypassTableIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsTunnelFrrConfigChange": {
+    "class": "notificationtype",
+    "description": "When the trap indicating that TE-Frr configuration of Tunnel is changed is sent, the cause for the change of TE-FRR configuration of Tunnel is displayed.",
+    "name": "hwMplsTunnelFrrConfigChange",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelFrrConfigOper"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.3",
+    "status": "obsolete"
+  },
+  "hwMplsTunnelFrrConfigOper": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the operation that an FRR configuration is committed on the tunnel. Options: 1.unconfig(0) -indicates the configuration of the undo mpls te fast-reroute command is committed. 2.config(1) -indicates the configuration of the mpls te fast-reroute command is committed. 3.unknow(2) -indicates an unknown operation.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsTunnelFrrConfigOper",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.2",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "config": 1,
+          "unconfig": 0,
+          "unknow": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsTunnelFrrHoldingPrio": {
+    "class": "objecttype",
+    "description": "Indicates the holding PRI of auto-bypass tunnel. Range: 0-7 Default: 7 ",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelFrrHoldingPrio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsTunnelFrrSetupPrio": {
+    "class": "objecttype",
+    "description": "Indicates the setup PRI of auto-bypass tunnel. Range: 0-7 Default: 7 ",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelFrrSetupPrio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsTunnelFrrSwitchover": {
+    "class": "objecttype",
+    "description": "Indicates FRR switching times",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelFrrSwitchover",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwMplsTunnelGroup": {
+    "class": "objectgroup",
+    "description": "Indicate the atrributes of the tunnel.",
+    "name": "hwMplsTunnelGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrRouteDBInnerLabel"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrRouteDBBypassIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrARHopProtActual"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrARHopProtDesired"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrBypassProtIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspOwner"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelClassType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSessionAttr"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelFrrARHopTableIndex"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelPreBandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelNextBandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelFrrSwitchover"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelFrrBandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOperStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelBandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTeVpnMaxBandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTeVpnAllocatedBandwidth"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelFrrHoldingPrio"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelFrrSetupPrio"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelFrrBypassTableIndex"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelLspType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.1.1",
+    "status": "current"
+  },
+  "hwMplsTunnelHSBResume": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the data is switched from the HSB CR-LSP to the primary CR-LSP.",
+    "name": "hwMplsTunnelHSBResume",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOperStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.10",
+    "status": "current"
+  },
+  "hwMplsTunnelHSBSwitch": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the data is switched from the primary CR-LSP to the HSB CR-LSP.",
+    "name": "hwMplsTunnelHSBSwitch",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOperStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.9",
+    "status": "current"
+  },
+  "hwMplsTunnelHotstandbyDown": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the status of the RSVP-TE Hot-standby LSP changes to Down.",
+    "name": "hwMplsTunnelHotstandbyDown",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownReason"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownLSRID"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownIfIpAddrType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownIfIpAddr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.49",
+    "status": "current"
+  },
+  "hwMplsTunnelHotstandbyResume": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the data is switched from the HSB CR-LSP to the primary CR-LSP.",
+    "name": "hwMplsTunnelHotstandbyResume",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.80",
+    "status": "current"
+  },
+  "hwMplsTunnelHotstandbySwitch": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the data is switched from the primary CR-LSP to the HSB CR-LSP.",
+    "name": "hwMplsTunnelHotstandbySwitch",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.79",
+    "status": "current"
+  },
+  "hwMplsTunnelHotstandbyUp": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the status of the RSVP-TE Hot-standby LSP changes to Up.",
+    "name": "hwMplsTunnelHotstandbyUp",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.48",
+    "status": "current"
+  },
+  "hwMplsTunnelIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the interface index of the tunnel. It uniquely identifies the tunnel name.",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsTunnelIfName": {
+    "class": "objecttype",
+    "description": "The Tunnel Interface name.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwMplsTunnelIfName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.2.1",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwMplsTunnelIndex": {
+    "class": "objecttype",
+    "description": "Uniquely identifies a set of tunnel instances between a pair of ingress and egress LSRs. When the MPLS signalling protocol is rsvp(2), this value equals to the value signaled in the Tunnel ID of the SESSION object. When the MPLS signalling protocol is crldp(3), this value equals to the value signaled in the LSP ID. Reference to MPLS-TE-STD-MIB.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTunnelIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MplsTunnelIndex"
+    }
+  },
+  "hwMplsTunnelIngressLSRId": {
+    "class": "objecttype",
+    "description": "Indicates the ingress LSR ID of this tunnel. When the MPLS signalling protocol is rsvp(2), this value equals to the Tunnel Sender Address in the Sender Template object and may equal to the Extended Tunnel ID in the SESSION object. When the MPLS signalling protocol is crldp(3), this value equals to the Ingress LSR Router ID in the LSPID TLV object. Reference to MPLS-TE-STD-MIB.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTunnelIngressLSRId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MplsExtendedTunnelId"
+    }
+  },
+  "hwMplsTunnelInstance": {
+    "class": "objecttype",
+    "description": "Uniquely identifies a particular instance of a tunnel between a pair of ingress and egress LSRs. It is used to identify multiple instances of tunnels for backup and parallel tunnels. When the MPLS signaling protocol is rsvp(2), this value equals to the LSP ID of the Sender Template object. When the signaling protocol is crldp(3) there is no equivalent signaling object. Reference to MPLS-TE-STD-MIB.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTunnelInstance",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MplsTunnelInstanceIndex"
+    }
+  },
+  "hwMplsTunnelInterfaceName": {
+    "class": "objecttype",
+    "description": "Indicates the tunnel interface name. The object is only valid at the ingress.",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelInterfaceName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwMplsTunnelLspType": {
+    "class": "objecttype",
+    "description": "This object is meaningful only at the ingress of the tunnel. It indicates LSP types. Options: 0. invalid(0) -indicates that the LSP type is invalid, the possible cause is that the LSP is not created at an ingress. 1. primary(1) -indicates the primary LSP 2. primaryModifing(2) -indicates the LSP that will replace the primary LSP 3. hotStandby(3) -indicates the hot-standby LSP 4. hotStandbyModifing(4) -indicates the LSP that will replace the hot-standby LSP 5. ordinary(5) -indicates the ordinary LSP 6. ordinaryModifing(6) -indicates the LSP that will replace the ordinary LSP 7. bestEffort(7) -indicates the Best-Effort LSP 8. bestEffortModifing(8) -indicates the LSP that will replace the Best-Effort LSP Modifying LSPs are created when users modify the make-before-break attribute of the corresponding LSP types. After being created, modifying LSPs replace the corresponding LSPs to transmit traffic. ",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelLspType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bestEffort": 7,
+          "bestEffortModifing": 8,
+          "hotStandby": 3,
+          "hotStandbyModifing": 4,
+          "invalid": 0,
+          "ordinary": 5,
+          "ordinaryModifing": 6,
+          "primary": 1,
+          "primaryModifing": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsTunnelName": {
+    "class": "objecttype",
+    "description": "Indicates the tunnel name. The name can refer to the tunnel on the console port of the LSR. If mplsTunnelIsIf is set to True, the IfName of the interface corresponding to this tunnel should have a value equal to hwMplsTunnelName. Reference to the description of IfName in RFC 2863.",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwMplsTunnelNextBandwidth": {
+    "class": "objecttype",
+    "description": "Indicates the bandwidth of the tunnel that is to be changed when the tunnel is in the Modify state. Unit: kbit/s",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelNextBandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsTunnelOBResume": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the data is switched from the Ordinary backup CR-LSP to the primary CR-LSP.",
+    "name": "hwMplsTunnelOBResume",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOperStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.12",
+    "status": "current"
+  },
+  "hwMplsTunnelOBSwitch": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the primary CR-LSP is down and the Ordinary backup CR-LSP is up.",
+    "name": "hwMplsTunnelOBSwitch",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOperStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.11",
+    "status": "current"
+  },
+  "hwMplsTunnelOperStatus": {
+    "class": "objecttype",
+    "description": "Indicates the actual operational status of this tunnel, which is but not limited to the status of this tunnel of a certain period.Reference to MPLS-TE-STD-MIB. Options: 1. up(1) -indicates that the operational status of this tunnel is up. 2. down(2) -indicates that the operational status of this tunnel is down. 3. testing(3) -indicates that the tunnel is used in some test mode. 4. unknown(4) -indicates the invalid value. 5. dormant(5) -indicates that the status cannot be determined. 6. notPresent(6) -indicates that some component is missing 7. lowerLayerDown(7) -indicates the Down state due to the state of lower layer interfaces. ",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelOperStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dormant": 5,
+          "down": 2,
+          "lowerLayerDown": 7,
+          "notPresent": 6,
+          "testing": 3,
+          "unknown": 4,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsTunnelOrdinaryDown": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the status of the RSVP-TE Ordinary LSP changes to Down.",
+    "name": "hwMplsTunnelOrdinaryDown",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownReason"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownLSRID"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownIfIpAddrType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownIfIpAddr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.51",
+    "status": "current"
+  },
+  "hwMplsTunnelOrdinaryUp": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the status of the RSVP-TE Ordinary LSP changes to Up.",
+    "name": "hwMplsTunnelOrdinaryUp",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.50",
+    "status": "current"
+  },
+  "hwMplsTunnelPreBandwidth": {
+    "class": "objecttype",
+    "description": "Indicates the original bandwidth of the tunnel when the tunnel is in the Modify state. Unit: kbit/s",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelPreBandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsTunnelPrimaryDown": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the status of the RSVP-TE Primary LSP changes to Down.",
+    "name": "hwMplsTunnelPrimaryDown",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownReason"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownLSRID"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownIfIpAddrType"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDownIfIpAddr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.47",
+    "status": "current"
+  },
+  "hwMplsTunnelPrimaryUp": {
+    "class": "notificationtype",
+    "description": "This notification indicates that the status of the RSVP-TE Primary LSP changes to Up.",
+    "name": "hwMplsTunnelPrimaryUp",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.46",
+    "status": "current"
+  },
+  "hwMplsTunnelSessionAttr": {
+    "class": "objecttype",
+    "description": "Indicates protection types desired by the primary tunnel, such as node protection, link protection or bandwidth protection. Options: 1. localProtectionDesired(0) -indicates link protection. 2. nodeProtectionDesired(1) -indicates node protection. 3. bandwidthProtectionDesired(2) -indicates bandwidth protection. ",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelSessionAttr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "bits": {
+        "bandwidthProtectionDesired": 2,
+        "localProtectionDesired": 0,
+        "nodeProtectionDesired": 1
+      },
+      "class": "type",
+      "type": "Bits"
+    }
+  },
+  "hwMplsTunnelSignalProto": {
+    "class": "objecttype",
+    "description": "Indicates the signal protocol of this tunnel",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelSignalProto",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rsvpTE": 1,
+          "static": 2,
+          "staticCR": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsTunnelStatisticsEgressLSRId": {
+    "class": "objecttype",
+    "description": "Indicates the egress LSR ID of this tunnel. Reference to MPLS-TE-STD-MIB.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTunnelStatisticsEgressLSRId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.14.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMplsTunnelStatisticsEntry": {
+    "class": "objecttype",
+    "description": "A tunnel needs to be uniquely identified across an MPLS network. hwMplsTunnelStatisticsTunnelIndex uniquely identifies a tunnel on the LSR originating the tunnel. hwMplsTunnelStatisticsIngressLSRId uniquely identifies a tunnel across an MPLS network. The last index hwMplsTunnelStatisticsEgressLSRId is useful in identifying all instances of a tunnel that are terminated on the same egress LSR. The indexes of this table are hwMplsTunnelStatisticsTunnelIndex, hwMplsTunnelStatisticsIngressLSRId and hwMplsTunnelStatisticsEgressLSRId.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelStatisticsTunnelIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelStatisticsIngressLSRId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelStatisticsEgressLSRId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTunnelStatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.14.1",
+    "reference": "1. RFC 2863 - The Interfaces Group MIB, McCloghrie, K., and F. Kastenholtz, June 2000 ",
+    "status": "current"
+  },
+  "hwMplsTunnelStatisticsHCInOctets": {
+    "class": "objecttype",
+    "description": "The total number of octets received on the interface, including framing characters.",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelStatisticsHCInOctets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.14.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwMplsTunnelStatisticsHCOutOctets": {
+    "class": "objecttype",
+    "description": "The total number of octets transmitted out of the interface, including framing characters.",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelStatisticsHCOutOctets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.14.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwMplsTunnelStatisticsIngressLSRId": {
+    "class": "objecttype",
+    "description": "Indicates the ingress LSR ID of this tunnel. When the MPLS signalling protocol is rsvp(2), this value equals to the Tunnel Sender Address in the Sender Template object and may equal to the Extended Tunnel ID in the SESSION object. When the MPLS signalling protocol is crldp(3), this value equals to the Ingress LSR Router ID in the LSPID TLV object. Reference to MPLS-TE-STD-MIB.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTunnelStatisticsIngressLSRId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.14.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwMplsTunnelStatisticsTable": {
+    "class": "objecttype",
+    "description": "A tunnel needs to be uniquely identified across an MPLS network. hwMplsTunnelStatisticsTunnelIndex uniquely identifies a tunnel on the LSR originating the tunnel. hwMplsTunnelStatisticsIngressLSRId uniquely identifies a tunnel across an MPLS network. The last index hwMplsTunnelStatisticsEgressLSRId is useful in identifying all instances of a tunnel that are terminated on the same egress LSR. The indexes of this table are hwMplsTunnelStatisticsTunnelIndex, hwMplsTunnelStatisticsIngressLSRId and hwMplsTunnelStatisticsEgressLSRId.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTunnelStatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.14",
+    "status": "current"
+  },
+  "hwMplsTunnelStatisticsTunnelIndex": {
+    "class": "objecttype",
+    "description": "Uniquely identifies a set of tunnel instances between a pair of ingress and egress LSRs. When the MPLS signalling protocol is rsvp(2), this value equals to the value signaled in the Tunnel ID of the SESSION object. When the MPLS signalling protocol is crldp(3), this value equals to the value signaled in the LSP ID. Reference to MPLS-TE-STD-MIB.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTunnelStatisticsTunnelIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.14.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwMplsTunnelTable": {
+    "class": "objecttype",
+    "description": "A tunnel needs to be uniquely identified across an MPLS network. Indexes hwMplsTunnelIndex and hwMplsTunnelInstance uniquely identify a tunnel on the LSR originating the tunnel. hwMplsTunnelIngressLSRId uniquely identifies a tunnel across an MPLS network. The last index hwMplsTunnelEgressLSRId is useful in identifying all instances of a tunnel that are terminated on the same egress LSR. The indexes of this table are hwMplsTunnelIndex, hwMplsTunnelInstance, hwMplsTunnelIngressLSRId and hwMplsTunnelEgressLSRId.",
+    "maxaccess": "not-accessible",
+    "name": "hwMplsTunnelTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1",
+    "status": "current"
+  },
+  "hwMplsTunnelTpOamLossSD": {
+    "class": "notificationtype",
+    "description": "This object indicates that the loss ratio of the packets carried by the tunnel exceeded the first threshold.",
+    "name": "hwMplsTunnelTpOamLossSD",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelSignalProto"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.16",
+    "status": "current"
+  },
+  "hwMplsTunnelType": {
+    "class": "objecttype",
+    "description": "This object is meaningful only at the ingress of the tunnel. It indicates tunnel types. Options: 1. invalid(1) -indicates that the tunnel type is invalid, the possible cause is that it is not ingress node of this tunnel 2. primaryTunnel(2) -indicates that this is a primary tunnel 3. bypassTunnel(3) -indicates that this is a bypass tunnel ",
+    "maxaccess": "read-only",
+    "name": "hwMplsTunnelType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.1.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bypassTunnel": 3,
+          "invalid": 1,
+          "primaryTunnel": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMplsTunnelUp": {
+    "class": "notificationtype",
+    "description": "The hwMplsTunnelUp trap indicates that the staus of the tunnel changes into Up.",
+    "name": "hwMplsTunnelUp",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelInterfaceName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelAdminStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelOperStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.2.1.13",
+    "status": "obsolete"
+  },
+  "hwObsoleteTrapGroup": {
+    "class": "notificationgroup",
+    "description": "Indicate the Obsolete traps.",
+    "name": "hwObsoleteTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelFrrConfigChange"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelUp"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsTunnelDown"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingSwitch"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwMplsRingResume"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.2.2",
+    "status": "obsolete"
+  },
+  "hwStaticLspBandwidth": {
+    "class": "objecttype",
+    "description": "The bandwidth of this static lsp. Unit: kbit/s",
+    "maxaccess": "read-only",
+    "name": "hwStaticLspBandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.5.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    },
+    "units": "kilobits per second"
+  },
+  "hwStaticLspClassType": {
+    "class": "objecttype",
+    "description": "The Class-Type of this static lsp. Options: 1. ct0(1) -indicates that the class type is ct0. 2. ct1(2) -indicates that the class type is ct1. 3. ct2(3) -indicates that the class type is ct2. 4. ct3(4) -indicates that the class type is ct3. 5. ct4(5) -indicates that the class type is ct4. 6. ct5(6) -indicates that the class type is ct5. 7. ct6(7) -indicates that the class type is ct6. 8. ct7(8) -indicates that the class type is ct7. 9. none(9) -indicates that the class type is unconfiged. ",
+    "maxaccess": "read-only",
+    "name": "hwStaticLspClassType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.5.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ct0": 1,
+          "ct1": 2,
+          "ct2": 3,
+          "ct3": 4,
+          "ct4": 5,
+          "ct5": 6,
+          "ct6": 7,
+          "ct7": 8,
+          "none": 9
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwStaticLspDownReason": {
+    "class": "objecttype",
+    "description": "Indicates the reason for static LSP/CR-LSP Down: 0. Other 1. Static LSP/CR-LSP up 2. MPLS disabled on an interface 3. MPLS TE disabled on an interface 4. Route change 5. Tunnel binding associated with the static LSP/CR-LSP deleted 6. Static LSP/CR-LSP configuration delete 7. Inbound interface Down 8. Outbound interface Down 9. Tunnel associated with the static LSP/CR-LSP has been shut down 10. Static LSP/CR-LSP configuration update 11. The bound ring is invalid.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStaticLspDownReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwStaticLspEntry": {
+    "class": "objecttype",
+    "description": "A static LSP is created by a network administrator by using static MPLS. Note that only point-to-point static LSP segments are supported. Each static MPLS LSP can thus have one out-segment originating at this LSR and/or one in-segment terminating at this LSR. The indexes of this entry are hwStaticLspIndex, hwStaticLspInSegmentIndex, and hwStaticLspOutSegmentIndex.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspInSegmentIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspOutSegmentIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwStaticLspEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.5.1",
+    "status": "current"
+  },
+  "hwStaticLspGroup": {
+    "class": "objectgroup",
+    "description": "Indicate the atrributes of the static lsp.",
+    "name": "hwStaticLspGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspStatus"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspTnlToken"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspInIfIndex"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspInIfName"
+      },
+      {
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspDownReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.121.6.1.2",
+    "status": "current"
+  },
+  "hwStaticLspInIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the inbound interface index of a static LSP/CR-LSP.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStaticLspInIfIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStaticLspInIfName": {
+    "class": "objecttype",
+    "description": "Indicates the name of an inbound interface of a static LSP/CR-LSP.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwStaticLspInIfName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwStaticLspInSegmentIndex": {
+    "class": "objecttype",
+    "description": "Indicates the incoming label index of the static LSP/CR-LSP. If the string is 0x00, it means that the index is invalid. In this case, no corresponding mplsInSegmentEntry exists. Reference to MPLS-LSR-STD-MIB.",
+    "maxaccess": "not-accessible",
+    "name": "hwStaticLspInSegmentIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MplsIndexType"
+    }
+  },
+  "hwStaticLspIndex": {
+    "class": "objecttype",
+    "description": "Indicates the index of the static LSP. If the string is 0x00, it means that the index is invalid.",
+    "maxaccess": "not-accessible",
+    "name": "hwStaticLspIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MplsIndexType"
+    }
+  },
+  "hwStaticLspName": {
+    "class": "objecttype",
+    "description": "Indicates the name of the static LSP or CR-LSP. The name is appointed when the static LSP or CR-LSP is created.",
+    "maxaccess": "read-only",
+    "name": "hwStaticLspName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.5.1.5",
+    "reference": "RFC 2863 - The Interfaces Group MIB, McCloghrie, K., and F. Kastenholtz, June 2000",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwStaticLspOutSegmentIndex": {
+    "class": "objecttype",
+    "description": "Indicates the outgoing index of the static LSP/CR-LSP. If the entry is used to identify the incoming node or intermediate node of the LSP, this object cannot be set to the string 0x00. Because corresponding mplsOutSegmentEntry exists. If the entry is used to identify the outgoing node of the LSP, this object must be set to the string 0x00. Because no corresponding mplsOutSegmentEntry exists. Reference to MPLS-LSR-STD-MIB.",
+    "maxaccess": "not-accessible",
+    "name": "hwStaticLspOutSegmentIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MplsIndexType"
+    }
+  },
+  "hwStaticLspOwner": {
+    "class": "objecttype",
+    "description": "Denotes the entity that creates and manages the static LSP. See MPLS-LSR-STD-MIB. Options: 1. static(1) -indicates the static LSP. 2. crstatic(2) -indicates the static CR-LSP. 3. other(3) -indicates the LSP of another type. ",
+    "maxaccess": "read-only",
+    "name": "hwStaticLspOwner",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "crstatic": 2,
+          "other": 3,
+          "static": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwStaticLspStatus": {
+    "class": "objecttype",
+    "description": "Indicates the actual operation status of the static LSP/CR-LSP. Options: 1. up(1) -indicates that the static LSP/CR-LSP is in Up state. 2. down(2) -indicates that the static LSP/CR-LSP is in down state. 3. testing(3) -indicates that the static LSP/CR-LSP is used in test mode. ",
+    "maxaccess": "read-only",
+    "name": "hwStaticLspStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.5.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "testing": 3,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwStaticLspTable": {
+    "class": "objecttype",
+    "description": "A static LSP is created by a network administrator by using static MPLS. Note that only point-to-point static LSP segments are supported. Each static MPLS LSP can thus have one out-segment originating at this LSR and/or one in-segment terminating at this LSR. The indexes of this table are hwStaticLspIndex, hwStaticLspInSegmentIndex, and hwStaticLspOutSegmentIndex.",
+    "maxaccess": "not-accessible",
+    "name": "hwStaticLspTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.5",
+    "status": "current"
+  },
+  "hwStaticLspTnlEntry": {
+    "class": "objecttype",
+    "description": "hwStaticLspTnlTable is used to display static LSP token of a static LSP of a specified name. The index of this entry is hwStaticLspTnlName.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwStaticLspTnlName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwStaticLspTnlEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.8.1",
+    "status": "current"
+  },
+  "hwStaticLspTnlName": {
+    "class": "objecttype",
+    "description": "Indicates the name of the Static Lsp.",
+    "maxaccess": "not-accessible",
+    "name": "hwStaticLspTnlName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SnmpAdminString"
+    }
+  },
+  "hwStaticLspTnlTable": {
+    "class": "objecttype",
+    "description": "hwStaticLspTnlTable is used to display static LSP token of a static LSP of a specified name. The index of this table is hwStaticLspTnlName.",
+    "maxaccess": "not-accessible",
+    "name": "hwStaticLspTnlTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.8",
+    "status": "current"
+  },
+  "hwStaticLspTnlToken": {
+    "class": "objecttype",
+    "description": "Indicates the token of the Static Lsp.",
+    "maxaccess": "read-only",
+    "name": "hwStaticLspTnlToken",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.8.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwTunnelFrrARHopEntry": {
+    "class": "objecttype",
+    "description": "Indicates the FrrARHopTable, which will show every hop\u0027s frr protect information of the tunnel. The indexes of this entry are hwTunnelFrrARHopListIndex and hwTunnelFrrARHopIndex.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrARHopListIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrARHopIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelFrrARHopEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.3.1",
+    "status": "current"
+  },
+  "hwTunnelFrrARHopIndex": {
+    "class": "objecttype",
+    "description": "Indicates the index of each hop along the primary tunnel.",
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelFrrARHopIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwTunnelFrrARHopListIndex": {
+    "class": "objecttype",
+    "description": "Indicates the table index of each hop along the primary tunnel.",
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelFrrARHopListIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwTunnelFrrARHopProtActual": {
+    "class": "objecttype",
+    "description": "Indicates the actual FRR protection types of the primary tunnel interface, including: 0: link protection, 1: node protection, 2: bandwidth protection, 3: primary tunnel protection in use ",
+    "maxaccess": "read-only",
+    "name": "hwTunnelFrrARHopProtActual",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "bits": {
+        "bandwidthProtection": 2,
+        "localProtection": 0,
+        "nodeProtection": 1,
+        "protectionInuse": 3
+      },
+      "class": "type",
+      "type": "Bits"
+    }
+  },
+  "hwTunnelFrrARHopProtDesired": {
+    "class": "objecttype",
+    "description": "Indicates the FRR protection types desired by the primary tunnel interface, including: 0: link protection, 1: node protection, 2: bandwidth protection ",
+    "maxaccess": "read-only",
+    "name": "hwTunnelFrrARHopProtDesired",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "bits": {
+        "bandwidthProtection": 2,
+        "localProtection": 0,
+        "nodeProtection": 1
+      },
+      "class": "type",
+      "type": "Bits"
+    }
+  },
+  "hwTunnelFrrARHopTable": {
+    "class": "objecttype",
+    "description": "Indicates the FrrARHopTable, which will show every hop\u0027s frr protect information of the tunnel. The indexes of this table are hwTunnelFrrARHopListIndex and hwTunnelFrrARHopIndex.",
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelFrrARHopTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.3",
+    "status": "current"
+  },
+  "hwTunnelFrrBypassEntry": {
+    "class": "objecttype",
+    "description": "Indicates the bypass tunnel.The indexes of this entry are hwTunnelFrrBypassListIndex and hwTunnelFrrBypassIndex.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrBypassListIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrBypassIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelFrrBypassEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.2.1",
+    "status": "current"
+  },
+  "hwTunnelFrrBypassIndex": {
+    "class": "objecttype",
+    "description": "Indicates the index of the bypass tunnel interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelFrrBypassIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwTunnelFrrBypassListIndex": {
+    "class": "objecttype",
+    "description": "Indicates the index of the bypass tunnel table, that is, the LSP ID of the bypass tunnel.",
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelFrrBypassListIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwTunnelFrrBypassProtIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the index of the interface protected by the bypass tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwTunnelFrrBypassProtIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwTunnelFrrBypassTable": {
+    "class": "objecttype",
+    "description": "Indicates the bypass tunnel. The indexes of this table are hwTunnelFrrBypassListIndex and hwTunnelFrrBypassIndex.",
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelFrrBypassTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.2",
+    "status": "current"
+  },
+  "hwTunnelFrrRouteDBBypassIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the interface index of the bypass tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwTunnelFrrRouteDBBypassIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwTunnelFrrRouteDBEntry": {
+    "class": "objecttype",
+    "description": "Indicates the primary tunnel is protected by which bypass tunnel. The indexes of this entry are hwTunnelFrrRouteDBTunnelIndex, hwTunnelFrrRouteDBTunnelInstance, hwTunnelFrrRouteDBTunnelIngressLSRId and hwTunnelFrrRouteDBTunnelEngressLSRId.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrRouteDBTunnelIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrRouteDBTunnelInstance"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrRouteDBTunnelIngressLSRId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MPLS-EXTEND-MIB",
+        "object": "hwTunnelFrrRouteDBTunnelEngressLSRId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelFrrRouteDBEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.4.1",
+    "status": "current"
+  },
+  "hwTunnelFrrRouteDBInnerLabel": {
+    "class": "objecttype",
+    "description": "Indicates the inner label of the primary tunnel and bypass tunnel.",
+    "maxaccess": "read-only",
+    "name": "hwTunnelFrrRouteDBInnerLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwTunnelFrrRouteDBTable": {
+    "class": "objecttype",
+    "description": "Indicates the primary tunnel is protected by which bypass tunnel. The indexes of this table are hwTunnelFrrRouteDBTunnelIndex, hwTunnelFrrRouteDBTunnelInstance, hwTunnelFrrRouteDBTunnelIngressLSRId and hwTunnelFrrRouteDBTunnelEngressLSRId.",
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelFrrRouteDBTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.4",
+    "status": "current"
+  },
+  "hwTunnelFrrRouteDBTunnelEngressLSRId": {
+    "class": "objecttype",
+    "description": "Identifies the egress LSR ID of the primary tunnel. Reference to MPLS-TE-STD-MIB.",
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelFrrRouteDBTunnelEngressLSRId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwTunnelFrrRouteDBTunnelIndex": {
+    "class": "objecttype",
+    "description": "Identifies the index of the primary. Manager obtains new index values for row creation in this table by reading mplsTunnelIndexNext. When the MPLS signaling protocol is rsvp(2), this value equals to the value signaled in the Tunnel ID of the SESSION object. When the MPLS signaling protocol is crldp(3), this value equals to the value signaled in the LSP ID. Reference to MPLS-TE-STD-MIB.",
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelFrrRouteDBTunnelIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwTunnelFrrRouteDBTunnelIngressLSRId": {
+    "class": "objecttype",
+    "description": "Identifies the ingress LSR ID of the primary tunnel. When the MPLS signalling protocol is rsvp(2),LSR ID equals to the Tunnel Sender Address in the Sender Template object or the Extended Tunnel Id in the SESSION object. When the MPLS signalling protocol is crldp(3), LSR ID equals to the Ingress LSR Router ID in the LSPID TLV object.",
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelFrrRouteDBTunnelIngressLSRId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwTunnelFrrRouteDBTunnelInstance": {
+    "class": "objecttype",
+    "description": "Uniquely identifies a particular instance of a tunnel between a pair of ingress and egress LSRs. It is the object identifies multiple instances of tunnels for the purposes of backup and parallel tunnels. When the MPLS signaling protocol is rsvp(2), this value equals to the LSP ID of the Sender Template object. When the signaling protocol is crldp(3), there is no equivalent signaling object. Reference to MPLS-TE-STD-MIB.",
+    "maxaccess": "not-accessible",
+    "name": "hwTunnelFrrRouteDBTunnelInstance",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.121.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifName"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "MPLS-LSR-STD-MIB": [
+      "MplsIndexType"
+    ],
+    "MPLS-TC-STD-MIB": [
+      "MplsTunnelIndex",
+      "MplsTunnelInstanceIndex",
+      "MplsExtendedTunnelId",
+      "MplsLsrIdentifier"
+    ],
+    "MPLS-TE-STD-MIB": [
+      "mplsTunnelAdminStatus",
+      "mplsTunnelOperStatus"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "BITS",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Integer32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-MPLS-EXTEND-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:22 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-MPLS-EXTEND-MIB"
+  }
+}

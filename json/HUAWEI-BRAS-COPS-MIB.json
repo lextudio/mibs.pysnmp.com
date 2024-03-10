@@ -1,0 +1,705 @@
+{
+  "hwBRASCops": {
+    "class": "moduleidentity",
+    "contactinfo": "The MIB contains objects of module COPS.",
+    "description": "Description.",
+    "lastupdated": "200504181334Z",
+    "name": "hwBRASCops",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7",
+    "organization": " NanJing Institute,Huawei Technologies Co.,Ltd. HuiHong Mansion,No.91 BaiXia Rd. NanJing, P.R. of China Zipcode:210001 Http://www.huawei.com E-mail:support@huawei.com "
+  },
+  "hwCopsCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the this module.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-BRAS-COPS-MIB",
+        "object": "hwCopsGroupGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-COPS-MIB",
+        "object": "hwCopsServerGroup"
+      },
+      {
+        "module": "HUAWEI-BRAS-COPS-MIB",
+        "object": "hwCopsConfigTableGroup"
+      }
+    ],
+    "name": "hwCopsCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.2.1.1",
+    "status": "current"
+  },
+  "hwCopsCompliances": {
+    "class": "objectidentity",
+    "name": "hwCopsCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.2.1"
+  },
+  "hwCopsConfigKaTimeout": {
+    "class": "objecttype",
+    "description": "COPS KA timeout.",
+    "maxaccess": "read-only",
+    "name": "hwCopsConfigKaTimeout",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.1.3.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwCopsConfigOpenTimeout": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 15
+      }
+    },
+    "description": "COPS open timeout.",
+    "maxaccess": "read-write",
+    "name": "hwCopsConfigOpenTimeout",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.1.3.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCopsConfigSrcIfDesc": {
+    "class": "objecttype",
+    "description": "COPS source interface.",
+    "maxaccess": "read-write",
+    "name": "hwCopsConfigSrcIfDesc",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.1.3.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCopsConfigTable": {
+    "class": "objectidentity",
+    "name": "hwCopsConfigTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.1.3"
+  },
+  "hwCopsConfigTableGroup": {
+    "class": "objectgroup",
+    "description": "The COPS config table group.",
+    "name": "hwCopsConfigTableGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-COPS-MIB",
+        "object": "hwCopsConfigOpenTimeout"
+      },
+      {
+        "module": "HUAWEI-BRAS-COPS-MIB",
+        "object": "hwCopsConfigKaTimeout"
+      },
+      {
+        "module": "HUAWEI-BRAS-COPS-MIB",
+        "object": "hwCopsConfigSrcIfDesc"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.2.2.3",
+    "status": "current"
+  },
+  "hwCopsConformance": {
+    "class": "objectidentity",
+    "name": "hwCopsConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.2"
+  },
+  "hwCopsGroupClientOption82Info": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "COPS group client option82 information.",
+    "maxaccess": "read-write",
+    "name": "hwCopsGroupClientOption82Info",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwCopsGroupClientType": {
+    "class": "objecttype",
+    "description": "COPS client type.",
+    "maxaccess": "read-create",
+    "name": "hwCopsGroupClientType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 6,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCopsGroupEntry": {
+    "class": "objecttype",
+    "description": "COPS group configration.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-COPS-MIB",
+        "object": "hwCopsGroupIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwCopsGroupEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.1.1.1",
+    "status": "current"
+  },
+  "hwCopsGroupFlowKeepingTime": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 300
+      }
+    },
+    "description": "COPS connection flow keeping time.",
+    "maxaccess": "read-write",
+    "name": "hwCopsGroupFlowKeepingTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCopsGroupGroup": {
+    "class": "objectgroup",
+    "description": "The COPS group objects.",
+    "name": "hwCopsGroupGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-COPS-MIB",
+        "object": "hwCopsGroupName"
+      },
+      {
+        "module": "HUAWEI-BRAS-COPS-MIB",
+        "object": "hwCopsGroupClientType"
+      },
+      {
+        "module": "HUAWEI-BRAS-COPS-MIB",
+        "object": "hwCopsGroupIfActive"
+      },
+      {
+        "module": "HUAWEI-BRAS-COPS-MIB",
+        "object": "hwCopsGroupFlowKeepingTime"
+      },
+      {
+        "module": "HUAWEI-BRAS-COPS-MIB",
+        "object": "hwCopsGroupSecret"
+      },
+      {
+        "module": "HUAWEI-BRAS-COPS-MIB",
+        "object": "hwCopsGroupPepid"
+      },
+      {
+        "module": "HUAWEI-BRAS-COPS-MIB",
+        "object": "hwCopsGroupRowStatus"
+      },
+      {
+        "module": "HUAWEI-BRAS-COPS-MIB",
+        "object": "hwCopsGroupSrcIf"
+      },
+      {
+        "module": "HUAWEI-BRAS-COPS-MIB",
+        "object": "hwCopsGroupClientOption82Info"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.2.2.1",
+    "status": "current"
+  },
+  "hwCopsGroupIfActive": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "COPS server active or inactive.",
+    "maxaccess": "read-write",
+    "name": "hwCopsGroupIfActive",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCopsGroupIndex": {
+    "class": "objecttype",
+    "description": "COPS group index.",
+    "maxaccess": "read-only",
+    "name": "hwCopsGroupIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1023,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCopsGroupName": {
+    "class": "objecttype",
+    "description": "COPS group name.",
+    "maxaccess": "read-create",
+    "name": "hwCopsGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCopsGroupObject": {
+    "class": "objectidentity",
+    "name": "hwCopsGroupObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.1"
+  },
+  "hwCopsGroupPepid": {
+    "class": "objecttype",
+    "description": "COPS pep ID.",
+    "maxaccess": "read-write",
+    "name": "hwCopsGroupPepid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCopsGroupRowStatus": {
+    "class": "objecttype",
+    "description": "The operating state of the row, only can be Added or Deleted.",
+    "maxaccess": "read-create",
+    "name": "hwCopsGroupRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwCopsGroupSecret": {
+    "class": "objecttype",
+    "description": "COPS connection shared-key.",
+    "maxaccess": "read-write",
+    "name": "hwCopsGroupSecret",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCopsGroupServerIndex": {
+    "class": "objecttype",
+    "description": "COPS server index in the group.",
+    "maxaccess": "read-only",
+    "name": "hwCopsGroupServerIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCopsGroupSrcIf": {
+    "class": "objecttype",
+    "description": "COPS group source interface.",
+    "maxaccess": "read-write",
+    "name": "hwCopsGroupSrcIf",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 47,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCopsGroupTable": {
+    "class": "objecttype",
+    "description": "COPS group table.",
+    "maxaccess": "not-accessible",
+    "name": "hwCopsGroupTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.1.1",
+    "status": "current"
+  },
+  "hwCopsObjectGroups": {
+    "class": "objectidentity",
+    "name": "hwCopsObjectGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.2.2"
+  },
+  "hwCopsServerClientPort": {
+    "class": "objecttype",
+    "description": "COPS client port.",
+    "maxaccess": "read-write",
+    "name": "hwCopsServerClientPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCopsServerEntry": {
+    "class": "objecttype",
+    "description": "COPS server configration.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-COPS-MIB",
+        "object": "hwCopsServerGroupIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-BRAS-COPS-MIB",
+        "object": "hwCopsGroupServerIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwCopsServerEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.1.2.1",
+    "status": "current"
+  },
+  "hwCopsServerGroup": {
+    "class": "objectgroup",
+    "description": "The COPS Server group.",
+    "name": "hwCopsServerGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-BRAS-COPS-MIB",
+        "object": "hwCopsServerIp"
+      },
+      {
+        "module": "HUAWEI-BRAS-COPS-MIB",
+        "object": "hwCopsServerPort"
+      },
+      {
+        "module": "HUAWEI-BRAS-COPS-MIB",
+        "object": "hwCopsServerWeight"
+      },
+      {
+        "module": "HUAWEI-BRAS-COPS-MIB",
+        "object": "hwCopsServerVpnInstance"
+      },
+      {
+        "module": "HUAWEI-BRAS-COPS-MIB",
+        "object": "hwCopsServerClientPort"
+      },
+      {
+        "module": "HUAWEI-BRAS-COPS-MIB",
+        "object": "hwCopsServerRowStatus"
+      },
+      {
+        "module": "HUAWEI-BRAS-COPS-MIB",
+        "object": "hwCopsServerSecret"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.2.2.2",
+    "status": "current"
+  },
+  "hwCopsServerGroupIndex": {
+    "class": "objecttype",
+    "description": "COPS group index.",
+    "maxaccess": "read-only",
+    "name": "hwCopsServerGroupIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1023,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCopsServerIp": {
+    "class": "objecttype",
+    "description": "COPS server ip address.",
+    "maxaccess": "read-write",
+    "name": "hwCopsServerIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwCopsServerPort": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3288
+      }
+    },
+    "description": "COPS server port.",
+    "maxaccess": "read-write",
+    "name": "hwCopsServerPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCopsServerRowStatus": {
+    "class": "objecttype",
+    "description": "The operating state of the row, only can be Added or Deleted.",
+    "maxaccess": "read-create",
+    "name": "hwCopsServerRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwCopsServerSecret": {
+    "class": "objecttype",
+    "description": "COPS server shared-key.",
+    "maxaccess": "read-write",
+    "name": "hwCopsServerSecret",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.1.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCopsServerTable": {
+    "class": "objecttype",
+    "description": "COPS server table.",
+    "maxaccess": "not-accessible",
+    "name": "hwCopsServerTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.1.2",
+    "status": "current"
+  },
+  "hwCopsServerVpnInstance": {
+    "class": "objecttype",
+    "description": "COPS server VPN instance name.",
+    "maxaccess": "read-write",
+    "name": "hwCopsServerVpnInstance",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCopsServerWeight": {
+    "class": "objecttype",
+    "description": "COPS server weight.",
+    "maxaccess": "read-write",
+    "name": "hwCopsServerWeight",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.40.7.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwBRASMib"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "Integer32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Bits",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-BRAS-COPS-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:46:46 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-BRAS-COPS-MIB"
+  }
+}

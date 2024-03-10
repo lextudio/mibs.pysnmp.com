@@ -1,0 +1,3060 @@
+{
+  "hwDHCPChastenAutenPktNum": {
+    "class": "objecttype",
+    "description": "The threshold number of DHCP Discover packet",
+    "maxaccess": "read-create",
+    "name": "hwDHCPChastenAutenPktNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.43.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPChastenChastenPeriod": {
+    "class": "objecttype",
+    "description": "The period of chasten",
+    "maxaccess": "read-create",
+    "name": "hwDHCPChastenChastenPeriod",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.43.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 3600,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPChastenChastenRowStatus": {
+    "class": "objecttype",
+    "description": "This object is used to configuration new rows in this table, modify existing rows, and to delete existing rows.Only three actions are used: active(1), createAndGo(4), destroy(6). while configuration new suboption, you must specify suboption type and value",
+    "maxaccess": "read-create",
+    "name": "hwDHCPChastenChastenRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.43.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwDHCPChastenCheckPeriod": {
+    "class": "objecttype",
+    "description": "The period of checking",
+    "maxaccess": "read-create",
+    "name": "hwDHCPChastenCheckPeriod",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.43.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 3600,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPChastenEntry": {
+    "class": "objecttype",
+    "description": "An entry for configuring parameters of chasten",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPChastenIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPChastenEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.43.1",
+    "status": "current"
+  },
+  "hwDHCPChastenIndex": {
+    "class": "objecttype",
+    "description": "Slot of LPU",
+    "maxaccess": "read-only",
+    "name": "hwDHCPChastenIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.43.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPChastenPktNum": {
+    "class": "objecttype",
+    "description": "The threshold number of DHCP Discover packet",
+    "maxaccess": "read-create",
+    "name": "hwDHCPChastenPktNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.43.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPChastenTable": {
+    "class": "objecttype",
+    "description": "A table for configuring parameters of chasten , which don\u0027t allow to deal with packet of clients",
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPChastenTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.43",
+    "status": "current"
+  },
+  "hwDHCPSAckPktNum": {
+    "class": "objecttype",
+    "description": "The total number of the DHCP Ack packets sent by the DHCP server",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSAckPktNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.40",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSBadPktNum": {
+    "class": "objecttype",
+    "description": "The total number of the bad packets received by DHCP server",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSBadPktNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSBootReplyPktNum": {
+    "class": "objecttype",
+    "description": "The total number of the boot reply packets sent by DHCP server to DHCP clients",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSBootReplyPktNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.38",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSBootRequestPktNum": {
+    "class": "objecttype",
+    "description": "The total number of the boot request packets recieved by DHCP Server from DHCP clients",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSBootRequestPktNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSConflictIP": {
+    "class": "objecttype",
+    "description": "Conflict ip address",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSConflictIP",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.11.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDHCPSConflictIPDetectTime": {
+    "class": "objecttype",
+    "description": "Time when the confict is detected. The structure of the OCTET STRING is year/month/day:hour:munite:second -- YYYY/MM/DD:hh:mm:ss",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSConflictIPDetectTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.11.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 20,
+            "min": 20
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDHCPSConflictIPEntry": {
+    "class": "objecttype",
+    "description": "An entry for displaying the information of conflict ip for DHCP server",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSConflictIP"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPSConflictIPEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.11.1",
+    "status": "current"
+  },
+  "hwDHCPSConflictIPResetIP": {
+    "class": "objecttype",
+    "description": "An conflict ip that will be cleared. 0 returned for SET operation",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSConflictIPResetIP",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDHCPSConflictIPTable": {
+    "class": "objecttype",
+    "description": " A table for displaying the information of conflict ip for DHCP server,ip address is uesed by others when allocate the address. ",
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPSConflictIPTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.11",
+    "status": "current"
+  },
+  "hwDHCPSConflictIPType": {
+    "class": "objecttype",
+    "description": "Type of the detection of conflict ip, As a consistency check, the allocating server SHOULD probe the reused address before allocating the address, e.g., with ping or ARP",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSConflictIPType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.11.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "arp": 2,
+          "ping": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDHCPSDeclinePktNum": {
+    "class": "objecttype",
+    "description": "The total number of the DHCP Decline packets received from the DHCP clients",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSDeclinePktNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.35",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSDetectingServerStatus": {
+    "class": "objecttype",
+    "description": "The status of DHCP servers detecting function. If the value is enabled, It will check whether have other DHCP Servers. The default value is disabled",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSDetectingServerStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwDHCPSDiscoverPktNum": {
+    "class": "objecttype",
+    "description": "The total number of the DHCP Discover packets received from the DHCP clients",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSDiscoverPktNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSForbiddenIPEnd": {
+    "class": "objecttype",
+    "description": "End ip address of forbidden ip",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSForbiddenIPEnd",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.10.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDHCPSForbiddenIPEntry": {
+    "class": "objecttype",
+    "description": "An entry for configuring forbidden ip to DHCP server",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSForbiddenIPStart"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSForbiddenIPEnd"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPSForbiddenIPEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.10.1",
+    "status": "current"
+  },
+  "hwDHCPSForbiddenIPRowStatus": {
+    "class": "objecttype",
+    "description": "This object is used to configuration new rows in this table, modify existing rows, and to delete existing rows.Only three actions are used: active(1), createAndGo(4), destroy(6) ",
+    "maxaccess": "read-create",
+    "name": "hwDHCPSForbiddenIPRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.10.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwDHCPSForbiddenIPStart": {
+    "class": "objecttype",
+    "description": "Start ip address of forbidden ip",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSForbiddenIPStart",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.10.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDHCPSForbiddenIPTable": {
+    "class": "objecttype",
+    "description": "A table for configuring forbidden ip to DHCP server, which don\u0027t allow to allocate to clients",
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPSForbiddenIPTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.10",
+    "status": "current"
+  },
+  "hwDHCPSGlobalPoolAutoBindingNum": {
+    "class": "objecttype",
+    "description": "The total number of auto binding ip in DHCP server",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSGlobalPoolAutoBindingNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSGlobalPoolClientDNSIPString": {
+    "class": "objecttype",
+    "description": "String of DNS server ip addresses for DHCP clients. Since mostly 8 ip addresses can be configured for a pool totally, a string is defined to get or configure 8 ip addresses at a time",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSGlobalPoolClientDNSIPString",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 129,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDHCPSGlobalPoolClientDNSIPUndo": {
+    "class": "objecttype",
+    "description": "A DNS server ip address to be deleted. This object is only for deleting a given ip address of DNS server",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSGlobalPoolClientDNSIPUndo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDHCPSGlobalPoolClientGatewayIPString": {
+    "class": "objecttype",
+    "description": "String of gateway ip addresses for DHCP clients. Since mostly 8 ip addresses can be configured for a pool totally, a string is defined to get or configure 8 ip addresses at a time",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSGlobalPoolClientGatewayIPString",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 129,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDHCPSGlobalPoolClientGatewayIPUndo": {
+    "class": "objecttype",
+    "description": "A gateway ip address to be deleted. This object is only for deleting a given ip address of gateway router",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSGlobalPoolClientGatewayIPUndo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDHCPSGlobalPoolClientNbnsIPString": {
+    "class": "objecttype",
+    "description": "String of NetBios server ip addresses for DHCP clients. Since mostly 8 ip addresses can be configured for a pool totally, so a string is defined to get or configure 8 ip addresses at a time",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSGlobalPoolClientNbnsIPString",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 129,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDHCPSGlobalPoolClientNbnsIPUndo": {
+    "class": "objecttype",
+    "description": "A NetBios server ip address to delete. This object is only for deleting a given ip address of NetBios server",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSGlobalPoolClientNbnsIPUndo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.3.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDHCPSGlobalPoolClientNetbiosType": {
+    "class": "objecttype",
+    "description": "NetBios node type for DHCP Clients Each value has the following meaning: null(0)- no type designated bnode(1)- Broadcast (\u0027B\u0027) nodes,Broadcast (or \u0027B\u0027) nodes communicate using a mix of UDP datagrams (both broadcast and directed) and TCP connections. pnode(2)- Point-to-point (\u0027P\u0027) nodes,Point-to-point (or \u0027P\u0027) nodes communicate using only directed UDP datagrams and TCP sessions. mnode(4)- Mixed mode (\u0027M\u0027) nodes,Mixed mode nodes (or \u0027M\u0027) nodes are P nodes which have been given certain B node characteristics. hnode(8)- Hybrid mode (\u0027H\u0027) nodes. ",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSGlobalPoolClientNetbiosType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bnode": 1,
+          "hnode": 8,
+          "mnode": 4,
+          "null": 0,
+          "pnode": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDHCPSGlobalPoolConfigEntry": {
+    "class": "objecttype",
+    "description": "An entry containing the objects for configuring the network ip or host ip etc. to global pools for DHCP server",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPSGlobalPoolConfigEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.2.1",
+    "status": "current"
+  },
+  "hwDHCPSGlobalPoolConfigTable": {
+    "class": "objecttype",
+    "description": "A table containing the configuration informations of DHCP server global pools, such as pool type, ip address, mask",
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPSGlobalPoolConfigTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.2",
+    "status": "current"
+  },
+  "hwDHCPSGlobalPoolConfigUndoFlag": {
+    "class": "objecttype",
+    "description": "Flag of undo operation for hwDHCPSGlobalPoolConfigTable Each value has the following meaning: undonetworkip(1): The value identifies the flag to delete a configured network ip undohostip(2): The value identifies the flag to delete a configured host ip undohosthaddr(3):The value identifies the flag to delete a configured hardware address invalid(4):The value is a default value,do nothing ",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSGlobalPoolConfigUndoFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 4,
+          "undohosthaddr": 3,
+          "undohostip": 2,
+          "undonetworkip": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDHCPSGlobalPoolConflictRecycleTime": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSGlobalPoolConflictRecycleTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.3.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1439999,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "minute"
+  },
+  "hwDHCPSGlobalPoolDomainName": {
+    "class": "objecttype",
+    "description": "Domain name for DHCP Clients, the domain name that client should use when resolving hostnames via the Domain Name System.",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSGlobalPoolDomainName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 63,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDHCPSGlobalPoolEntry": {
+    "class": "objecttype",
+    "description": "An entry in DHCP Server Global Pool table containing objects for creating or deleting a global pool for the DHCP server",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPSGlobalPoolEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.1.1",
+    "status": "current"
+  },
+  "hwDHCPSGlobalPoolExpiredBindingNum": {
+    "class": "objecttype",
+    "description": "The total number of expired binding ip in DHCP server",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSGlobalPoolExpiredBindingNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSGlobalPoolHostHAddr": {
+    "class": "objecttype",
+    "description": "Hardware address of a DHCP server global pool(host). To delete a configured hardware address, please set hwDHCPSGlobalPoolConfigUndoFlag to 3",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSGlobalPoolHostHAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwDHCPSGlobalPoolHostIPAddr": {
+    "class": "objecttype",
+    "description": "Host ip of a DHCP server global pool To detete a configured Host ip, please set hwDHCPSGlobalPoolConfigUndoFlag to 2",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSGlobalPoolHostIPAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDHCPSGlobalPoolHostMask": {
+    "class": "objecttype",
+    "description": "Host mask of a DHCP server global pool(host) The SET operation to this object ought to be with the SET of hwDHCPSGlobalPoolHostIPAddr together, and any SET operation alone to this object will be regarded as an invalid operation. When a host ip of a DHCP server global pool was deleted, the Host mask would also be deleted automatically, and no further operation needed",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSGlobalPoolHostMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDHCPSGlobalPoolIPInUseReset": {
+    "class": "objecttype",
+    "description": "Reset the auto binding ip of the given global pool for DHCP server. The invalid(2) is a default vlaue, do nothing",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSGlobalPoolIPInUseReset",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.3.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 2,
+          "reset": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDHCPSGlobalPoolLeaseDay": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "A value which indicates number of days of the lease, The period over which a network address is allocated to a client is referred to as a \u0027lease\u0027.",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSGlobalPoolLeaseDay",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 365,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSGlobalPoolLeaseHour": {
+    "class": "objecttype",
+    "description": "A value which indicates number of hours of the lease, The period over which a network address is allocated to a client is referred to as a \u0027lease\u0027.",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSGlobalPoolLeaseHour",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 23,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSGlobalPoolLeaseMinute": {
+    "class": "objecttype",
+    "description": "A value which indicates number of minutes of the lease, The period over which a network address is allocated to a client is referred to as a \u0027lease\u0027.",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSGlobalPoolLeaseMinute",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 59,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSGlobalPoolLeaseUnlimited": {
+    "class": "objecttype",
+    "description": "A flag denoting if the lease of a pool is unlimited. The value means: invalid(0)- The lease of the network address that clients be assigned is finite, the period is decided by hwDHCPSGlobalPoolLeaseDay,hwDHCPSGlobalPoolLeaseHour and hwDHCPSGlobalPoolLeaseMinute unlimited(1)-The lease of the network address that clients be assigned is infinite",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSGlobalPoolLeaseUnlimited",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "unlimited": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDHCPSGlobalPoolLogging": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "Log the assigning IP addresses information of the given global pool for DHCP server. ",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSGlobalPoolLogging",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.3.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDHCPSGlobalPoolManualBindingNum": {
+    "class": "objecttype",
+    "description": "The total number of manual binding ip in DHCP server",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSGlobalPoolManualBindingNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSGlobalPoolName": {
+    "class": "objecttype",
+    "description": "DHCP server global pool name for creating or deleting DHCP server global pool ",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSGlobalPoolName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 35,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDHCPSGlobalPoolNetwork": {
+    "class": "objecttype",
+    "description": "Network ip address of a DHCP Server global pool. To delete a configured network ip, please set hwDHCPSGlobalPoolConfigUndoFlag to 1",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSGlobalPoolNetwork",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDHCPSGlobalPoolNetworkMask": {
+    "class": "objecttype",
+    "description": "Net mask of a DHCP Server global pool(network). The SET operation to this object ought to be with the SET of hwDHCPSGlobalPoolNetwork together, and any SET operation alone to this object will be regarded as an invalid operation. When a network ip of a DHCP server global pool was deleted, the net mask would also be deleted automatically, and no further operation needed",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSGlobalPoolNetworkMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDHCPSGlobalPoolNumber": {
+    "class": "objecttype",
+    "description": "The total number of DHCP server global pools",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSGlobalPoolNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSGlobalPoolOptionAscii": {
+    "class": "objecttype",
+    "description": "Ascii string of a option",
+    "maxaccess": "read-create",
+    "name": "hwDHCPSGlobalPoolOptionAscii",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDHCPSGlobalPoolOptionCipher": {
+    "class": "objecttype",
+    "description": "Cipher string of a option.",
+    "maxaccess": "read-create",
+    "name": "hwDHCPSGlobalPoolOptionCipher",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 104,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDHCPSGlobalPoolOptionCode": {
+    "class": "objecttype",
+    "description": "Option code, All options begin with a tag octet, which uniquely identifies the option.",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSGlobalPoolOptionCode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 254,
+            "min": 2
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSGlobalPoolOptionEntry": {
+    "class": "objecttype",
+    "description": "An entry containing the objects for configuring options to DHCP global pools",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolOptionCode"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPSGlobalPoolOptionEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.4.1",
+    "status": "current"
+  },
+  "hwDHCPSGlobalPoolOptionHexString": {
+    "class": "objecttype",
+    "description": "Hex string of a option. 1 to 10 2 bytes or 4 bytes hex string can be configured at most simultaneously",
+    "maxaccess": "read-create",
+    "name": "hwDHCPSGlobalPoolOptionHexString",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 129,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDHCPSGlobalPoolOptionIPString": {
+    "class": "objecttype",
+    "description": "Ip string of a option. 1 to 8 ip addresses can be configured at most simultaneously",
+    "maxaccess": "read-create",
+    "name": "hwDHCPSGlobalPoolOptionIPString",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 129,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDHCPSGlobalPoolOptionRowStatus": {
+    "class": "objecttype",
+    "description": "This object is used to configuration new rows in this table, modify existing rows, and to delete existing rows.Only three actions are used: active(1), createAndGo(4), destroy(6). while configuration new option, you must specify option type and value",
+    "maxaccess": "read-create",
+    "name": "hwDHCPSGlobalPoolOptionRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwDHCPSGlobalPoolOptionTable": {
+    "class": "objecttype",
+    "description": "A table for configuring options to DHCP server global pools, include option code type and value and so on ",
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPSGlobalPoolOptionTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.4",
+    "status": "current"
+  },
+  "hwDHCPSGlobalPoolOptionType": {
+    "class": "objecttype",
+    "description": "The object means option type in DHCP server global pool The value means : ascii(1)- The option type is ascii string hex(2) - The option type is hex number ip(3) - The option type is ip address cipher(4) - The option type is cipher string",
+    "maxaccess": "read-create",
+    "name": "hwDHCPSGlobalPoolOptionType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ascii": 1,
+          "cipher": 4,
+          "hex": 2,
+          "ip": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDHCPSGlobalPoolParaEntry": {
+    "class": "objecttype",
+    "description": "An entry containing the objects for the configurations of parameters of DHCP server global pools",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPSGlobalPoolParaEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.3.1",
+    "status": "current"
+  },
+  "hwDHCPSGlobalPoolParaTable": {
+    "class": "objecttype",
+    "description": "A table for configuring parameters to DHCP server global pool, include lease, Domain name,GateWayIP,DNSIP and so on",
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPSGlobalPoolParaTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.3",
+    "status": "current"
+  },
+  "hwDHCPSGlobalPoolParaUndoFlag": {
+    "class": "objecttype",
+    "description": "Flag of undo-operation for hwDHCPSGlobalPoolParaTable Each value has the following meaning: undoDomain(1) - It means to delete Domain, undoLease(2) - It means to delete lease of a given ip address, undoGateway(3) - It means to delete a given ip address of gateway router, undoDns(4) - It means to delete a given ip address of DNS server, undoNbns(5) - It means to deletd a given ip address of NetBios server, undoNbType(6) - It means to delete NetBios node type , invalid(7) - The value is a default value,do nothing",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSGlobalPoolParaUndoFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.3.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 7,
+          "undoDns": 4,
+          "undoDomain": 1,
+          "undoGateway": 3,
+          "undoLease": 2,
+          "undoNbType": 6,
+          "undoNbns": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDHCPSGlobalPoolRowStatus": {
+    "class": "objecttype",
+    "description": "This object is used to create new rows in this table, modify existing rows, and to delete existing rows.Only three actions are used: active(1), createAndGo(4), destroy(6).While the hwDHCPSGlobalPoolRowStatus object is in the `createAndGo(4),The DHCP server global pool to be deleted must be exist",
+    "maxaccess": "read-create",
+    "name": "hwDHCPSGlobalPoolRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwDHCPSGlobalPoolTable": {
+    "class": "objecttype",
+    "description": "DHCP Server Global Pool table for creating and deleting DHCP server global pool",
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPSGlobalPoolTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.1",
+    "status": "current"
+  },
+  "hwDHCPSGlobalPoolType": {
+    "class": "objecttype",
+    "description": "Type of a DHCP global pool. Any operations of this object will be bound with the operations of hwDHCPSGlobalPoolNetwork and hwDHCPSGlobalPoolNetworkMask or with the operations of hwDHCPSGlobalPoolHostIPAddr, hwDHCPSGlobalPoolMask and hwDHCPSGlobalPoolHostHAddr. That means any operation of this object alone will be regarded as invalid operation. The value means: null(0)- It is a pool without ip address, host(1)- It is a pool with manual allocation, network(2)- It is a pool with automatic allocation",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSGlobalPoolType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "host": 1,
+          "network": 2,
+          "null": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDHCPSGlobalTreeChildNodeName": {
+    "class": "objecttype",
+    "description": "Pool name of the child node",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSGlobalTreeChildNodeName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 35,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDHCPSGlobalTreeEntry": {
+    "class": "objecttype",
+    "description": "An entry of objects containing the information for displaying the tree of DHCP global pools",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPSGlobalTreeEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.5.1",
+    "status": "current"
+  },
+  "hwDHCPSGlobalTreeParentNodeName": {
+    "class": "objecttype",
+    "description": "Pool name of the parent node",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSGlobalTreeParentNodeName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 35,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDHCPSGlobalTreePreSiblingNodeName": {
+    "class": "objecttype",
+    "description": "Pool name of the presibling node",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSGlobalTreePreSiblingNodeName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 35,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDHCPSGlobalTreeSiblingNodeName": {
+    "class": "objecttype",
+    "description": "Pool name of the sibling node",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSGlobalTreeSiblingNodeName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 35,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDHCPSGlobalTreeTable": {
+    "class": "objecttype",
+    "description": "A table containing the information of the tree of DHCP global pools, and the relationship between the pools,",
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPSGlobalTreeTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.5",
+    "status": "current"
+  },
+  "hwDHCPSIPInUseAtmpvc": {
+    "class": "objecttype",
+    "description": "ATM Pvc informationg that ip address belong to",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSIPInUseAtmpvc",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.9.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSIPInUseEndLease": {
+    "class": "objecttype",
+    "description": "End time of ip address leasese. The structure of the OCTET STRING is year/month/day:hour:munite:second -- YYYY/MM/DD:hh:mm:ss",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSIPInUseEndLease",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.9.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 20,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDHCPSIPInUseEntry": {
+    "class": "objecttype",
+    "description": "An entry of objects for displaying information of ip in use for DHCP server pools",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSIPInUseHAddr"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPSIPInUseEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.9.1",
+    "status": "current"
+  },
+  "hwDHCPSIPInUseHAddr": {
+    "class": "objecttype",
+    "description": "The MAC addreess of host use the ip address in DHCP pools",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSIPInUseHAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.9.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwDHCPSIPInUseIP": {
+    "class": "objecttype",
+    "description": "Ip address allocation to clients in DHCP pools",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSIPInUseIP",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.9.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDHCPSIPInUseInterface": {
+    "class": "objecttype",
+    "description": "Interface index information that ip address belong to",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSIPInUseInterface",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.9.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSIPInUsePoolName": {
+    "class": "objecttype",
+    "description": "Name of the DHCP server pool that allocated ip belongs to",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSIPInUsePoolName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.9.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 35,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDHCPSIPInUseResetIP": {
+    "class": "objecttype",
+    "description": "An ip in use that will be cleared. 0 returned for SET operation",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSIPInUseResetIP",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDHCPSIPInUseTable": {
+    "class": "objecttype",
+    "description": "A table for displaying the information of ip allocation to clients for DHCP server pools",
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPSIPInUseTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.9",
+    "status": "current"
+  },
+  "hwDHCPSIPInUseType": {
+    "class": "objecttype",
+    "description": "Type of binding The value means manual(1) - manual allocation auto(2) - automatic allocation release(3)- The ip is automatic allocation,but it is already released offered(4)-The ip is offered to client ",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSIPInUseType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.9.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 2,
+          "manual": 1,
+          "offered": 4,
+          "release": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDHCPSIPInUseVlan": {
+    "class": "objecttype",
+    "description": "Vlan informationg that ip address belong to",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSIPInUseVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.9.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSIPPOOLConflictIP": {
+    "class": "objecttype",
+    "description": "Conflict ip address",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSIPPOOLConflictIP",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.46.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDHCPSIPPOOLConflictIPDetectTime": {
+    "class": "objecttype",
+    "description": "Time when the confict is detected. The structure of the OCTET STRING is year/month/day:hour:munite:second -- YYYY/MM/DD:hh:mm:ss",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSIPPOOLConflictIPDetectTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.46.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 20,
+            "min": 20
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDHCPSIPPOOLConflictIPEntry": {
+    "class": "objecttype",
+    "description": "An entry for displaying the information of conflict ip for DHCP server",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSIPPOOLConflictIP"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSIPPOOLConflictIPVRFName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPSIPPOOLConflictIPEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.46.1",
+    "status": "current"
+  },
+  "hwDHCPSIPPOOLConflictIPTable": {
+    "class": "objecttype",
+    "description": " A table for displaying the information of conflict ip for DHCP server,ip address is uesed by others when allocate the address. ",
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPSIPPOOLConflictIPTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.46",
+    "status": "current"
+  },
+  "hwDHCPSIPPOOLConflictIPType": {
+    "class": "objecttype",
+    "description": "Type of the detection of conflict ip, As a consistency check, the allocating server SHOULD probe the reused address before allocating the address, e.g., with ping or ARP",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSIPPOOLConflictIPType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.46.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "arp": 2,
+          "ping": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDHCPSIPPOOLConflictIPVRFName": {
+    "class": "objecttype",
+    "description": "Index: the VRFNAME of conflict ip.",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSIPPOOLConflictIPVRFName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.46.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDHCPSIPPOOLForbiddenIPEnd": {
+    "class": "objecttype",
+    "description": "End ip address of forbidden ip",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSIPPOOLForbiddenIPEnd",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.45.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDHCPSIPPOOLForbiddenIPEntry": {
+    "class": "objecttype",
+    "description": "An entry for configuring forbidden ip to DHCP server",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSIPPOOLForbiddenIPStart"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSIPPOOLForbiddenIPEnd"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSIPPOOLForbiddenIPVRFName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPSIPPOOLForbiddenIPEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.45.1",
+    "status": "current"
+  },
+  "hwDHCPSIPPOOLForbiddenIPRowStatus": {
+    "class": "objecttype",
+    "description": "This object is used to configuration new rows in this table, modify existing rows, and to delete existing rows.Only three actions are used: active(1), createAndGo(4), destroy(6) ",
+    "maxaccess": "read-create",
+    "name": "hwDHCPSIPPOOLForbiddenIPRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.45.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwDHCPSIPPOOLForbiddenIPStart": {
+    "class": "objecttype",
+    "description": "Start ip address of forbidden ip",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSIPPOOLForbiddenIPStart",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.45.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDHCPSIPPOOLForbiddenIPTable": {
+    "class": "objecttype",
+    "description": "A table for configuring forbidden ip to DHCP server, which don\u0027t allow to allocate to clients",
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPSIPPOOLForbiddenIPTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.45",
+    "status": "current"
+  },
+  "hwDHCPSIPPOOLForbiddenIPVRFName": {
+    "class": "objecttype",
+    "description": "Index: the VRFNAME of forbidden ip.",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSIPPOOLForbiddenIPVRFName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.45.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDHCPSIPResetFlag": {
+    "class": "objecttype",
+    "description": "A flag that descript the reset operation, 1 means deleting ip in use 2 means deleting conflict ip addresses",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSIPResetFlag",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "conflictIp": 2,
+          "ipInUse": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDHCPSInformPktNum": {
+    "class": "objecttype",
+    "description": "The total number of the DHCP Inform packets received from the DHCP clients",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSInformPktNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.37",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSInterfacePoolAutoBindingNum": {
+    "class": "objecttype",
+    "description": "The total number of auto binding ip in DHCP server interface pools",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSInterfacePoolAutoBindingNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSInterfacePoolClientDNSIPString": {
+    "class": "objecttype",
+    "description": "String of DNS server ip addresses for DHCP clients. Since mostly 8 ip can be configured for a pool totally, a string is defined to get or configure 8 ip at a time",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSInterfacePoolClientDNSIPString",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.6.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 129,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDHCPSInterfacePoolClientDNSIPUndo": {
+    "class": "objecttype",
+    "description": "A DNS server ip address to delete. This object is only for deleting a given ip of DNS server",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSInterfacePoolClientDNSIPUndo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.6.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDHCPSInterfacePoolClientNbnsIPString": {
+    "class": "objecttype",
+    "description": "String of NetBios server ip addresses for DHCP clients. Since mostly 8 ip can be configured for a pool totally, so a string is defined to get or configure 8 ip at a time",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSInterfacePoolClientNbnsIPString",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.6.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 129,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDHCPSInterfacePoolClientNbnsIPUndo": {
+    "class": "objecttype",
+    "description": "A NetBios server ip address to delete. This object is only for deleting a given ip of NetBios server",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSInterfacePoolClientNbnsIPUndo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.6.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDHCPSInterfacePoolClientNetbiosType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 8
+      }
+    },
+    "description": "NetBios node type for DHCP Clients Each value has the following meaning: null(0)- no type designated bnode(1)- Broadcast (\u0027B\u0027) nodes,Broadcast (or \u0027B\u0027) nodes communicate using a mix of UDP datagrams (both broadcast and directed) and TCP connections. pnode(2)- Point-to-point (\u0027P\u0027) nodes,Point-to-point (or \u0027P\u0027) nodes communicate using only directed UDP datagrams and TCP sessions. mnode(4)- Mixed mode (\u0027M\u0027) nodes,Mixed mode nodes (or \u0027M\u0027) nodes are P nodes which have been given certain B node characteristics. hnode(8)- Hybrid mode (\u0027H\u0027) nodes. ",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSInterfacePoolClientNetbiosType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.6.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bnode": 1,
+          "hnode": 8,
+          "mnode": 4,
+          "null": 0,
+          "pnode": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDHCPSInterfacePoolConflictRecycleTime": {
+    "class": "objecttype",
+    "description": "Description.",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSInterfacePoolConflictRecycleTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.6.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1439999,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "minute"
+  },
+  "hwDHCPSInterfacePoolDomainName": {
+    "class": "objecttype",
+    "description": "Domain name for DHCP Clients, the domain name that client should use when resolving hostnames via the Domain Name System.",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSInterfacePoolDomainName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 63,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDHCPSInterfacePoolExpiredBindingNum": {
+    "class": "objecttype",
+    "description": "The total number of expired binding ip in DHCP server interface pool",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSInterfacePoolExpiredBindingNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSInterfacePoolIPInUseReset": {
+    "class": "objecttype",
+    "description": "Reset the auto or manual binding ip of the given interface pool for DHCP server. The invalid(2) is a default vlaue, do nothing",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSInterfacePoolIPInUseReset",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.6.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 2,
+          "reset": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDHCPSInterfacePoolLeaseDay": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "A value which indicates number of days of the lease, The period over which a network address is allocated to a client is referred to as a \u0027lease\u0027.",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSInterfacePoolLeaseDay",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 365,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSInterfacePoolLeaseHour": {
+    "class": "objecttype",
+    "description": "A value which indicates number of hours of the lease, The period over which a network address is allocated to a client is referred to as a \u0027lease\u0027.",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSInterfacePoolLeaseHour",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 23,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSInterfacePoolLeaseMinute": {
+    "class": "objecttype",
+    "description": "A value which indicates number of minutes of the lease, The period over which a network address is allocated to a client is referred to as a \u0027lease\u0027.",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSInterfacePoolLeaseMinute",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 59,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSInterfacePoolLeaseUnlimited": {
+    "class": "objecttype",
+    "description": "A flag denoting if the lease of a pool is unlimited. The value means: invalid(0)- The lease of the network address that clients be assigned is finite, the period is decided by hwDHCPSGlobalPoolLeaseDay,hwDHCPSGlobalPoolLeaseHour and hwDHCPSGlobalPoolLeaseMinute unlimited(1)-The lease of the network address that clients be assigned is infinite",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSInterfacePoolLeaseUnlimited",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "unlimited": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDHCPSInterfacePoolLogging": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "Log the assigning IP addresses information of the given interface pool for DHCP server. ",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSInterfacePoolLogging",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.6.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDHCPSInterfacePoolManualBindingNum": {
+    "class": "objecttype",
+    "description": "The total number of manual binding ip in DHCP server interface pool",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSInterfacePoolManualBindingNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSInterfacePoolNumber": {
+    "class": "objecttype",
+    "description": "The total number of DHCP server interface pools",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSInterfacePoolNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSInterfacePoolOptionAscii": {
+    "class": "objecttype",
+    "description": "Ascii string of an option",
+    "maxaccess": "read-create",
+    "name": "hwDHCPSInterfacePoolOptionAscii",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDHCPSInterfacePoolOptionCipher": {
+    "class": "objecttype",
+    "description": "Cipher string of an option",
+    "maxaccess": "read-create",
+    "name": "hwDHCPSInterfacePoolOptionCipher",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.7.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 104,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDHCPSInterfacePoolOptionCode": {
+    "class": "objecttype",
+    "description": "Option Code,All options begin with a tag octet, which uniquely identifies the option.",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSInterfacePoolOptionCode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 254,
+            "min": 2
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSInterfacePoolOptionEntry": {
+    "class": "objecttype",
+    "description": "An entry of objects for configuring options to DHCP interface pools. The index of this entry is the inIndex of ethernet",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInterfacePoolOptionCode"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPSInterfacePoolOptionEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.7.1",
+    "status": "current"
+  },
+  "hwDHCPSInterfacePoolOptionHexString": {
+    "class": "objecttype",
+    "description": "Hex string of a option. 1 to 10 2 bytes or 4 bytes hex string can be configured at most simultaneously",
+    "maxaccess": "read-create",
+    "name": "hwDHCPSInterfacePoolOptionHexString",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.7.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 129,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDHCPSInterfacePoolOptionIPString": {
+    "class": "objecttype",
+    "description": "Ip string of a option. 1 to 8 ip addresses can be configured at most simultaneously",
+    "maxaccess": "read-create",
+    "name": "hwDHCPSInterfacePoolOptionIPString",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.7.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 129,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDHCPSInterfacePoolOptionRowStatus": {
+    "class": "objecttype",
+    "description": "This object is used to configuration new rows in this table, modify existing rows, and to delete existing rows.Only three actions are used: active(1), createAndGo(4), destroy(6). while configuration new option, you must specify option type and value",
+    "maxaccess": "read-create",
+    "name": "hwDHCPSInterfacePoolOptionRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.7.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwDHCPSInterfacePoolOptionTable": {
+    "class": "objecttype",
+    "description": "A table for configuring options to DHCP interface pools, include option code type and value and so on",
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPSInterfacePoolOptionTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.7",
+    "status": "current"
+  },
+  "hwDHCPSInterfacePoolOptionType": {
+    "class": "objecttype",
+    "description": "The object means option type in DHCP server interface pool The value means : ascii(1)- The option type is ascii string hex(2) - The option type is hex number ip(3) - The option type is ip address cipher(4) - The option type is cipher string ",
+    "maxaccess": "read-create",
+    "name": "hwDHCPSInterfacePoolOptionType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ascii": 1,
+          "cipher": 4,
+          "hex": 2,
+          "ip": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDHCPSInterfacePoolParaEntry": {
+    "class": "objecttype",
+    "description": "An entry of objects for configuring parameters to DHCP interface pools. The index of this entry is the ifIndex of ethernet",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPSInterfacePoolParaEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.6.1",
+    "status": "current"
+  },
+  "hwDHCPSInterfacePoolParaTable": {
+    "class": "objecttype",
+    "description": "A table for configuring parameters to DHCP server interface pools, include lease, Domain Name, DNS and so on",
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPSInterfacePoolParaTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.6",
+    "status": "current"
+  },
+  "hwDHCPSInterfacePoolParaUndoFlag": {
+    "class": "objecttype",
+    "description": "Flag of undo-operation for hwDHCPSInterfacePoolParaTable Each value has the following meaning: undoDomain(1) - It means to delete Domain, undoLease(2) - It means to delete lease of a given ip address, undoGateway(3) - It means to delete a given ip address of gateway router, undoDns(4) - It means to delete a given ip address of DNS server, undoNbns(5) - It means to deletd a given ip address of NetBios server, undoNbType(6) - It means to delete NetBios node type invalid(7) - The value is a default value,do nothing ",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSInterfacePoolParaUndoFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.6.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 7,
+          "undoDns": 4,
+          "undoDomain": 1,
+          "undoLease": 2,
+          "undoNbType": 6,
+          "undoNbns": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDHCPSInterfacePoolStaticBindEntry": {
+    "class": "objecttype",
+    "description": "An entry of objects for configuring static binding to DHCP interface pools. The index of this entry is the inIndex of ethernet",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInterfacePoolStaticBindIP"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPSInterfacePoolStaticBindEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.8.1",
+    "status": "current"
+  },
+  "hwDHCPSInterfacePoolStaticBindIP": {
+    "class": "objecttype",
+    "description": "Ip address in static binding for DHCP interface pools",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSInterfacePoolStaticBindIP",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwDHCPSInterfacePoolStaticBindMac": {
+    "class": "objecttype",
+    "description": "Hardware address in static binding for DHCP interface pools",
+    "maxaccess": "read-create",
+    "name": "hwDHCPSInterfacePoolStaticBindMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.8.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwDHCPSInterfacePoolStaticBindRowStatus": {
+    "class": "objecttype",
+    "description": "This object is used to configuration new rows in this table, modify existing rows, and to delete existing rows.Only three actions are used: active(1), createAndGo(4), destroy(6). while configuration static binding, you must specify ip address and hardware address ",
+    "maxaccess": "read-create",
+    "name": "hwDHCPSInterfacePoolStaticBindRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.8.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwDHCPSInterfacePoolStaticBindTable": {
+    "class": "objecttype",
+    "description": "A table for configuring static binding to DHCP interface pools,which manual binding ip address and Hardware address",
+    "maxaccess": "not-accessible",
+    "name": "hwDHCPSInterfacePoolStaticBindTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.8",
+    "status": "current"
+  },
+  "hwDHCPSNakPktNum": {
+    "class": "objecttype",
+    "description": "The total number of the DHCP Nak packets sent by the DHCP server",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSNakPktNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.41",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSOfferPktNum": {
+    "class": "objecttype",
+    "description": "The total number of the DHCP Offer packets sent by the DHCP server",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSOfferPktNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.39",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSPingNum": {
+    "class": "objecttype",
+    "description": "The number of ping packets sent out when check address conflict,the default value is 2.",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSPingNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSPingTimeout": {
+    "class": "objecttype",
+    "description": "The delay for the reply of a ping packet when check address conflict. Unit: millisecond, the default value is 500.",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSPingTimeout",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSReleasePktNum": {
+    "class": "objecttype",
+    "description": "The total number of the DHCP Release packets received from the DHCP clients",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSReleasePktNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.36",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSRequestPktNum": {
+    "class": "objecttype",
+    "description": "The total number of the DHCP Request packets received from the DHCP clients",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSRequestPktNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.34",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSServiceStatus": {
+    "class": "objecttype",
+    "description": "The status of DHCP service, The default value is disabled, which mean disabled the DHCP service; the other value is enabled, which mean enable the DHCP service",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSServiceStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwDHCPSStatisticsReset": {
+    "class": "objecttype",
+    "description": "Reset the above statictics information of packets received and sent by the DHCP server. The value 1 means clear the statictics information",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSStatisticsReset",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.42",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "reset": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwDHCPSWriteDataDelay": {
+    "class": "objecttype",
+    "description": "The allowable delay of writing data to the harddisk. Unit: second,the default value is 300.",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSWriteDataDelay",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 86400,
+            "min": 300
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwDHCPSWriteDataDirection": {
+    "class": "objecttype",
+    "description": "The directory of writing data to a harddisk, The format is directory and file name",
+    "maxaccess": "read-only",
+    "name": "hwDHCPSWriteDataDirection",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwDHCPSWriteDataRecover": {
+    "class": "objecttype",
+    "description": "The flag used to recover DHCP data with the data on the harddisk,It means whether recover data from the data on the harddisk when system startup. The default value is disabled ",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSWriteDataRecover",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwDHCPSWriteDataStatus": {
+    "class": "objecttype",
+    "description": "The status of the function writing data to the harddisk, It does not write data to the harddisk default, The information that written are the content that hwDHCPSConflictIPTable and hwDHCPSIPInUseTable, the default value is disable.",
+    "maxaccess": "read-write",
+    "name": "hwDHCPSWriteDataStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwDHCPServerMIBCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting this module.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPServerMIBGroup"
+      }
+    ],
+    "name": "hwDHCPServerMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.2.1.1",
+    "status": "current"
+  },
+  "hwDHCPServerMIBCompliances": {
+    "class": "objectidentity",
+    "name": "hwDHCPServerMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.2.1"
+  },
+  "hwDHCPServerMIBConformance": {
+    "class": "objectidentity",
+    "name": "hwDHCPServerMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.2"
+  },
+  "hwDHCPServerMIBGroup": {
+    "class": "objectgroup",
+    "description": "The basic collection of objects providing management of DHCP server.",
+    "name": "hwDHCPServerMIBGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolName"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolRowStatus"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolType"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolNetwork"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolNetworkMask"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolHostIPAddr"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolHostMask"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolHostHAddr"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolConfigUndoFlag"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolLeaseDay"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolLeaseHour"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolLeaseMinute"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolLeaseUnlimited"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolDomainName"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolClientGatewayIPString"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolClientGatewayIPUndo"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolClientDNSIPString"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolClientDNSIPUndo"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolClientNetbiosType"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolClientNbnsIPString"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolClientNbnsIPUndo"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolParaUndoFlag"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolIPInUseReset"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolOptionCode"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolOptionType"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolOptionAscii"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolOptionHexString"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolOptionIPString"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolOptionRowStatus"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalTreeParentNodeName"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalTreeChildNodeName"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalTreePreSiblingNodeName"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalTreeSiblingNodeName"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInterfacePoolLeaseDay"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInterfacePoolLeaseHour"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInterfacePoolLeaseMinute"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInterfacePoolLeaseUnlimited"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInterfacePoolDomainName"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInterfacePoolClientDNSIPString"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInterfacePoolClientDNSIPUndo"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInterfacePoolClientNetbiosType"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInterfacePoolClientNbnsIPString"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInterfacePoolClientNbnsIPUndo"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInterfacePoolParaUndoFlag"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInterfacePoolIPInUseReset"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInterfacePoolOptionCode"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInterfacePoolOptionType"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInterfacePoolOptionAscii"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInterfacePoolOptionHexString"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInterfacePoolOptionIPString"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInterfacePoolOptionRowStatus"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInterfacePoolStaticBindIP"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInterfacePoolStaticBindMac"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInterfacePoolStaticBindRowStatus"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSIPInUseHAddr"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSIPInUseIP"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSIPInUseEndLease"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSIPInUseType"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSIPInUsePoolName"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSIPInUseInterface"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSIPInUseVlan"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSIPInUseAtmpvc"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSForbiddenIPStart"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSForbiddenIPEnd"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSForbiddenIPRowStatus"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSConflictIP"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSConflictIPType"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSConflictIPDetectTime"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSServiceStatus"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSDetectingServerStatus"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSPingNum"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSPingTimeout"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSWriteDataStatus"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSWriteDataDirection"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSWriteDataDelay"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSWriteDataRecover"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSIPInUseResetIP"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSConflictIPResetIP"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSIPResetFlag"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolNumber"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolAutoBindingNum"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolManualBindingNum"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolExpiredBindingNum"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInterfacePoolNumber"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInterfacePoolAutoBindingNum"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInterfacePoolManualBindingNum"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInterfacePoolExpiredBindingNum"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSBadPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSBootRequestPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSDiscoverPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSRequestPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSDeclinePktNum"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSReleasePktNum"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInformPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSBootReplyPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSOfferPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSAckPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSNakPktNum"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSStatisticsReset"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSIPPOOLForbiddenIPStart"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSIPPOOLForbiddenIPEnd"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSIPPOOLForbiddenIPVRFName"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSIPPOOLForbiddenIPRowStatus"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSIPPOOLConflictIP"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSIPPOOLConflictIPVRFName"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSIPPOOLConflictIPType"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSIPPOOLConflictIPDetectTime"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPThroughPacket"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSGlobalPoolConflictRecycleTime"
+      },
+      {
+        "module": "HUAWEI-DHCPS-MIB",
+        "object": "hwDHCPSInterfacePoolConflictRecycleTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.7.2.2.2.1",
+    "status": "current"
+  },
+  "hwDHCPServerMIBGroups": {
+    "class": "objectidentity",
+    "name": "hwDHCPServerMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.2.2"
+  },
+  "hwDHCPServerMib": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "Add node hwDHCPSGlobalPoolConflictRecycleTime hwDHCPSInterfacePoolConflictRecycleTime",
+    "lastupdated": "201503050000Z",
+    "name": "hwDHCPServerMib",
+    "oid": "1.3.6.1.4.1.2011.5.7.2",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "This MIB describes objects used for managing DHCP server, including objects used for DHCP server global pool, interface pool and informations of ip address used and conflicted in DHCP server, some Statistic informations about DHCP server",
+        "revision": "2015-03-05 00:00"
+      },
+      {
+        "description": "This MIB describes objects used for managing DHCP server, including objects used for DHCP server global pool, interface pool and informations of ip address used and conflicted in DHCP server, some Statistic informations about DHCP server",
+        "revision": "2014-08-25 00:00"
+      },
+      {
+        "description": "This MIB describes objects used for managing DHCP server, including objects used for DHCP server global pool, interface pool and informations of ip address used and conflicted in DHCP server, some Statistic informations about DHCP server",
+        "revision": "2014-03-17 00:00"
+      },
+      {
+        "description": "This MIB describes objects used for managing DHCP server, including objects used for DHCP server global pool, interface pool and informations of ip address used and conflicted in DHCP server, some Statistic informations about DHCP server",
+        "revision": "2013-07-04 00:00"
+      },
+      {
+        "description": "This MIB describes objects used for managing DHCP server, including objects used for DHCP server global pool, interface pool and informations of ip address used and conflicted in DHCP server, some Statistic informations about DHCP server",
+        "revision": "2013-06-19 00:00"
+      },
+      {
+        "description": "The modify revision of this MIB module.",
+        "revision": "2013-05-17 00:00"
+      },
+      {
+        "description": "The initial revision of this MIB module.",
+        "revision": "2003-02-12 00:00"
+      }
+    ]
+  },
+  "hwDHCPServerMibObject": {
+    "class": "objectidentity",
+    "name": "hwDHCPServerMibObject",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1"
+  },
+  "hwDHCPThroughPacket": {
+    "class": "objecttype",
+    "description": "Set client request packet through",
+    "maxaccess": "read-write",
+    "name": "hwDHCPThroughPacket",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.7.2.1.47",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDhcp"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "MibIdentifier",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "MacAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-DHCPS-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:12 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-DHCPS-MIB"
+  }
+}

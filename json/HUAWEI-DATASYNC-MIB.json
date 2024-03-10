@@ -1,0 +1,572 @@
+{
+  "DateAndTime": {
+    "class": "textualconvention",
+    "description": "A date-time specification. field octets contents range ----- ------ -------- ----- 1 1-2 year* 0..65536 2 3 month 1..12 3 4 day 1..31 4 5 hour 0..23 5 6 minutes 0..59 6 7 seconds 0..60 (use 60 for leap-second) 7 8 deci-seconds 0..9 8 9 direction from UTC \u0027+\u0027 / \u0027-\u0027 9 10 hours from UTC* 0..13 10 11 minutes from UTC 0..59 * Notes: - the value of year is in network-byte order - daylight saving time in New Zealand is +13 For example, Tuesday May 26, 1992 at 1:30:15 PM EDT would be displayed as: 1992-5-26,13:30:15.0,-4:0 Note that if only local time is known, then timezone information (fields 8-10) is not present.",
+    "displayhint": "2d-1d-1d,1d:1d:1d.1d,1a1d:1d",
+    "name": "DateAndTime",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 8,
+            "min": 8
+          },
+          {
+            "max": 11,
+            "min": 11
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCfgBaselineTime": {
+    "class": "objecttype",
+    "description": "Specifies the time of system confiuration was baseline.",
+    "maxaccess": "read-only",
+    "name": "hwCfgBaselineTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 20,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwCfgChgCmdID": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the ID of the configuration change command. For the SNMP operation, the value is 0.",
+    "maxaccess": "read-only",
+    "name": "hwCfgChgCmdID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.2.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwCfgChgDetailInfo": {
+    "class": "objecttype",
+    "description": "This object indicates detailed configuration change information. For the command operation, the object is the command line. For the SNMP operation, the object is the index of the MIB table. When there are multiple indexes, the format of index1.index2.index3 is adopted.",
+    "maxaccess": "read-only",
+    "name": "hwCfgChgDetailInfo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.2.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCfgChgEntry": {
+    "class": "objecttype",
+    "description": "Entry of hwCfgChgTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DATASYNC-MIB",
+        "object": "hwCfgChgSeqID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwCfgChgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.2.1.1",
+    "status": "current"
+  },
+  "hwCfgChgNotify": {
+    "class": "notificationtype",
+    "description": "This trap is generated when a configuration change occurs on the device within a specified period.",
+    "name": "hwCfgChgNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-DATASYNC-MIB",
+        "object": "hwCurrentCfgChgSeqID"
+      },
+      {
+        "module": "HUAWEI-DATASYNC-MIB",
+        "object": "hwCfgChgSeqIDReveralCount"
+      },
+      {
+        "module": "HUAWEI-DATASYNC-MIB",
+        "object": "hwCfgChgTableMaxItem"
+      },
+      {
+        "module": "HUAWEI-DATASYNC-MIB",
+        "object": "hwCfgBaselineTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.191.3.1",
+    "status": "current"
+  },
+  "hwCfgChgNotifyGroup": {
+    "class": "notificationgroup",
+    "description": "A collection of objects on Configuration Change Information.",
+    "name": "hwCfgChgNotifyGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DATASYNC-MIB",
+        "object": "hwCfgChgNotify"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.191.4.1.2",
+    "status": "current"
+  },
+  "hwCfgChgSeqID": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the configuration change ID. When configuration is changed, the sequence id will plus 1.",
+    "maxaccess": "read-only",
+    "name": "hwCfgChgSeqID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCfgChgSeqIDReveralCount": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the cycle count of the index of configuration change table.",
+    "maxaccess": "read-only",
+    "name": "hwCfgChgSeqIDReveralCount",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwCfgChgTable": {
+    "class": "objecttype",
+    "description": "This table is used to record configuration changes. In this table, you can find the configuration change based on the specific index.",
+    "maxaccess": "not-accessible",
+    "name": "hwCfgChgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.2.1",
+    "status": "current"
+  },
+  "hwCfgChgTableMaxItem": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the maximum number of entries in hwCfgChgTable. ",
+    "maxaccess": "read-only",
+    "name": "hwCfgChgTableMaxItem",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwCfgChgTerminalID": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the terminal ID.",
+    "maxaccess": "read-only",
+    "name": "hwCfgChgTerminalID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCfgChgTerminalType": {
+    "class": "objecttype",
+    "description": "This object indicates the type of the terminal.",
+    "maxaccess": "read-only",
+    "name": "hwCfgChgTerminalType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "netconf": 3,
+          "snmp": 1,
+          "telnet": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCfgChgTime": {
+    "class": "objecttype",
+    "description": "This object indicates the configuration change time.",
+    "maxaccess": "read-only",
+    "name": "hwCfgChgTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwCfgChgType": {
+    "class": "objecttype",
+    "description": "This object indicates the configuration change type.",
+    "maxaccess": "read-only",
+    "name": "hwCfgChgType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.2.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "create": 1,
+          "delete": 3,
+          "modify": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCfgChgViewName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of the view in which the configuration change occurs. For the command operation, the object is the name of the view in which the command is run. For the SNMP operation, the object is the OID of the MIB table or the scalar object.",
+    "maxaccess": "read-only",
+    "name": "hwCfgChgViewName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.2.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCfgLastSaveFailNotify": {
+    "class": "notificationtype",
+    "description": "The last save operation failed, please check the configuration.",
+    "name": "hwCfgLastSaveFailNotify",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.3.2",
+    "status": "current"
+  },
+  "hwCollectEntry": {
+    "class": "objecttype",
+    "description": "Entry of hwCollectTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-DATASYNC-MIB",
+        "object": "hwCollectIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwCollectEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.2.2.1",
+    "status": "current"
+  },
+  "hwCollectInResultFile": {
+    "class": "objecttype",
+    "description": "This object indicates the name of the result file. The length of the file name ranges from 1 character to 255 characters.",
+    "maxaccess": "read-write",
+    "name": "hwCollectInResultFile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.2.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCollectInScriptFile": {
+    "class": "objecttype",
+    "description": "This object indicates the name of the script file. T he length of the file name ranges from 1 character to 255 characters.",
+    "maxaccess": "read-write",
+    "name": "hwCollectInScriptFile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.2.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwCollectIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the collection index.",
+    "maxaccess": "not-accessible",
+    "name": "hwCollectIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.2.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwCollectNetManageId": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the NMS ID.",
+    "maxaccess": "read-write",
+    "name": "hwCollectNetManageId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.2.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwCollectOperation": {
+    "class": "objecttype",
+    "description": "This object indicates the instruction for the collection operation. Default value is stop.",
+    "maxaccess": "read-write",
+    "name": "hwCollectOperation",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.2.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "begin": 1,
+          "stop": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCollectRowStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the row status.",
+    "maxaccess": "read-create",
+    "name": "hwCollectRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.2.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwCollectState": {
+    "class": "objecttype",
+    "description": "This object indicates the collection status.",
+    "maxaccess": "read-only",
+    "name": "hwCollectState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.2.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "collecting": 2,
+          "idle": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCollectTable": {
+    "class": "objecttype",
+    "description": "This table is used to enable the NMS to send the collecting script to the device to trigger the collection, and then monitor the collection status.",
+    "maxaccess": "not-accessible",
+    "name": "hwCollectTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.2.2",
+    "status": "current"
+  },
+  "hwCurrentCfgChgSeqID": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the ID of the current configuration change. The value ranges from 0 to 65535. After the ID of the configuration change reaches the maximum value, the value of the ID starts from 1 again. After the device is restarted, the value of the ID becomes 0.",
+    "maxaccess": "read-only",
+    "name": "hwCurrentCfgChgSeqID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwDataSync": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "Modified hwCfgChgTerminalID.",
+    "lastupdated": "201507161349Z",
+    "name": "hwDataSync",
+    "oid": "1.3.6.1.4.1.2011.5.25.191",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "Add hwCfgLastSaveFailNotify .",
+        "revision": "2015-07-16 13:49"
+      },
+      {
+        "description": "The MIB module for Data sync between host and netmanager.",
+        "revision": "2014-09-04 17:10"
+      },
+      {
+        "description": "The initial revision of this MIB module .",
+        "revision": "2009-03-17 10:27"
+      }
+    ]
+  },
+  "hwDataSyncCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for entities that support the huawei DataSync MIB.",
+    "name": "hwDataSyncCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.4.2.1",
+    "status": "current"
+  },
+  "hwDataSyncCompliances": {
+    "class": "objectidentity",
+    "name": "hwDataSyncCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.4.2"
+  },
+  "hwDataSyncConformance": {
+    "class": "objectidentity",
+    "name": "hwDataSyncConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.4"
+  },
+  "hwDataSyncGroups": {
+    "class": "objectidentity",
+    "name": "hwDataSyncGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.4.1"
+  },
+  "hwDataSyncNotifications": {
+    "class": "objectidentity",
+    "name": "hwDataSyncNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.3"
+  },
+  "hwDataSyncNotifyGroup": {
+    "class": "notificationgroup",
+    "description": "A collection of objects on synchronization Configuration Notify Information.",
+    "name": "hwDataSyncNotifyGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DATASYNC-MIB",
+        "object": "hwCfgLastSaveFailNotify"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.191.4.1.3",
+    "status": "current"
+  },
+  "hwDataSyncScalarObjects": {
+    "class": "objectidentity",
+    "name": "hwDataSyncScalarObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.1"
+  },
+  "hwDataSyncScalarObjectsGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects on DataSync ScalarObjects Information.",
+    "name": "hwDataSyncScalarObjectsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-DATASYNC-MIB",
+        "object": "hwCurrentCfgChgSeqID"
+      },
+      {
+        "module": "HUAWEI-DATASYNC-MIB",
+        "object": "hwCfgChgSeqIDReveralCount"
+      },
+      {
+        "module": "HUAWEI-DATASYNC-MIB",
+        "object": "hwCfgChgTableMaxItem"
+      },
+      {
+        "module": "HUAWEI-DATASYNC-MIB",
+        "object": "hwCfgBaselineTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.191.4.1.1",
+    "status": "current"
+  },
+  "hwDataSyncTableObjects": {
+    "class": "objectidentity",
+    "name": "hwDataSyncTableObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.191.2"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Gauge32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "MibIdentifier",
+      "IpAddress",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-DATASYNC-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:06 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-DATASYNC-MIB"
+  }
+}

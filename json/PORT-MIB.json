@@ -1,0 +1,4013 @@
+{
+  "atmPortCDVT": {
+    "class": "objecttype",
+    "description": " Cell Delay Variation Tolerance (CDVT) is measured in units of seconds per cell. For OC12c ATM the link rate is approximately 1.4 million cells per second, each cell time being approximately 700 nanoseconds. Its value is initialized to 50,000 which is approximately 0.7% of the OC12c line rate. The value ranges from 5,000 to 100,000 which gives us a CDVT range of 7 to 141 cell times.",
+    "maxaccess": "read-write",
+    "name": "atmPortCDVT",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.6.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100000,
+            "min": 5000
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "atmPortEntry": {
+    "class": "objecttype",
+    "description": "Entry containing information about atm ports",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "CARD-MIB",
+        "object": "slotNo"
+      },
+      {
+        "implied": 0,
+        "module": "PORT-MIB",
+        "object": "portNo"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "atmPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.5812.3.6.1",
+    "status": "current"
+  },
+  "atmPortHCInCells": {
+    "class": "objecttype",
+    "description": " 64 bit input cell count ",
+    "maxaccess": "read-only",
+    "name": "atmPortHCInCells",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.6.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "atmPortHCOutCells": {
+    "class": "objecttype",
+    "description": " 64 bit output cell count ",
+    "maxaccess": "read-only",
+    "name": "atmPortHCOutCells",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.6.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "atmPortInCells": {
+    "class": "objecttype",
+    "description": " Input Cell Count ",
+    "maxaccess": "read-only",
+    "name": "atmPortInCells",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "atmPortMaxActvBits": {
+    "class": "objecttype",
+    "description": " Maximum active VPI/VCI bits ",
+    "maxaccess": "read-write",
+    "name": "atmPortMaxActvBits",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.6.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "atmPortMaxTotalBits": {
+    "class": "objecttype",
+    "description": " Max Total Bits of VPI \u0026 VCI ",
+    "maxaccess": "read-only",
+    "name": "atmPortMaxTotalBits",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "atmPortOutCells": {
+    "class": "objecttype",
+    "description": " Output Cell Count ",
+    "maxaccess": "read-only",
+    "name": "atmPortOutCells",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "atmPortRowStatus": {
+    "class": "objecttype",
+    "description": " This variable is used to create or delete instances of atm ports This variable subsumes the admin state variable, and once the row is created, its value returns the admin state of the port",
+    "maxaccess": "read-write",
+    "name": "atmPortRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.6.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "createAndGo": 4,
+          "createAndWait": 5,
+          "destroy": 6,
+          "notInService": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "atmPortTable": {
+    "class": "objecttype",
+    "description": "The ATM Port Table",
+    "maxaccess": "not-accessible",
+    "name": "atmPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.5812.3.6",
+    "status": "current"
+  },
+  "atmPortTiming": {
+    "class": "objecttype",
+    "description": " Timing Mode ",
+    "maxaccess": "read-write",
+    "name": "atmPortTiming",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internal": 1,
+          "loop": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "atmPortVPTunnel": {
+    "class": "objecttype",
+    "description": " Whether this port is a VP Tunnel ",
+    "maxaccess": "read-write",
+    "name": "atmPortVPTunnel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "dsxAlarm": {
+    "class": "notificationtype",
+    "description": "The status of a DSx line has changed.",
+    "name": "dsxAlarm",
+    "objects": [
+      {
+        "module": "PORT-MIB",
+        "object": "dsxStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.5812.0.55"
+  },
+  "dsxStatus": {
+    "class": "objecttype",
+    "description": "DSx line status.",
+    "maxaccess": "accessible-for-notify",
+    "name": "dsxStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.43",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dsx-exz-failure-cleared": 18,
+          "dsx-exz-failure-declared": 17,
+          "dsx-lof-failure-cleared": 12,
+          "dsx-lof-failure-declared": 11,
+          "dsx-los-failure-cleared": 10,
+          "dsx-los-failure-declared": 9,
+          "dsx-other-failure-cleared": 14,
+          "dsx-other-failure-declared": 13,
+          "dsx-pden-failure-cleared": 20,
+          "dsx-pden-failure-declared": 19,
+          "dsx-rcvais-failure-cleared": 6,
+          "dsx-rcvais-failure-declared": 5,
+          "dsx-rcvrai-failure-cleared": 2,
+          "dsx-rcvrai-failure-declared": 1,
+          "dsx-uas-failure-cleared": 16,
+          "dsx-uas-failure-declared": 15,
+          "dsx-xmitais-failure-cleared": 8,
+          "dsx-xmitais-failure-declared": 7,
+          "dsx-xmitrai-failure-cleared": 4,
+          "dsx-xmitrai-failure-declared": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "etherPortAutonegAdvDuplex": {
+    "class": "objecttype",
+    "description": " This specifies what duplex capability is advertised for autonegotiation. If Full Duplex is set, then Half Duplex is also adveetised.This does not apply to Gig Ethernet Phys, since they do not autonegotiate speed or duplex.",
+    "maxaccess": "read-write",
+    "name": "etherPortAutonegAdvDuplex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "full": 3,
+          "half": 2,
+          "unknown": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "etherPortAutonegAdvSpeed": {
+    "class": "objecttype",
+    "description": " This specifies what speed capability is advertised for autonegotiation. If 100 MBPS is set, then 10 MBPS is also advertised.This does not apply to Gig Ethernet Phys, since they do not autonegotiate speed or duplex.",
+    "maxaccess": "read-write",
+    "name": "etherPortAutonegAdvSpeed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "speed10": 1,
+          "speed100": 2,
+          "speed1000": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "etherPortAutonegStatusTrap": {
+    "class": "notificationtype",
+    "description": " Change in status of the autoneg process, 3 means it has completed ",
+    "name": "etherPortAutonegStatusTrap",
+    "objects": [
+      {
+        "module": "MAU-MIB",
+        "object": "ifMauAutoNegConfig"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.5812.0.22"
+  },
+  "etherPortAutonegTrapEnable": {
+    "class": "objecttype",
+    "description": " Indicates whether autoNegCompleteTrap traps should be generated for this interface.",
+    "maxaccess": "read-write",
+    "name": "etherPortAutonegTrapEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "etherPortDefaultVlanId": {
+    "class": "objecttype",
+    "description": " Specifies what the default Vlan Id is for the port. This is used on ingress only if vlanMode is Enabled and a frame is received either untagged or tagged with a VID not known to the port. ",
+    "maxaccess": "read-write",
+    "name": "etherPortDefaultVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.34",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "etherPortDuplexCfg": {
+    "class": "objecttype",
+    "description": " The desired duplex mode of operation of the MAC entity if Autonegotiation is disabled. Management control of the duplex mode can also be accomplished through the MAU MIB via ifMauDefaultType.Note that this object provides redundant information with ifMauType. Normally, redundant objects are discouraged. However, in this instance, it allows a management application to configure the duplex mode of an interface without having to know every possible value of ifMauType. This was felt to be sufficiently valuable to justify the redundancy.",
+    "maxaccess": "read-write",
+    "name": "etherPortDuplexCfg",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "full": 3,
+          "half": 2,
+          "unknown": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "etherPortDuplexStatusTrap": {
+    "class": "notificationtype",
+    "description": " Change in the duplex status of an ethernet port , 2 means half-duplex, 3 means full duplex",
+    "name": "etherPortDuplexStatusTrap",
+    "objects": [
+      {
+        "module": "EtherLike-MIB",
+        "object": "dot3StatsDuplexStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.5812.0.21"
+  },
+  "etherPortDuplexTrapEnable": {
+    "class": "objecttype",
+    "description": " Ethernet port duplex trap enable ",
+    "maxaccess": "read-write",
+    "name": "etherPortDuplexTrapEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "etherPortEntry": {
+    "class": "objecttype",
+    "description": "Entry containing information about ethernet ports",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "CARD-MIB",
+        "object": "slotNo"
+      },
+      {
+        "implied": 0,
+        "module": "PORT-MIB",
+        "object": "portNo"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "etherPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.5812.3.3.1",
+    "status": "current"
+  },
+  "etherPortLoopback": {
+    "class": "objecttype",
+    "description": " Enables/disables loopback mode.",
+    "maxaccess": "read-write",
+    "name": "etherPortLoopback",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "etherPortPauseStateReceived": {
+    "class": "objecttype",
+    "description": " The PAUSE mode received from the remote device, as read from the Auto Negotiation Partner Ability GMII Register of the PHY.If autoNegotiation is not enabled and completed, then this is set to undefined. This is used to determine the dot3PauseOperMode for the interface. ",
+    "maxaccess": "read-only",
+    "name": "etherPortPauseStateReceived",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enableRx": 3,
+          "enableTx": 2,
+          "enableTxRx": 4,
+          "noPause": 1,
+          "undefined": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "etherPortPhyReset": {
+    "class": "objecttype",
+    "description": " Ethernet port phy reset",
+    "maxaccess": "read-write",
+    "name": "etherPortPhyReset",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inReset": 1,
+          "outOfReset": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "etherPortRowStatus": {
+    "class": "objecttype",
+    "description": " This variable is used to create or delete instances of ethernet ports This variable subsumes the admin state variable, and once the row is created, its value returns the admin state of the port",
+    "maxaccess": "read-write",
+    "name": "etherPortRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "createAndGo": 4,
+          "createAndWait": 5,
+          "destroy": 6,
+          "notInService": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "etherPortRxControlFrames": {
+    "class": "objecttype",
+    "description": " Number of control frames received by this port ",
+    "maxaccess": "read-only",
+    "name": "etherPortRxControlFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.39",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "etherPortRxDelSeqErrors": {
+    "class": "objecttype",
+    "description": " The total number of packets dropped due to delimiter sequence errors as detected by the GMAC during packet reception. (GIG only- supported by GMAC-D2 and later)",
+    "maxaccess": "read-only",
+    "name": "etherPortRxDelSeqErrors",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.37",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "etherPortRxFifoOverrunErrors": {
+    "class": "objecttype",
+    "description": " The total number of packets dropped by the GMAC due to the occurence of a receive FIFO overrun (gig only- supported by GMAC-D2 and later)",
+    "maxaccess": "read-only",
+    "name": "etherPortRxFifoOverrunErrors",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.38",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "etherPortRxOverrun": {
+    "class": "objecttype",
+    "description": " The total number of packets dropped by the GMAC due to the occurence of a receive overrun (gig only- supported by GMAC-D2 and later)",
+    "maxaccess": "read-only",
+    "name": "etherPortRxOverrun",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.35",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "etherPortRxSyncErrors": {
+    "class": "objecttype",
+    "description": " The total number of packets dropped due to loss of sync during packet reception. (GIG only- supported by GMAC-D2 and later)",
+    "maxaccess": "read-only",
+    "name": "etherPortRxSyncErrors",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.36",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "etherPortRxThreshOvrszFrames": {
+    "class": "objecttype",
+    "description": " The total number of threshold oversized frames received by the GMAC (gig only - supported by GMAC-D2 and later)",
+    "maxaccess": "read-only",
+    "name": "etherPortRxThreshOvrszFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.40",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "etherPortSpeedCfg": {
+    "class": "objecttype",
+    "description": " The desired port speed if Autonegotiation is disabled. Management control of the port speed can also be accomplished through the MAU MIB via ifMauDefaultType. Note that this object provides redundant information with ifMauType. Normally, redundant objects are discouraged. However, in this instance, it allows a management application to configure the duplex mode of an interface without having to know every possible value of ifMauType. This was felt to be sufficiently valuable to justify the redundancy.",
+    "maxaccess": "read-write",
+    "name": "etherPortSpeedCfg",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "speed10": 1,
+          "speed100": 2,
+          "speed1000": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "etherPortSpeedStatus": {
+    "class": "objecttype",
+    "description": " The speed of the port. If autoneg is enabled, this is determined by the results of the autoneg process. If autoneg is disabled, this is the same as IfAdminSpeed.",
+    "maxaccess": "read-write",
+    "name": "etherPortSpeedStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "speed10": 1,
+          "speed100": 2,
+          "speed1000": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "etherPortSpeedTrapEnable": {
+    "class": "objecttype",
+    "description": " Indicates whether portSpeedTrap traps should be generated for this interface.",
+    "maxaccess": "read-write",
+    "name": "etherPortSpeedTrapEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "etherPortStatsRxPkts1519to1530Octets": {
+    "class": "objecttype",
+    "description": " The total number of packets (including bad packets) received that were between 1519 and 1530 octets in length inclusive (excluding framing bits but including FCS octets).",
+    "maxaccess": "read-only",
+    "name": "etherPortStatsRxPkts1519to1530Octets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.41",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "etherPortStatsTxBadFifoOverrun": {
+    "class": "objecttype",
+    "description": " Number of bad frames (due to Transmit FIFO overrun) transmitted.",
+    "maxaccess": "read-only",
+    "name": "etherPortStatsTxBadFifoOverrun",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "etherPortStatsTxBadFifoUnderrun": {
+    "class": "objecttype",
+    "description": " Number of bad frames (due to Transmit FIFO underrun) transmitted.",
+    "maxaccess": "read-only",
+    "name": "etherPortStatsTxBadFifoUnderrun",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "etherPortStatsTxBadJamError": {
+    "class": "objecttype",
+    "description": " Number of bad frames (due to Jam Bit Error) transmitted.",
+    "maxaccess": "read-only",
+    "name": "etherPortStatsTxBadJamError",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "etherPortStatsTxBadParityError": {
+    "class": "objecttype",
+    "description": " Number of bad frames (due to parity error) transmitted.",
+    "maxaccess": "read-only",
+    "name": "etherPortStatsTxBadParityError",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "etherPortStatsTxBadSequenceError": {
+    "class": "objecttype",
+    "description": " Number of bad frames (due to frame Sequence Error) transmitted.",
+    "maxaccess": "read-only",
+    "name": "etherPortStatsTxBadSequenceError",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "etherPortStatsTxControlFrames": {
+    "class": "objecttype",
+    "description": " Number of control frames transmitted.",
+    "maxaccess": "read-only",
+    "name": "etherPortStatsTxControlFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "etherPortStatsTxDropFifoOverrun": {
+    "class": "objecttype",
+    "description": " Number of frames dropped due to Transmit FIFO underrun.",
+    "maxaccess": "read-only",
+    "name": "etherPortStatsTxDropFifoOverrun",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "etherPortStatsTxDropJamError": {
+    "class": "objecttype",
+    "description": " Number of bad frames (due to Jam Bit Error) dropped.",
+    "maxaccess": "read-only",
+    "name": "etherPortStatsTxDropJamError",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "etherPortStatsTxDropParityError": {
+    "class": "objecttype",
+    "description": " Number of bad frames (due to parity error) dropped.",
+    "maxaccess": "read-only",
+    "name": "etherPortStatsTxDropParityError",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "etherPortStatsTxDropSequenceError": {
+    "class": "objecttype",
+    "description": " Number of bad frames (due to frame Sequence Error) dropped.",
+    "maxaccess": "read-only",
+    "name": "etherPortStatsTxDropSequenceError",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "etherPortStatsTxFCSErrors": {
+    "class": "objecttype",
+    "description": " Total packets transmitted on ethernet port with FCS errors (if MAC generates the FCS, this can never be incremented).",
+    "maxaccess": "read-only",
+    "name": "etherPortStatsTxFCSErrors",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "etherPortStatsTxOversize": {
+    "class": "objecttype",
+    "description": " Number of frames transmitted greater than 1518 bytes.",
+    "maxaccess": "read-only",
+    "name": "etherPortStatsTxOversize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "etherPortStatsTxPkts1024to1518Octets": {
+    "class": "objecttype",
+    "description": " The total number of packets (including bad packets) transmitted that were between 1024 and 1518 octets in length inclusive (excluding framing bits but including FCS octets).",
+    "maxaccess": "read-only",
+    "name": "etherPortStatsTxPkts1024to1518Octets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "etherPortStatsTxPkts128to255Octets": {
+    "class": "objecttype",
+    "description": " The total number of packets (including bad packets) transmitted that were between 128 and 255 octets in length inclusive (excluding framing bits but including FCS octets).",
+    "maxaccess": "read-only",
+    "name": "etherPortStatsTxPkts128to255Octets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "etherPortStatsTxPkts1519to1530Octets": {
+    "class": "objecttype",
+    "description": " The total number of packets (including bad packets) transmitted that were between 1519 and 1530 octets in length inclusive (excluding framing bits but including FCS octets).",
+    "maxaccess": "read-only",
+    "name": "etherPortStatsTxPkts1519to1530Octets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "etherPortStatsTxPkts256to511Octets": {
+    "class": "objecttype",
+    "description": " The total number of packets (including bad packets) transmitted that were between 256 and 511 octets in length inclusive (excluding framing bits but including FCS octets).",
+    "maxaccess": "read-only",
+    "name": "etherPortStatsTxPkts256to511Octets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "etherPortStatsTxPkts512to1023Octets": {
+    "class": "objecttype",
+    "description": " The total number of packets (including bad packets) transmitted that were between 512 and 1023 octets in length inclusive (excluding framing bits but including FCS octets).",
+    "maxaccess": "read-only",
+    "name": "etherPortStatsTxPkts512to1023Octets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "etherPortStatsTxPkts64Octets": {
+    "class": "objecttype",
+    "description": " Total 64 byte packets transmitted on ethernet port.",
+    "maxaccess": "read-only",
+    "name": "etherPortStatsTxPkts64Octets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "etherPortStatsTxPkts65to127Octets": {
+    "class": "objecttype",
+    "description": " The total number of packets (including bad packets) transmitted that were between 65 and 127 octets in length inclusive (excluding framing bits but including FCS octets).",
+    "maxaccess": "read-only",
+    "name": "etherPortStatsTxPkts65to127Octets",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "etherPortStatsTxUndersize": {
+    "class": "objecttype",
+    "description": " Number of packets less than 64 bytes transmitted.",
+    "maxaccess": "read-only",
+    "name": "etherPortStatsTxUndersize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "etherPortTable": {
+    "class": "objecttype",
+    "description": "The ethernet port table. This table contains information about the ethernet ports in this device.",
+    "maxaccess": "not-accessible",
+    "name": "etherPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.5812.3.3",
+    "status": "current"
+  },
+  "etherPortVlanMode": {
+    "class": "objecttype",
+    "description": " Specifies the VLAN mode for the port ",
+    "maxaccess": "read-write",
+    "name": "etherPortVlanMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.3.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "stripVID": 2,
+          "transparent": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "imports": {
+    "CARD-MIB": [
+      "slotNo"
+    ],
+    "CORIOLIS-MIB": [
+      "port",
+      "coriolisMibs"
+    ],
+    "EtherLike-MIB": [
+      "dot3StatsDuplexStatus"
+    ],
+    "IF-MIB": [
+      "ifAdminStatus",
+      "ifOperStatus",
+      "InterfaceIndex",
+      "ifSpeed"
+    ],
+    "MAU-MIB": [
+      "ifMauAutoNegConfig"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "TRAP-TYPE",
+      "Unsigned32",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Bits",
+      "TimeTicks",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ],
+    "SONET-MIB": [
+      "sonetSectionCurrentStatus",
+      "sonetLineCurrentStatus",
+      "sonetPathCurrentStatus",
+      "sonetVTCurrentStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/PORT-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 15:11:58 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "PORT-MIB"
+  },
+  "mib2IfIndex": {
+    "class": "objecttype",
+    "description": "This variable serves to identify the slot and port number.",
+    "maxaccess": "read-only",
+    "name": "mib2IfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "opticalPortEntry": {
+    "class": "objecttype",
+    "description": "This describes the attributes of optical ports in the system ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "CARD-MIB",
+        "object": "slotNo"
+      },
+      {
+        "implied": 0,
+        "module": "PORT-MIB",
+        "object": "portNo"
+      },
+      {
+        "implied": 0,
+        "module": "PORT-MIB",
+        "object": "lambda"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "opticalPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.5812.3.7.1",
+    "status": "current"
+  },
+  "opticalPortLaserPowerLevel": {
+    "class": "objecttype",
+    "description": " The laser power level on the port - this variable is useful for tunable lasers. Currently will return a value of high(1) ",
+    "maxaccess": "not-accessible",
+    "name": "opticalPortLaserPowerLevel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.7.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "high": 1,
+          "low": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "opticalPortLaserWavelength": {
+    "class": "objecttype",
+    "description": " Laser wavelength on the optical port. Currently will return 1 for DWDM ports, 2 for 1310 ports, 3 for 1550 ports and 4 for ports that support both 1310 and 1550 nm wavelengths. This value however will be overshadowed by a 1310 or 1550 wavelength card present in that system. The list will be expanded later to give the exact 15xx wavelength. Useful for tunable lasers to control the 15xx wavelength ",
+    "maxaccess": "read-write",
+    "name": "opticalPortLaserWavelength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.7.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fifteenFifty": 3,
+          "fifteenXX": 1,
+          "thirteenTen": 2,
+          "thirteenTenFifteenFifty": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "opticalPortMode": {
+    "class": "objecttype",
+    "description": " The mode of operation of the port. This is set initially by the user and can only be changed by the user. It is not a status. By default, all optical ports in the system come up as working. They have to be explicitly configured to work in a protected mode or to be turned off.",
+    "maxaccess": "read-write",
+    "name": "opticalPortMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "protected": 3,
+          "working": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "opticalPortRowStatus": {
+    "class": "objecttype",
+    "description": " This variable is used to create or delete instances of optical port",
+    "maxaccess": "read-write",
+    "name": "opticalPortRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.7.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createAndGo": 4,
+          "destroy": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "opticalPortRxFrameState": {
+    "class": "objecttype",
+    "description": " Frame state of signal as detected by SW at SONET framer. This state is auto set by software.",
+    "maxaccess": "read-only",
+    "name": "opticalPortRxFrameState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.7.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "detected": 2,
+          "lossOfFrame": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "opticalPortRxSMselect": {
+    "class": "objecttype",
+    "description": " This object selects which lambda to send over the back-plane to the different switch module.",
+    "maxaccess": "not-accessible",
+    "name": "opticalPortRxSMselect",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "both": 3,
+          "none": 4,
+          "primary": 1,
+          "reserve": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "opticalPortRxSignalState": {
+    "class": "objecttype",
+    "description": " Provides the status of the received optical signal - whether it is detected or not.",
+    "maxaccess": "read-only",
+    "name": "opticalPortRxSignalState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.7.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "detected": 1,
+          "lossOfSignal": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "opticalPortTable": {
+    "class": "objecttype",
+    "description": "The Optical Port Table",
+    "maxaccess": "not-accessible",
+    "name": "opticalPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.5812.3.7",
+    "status": "current"
+  },
+  "opticalPortTxEnable": {
+    "class": "objecttype",
+    "description": " Whether the transmission of data and interrupts on the optical port is enabled or disabled ",
+    "maxaccess": "read-write",
+    "name": "opticalPortTxEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.7.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "opticalPortTxSMselect": {
+    "class": "objecttype",
+    "description": " Selects between lambda feeds on the back plane wich originate in different switch module.",
+    "maxaccess": "read-write",
+    "name": "opticalPortTxSMselect",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.7.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "reserve": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "opticalPortTxStatus": {
+    "class": "objecttype",
+    "description": " Provides the status of the transmitter for the optical port. This provides the operational condition of the transmitter. The value of it could be \u0027Good\u0027 even though it is not transmitting any signal due to some reason.",
+    "maxaccess": "read-only",
+    "name": "opticalPortTxStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.7.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bad": 2,
+          "good": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "portAdminStatusChange": {
+    "class": "notificationtype",
+    "description": " Change in the admin status of a port, 1 means the port came up, 2 means it went down ",
+    "name": "portAdminStatusChange",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifAdminStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.5812.0.1"
+  },
+  "portEntry": {
+    "class": "objecttype",
+    "description": "Entry containing the portNo variable",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "CARD-MIB",
+        "object": "slotNo"
+      },
+      {
+        "implied": 0,
+        "module": "PORT-MIB",
+        "object": "portNo"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "portEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.5812.3.2.1",
+    "status": "current"
+  },
+  "portMIB": {
+    "class": "moduleidentity",
+    "contactinfo": " Shubhra Garg Postal: 330 Codman Hill Road, Boxboro MA, 01719. Tel: +1 978 264 1904 Fax: +1 978 264 1929 E-mail: shubhra@coriolisnet.com",
+    "description": "The MIB module for cards in coriolis boxes",
+    "lastupdated": "0007270000Z",
+    "name": "portMIB",
+    "oid": "1.3.6.1.4.1.5812.3.1",
+    "organization": "Coriolis Networks"
+  },
+  "portNo": {
+    "class": "objecttype",
+    "description": " The purpose of this variable is to be used as index into tables ",
+    "maxaccess": "not-accessible",
+    "name": "portNo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "portPhyStatusChange": {
+    "class": "notificationtype",
+    "description": " Change in the operational status of a port, 1 means the port came up, 2 means it went down ",
+    "name": "portPhyStatusChange",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifOperStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.5812.0.0"
+  },
+  "portSpeedStatusTrap": {
+    "class": "notificationtype",
+    "description": " Change in speed of an interface e.g. 10 or 100 for a Fast Ethernet port",
+    "name": "portSpeedStatusTrap",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifSpeed"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.5812.0.20"
+  },
+  "portTable": {
+    "class": "objecttype",
+    "description": "The port table. This contains the portNo variable, which is used as an index into specific port tables",
+    "maxaccess": "not-accessible",
+    "name": "portTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.5812.3.2",
+    "status": "current"
+  },
+  "posPortDefaultVID": {
+    "class": "objecttype",
+    "description": "Port\u0027s default VLAN ID.",
+    "maxaccess": "read-write",
+    "name": "posPortDefaultVID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.10.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "posPortEntry": {
+    "class": "objecttype",
+    "description": "Entry containing information about POS ports",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "CARD-MIB",
+        "object": "slotNo"
+      },
+      {
+        "implied": 0,
+        "module": "PORT-MIB",
+        "object": "portNo"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "posPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.5812.3.10.1",
+    "status": "current"
+  },
+  "posPortMaxPktSize": {
+    "class": "objecttype",
+    "description": "It is defined as the maximum number of bytes encapsulated in the POS frame including the FCS, but excluding byte stuffing.",
+    "maxaccess": "read-write",
+    "name": "posPortMaxPktSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.10.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4096,
+            "min": 4
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "posPortMaxPktViolations": {
+    "class": "objecttype",
+    "description": "This object gives the number of times the system had detected a packet of size greater than the acceptable minimum.",
+    "maxaccess": "read-only",
+    "name": "posPortMaxPktViolations",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.10.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "posPortMinPktSize": {
+    "class": "objecttype",
+    "description": "It is defined as the minimum number of bytes encapsulated in the POS frame including the FCS, but excluding byte stuffing.",
+    "maxaccess": "read-write",
+    "name": "posPortMinPktSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.10.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4096,
+            "min": 4
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "posPortMinPktViolations": {
+    "class": "objecttype",
+    "description": "This object gives the number of times the system had detected a packet of size less than the acceptable minimum.",
+    "maxaccess": "read-only",
+    "name": "posPortMinPktViolations",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.10.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "posPortMode": {
+    "class": "objecttype",
+    "description": "mode of operation.",
+    "maxaccess": "read-write",
+    "name": "posPortMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.10.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bridgedDataMode": 2,
+          "ipAddr": 5,
+          "macAddr": 4,
+          "mapOS": 7,
+          "mpls": 6,
+          "transparent": 1,
+          "vlan": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "posPortTable": {
+    "class": "objecttype",
+    "description": "The POS Port Table",
+    "maxaccess": "not-accessible",
+    "name": "posPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.5812.3.10",
+    "status": "current"
+  },
+  "posPortTransportSegmentCount": {
+    "class": "objecttype",
+    "description": "Number of provisioned connections on port.",
+    "maxaccess": "read-only",
+    "name": "posPortTransportSegmentCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.10.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "pysmi_lambda": {
+    "class": "objecttype",
+    "description": " The purpose of this variable is to be used as the third component of the index into the optical port table ",
+    "maxaccess": "not-accessible",
+    "name": "lambda",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "ringPortAISChange": {
+    "class": "notificationtype",
+    "description": "A signal indicating a change of status indicated by the AIS bytes",
+    "name": "ringPortAISChange",
+    "objects": [
+      {
+        "module": "PORT-MIB",
+        "object": "ringPortAISStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.5812.0.48"
+  },
+  "ringPortAISStatus": {
+    "class": "objecttype",
+    "description": " The status indicated by the AIS bytes in the SONET frame overhead ",
+    "maxaccess": "accessible-for-notify",
+    "name": "ringPortAISStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.8.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 2,
+          "set": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "ringPortAdminStatus": {
+    "class": "objecttype",
+    "description": "Gives the possible ringPort Administration Status .",
+    "maxaccess": "read-write",
+    "name": "ringPortAdminStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.8.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "diagnostic": 4,
+          "down": 2,
+          "redundant": 3,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "ringPortArbiterEnabled": {
+    "class": "objecttype",
+    "description": "The arbiter enabled Boolean defines whether the ring port Arbitration Logic is enabled or not. The Arbitration Logic services requests for extra data columns from an elastic bandwidth pool.",
+    "maxaccess": "read-write",
+    "name": "ringPortArbiterEnabled",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "ringPortAutoQueueSizing": {
+    "class": "objecttype",
+    "description": "Defines whether Axson channel queues may be automatically resized during provisioning.",
+    "maxaccess": "read-write",
+    "name": "ringPortAutoQueueSizing",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.8.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "ringPortEntry": {
+    "class": "objecttype",
+    "description": "Entry in the table for a single ring port.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "CARD-MIB",
+        "object": "slotNo"
+      },
+      {
+        "implied": 0,
+        "module": "PORT-MIB",
+        "object": "portNo"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "ringPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.5812.3.8.1",
+    "status": "current"
+  },
+  "ringPortFrameMode": {
+    "class": "objecttype",
+    "description": "The frame mode defines the data path mode of the ring port. The choices include AXSON and POS. AXSON frame mode means the ring encapsulates data inside AXSON frames, and POS means data is encapsulated using the Packet over SONET standard HDLC mechanism.",
+    "maxaccess": "read-write",
+    "name": "ringPortFrameMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.8.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "axson": 1,
+          "pos": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "ringPortK1K2Change": {
+    "class": "notificationtype",
+    "description": "Indicates the change in status indicated by K1,K2 bytes",
+    "name": "ringPortK1K2Change",
+    "objects": [
+      {
+        "module": "PORT-MIB",
+        "object": "ringPortK1K2Status"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.5812.0.47"
+  },
+  "ringPortK1K2Status": {
+    "class": "objecttype",
+    "description": " The status indicated by the K1,K2 bytes in the SONET frame overhead ",
+    "maxaccess": "accessible-for-notify",
+    "name": "ringPortK1K2Status",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.8.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 2,
+          "set": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "ringPortMaxChannels": {
+    "class": "objecttype",
+    "description": "The max channels parameter sizes the number of AxSON channels supported on the ring port. This determines number of ingress and egress queues and the amount of queue memory available.",
+    "maxaccess": "read-write",
+    "name": "ringPortMaxChannels",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.8.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "ringPortMaxSubChannels": {
+    "class": "objecttype",
+    "description": "The max sub-channels parameter sizes the number of AxSON sub-channels supported in a particular AxSON channel. This determines the amount of queue memory required.",
+    "maxaccess": "read-write",
+    "name": "ringPortMaxSubChannels",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.8.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4095,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "ringPortMaxTDMChannels": {
+    "class": "objecttype",
+    "description": " The maximum number of TDM channels supported on the ring",
+    "maxaccess": "read-write",
+    "name": "ringPortMaxTDMChannels",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.8.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 499,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "ringPortNodeId": {
+    "class": "objecttype",
+    "description": "This defines the temporal discovery of the node in the logical ring",
+    "maxaccess": "read-write",
+    "name": "ringPortNodeId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.8.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "ringPortOperStatus": {
+    "class": "objecttype",
+    "description": "Gives the ringPortNodeId operational status of the AXSON interface .",
+    "maxaccess": "read-only",
+    "name": "ringPortOperStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.8.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "ringPortPHYChange": {
+    "class": "notificationtype",
+    "description": " A trap indicating the change in phy status of ring port",
+    "name": "ringPortPHYChange",
+    "objects": [
+      {
+        "module": "PORT-MIB",
+        "object": "ringPortPHYStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.5812.0.49"
+  },
+  "ringPortPHYStatus": {
+    "class": "objecttype",
+    "description": " The physical status of the ring port.",
+    "maxaccess": "accessible-for-notify",
+    "name": "ringPortPHYStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.8.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "lower-layer-down": 3,
+          "unknown": 4,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "ringPortRingMode": {
+    "class": "objecttype",
+    "description": "Whether the ring port is connected to the working ring or the protected ring",
+    "maxaccess": "read-write",
+    "name": "ringPortRingMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.8.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "protected": 2,
+          "working": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "ringPortRxFrameErrors": {
+    "class": "objecttype",
+    "description": "Number of errored frames received at this interface.",
+    "maxaccess": "read-only",
+    "name": "ringPortRxFrameErrors",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.8.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "ringPortRxFrames": {
+    "class": "objecttype",
+    "description": "This object sepcifies the number of frames received at this interface.",
+    "maxaccess": "read-only",
+    "name": "ringPortRxFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.8.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "ringPortTable": {
+    "class": "objecttype",
+    "description": "A table containing ring port variables.",
+    "maxaccess": "not-accessible",
+    "name": "ringPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.5812.3.8",
+    "status": "current"
+  },
+  "ringPortTxFrames": {
+    "class": "objecttype",
+    "description": "This object sepcifies the number of frames transmitted from this interface.",
+    "maxaccess": "read-only",
+    "name": "ringPortTxFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.8.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "sonetLineAISChange": {
+    "class": "notificationtype",
+    "description": " Change in the SONET Line AIS status.",
+    "name": "sonetLineAISChange",
+    "objects": [
+      {
+        "module": "SONET-MIB",
+        "object": "sonetLineCurrentStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.5812.0.29"
+  },
+  "sonetLineRDIChange": {
+    "class": "notificationtype",
+    "description": " Change in the SONET Line RDI status.",
+    "name": "sonetLineRDIChange",
+    "objects": [
+      {
+        "module": "SONET-MIB",
+        "object": "sonetLineCurrentStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.5812.0.30"
+  },
+  "sonetPathAISChange": {
+    "class": "notificationtype",
+    "description": " Change in the SONET Path AIS status.",
+    "name": "sonetPathAISChange",
+    "objects": [
+      {
+        "module": "SONET-MIB",
+        "object": "sonetPathCurrentStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.5812.0.32"
+  },
+  "sonetPathLOPChange": {
+    "class": "notificationtype",
+    "description": " Change in the SONET Path LOP status.",
+    "name": "sonetPathLOPChange",
+    "objects": [
+      {
+        "module": "SONET-MIB",
+        "object": "sonetPathCurrentStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.5812.0.31"
+  },
+  "sonetPathPSLMChange": {
+    "class": "notificationtype",
+    "description": "Indicates if there is any mismatch in the SONET signal label.",
+    "name": "sonetPathPSLMChange",
+    "objects": [
+      {
+        "module": "SONET-MIB",
+        "object": "sonetPathCurrentStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.5812.0.35"
+  },
+  "sonetPathRDIChange": {
+    "class": "notificationtype",
+    "description": " Change in the SONET Path RDI status.",
+    "name": "sonetPathRDIChange",
+    "objects": [
+      {
+        "module": "SONET-MIB",
+        "object": "sonetPathCurrentStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.5812.0.33"
+  },
+  "sonetPathUNEQPChange": {
+    "class": "notificationtype",
+    "description": "Indicates whether the SONET path is equipped or not.",
+    "name": "sonetPathUNEQPChange",
+    "objects": [
+      {
+        "module": "SONET-MIB",
+        "object": "sonetPathCurrentStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.5812.0.34"
+  },
+  "sonetPortChannelization": {
+    "class": "objecttype",
+    "description": " Whether the physical port is concatenated or not ",
+    "maxaccess": "read-write",
+    "name": "sonetPortChannelization",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "concatenated": 1,
+          "nonConcatenated": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetPortConfigedChans": {
+    "class": "objecttype",
+    "description": " The channels configured on the port ",
+    "maxaccess": "read-only",
+    "name": "sonetPortConfigedChans",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "sonetPortEntry": {
+    "class": "objecttype",
+    "description": "Entry containing information about SONET ports",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "CARD-MIB",
+        "object": "slotNo"
+      },
+      {
+        "implied": 0,
+        "module": "PORT-MIB",
+        "object": "portNo"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "sonetPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.5812.3.5.1",
+    "status": "current"
+  },
+  "sonetPortIdString": {
+    "class": "objecttype",
+    "description": "The identifier string for the SONET port",
+    "maxaccess": "read-write",
+    "name": "sonetPortIdString",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "sonetPortLineCVS15Min": {
+    "class": "objecttype",
+    "description": "15 minute line coding violations threshold",
+    "maxaccess": "read-write",
+    "name": "sonetPortLineCVS15Min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16383,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetPortLineCVS1Day": {
+    "class": "objecttype",
+    "description": "1 day line coding violations threshold ",
+    "maxaccess": "read-write",
+    "name": "sonetPortLineCVS1Day",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1048575,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetPortLineESS15Min": {
+    "class": "objecttype",
+    "description": " 15 minute line errored seconds threshold",
+    "maxaccess": "read-write",
+    "name": "sonetPortLineESS15Min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 900,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetPortLineESS1Day": {
+    "class": "objecttype",
+    "description": " 1 day line errored seconds threshold",
+    "maxaccess": "read-write",
+    "name": "sonetPortLineESS1Day",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetPortLineSESS15Min": {
+    "class": "objecttype",
+    "description": " 15 minutes line severely errored seconds threshold ",
+    "maxaccess": "read-write",
+    "name": "sonetPortLineSESS15Min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 900,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetPortLineSESS1Day": {
+    "class": "objecttype",
+    "description": " 1 day line severely errored seconds threshold ",
+    "maxaccess": "read-write",
+    "name": "sonetPortLineSESS1Day",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetPortLineUASS15Min": {
+    "class": "objecttype",
+    "description": " 15 minutes line unavailable seconds threshold ",
+    "maxaccess": "read-write",
+    "name": "sonetPortLineUASS15Min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 900,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetPortLineUASS1Day": {
+    "class": "objecttype",
+    "description": " 1 day line unavailable seconds threshold ",
+    "maxaccess": "read-write",
+    "name": "sonetPortLineUASS1Day",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetPortLoopback": {
+    "class": "objecttype",
+    "description": " The types of loopback available on the SONET interface.",
+    "maxaccess": "read-write",
+    "name": "sonetPortLoopback",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 5,
+          "pdle": 3,
+          "sdle": 2,
+          "sllben": 4,
+          "slle": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetPortPathCVS15Min": {
+    "class": "objecttype",
+    "description": " 15 minutes path coding violations threshold",
+    "maxaccess": "read-write",
+    "name": "sonetPortPathCVS15Min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16383,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetPortPathCVS1Day": {
+    "class": "objecttype",
+    "description": " 1 day path coding violations threshold",
+    "maxaccess": "read-write",
+    "name": "sonetPortPathCVS1Day",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1048575,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetPortPathESS15Min": {
+    "class": "objecttype",
+    "description": " 15 minute path errored seconds threshold",
+    "maxaccess": "read-write",
+    "name": "sonetPortPathESS15Min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 900,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetPortPathESS1Day": {
+    "class": "objecttype",
+    "description": " 1 day path errored seconds threshold",
+    "maxaccess": "read-write",
+    "name": "sonetPortPathESS1Day",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetPortPathSESS15Min": {
+    "class": "objecttype",
+    "description": " 15 minutes path severely errored seconds threshold",
+    "maxaccess": "read-write",
+    "name": "sonetPortPathSESS15Min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 900,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetPortPathSESS1Day": {
+    "class": "objecttype",
+    "description": " 1 day path severely errored seconds threshold ",
+    "maxaccess": "read-write",
+    "name": "sonetPortPathSESS1Day",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetPortPathUASS15Min": {
+    "class": "objecttype",
+    "description": " 15 minutes path unavailable seconds threshold ",
+    "maxaccess": "read-write",
+    "name": "sonetPortPathUASS15Min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 900,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetPortPathUASS1Day": {
+    "class": "objecttype",
+    "description": " 1 day path unavailable seconds threshold ",
+    "maxaccess": "read-write",
+    "name": "sonetPortPathUASS1Day",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetPortRowStatus": {
+    "class": "objecttype",
+    "description": " This variable is used to create or delete instances of SONET ports This variable subsumes the admin state variable, and once the row is created, its value returns the admin state of the port",
+    "maxaccess": "read-write",
+    "name": "sonetPortRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "createAndGo": 4,
+          "createAndWait": 5,
+          "destroy": 6,
+          "notInService": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetPortScrambling": {
+    "class": "objecttype",
+    "description": " Whether port scrambling is enabled or disabled ",
+    "maxaccess": "read-write",
+    "name": "sonetPortScrambling",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetPortSectCVS15Min": {
+    "class": "objecttype",
+    "description": "15 minute section coding violations threshold ",
+    "maxaccess": "read-write",
+    "name": "sonetPortSectCVS15Min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16383,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetPortSectCVS1Day": {
+    "class": "objecttype",
+    "description": "1 day section coding violations threshold",
+    "maxaccess": "read-write",
+    "name": "sonetPortSectCVS1Day",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1048575,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetPortSectESS15Min": {
+    "class": "objecttype",
+    "description": " 15 minute section errored seconds threshold",
+    "maxaccess": "read-write",
+    "name": "sonetPortSectESS15Min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 900,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetPortSectESS1Day": {
+    "class": "objecttype",
+    "description": " 1 day section errored seconds threshold",
+    "maxaccess": "read-write",
+    "name": "sonetPortSectESS1Day",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetPortSectSESS15Min": {
+    "class": "objecttype",
+    "description": " 15 minutes section severely errored seconds threshold ",
+    "maxaccess": "read-write",
+    "name": "sonetPortSectSESS15Min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 900,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetPortSectSESS1Day": {
+    "class": "objecttype",
+    "description": " 1 day section severely errored seconds threshold ",
+    "maxaccess": "read-write",
+    "name": "sonetPortSectSESS1Day",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetPortTCAlarm": {
+    "class": "notificationtype",
+    "description": "A SONET alarm threshold has been crossed.",
+    "name": "sonetPortTCAlarm",
+    "objects": [
+      {
+        "module": "PORT-MIB",
+        "object": "sonetTCAStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.5812.0.50"
+  },
+  "sonetPortTable": {
+    "class": "objecttype",
+    "description": "The proprietary SONET Port Table",
+    "maxaccess": "not-accessible",
+    "name": "sonetPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.5812.3.5",
+    "status": "current"
+  },
+  "sonetPortTiming": {
+    "class": "objecttype",
+    "description": "Clock source for the port",
+    "maxaccess": "read-write",
+    "name": "sonetPortTiming",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "external": 2,
+          "internal": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetPortType": {
+    "class": "objecttype",
+    "description": "The type of SONET port",
+    "maxaccess": "read-write",
+    "name": "sonetPortType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oc12c": 1,
+          "oc12sts1": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetSectionLOFChange": {
+    "class": "notificationtype",
+    "description": " Change in the SONET LOF status.",
+    "name": "sonetSectionLOFChange",
+    "objects": [
+      {
+        "module": "SONET-MIB",
+        "object": "sonetSectionCurrentStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.5812.0.28"
+  },
+  "sonetSectionLOSChange": {
+    "class": "notificationtype",
+    "description": " Change in the SONET LOS status.",
+    "name": "sonetSectionLOSChange",
+    "objects": [
+      {
+        "module": "SONET-MIB",
+        "object": "sonetSectionCurrentStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.5812.0.27"
+  },
+  "sonetTCAStatus": {
+    "class": "objecttype",
+    "description": "Represents the Threshold Crossing Alarm.",
+    "maxaccess": "accessible-for-notify",
+    "name": "sonetTCAStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.5.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sonet-line-cv-tca-declared": 4,
+          "sonet-line-es-tca-declared": 6,
+          "sonet-line-farend-cv-tca-declared": 8,
+          "sonet-line-farend-es-tca-declared": 10,
+          "sonet-line-farend-ses-tca-declared": 9,
+          "sonet-line-farend-uas-tca-declared": 11,
+          "sonet-line-ses-tca-declared": 5,
+          "sonet-line-uas-tca-declared": 7,
+          "sonet-path-cv-tca-declared": 12,
+          "sonet-path-es-tca-declared": 14,
+          "sonet-path-farend-cv-tca-declared": 16,
+          "sonet-path-farend-es-tca-declared": 18,
+          "sonet-path-farend-ses-tca-declared": 17,
+          "sonet-path-farend-uas-tca-declared": 19,
+          "sonet-path-ses-tca-declared": 13,
+          "sonet-path-uas-tca-declared": 15,
+          "sonet-section-cv-tca-declared": 1,
+          "sonet-section-es-tca-declared": 3,
+          "sonet-section-ses-tca-declared": 2,
+          "sonet-vt-cv-tca-declared": 20,
+          "sonet-vt-es-tca-declared": 22,
+          "sonet-vt-farend-cv-tca-declared": 24,
+          "sonet-vt-farend-es-tca-declared": 26,
+          "sonet-vt-farend-ses-tca-declared": 25,
+          "sonet-vt-farend-uas-tca-declared": 27,
+          "sonet-vt-ses-tca-declared": 21,
+          "sonet-vt-uas-tca-declared": 23
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "sonetVTAISChange": {
+    "class": "notificationtype",
+    "description": " Change in the SONET VT AIS status.",
+    "name": "sonetVTAISChange",
+    "objects": [
+      {
+        "module": "SONET-MIB",
+        "object": "sonetVTCurrentStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.5812.0.37"
+  },
+  "sonetVTLOPChange": {
+    "class": "notificationtype",
+    "description": " Change in the SONET VT LOP status.",
+    "name": "sonetVTLOPChange",
+    "objects": [
+      {
+        "module": "SONET-MIB",
+        "object": "sonetVTCurrentStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.5812.0.36"
+  },
+  "sonetVTPSLMChange": {
+    "class": "notificationtype",
+    "description": "Indicates if there is any mismatch in the SONET signal label.",
+    "name": "sonetVTPSLMChange",
+    "objects": [
+      {
+        "module": "SONET-MIB",
+        "object": "sonetVTCurrentStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.5812.0.41"
+  },
+  "sonetVTRDIChange": {
+    "class": "notificationtype",
+    "description": " Change in the SONET VT RDI status.",
+    "name": "sonetVTRDIChange",
+    "objects": [
+      {
+        "module": "SONET-MIB",
+        "object": "sonetVTCurrentStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.5812.0.38"
+  },
+  "sonetVTRFIChange": {
+    "class": "notificationtype",
+    "description": " Change in the SONET VT RFI status.",
+    "name": "sonetVTRFIChange",
+    "objects": [
+      {
+        "module": "SONET-MIB",
+        "object": "sonetVTCurrentStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.5812.0.39"
+  },
+  "sonetVTUNEQPChange": {
+    "class": "notificationtype",
+    "description": "Indicates whether the SONET VT is equipped or not.",
+    "name": "sonetVTUNEQPChange",
+    "objects": [
+      {
+        "module": "SONET-MIB",
+        "object": "sonetVTCurrentStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.5812.0.40"
+  },
+  "tdmIoDS1PortBertDuration": {
+    "class": "objecttype",
+    "description": "User specified BERT duration",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortBertDuration",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fiveMin": 2,
+          "oneHour": 4,
+          "oneMin": 1,
+          "thirtyMin": 3,
+          "twelveHour": 5,
+          "twentyfourHour": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortBertPattern": {
+    "class": "objecttype",
+    "description": "User specified BERT type",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortBertPattern",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pattern211": 5,
+          "pattern215": 4,
+          "pattern220": 2,
+          "pattern223": 1,
+          "patternAllOnes": 7,
+          "patternAllZeros": 6,
+          "patternAlternate": 8,
+          "patternQrss": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortBertResults": {
+    "class": "objecttype",
+    "description": "Results from previous BERT test on this port",
+    "maxaccess": "read-only",
+    "name": "tdmIoDS1PortBertResults",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "timeLeft": 1,
+          "totalBitErrs": 2,
+          "totalBits": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortBertState": {
+    "class": "objecttype",
+    "description": "User specified BERT status",
+    "maxaccess": "read-only",
+    "name": "tdmIoDS1PortBertState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "other": 3,
+          "running": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortBuildOut": {
+    "class": "objecttype",
+    "description": "Line Build Out for Signal Strength. For short haul, a distance (in feet) is chosen. For long haul, an attenuation strength is chosen in Decibels. ",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortBuildOut",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "longHaulOneFiveDB": 8,
+          "longHaulSevenFiveDB": 7,
+          "longHaulTwentyTwoDB": 9,
+          "longHaulZeroDB": 6,
+          "shortHaulMax133Feet": 1,
+          "shortHaulMax266Feet": 2,
+          "shortHaulMax399Feet": 3,
+          "shortHaulMax533Feet": 4,
+          "shortHaulMax655Feet": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortCoding": {
+    "class": "objecttype",
+    "description": "The type of Zero Code Suppression used on this interface. B8ZS refers to the use of a specified pattern of normal bits and bipolar violations which are used to replace a sequence of eight zero bits. AMI refers to a mode wherein no zero code suppression is present and the line encoding does not solve the problem directly. In this application, the higher layer must provide data which meets or exceeds the pulse density requirements, such as inverting HDLC data.",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortCoding",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ami": 5,
+          "b8zs": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortEntry": {
+    "class": "objecttype",
+    "description": "Entry containing information about TDM IO DS1 ports",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "CARD-MIB",
+        "object": "slotNo"
+      },
+      {
+        "implied": 0,
+        "module": "PORT-MIB",
+        "object": "portNo"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "tdmIoDS1PortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.5812.3.4.1",
+    "status": "current"
+  },
+  "tdmIoDS1PortFraming": {
+    "class": "objecttype",
+    "description": "Framing type implemented for this interface.",
+    "maxaccess": "read-only",
+    "name": "tdmIoDS1PortFraming",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ds1unframed": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortLCVCount": {
+    "class": "objecttype",
+    "description": "Count of Line Code Violations.",
+    "maxaccess": "read-only",
+    "name": "tdmIoDS1PortLCVCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.44",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortLineESS15Min": {
+    "class": "objecttype",
+    "description": "The 15 minute Line Errored Seconds Threshold",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortLineESS15Min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 900,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortLineESS1Day": {
+    "class": "objecttype",
+    "description": "The 1 Day Line Errored Seconds Threshold",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortLineESS1Day",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortLoopbackLLbActCode": {
+    "class": "objecttype",
+    "description": "User code to enable Automatic Remote Loopback(ARL)",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortLoopbackLLbActCode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortLoopbackLLbDeactCode": {
+    "class": "objecttype",
+    "description": "User code to disable Automatic Remote Loopback(ARL)",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortLoopbackLLbDeactCode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortLoopbackLlbActCodeLen": {
+    "class": "objecttype",
+    "description": "Length of user code to enable Automatic Remote Loopback(ARL)",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortLoopbackLlbActCodeLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up5Bit": 1,
+          "up6Bit": 2,
+          "up7Bit": 3,
+          "up8Bit": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortLoopbackLlbControl": {
+    "class": "objecttype",
+    "description": "LLBCODE(activate/deactivate) generation/monitoring control",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortLoopbackLlbControl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "genActOn": 2,
+          "genDeActOn": 3,
+          "genOff": 1,
+          "monOff": 4,
+          "monOn": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortLoopbackLlbDeactCodeLen": {
+    "class": "objecttype",
+    "description": "Length of user code to disable Automatic Remote Loopback(ARL)",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortLoopbackLlbDeactCodeLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down5Bit": 1,
+          "down6Bit": 2,
+          "down7Bit": 3,
+          "down8Bit": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortLoopbackLlbGenPath": {
+    "class": "objecttype",
+    "description": "The path (xmit/rcv) for LLBCODE generation",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortLoopbackLlbGenPath",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "genRcv": 1,
+          "genXmit": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortLoopbackLlbMonPath": {
+    "class": "objecttype",
+    "description": "The path (xmit/rcv) for LLBCODE monitoring",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortLoopbackLlbMonPath",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "monRcv": 1,
+          "monXmit": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortLoopbackResults": {
+    "class": "objecttype",
+    "description": "Results from previous loopback on this port",
+    "maxaccess": "read-only",
+    "name": "tdmIoDS1PortLoopbackResults",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failure": 1,
+          "success": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortLoopbackState": {
+    "class": "objecttype",
+    "description": "This object indicates the state of loopback on this interface. \u0027Idle\u0027 indicates that there is no loopback running and \u0027running\u0027 indicates that this interface is in loopback mode.",
+    "maxaccess": "read-only",
+    "name": "tdmIoDS1PortLoopbackState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "running": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortLoopbackType": {
+    "class": "objecttype",
+    "description": "This object indicates the type of loopback on this interface. noLoop - the interface is not in loopBack mode. localOn - the interface is running in internal loop. digitalOn - the interface is running in internal loop. remoteOn - the interface is looping away external data.",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortLoopbackType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "digitalOn": 9,
+          "localOn": 8,
+          "noLoop": 1,
+          "remoteOn": 10
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortPathCSS15Min": {
+    "class": "objecttype",
+    "description": "The 15 minute path controlled slip seconds threshold",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortPathCSS15Min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.39",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 900,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortPathCSS1Day": {
+    "class": "objecttype",
+    "description": "The 1 day path controlled slip seconds threshold",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortPathCSS1Day",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.40",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortPathCVS15Min": {
+    "class": "objecttype",
+    "description": "The 15 minute Path Coding Violations Threshold",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortPathCVS15Min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16383,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortPathCVS1Day": {
+    "class": "objecttype",
+    "description": "The 1 day Path Coding Violations Threshold",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortPathCVS1Day",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.34",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1048575,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortPathESS15Min": {
+    "class": "objecttype",
+    "description": "The 15 minute Path Errored Seconds Threshold",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortPathESS15Min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 900,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortPathESS1Day": {
+    "class": "objecttype",
+    "description": "The 1 Day Path Errored Seconds Threshold",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortPathESS1Day",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortPathSASS15Min": {
+    "class": "objecttype",
+    "description": "The 15 minute Path AIS seconds Threshold",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortPathSASS15Min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.37",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 900,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortPathSASS1Day": {
+    "class": "objecttype",
+    "description": "The 1 day Path AIS seconds Threshold",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortPathSASS1Day",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.38",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortPathSESS15Min": {
+    "class": "objecttype",
+    "description": "The 15 minute Path Severely Errored Seconds Threshold",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortPathSESS15Min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.35",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 900,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortPathSESS1Day": {
+    "class": "objecttype",
+    "description": "The 1 day Path Severely Errored Seconds Threshold",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortPathSESS1Day",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.36",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortPathUASS15Min": {
+    "class": "objecttype",
+    "description": "The 15 minute path unavailable seconds threshold",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortPathUASS15Min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.41",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 900,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortPrbsAlgorithm": {
+    "class": "objecttype",
+    "description": "The PRBS Algorithm",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortPrbsAlgorithm",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "algo215": 1,
+          "algo220": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortPrbsBec": {
+    "class": "objecttype",
+    "description": "The PRBS bit error counter",
+    "maxaccess": "read-only",
+    "name": "tdmIoDS1PortPrbsBec",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "tdmIoDS1PortPrbsGenPath": {
+    "class": "objecttype",
+    "description": " The PRBS generator path",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortPrbsGenPath",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "genRcv": 1,
+          "genXmit": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortPrbsInversion": {
+    "class": "objecttype",
+    "description": "Whether the PRBS stream will be inverted",
+    "maxaccess": "read-only",
+    "name": "tdmIoDS1PortPrbsInversion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortPrbsMonPath": {
+    "class": "objecttype",
+    "description": "The PRBS monitor path",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortPrbsMonPath",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "monRcv": 1,
+          "monXmit": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortPrbsMonitor": {
+    "class": "objecttype",
+    "description": "PRBS monitor - is it off or on?",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortPrbsMonitor",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortPrbsTransmit": {
+    "class": "objecttype",
+    "description": "PRBS or normal transmission on transmission line",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortPrbsTransmit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortRowStatus": {
+    "class": "objecttype",
+    "description": " This variable is used to create or delete instances of TDM IO DS1 ports. This variable subsumes the admin state variable, and once the row is created, its value returns the admin state of the port",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.42",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "createAndGo": 4,
+          "createAndWait": 5,
+          "destroy": 6,
+          "notInService": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortTable": {
+    "class": "objecttype",
+    "description": "The DS1 TDM IO Port Table",
+    "maxaccess": "not-accessible",
+    "name": "tdmIoDS1PortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.5812.3.4",
+    "status": "current"
+  },
+  "tdmIoDS1PortTiming": {
+    "class": "objecttype",
+    "description": " Clock source for the DS1 port \u0027loopTiming\u0027 indicates that the recovered re- ceive clock is used as the transmit clock. \u0027localTiming\u0027 indicates that a local clock source is used or when an external clock is attached to the box containing the interface. \u0027throughTiming\u0027 indicates that recovered re- ceive clock from another interface is used as the transmit clock.",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortTiming",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "localTiming": 2,
+          "loopTiming": 1,
+          "throughTiming": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS1PortType": {
+    "class": "objecttype",
+    "description": " The type of TDM IO DS1 port",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS1PortType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ds1": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS3PortCBitCVS15Min": {
+    "class": "objecttype",
+    "description": "15 minute threshold for C-Bit Coding Violations",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS3PortCBitCVS15Min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.9.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16383,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS3PortCBitCVS1Day": {
+    "class": "objecttype",
+    "description": "1 day threshold for C-Bit Coding Violations",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS3PortCBitCVS1Day",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.9.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1048575,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS3PortCBitESS15Min": {
+    "class": "objecttype",
+    "description": "15 minute threshold for C-Bit Errored Seconds",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS3PortCBitESS15Min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.9.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 900,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS3PortCBitESS1Day": {
+    "class": "objecttype",
+    "description": "1 day threshold for C-Bit Errored Seconds",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS3PortCBitESS1Day",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.9.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS3PortCBitSESS15Min": {
+    "class": "objecttype",
+    "description": "15 minute threshold for C-Bit Severely Errored Seconds",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS3PortCBitSESS15Min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.9.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 900,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS3PortCBitSESS1Day": {
+    "class": "objecttype",
+    "description": "1 day threshold for C-Bit Severely Errored Seconds",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS3PortCBitSESS1Day",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.9.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS3PortEntry": {
+    "class": "objecttype",
+    "description": "Entry containing information about TDM IO DS3 ports",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "CARD-MIB",
+        "object": "slotNo"
+      },
+      {
+        "implied": 0,
+        "module": "PORT-MIB",
+        "object": "portNo"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "tdmIoDS3PortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.5812.3.9.1",
+    "status": "current"
+  },
+  "tdmIoDS3PortLineCVS15Min": {
+    "class": "objecttype",
+    "description": "15 minute threshold for Line-Coding Violations",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS3PortLineCVS15Min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.9.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16383,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS3PortLineCVS1Day": {
+    "class": "objecttype",
+    "description": "1 day threshold for Line-Coding Violations",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS3PortLineCVS1Day",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.9.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1048575,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS3PortLineESS15Min": {
+    "class": "objecttype",
+    "description": "15 minute threshold for Line Errored Seconds",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS3PortLineESS15Min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.9.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 900,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS3PortLineESS1Day": {
+    "class": "objecttype",
+    "description": "1 day threshold for Line Errored Seconds",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS3PortLineESS1Day",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.9.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS3PortPBitCVS15Min": {
+    "class": "objecttype",
+    "description": "15 minute threshold for P-Bit Coding Violations",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS3PortPBitCVS15Min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.9.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16383,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS3PortPBitCVS1Day": {
+    "class": "objecttype",
+    "description": "1 day threshold for P-Bit Coding Violations",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS3PortPBitCVS1Day",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.9.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1048575,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS3PortPBitESS15Min": {
+    "class": "objecttype",
+    "description": "15 minute threshold for P-Bit Errored Seconds",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS3PortPBitESS15Min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.9.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 900,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS3PortPBitESS1Day": {
+    "class": "objecttype",
+    "description": "1 day threshold for P-Bit Errored Seconds",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS3PortPBitESS1Day",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.9.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS3PortPBitSESS15Min": {
+    "class": "objecttype",
+    "description": "15 minute threshold for P-Bit Severely Errored Seconds",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS3PortPBitSESS15Min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.9.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 900,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS3PortPBitSESS1Day": {
+    "class": "objecttype",
+    "description": "1 day threshold for P-Bit Severely Errored Seconds",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS3PortPBitSESS1Day",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.9.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS3PortRowStatus": {
+    "class": "objecttype",
+    "description": " This variable is used to create or delete instances of TDM IO DS3 ports. This variable subsumes the admin state variable, and once the row is created, its value returns the admin state of the port",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS3PortRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.9.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "createAndGo": 4,
+          "createAndWait": 5,
+          "destroy": 6,
+          "notInService": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS3PortSEFSS15Min": {
+    "class": "objecttype",
+    "description": "15 minute threshold for Severely Errored Framing Seconds",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS3PortSEFSS15Min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.9.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 900,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS3PortSEFSS1Day": {
+    "class": "objecttype",
+    "description": "1 day threshold for Severely Errored Framing Seconds",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS3PortSEFSS1Day",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.9.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS3PortTable": {
+    "class": "objecttype",
+    "description": "The DS3 TDM IO Port Table",
+    "maxaccess": "not-accessible",
+    "name": "tdmIoDS3PortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.5812.3.9",
+    "status": "current"
+  },
+  "tdmIoDS3PortUASS15Min": {
+    "class": "objecttype",
+    "description": "15 minute threshold for Severely Errored Framing Seconds",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS3PortUASS15Min",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.9.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 900,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "tdmIoDS3PortUASS1Day": {
+    "class": "objecttype",
+    "description": "1 day threshold for Unavailable Seconds",
+    "maxaccess": "read-write",
+    "name": "tdmIoDS3PortUASS1Day",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.5812.3.9.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  }
+}

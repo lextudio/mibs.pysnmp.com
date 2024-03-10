@@ -1,0 +1,1546 @@
+{
+  "hwFrCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-Fr-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrObjectGroup"
+      },
+      {
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrPvcObjectGroup"
+      },
+      {
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrPvcGroupObjectGroup"
+      },
+      {
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrPvcGroupMemObjectGroup"
+      },
+      {
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrPvcGroupMapIpObjectGroup"
+      },
+      {
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrMapIpObjectGroup"
+      },
+      {
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrMapPppObjectGroup"
+      },
+      {
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrMapBridgeObjectGroup"
+      }
+    ],
+    "name": "hwFrCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.2.1.1",
+    "status": "current"
+  },
+  "hwFrCompliances": {
+    "class": "objectidentity",
+    "name": "hwFrCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.2.1"
+  },
+  "hwFrConformance": {
+    "class": "objectidentity",
+    "name": "hwFrConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.2"
+  },
+  "hwFrEncapType": {
+    "class": "objecttype",
+    "description": "Indicates the interface fr encapsulation type. Options: 1.nonstandard(1) - nonstandard encapsulation 2.ietf(2) - RFC1490 encapsulation",
+    "maxaccess": "read-only",
+    "name": "hwFrEncapType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ietf": 2,
+          "nonstandard": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFrEntry": {
+    "class": "objecttype",
+    "description": "This table is used to indicate the parameters of the Fr interface. The index of this entry is hwFrIfIndex.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwFrEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.1.1",
+    "status": "current"
+  },
+  "hwFrGroups": {
+    "class": "objectidentity",
+    "name": "hwFrGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.2.2"
+  },
+  "hwFrIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwFrIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwFrIfType": {
+    "class": "objecttype",
+    "description": "Indicates fr interface type. Options: 1.dte(1) - DTE type 2.dce(2) - DCE type 3.nni(3) - NNI type",
+    "maxaccess": "read-only",
+    "name": "hwFrIfType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dce": 2,
+          "dte": 1,
+          "nni": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFrInarpEnable": {
+    "class": "objecttype",
+    "description": "Indicates inverse address resolution protocol is enabled or disabled. By default, inverse address resolution protocol is enabled. true: inverse address resolution protocol is enabled. false: inverse address resolution protocol is disabled.",
+    "maxaccess": "read-only",
+    "name": "hwFrInarpEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwFrIphcEnable": {
+    "class": "objecttype",
+    "description": "Indicates IPHC is enabled or disabled. By default, RTP header compression with IPHC format is disabled. true: enable RTP header compression with IPHC format. false: disable RTP header compression with IPHC format.",
+    "maxaccess": "read-only",
+    "name": "hwFrIphcEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwFrIphcNonstandardFormat": {
+    "class": "objecttype",
+    "description": "Indicates nonstandard-format compressing is enabled or disabled. By default, don\u0027t support nonstandard-format while compressing. true: support nonstandard-format while compressing. false: don\u0027t support nonstandard-format while compressing.",
+    "maxaccess": "read-only",
+    "name": "hwFrIphcNonstandardFormat",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwFrIphcRtpConnection": {
+    "class": "objecttype",
+    "description": "Indicates the number of rtp compression connections. 256 is a valid connection number, get 256 when IPHC is enabled. Get 65535 when IPHC is disabled. Range: 3-255 Default: 256 Unit: count",
+    "maxaccess": "read-only",
+    "name": "hwFrIphcRtpConnection",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 3
+          },
+          {
+            "max": 256,
+            "min": 256
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFrIphcTcpConnection": {
+    "class": "objecttype",
+    "description": "Indicates the number of tcp compression connections. 256 is a valid connection number, get 256 when IPHC is enabled. Get 65535 when IPHC is disabled. Range: 3-255 Default: 256 Unit: count",
+    "maxaccess": "read-only",
+    "name": "hwFrIphcTcpConnection",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 3
+          },
+          {
+            "max": 256,
+            "min": 256
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFrIphcTcpInclude": {
+    "class": "objecttype",
+    "description": "Indicates TCP header compression is enabled or disabled. By default, exclude TCP header compression while compressing RTP. true: include TCP header compression while compressing RTP. false: exclude TCP header compression while compressing RTP.",
+    "maxaccess": "read-only",
+    "name": "hwFrIphcTcpInclude",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwFrLmiN391DteValue": {
+    "class": "objecttype",
+    "description": "Indicates the parameter of DTE N391. Get 65535 when the fr interface type is DCE. Range: 1-255 Default: 6 Unit: count",
+    "maxaccess": "read-only",
+    "name": "hwFrLmiN391DteValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFrLmiN392DceValue": {
+    "class": "objecttype",
+    "description": "Indicates the parameter of DCE N392. Get 65535 when the fr interface type is DTE. Range: 1-10 Default: 3 Unit: count",
+    "maxaccess": "read-only",
+    "name": "hwFrLmiN392DceValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFrLmiN392DteValue": {
+    "class": "objecttype",
+    "description": "Indicates the parameter of DTE N392. Get 65535 when the fr interface type is DCE. Range: 1-10 Default: 3 Unit: count",
+    "maxaccess": "read-only",
+    "name": "hwFrLmiN392DteValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFrLmiN393DceValue": {
+    "class": "objecttype",
+    "description": "Indicates the parameter of DCE N393. Get 65535 when the fr interface type is DTE. Range: 1-10 Default: 4 Unit: count ",
+    "maxaccess": "read-only",
+    "name": "hwFrLmiN393DceValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFrLmiN393DteValue": {
+    "class": "objecttype",
+    "description": "Indicates the parameter of DTE N393. Get 65535 when the fr interface type is DCE. Range: 1-10 Default: 4 Unit: count ",
+    "maxaccess": "read-only",
+    "name": "hwFrLmiN393DteValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFrLmiT391DteValue": {
+    "class": "objecttype",
+    "description": "Indicates the parameter of DTE T391. Get 65535 when the fr interface type is DCE. Range: 1-32767 Default: 10 Unit: second",
+    "maxaccess": "read-only",
+    "name": "hwFrLmiT391DteValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32767,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFrLmiT392DceValue": {
+    "class": "objecttype",
+    "description": "Indicates the parameter of DCE T392. Get 65535 when the fr interface type is DTE. Range: 5-30 Default: 15 Unit: second",
+    "maxaccess": "read-only",
+    "name": "hwFrLmiT392DceValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 30,
+            "min": 5
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFrLmiType": {
+    "class": "objecttype",
+    "description": "Indicates the Lmi protocol type. Options: 1.notset(1) - NotSet 2.nonstandard(2) - nonstandard type 3.ansi(3) - ANSI type 4.q933a(4) - Q.933a type",
+    "maxaccess": "read-only",
+    "name": "hwFrLmiType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ansi": 3,
+          "nonstandard": 2,
+          "notset": 1,
+          "q933a": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFrMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "This MIB is mainly used to indicate the information of Fr interface",
+    "lastupdated": "201009102030Z",
+    "name": "hwFrMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.168",
+    "organization": "Huawei Technologies Co.,Ltd."
+  },
+  "hwFrMapBridgeDlciNumber": {
+    "class": "objecttype",
+    "description": "Indicates the DLCI of the PVC mapped by bridge.",
+    "maxaccess": "read-only",
+    "name": "hwFrMapBridgeDlciNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.8.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1022,
+            "min": 16
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFrMapBridgeEntry": {
+    "class": "objecttype",
+    "description": "This table is used to indicate the bridge mapping on the PVC. The index of this entry are hwFrMapBridgeIfIndex and hwFrMapBridgeDlciNumber.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrMapBridgeIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrMapBridgeDlciNumber"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwFrMapBridgeEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.8.1",
+    "status": "current"
+  },
+  "hwFrMapBridgeIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwFrMapBridgeIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwFrMapBridgeObjectGroup": {
+    "class": "objectgroup",
+    "description": "The fr bridge mapping attribute group.",
+    "name": "hwFrMapBridgeObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrMapBridgeIfIndex"
+      },
+      {
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrMapBridgeDlciNumber"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.168.2.2.8",
+    "status": "current"
+  },
+  "hwFrMapBridgeState": {
+    "class": "objecttype",
+    "description": "Indicates the state of the PVC mapped by bridge. Options: 1.inactive(1) - inactive 2.active(2) - active",
+    "maxaccess": "read-only",
+    "name": "hwFrMapBridgeState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.8.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 2,
+          "inactive": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFrMapBridgeTable": {
+    "class": "objecttype",
+    "description": "This table is used to indicate the bridge mapping on the PVC. The index of this table are hwFrMapBridgeIfIndex and hwFrMapBridgeDlciNumber.",
+    "maxaccess": "not-accessible",
+    "name": "hwFrMapBridgeTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.8",
+    "status": "current"
+  },
+  "hwFrMapIpAddress": {
+    "class": "objecttype",
+    "description": "Indicates the peer IP address mapped to the PVC. Get 0.0.0.0 when the map is default map.",
+    "maxaccess": "read-only",
+    "name": "hwFrMapIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwFrMapIpBroadcast": {
+    "class": "objecttype",
+    "description": "Indicates sending broadcast packets is enabled or disabled. By default, sending broadcast packets is disabled. true: enable sending broadcast packets. false: disable sending broadcast packets.",
+    "maxaccess": "read-only",
+    "name": "hwFrMapIpBroadcast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwFrMapIpDefault": {
+    "class": "objecttype",
+    "description": "Indicates the map is default map or not. By default, the map is not default map. true: the map is default map. false: the map is not default map.",
+    "maxaccess": "read-only",
+    "name": "hwFrMapIpDefault",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.6.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwFrMapIpDlciNumber": {
+    "class": "objecttype",
+    "description": "Indicates the Dlci number.",
+    "maxaccess": "read-only",
+    "name": "hwFrMapIpDlciNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1022,
+            "min": 16
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFrMapIpEncapType": {
+    "class": "objecttype",
+    "description": "Indicates the encapsulation type of map. Option: 1.nonstandard(1) - nonstandard encapsulation 2.ietf(2) - RFC1490 encapsulation",
+    "maxaccess": "read-only",
+    "name": "hwFrMapIpEncapType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.6.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ietf": 2,
+          "nonstandard": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFrMapIpEntry": {
+    "class": "objecttype",
+    "description": "This table is used to indicate the static address mapping for a PVC. The index of this entry are hwFrMapIpIfIndex, hwFrMapIpDlciNumber and hwFrMapIpAddress.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrMapIpIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrMapIpDlciNumber"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrMapIpAddress"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwFrMapIpEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.6.1",
+    "status": "current"
+  },
+  "hwFrMapIpFrf9Enable": {
+    "class": "objecttype",
+    "description": "Indicates frf9 on the map is enabled or disabled. By default, payload data compression is disabled. true: enable payload data compression. false: disable payload data compression.",
+    "maxaccess": "read-only",
+    "name": "hwFrMapIpFrf9Enable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.6.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwFrMapIpIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwFrMapIpIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwFrMapIpIphcEnable": {
+    "class": "objecttype",
+    "description": "Indicates iphc on the map is enabled or disabled. By default, compress IP/UDP/RTP head with iphc-compression is disabled. true: enable compress IP/UDP/RTP head with iphc-compression. false: disable compress IP/UDP/RTP head with iphc-compression.",
+    "maxaccess": "read-only",
+    "name": "hwFrMapIpIphcEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.6.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwFrMapIpMask": {
+    "class": "objecttype",
+    "description": "Indicates the IP address mask. Get 255.255.255.255 when the map is default map.",
+    "maxaccess": "read-only",
+    "name": "hwFrMapIpMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwFrMapIpObjectGroup": {
+    "class": "objectgroup",
+    "description": "The fr ip mapping attribute group.",
+    "name": "hwFrMapIpObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrMapIpIfIndex"
+      },
+      {
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrMapIpAddress"
+      },
+      {
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrMapIpDlciNumber"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.168.2.2.6",
+    "status": "current"
+  },
+  "hwFrMapIpRtpConnNumber": {
+    "class": "objecttype",
+    "description": "Indicates the number of rtp compression connections. Get 65535 when IPHC is disabled. Range: 3-256 Default: 65535 Unit: count",
+    "maxaccess": "read-only",
+    "name": "hwFrMapIpRtpConnNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.6.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 256,
+            "min": 3
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFrMapIpTable": {
+    "class": "objecttype",
+    "description": "This table is used to indicate the static address mapping for a PVC. The index of this table are hwFrMapIpIfIndex, hwFrMapIpDlciNumber and hwFrMapIpAddress.",
+    "maxaccess": "not-accessible",
+    "name": "hwFrMapIpTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.6",
+    "status": "current"
+  },
+  "hwFrMapPppDlciNumber": {
+    "class": "objecttype",
+    "description": "Indicates the DLCI of the PVC mapped by PPP.",
+    "maxaccess": "read-only",
+    "name": "hwFrMapPppDlciNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1022,
+            "min": 16
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFrMapPppEntry": {
+    "class": "objecttype",
+    "description": "This table is used to indicate the PPPoFR mapping on the PVC. The index of this entry are hwFrMapPppIfIndex and hwFrMapPppDlciNumber.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrMapPppIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrMapPppDlciNumber"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwFrMapPppEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.7.1",
+    "status": "current"
+  },
+  "hwFrMapPppIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwFrMapPppIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwFrMapPppObjectGroup": {
+    "class": "objectgroup",
+    "description": "The fr ppp mapping attribute group.",
+    "name": "hwFrMapPppObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrMapPppIfIndex"
+      },
+      {
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrMapPppDlciNumber"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.168.2.2.7",
+    "status": "current"
+  },
+  "hwFrMapPppState": {
+    "class": "objecttype",
+    "description": "Indicates the state of the PPP map. Options: 1.inactive(1) - inactive 2.active(2) - active",
+    "maxaccess": "read-only",
+    "name": "hwFrMapPppState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.7.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 2,
+          "inactive": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFrMapPppTable": {
+    "class": "objecttype",
+    "description": "This table is used to indicate the PPPoFR mapping on the PVC. The index of this table are hwFrMapPppIfIndex and hwFrMapPppDlciNumber.",
+    "maxaccess": "not-accessible",
+    "name": "hwFrMapPppTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.7",
+    "status": "current"
+  },
+  "hwFrMapPppVTIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the index of the VT interface.",
+    "maxaccess": "read-only",
+    "name": "hwFrMapPppVTIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwFrObjectGroup": {
+    "class": "objectgroup",
+    "description": "The fr attribute group.",
+    "name": "hwFrObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrIfIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.168.2.2.1",
+    "status": "current"
+  },
+  "hwFrObjects": {
+    "class": "objectidentity",
+    "name": "hwFrObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1"
+  },
+  "hwFrPvcDlciNumber": {
+    "class": "objecttype",
+    "description": "Indicates the Dlci number.",
+    "maxaccess": "read-only",
+    "name": "hwFrPvcDlciNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1022,
+            "min": 16
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFrPvcEntry": {
+    "class": "objecttype",
+    "description": "This table is used to indicate the PVC for the Fr interface. The index of this entry are hwFrPvcIfIndex and hwFrPvcDlciNumber.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrPvcIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrPvcDlciNumber"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwFrPvcEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.2.1",
+    "status": "current"
+  },
+  "hwFrPvcGroupEntry": {
+    "class": "objecttype",
+    "description": "This table is used to indicate the pvc-group on the interface. The index of this entry are hwFrPvcGroupIfIndex and hwFrPvcGroupName.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrPvcGroupIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrPvcGroupName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwFrPvcGroupEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.3.1",
+    "status": "current"
+  },
+  "hwFrPvcGroupIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwFrPvcGroupIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwFrPvcGroupInArpEnable": {
+    "class": "objecttype",
+    "description": "Indicates inarp is enabled or disabled. By default, the inarp of the pvc-group is enabled. true: enable inarp. false: disable inarp.",
+    "maxaccess": "read-only",
+    "name": "hwFrPvcGroupInArpEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwFrPvcGroupMapIpBroadcast": {
+    "class": "objecttype",
+    "description": "Indicates sending broadcast packets is enabled or disabled. By default, sending broadcast packets is disabled. true: enable sending broadcast packets. false: disable sending broadcast packets.",
+    "maxaccess": "read-only",
+    "name": "hwFrPvcGroupMapIpBroadcast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.5.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwFrPvcGroupMapIpDefault": {
+    "class": "objecttype",
+    "description": "Indicates the map is default map or not. By default, the map is not default map. true: the map is default map. false: the map is not default map.",
+    "maxaccess": "read-only",
+    "name": "hwFrPvcGroupMapIpDefault",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.5.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwFrPvcGroupMapIpEncapType": {
+    "class": "objecttype",
+    "description": "Indicates the encapsulation type of the PVC mapped by pvc-group. 1.nonstandard(1) - nonstandard encapsulation 2.ietf(2) - RFC1490 encapsulation",
+    "maxaccess": "read-only",
+    "name": "hwFrPvcGroupMapIpEncapType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.5.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ietf": 2,
+          "nonstandard": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFrPvcGroupMapIpEntry": {
+    "class": "objecttype",
+    "description": "This table is used to indicate the bridge mapping on the pvc-group. The index of this entry are hwFrPvcGroupMapIpIfIndex, hwFrPvcGroupMapIpName and hwFrPvcGroupMapIpIpAddr.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrPvcGroupMapIpIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrPvcGroupMapIpName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrPvcGroupMapIpIpAddr"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwFrPvcGroupMapIpEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.5.1",
+    "status": "current"
+  },
+  "hwFrPvcGroupMapIpIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwFrPvcGroupMapIpIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwFrPvcGroupMapIpIpAddr": {
+    "class": "objecttype",
+    "description": "Indicates the peer IP address mapped to the pvc-group. Get 0.0.0.0 when the map is default map.",
+    "maxaccess": "read-only",
+    "name": "hwFrPvcGroupMapIpIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwFrPvcGroupMapIpMask": {
+    "class": "objecttype",
+    "description": "Indicates the IP address mask mapped to the pvc-group. Get 255.255.255.255 when the map is default map.",
+    "maxaccess": "read-only",
+    "name": "hwFrPvcGroupMapIpMask",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwFrPvcGroupMapIpName": {
+    "class": "objecttype",
+    "description": "Indicates the name of the pvc-group. The name is a string of 1 to 16 characters.",
+    "maxaccess": "read-only",
+    "name": "hwFrPvcGroupMapIpName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwFrPvcGroupMapIpObjectGroup": {
+    "class": "objectgroup",
+    "description": "The fr pvc-group mapping attribute group.",
+    "name": "hwFrPvcGroupMapIpObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrPvcGroupMapIpIfIndex"
+      },
+      {
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrPvcGroupMapIpName"
+      },
+      {
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrPvcGroupMapIpIpAddr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.168.2.2.5",
+    "status": "current"
+  },
+  "hwFrPvcGroupMapIpTable": {
+    "class": "objecttype",
+    "description": "This table is used to indicate the bridge mapping on the pvc-group. The index of this table are hwFrPvcGroupMapIpIfIndex, hwFrPvcGroupMapIpName and hwFrPvcGroupMapIpIpAddr.",
+    "maxaccess": "not-accessible",
+    "name": "hwFrPvcGroupMapIpTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.5",
+    "status": "current"
+  },
+  "hwFrPvcGroupMemDefault": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "Indicates the TOS value of the PVC whether is default or not. true: default TOS value. false: none default TOS value.",
+    "maxaccess": "read-only",
+    "name": "hwFrPvcGroupMemDefault",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwFrPvcGroupMemDlciNumber": {
+    "class": "objecttype",
+    "description": "Indicates the DLCI of the PVC.",
+    "maxaccess": "read-only",
+    "name": "hwFrPvcGroupMemDlciNumber",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1022,
+            "min": 16
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFrPvcGroupMemEntry": {
+    "class": "objecttype",
+    "description": "This table is used to indicate the member of the pvc-group. The index of this entry are hwFrPvcGroupMemIfIndex, hwFrPvcGroupMemPvcGroupName and hwFrPvcGroupMemDlciNumber.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrPvcGroupMemIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrPvcGroupMemPvcGroupName"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrPvcGroupMemDlciNumber"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwFrPvcGroupMemEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.4.1",
+    "status": "current"
+  },
+  "hwFrPvcGroupMemIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwFrPvcGroupMemIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwFrPvcGroupMemMaxGrade": {
+    "class": "objecttype",
+    "description": "Indicates the maximum value of the TOS with one member PVC. If the TOS type is precedence, the maximum value cannot be larger than 7. Get 255 when this value is not configed.",
+    "maxaccess": "read-only",
+    "name": "hwFrPvcGroupMemMaxGrade",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 63,
+            "min": 0
+          },
+          {
+            "max": 255,
+            "min": 255
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFrPvcGroupMemMinGrade": {
+    "class": "objecttype",
+    "description": "Indicates the minimum value of the TOS with one member PVC. If the TOS type is precedence, the maximum value cannot be larger than 7. Get 255 when this value is not configed.",
+    "maxaccess": "read-only",
+    "name": "hwFrPvcGroupMemMinGrade",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 63,
+            "min": 0
+          },
+          {
+            "max": 255,
+            "min": 255
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwFrPvcGroupMemObjectGroup": {
+    "class": "objectgroup",
+    "description": "The fr pvc-group member attribute group.",
+    "name": "hwFrPvcGroupMemObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrPvcGroupMemIfIndex"
+      },
+      {
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrPvcGroupMemPvcGroupName"
+      },
+      {
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrPvcGroupMemDlciNumber"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.168.2.2.4",
+    "status": "current"
+  },
+  "hwFrPvcGroupMemPvcGroupName": {
+    "class": "objecttype",
+    "description": "Indicates the name of the pvc-group. The name is a string of 1 to 16 characters. Only support visible characters.",
+    "maxaccess": "read-only",
+    "name": "hwFrPvcGroupMemPvcGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwFrPvcGroupMemTable": {
+    "class": "objecttype",
+    "description": "This table is used to indicate the member of the pvc-group. The index of this table are hwFrPvcGroupMemIfIndex, hwFrPvcGroupMemPvcGroupName and hwFrPvcGroupMemDlciNumber.",
+    "maxaccess": "not-accessible",
+    "name": "hwFrPvcGroupMemTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.4",
+    "status": "current"
+  },
+  "hwFrPvcGroupMemTosType": {
+    "class": "objecttype",
+    "description": "Indicates the TOS type of a PVC belong to the pvc-group. Options: 1.none(1) - none 2.precedence(2) - precedence 3.dscp(3) - DSCP",
+    "maxaccess": "read-only",
+    "name": "hwFrPvcGroupMemTosType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dscp": 3,
+          "none": 1,
+          "precedence": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFrPvcGroupName": {
+    "class": "objecttype",
+    "description": "Indicates the name of the pvc-group. The name is a string of 1 to 16 characters. Only support visible characters.",
+    "maxaccess": "read-only",
+    "name": "hwFrPvcGroupName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 16,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwFrPvcGroupObjectGroup": {
+    "class": "objectgroup",
+    "description": "The fr pvc-group attribute group.",
+    "name": "hwFrPvcGroupObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrPvcGroupIfIndex"
+      },
+      {
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrPvcGroupName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.168.2.2.3",
+    "status": "current"
+  },
+  "hwFrPvcGroupState": {
+    "class": "objecttype",
+    "description": "Indicates the state of a pvc-group. Options: 1.inactive(1) - inactive 2.active(2) - active",
+    "maxaccess": "read-only",
+    "name": "hwFrPvcGroupState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 2,
+          "inactive": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFrPvcGroupTable": {
+    "class": "objecttype",
+    "description": "This table is used to indicate the pvc-group on the interface. The index of this table are hwFrPvcGroupIfIndex and hwFrPvcGroupName.",
+    "maxaccess": "not-accessible",
+    "name": "hwFrPvcGroupTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.3",
+    "status": "current"
+  },
+  "hwFrPvcGroupTosType": {
+    "class": "objecttype",
+    "description": "Indicates the TOS type of a pvc-group. Options: 1.none(1) - none 2.precedence(2) - precedence 3.dscp(3) - DSCP",
+    "maxaccess": "read-only",
+    "name": "hwFrPvcGroupTosType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dscp": 3,
+          "none": 1,
+          "precedence": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFrPvcIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates the interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwFrPvcIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwFrPvcInarpEnable": {
+    "class": "objecttype",
+    "description": "Indicates the inarp is enabled or disabled. By default, the inarp of the PVC is enabled. true: enable inarp. false: disable inarp.",
+    "maxaccess": "read-only",
+    "name": "hwFrPvcInarpEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwFrPvcObjectGroup": {
+    "class": "objectgroup",
+    "description": "The fr PVC attribute group.",
+    "name": "hwFrPvcObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrPvcIfIndex"
+      },
+      {
+        "module": "HUAWEI-FR-MIB",
+        "object": "hwFrPvcDlciNumber"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.168.2.2.2",
+    "status": "current"
+  },
+  "hwFrPvcState": {
+    "class": "objecttype",
+    "description": "Indicates the state of the PVC. Options: 1.inactive(1) - inactive 2.active(2) - active",
+    "maxaccess": "read-only",
+    "name": "hwFrPvcState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 2,
+          "inactive": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwFrPvcTable": {
+    "class": "objecttype",
+    "description": "This table is used to indicate the PVC for the Fr interface. The index of this table are hwFrPvcIfIndex and hwFrPvcDlciNumber.",
+    "maxaccess": "not-accessible",
+    "name": "hwFrPvcTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.2",
+    "status": "current"
+  },
+  "hwFrTable": {
+    "class": "objecttype",
+    "description": "This table is used to indicate the parameters of the Fr interface. The index of this table is hwFrIfIndex.",
+    "maxaccess": "not-accessible",
+    "name": "hwFrTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.168.1.1",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Unsigned32",
+      "Gauge32",
+      "Bits",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Counter64",
+      "IpAddress",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-FR-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:24 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-FR-MIB"
+  }
+}

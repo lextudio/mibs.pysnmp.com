@@ -1,0 +1,5023 @@
+{
+  "HWEnabledStatus": {
+    "class": "textualconvention",
+    "description": "This TC describes that the status of some function is enabled or disabled.",
+    "name": "HWEnabledStatus",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWIpfpmAuthType": {
+    "class": "textualconvention",
+    "description": "This TC describes the type of IPFPM authentication.",
+    "name": "HWIpfpmAuthType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hmac-sha256": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWIpfpmDelayMeasType": {
+    "class": "textualconvention",
+    "description": "This TC describes the type of delay measure of an test instance.",
+    "name": "HWIpfpmDelayMeasType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "null": 0,
+          "oneway": 1,
+          "twoway": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWIpfpmDelayTlpRole": {
+    "class": "textualconvention",
+    "description": "This TC describes the TLP point in delay measure.",
+    "name": "HWIpfpmDelayTlpRole",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "e2e": 1,
+          "section": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWIpfpmFlowTlpDirec": {
+    "class": "textualconvention",
+    "description": "This TC describes the role of flow TLP in the measurement network.",
+    "name": "HWIpfpmFlowTlpDirec",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "egress": 2,
+          "ingress": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWIpfpmFlowType": {
+    "class": "textualconvention",
+    "description": "This TC describes the type of flow in an test instance.",
+    "name": "HWIpfpmFlowType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backward": 2,
+          "bidirectional": 3,
+          "forward": 1,
+          "forwardandbackward": 4,
+          "null": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWIpfpmInstIntervalType": {
+    "class": "textualconvention",
+    "description": "This TC describes the interval type of an test instance.",
+    "name": "HWIpfpmInstIntervalType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interval10s": 10,
+          "interval1s": 1,
+          "interval600s": 600,
+          "interval60s": 60
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWIpfpmInstType": {
+    "class": "textualconvention",
+    "description": "This TC describes the type of an test instance.",
+    "name": "HWIpfpmInstType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "multicastrecv": 2,
+          "multicastsrc": 1,
+          "unicast": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWIpfpmLossTlpRole": {
+    "class": "textualconvention",
+    "description": "This TC describes the TLP point in loss measure.",
+    "name": "HWIpfpmLossTlpRole",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "e2e": 1,
+          "section": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWIpfpmMMSType": {
+    "class": "textualconvention",
+    "description": "This TC describes the type of multicastsrc.",
+    "name": "HWIpfpmMMSType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 0,
+          "slave": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWIpfpmMcpFlowType": {
+    "class": "textualconvention",
+    "description": "This TC describes the type of flow in an test instance.",
+    "name": "HWIpfpmMcpFlowType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backward": 2,
+          "bidirectional": 3,
+          "forward": 1,
+          "none": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWIpfpmMcpTlpRole": {
+    "class": "textualconvention",
+    "description": "This TC describes the role of TLP in the ACH.",
+    "name": "HWIpfpmMcpTlpRole",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "in-group": 1,
+          "out-group": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWIpfpmMeasTimeRangeType": {
+    "class": "textualconvention",
+    "description": "This TC describes the type of on-demand loss or delay measure of an test instance.",
+    "name": "HWIpfpmMeasTimeRangeType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "null": 0,
+          "timerange10m": 10,
+          "timerange15m": 15,
+          "timerange30m": 30,
+          "timerange5m": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWIpfpmMeasureFlag": {
+    "class": "textualconvention",
+    "description": "This TC describes the optional bit of an IP packet for IPFPM measurement.",
+    "name": "HWIpfpmMeasureFlag",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "flagsBit0": 1,
+          "tosBit3": 2,
+          "tosBit4": 3,
+          "tosBit5": 4,
+          "tosBit6": 5,
+          "tosBit7": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWIpfpmStatErrInfo": {
+    "class": "textualconvention",
+    "description": "This TC describes whether the statistics data is invalid or not and the reason of invalidation.",
+    "name": "HWIpfpmStatErrInfo",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "asynClock": 5,
+          "errDelayVariationBackward": 18,
+          "errDelayVariationBidirection": 19,
+          "errDelayVariationForward": 17,
+          "errFlowDataBackward": 13,
+          "errFlowDataBidirection": 14,
+          "errFlowDataForward": 12,
+          "errMultiSourceSwitch": 20,
+          "incompleteDataBackward": 7,
+          "incompleteDataBidirection": 8,
+          "incompleteDataForward": 6,
+          "inconsistInterval": 4,
+          "initialIntervalBackward": 2,
+          "initialIntervalBidirection": 3,
+          "initialIntervalForward": 1,
+          "multiDataOneDelay": 15,
+          "multiDataTwoDelay": 16,
+          "noErr": 0,
+          "noFlowDataBackward": 10,
+          "noFlowDataBidirection": 11,
+          "noFlowDataForward": 9,
+          "unknownErr": 21
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWIpfpmTlpRole": {
+    "class": "textualconvention",
+    "description": "This TC describes the TLP point.",
+    "name": "HWIpfpmTlpRole",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "in-point": 1,
+          "mid-point": 3,
+          "out-point": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "HWIpfpmVpnType": {
+    "class": "textualconvention",
+    "description": "This TC describes the type of VPN. The value \u0027none\u0027 represents the public network, the value \u0027manage-vpn\u0027 represents the net-mange VPN. and the value \u0027vpn-instance\u0027 represents the normal VPN instance.",
+    "name": "HWIpfpmVpnType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manage-vpn": 1,
+          "none": 0,
+          "vpn-instance": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIpfpmCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for entities which implement the IPFPM MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpConfigGroup"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpInstConfigGroup"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpStatsGroup"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpConfigGroup"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstConfigGroup"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpTlpConfigGroup"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmTrapsGroup"
+      }
+    ],
+    "name": "hwIpfpmCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.4.1.1",
+    "status": "current"
+  },
+  "hwIpfpmCompliances": {
+    "class": "objectidentity",
+    "name": "hwIpfpmCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.4.1"
+  },
+  "hwIpfpmConformance": {
+    "class": "objectidentity",
+    "name": "hwIpfpmConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.4"
+  },
+  "hwIpfpmDcpAuthEntry": {
+    "class": "objecttype",
+    "description": "IPFPM authentication information for DCP",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpAuthKeyId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpAuthEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.7.1",
+    "status": "current"
+  },
+  "hwIpfpmDcpAuthKey": {
+    "class": "objecttype",
+    "description": "The password used as an IPFPM authentication key.",
+    "maxaccess": "read-write",
+    "name": "hwIpfpmDcpAuthKey",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 392,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIpfpmDcpAuthKeyId": {
+    "class": "objecttype",
+    "description": "Identification of the DCP authentication.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpAuthKeyId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpAuthRowStatus": {
+    "class": "objecttype",
+    "description": "Used for controlling the creation and deletion of this row.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpAuthRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.7.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIpfpmDcpAuthTable": {
+    "class": "objecttype",
+    "description": "The table contains authentication of DCP.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpAuthTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.7",
+    "status": "current"
+  },
+  "hwIpfpmDcpAuthType": {
+    "class": "objecttype",
+    "description": "Authentication type of the DCP. The enumeration \u0027hmac-sha256(1)\u0027 represents the password is sent after being encrypted through hmac-sha256. By default, authentication is not configured.",
+    "maxaccess": "read-write",
+    "name": "hwIpfpmDcpAuthType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWIpfpmAuthType"
+    }
+  },
+  "hwIpfpmDcpConfigGroup": {
+    "class": "objectgroup",
+    "description": "The collection of objects which are used to configure the IPFPM DCP behavior.",
+    "name": "hwIpfpmDcpConfigGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpEnable"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpId"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpMeasureColorFlag"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpMcpId"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpMcpPort"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpMcpVpnName"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpMcpVpnType"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpAuthType"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpAuthKey"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpAuthRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.316.4.2.4",
+    "status": "current"
+  },
+  "hwIpfpmDcpConfiguration": {
+    "class": "objectidentity",
+    "name": "hwIpfpmDcpConfiguration",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1"
+  },
+  "hwIpfpmDcpDelayBackwardTlpId": {
+    "class": "objecttype",
+    "description": "The ingress TLP of the backward flow for two-way delay measure. The value 0 represents that this object is not configured.",
+    "maxaccess": "read-write",
+    "name": "hwIpfpmDcpDelayBackwardTlpId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.13.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16777215,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpDelayContEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disabled"
+      }
+    },
+    "description": "This object indicates that the continual delay measure function is \u0027enabled(1)\u0027 or \u0027disabled(2)\u0027.",
+    "maxaccess": "read-write",
+    "name": "hwIpfpmDcpDelayContEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.13.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnabledStatus"
+    }
+  },
+  "hwIpfpmDcpDelayEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disabled"
+      }
+    },
+    "description": "This object indicates that the on-demand delay measure function is \u0027enabled(1)\u0027 or \u0027disabled(2)\u0027.",
+    "maxaccess": "read-write",
+    "name": "hwIpfpmDcpDelayEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.13.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnabledStatus"
+    }
+  },
+  "hwIpfpmDcpDelayForwardTlpId": {
+    "class": "objecttype",
+    "description": "The ingress TLP of the flow for one-way delay measure or the ingress TLP of the forward flow for two-way delay measure. The value 0 represents that this object is not configured.",
+    "maxaccess": "read-write",
+    "name": "hwIpfpmDcpDelayForwardTlpId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.13.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16777215,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpDelayMeasEntry": {
+    "class": "objecttype",
+    "description": "IPFPM delay measure configuration information for a particular DCP test instance.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpDelayTlpRole"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpDelayMeasEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.13.1",
+    "status": "current"
+  },
+  "hwIpfpmDcpDelayMeasTable": {
+    "class": "objecttype",
+    "description": "The table contains delay measure information of DCP test instances.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpDelayMeasTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.13",
+    "status": "current"
+  },
+  "hwIpfpmDcpDelayMeasType": {
+    "class": "objecttype",
+    "description": "The type of delay measure. The enumeration values include \u0027oneway(1)\u0027 and \u0027twoway(2)\u0027. The value \u0027null(0)\u0027 represents that this object is not configured.",
+    "maxaccess": "read-write",
+    "name": "hwIpfpmDcpDelayMeasType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.13.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWIpfpmDelayMeasType"
+    }
+  },
+  "hwIpfpmDcpDelayTimeRange": {
+    "class": "objecttype",
+    "description": "The time range in which the on-demand delay measure function is enabled. The enumeration values include \u0027timerange5m(5)\u0027, \u0027timerange10m(10)\u0027, \u0027timerange15m(15)\u0027, and \u0027timerange30m(30)\u0027. The value \u0027null(0)\u0027 represents that this object is not configured.",
+    "maxaccess": "read-write",
+    "name": "hwIpfpmDcpDelayTimeRange",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.13.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWIpfpmMeasTimeRangeType"
+    }
+  },
+  "hwIpfpmDcpDelayTlpRole": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "e2e"
+      }
+    },
+    "description": "The type of TLP that delay measure enabled on. The enumeration values include \u0027e2e(1)\u0027,\u0027section(2)\u0027 . The value \u0027e2e(1)\u0027 represents that this object is end-end. The value \u0027section(2)\u0027 represents that this object is mid-point.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpDelayTlpRole",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.13.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWIpfpmDelayTlpRole"
+    }
+  },
+  "hwIpfpmDcpEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disabled"
+      }
+    },
+    "description": "This object indicates that the DCP (Data Collecting Point) function is \u0027enabled(1)\u0027 or \u0027disabled(2)\u0027.",
+    "maxaccess": "read-write",
+    "name": "hwIpfpmDcpEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnabledStatus"
+    }
+  },
+  "hwIpfpmDcpExtTlpId": {
+    "class": "objecttype",
+    "description": "Identification of TLP.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpExtTlpId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.18.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16777215,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpFlowBackwardGtpTeid": {
+    "class": "objecttype",
+    "description": "This object indicates the value of backward gtp teid specified as the flow feature. The value 0 represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpFlowBackwardGtpTeid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.10.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967294,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpfpmDcpFlowConflict": {
+    "class": "notificationtype",
+    "description": "A hwIpfpmDcpFlowConflict trap is sent when the flow configuration conflicts with another existing flow configuration. The first hwIpfpmDcpInstId and hwIpfpmDcpFlowType indicates the specified flow. The second hwIpfpmDcpInstId and hwIpfpmDcpFlowType indicates the existing flow.",
+    "name": "hwIpfpmDcpFlowConflict",
+    "objects": [
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstId"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpFlowType"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstId"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpFlowType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.316.3.7",
+    "status": "current"
+  },
+  "hwIpfpmDcpFlowDscp": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "This object indicates the DSCP specified as the flow feature. The value -1 represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpFlowDscp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.10.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 63,
+            "min": -1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpFlowDstAddr": {
+    "class": "objecttype",
+    "description": "This object indicates the destination ip address specified as the flow feature. The value 0.0.0.0 represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpFlowDstAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.10.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIpfpmDcpFlowDstMaskLen": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 32
+      }
+    },
+    "description": "This object indicates the destination ip mask length specified as the flow feature.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpFlowDstMaskLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.10.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpFlowDstPortBgn": {
+    "class": "objecttype",
+    "description": "This object indicates the begin value of destination port specified as the flow feature. It need configure \u0027hwIpfpmDcpFlowProtocol\u0027 first before configure this object. The value 0 represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpFlowDstPortBgn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.10.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpFlowDstPortEnd": {
+    "class": "objecttype",
+    "description": "This object indicates the end value of destination port specified as the flow feature. It need configure \u0027hwIpfpmDcpFlowProtocol\u0027 first before configure this object. The value 0 represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpFlowDstPortEnd",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.10.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpFlowEntry": {
+    "class": "objecttype",
+    "description": "IPFPM configuration information for a particular DCP test instance flow.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpFlowType"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpFlowEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.10.1",
+    "status": "current"
+  },
+  "hwIpfpmDcpFlowForwardGtpTeid": {
+    "class": "objecttype",
+    "description": "This object indicates the value of forward gtp teid specified as the flow feature. The value 0 represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpFlowForwardGtpTeid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.10.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967294,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpfpmDcpFlowOuterDstAddr": {
+    "class": "objecttype",
+    "description": "This object indicates the outer destination ip address specified as the flow feature. The value 0 represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpFlowOuterDstAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.10.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIpfpmDcpFlowOuterSrcAddr": {
+    "class": "objecttype",
+    "description": "This object indicates the outer source ip address specified as the flow feature. The value 0 represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpFlowOuterSrcAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.10.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIpfpmDcpFlowProtocol": {
+    "class": "objecttype",
+    "description": "This object indicates the protocol specified as the flow feature. \u0027hwIpfpmDcpFlowSrcPortBgn\u0027, \u0027hwIpfpmDcpFlowSrcPortEnd\u0027, \u0027hwIpfpmDcpFlowDstPortBgn\u0027, and \u0027hwIpfpmDcpFlowDstPortEnd\u0027 can be configured only when the value is 6(tcp) or 17(udp). The value 0 represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpFlowProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.10.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpFlowRowStatus": {
+    "class": "objecttype",
+    "description": "Used for controlling the creation and deletion of this row.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpFlowRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.10.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIpfpmDcpFlowSrcAddr": {
+    "class": "objecttype",
+    "description": "This object indicates the source ip address specified as the flow feature. The value 0.0.0.0 represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpFlowSrcAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.10.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIpfpmDcpFlowSrcMaskLen": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 32
+      }
+    },
+    "description": "This object indicates the source ip mask length specified as the flow feature.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpFlowSrcMaskLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.10.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpFlowSrcPortBgn": {
+    "class": "objecttype",
+    "description": "This object indicates the begin value of source port specified as the flow feature. It need configure \u0027hwIpfpmDcpFlowProtocol\u0027 first before configure this object. The value 0 represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpFlowSrcPortBgn",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.10.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpFlowSrcPortEnd": {
+    "class": "objecttype",
+    "description": "This object indicates the end value of source port specified as the flow feature. It need configure \u0027hwIpfpmDcpFlowProtocol\u0027 first before configure this object. The value 0 represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpFlowSrcPortEnd",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.10.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpFlowTable": {
+    "class": "objecttype",
+    "description": "The table contains flow attribute of DCP test instances.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpFlowTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.10",
+    "status": "current"
+  },
+  "hwIpfpmDcpFlowType": {
+    "class": "objecttype",
+    "description": "This object indicates that the flow is \u0027forward(1)\u0027 or \u0027backward(2)\u0027 or \u0027bidirectional(3)\u0027.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIpfpmDcpFlowType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.10.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWIpfpmFlowType"
+    }
+  },
+  "hwIpfpmDcpGlobalTable": {
+    "class": "objectidentity",
+    "name": "hwIpfpmDcpGlobalTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.1"
+  },
+  "hwIpfpmDcpId": {
+    "class": "objecttype",
+    "description": "The value of this object indicates the identification of DCP. The value 0.0.0.0 represents that it is not configured.",
+    "maxaccess": "read-write",
+    "name": "hwIpfpmDcpId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIpfpmDcpInstAuthEntry": {
+    "class": "objecttype",
+    "description": "IPFPM authentication information for a particular DCP test instance.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstAuthKeyId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpInstAuthEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.9.1",
+    "status": "current"
+  },
+  "hwIpfpmDcpInstAuthKey": {
+    "class": "objecttype",
+    "description": "The password used as an DCP test instance authentication key.",
+    "maxaccess": "read-write",
+    "name": "hwIpfpmDcpInstAuthKey",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.9.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 392,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIpfpmDcpInstAuthKeyId": {
+    "class": "objecttype",
+    "description": "Identification of the DCP authentication.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpInstAuthKeyId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.9.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpInstAuthRowStatus": {
+    "class": "objecttype",
+    "description": "Used for controlling the creation and deletion of this row.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstAuthRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.9.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIpfpmDcpInstAuthTable": {
+    "class": "objecttype",
+    "description": "The table contains authentication of DCP test instances.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpInstAuthTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.9",
+    "status": "current"
+  },
+  "hwIpfpmDcpInstAuthType": {
+    "class": "objecttype",
+    "description": "Authentication type of DCP instance authentication. The enumeration \u0027hmac-sha256(1)\u0027 represents the password is sent after being encrypted through hmac-sha256. By default, authentication is not configured. If this object is not configured and object \u0027hwIpfpmDcpAuthType\u0027 is configured, then this instance uses \u0027hwIpfpmDcpInstAuthType\u0027 and \u0027hwIpfpmDcpInstAuthKey\u0027 as its authentication.",
+    "maxaccess": "read-write",
+    "name": "hwIpfpmDcpInstAuthType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.9.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWIpfpmAuthType"
+    }
+  },
+  "hwIpfpmDcpInstConfigGroup": {
+    "class": "objectgroup",
+    "description": "The collection of objects which are used to configure the IPFPM DCP test instance behavior.",
+    "name": "hwIpfpmDcpInstConfigGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstId"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstDesc"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstMcpId"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstMcpPort"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstInterval"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstAuthType"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstAuthKey"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstAuthRowStatus"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstRowStatus"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstType"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpSourceInstId"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstMcpVpnName"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstMcpVpnType"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstGroupId"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpFlowType"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpFlowProtocol"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpFlowDscp"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpFlowSrcAddr"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpFlowSrcMaskLen"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpFlowDstAddr"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpFlowDstMaskLen"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpFlowSrcPortBgn"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpFlowSrcPortEnd"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpFlowDstPortBgn"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpFlowDstPortEnd"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpFlowRowStatus"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpFlowOuterSrcAddr"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpFlowOuterDstAddr"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpFlowForwardGtpTeid"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpFlowBackwardGtpTeid"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstTlpRole"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstTlpFlowType"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstTlpDirec"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstTlpVpnLabel"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstTlpCtrlWordFlag"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstTlpLspLabel"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstTlpL2VpnFlag"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstTlpTpId"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstTlpRowStatus"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstTlpMultiSrcType"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstTlpFlowLabelFlag"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstTlpLspLabel2"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstTlpLspLabel3"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstTlpOuterVlan"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstTlpInnerVlan"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstTlpBackwardVpnLabel"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstTlpBackwardCtrlWordFlag"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstTlpBackwardLspLabel"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstTlpBackwardLspLabel2"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstTlpBackwardLspLabel3"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstTlpBackwardL2VpnFlag"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstTlpBackwardFlowLabelFlag"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstTlpBackwardOuterVlan"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstTlpBackwardInnerVlan"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstTlpBackwardTpId"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpLossEnable"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpLossContEnable"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpLossTimeRange"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpDelayEnable"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpDelayContEnable"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpDelayMeasType"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpDelayTimeRange"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpDelayForwardTlpId"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpDelayBackwardTlpId"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpSrcInstReferCnt"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.316.4.2.5",
+    "status": "current"
+  },
+  "hwIpfpmDcpInstDesc": {
+    "class": "objecttype",
+    "description": "Description of the test instance. if the string length is 0, it represents that it is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstDesc",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.8.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIpfpmDcpInstEntry": {
+    "class": "objecttype",
+    "description": "IPFPM configuration information for a particular DCP test instance.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpInstEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.8.1",
+    "status": "current"
+  },
+  "hwIpfpmDcpInstGroupId": {
+    "class": "objecttype",
+    "description": "The group identification of the test instance.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstGroupId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.8.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8355838,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpInstId": {
+    "class": "objecttype",
+    "description": "Identification of the test instance.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIpfpmDcpInstId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8355838,
+            "min": 1
+          },
+          {
+            "max": 16777214,
+            "min": 16711681
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpInstInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "interval10s"
+      }
+    },
+    "description": "This object indicates that interval of an test instance is \u0027interval1s(1)\u0027 or \u0027interval10s(10)\u0027 or \u0027interval60s(60)\u0027 or \u0027interval600s(600)\u0027.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.8.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWIpfpmInstIntervalType"
+    }
+  },
+  "hwIpfpmDcpInstMcpId": {
+    "class": "objecttype",
+    "description": "Identification of the MCP that DCP reports measure data of this test instance to. The value 0.0.0.0 represents that it is not configured",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstMcpId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.8.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIpfpmDcpInstMcpPort": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 65030
+      }
+    },
+    "description": "The listening port of the MCP that DCP reports measure data of this test instance to. It need setting \u0027hwIpfpmDcpInstMcpId\u0027 first before setting this object.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstMcpPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.8.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1024
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpInstMcpVpnName": {
+    "class": "objecttype",
+    "description": "The name of the VPN instance through which the DCP and the MCP communicates. \u0027hwIpfpmDcpInstMcpId\u0027 should be setted first before setting this object.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstMcpVpnName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.8.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIpfpmDcpInstMcpVpnType": {
+    "class": "objecttype",
+    "description": "The type of the VPN instance. \u0027hwIpfpmDcpInstMcpId\u0027 should be setted first before setting this object.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstMcpVpnType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.8.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWIpfpmVpnType"
+    }
+  },
+  "hwIpfpmDcpInstRowStatus": {
+    "class": "objecttype",
+    "description": "Used for controlling the creation and deletion of this row.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.8.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIpfpmDcpInstTable": {
+    "class": "objecttype",
+    "description": "The table contains attribute of DCP test instances.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpInstTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.8",
+    "status": "current"
+  },
+  "hwIpfpmDcpInstTlpBackwardCtrlWordFlag": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "The control word flag of the flow that the TLP measured. The value false(2) represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstTlpBackwardCtrlWordFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.11.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIpfpmDcpInstTlpBackwardFlowLabelFlag": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "This value indicate whether the flow-label is configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstTlpBackwardFlowLabelFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.11.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIpfpmDcpInstTlpBackwardInnerVlan": {
+    "class": "objecttype",
+    "description": "The inner-vlan id of the flow that the TLP measured. The value 0 represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstTlpBackwardInnerVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.11.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpInstTlpBackwardL2VpnFlag": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "The L2VPN flag of the flow that the TLP measured. The value false(2) represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstTlpBackwardL2VpnFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.11.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIpfpmDcpInstTlpBackwardLspLabel": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "The LSP label of the flow that the TLP measured. The value -1 represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstTlpBackwardLspLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.11.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1048575,
+            "min": -1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpInstTlpBackwardLspLabel2": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "The LSP label of the flow that the TLP measured. The value -1 represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstTlpBackwardLspLabel2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.11.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1048575,
+            "min": -1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpInstTlpBackwardLspLabel3": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "The LSP label of the flow that the TLP measured. The value -1 represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstTlpBackwardLspLabel3",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.11.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1048575,
+            "min": -1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpInstTlpBackwardOuterVlan": {
+    "class": "objecttype",
+    "description": "The outer-vlan id of the flow that the TLP measured. The value 0 represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstTlpBackwardOuterVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.11.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpInstTlpBackwardTpId": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "OctetString",
+        "format": "decimal",
+        "value": 8100
+      }
+    },
+    "description": "The tpid for vlan. The value range is from \u0027600\u0027 to \u0027FFFF\u0027.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstTlpBackwardTpId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.11.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 4,
+            "min": 3
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIpfpmDcpInstTlpBackwardVpnLabel": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "The VPN label of of the flow that the TLP measured. The value -1 represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstTlpBackwardVpnLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.11.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1048575,
+            "min": -1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpInstTlpCtrlWordFlag": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "The control word flag of the flow that the TLP measured. The value false(2) represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstTlpCtrlWordFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.11.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIpfpmDcpInstTlpDirec": {
+    "class": "objecttype",
+    "description": "The object indicates the TLP is \u0027ingress(1)\u0027 or \u0027egress(2)\u0027 of the flow of DCP test instance.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstTlpDirec",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.11.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWIpfpmFlowTlpDirec"
+    }
+  },
+  "hwIpfpmDcpInstTlpEntry": {
+    "class": "objecttype",
+    "description": "IPFPM configuration information for a particular TLP.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpTlpId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpInstTlpEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.11.1",
+    "status": "current"
+  },
+  "hwIpfpmDcpInstTlpFlowLabelFlag": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "This value indicate whether the flow-label is configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstTlpFlowLabelFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.11.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIpfpmDcpInstTlpFlowType": {
+    "class": "objecttype",
+    "description": "The object indicates the flow type of the instance TLP is \u0027forward(1)\u0027 or \u0027backward(2)\u0027 or \u0027bidirectional(3)\u0027 or \u0027forwardandbackward(4)\u0027. Only \u0027forward(1)\u0027 and \u0027backward(2)\u0027 can be configured when \u0027hwIpfpmDcpInstTlpRole\u0027 is \u0027mid-point(3)\u0027. The value \u0027null(0)\u0027 represents that this flow is not configured under the instance.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstTlpFlowType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.11.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWIpfpmFlowType"
+    }
+  },
+  "hwIpfpmDcpInstTlpInnerVlan": {
+    "class": "objecttype",
+    "description": "The inner-vlan id of the flow that the TLP measured. The value 0 represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstTlpInnerVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.11.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpInstTlpL2VpnFlag": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "The L2VPN flag of the flow that the TLP measured. The value false(2) represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstTlpL2VpnFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.11.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIpfpmDcpInstTlpLspLabel": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "The LSP label of the flow that the TLP measured. The value -1 represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstTlpLspLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.11.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1048575,
+            "min": -1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpInstTlpLspLabel2": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "The LSP label of the flow that the TLP measured. The value -1 represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstTlpLspLabel2",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.11.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1048575,
+            "min": -1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpInstTlpLspLabel3": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "The LSP label of the flow that the TLP measured. The value -1 represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstTlpLspLabel3",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.11.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1048575,
+            "min": -1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpInstTlpMultiSrcType": {
+    "class": "objecttype",
+    "description": "The object indicates the type of multicastsrc \u0027master(0)\u0027or \u0027slave(1)\u0027.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstTlpMultiSrcType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.11.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWIpfpmMMSType"
+    }
+  },
+  "hwIpfpmDcpInstTlpOuterVlan": {
+    "class": "objecttype",
+    "description": "The outer-vlan id of the flow that the TLP measured. The value 0 represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstTlpOuterVlan",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.11.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpInstTlpRole": {
+    "class": "objecttype",
+    "description": "The object indicates the TLP position \u0027in-point(1)\u0027 or \u0027out-point(2) or \u0027mid-point(3)\u0027.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstTlpRole",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.11.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWIpfpmTlpRole"
+    }
+  },
+  "hwIpfpmDcpInstTlpRowStatus": {
+    "class": "objecttype",
+    "description": "Used for controlling the creation and deletion of this row.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstTlpRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.11.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIpfpmDcpInstTlpTable": {
+    "class": "objecttype",
+    "description": "The table contains attribute of TLPs.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpInstTlpTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.11",
+    "status": "current"
+  },
+  "hwIpfpmDcpInstTlpTpId": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "OctetString",
+        "format": "decimal",
+        "value": 8100
+      }
+    },
+    "description": "The tpid for vlan. The value range is from \u0027600\u0027 to \u0027FFFF\u0027.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstTlpTpId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.11.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 4,
+            "min": 3
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIpfpmDcpInstTlpVpnLabel": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": -1
+      }
+    },
+    "description": "The VPN label of of the flow that the TLP measured. The value -1 represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstTlpVpnLabel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.11.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1048575,
+            "min": -1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpInstType": {
+    "class": "objecttype",
+    "description": "type of the test instance.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpInstType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.8.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWIpfpmInstType"
+    }
+  },
+  "hwIpfpmDcpLossContEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disabled"
+      }
+    },
+    "description": "This object indicates that the continual loss measure function is \u0027enabled(1)\u0027 or \u0027disabled(2)\u0027.",
+    "maxaccess": "read-write",
+    "name": "hwIpfpmDcpLossContEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.12.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnabledStatus"
+    }
+  },
+  "hwIpfpmDcpLossEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disabled"
+      }
+    },
+    "description": "This object indicates that the on-demand loss measure function is \u0027enabled(1)\u0027 or \u0027disabled(2)\u0027.",
+    "maxaccess": "read-write",
+    "name": "hwIpfpmDcpLossEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.12.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnabledStatus"
+    }
+  },
+  "hwIpfpmDcpLossMeasEntry": {
+    "class": "objecttype",
+    "description": "IPFPM loss measure configuration information for a particular DCP test instance.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpLossTlpRole"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpLossMeasEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.12.1",
+    "status": "current"
+  },
+  "hwIpfpmDcpLossMeasTable": {
+    "class": "objecttype",
+    "description": "The table contains loss measure information of DCP test instances.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpLossMeasTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.12",
+    "status": "current"
+  },
+  "hwIpfpmDcpLossTimeRange": {
+    "class": "objecttype",
+    "description": "The time range in which the on-demand loss measure function is enabled. The enumeration values include \u0027timerange5m(5)\u0027, \u0027timerange10m(10)\u0027, \u0027timerange15m(15)\u0027, and \u0027timerange30m(30)\u0027. The value \u0027null(0)\u0027 represents that this object is not configured.",
+    "maxaccess": "read-write",
+    "name": "hwIpfpmDcpLossTimeRange",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.12.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWIpfpmMeasTimeRangeType"
+    }
+  },
+  "hwIpfpmDcpLossTlpRole": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "e2e"
+      }
+    },
+    "description": "The type of TLP that loss measure enabled on. The enumeration values include \u0027e2e(1)\u0027,\u0027section(2)\u0027 . The value \u0027e2e(1)\u0027 represents that this object is end-end. The value \u0027section(2)\u0027 represents that this object is mid-point.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpLossTlpRole",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.12.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWIpfpmLossTlpRole"
+    }
+  },
+  "hwIpfpmDcpMcpId": {
+    "class": "objecttype",
+    "description": "Identification of the MCP that DCP reports measure data of the test instances not specified the object \u0027hwIpfpmDcpInstMcpId\u0027 to. The value 0.0.0.0 represents that it is not configured.",
+    "maxaccess": "read-write",
+    "name": "hwIpfpmDcpMcpId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIpfpmDcpMcpPort": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 65030
+      }
+    },
+    "description": "The listening port of the MCP that DCP reports measure data of the test instances not specified the object \u0027hwIpfpmDcpInstMcpPort\u0027 to. It need setting \u0027hwIpfpmDcpMcpId\u0027 first before setting this object.",
+    "maxaccess": "read-write",
+    "name": "hwIpfpmDcpMcpPort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1024
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpMcpVpnName": {
+    "class": "objecttype",
+    "description": "The name of the VPN instance through which the DCP and the MCP communicates. \u0027hwIpfpmDcpInstMcpId\u0027 should be setted first before setting this object.",
+    "maxaccess": "read-write",
+    "name": "hwIpfpmDcpMcpVpnName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIpfpmDcpMcpVpnType": {
+    "class": "objecttype",
+    "description": "The type of the VPN instance. \u0027hwIpfpmDcpInstMcpId\u0027 should be setted first before setting this object.",
+    "maxaccess": "read-write",
+    "name": "hwIpfpmDcpMcpVpnType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWIpfpmVpnType"
+    }
+  },
+  "hwIpfpmDcpMeasureColorFlag": {
+    "class": "objecttype",
+    "description": "This string object indicates the bits of an IP packet used for color measurement. the length of string is 3,first and second character range is \u003c1-6\u003e, third character range is \u003c0-6\u003e. the three characters can not same. The character \u00270\u0027 represents none flag bit. The character \u00271\u0027 represents the bit0 of the FLAGS byte. The character \u00272\u0027 represents the bit3 of the TOS byte. The character \u00273\u0027 represents the bit4 of the TOS byte. The character \u00274\u0027 represents the bit5 of the TOS byte. The character \u00275\u0027 represents the bit6 of the TOS byte. The character \u00276\u0027 represents the bit7 of the TOS byte. the first character represents loss measurement color-bit, the second character represents delay measurement color-bit, the third character represents multicast measurement color-bit.",
+    "maxaccess": "read-write",
+    "name": "hwIpfpmDcpMeasureColorFlag",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 3,
+            "min": 3
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIpfpmDcpObjects": {
+    "class": "objectidentity",
+    "name": "hwIpfpmDcpObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2"
+  },
+  "hwIpfpmDcpSourceInstId": {
+    "class": "objecttype",
+    "description": "Identification of the source instance.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpSourceInstId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.8.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 16777214,
+            "min": 16711681
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpSrcInstReferCnt": {
+    "class": "objecttype",
+    "description": "The object indicates the counter that the multicast source instance referred by some multicast receiver instances.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmDcpSrcInstReferCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.16.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpSrcInstReferQueryEntry": {
+    "class": "objecttype",
+    "description": "The information is that the multicast source instance referred by some multicast receiver instances.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpInstId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpSrcInstReferQueryEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.16.1",
+    "status": "current"
+  },
+  "hwIpfpmDcpSrcInstReferQueryTable": {
+    "class": "objecttype",
+    "description": "The table describes the information of multicast source instance referred by some multicast receiver instances.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpSrcInstReferQueryTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.16",
+    "status": "current"
+  },
+  "hwIpfpmDcpTlpConfigGroup": {
+    "class": "objectgroup",
+    "description": "The collection of objects which are used to configure the IPFPM TLP behavior.",
+    "name": "hwIpfpmDcpTlpConfigGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpTlpIfIndex"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpTlpRowStatus"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpTlpVlanId"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpTlpQueryTlpId"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmTlpExceedBoardId"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmTlpNumber"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmTlpThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.316.4.2.6",
+    "status": "current"
+  },
+  "hwIpfpmDcpTlpEntry": {
+    "class": "objecttype",
+    "description": "IPFPM configuration information for a particular TLP on interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpTlpId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpTlpEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.14.1",
+    "status": "current"
+  },
+  "hwIpfpmDcpTlpExtEntry": {
+    "class": "objecttype",
+    "description": "IPFPM configuration information for a particular TLP on interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpExtTlpId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpTlpExtEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.18.1",
+    "status": "current"
+  },
+  "hwIpfpmDcpTlpExtIfIndex": {
+    "class": "objecttype",
+    "description": "The index of the port that the TLP configured on.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpTlpExtIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.18.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpTlpExtOntId": {
+    "class": "objecttype",
+    "description": "This object indicates the ONT ID. The value -1 represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpTlpExtOntId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.18.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpTlpExtOntPortId": {
+    "class": "objecttype",
+    "description": "This object indicates the ONT port ID. The value -1 represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpTlpExtOntPortId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.18.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpTlpExtOntPortType": {
+    "class": "objecttype",
+    "description": "This object indicates the ONT port\u0027s type. Options: 1. eth (47)) -indicates ONT port\u0027s type is the eth type. 2. invalid(-1) -indicates ONT port\u0027s type is not matched. DEFVAL { -1 } . ",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpTlpExtOntPortType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.18.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eth": 47,
+          "invalid": -1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIpfpmDcpTlpExtRowStatus": {
+    "class": "objecttype",
+    "description": "Used for controlling the creation and deletion of this row.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpTlpExtRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.18.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIpfpmDcpTlpExtTable": {
+    "class": "objecttype",
+    "description": "The table contains attribute of TLPs.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpTlpExtTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.18",
+    "status": "current"
+  },
+  "hwIpfpmDcpTlpExtVlanId": {
+    "class": "objecttype",
+    "description": "The VLAN ID of the TLP measured. The value 0 represents ce-default-vlan. The value 65535 represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpTlpExtVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.18.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpTlpId": {
+    "class": "objecttype",
+    "description": "Identification of TLP.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpTlpId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.14.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16777215,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpTlpIfIndex": {
+    "class": "objecttype",
+    "description": "The index of the port that the TLP configured on.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpTlpIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.14.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwIpfpmDcpTlpQueryEntry": {
+    "class": "objecttype",
+    "description": "The TLP information which is configured with the interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpTlpQueryIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpTlpQueryVlanId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpTlpQueryEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.15.1",
+    "status": "current"
+  },
+  "hwIpfpmDcpTlpQueryExtEntry": {
+    "class": "objecttype",
+    "description": "The TLP information which is configured with the interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpTlpQueryExtIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpTlpQueryExtVlanId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpTlpQueryExtOntId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpTlpQueryExtOntPortType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpTlpQueryExtOntPortId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpTlpQueryExtEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.17.1",
+    "status": "current"
+  },
+  "hwIpfpmDcpTlpQueryExtIfIndex": {
+    "class": "objecttype",
+    "description": "The interface index which is configured with TLP.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpTlpQueryExtIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.17.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwIpfpmDcpTlpQueryExtOntId": {
+    "class": "objecttype",
+    "description": "This object indicates the ONT ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpTlpQueryExtOntId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.17.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpTlpQueryExtOntPortId": {
+    "class": "objecttype",
+    "description": "This object indicates the ONT port ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpTlpQueryExtOntPortId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.17.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpTlpQueryExtOntPortType": {
+    "class": "objecttype",
+    "description": "This object indicates the ONT port\u0027s type. Options: 1. eth (47)) -indicates ONT port\u0027s type is the eth type. 2. invalid(-1) -indicates ONT port\u0027s type is not matched. ",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpTlpQueryExtOntPortType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.17.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eth": 47,
+          "invalid": -1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIpfpmDcpTlpQueryExtTable": {
+    "class": "objecttype",
+    "description": "The table contains the query interface ifindex and TLP ID with the interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpTlpQueryExtTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.17",
+    "status": "current"
+  },
+  "hwIpfpmDcpTlpQueryExtTlpId": {
+    "class": "objecttype",
+    "description": "The TLP ID which is configured on the interface.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmDcpTlpQueryExtTlpId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.17.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16777215,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpTlpQueryExtVlanId": {
+    "class": "objecttype",
+    "description": "The VLAN ID of the TLP measured. The value 0 represents ce-default-vlan. The value 65535 represents that this object is not configured.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpTlpQueryExtVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.17.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpTlpQueryIfIndex": {
+    "class": "objecttype",
+    "description": "The interface index which is configured with TLP.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpTlpQueryIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.15.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwIpfpmDcpTlpQueryTable": {
+    "class": "objecttype",
+    "description": "The table contains the query interface ifindex and TLP ID with the interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpTlpQueryTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.15",
+    "status": "current"
+  },
+  "hwIpfpmDcpTlpQueryTlpId": {
+    "class": "objecttype",
+    "description": "The TLP ID which is configured on the interface.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmDcpTlpQueryTlpId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.15.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16777215,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpTlpQueryVlanId": {
+    "class": "objecttype",
+    "description": "The VLAN ID of the TLP measured. The value 0 represents ce-default-vlan. The value 65535 represents that this object is not configured.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpTlpQueryVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.15.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpTlpRowStatus": {
+    "class": "objecttype",
+    "description": "Used for controlling the creation and deletion of this row.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpTlpRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.14.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIpfpmDcpTlpTable": {
+    "class": "objecttype",
+    "description": "The table contains attribute of TLPs.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmDcpTlpTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.14",
+    "status": "current"
+  },
+  "hwIpfpmDcpTlpVlanId": {
+    "class": "objecttype",
+    "description": "The VLAN ID of the TLP measured. The value 0 represents ce-default-vlan. The value 65535 represents that this object is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmDcpTlpVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.1.14.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmDcpTrapObjects": {
+    "class": "objectidentity",
+    "name": "hwIpfpmDcpTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.2"
+  },
+  "hwIpfpmGroups": {
+    "class": "objectidentity",
+    "name": "hwIpfpmGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.4.2"
+  },
+  "hwIpfpmLossRatioExceed": {
+    "class": "notificationtype",
+    "description": "A hwIpfpmLossRatioExceed trap is sent when the loss ratio of IPFPM test instance exceeds the uppper threshold in continuous five test intervals.",
+    "name": "hwIpfpmLossRatioExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpFlowType"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpForwardLossRatio"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpBackwardLossRatio"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpInstDesc"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.316.3.1",
+    "status": "current"
+  },
+  "hwIpfpmLossRatioRecovery": {
+    "class": "notificationtype",
+    "description": "A hwIpfpmLossRatioRecovery trap is sent when the loss ratio of IPFPM test instance is under the lower threshold in continuous five test intervals.",
+    "name": "hwIpfpmLossRatioRecovery",
+    "objects": [
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpFlowType"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpForwardLossRatio"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpBackwardLossRatio"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpInstDesc"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.316.3.2",
+    "status": "current"
+  },
+  "hwIpfpmMcpAchEntry": {
+    "class": "objecttype",
+    "description": "IPFPM ACHs(Atomic Closed Hop) information for a particular MCP test instance.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpInstId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpAchId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpAchEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.7.1",
+    "status": "current"
+  },
+  "hwIpfpmMcpAchId": {
+    "class": "objecttype",
+    "description": "The object indicates the identification of the ACH.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpAchId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpAchRowStatus": {
+    "class": "objecttype",
+    "description": "Used for controlling the creation and deletion of this row.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmMcpAchRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIpfpmMcpAchTable": {
+    "class": "objecttype",
+    "description": "The table describe the ACHs(Atomic Closed Hop) belonging to MCP test instances.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpAchTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.7",
+    "status": "current"
+  },
+  "hwIpfpmMcpAuthEntry": {
+    "class": "objecttype",
+    "description": "IPFPM authenticaiton configuration information.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpAuthKeyId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpAuthEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.4.1",
+    "status": "current"
+  },
+  "hwIpfpmMcpAuthKey": {
+    "class": "objecttype",
+    "description": "The password used as an IPFPM authentication key.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmMcpAuthKey",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 392,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIpfpmMcpAuthKeyId": {
+    "class": "objecttype",
+    "description": "Identification of the authentication key.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpAuthKeyId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 64,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpAuthRowStatus": {
+    "class": "objecttype",
+    "description": "Used for controlling the creation and deletion of this row.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmMcpAuthRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIpfpmMcpAuthTable": {
+    "class": "objecttype",
+    "description": "The table contains attribute of MCP authenticaiton.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpAuthTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.4",
+    "status": "current"
+  },
+  "hwIpfpmMcpAuthType": {
+    "class": "objecttype",
+    "description": "Authentication type of the key. The enumeration \u0027hmac-sha256(1)\u0027 represents the password is sent after being encrypted through hmac-sha256. By default, authentication is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmMcpAuthType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWIpfpmAuthType"
+    }
+  },
+  "hwIpfpmMcpBackwardBytes": {
+    "class": "objecttype",
+    "description": "The bytes of backward flow measurement.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpBackwardBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.4.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIpfpmMcpBackwardDelay": {
+    "class": "objecttype",
+    "description": "The backward flow delay(us) in two-way delay measurement.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpBackwardDelay",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.6.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpBackwardDelayVariation": {
+    "class": "objecttype",
+    "description": "The backward flow variation(us) in two-way delay measurement.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpBackwardDelayVariation",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.6.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpBackwardLossBytes": {
+    "class": "objecttype",
+    "description": "The absolute value of loss bytes of backward flow measurement.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpBackwardLossBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.4.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIpfpmMcpBackwardLossBytesSign": {
+    "class": "objecttype",
+    "description": "The sign of loss bytes of backward flow measurement. 1 means positive number, -1 means negative number.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpBackwardLossBytesSign",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.4.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpBackwardLossPkts": {
+    "class": "objecttype",
+    "description": "The absolute value of loss packets of backward flow measurement.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpBackwardLossPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.4.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIpfpmMcpBackwardLossPktsSign": {
+    "class": "objecttype",
+    "description": "The sign of loss loss packets of backward flow measurement. 1 means positive number, -1 means negative number.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpBackwardLossPktsSign",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.4.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpBackwardLossRatio": {
+    "class": "objecttype",
+    "description": "This value divided by 1000000 is the loss ratio(%) of backward flow measurement.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpBackwardLossRatio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.4.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpBackwardOneDelay": {
+    "class": "objecttype",
+    "description": "The one-way delay(us) of backward flow.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpBackwardOneDelay",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpBackwardOneDelayVariation": {
+    "class": "objecttype",
+    "description": "The one-way delay variation(us) of backward flow.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpBackwardOneDelayVariation",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.5.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpBackwardPkts": {
+    "class": "objecttype",
+    "description": "The packets of backward flow measurement.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpBackwardPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.4.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIpfpmMcpConfigGroup": {
+    "class": "objectgroup",
+    "description": "The collection of objects which are used to configure the IPFPM MCP behavior.",
+    "name": "hwIpfpmMcpConfigGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpEnable"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpId"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpUdpPort"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpAuthType"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpAuthKey"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpAuthRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.316.4.2.1",
+    "status": "current"
+  },
+  "hwIpfpmMcpConfiguration": {
+    "class": "objectidentity",
+    "name": "hwIpfpmMcpConfiguration",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1"
+  },
+  "hwIpfpmMcpDcpEntry": {
+    "class": "objecttype",
+    "description": "IPFPM DCPs information for a particular MCP test instance.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpInstId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpDcpId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpDcpEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.6.1",
+    "status": "current"
+  },
+  "hwIpfpmMcpDcpId": {
+    "class": "objecttype",
+    "description": "Identification of DCP which belongs to the test instance.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpDcpId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIpfpmMcpDcpRowStatus": {
+    "class": "objecttype",
+    "description": "Used for controlling the creation and deletion of this row.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmMcpDcpRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIpfpmMcpDcpTable": {
+    "class": "objecttype",
+    "description": "The table describe the DCPs belonging to MCP test instances.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpDcpTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.6",
+    "status": "current"
+  },
+  "hwIpfpmMcpEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disabled"
+      }
+    },
+    "description": "This object indicates that the MCP (Measurement Control Point) function is \u0027enabled(1)\u0027 or \u0027disabled(2)\u0027.",
+    "maxaccess": "read-write",
+    "name": "hwIpfpmMcpEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnabledStatus"
+    }
+  },
+  "hwIpfpmMcpFlowType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "none"
+      }
+    },
+    "description": "The object indicates the flow that the ACH monitors is \u0027forward(1)\u0027 or \u0027backward(2)\u0027, \u0027bidirectional(3)\u0027. The value none(0) represents that it is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmMcpFlowType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWIpfpmMcpFlowType"
+    }
+  },
+  "hwIpfpmMcpForwardBytes": {
+    "class": "objecttype",
+    "description": "The bytes of forward flow measurement.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpForwardBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.4.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIpfpmMcpForwardDelay": {
+    "class": "objecttype",
+    "description": "The forward flow delay(us) in two-way delay measurement.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpForwardDelay",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpForwardDelayVariation": {
+    "class": "objecttype",
+    "description": "The forward flow variation(us) in two-way delay measurement.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpForwardDelayVariation",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpForwardLossBytes": {
+    "class": "objecttype",
+    "description": "The absolute value of loss bytes of forward flow measurement.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpForwardLossBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIpfpmMcpForwardLossBytesSign": {
+    "class": "objecttype",
+    "description": "The sign of loss bytes of forward flow measurement. 1 means positive number, -1 means negative number.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpForwardLossBytesSign",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpForwardLossMMSSwitch": {
+    "class": "objecttype",
+    "description": "This value indicate whether multicastsrc switched in this period.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpForwardLossMMSSwitch",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.4.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIpfpmMcpForwardLossMMSType": {
+    "class": "objecttype",
+    "description": "This value indicate multicastsrc type is \u0027master(0)\u0027 or \u0027slave(1)\u0027.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpForwardLossMMSType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.4.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWIpfpmMMSType"
+    }
+  },
+  "hwIpfpmMcpForwardLossPkts": {
+    "class": "objecttype",
+    "description": "The absolute value of loss packets of forward flow measurement.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpForwardLossPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIpfpmMcpForwardLossPktsSign": {
+    "class": "objecttype",
+    "description": "The sign of loss packets of forward flow measurement. 1 means positive number, -1 means negative number.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpForwardLossPktsSign",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpForwardLossRatio": {
+    "class": "objecttype",
+    "description": "This value divided by 1000000 is the loss ratio(%) of forward flow measurement.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpForwardLossRatio",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.4.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpForwardOneDelay": {
+    "class": "objecttype",
+    "description": "The one-way delay(us) of forward flow.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpForwardOneDelay",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpForwardOneDelayMMSType": {
+    "class": "objecttype",
+    "description": "This value indicate multicastsrc type is \u0027master(0)\u0027 or \u0027slave(1)\u0027.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpForwardOneDelayMMSType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.5.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWIpfpmMMSType"
+    }
+  },
+  "hwIpfpmMcpForwardOneDelayVariation": {
+    "class": "objecttype",
+    "description": "The one-way delay variation(us) of forward flow.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpForwardOneDelayVariation",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpForwardPkts": {
+    "class": "objecttype",
+    "description": "The packets of forward flow measurement.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpForwardPkts",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.4.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIpfpmMcpGlobalTable": {
+    "class": "objectidentity",
+    "name": "hwIpfpmMcpGlobalTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.1"
+  },
+  "hwIpfpmMcpId": {
+    "class": "objecttype",
+    "description": "The value of this object indicates the identification of MCP. The value 0.0.0.0 represents that it is not configured.",
+    "maxaccess": "read-write",
+    "name": "hwIpfpmMcpId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIpfpmMcpInstAchIndexEntry": {
+    "class": "objecttype",
+    "description": "Index of a particular test instance and ACH.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpInstId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpAchId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpInstAchIndexEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.3.1",
+    "status": "current"
+  },
+  "hwIpfpmMcpInstAchIndexTable": {
+    "class": "objecttype",
+    "description": "The tables contains the index of MCP test instances and ACH.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpInstAchIndexTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.3",
+    "status": "current"
+  },
+  "hwIpfpmMcpInstConfigGroup": {
+    "class": "objectgroup",
+    "description": "The collection of objects which are used to configure the IPFPM MCP test instance behavior.",
+    "name": "hwIpfpmMcpInstConfigGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpInstDesc"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpLossRatioUpThres"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpLossRatioLowThres"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpOneDelayUpThres"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpOneDelayLowThres"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpTwoDelayUpThres"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpTwoDelayLowThres"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpMeasureEnable"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpInstRowStatus"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpInstType"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpSourceInstId"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpDcpRowStatus"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpFlowType"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpAchRowStatus"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpTlpRowStatus"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpSrcInstReferCnt"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.316.4.2.2",
+    "status": "current"
+  },
+  "hwIpfpmMcpInstCurNum": {
+    "class": "objecttype",
+    "description": "This object indicates the current instance number of MCP.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpInstCurNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpInstDesc": {
+    "class": "objecttype",
+    "description": "Description of the test instance. if the string length is 0, it represents that it is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmMcpInstDesc",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIpfpmMcpInstEntry": {
+    "class": "objecttype",
+    "description": "IPFPM configuration information for a particular MCP test instance.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpInstId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpInstEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.5.1",
+    "status": "current"
+  },
+  "hwIpfpmMcpInstId": {
+    "class": "objecttype",
+    "description": "Identification of the test instance.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpInstId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8355838,
+            "min": 1
+          },
+          {
+            "max": 16777214,
+            "min": 16711681
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpInstRowStatus": {
+    "class": "objecttype",
+    "description": "Used for controlling the creation and deletion of this row.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmMcpInstRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.5.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIpfpmMcpInstSpec": {
+    "class": "objecttype",
+    "description": "This object indicates the global instance specification of MCP.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpInstSpec",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpInstTable": {
+    "class": "objecttype",
+    "description": "The table contains attribute of MCP test instances.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpInstTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.5",
+    "status": "current"
+  },
+  "hwIpfpmMcpInstType": {
+    "class": "objecttype",
+    "description": "This object indicates that the MCP instance type. \u0027unicast(0)\u0027 means unicast measurement instance. \u0027multicastsrc(1)\u0027 means multicast measurement source instance. \u0027multicastrecv(2)\u0027 means multicast measurement receiver instance.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmMcpInstType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.5.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWIpfpmInstType"
+    }
+  },
+  "hwIpfpmMcpLossErrInfo": {
+    "class": "objecttype",
+    "description": "The error code to indicate the validity and the invalidation reason of an interval\u0027s loss measure statistics.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpLossErrInfo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWIpfpmStatErrInfo"
+    }
+  },
+  "hwIpfpmMcpLossRatioLowThres": {
+    "class": "objecttype",
+    "description": "This value divided by 1000000 is the lower threshold of loss ratio(%) for alarm recovery. The value 0 represents that it is not configured, and the alarm is not enabled.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmMcpLossRatioLowThres",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpLossRatioUpThres": {
+    "class": "objecttype",
+    "description": "This value divided by 1000000 is the upper threshold of loss ratio(%) for alarm. The value 0 represents that it is not configured, and the alarm is not enabled.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmMcpLossRatioUpThres",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpLossStatsEntry": {
+    "class": "objecttype",
+    "description": "Loss measure statistics of an interval for a particular test instance.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpInstId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpAchId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpSeqNoHigh"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpSeqNoLow"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpLossStatsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.4.1",
+    "status": "current"
+  },
+  "hwIpfpmMcpLossStatsTable": {
+    "class": "objecttype",
+    "description": "The tables contains loss measure statistics of MCP test instances.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpLossStatsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.4",
+    "status": "current"
+  },
+  "hwIpfpmMcpMeasureEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "enabled"
+      }
+    },
+    "description": "This object indicates that the MCP instance measure function is \u0027enabled(1)\u0027 or \u0027disabled(2)\u0027.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmMcpMeasureEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.5.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWEnabledStatus"
+    }
+  },
+  "hwIpfpmMcpObjects": {
+    "class": "objectidentity",
+    "name": "hwIpfpmMcpObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1"
+  },
+  "hwIpfpmMcpOneDelayErrInfo": {
+    "class": "objecttype",
+    "description": "The error code to indicate the validity and the invalidation reason of an interval\u0027s one-way delay measure statistics.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpOneDelayErrInfo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWIpfpmStatErrInfo"
+    }
+  },
+  "hwIpfpmMcpOneDelayLowThres": {
+    "class": "objecttype",
+    "description": "Lower threshold of one-way delay(us) for alarm recovery. The value 0 represents that it is not configured, and the alarm is not enabled.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmMcpOneDelayLowThres",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.5.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpOneDelayStatEntry": {
+    "class": "objecttype",
+    "description": "One-way delay measure statistics of an interval for a particular test instance.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpInstId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpAchId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpSeqNoHigh"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpSeqNoLow"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpOneDelayStatEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.5.1",
+    "status": "current"
+  },
+  "hwIpfpmMcpOneDelayStatTable": {
+    "class": "objecttype",
+    "description": "The tables contains one-way delay measure statistics of MCP test instances.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpOneDelayStatTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.5",
+    "status": "current"
+  },
+  "hwIpfpmMcpOneDelayUpThres": {
+    "class": "objecttype",
+    "description": "Upper threshold of one-way delay(us) for alarm. The value 0 represents that it is not configured, and the alarm is not enabled.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmMcpOneDelayUpThres",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.5.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpSeqNo": {
+    "class": "objecttype",
+    "description": "Sequence of a particular test instance and ACH.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpSeqNo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    }
+  },
+  "hwIpfpmMcpSeqNoHigh": {
+    "class": "objecttype",
+    "description": "High 32-bit of the hwIpfpmMcpSeqNo.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpSeqNoHigh",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpfpmMcpSeqNoLow": {
+    "class": "objecttype",
+    "description": "Low 32-bit of the hwIpfpmMcpSeqNo.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpSeqNoLow",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIpfpmMcpSourceInstId": {
+    "class": "objecttype",
+    "description": "This object indicates the source instance of multicastrecv. This object is only valid when hwIpfpmMcpInstType is \u0027multicastrecv(2)\u0027. We can ingore this object value when hwIpfpmMcpInstType is not \u0027multicastrecv(2)\u0027.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmMcpSourceInstId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.5.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 16777214,
+            "min": 16711681
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpSrcInstReferCnt": {
+    "class": "objecttype",
+    "description": "The object indicates the counter that the multicast source instance referred by some multicast receiver instances.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpSrcInstReferCnt",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.9.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpSrcInstReferQueryEntry": {
+    "class": "objecttype",
+    "description": "The information is that the multicast source instance referred by some multicast receiver instances.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpInstId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpSrcInstReferQueryEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.9.1",
+    "status": "current"
+  },
+  "hwIpfpmMcpSrcInstReferQueryTable": {
+    "class": "objecttype",
+    "description": "The table describes the information of multicast source instance referred by some multicast receiver instances.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpSrcInstReferQueryTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.9",
+    "status": "current"
+  },
+  "hwIpfpmMcpStatistics": {
+    "class": "objectidentity",
+    "name": "hwIpfpmMcpStatistics",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2"
+  },
+  "hwIpfpmMcpStatisticsTable": {
+    "class": "objectidentity",
+    "name": "hwIpfpmMcpStatisticsTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.1"
+  },
+  "hwIpfpmMcpStatsGroup": {
+    "class": "objectgroup",
+    "description": "The collection of objects which are used to represent the IPFPM test instance statistics.",
+    "name": "hwIpfpmMcpStatsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpInstSpec"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpInstCurNum"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpSeqNo"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpLossErrInfo"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpForwardLossPkts"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpForwardLossPktsSign"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpForwardLossBytes"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpForwardLossBytesSign"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpForwardPkts"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpForwardBytes"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpForwardLossRatio"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpBackwardLossPkts"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpBackwardLossPktsSign"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpBackwardLossBytes"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpBackwardLossBytesSign"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpBackwardPkts"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpBackwardBytes"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpBackwardLossRatio"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpForwardLossMMSType"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpForwardLossMMSSwitch"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpOneDelayErrInfo"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpForwardOneDelay"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpForwardOneDelayVariation"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpBackwardOneDelay"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpBackwardOneDelayVariation"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpForwardOneDelayMMSType"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpTwoDelayErrInfo"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpTwoDelay"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpTwoDelayVariation"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpForwardDelay"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpForwardDelayVariation"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpBackwardDelay"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpBackwardDelayVariation"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.316.4.2.3",
+    "status": "current"
+  },
+  "hwIpfpmMcpTlpDcpId": {
+    "class": "objecttype",
+    "description": "The object indicates the dcp which the tlp belongs to.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpTlpDcpId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.8.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwIpfpmMcpTlpEntry": {
+    "class": "objecttype",
+    "description": "IPFPM TLPs(Target Logical Port) information for a particular MCP ACH.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpInstId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpAchId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpTlpRole"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpTlpDcpId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpTlpId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpTlpEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.8.1",
+    "status": "current"
+  },
+  "hwIpfpmMcpTlpId": {
+    "class": "objecttype",
+    "description": "The object indicates the identification of the TLP.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpTlpId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.8.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16777215,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpTlpRole": {
+    "class": "objecttype",
+    "description": "The object indicates the TLP belongs to \u0027in-group(1)\u0027 or \u0027out-group(2)\u0027 of the ACH.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpTlpRole",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWIpfpmMcpTlpRole"
+    }
+  },
+  "hwIpfpmMcpTlpRowStatus": {
+    "class": "objecttype",
+    "description": "Used for controlling the creation and deletion of this row.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmMcpTlpRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.8.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIpfpmMcpTlpTable": {
+    "class": "objecttype",
+    "description": "The table describe the TLPs(Target Logical Port) belonging to MCP ACHs.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpTlpTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.8",
+    "status": "current"
+  },
+  "hwIpfpmMcpTwoDelay": {
+    "class": "objecttype",
+    "description": "The two-way delay(us) of monitored flow.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpTwoDelay",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpTwoDelayErrInfo": {
+    "class": "objecttype",
+    "description": "The error code to indicate the validity and the invalidation reason of an interval\u0027s two-way delay measure statistics.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpTwoDelayErrInfo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWIpfpmStatErrInfo"
+    }
+  },
+  "hwIpfpmMcpTwoDelayLowThres": {
+    "class": "objecttype",
+    "description": "Lower threshold of two-way delay(us) for alarm recovery. The value 0 represents that it is not configured, and the alarm is not enabled.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmMcpTwoDelayLowThres",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.5.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpTwoDelayStatEntry": {
+    "class": "objecttype",
+    "description": "Two-way delay measure statistics of an interval for a particular test instance.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpInstId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpAchId"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpSeqNoHigh"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpSeqNoLow"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpTwoDelayStatEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.6.1",
+    "status": "current"
+  },
+  "hwIpfpmMcpTwoDelayStatTable": {
+    "class": "objecttype",
+    "description": "The tables contains two-way delay measure statistics of MCP test instances.",
+    "maxaccess": "not-accessible",
+    "name": "hwIpfpmMcpTwoDelayStatTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.6",
+    "status": "current"
+  },
+  "hwIpfpmMcpTwoDelayUpThres": {
+    "class": "objecttype",
+    "description": "Upper threshold of two-way delay(us) for alarm. The value 0 represents that it is not configured, and the alarm is not enabled.",
+    "maxaccess": "read-create",
+    "name": "hwIpfpmMcpTwoDelayUpThres",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.5.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpTwoDelayVariation": {
+    "class": "objecttype",
+    "description": "The two-way delay variation(us) of monitored flow.",
+    "maxaccess": "read-only",
+    "name": "hwIpfpmMcpTwoDelayVariation",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.2.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMcpUdpPort": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 65030
+      }
+    },
+    "description": "The value of this object indicates the port that MCP listens on as the server.",
+    "maxaccess": "read-write",
+    "name": "hwIpfpmMcpUdpPort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1024
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmMib": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "This MIB describes objects to manage IPFPM (IP Flow Performance Measurement). IPFPM provides a method for IP flow performance measurement, in which MCP (Measurement Control Point),DCP (Data Collecting Point) and TLP (Target Logic Point) are three kinds of roles working together. TLP is responsible for implementing measurement and generating the measurement data. DCP manages TLPs and get measurement data from them to report to MCP. MCP works as the control role to collect and calculate the measurement data that DCP reported.",
+    "lastupdated": "201510131700Z",
+    "name": "hwIpfpmMib",
+    "oid": "1.3.6.1.4.1.2011.5.25.316",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "revision 1.26, modify the spelling mistake of the word label",
+        "revision": "2015-10-13 17:00"
+      },
+      {
+        "description": "revision 1.25, modify the DEFVAL of hwIpfpmMcpId ,hwIpfpmDcpFlowDstAddr, hwIpfpmDcpFlowSrcAddr,hwIpfpmDcpId,hwIpfpmDcpId node",
+        "revision": "2015-08-14 20:59"
+      },
+      {
+        "description": "revision 1.24, modify the type of hwIpfpmDcpTlpExtIfIndex node",
+        "revision": "2015-05-07 15:55"
+      },
+      {
+        "description": "revision 1.23, modify the value of hwIpfpmDcpInstGroupId node range",
+        "revision": "2015-07-09 16:58"
+      },
+      {
+        "description": "revision 1.22, add hwIpfpmDcpTlpQueryExtTable and hwIpfpmDcpTlpExtTable ",
+        "revision": "2015-05-06 12:55"
+      },
+      {
+        "description": "revision 1.21, add hwIpfpmDcpInstGroupId ",
+        "revision": "2015-05-05 15:55"
+      },
+      {
+        "description": "revision 1.20, add enum bidirectional (3) value for hwIpfpmMcpFlowType mib node",
+        "revision": "2015-04-16 15:27"
+      },
+      {
+        "description": "revision 1.19, modify table index",
+        "revision": "2015-02-06 11:43"
+      },
+      {
+        "description": "revision 1.18, modify hwIpfpmDcpInstTlpTable for atom",
+        "revision": "2014-12-29 16:26"
+      },
+      {
+        "description": "revision 1.17, add new VB in hwIpfpmDcpInstTlpTable for SFP",
+        "revision": "2014-06-26 10:00"
+      },
+      {
+        "description": "revision 1.16, modify size list of hwIpfpmDcpSourceInstId, hwIpfpmDcpInstTlpVpnLabel, hwIpfpmDcpInstTlpLspLabel",
+        "revision": "2014-02-12 10:00"
+      },
+      {
+        "description": "revision 1.15, add hwIpfpmTlpExceed, hwIpfpmTlpRecovery, hwIpfpmTlpExceedBoardId, hwIpfpmTlpNumber, hwIpfpmTlpThreshold",
+        "revision": "2013-12-17 10:00"
+      },
+      {
+        "description": "revision 1.14, add description in the threshold trap",
+        "revision": "2013-10-25 20:00"
+      },
+      {
+        "description": "revision 1.13, support flow-label",
+        "revision": "2013-09-25 20:00"
+      },
+      {
+        "description": "revision 1.12, add hwIpfpmDcpMcpVpnName, hwIpfpmDcpMcpVpnType, hwIpfpmDcpInstMcpVpnName, hwIpfpmDcpInstMcpVpnType",
+        "revision": "2013-09-23 20:00"
+      },
+      {
+        "description": "revision 1.11, add hwIpfpmDcpFlowConflict",
+        "revision": "2013-08-18 20:38"
+      },
+      {
+        "description": "revision 1.10",
+        "revision": "2013-08-14 20:38"
+      },
+      {
+        "description": "revision 1.09",
+        "revision": "2013-08-05 15:04"
+      },
+      {
+        "description": "revision 1.08",
+        "revision": "2013-07-04 16:12"
+      },
+      {
+        "description": "revision 1.07",
+        "revision": "2013-06-22 14:50"
+      },
+      {
+        "description": "revision 1.06",
+        "revision": "2013-06-04 14:03"
+      },
+      {
+        "description": "revision 1.05",
+        "revision": "2013-04-27 17:30"
+      },
+      {
+        "description": "revision 1.04",
+        "revision": "2013-03-27 10:11"
+      },
+      {
+        "description": "revision 1.03",
+        "revision": "2013-03-26 10:11"
+      },
+      {
+        "description": "revision",
+        "revision": "2013-03-13 11:50"
+      },
+      {
+        "description": "init",
+        "revision": "2013-02-18 11:50"
+      }
+    ]
+  },
+  "hwIpfpmOneDelayExceed": {
+    "class": "notificationtype",
+    "description": "A hwIpfpmOneDelayExceed trap is sent when the one-way delay of IPFPM test instance exceeds the uppper threshold in continuous five test intervals.",
+    "name": "hwIpfpmOneDelayExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpFlowType"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpForwardOneDelay"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpBackwardOneDelay"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpInstDesc"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.316.3.3",
+    "status": "current"
+  },
+  "hwIpfpmOneDelayRecovery": {
+    "class": "notificationtype",
+    "description": "A hwIpfpmOneDelayRecovery trap is sent when the one-way delay of IPFPM test instance is under the lower threshold in continuous five test intervals.",
+    "name": "hwIpfpmOneDelayRecovery",
+    "objects": [
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpFlowType"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpForwardOneDelay"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpBackwardOneDelay"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpInstDesc"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.316.3.4",
+    "status": "current"
+  },
+  "hwIpfpmTlpExceed": {
+    "class": "notificationtype",
+    "description": "A hwIpfpmTlpExceed trap is sent when the number of board tlp exceeds the threshold.",
+    "name": "hwIpfpmTlpExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmTlpExceedBoardId"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmTlpNumber"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmTlpThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.316.3.8",
+    "status": "current"
+  },
+  "hwIpfpmTlpExceedBoardId": {
+    "class": "objecttype",
+    "description": " The board ID that the tlp exceed the threshold.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIpfpmTlpExceedBoardId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.2.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmTlpNumber": {
+    "class": "objecttype",
+    "description": " The number of tlp.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIpfpmTlpNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.2.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmTlpRecovery": {
+    "class": "notificationtype",
+    "description": "A hwIpfpmTlpRecovery trap is sent when the number of board tlp is under the threshold.",
+    "name": "hwIpfpmTlpRecovery",
+    "objects": [
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmTlpExceedBoardId"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmTlpNumber"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmTlpThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.316.3.9",
+    "status": "current"
+  },
+  "hwIpfpmTlpThreshold": {
+    "class": "objecttype",
+    "description": " The threshold of tlp.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIpfpmTlpThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.2.2.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIpfpmTraps": {
+    "class": "objectidentity",
+    "name": "hwIpfpmTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.316.3"
+  },
+  "hwIpfpmTrapsGroup": {
+    "class": "notificationgroup",
+    "description": "The collection of traps used to indicate that the measured network performance is in fault or not.",
+    "name": "hwIpfpmTrapsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmLossRatioExceed"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmLossRatioRecovery"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmOneDelayExceed"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmOneDelayRecovery"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmTwoDelayExceed"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmTwoDelayRecovery"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmDcpFlowConflict"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmTlpExceed"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmTlpRecovery"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.316.4.2.7",
+    "status": "current"
+  },
+  "hwIpfpmTwoDelayExceed": {
+    "class": "notificationtype",
+    "description": "A hwIpfpmTwoDelayExceed trap is sent when the two-way delay of IPFPM test instance exceeds the uppper threshold in continuous five test intervals.",
+    "name": "hwIpfpmTwoDelayExceed",
+    "objects": [
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpTwoDelay"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpInstDesc"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.316.3.5",
+    "status": "current"
+  },
+  "hwIpfpmTwoDelayRecovery": {
+    "class": "notificationtype",
+    "description": "A hwIpfpmTwoDelayRecovery trap is sent when the two-way delay of IPFPM test instance is under the lower threshold in continuous five test intervals.",
+    "name": "hwIpfpmTwoDelayRecovery",
+    "objects": [
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpTwoDelay"
+      },
+      {
+        "module": "HUAWEI-IPFPM-MIB",
+        "object": "hwIpfpmMcpInstDesc"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.316.3.6",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "Counter32",
+      "IpAddress",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-IPFPM-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:36 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-IPFPM-MIB"
+  }
+}

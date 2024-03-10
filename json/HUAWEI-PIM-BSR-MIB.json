@@ -1,0 +1,340 @@
+{
+  "hwMcast": {
+    "class": "objectidentity",
+    "name": "hwMcast",
+    "oid": "1.3.6.1.4.1.2011.5.25.149"
+  },
+  "hwPimBsrCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for PIM routers that implement the Bootstrap Router (Bsr) mechanism.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-PIM-BSR-MIB",
+        "object": "hwPimBsrObjectGroup"
+      }
+    ],
+    "name": "hwPimBsrCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.2.1.1",
+    "status": "current"
+  },
+  "hwPimBsrCompliances": {
+    "class": "objectidentity",
+    "name": "hwPimBsrCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.2.1"
+  },
+  "hwPimBsrConformance": {
+    "class": "objectidentity",
+    "name": "hwPimBsrConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.2"
+  },
+  "hwPimBsrElectedBsrGrpMappingAddrType": {
+    "class": "objecttype",
+    "description": "The Inet address type of the IP multicast group prefix.",
+    "maxaccess": "not-accessible",
+    "name": "hwPimBsrElectedBsrGrpMappingAddrType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwPimBsrElectedBsrGrpMappingGrpAddr": {
+    "class": "objecttype",
+    "description": "The IP multicast group address which, when combined with hwPimBsrElectedBsrGrpMappingGrpAddr, gives the group prefix for this mapping. The InetAddressType is given by the hwPimBsrElectedBsrGrpMappingAddrType object. This address object is only significant up to hwPimBsrElectedBsrGrpMappingGrpAddr bits. The remainder of the address bits are zero. This is especially important for this field, which is part of the index of this entry. Any non-zero bits would signify an entirely different entry.",
+    "maxaccess": "not-accessible",
+    "name": "hwPimBsrElectedBsrGrpMappingGrpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.1.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 4,
+            "min": 4
+          },
+          {
+            "max": 8,
+            "min": 8
+          },
+          {
+            "max": 16,
+            "min": 16
+          },
+          {
+            "max": 20,
+            "min": 20
+          }
+        ]
+      },
+      "type": "InetAddress"
+    }
+  },
+  "hwPimBsrElectedBsrGrpMappingGrpPrefixLen": {
+    "class": "objecttype",
+    "description": "The multicast group prefix length that, when combined with hwPimBsrElectedBsrGrpMappingGrpAddr, gives the group prefix for this mapping. The InetAddressType is given by the hwPimBsrElectedBsrGrpMappingAddrType object. If hwPimBsrElectedBsrGrpMappingAddrType is \u0027ipv4\u0027 or \u0027ipv4z\u0027, this object must be in the range 4..32. If hwPimBsrElectedBsrGrpMappingAddrType is \u0027ipv6\u0027 or \u0027ipv6z\u0027, this object must be in the range 8..128.",
+    "maxaccess": "not-accessible",
+    "name": "hwPimBsrElectedBsrGrpMappingGrpPrefixLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.1.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 4
+          }
+        ]
+      },
+      "type": "InetAddressPrefixLength"
+    }
+  },
+  "hwPimBsrElectedBsrGrpMappingRPAddr": {
+    "class": "objecttype",
+    "description": "The IP address of the RP to be used for groups within this group prefix. The InetAddressType is given by the hwPimBsrElectedBsrGrpMappingAddrType object.",
+    "maxaccess": "not-accessible",
+    "name": "hwPimBsrElectedBsrGrpMappingRPAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.1.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 4,
+            "min": 4
+          },
+          {
+            "max": 8,
+            "min": 8
+          },
+          {
+            "max": 16,
+            "min": 16
+          },
+          {
+            "max": 20,
+            "min": 20
+          }
+        ]
+      },
+      "type": "InetAddress"
+    }
+  },
+  "hwPimBsrElectedBsrRpSetEntry": {
+    "class": "objecttype",
+    "description": "An entry (conceptual row) in the hwPimBsrElectedBsrRpSetTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-PIM-BSR-MIB",
+        "object": "hwPimBsrElectedBsrGrpMappingAddrType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-PIM-BSR-MIB",
+        "object": "hwPimBsrElectedBsrGrpMappingGrpAddr"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-PIM-BSR-MIB",
+        "object": "hwPimBsrElectedBsrGrpMappingGrpPrefixLen"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-PIM-BSR-MIB",
+        "object": "hwPimBsrElectedBsrGrpMappingRPAddr"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPimBsrElectedBsrRpSetEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.1.2.1",
+    "status": "current"
+  },
+  "hwPimBsrElectedBsrRpSetExpiryTime": {
+    "class": "objecttype",
+    "description": "The minimum time remaining before this entry will be aged out. The value zero indicates that this entry will never be aged out.",
+    "maxaccess": "read-only",
+    "name": "hwPimBsrElectedBsrRpSetExpiryTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.1.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TimeTicks"
+    }
+  },
+  "hwPimBsrElectedBsrRpSetGrpBidir": {
+    "class": "objecttype",
+    "description": "If this object is TRUE, this group range with this RP is a BIDIR-PIM group range. If it is set to FALSE, it is a PIM-SM group range.",
+    "maxaccess": "read-only",
+    "name": "hwPimBsrElectedBsrRpSetGrpBidir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.1.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwPimBsrElectedBsrRpSetHoldtime": {
+    "class": "objecttype",
+    "description": "The holdtime for RP",
+    "maxaccess": "read-only",
+    "name": "hwPimBsrElectedBsrRpSetHoldtime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.1.2.1.7",
+    "reference": "I-D.ietf-pim-sm-Bsr section 4.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    },
+    "units": "seconds"
+  },
+  "hwPimBsrElectedBsrRpSetPriority": {
+    "class": "objecttype",
+    "description": "The priority for RP. Numerically higher values for this object indicate lower priorities, with the value zero denoting the highest priority.",
+    "maxaccess": "read-only",
+    "name": "hwPimBsrElectedBsrRpSetPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.1.2.1.6",
+    "reference": "I-D.ietf-pim-sm-Bsr section 4.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPimBsrElectedBsrRpSetTable": {
+    "class": "objecttype",
+    "description": "The (conceptual) table listing Bsr-specific information about PIM group mappings learned via C-RP advertisements or created locally using configurations. This table is maintained only on the Elected Bsr. An Elected Bsr uses this table to create Bootstrap Messages after applying a local policy to include some or all of the group mappings in this table.",
+    "maxaccess": "not-accessible",
+    "name": "hwPimBsrElectedBsrRpSetTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.1.2",
+    "status": "current"
+  },
+  "hwPimBsrGroups": {
+    "class": "objectidentity",
+    "name": "hwPimBsrGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.2.2"
+  },
+  "hwPimBsrMib": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": "The Mib module for management of IP Multicast, including multicast routing, data forwarding, and data reception. Huawei Technologies co.,Ltd . Supplementary information may be available at: http://www.huawei.com",
+    "lastupdated": "200704160000Z",
+    "name": "hwPimBsrMib",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2",
+    "organization": "Huawei Technologies co.,Ltd.",
+    "revisions": [
+      {
+        "description": "The initial revision of this Mib module.",
+        "revision": "2007-04-16 00:00"
+      }
+    ]
+  },
+  "hwPimBsrObjectGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects for managing the Bootstrap Router (Bsr) mechanism for PIM routers.",
+    "name": "hwPimBsrObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-PIM-BSR-MIB",
+        "object": "hwPimBsrElectedBsrRpSetPriority"
+      },
+      {
+        "module": "HUAWEI-PIM-BSR-MIB",
+        "object": "hwPimBsrElectedBsrRpSetHoldtime"
+      },
+      {
+        "module": "HUAWEI-PIM-BSR-MIB",
+        "object": "hwPimBsrElectedBsrRpSetExpiryTime"
+      },
+      {
+        "module": "HUAWEI-PIM-BSR-MIB",
+        "object": "hwPimBsrElectedBsrRpSetGrpBidir"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.2.2.1",
+    "status": "current"
+  },
+  "hwPimBsrObjects": {
+    "class": "objectidentity",
+    "name": "hwPimBsrObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.2.1"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetZoneIndex",
+      "InetAddressType",
+      "InetAddressPrefixLength"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Integer32",
+      "IpAddress",
+      "Counter64",
+      "TimeTicks",
+      "mib-2",
+      "NOTIFICATION-TYPE",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-PIM-BSR-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:38 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-PIM-BSR-MIB"
+  }
+}

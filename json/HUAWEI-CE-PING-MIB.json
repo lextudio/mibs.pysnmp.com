@@ -1,0 +1,315 @@
+{
+  "hwCePing": {
+    "class": "moduleidentity",
+    "contactinfo": "R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com",
+    "description": "HUAWEI VPLS quality detect funcion.",
+    "lastupdated": "200810161855Z",
+    "name": "hwCePing",
+    "oid": "1.3.6.1.4.1.2011.5.25.175",
+    "organization": "Huawei Technologies Co., Ltd."
+  },
+  "hwCePingCount": {
+    "class": "objecttype",
+    "description": "This value represents the number of packets that need to be transmitted.",
+    "maxaccess": "read-create",
+    "name": "hwCePingCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.175.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCePingCtrlGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwCePingCtrlGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-CE-PING-MIB",
+        "object": "hwCePingTargetAddress"
+      },
+      {
+        "module": "HUAWEI-CE-PING-MIB",
+        "object": "hwCePingSourceAddress"
+      },
+      {
+        "module": "HUAWEI-CE-PING-MIB",
+        "object": "hwCePingVsiName"
+      },
+      {
+        "module": "HUAWEI-CE-PING-MIB",
+        "object": "hwCePingInterval"
+      },
+      {
+        "module": "HUAWEI-CE-PING-MIB",
+        "object": "hwCePingCount"
+      },
+      {
+        "module": "HUAWEI-CE-PING-MIB",
+        "object": "hwCePingRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.175.3.1",
+    "status": "current"
+  },
+  "hwCePingEntry": {
+    "class": "objecttype",
+    "description": "The entry of hwCePingTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-CE-PING-MIB",
+        "object": "hwCePingIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwCePingEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.175.1.1",
+    "status": "current"
+  },
+  "hwCePingGroup": {
+    "class": "objectidentity",
+    "name": "hwCePingGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.175.3"
+  },
+  "hwCePingIndex": {
+    "class": "objecttype",
+    "description": "The index of hwCePingTable,it is always 1.",
+    "maxaccess": "not-accessible",
+    "name": "hwCePingIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.175.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCePingInterval": {
+    "class": "objecttype",
+    "description": "This value represents the inter-packet delay between packets and is in seconds.",
+    "maxaccess": "read-create",
+    "name": "hwCePingInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.175.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwCePingResultEntry": {
+    "class": "objecttype",
+    "description": "The entry of hwCePingResultTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-CE-PING-MIB",
+        "object": "hwCePingIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwCePingResultEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.175.2.1",
+    "status": "current"
+  },
+  "hwCePingResultGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwCePingResultGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-CE-PING-MIB",
+        "object": "hwCePingResultOperStatus"
+      },
+      {
+        "module": "HUAWEI-CE-PING-MIB",
+        "object": "hwCePingResultMac"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.175.3.2",
+    "status": "current"
+  },
+  "hwCePingResultMac": {
+    "class": "objecttype",
+    "description": "The Mac that is detected by the test.",
+    "maxaccess": "read-only",
+    "name": "hwCePingResultMac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.175.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwCePingResultOperStatus": {
+    "class": "objecttype",
+    "description": "Reflects the operational state of a hwCePingEntry: sucessful(1) - Test is sucessful. inProcess(2) - Test is in process. timeout(3) - Test is timeout.",
+    "maxaccess": "read-only",
+    "name": "hwCePingResultOperStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.175.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inProcess": 2,
+          "sucessful": 1,
+          "timeout": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwCePingResultTable": {
+    "class": "objecttype",
+    "description": "The table of CE Ping result.",
+    "maxaccess": "not-accessible",
+    "name": "hwCePingResultTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.175.2",
+    "status": "current"
+  },
+  "hwCePingRowStatus": {
+    "class": "objecttype",
+    "description": "The operating state of the row.",
+    "maxaccess": "read-create",
+    "name": "hwCePingRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.175.1.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwCePingSourceAddress": {
+    "class": "objecttype",
+    "description": "Specify an unused IP address in the same network that is associated with the VPLS.",
+    "maxaccess": "read-create",
+    "name": "hwCePingSourceAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.175.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwCePingTable": {
+    "class": "objecttype",
+    "description": "The table of Ce Ping.",
+    "maxaccess": "not-accessible",
+    "name": "hwCePingTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.175.1",
+    "status": "current"
+  },
+  "hwCePingTargetAddress": {
+    "class": "objecttype",
+    "description": "Specifies the IP address to be used as the destination.",
+    "maxaccess": "read-create",
+    "name": "hwCePingTargetAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.175.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwCePingVsiName": {
+    "class": "objecttype",
+    "description": "The VSI name that is uesd by the operation.",
+    "maxaccess": "read-create",
+    "name": "hwCePingVsiName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.175.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "mib-2",
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "MibIdentifier",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-CE-PING-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:02 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-CE-PING-MIB"
+  }
+}

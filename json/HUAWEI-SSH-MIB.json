@@ -1,0 +1,1636 @@
+{
+  "hwRSALocalHostPublicKeyCode": {
+    "class": "objecttype",
+    "description": " The object specifies the local host RSA Public Key Code in the format of ber. ",
+    "maxaccess": "read-only",
+    "name": "hwRSALocalHostPublicKeyCode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.5.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 2048,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRSALocalHostPublicKeyFingerprint": {
+    "class": "objecttype",
+    "description": " The object specifies the fingerprint of the local host RSA Public Key Code, that including the public key algorithm, length and fingerprint. ",
+    "maxaccess": "read-only",
+    "name": "hwRSALocalHostPublicKeyFingerprint",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.5.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 60,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRSALocalKeyTable": {
+    "class": "objectidentity",
+    "name": "hwRSALocalKeyTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.5"
+  },
+  "hwRSALocalServerPublicKeyCode": {
+    "class": "objecttype",
+    "description": " The object specifies the local server RSA Public Key Code in the format of ber. ",
+    "maxaccess": "read-only",
+    "name": "hwRSALocalServerPublicKeyCode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.5.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 2048,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRSALocalServerPublicKeyFingerprint": {
+    "class": "objecttype",
+    "description": " The object specifies the fingerprint of the local server RSA Public Key Code, that including the public key algorithm, length and fingerprint. ",
+    "maxaccess": "read-only",
+    "name": "hwRSALocalServerPublicKeyFingerprint",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.5.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 60,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRSAPublicKeyCode": {
+    "class": "objecttype",
+    "description": " The object specifies is RSA Public Key Code that in the format of ber, the maximum length of the node is 2048. When the RSA public key is created, the index value is the name of the public key, which uses the ASCII code. The public key value must be generated through a tool. Firstly, use the PUTTYGEN.EXE tool to generate the matching public key and private key. Then, use the sshkey.exe tool to convert the generated public key to the required public key value. ",
+    "maxaccess": "read-create",
+    "name": "hwRSAPublicKeyCode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.13.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 2048,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRSAPublicKeyEntry": {
+    "class": "objecttype",
+    "description": " A table of configuration about RSA Public Key. The index of this entry is hwRSAPublicKeyName. hwRSAPublicKeyName is the name of RSA Public Key. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwRSAPublicKeyName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwRSAPublicKeyEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.13.1",
+    "status": "current"
+  },
+  "hwRSAPublicKeyFingerprint": {
+    "class": "objecttype",
+    "description": " The object specifies the fingerprint of RSA Public Key Code, that including the public key algorithm, length and fingerprint. ",
+    "maxaccess": "read-only",
+    "name": "hwRSAPublicKeyFingerprint",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.13.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 60,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRSAPublicKeyName": {
+    "class": "objecttype",
+    "description": " The object specifies the name of RSA Public Key. ",
+    "maxaccess": "not-accessible",
+    "name": "hwRSAPublicKeyName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.13.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 30,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwRSAPublicKeyRowStatus": {
+    "class": "objecttype",
+    "description": " The object specifies the status of this table entry. When the status is active(1), hwRSAPublicKeyName, hwRSAPublicKeyCode\u0027s value in the entry are allowed to be modified. createAndGo(4) is supplied to create a new instance of a conceptual row. destroy(6) is supplied to delete the instances associated with an existing conceptual row. ",
+    "maxaccess": "read-create",
+    "name": "hwRSAPublicKeyRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.13.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwRSAPublicKeyTable": {
+    "class": "objecttype",
+    "description": " A table of configuration about RSA Public Key. The index of this table is hwRSAPublicKeyName. hwRSAPublicKeyName is the name of RSA Public Key. ",
+    "maxaccess": "not-accessible",
+    "name": "hwRSAPublicKeyTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.13",
+    "status": "current"
+  },
+  "hwSCPMaxUserNum": {
+    "class": "objecttype",
+    "description": "The object specifies the max number of SCP user that SCP Server supporting. The default is 2.",
+    "maxaccess": "read-write",
+    "name": "hwSCPMaxUserNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 5,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSCPServerEnable": {
+    "class": "objecttype",
+    "description": "The object specifies whether the SSH SCP Server is enable. The default is 2.",
+    "maxaccess": "read-write",
+    "name": "hwSCPServerEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSNetConfMaxUserNum": {
+    "class": "objecttype",
+    "description": "The object specifies the max number of SNetConf user that SNetConf Server supporting. The default is 5.",
+    "maxaccess": "read-write",
+    "name": "hwSNetConfMaxUserNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSNetConfServerEnable": {
+    "class": "objecttype",
+    "description": "The object specifies whether the SSH SNetConf Server is enable. The default is 2.",
+    "maxaccess": "read-write",
+    "name": "hwSNetConfServerEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSSH": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "This mib which contains objects manages the SSH server and SSH client configuration. ",
+    "lastupdated": "201409260000Z",
+    "name": "hwSSH",
+    "oid": "1.3.6.1.4.1.2011.5.25.118",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "V2.15, defect - DTS2014091709267 (default value in the description is updated).",
+        "revision": "2014-09-26 00:00"
+      },
+      {
+        "description": "V2.14, 1. Modify the value range of the node hwSSHServerTimeOut, hwSSHServerPort,hwSftpMaxUserNum, hwSftpOnLineUserNum,hwSSHUserName,hwSSHUserSftpDirectory,hwSSHServerName,hwSSHServerAssignKey. 2. Modify the description of the node hwSSHServerTimeOut,hwSSHServerPort,hwSftpMaxUserNum,hwSSHUserName, hwSSHUserAuthorizationCMD,hwSSHSftpUserNumExceedMax. 3. Add the following enums of the hwSSHUserAuthType:authDSA(6),authDSAandPASSWORD(7),authAny(8),authECC(9), authECCandPASSWORD(10). 4. Add the following enums of the hwSSHUserServiceType:servicetypeSNetConf(5),servicetypeSftpSNetConf(6), servicetypeSTelnetSftp(7),servicetypeSTelnetSNetConf(8). 5. Add the following enums of the hwSSHSessionConnectType:none(0),vty15(16),vty16(17),vty17(18),vty18(19), vty19(20),vty20(21). 6. modified \u0027MAX-ACCESS read-only\u0027 to \u0027MAX-ACCESS read-write\u0027 of hwSftpMaxUserNum. 7. Add hwSSHUserAssignKeyType in hwSSHUserTable. 8. Add hwSSHSessionKeyType, hwSSHSessionConnectionIndex, hwSSHSessionCtosCompress, hwSSHSessionStocCompress in hwSSHServerSessionTable. 9. Add hwSNetConfMaxUserNum, hwSNetConfServerEnable, hwSSHKeepAliveEnable, hwSCPServerEnable, hwSCPMaxUserNum in hwSSHServer. 10. Add hwSSHServerAssignDSAKey and hwSSHServerAssignECCKey in hwSSHServerInfoTable. 11. Add hwSSHKeepAliveInterval and hwSSHKeepAliveMaxCount in hwSSHClient. ",
+        "revision": "2014-06-30 00:00"
+      },
+      {
+        "description": "V1.08, 1. Add hwRSAPublicKeyFingerprint in hwRSAPublicKeyTable. 2. Add hwRSALocalKeyTable.",
+        "revision": "2014-05-06 00:00"
+      },
+      {
+        "description": "V1.07, The description of this MIB is modified according to the tool.",
+        "revision": "2010-11-09 00:00"
+      },
+      {
+        "description": "V1.06, modified the contact-info and the revision history. Modified the description of leaves.",
+        "revision": "2010-08-25 00:00"
+      },
+      {
+        "description": "V1.05, the description of hwSSHServerTimeOut, hwSSHServerPort, hwSSHServerKeyTimeOut, hwSSHUserTable, hwSSHUserEntry, hwSSHUserAuthType and hwSSHUserServiceType were modified and supplemented.",
+        "revision": "2010-06-17 00:00"
+      },
+      {
+        "description": "V1.04, DT requirements were implemented and the syntax and semantics of SIMPLETEST were changed.",
+        "revision": "2010-04-18 00:00"
+      },
+      {
+        "description": "V1.03, DT requirements were implemented and the syntax and semantics of SIMPLETEST were changed.",
+        "revision": "2010-03-03 00:00"
+      },
+      {
+        "description": "V1.02, hwRSAPublicKeyTable was added.",
+        "revision": "2010-01-29 00:00"
+      },
+      {
+        "description": "V1.00, completed the draft.",
+        "revision": "2006-09-05 00:00"
+      }
+    ]
+  },
+  "hwSSHClient": {
+    "class": "objectidentity",
+    "name": "hwSSHClient",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.2"
+  },
+  "hwSSHClientGroup": {
+    "class": "objectgroup",
+    "description": " The SSH client\u0027s attribute group. ",
+    "name": "hwSSHClientGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHFirstTimeAuthEnable"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHKeepAliveInterval"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHKeepAliveMaxCount"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.118.4.2.4",
+    "status": "current"
+  },
+  "hwSSHFirstTimeAuthEnable": {
+    "class": "objecttype",
+    "description": "The object specifies whether the SSH client supports first-time-authentication. Options: 1.enable(1) -indicates the SSH client supports first-time-authentication. 2.disable(2)-indicates the SSH client does not support first-time-authentication. ",
+    "maxaccess": "read-write",
+    "name": "hwSSHFirstTimeAuthEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.2.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSSHKeepAliveEnable": {
+    "class": "objecttype",
+    "description": "The object specifies whether the KeepAlive functionality on SSH Server is enable. The default is 1.",
+    "maxaccess": "read-write",
+    "name": "hwSSHKeepAliveEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSSHKeepAliveInterval": {
+    "class": "objecttype",
+    "description": "The object specifies KeepAlive Timeout interval on SSH Client. The default is 0. 0 specify no KeepAlive packet should be sent to Server.",
+    "maxaccess": "read-write",
+    "name": "hwSSHKeepAliveInterval",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.2.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 3600,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSSHKeepAliveMaxCount": {
+    "class": "objecttype",
+    "description": "The object specifies maximum KeepAlive packet to send to SSH Server before disconnect. The default is 3.",
+    "maxaccess": "read-write",
+    "name": "hwSSHKeepAliveMaxCount",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.2.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 30,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSSHMIBCompliance": {
+    "class": "modulecompliance",
+    "description": " The compliance statement for systems supporting the HUAWEI-SSH-MIB. ",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHServerGroup"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHUserGroup"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHServerSessionGroup"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHClientGroup"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHServerInfoGroup"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHNotificationGroup"
+      }
+    ],
+    "name": "hwSSHMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.4.1.1",
+    "status": "current"
+  },
+  "hwSSHMIBCompliances": {
+    "class": "objectidentity",
+    "name": "hwSSHMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.4.1"
+  },
+  "hwSSHMIBConformance": {
+    "class": "objectidentity",
+    "name": "hwSSHMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.4"
+  },
+  "hwSSHMIBGroups": {
+    "class": "objectidentity",
+    "name": "hwSSHMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.4.2"
+  },
+  "hwSSHNotificationGroup": {
+    "class": "notificationgroup",
+    "description": " The SSH Notification group. ",
+    "name": "hwSSHNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSftpUserNumExceedMax"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.118.4.2.6",
+    "status": "current"
+  },
+  "hwSSHNotifications": {
+    "class": "objectidentity",
+    "name": "hwSSHNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.3"
+  },
+  "hwSSHServer": {
+    "class": "objectidentity",
+    "name": "hwSSHServer",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1"
+  },
+  "hwSSHServerAlarmEnable": {
+    "class": "objecttype",
+    "description": " The object specifies whether send trap information to NMS. Options: 1.enable(1) -Only when its value enable, allowed to send trap informations to NMS. 2.disable(2)-Can not to send trap informations to NMS. ",
+    "maxaccess": "read-write",
+    "name": "hwSSHServerAlarmEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSSHServerAssignDSAKey": {
+    "class": "objecttype",
+    "description": "The object specifies a DSA peer public key for a SSH server.This peer public key must exist.",
+    "maxaccess": "read-create",
+    "name": "hwSSHServerAssignDSAKey",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.2.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSSHServerAssignECCKey": {
+    "class": "objecttype",
+    "description": "The object specifies a ECC peer public key for a SSH server.This peer public key must exist.",
+    "maxaccess": "read-create",
+    "name": "hwSSHServerAssignECCKey",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.2.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSSHServerAssignKey": {
+    "class": "objecttype",
+    "description": " The object specifies a peer public key for a SSH server. This peer public key must exist. ",
+    "maxaccess": "read-create",
+    "name": "hwSSHServerAssignKey",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.2.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSSHServerComp1x": {
+    "class": "objecttype",
+    "description": " The object specifies whether the SSH server is compatible with SSH1.x. The default is 2. Options: 1. enable(1) -indicates that the version compatibility function of the SSH server is enabled so that the SSH server is compatible with the SSHv1.x client. 2. disable(2)-indicates that the version compatibility function of the SSH server is disabled and therefore the SSH server is incompatible with the SSHv1.x client. ",
+    "maxaccess": "read-write",
+    "name": "hwSSHServerComp1x",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSSHServerGroup": {
+    "class": "objectgroup",
+    "description": " The SSH server attribute group. ",
+    "name": "hwSSHServerGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwStelnetServerEnable"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSftpServerEnable"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHServerComp1x"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHServerTimeOut"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHServerRetry"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHServerPort"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHServerKeyTimeOut"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHServerAlarmEnable"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSftpMaxUserNum"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSftpOnLineUserNum"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSNetConfMaxUserNum"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSNetConfServerEnable"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHKeepAliveEnable"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSCPServerEnable"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSCPMaxUserNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.118.4.2.1",
+    "status": "current"
+  },
+  "hwSSHServerIndex": {
+    "class": "objecttype",
+    "description": " The object specifies the index of hwSSHServerInfoTable. ",
+    "maxaccess": "not-accessible",
+    "name": "hwSSHServerIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.2.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 20,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSSHServerInfoEntry": {
+    "class": "objecttype",
+    "description": " A table of configuration about the relation between the SSH server and the rsa peerkey. The index of this entry is hwSSHServerIndex. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHServerIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSSHServerInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.2.2.1",
+    "status": "current"
+  },
+  "hwSSHServerInfoGroup": {
+    "class": "objectgroup",
+    "description": " The SSH serverInfo\u0027s group. ",
+    "name": "hwSSHServerInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHServerName"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHServerAssignKey"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHServerRowStatus"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHServerAssignDSAKey"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.118.4.2.5",
+    "status": "current"
+  },
+  "hwSSHServerInfoTable": {
+    "class": "objecttype",
+    "description": " A table of configuration about the relation between the SSH server and the rsa peerkey. The index of this table is hwSSHServerIndex. ",
+    "maxaccess": "not-accessible",
+    "name": "hwSSHServerInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.2.2",
+    "status": "current"
+  },
+  "hwSSHServerKeyTimeOut": {
+    "class": "objecttype",
+    "description": " The interval of updating the SSH server key pair. By default, value is 0 hour, which means server key can\u0027t be updated forever. Range: 0-24 Unit: hour ",
+    "maxaccess": "read-write",
+    "name": "hwSSHServerKeyTimeOut",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 24,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "hour"
+  },
+  "hwSSHServerName": {
+    "class": "objecttype",
+    "description": " The object specifies the name of a SSH server. ",
+    "maxaccess": "read-create",
+    "name": "hwSSHServerName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.2.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSSHServerPort": {
+    "class": "objecttype",
+    "description": "The object specifies port number for SSH server supporting. The default value is 22.",
+    "maxaccess": "read-write",
+    "name": "hwSSHServerPort",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 22,
+            "min": 22
+          },
+          {
+            "max": 65535,
+            "min": 1025
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSSHServerRetry": {
+    "class": "objecttype",
+    "description": " The object specifies authentication-retry times for SSH user. Default: 3 ",
+    "maxaccess": "read-write",
+    "name": "hwSSHServerRetry",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 5,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSSHServerRowStatus": {
+    "class": "objecttype",
+    "description": " The object specifies the status of this entry. When the status is active, hwSSHServerAssignKey\u0027s value in the entry is allowed to be modified. ",
+    "maxaccess": "read-create",
+    "name": "hwSSHServerRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.2.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwSSHServerSessionEntry": {
+    "class": "objecttype",
+    "description": " The object shows current session information of the SSH server which includes username, version information, retry times of online users currently. The index of this entry is hwSSHSessionIndex. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSSHServerSessionEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1",
+    "status": "current"
+  },
+  "hwSSHServerSessionGroup": {
+    "class": "objectgroup",
+    "description": " The SSH server\u0027s session group. ",
+    "name": "hwSSHServerSessionGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionUserName"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionConnectType"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionVer"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionState"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionRetry"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionCtosCipher"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionStocCipher"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionCtosHmac"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionStocHmac"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionKex"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionAuthType"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionServiceType"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionKeyType"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionConnectionIndex"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionCtosCompress"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHSessionStocCompress"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.118.4.2.3",
+    "status": "current"
+  },
+  "hwSSHServerSessionTable": {
+    "class": "objecttype",
+    "description": " The object shows current session information of the SSH server which includes username, version information, retry times of online users currently. The index of this table is hwSSHSessionIndex. ",
+    "maxaccess": "not-accessible",
+    "name": "hwSSHServerSessionTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12",
+    "status": "current"
+  },
+  "hwSSHServerTimeOut": {
+    "class": "objecttype",
+    "description": "The object specifies the time when SSH authentication times out. The unit is the second and the default is 60 seconds.",
+    "maxaccess": "read-write",
+    "name": "hwSSHServerTimeOut",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 120,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "second"
+  },
+  "hwSSHSessionAuthType": {
+    "class": "objecttype",
+    "description": " The object specifies the authentication type of SSH session. ",
+    "maxaccess": "read-only",
+    "name": "hwSSHSessionAuthType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSSHSessionConnectType": {
+    "class": "objecttype",
+    "description": " The object specifies the line number supports a connection of SSH user which is in connection with SSH server. ",
+    "maxaccess": "read-only",
+    "name": "hwSSHSessionConnectType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "vty0": 1,
+          "vty1": 2,
+          "vty10": 11,
+          "vty11": 12,
+          "vty12": 13,
+          "vty13": 14,
+          "vty14": 15,
+          "vty15": 16,
+          "vty16": 17,
+          "vty17": 18,
+          "vty18": 19,
+          "vty19": 20,
+          "vty2": 3,
+          "vty20": 21,
+          "vty3": 4,
+          "vty4": 5,
+          "vty5": 6,
+          "vty6": 7,
+          "vty7": 8,
+          "vty8": 9,
+          "vty9": 10
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSSHSessionConnectionIndex": {
+    "class": "objecttype",
+    "description": "The object specifies the line number supports a connection of SSH user which is in connection with SSH(STelnet/Sftp/SNetConf) server.",
+    "maxaccess": "read-only",
+    "name": "hwSSHSessionConnectionIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSSHSessionCtosCipher": {
+    "class": "objecttype",
+    "description": " The object specifies the cipher of custom to server. ",
+    "maxaccess": "read-only",
+    "name": "hwSSHSessionCtosCipher",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSSHSessionCtosCompress": {
+    "class": "objecttype",
+    "description": "The object specifies the Compression algorithm of SSH client to server.",
+    "maxaccess": "read-only",
+    "name": "hwSSHSessionCtosCompress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSSHSessionCtosHmac": {
+    "class": "objecttype",
+    "description": " The object specifies the hmac of custom to server. ",
+    "maxaccess": "read-only",
+    "name": "hwSSHSessionCtosHmac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSSHSessionIndex": {
+    "class": "objecttype",
+    "description": " The object specifies the index of hwSSHServerSessionTable. ",
+    "maxaccess": "not-accessible",
+    "name": "hwSSHSessionIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSSHSessionKex": {
+    "class": "objecttype",
+    "description": " The object specifies the key exchange. ",
+    "maxaccess": "read-only",
+    "name": "hwSSHSessionKex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSSHSessionKeyType": {
+    "class": "objecttype",
+    "description": "The object specifies the public key type of SSH session.",
+    "maxaccess": "read-only",
+    "name": "hwSSHSessionKeyType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "keyTypeDSA": 2,
+          "keyTypeECC": 3,
+          "keyTypeRSA": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSSHSessionRetry": {
+    "class": "objecttype",
+    "description": " The object specifies SSH user\u0027s retrying times in authentications. ",
+    "maxaccess": "read-only",
+    "name": "hwSSHSessionRetry",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 5,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSSHSessionServiceType": {
+    "class": "objecttype",
+    "description": " The object specifies the service type of SSH session. ",
+    "maxaccess": "read-only",
+    "name": "hwSSHSessionServiceType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSSHSessionState": {
+    "class": "objecttype",
+    "description": " The object specifies the state of a SSH user which is in connection with SSH server. Options: 1.started(1)-indicates the state is start. ",
+    "maxaccess": "read-only",
+    "name": "hwSSHSessionState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "started": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSSHSessionStocCipher": {
+    "class": "objecttype",
+    "description": " The object specifies the cipher of server to custom. ",
+    "maxaccess": "read-only",
+    "name": "hwSSHSessionStocCipher",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSSHSessionStocCompress": {
+    "class": "objecttype",
+    "description": "The object specifies the Compression algorithm of SSH Server to client.",
+    "maxaccess": "read-only",
+    "name": "hwSSHSessionStocCompress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSSHSessionStocHmac": {
+    "class": "objecttype",
+    "description": " The object specifies the hmac of server to custom. ",
+    "maxaccess": "read-only",
+    "name": "hwSSHSessionStocHmac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSSHSessionUserName": {
+    "class": "objecttype",
+    "description": " The object specifies the name of a SSH user, which has started a session. ",
+    "maxaccess": "read-only",
+    "name": "hwSSHSessionUserName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSSHSessionVer": {
+    "class": "objecttype",
+    "description": " The object specifies the version information of a SSH user which is in connection with SSH server. ",
+    "maxaccess": "read-only",
+    "name": "hwSSHSessionVer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.12.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSSHSftpUserNumExceedMax": {
+    "class": "notificationtype",
+    "description": "This notification was sent when the total number of sftp users requesting sftp service exceeds max user number configured.",
+    "name": "hwSSHSftpUserNumExceedMax",
+    "objects": [
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSftpOnLineUserNum"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSftpMaxUserNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.118.3.1",
+    "status": "current"
+  },
+  "hwSSHUserAssignKey": {
+    "class": "objecttype",
+    "description": " The object specifies is a peer public key for a SSH user. This peer public key on the SSH server must exist and associate with hwRSAPublicKeyName. ",
+    "maxaccess": "read-create",
+    "name": "hwSSHUserAssignKey",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.11.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSSHUserAssignKeyType": {
+    "class": "objecttype",
+    "description": "The object specifies the public key type of SSH user. ",
+    "maxaccess": "read-create",
+    "name": "hwSSHUserAssignKeyType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.11.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "keyTypeDSA": 2,
+          "keyTypeECC": 3,
+          "keyTypeNULL": 0,
+          "keyTypeRSA": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSSHUserAuthType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "authPASSWORD"
+      }
+    },
+    "description": " The object specifies the authentication type of SSH user. The default authentication type is authPASSWORD. Options: 1. authNULL(1) -No authenticate. 2. authPASSWORD(2) -Password authentication. 3. authRSA(3) -RSA key authentication. 4. authRSAorPASSWORD(4) -Password or RSA key authentication. 5. authRSAandPASSWORD(5) -Password and RSA key authentication. 6. authDSA(6), -DSA key authentication. 7. authDSAandPASSWORD(7), -Password or DSA key authentication. 8. authAny(8), -Any authentication. 9. authECC(9), -ECC key authentication. 10.authECCandPASSWORD(10) -Password and ECC key authentication. ",
+    "maxaccess": "read-create",
+    "name": "hwSSHUserAuthType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.11.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "authAny": 8,
+          "authDSA": 6,
+          "authDSAandPASSWORD": 7,
+          "authECC": 9,
+          "authECCandPASSWORD": 10,
+          "authNULL": 1,
+          "authPASSWORD": 2,
+          "authRSA": 3,
+          "authRSAandPASSWORD": 5,
+          "authRSAorPASSWORD": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSSHUserAuthorizationCMD": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "authorizationNULL"
+      }
+    },
+    "description": " The object specifies the authorization type of SSH user. When authorizationAAA is specified, the SSH user will be authorizated by HWTACACS server. The default authorization is authorizationNULL, indicating SSH user doesn\u0027t need to be authorizated by HWTACACS server. Options: 1.authorizationNULL(1)-The default authorization is authorizationNULL,indicating SSH user doesn\u0027t need to be authorizated by HWTACACS server. 2.authorizationAAA(2) -When authorizationAAA is specified,the SSH user will be authorizated by HWTACACS server. ",
+    "maxaccess": "read-create",
+    "name": "hwSSHUserAuthorizationCMD",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.11.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "authorizationAAA": 2,
+          "authorizationNULL": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSSHUserEntry": {
+    "class": "objecttype",
+    "description": " This table is used for querying and setting the information about SSH user. The index of this entry is hwSSHUserIndex. ",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHUserIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSSHUserEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.11.1",
+    "status": "current"
+  },
+  "hwSSHUserGroup": {
+    "class": "objectgroup",
+    "description": " The SSH user\u0027s group. ",
+    "name": "hwSSHUserGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHUserName"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHUserAssignKey"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHUserAuthType"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHUserServiceType"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHUserSftpDirectory"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHUserAuthorizationCMD"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHUserRowStatus"
+      },
+      {
+        "module": "HUAWEI-SSH-MIB",
+        "object": "hwSSHUserAssignKeyType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.118.4.2.2",
+    "status": "current"
+  },
+  "hwSSHUserIndex": {
+    "class": "objecttype",
+    "description": " The object specifies the index of hwSSHUserTable. ",
+    "maxaccess": "not-accessible",
+    "name": "hwSSHUserIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.11.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 200,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSSHUserName": {
+    "class": "objecttype",
+    "description": "The object specifies the name of a SSH user. The maximum length of the node is 85.",
+    "maxaccess": "read-create",
+    "name": "hwSSHUserName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.11.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSSHUserRowStatus": {
+    "class": "objecttype",
+    "description": " The object specifies the status of this entry. When the status is active(1), hwSSHUserAssignKey, hwSSHUserAuthType, hwSSHUserServiceType, hwSSHUserSftpDirectory, and hwSSHUserAuthorizationCMD\u0027s value in the entry are allowed to be modified. ",
+    "maxaccess": "read-create",
+    "name": "hwSSHUserRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.11.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwSSHUserServiceType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "servicetypeNULL"
+      }
+    },
+    "description": " The object specifies the service type of SSH user. Options: 1. servicetypeNULL(1) -default service type. 2. servicetypeSTELNET(2) -The service type of the SSH user is STELNET. 3. servicetypeSFTP(3) -The service type of the SSH user is SFTP. 4. servicetypeALL(4) -The service type of the SSH user is all. 5. servicetypeSNetConf(5), -The service type of the SSH user is SNetConf. 6. servicetypeSftpSNetConf(6), -The service type of the SSH user is Sftp and SNetConf. 7. servicetypeSTelnetSftp(7), -The service type of the SSH user is STelnet and Sftp. 8. servicetypeSTelnetSNetConf(8) -The service type of the SSH user is STelnet and SNetConf.",
+    "maxaccess": "read-create",
+    "name": "hwSSHUserServiceType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.11.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "servicetypeALL": 4,
+          "servicetypeNULL": 1,
+          "servicetypeSFTP": 3,
+          "servicetypeSNetConf": 5,
+          "servicetypeSTELNET": 2,
+          "servicetypeSTelnetSNetConf": 8,
+          "servicetypeSTelnetSftp": 7,
+          "servicetypeSftpSNetConf": 6
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSSHUserSftpDirectory": {
+    "class": "objecttype",
+    "description": "The object specifies the working directory for the sftp user. The total length of absolute path is 128,the length of single directory is 128.",
+    "maxaccess": "read-create",
+    "name": "hwSSHUserSftpDirectory",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.11.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSSHUserTable": {
+    "class": "objecttype",
+    "description": " This table is used for querying and setting the information about SSH user. The index of this table is hwSSHUserIndex. ",
+    "maxaccess": "not-accessible",
+    "name": "hwSSHUserTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.11",
+    "status": "current"
+  },
+  "hwSftpMaxUserNum": {
+    "class": "objecttype",
+    "description": "The object specifies the max number of sftp user that sftp server supporting. The default is 5.",
+    "maxaccess": "read-write",
+    "name": "hwSftpMaxUserNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSftpOnLineUserNum": {
+    "class": "objecttype",
+    "description": " The object specifies the number of sftp user that has been connected to sftp server currently. ",
+    "maxaccess": "read-only",
+    "name": "hwSftpOnLineUserNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSftpServerEnable": {
+    "class": "objecttype",
+    "description": " The object specifies whether the sftp server is enable. Options: 1.enable(1) -the sftp server is enable 2.disable(2)-the sftp server is disable. ",
+    "maxaccess": "read-write",
+    "name": "hwSftpServerEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwStelnetServerEnable": {
+    "class": "objecttype",
+    "description": " The object specifies whether the SSH stelnet server is enable. Options: 1. enable(1) -The SSH stelnet server is enable. 2. disable(2)-The SSH stelnet server is disable. ",
+    "maxaccess": "read-write",
+    "name": "hwStelnetServerEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.118.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "MibIdentifier",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-SSH-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:00 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-SSH-MIB"
+  }
+}

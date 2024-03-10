@@ -1,0 +1,1319 @@
+{
+  "HWLiDscp": {
+    "class": "textualconvention",
+    "description": "An integer that is in the range of the DiffServ codepoint values.",
+    "name": "HWLiDscp",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLiAgentComplianceGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwLiAgentComplianceGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiAgentTime"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiAgentEnable"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiAgentX2IpAddress"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiAgentX2Port"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiAgentX3IpAddress"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiAgentX3Port"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.131.3.3.1",
+    "status": "current"
+  },
+  "hwLiAgentEnable": {
+    "class": "objecttype",
+    "description": "The status of the LI agent.Read-only.",
+    "maxaccess": "read-only",
+    "name": "hwLiAgentEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLiAgentObjects": {
+    "class": "objectidentity",
+    "name": "hwLiAgentObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.1"
+  },
+  "hwLiAgentTime": {
+    "class": "objecttype",
+    "description": "The time of the LI agent.Read-only.",
+    "maxaccess": "read-only",
+    "name": "hwLiAgentTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwLiAgentX2IpAddress": {
+    "class": "objecttype",
+    "description": "The IP address of the X2 interface in LI agent.Just can be read by server and can be set in command line.",
+    "maxaccess": "read-only",
+    "name": "hwLiAgentX2IpAddress",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwLiAgentX2Port": {
+    "class": "objecttype",
+    "description": "The Port of the X2 interface in LI agent.Just can be read by server and can be set in command line.",
+    "maxaccess": "read-only",
+    "name": "hwLiAgentX2Port",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetPortNumber"
+    }
+  },
+  "hwLiAgentX3IpAddress": {
+    "class": "objecttype",
+    "description": "The IP address of the X3 interface in LI agent.Just can be read by server and can be set in command line.",
+    "maxaccess": "read-only",
+    "name": "hwLiAgentX3IpAddress",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwLiAgentX3Port": {
+    "class": "objecttype",
+    "description": "The Port of the X3 interface in LI agent.Just can be read by server and can be set in command line.",
+    "maxaccess": "read-only",
+    "name": "hwLiAgentX3Port",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetPortNumber"
+    }
+  },
+  "hwLiGatewayAddressType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "ipv4"
+      }
+    },
+    "description": "The type of address in LIG",
+    "maxaccess": "read-create",
+    "name": "hwLiGatewayAddressType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwLiGatewayCapabilities": {
+    "class": "objecttype",
+    "description": "This object displays the device capabilities with respect to certain fields in Gateway Device table. This may be dependent on hardware capabilities, software capabilities. The following values may be supported: ipv4SrcInterface: SNMP ifIndex Value may be used to select the interface (denoted by hwLiGatewaySrcInterface) on the intercepting device from which to transmit intercepted data to an IPv4 address Gateway Device. ipv6SrcInterface: SNMP ifIndex Value may be used to select the interface (denoted by hwLiGatewaySrcInterface) on the intercepting device from which to transmit intercepted data to an IPv6 address Gateway Device. udp: UDP may be used as transport protocol (denoted by hwLiGatewayTransport) in transferring intercepted data to the Gateway Device. tcp: TCP may be used as transport protocol (denoted by hwLiGatewayTransport) in transferring intercepted data to the Gateway Device.",
+    "maxaccess": "read-only",
+    "name": "hwLiGatewayCapabilities",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.3",
+    "status": "current",
+    "syntax": {
+      "bits": {
+        "ipv4SrcInterface": 0,
+        "ipv6SrcInterface": 1,
+        "tcp": 3,
+        "udp": 2
+      },
+      "class": "type",
+      "type": "Bits"
+    }
+  },
+  "hwLiGatewayComplianceGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwLiGatewayComplianceGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayNewIndex"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayAddressType"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayX2Protocol"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayX2Address"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayX2Port"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayX3Protocol"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayX3Address"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayX3Port"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayX3HeartBeatTimer"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayX3NoResponseNum"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayX3OperateStatus"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayX3Dscp"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayRowStatus"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayX3AddressType"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayX2AddressType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.131.3.3.2",
+    "status": "current"
+  },
+  "hwLiGatewayCpbComplianceGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwLiGatewayCpbComplianceGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayCapabilities"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.131.3.3.5",
+    "status": "current"
+  },
+  "hwLiGatewayEntry": {
+    "class": "objecttype",
+    "description": "The entry describes a single session maintained with an application on a LI Gateway Device.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwLiGatewayEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1",
+    "status": "current"
+  },
+  "hwLiGatewayGroup": {
+    "class": "objectidentity",
+    "name": "hwLiGatewayGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3"
+  },
+  "hwLiGatewayIndex": {
+    "class": "objecttype",
+    "description": "The index of the LIG itself.",
+    "maxaccess": "not-accessible",
+    "name": "hwLiGatewayIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLiGatewayNewIndex": {
+    "class": "objecttype",
+    "description": "This object contains a value which may be used as an index value for a new HwLiGatewayEntry. This is to reduce the probability of errors during creation of new hwLiGatewayTable entries.0 means no free resource.",
+    "maxaccess": "read-only",
+    "name": "hwLiGatewayNewIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLiGatewayRowStatus": {
+    "class": "objecttype",
+    "description": "The status of this conceptual row. This object is used to manage creation, modification and deletion of rows in this table. ",
+    "maxaccess": "read-create",
+    "name": "hwLiGatewayRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwLiGatewayTable": {
+    "class": "objecttype",
+    "description": "This table lists the LI Gateway Devices with which the intercepting device communicates. This table is written by the LI Gateway Device, and is always volatile. This is because intercepts may disappear during a restart of the intercepting equipment. Entries are added to this table via hwLiGatewayStatus in accordance with the RowStatus convention.",
+    "maxaccess": "not-accessible",
+    "name": "hwLiGatewayTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2",
+    "status": "current"
+  },
+  "hwLiGatewayX2Address": {
+    "class": "objecttype",
+    "description": "The IP Address of the Gateway Device\u0027s network interface to which to direct IRI.",
+    "maxaccess": "read-create",
+    "name": "hwLiGatewayX2Address",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwLiGatewayX2AddressType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "ipv4"
+      }
+    },
+    "description": "The type of address in LIG",
+    "maxaccess": "read-create",
+    "name": "hwLiGatewayX2AddressType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwLiGatewayX2Port": {
+    "class": "objecttype",
+    "description": "The port number on the Gateway Device\u0027s network interface to which to direct IRI.",
+    "maxaccess": "read-create",
+    "name": "hwLiGatewayX2Port",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetPortNumber"
+    }
+  },
+  "hwLiGatewayX2Protocol": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "tcp"
+      }
+    },
+    "description": "The protocol used in transferring intercepted data to the Gateway Device. ",
+    "maxaccess": "read-create",
+    "name": "hwLiGatewayX2Protocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tcp": 2,
+          "udp": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLiGatewayX3Address": {
+    "class": "objecttype",
+    "description": "The IP Address of the Gateway Device\u0027s network interface to which to direct CC.",
+    "maxaccess": "read-create",
+    "name": "hwLiGatewayX3Address",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwLiGatewayX3AddressType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "ipv4"
+      }
+    },
+    "description": "The type of address in LIG",
+    "maxaccess": "read-create",
+    "name": "hwLiGatewayX3AddressType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwLiGatewayX3Dscp": {
+    "class": "objecttype",
+    "description": "The Differentiated Services Code Point the intercepting device applies to the IP packets encapsulating the intercepted traffic.",
+    "maxaccess": "read-create",
+    "name": "hwLiGatewayX3Dscp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWLiDscp"
+    }
+  },
+  "hwLiGatewayX3HeartBeatTimer": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": "The timer for sending HeartBeat to LIG,In seconds",
+    "maxaccess": "read-create",
+    "name": "hwLiGatewayX3HeartBeatTimer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLiGatewayX3NoResponseNum": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "The times of heartbeats that allowed to missed from LIG",
+    "maxaccess": "read-create",
+    "name": "hwLiGatewayX3NoResponseNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16,
+            "min": 2
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLiGatewayX3OperateStatus": {
+    "class": "objecttype",
+    "description": "The operate status of X3 interface",
+    "maxaccess": "read-only",
+    "name": "hwLiGatewayX3OperateStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "linkdown": 3,
+          "noHeartBeat": 2,
+          "normal": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLiGatewayX3Port": {
+    "class": "objecttype",
+    "description": "The port number on the Gateway Device\u0027s network interface to which to direct intercepted traffic.",
+    "maxaccess": "read-create",
+    "name": "hwLiGatewayX3Port",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetPortNumber"
+    }
+  },
+  "hwLiGatewayX3Protocol": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "udp"
+      }
+    },
+    "description": "The protocol used in transferring intercepted data to the Gateway Device. ",
+    "maxaccess": "read-create",
+    "name": "hwLiGatewayX3Protocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tcp": 2,
+          "udp": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLiMib": {
+    "class": "moduleidentity",
+    "contactinfo": " R\u0026D Meaning, huawei Technologies co.,Ltd. Http://www.huawei.com E-mail:support@huawei.com ",
+    "description": "This module manages huawei\u0027s Lawful interception feature.",
+    "lastupdated": "200706270000Z",
+    "name": "hwLiMib",
+    "oid": "1.3.6.1.4.1.2011.5.25.131",
+    "organization": "hw Technologies co.,Ltd.",
+    "revisions": [
+      {
+        "description": "Initial version of this MIB module.",
+        "revision": "2007-06-27 00:00"
+      }
+    ]
+  },
+  "hwLiMibActive": {
+    "class": "notificationtype",
+    "description": "This notification is sent when an intercepting router or switch is first capable of intercepting a packet corresponding to a configured data stream. ",
+    "name": "hwLiMibActive",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.1.1",
+    "status": "current"
+  },
+  "hwLiMibCompliance": {
+    "class": "modulecompliance",
+    "description": "Description.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayComplianceGroup"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamComplianceGroup"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiNotificationGroup"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayCpbComplianceGroup"
+      }
+    ],
+    "name": "hwLiMibCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.3.2.1",
+    "status": "current"
+  },
+  "hwLiMibCompliances": {
+    "class": "objectidentity",
+    "name": "hwLiMibCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.3.2"
+  },
+  "hwLiMibConform": {
+    "class": "objectidentity",
+    "name": "hwLiMibConform",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.3"
+  },
+  "hwLiMibGroups": {
+    "class": "objectidentity",
+    "name": "hwLiMibGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.3.3"
+  },
+  "hwLiMibNotifs": {
+    "class": "objectidentity",
+    "name": "hwLiMibNotifs",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.1"
+  },
+  "hwLiMibObjects": {
+    "class": "objectidentity",
+    "name": "hwLiMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2"
+  },
+  "hwLiNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "Description.",
+    "name": "hwLiNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiMibActive"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiX3HeartBeatAlarm"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiX3HeartBeatRecover"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.131.3.3.4",
+    "status": "current"
+  },
+  "hwLiStreamAcctSessionId": {
+    "class": "objecttype",
+    "description": "The accounting session ID of intercepting stream.zero-length means no accouting session ID will be specified",
+    "maxaccess": "read-create",
+    "name": "hwLiStreamAcctSessionId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLiStreamActivationType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "cc"
+      }
+    },
+    "description": "Intercepted IRI or CC or BOTH.",
+    "maxaccess": "read-create",
+    "name": "hwLiStreamActivationType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "both": 3,
+          "cc": 2,
+          "iri": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLiStreamComplianceGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwLiStreamComplianceGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamLiId"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamActivationType"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamSessionId"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamTargetIdType"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamProtocol"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamSrcPort"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamDstPort"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamSrcMacAddress"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamDstMacAddress"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamSrcIpAddress"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamSrcIpLength"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamDstIpAddress"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamDstIpLength"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamIfIndex"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamUserName"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamRowStatus"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamSrcIpAddressType"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamDstIpAddressType"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamSrcVpnName"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamDstVpnName"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamL2tpIfIndex"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamL2tpVlanId"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamAcctSessionId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.131.3.3.3",
+    "status": "current"
+  },
+  "hwLiStreamDstIpAddress": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "OctetString",
+        "format": "hex",
+        "value": "00000000"
+      }
+    },
+    "description": "The Destination address or prefix used in packet selection. This address will be of the type specified in hwLiStreamIpAddrType.0.0.0.0 means no IP address will be specified",
+    "maxaccess": "read-create",
+    "name": "hwLiStreamDstIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwLiStreamDstIpAddressType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "ipv4"
+      }
+    },
+    "description": "The destination IP address of the interception stream",
+    "maxaccess": "read-create",
+    "name": "hwLiStreamDstIpAddressType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwLiStreamDstIpLength": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 32
+      }
+    },
+    "description": "The length of the Destination Prefix. A value of 32 causes all addresses to match. This prefix length will be consistent with the type specified in hwLiStreamIpAddrType.",
+    "maxaccess": "read-create",
+    "name": "hwLiStreamDstIpLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressPrefixLength"
+    }
+  },
+  "hwLiStreamDstMacAddress": {
+    "class": "objecttype",
+    "description": "Destination Mac address of the packets which will be intercepted.",
+    "maxaccess": "read-create",
+    "name": "hwLiStreamDstMacAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwLiStreamDstPort": {
+    "class": "objecttype",
+    "description": "The fourth layer Destination port.0 means no Port will be specified",
+    "maxaccess": "read-create",
+    "name": "hwLiStreamDstPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetPortNumber"
+    }
+  },
+  "hwLiStreamDstVpnName": {
+    "class": "objecttype",
+    "description": "The destination VPN instance name whose traffic will be intercepted. zero-length means no VPN will be specified",
+    "maxaccess": "read-create",
+    "name": "hwLiStreamDstVpnName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLiStreamEntry": {
+    "class": "objecttype",
+    "description": "A stream entry indicates a single data stream to be intercepted to a Mediation Device. Many selected data streams may go to the same application interface, and many application interfaces are supported.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwLiStreamEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1",
+    "status": "current"
+  },
+  "hwLiStreamGroup": {
+    "class": "objectidentity",
+    "name": "hwLiStreamGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4"
+  },
+  "hwLiStreamIfIndex": {
+    "class": "objecttype",
+    "description": "The interface switch carrying the intercepted taffic.0 means no interface will be specified",
+    "maxaccess": "read-create",
+    "name": "hwLiStreamIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLiStreamIndex": {
+    "class": "objecttype",
+    "description": "The index of the stream itself.",
+    "maxaccess": "not-accessible",
+    "name": "hwLiStreamIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8192,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLiStreamL2tpIfIndex": {
+    "class": "objecttype",
+    "description": "The L2TP ifindex of intercepting stream.0 means no l2tpIfindex will be specified",
+    "maxaccess": "read-create",
+    "name": "hwLiStreamL2tpIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLiStreamL2tpVlanId": {
+    "class": "objecttype",
+    "description": "The L2TP VLAN ID of intercepting stream.0 means no Vlan will be specified",
+    "maxaccess": "read-create",
+    "name": "hwLiStreamL2tpVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLiStreamLiId": {
+    "class": "objecttype",
+    "description": "The ID indicate a independency stream in a LIG .",
+    "maxaccess": "read-create",
+    "name": "hwLiStreamLiId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwLiStreamProtocol": {
+    "class": "objecttype",
+    "description": "Protocol type of the packets which will be intercepted.0 means no Protocol type will be specified",
+    "maxaccess": "read-create",
+    "name": "hwLiStreamProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLiStreamRowStatus": {
+    "class": "objecttype",
+    "description": "The status of this conceptual row. This object is used to manage creation, modification and deletion of rows in this table.",
+    "maxaccess": "read-create",
+    "name": "hwLiStreamRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwLiStreamSessionId": {
+    "class": "objecttype",
+    "description": "The index of the stream itself.0 means no session ID will be specified",
+    "maxaccess": "read-create",
+    "name": "hwLiStreamSessionId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLiStreamSrcIpAddress": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "OctetString",
+        "format": "hex",
+        "value": "00000000"
+      }
+    },
+    "description": "The Source Address used in packet selection. This address will be of the type specified in hwLiStreamIpAddrType.0.0.0.0 means no IP address will be specified",
+    "maxaccess": "read-create",
+    "name": "hwLiStreamSrcIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwLiStreamSrcIpAddressType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "ipv4"
+      }
+    },
+    "description": "The source IP address of the interception stream",
+    "maxaccess": "read-create",
+    "name": "hwLiStreamSrcIpAddressType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwLiStreamSrcIpLength": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 32
+      }
+    },
+    "description": "The length of the Source Prefix. A value of 32 causes all addresses to match. This prefix length will be consistent with the type specified in hwLiStreamIpAddrType.",
+    "maxaccess": "read-create",
+    "name": "hwLiStreamSrcIpLength",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressPrefixLength"
+    }
+  },
+  "hwLiStreamSrcMacAddress": {
+    "class": "objecttype",
+    "description": "Source Mac address of the packets which will be intercepted.0000-0000-0000 means no MAC address will be specified",
+    "maxaccess": "read-create",
+    "name": "hwLiStreamSrcMacAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwLiStreamSrcPort": {
+    "class": "objecttype",
+    "description": "The fourth layer source port.0 means no Port will be specified",
+    "maxaccess": "read-create",
+    "name": "hwLiStreamSrcPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetPortNumber"
+    }
+  },
+  "hwLiStreamSrcVpnName": {
+    "class": "objecttype",
+    "description": "The source VPN instance name whose traffic will be intercepted.zero-length means no VPN will be specified",
+    "maxaccess": "read-create",
+    "name": "hwLiStreamSrcVpnName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLiStreamTable": {
+    "class": "objecttype",
+    "description": "The Intercept Stream Table lists the IPv4 and IPv6 streams to be intercepted. The same data stream must be used by one LIG. The first index indicates which LIG the intercepted traffic will be diverted to. The second index permits multiple classifiers to be used together, such as having an IP address as source or destination.",
+    "maxaccess": "not-accessible",
+    "name": "hwLiStreamTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2",
+    "status": "current"
+  },
+  "hwLiStreamTargetIdType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "biDirection"
+      }
+    },
+    "description": "Target ID type specifies the type of packets. 1 means one direction traffic is intercept, 2 means bidirectional traffic is intercept. for bidirectional interception, if the source IP or destination IP in a packet is equal with the configured hwLiStreamSrcIpAddress If other condition is satisfied then the packet is intercepted. for one-directional interception, if the sourceIP and DestinationIP in a packet is equal with the configured hwLiStreamSrcIpAddress and hwLiStreamDstIPAddressIf other condition is satisfied then the packet is intercepted",
+    "maxaccess": "read-create",
+    "name": "hwLiStreamTargetIdType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "biDirection": 2,
+          "oneDirection": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLiStreamUserName": {
+    "class": "objecttype",
+    "description": "The username whose traffic will be intercepted.zero-length means no user will be specified",
+    "maxaccess": "read-create",
+    "name": "hwLiStreamUserName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLiX3HeartBeatAlarm": {
+    "class": "notificationtype",
+    "description": "This notification is sent when an LIG is lost connection to the device which intercepting packet corresponding to a configured data stream. ",
+    "name": "hwLiX3HeartBeatAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayX3Address"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.131.1.2",
+    "status": "current"
+  },
+  "hwLiX3HeartBeatRecover": {
+    "class": "notificationtype",
+    "description": "This notification is sent when an LIG is recover connection to the device which intercepting packet corresponding to a configured data stream. ",
+    "name": "hwLiX3HeartBeatRecover",
+    "objects": [
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayX3Address"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.131.1.3",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddress",
+      "InetAddressPrefixLength",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "BITS",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Gauge32",
+      "TimeTicks",
+      "Counter32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "RowStatus",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-LI-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:57 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-LI-MIB"
+  }
+}

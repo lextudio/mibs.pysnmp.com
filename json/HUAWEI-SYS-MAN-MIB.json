@@ -1,0 +1,5460 @@
+{
+  "HWPatchErrorType": {
+    "class": "textualconvention",
+    "description": " description. ",
+    "name": "HWPatchErrorType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "activeBaseAddrNotSuited": 46,
+          "activeCodeAddrNotSuited": 44,
+          "activeDataAddrNotSuited": 45,
+          "activeFormatUnknown": 47,
+          "activeHasBeenActived": 41,
+          "activeNotExist": 42,
+          "activeNumInvalid": 40,
+          "activeStateInvalid": 43,
+          "addlistBadParam": 105,
+          "addlistMemAllocFail": 106,
+          "appendListAddFail": 126,
+          "appendListBadParam": 125,
+          "caclcrcBadUnitCrc": 95,
+          "caclcrcFileCrcInvalid": 90,
+          "caclcrcNumInvalid": 93,
+          "caclcrcOutputIsNull": 92,
+          "caclcrcUnitCrcInvalid": 91,
+          "chgproChangeModeFailed": 30,
+          "deactBadState": 73,
+          "deactNumInvalid": 70,
+          "deactRunOrActive": 71,
+          "deactRunningState": 72,
+          "depToInterAddFail": 122,
+          "depToInterBadParam": 120,
+          "depToInterInvalidNo": 121,
+          "depToListAddItemFail": 110,
+          "depToListBadParamDep": 107,
+          "depToListBadParamList": 108,
+          "depToListMemFreeFail": 109,
+          "fetchBaseAddrNotSuited": 18,
+          "fetchBufferFail": 148,
+          "fetchBufferPara": 147,
+          "fetchCodeAddrNotSuited": 16,
+          "fetchCodeLenOverflow": 19,
+          "fetchCommonAfterTemp": 14,
+          "fetchDataAddrNotSuited": 17,
+          "fetchDataLenOverflow": 20,
+          "fetchFlagNotSame": 6,
+          "fetchFuncNumTooMany": 12,
+          "fetchInputIsNull": 5,
+          "fetchLengthNotSuited": 15,
+          "fetchOldAfterIndependent": 103,
+          "fetchPatNoInvalid": 9,
+          "fetchProgCrcInvalid": 8,
+          "fetchProgVerInvalid": 7,
+          "fetchTotalNumInvalid": 10,
+          "fetchTypeInvalid": 13,
+          "fetchUnitCrcInvalid": 11,
+          "fetchUpdateDependency": 104,
+          "getInfoBufNull": 162,
+          "getInfoFileCrcInvalid": 166,
+          "getInfoFlagNotSame": 164,
+          "getInfoOutputNull": 163,
+          "getInfoProgCrcInvalid": 165,
+          "getInfoUnitCrcInvalid": 167,
+          "getStatePara": 149,
+          "indActiveAlreadyActive": 128,
+          "indActiveAlreadyRunning": 150,
+          "indActiveBadParam": 127,
+          "indActiveBaseAddrNotSuited": 137,
+          "indActiveCodeAddrNotSuited": 135,
+          "indActiveDataAddrNotSuited": 136,
+          "indActiveDepIdle": 133,
+          "indActiveDepInvalid": 134,
+          "indActiveFuncFail": 139,
+          "indActiveIdle": 171,
+          "indActiveInvalid": 172,
+          "indActiveListAppendFail": 131,
+          "indActiveListFail": 129,
+          "indActiveListGenFail": 130,
+          "indActiveMemFreeFail": 132,
+          "indActiveNotLoaded": 138,
+          "indBitTblToArrayAllocFail": 155,
+          "indBitTblToArrayBitsetLess": 157,
+          "indBitTblToArrayBitsetMore": 156,
+          "indBitTblToArrayFreeFail": 154,
+          "indBitTblToArrayInputNull": 153,
+          "indDeactiveDeative": 173,
+          "indDeactiveFail": 142,
+          "indDeactiveFreeNull": 160,
+          "indDeactiveInvalid": 176,
+          "indDeactiveRunning": 174,
+          "indFetchActive": 183,
+          "indFetchDeactive": 184,
+          "indFetchInvalid": 186,
+          "indFetchRunning": 185,
+          "indFreeListInputNull": 151,
+          "indFreeListMemFreeErr": 152,
+          "indGetDepOfPara": 144,
+          "indGetDepOnFail": 146,
+          "indGetDepOnPara": 145,
+          "indPatchFileNoInd": 140,
+          "indPatchOpNotconfig": 169,
+          "indRemoveFail": 143,
+          "indRemoveFreeFail": 161,
+          "indRemoveIdle": 181,
+          "indRemoveInvalid": 182,
+          "indRunDeactive": 177,
+          "indRunFail": 141,
+          "indRunIdle": 179,
+          "indRunInvalid": 180,
+          "indRunRunning": 178,
+          "initMemProtectFail": 2,
+          "initNoMemory": 1,
+          "interToDepAppendFail": 124,
+          "interToDepBadParam": 123,
+          "listToDepBadParamAllocFail": 158,
+          "listToDepBadParamDep": 111,
+          "listToDepBadParamDepCount": 113,
+          "listToDepBadParamFreeFail": 159,
+          "listToDepBadParamList": 112,
+          "normalOpNotconfig": 170,
+          "patchFileNotExist": 187,
+          "patchMisoperation": 190,
+          "patchPackageError": 189,
+          "patchRestoreFailed": 188,
+          "removeBadStatus": 82,
+          "removeHasInIdle": 81,
+          "removeNumInvalid": 80,
+          "runBadState": 59,
+          "runHasInRunning": 56,
+          "runIdleState": 58,
+          "runNotActive": 57,
+          "runNumInvalid": 55,
+          "showCodeLenIsZero": 101,
+          "showDataLenIsZero": 102,
+          "showNumInvalid": 100,
+          "unknown": 65535,
+          "updateDepBadParam": 114,
+          "updateDepDepToListFail": 116,
+          "updateDepFromInterFail": 118,
+          "updateDepListToDepFail": 119,
+          "updateDepMemAllocFail": 115,
+          "updateDepToInterFail": 117
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "huaweiSysAndroidFileGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing mandatory system android file information.",
+    "name": "huaweiSysAndroidFileGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysAndroidFileNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysAndroidFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysAndroidFileSize"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysAndroidFileLocation"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.25",
+    "status": "current"
+  },
+  "huaweiSysCFGFileGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing mandatory system configureation file information.",
+    "name": "huaweiSysCFGFileGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCFGFileNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCFGFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCFGFileSize"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCFGFileLocation"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.4",
+    "status": "current"
+  },
+  "huaweiSysClockGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing mandatory system reload.",
+    "name": "huaweiSysClockGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysLocalClock"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.1",
+    "status": "current"
+  },
+  "huaweiSysImageGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing mandatory system image information.",
+    "name": "huaweiSysImageGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysImageNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysImageName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysImageSize"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysImageLocation"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysImageVersion"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.3",
+    "status": "current"
+  },
+  "huaweiSysReloadGroup": {
+    "class": "objectgroup",
+    "description": " A collection of objects providing mandatory system clock information.",
+    "name": "huaweiSysReloadGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadSchedule"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadAction"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadImage"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadCfgFile"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadReason"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadPatchFile"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadLicenseFile"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadPafFile"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadPatchState"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysLatestRebootErrorInfo"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadScheduleTime"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadEntity"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadRowStatus"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadOperateDestType"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadOperateDestIndex"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysSlaveSwitchChassisNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysSlaveSwitchOperType"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysSlaveSwitchEnableStatus"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysDelayReboot"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadAndroidFile"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.2",
+    "status": "current"
+  },
+  "huaweiSysVoiceFileGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing mandatory system configureation file information.",
+    "name": "huaweiSysVoiceFileGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysVoiceFileNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysVoiceFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysVoiceFileSize"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysVoiceFileLocation"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.21",
+    "status": "current"
+  },
+  "huaweiSystemHDNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "A collection of notification about system hard disk.",
+    "name": "huaweiSystemHDNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysMasterHDError"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysSlaveHDError"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.7",
+    "status": "current"
+  },
+  "huaweiSystemManMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "The HUAWEI-SYS-MAN-MIB contains objects to manage the system. The module defines the information about system, such as system time, the current configuration file and system image file, system reload actions, and notifications. By querying the system time, configuration files and system image files, NMS can reboot the device in the specified time and the specified configuration and system image.",
+    "lastupdated": "201503100000Z",
+    "name": "huaweiSystemManMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.19",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "Modified hwPatchFailReason for patch.",
+        "revision": "2015-03-10 00:00"
+      },
+      {
+        "description": "Add hwSysEvmTraps for evm.",
+        "revision": "2015-01-12 00:00"
+      },
+      {
+        "description": "Modified hwSysRebootReason. Add new reboot reason.",
+        "revision": "2014-09-15 00:00"
+      },
+      {
+        "description": "Modified hwSysCfgFileName description. hwSysCfgFileName is a string of 5 to 64 characters.",
+        "revision": "2014-09-12 00:00"
+      },
+      {
+        "description": "Add two hwIssuState: issuRollBackByUserCancel, issuRollBackByExceptional to hwIssuState.",
+        "revision": "2014-09-03 00:00"
+      },
+      {
+        "description": "Add one hwPatchErrorCode : patchMisoperation to hwPatchErrorType .",
+        "revision": "2014-07-28 00:00"
+      },
+      {
+        "description": "Modified hwPatchFailReason for patch.",
+        "revision": "2014-07-23 00:00"
+      },
+      {
+        "description": " Add hwSysWlanApUpgradeAssistantPackageNotMatchNotify for wlan ap upgrade.",
+        "revision": "2014-07-08 00:00"
+      },
+      {
+        "description": "Modified hwSystemBoardExlude/hwSystemBoardExludeClear to hwSystemBoardExclude/hwSystemBoardExcludeClear.",
+        "revision": "2014-06-03 00:00"
+      },
+      {
+        "description": "Add nodes for android upgrade.",
+        "revision": "2014-05-22 00:00"
+      },
+      {
+        "description": "Add nodes for wlan ap upgrade.",
+        "revision": "2014-03-27 00:00"
+      },
+      {
+        "description": "Add hwIssuPatchFile leaf into HwSysUpgradeEntry.",
+        "revision": "2014-03-18 00:00"
+      },
+      {
+        "description": "Add two trap nodes hwSystemBoardExlude and hwSystemBoardExludeClear to huaweiSystemManMIBNotifications Table.",
+        "revision": "2014-03-17 00:00"
+      },
+      {
+        "description": "Add two trap nodes hwSysPafChangeNotification and hwSysLicenseChangeNotification to huaweiSystemManMIBNotifications Table.",
+        "revision": "2013-10-21 00:00"
+      }
+    ]
+  },
+  "huaweiSystemManMIBCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for entities which implement the Huawei system management MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "huaweiSysClockGroup"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "huaweiSysReloadGroup"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "huaweiSysImageGroup"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "huaweiSysCFGFileGroup"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "huaweiSystemManNotificationGroup"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "huaweihwSysEvmTrapsObjectGroup"
+      }
+    ],
+    "name": "huaweiSystemManMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.1.1",
+    "status": "current"
+  },
+  "huaweiSystemManMIBCompliances": {
+    "class": "objectidentity",
+    "name": "huaweiSystemManMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.1"
+  },
+  "huaweiSystemManMIBConformance": {
+    "class": "objectidentity",
+    "name": "huaweiSystemManMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3"
+  },
+  "huaweiSystemManMIBGroups": {
+    "class": "objectidentity",
+    "name": "huaweiSystemManMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2"
+  },
+  "huaweiSystemManMIBNotifications": {
+    "class": "objectidentity",
+    "name": "huaweiSystemManMIBNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2"
+  },
+  "huaweiSystemManMIBObjects": {
+    "class": "objectidentity",
+    "name": "huaweiSystemManMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1"
+  },
+  "huaweiSystemManNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "A collection of notification.",
+    "name": "huaweiSystemManNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysClockChangedNotification"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadNotification"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysSlaveSwitchSuccessNotification"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysSlaveSwitchFailNotification"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysIssuNotification"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchInstallFail"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchInstallFailClear"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSumUpgradeSuccess"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCfgFileErrorNotification"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysImageErrorNotification"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysPafChangeNotification"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysLicenseChangeNotification"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSystemBoardExclude"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSystemBoardExcludeClear"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwEvmVmAbnormalRunNotification"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwEvmVmNotRunningNotification"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwEvmVmAbnormalRestartNotification"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwEvmDownloadFailedNotification"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwEvmInstallFailedNotification"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.6",
+    "status": "current"
+  },
+  "huaweihwSysEvmTrapsObjectGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing EVM system trap objects.",
+    "name": "huaweihwSysEvmTrapsObjectGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysEvmRoleName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysEvmDownloadFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysEvmInstallFileName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.26",
+    "status": "current"
+  },
+  "hwBootRom": {
+    "class": "objectidentity",
+    "name": "hwBootRom",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11"
+  },
+  "hwBootRomBootDevice": {
+    "class": "objecttype",
+    "description": "This object indicates the name of the BootROM startup device.",
+    "maxaccess": "read-only",
+    "name": "hwBootRomBootDevice",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwBootRomEntry": {
+    "class": "objecttype",
+    "description": "Defines an entry in the hwBootRomTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwBootRomEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1",
+    "status": "current"
+  },
+  "hwBootRomFileName": {
+    "class": "objecttype",
+    "description": "The object indicates the name of the BootROM file.",
+    "maxaccess": "read-only",
+    "name": "hwBootRomFileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwBootRomGatewayIp": {
+    "class": "objecttype",
+    "description": "The object indicates the IP address of the BootROM gateway.",
+    "maxaccess": "read-only",
+    "name": "hwBootRomGatewayIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwBootRomGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwBootRomGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomBootDevice"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomHostName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomIpOnEthernet"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomIpOnBackPlane"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomHostIp"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomGatewayIp"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomUserName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomPassword"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomTargetName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomStartupScript"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomXModemBaudRate"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomVersion"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwBootRomProcessorNo"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.16",
+    "status": "current"
+  },
+  "hwBootRomHostIp": {
+    "class": "objecttype",
+    "description": "The object indicates the IP address of the BootROM host.",
+    "maxaccess": "read-only",
+    "name": "hwBootRomHostIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwBootRomHostName": {
+    "class": "objecttype",
+    "description": "The object indicates the name of the BootROM host.",
+    "maxaccess": "read-only",
+    "name": "hwBootRomHostName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwBootRomIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the index of the BootROM table. ",
+    "maxaccess": "not-accessible",
+    "name": "hwBootRomIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwBootRomIpOnBackPlane": {
+    "class": "objecttype",
+    "description": "The object indicates the IP address of the BootROM backplane.",
+    "maxaccess": "read-only",
+    "name": "hwBootRomIpOnBackPlane",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwBootRomIpOnEthernet": {
+    "class": "objecttype",
+    "description": "The object indicates the IP address of the BootROM Ethernet interface.",
+    "maxaccess": "read-only",
+    "name": "hwBootRomIpOnEthernet",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwBootRomPassword": {
+    "class": "objecttype",
+    "description": "The object indicates the BootROM password.",
+    "maxaccess": "read-only",
+    "name": "hwBootRomPassword",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwBootRomProcessorNo": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the number of the BootROM processor.",
+    "maxaccess": "read-only",
+    "name": "hwBootRomProcessorNo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBootRomStartupScript": {
+    "class": "objecttype",
+    "description": "The object indicates the BootROM startup script.",
+    "maxaccess": "read-only",
+    "name": "hwBootRomStartupScript",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwBootRomTable": {
+    "class": "objecttype",
+    "description": "Boot ROM startup parameter query table.",
+    "maxaccess": "not-accessible",
+    "name": "hwBootRomTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1",
+    "status": "current"
+  },
+  "hwBootRomTargetName": {
+    "class": "objecttype",
+    "description": "The object indicates the name of the BootROM target.",
+    "maxaccess": "read-only",
+    "name": "hwBootRomTargetName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwBootRomUserName": {
+    "class": "objecttype",
+    "description": "The object indicates the name of the BootROM user.",
+    "maxaccess": "read-only",
+    "name": "hwBootRomUserName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwBootRomVersion": {
+    "class": "objecttype",
+    "description": "Boot ROM version.",
+    "maxaccess": "read-only",
+    "name": "hwBootRomVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwBootRomXModemBaudRate": {
+    "class": "objecttype",
+    "description": "The value of the object identifies the baud rate for transmitting the XModem data.",
+    "maxaccess": "read-only",
+    "name": "hwBootRomXModemBaudRate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.11.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwEvmDownloadFailedNotification": {
+    "class": "notificationtype",
+    "description": "The board(s) excluded retrieved during software upgrading",
+    "name": "hwEvmDownloadFailedNotification",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysEvmDownloadFileName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.20.2.4",
+    "status": "current"
+  },
+  "hwEvmInstallFailedNotification": {
+    "class": "notificationtype",
+    "description": "The board(s) excluded retrieved during software upgrading",
+    "name": "hwEvmInstallFailedNotification",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysEvmInstallFileName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.20.2.5",
+    "status": "current"
+  },
+  "hwEvmVmAbnormalRestartNotification": {
+    "class": "notificationtype",
+    "description": "The board(s) excluded retrieved during software upgrading",
+    "name": "hwEvmVmAbnormalRestartNotification",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysEvmRoleName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.20.2.3",
+    "status": "current"
+  },
+  "hwEvmVmAbnormalRunNotification": {
+    "class": "notificationtype",
+    "description": "The board(s) excluded retrieved during software upgrading",
+    "name": "hwEvmVmAbnormalRunNotification",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysEvmRoleName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.20.2.1",
+    "status": "current"
+  },
+  "hwEvmVmNotRunningNotification": {
+    "class": "notificationtype",
+    "description": "The board(s) excluded retrieved during software upgrading",
+    "name": "hwEvmVmNotRunningNotification",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysEvmRoleName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.20.2.2",
+    "status": "current"
+  },
+  "hwIssuConditionCheck": {
+    "class": "objecttype",
+    "description": "System issu upgrade condition check. The default check result is normal.",
+    "maxaccess": "read-only",
+    "name": "hwIssuConditionCheck",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.12.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configurationChange": 4,
+          "normal": 1,
+          "notRealtimeBackup": 2,
+          "otherAbnormal": 5,
+          "slotAbnormal": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIssuImageFile": {
+    "class": "objecttype",
+    "description": "The name of the image file.",
+    "maxaccess": "read-write",
+    "name": "hwIssuImageFile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.12.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 127,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIssuIndex": {
+    "class": "objecttype",
+    "description": "Set system issu table index.",
+    "maxaccess": "not-accessible",
+    "name": "hwIssuIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.12.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwIssuLicenseFile": {
+    "class": "objecttype",
+    "description": "The name of the license file.",
+    "maxaccess": "read-write",
+    "name": "hwIssuLicenseFile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.12.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 127,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIssuMode": {
+    "class": "objecttype",
+    "description": "Set system issu upgrade mode.",
+    "maxaccess": "read-write",
+    "name": "hwIssuMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.12.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "issuPrecheck": 2,
+          "issuUpgrade": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIssuPafFile": {
+    "class": "objecttype",
+    "description": "The name of the paf file.",
+    "maxaccess": "read-write",
+    "name": "hwIssuPafFile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.12.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 127,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIssuPatchFile": {
+    "class": "objecttype",
+    "description": "The name of the patch file.",
+    "maxaccess": "read-write",
+    "name": "hwIssuPatchFile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.12.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 127,
+            "min": 5
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwIssuState": {
+    "class": "objecttype",
+    "description": "System issu upgrade state.",
+    "maxaccess": "read-only",
+    "name": "hwIssuState",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.12.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "issuExceptional": 3,
+          "issuRollBackByExceptional": 5,
+          "issuRollBackByUserCancel": 4,
+          "issuUpgrading": 2,
+          "noIssuUpgrading": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLoadPatchEntry": {
+    "class": "objecttype",
+    "description": "Defines an entry in the hwLoadPatchTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchFileIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwLoadPatchEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.4.1",
+    "status": "current"
+  },
+  "hwLoadPatchRowState": {
+    "class": "objecttype",
+    "description": "This object identifies the status of a row.",
+    "maxaccess": "read-create",
+    "name": "hwLoadPatchRowState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.4.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwLoadPatchTable": {
+    "class": "objecttype",
+    "description": "The load table of the patch file. Load the patch file to the memory: hwSlotIndex:The slot ID of the destination device to be loaded by the patch file, hwPatchFileIndex:The index of the patch file, If hwSlotIndex is 128, it indicates all slots of the device.",
+    "maxaccess": "not-accessible",
+    "name": "hwLoadPatchTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.4",
+    "status": "current"
+  },
+  "hwPatch": {
+    "class": "objectidentity",
+    "name": "hwPatch",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8"
+  },
+  "hwPatchActiveOverTimeTrap": {
+    "class": "notificationtype",
+    "description": "The patch is not run within 24 hours after it is activated.",
+    "name": "hwPatchActiveOverTimeTrap",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchOperateState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.5.2",
+    "status": "current"
+  },
+  "hwPatchActiveTime": {
+    "class": "objecttype",
+    "description": "This object indicates the time when a patch file is activated.",
+    "maxaccess": "read-only",
+    "name": "hwPatchActiveTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwPatchAdminStatus": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the operation status of a patch. Run (1): indicates that the patch status is Run. Active(2): indicates the patch status is Active. Deactive(3): indicates the patch status is Deactive. Delete(4): indicates that the patch is deleted.",
+    "maxaccess": "read-write",
+    "name": "hwPatchAdminStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 2,
+          "deactive": 3,
+          "delete": 4,
+          "run": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPatchBase": {
+    "class": "objectidentity",
+    "name": "hwPatchBase",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.1"
+  },
+  "hwPatchBeginIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the start ID of the loaded patch.",
+    "maxaccess": "read-only",
+    "name": "hwPatchBeginIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPatchBuildTime": {
+    "class": "objecttype",
+    "description": "This object indicates the time when a patch file is built.",
+    "maxaccess": "read-only",
+    "name": "hwPatchBuildTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwPatchDataLen": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the length of the patch data.",
+    "maxaccess": "read-only",
+    "name": "hwPatchDataLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPatchDataMax": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the size of the data in the patch area.",
+    "maxaccess": "read-only",
+    "name": "hwPatchDataMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPatchDescription": {
+    "class": "objecttype",
+    "description": "This object indicates the description of the patch.",
+    "maxaccess": "read-only",
+    "name": "hwPatchDescription",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwPatchEndIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the end ID of the loaded patch.",
+    "maxaccess": "read-only",
+    "name": "hwPatchEndIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPatchEntry": {
+    "class": "objecttype",
+    "description": "Defines an entry in the hwPatchTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPatchEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1",
+    "status": "current"
+  },
+  "hwPatchErrorCode": {
+    "class": "objecttype",
+    "description": "This object indicates the flag of the patch error.",
+    "maxaccess": "read-only",
+    "name": "hwPatchErrorCode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "HWPatchErrorType"
+    }
+  },
+  "hwPatchErrorEntry": {
+    "class": "objecttype",
+    "description": "Defines an entry in the hwPatchErrorTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchErrorIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPatchErrorEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.4.1",
+    "status": "current"
+  },
+  "hwPatchErrorIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the index of the patch error.",
+    "maxaccess": "not-accessible",
+    "name": "hwPatchErrorIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPatchErrorPatchFileName": {
+    "class": "objecttype",
+    "description": "This object indicates the index of the patch file when the patch has an error.",
+    "maxaccess": "read-only",
+    "name": "hwPatchErrorPatchFileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwPatchErrorPatchIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the index of the patch when the patch has an error.",
+    "maxaccess": "read-only",
+    "name": "hwPatchErrorPatchIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPatchErrorSlot": {
+    "class": "objecttype",
+    "description": "This object indicates the number of the slot related to a patch error.",
+    "maxaccess": "read-only",
+    "name": "hwPatchErrorSlot",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPatchErrorTable": {
+    "class": "objecttype",
+    "description": "The error record table of patch operation.",
+    "maxaccess": "not-accessible",
+    "name": "hwPatchErrorTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.4",
+    "status": "current"
+  },
+  "hwPatchErrorTableMax": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the maximum number of recorded errors supported by hwPatchErrorTable.",
+    "maxaccess": "read-write",
+    "name": "hwPatchErrorTableMax",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPatchErrorTrap": {
+    "class": "notificationtype",
+    "description": "The trap is generated when the patch operation error occurs.",
+    "name": "hwPatchErrorTrap",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchErrorSlot"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchErrorPatchIndex"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchErrorCode"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchErrorPatchFileName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.5.1",
+    "status": "current"
+  },
+  "hwPatchFailReason": {
+    "class": "objecttype",
+    "description": "This object is an index that specifies patch fail reason.",
+    "maxaccess": "read-only",
+    "name": "hwPatchFailReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "getPatchErr": 2,
+          "patchConfigInconsistError": 9,
+          "patchConflict": 4,
+          "patchOpenErr": 1,
+          "patchSpaceShortage": 3,
+          "synchronizePatchPackageError": 8,
+          "versionErr": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPatchFileEntry": {
+    "class": "objecttype",
+    "description": "Defines an entry in the hwPatchFileTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchFileIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPatchFileEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.2.1",
+    "status": "current"
+  },
+  "hwPatchFileGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwPatchFileGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchFileSize"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchFileLocation"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchFileVersion"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchFileNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.11",
+    "status": "current"
+  },
+  "hwPatchFileIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the index of this table.",
+    "maxaccess": "not-accessible",
+    "name": "hwPatchFileIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPatchFileLocation": {
+    "class": "objecttype",
+    "description": "This object indicates the position of a patch file.",
+    "maxaccess": "read-only",
+    "name": "hwPatchFileLocation",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwPatchFileName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of a patch file.",
+    "maxaccess": "read-only",
+    "name": "hwPatchFileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwPatchFileNum": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the number of patches in the system.",
+    "maxaccess": "read-only",
+    "name": "hwPatchFileNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPatchFileSize": {
+    "class": "objecttype",
+    "description": "This object indicates the size of a patch file.",
+    "maxaccess": "read-only",
+    "name": "hwPatchFileSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPatchFileTable": {
+    "class": "objecttype",
+    "description": "Patch file query table.",
+    "maxaccess": "not-accessible",
+    "name": "hwPatchFileTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.2",
+    "status": "current"
+  },
+  "hwPatchFileVersion": {
+    "class": "objecttype",
+    "description": "This object indicates the version of the patch file.",
+    "maxaccess": "read-only",
+    "name": "hwPatchFileVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwPatchFuncNum": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the number functions contained in the patch.",
+    "maxaccess": "read-only",
+    "name": "hwPatchFuncNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPatchHistoryAction": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the patch status.",
+    "maxaccess": "read-only",
+    "name": "hwPatchHistoryAction",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 2,
+          "deactive": 3,
+          "delete": 4,
+          "running": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPatchHistoryBeginTime": {
+    "class": "objecttype",
+    "description": "This object indicates the start time of running the patch.",
+    "maxaccess": "read-only",
+    "name": "hwPatchHistoryBeginTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwPatchHistoryEndTime": {
+    "class": "objecttype",
+    "description": "This object indicates the end time of running the patch.",
+    "maxaccess": "read-only",
+    "name": "hwPatchHistoryEndTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwPatchHistoryEntry": {
+    "class": "objecttype",
+    "description": "Defines an entry in the hwPatchHistoryTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchHistoryIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPatchHistoryEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.3.1",
+    "status": "current"
+  },
+  "hwPatchHistoryIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the index of the table.",
+    "maxaccess": "not-accessible",
+    "name": "hwPatchHistoryIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPatchHistoryProgrameVersion": {
+    "class": "objecttype",
+    "description": "The value of the object identifies the version number of the image file.",
+    "maxaccess": "read-only",
+    "name": "hwPatchHistoryProgrameVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwPatchHistoryTable": {
+    "class": "objecttype",
+    "description": "Patch history table.",
+    "maxaccess": "not-accessible",
+    "name": "hwPatchHistoryTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.3",
+    "status": "current"
+  },
+  "hwPatchHistoryTableMax": {
+    "class": "objecttype",
+    "description": "Set the size of hwPatchHistoryTable.",
+    "maxaccess": "read-write",
+    "name": "hwPatchHistoryTableMax",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPatchHistoryVersion": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the version of the patch.",
+    "maxaccess": "read-only",
+    "name": "hwPatchHistoryVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwPatchId": {
+    "class": "objecttype",
+    "description": "This object indicates the patch ID on the device.",
+    "maxaccess": "read-only",
+    "name": "hwPatchId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwPatchIdleNum": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the number of idle patches.",
+    "maxaccess": "read-only",
+    "name": "hwPatchIdleNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPatchIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the index of the patch.",
+    "maxaccess": "not-accessible",
+    "name": "hwPatchIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwPatchInfo": {
+    "class": "objectidentity",
+    "name": "hwPatchInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5"
+  },
+  "hwPatchInfoGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwPatchInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchDescription"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchFuncNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchTextLen"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchDataLen"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchType"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchAdminStatus"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchStateTempPatchNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchStateCommonPatchNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchStateRuningPatchNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchStateActivePatchNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchStateDeactivePatchNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchHistoryVersion"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchStateTotalPatchNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchStateDataUsed"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchStateTextUsed"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchDataMax"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchTextMax"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchIdleNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchNumMax"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchActiveTime"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchBuildTime"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchVersion"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchHistoryProgrameVersion"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchUsedFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchErrorTableMax"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchHistoryTableMax"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchRecordReset"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchProgramVersion"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchOperateState"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchErrorSlot"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchErrorPatchIndex"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchErrorCode"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchHistoryBeginTime"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchHistoryEndTime"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchHistoryAction"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchEndIndex"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchTrapEnble"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchBeginIndex"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchId"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchLatestId"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSlotId"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchErrorPatchFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchFailReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.10",
+    "status": "current"
+  },
+  "hwPatchInstallFail": {
+    "class": "notificationtype",
+    "description": "The patch package install fail notification.",
+    "name": "hwPatchInstallFail",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchUsedFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchVersion"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchFailReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.11",
+    "status": "current"
+  },
+  "hwPatchInstallFailClear": {
+    "class": "notificationtype",
+    "description": "The patch package install fail clear notification.",
+    "name": "hwPatchInstallFailClear",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchUsedFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchVersion"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchFailReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.12",
+    "status": "current"
+  },
+  "hwPatchLatestId": {
+    "class": "objecttype",
+    "description": "This object indicates the latest patch ID on the device.",
+    "maxaccess": "read-only",
+    "name": "hwPatchLatestId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwPatchLoadDestIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the index of the board to be loaded with the patch.",
+    "maxaccess": "read-create",
+    "name": "hwPatchLoadDestIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwPatchLoadDestType": {
+    "class": "objecttype",
+    "description": "This object indicates the type of the board to be loaded with the patch.",
+    "maxaccess": "read-create",
+    "name": "hwPatchLoadDestType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "chassis": 4,
+          "slave": 2,
+          "slot": 3,
+          "unused": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPatchLoadGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwPatchLoadGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchLoadDestType"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchLoadDestIndex"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwLoadPatchRowState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.8",
+    "status": "current"
+  },
+  "hwPatchLoadState": {
+    "class": "objecttype",
+    "description": "Patch loading state: loading(1):Patch is loading. success(2):Patch loading succeeded. failure(3):Patch loading failed. none(4):Patch and board do not match.",
+    "maxaccess": "read-only",
+    "name": "hwPatchLoadState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failure": 3,
+          "loading": 1,
+          "none": 4,
+          "success": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPatchMalfunctionComebackTrap": {
+    "class": "notificationtype",
+    "description": "The patch operation is restored.",
+    "name": "hwPatchMalfunctionComebackTrap",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchOperateState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.5.3",
+    "status": "current"
+  },
+  "hwPatchNumMax": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the maximum number of patches.",
+    "maxaccess": "read-only",
+    "name": "hwPatchNumMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPatchOperateDestIndex": {
+    "class": "objecttype",
+    "description": "Patch operate object index,it combine with chassis,the value of the hwPatchOperateDestType to note the operate object.hwPatchOperateDestIndex is value such as ccc1,clc2 etc.",
+    "maxaccess": "read-create",
+    "name": "hwPatchOperateDestIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwPatchOperateDestType": {
+    "class": "objecttype",
+    "description": "Patch operate object type,it combine with the hwPatchOperateDestIndex to note the operate object.",
+    "maxaccess": "read-create",
+    "name": "hwPatchOperateDestType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "chassis": 4,
+          "slave": 2,
+          "slot": 3,
+          "unused": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPatchOperateState": {
+    "class": "objecttype",
+    "description": "status of the patch. patchRunning(1): indicates that current status of the patch is Run. patchActive(2): indicates that current status of the patch is Active. patchDeactive(3): indicates that current status of the patch is Deactive.",
+    "maxaccess": "read-only",
+    "name": "hwPatchOperateState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "patchActive": 2,
+          "patchDeactive": 3,
+          "patchDeleting": 4,
+          "patchRunning": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPatchProgramVersion": {
+    "class": "objecttype",
+    "description": "The value of the object identifies the version number of the host software.",
+    "maxaccess": "read-only",
+    "name": "hwPatchProgramVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwPatchRecordReset": {
+    "class": "objecttype",
+    "description": "Clear the patch records. unused(1): unused. resetPatchHistory(2): clears the hwPatchHistoryTable record. resetPatchError(3): clears the hwPatchErrorTable record.",
+    "maxaccess": "read-write",
+    "name": "hwPatchRecordReset",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "resetPatchError": 3,
+          "resetPatchHistory": 2,
+          "unused": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPatchSlotIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the index of the slot.",
+    "maxaccess": "not-accessible",
+    "name": "hwPatchSlotIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPatchStateActivePatchNum": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the number of patches in the Active state in the patch area.",
+    "maxaccess": "read-only",
+    "name": "hwPatchStateActivePatchNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPatchStateCommonPatchNum": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the total number of used common patches.",
+    "maxaccess": "read-only",
+    "name": "hwPatchStateCommonPatchNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPatchStateDataUsed": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the size of the used data in the patch area.",
+    "maxaccess": "read-only",
+    "name": "hwPatchStateDataUsed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPatchStateDeactivePatchNum": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the number of patches in the Deactive state in the patch area.",
+    "maxaccess": "read-only",
+    "name": "hwPatchStateDeactivePatchNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPatchStateEntry": {
+    "class": "objecttype",
+    "description": "Defines an entry in the hwPatchStateTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchSlotIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPatchStateEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.2.1",
+    "status": "current"
+  },
+  "hwPatchStateRuningPatchNum": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the number of patches in the Run state in the patch area.",
+    "maxaccess": "read-only",
+    "name": "hwPatchStateRuningPatchNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPatchStateTable": {
+    "class": "objecttype",
+    "description": "The statistics information of the C patch area on each slot.",
+    "maxaccess": "not-accessible",
+    "name": "hwPatchStateTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.2",
+    "status": "current"
+  },
+  "hwPatchStateTempPatchNum": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the total number of used temporary patches.",
+    "maxaccess": "read-only",
+    "name": "hwPatchStateTempPatchNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPatchStateTextUsed": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the size of the used code in the patch area.",
+    "maxaccess": "read-only",
+    "name": "hwPatchStateTextUsed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPatchStateTotalPatchNum": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the total number of used patches.",
+    "maxaccess": "read-only",
+    "name": "hwPatchStateTotalPatchNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPatchTable": {
+    "class": "objecttype",
+    "description": "Running status transfer and query of the patch. If hwSlotIndex is 128, it indicates all slots of the device. If hwPatchNum is 65535, it indicates all patches of the specified slot. If hwPatchNum is 0, it indicates the NP patch of the specified slot. If hwPatchNum is in range from 1 to 200, it indicates the C patch of the specified slot. ",
+    "maxaccess": "not-accessible",
+    "name": "hwPatchTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1",
+    "status": "current"
+  },
+  "hwPatchTextLen": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the length of the patch code.",
+    "maxaccess": "read-only",
+    "name": "hwPatchTextLen",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPatchTextMax": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the size of the code in the patch area.",
+    "maxaccess": "read-only",
+    "name": "hwPatchTextMax",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPatchTrap": {
+    "class": "objectidentity",
+    "name": "hwPatchTrap",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.5"
+  },
+  "hwPatchTrapEnble": {
+    "class": "objecttype",
+    "description": "The value of this object determines whether to generate the trap of HUAWEI-SYS-MAN-MIB. enable(1): Trap is enabled. disable(2): Trap is not enabled.",
+    "maxaccess": "read-write",
+    "name": "hwPatchTrapEnble",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwPatchTrapsGrop": {
+    "class": "notificationgroup",
+    "description": "Patch operation error.",
+    "name": "hwPatchTrapsGrop",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchErrorTrap"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchActiveOverTimeTrap"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchMalfunctionComebackTrap"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchUpdateTrap"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.9",
+    "status": "current"
+  },
+  "hwPatchType": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the patch type. hotCommon(1): indicates the common hot patch. hotTemporary(2): indicates the temporary hot patch. coolCommon(3): indicates the common cool patch. coolTemporary(4): indicates the temporary cool patch.",
+    "maxaccess": "read-only",
+    "name": "hwPatchType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "coolCommon": 3,
+          "coolTemporary": 4,
+          "hotCommon": 1,
+          "hotTemporary": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPatchUpdateTrap": {
+    "class": "notificationtype",
+    "description": "The patch state change notification.",
+    "name": "hwPatchUpdateTrap",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchVersion"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchType"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwPatchOperateState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.5.4",
+    "status": "current"
+  },
+  "hwPatchUsedFileName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of the patch file.",
+    "maxaccess": "read-only",
+    "name": "hwPatchUsedFileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwPatchVersion": {
+    "class": "objecttype",
+    "description": "This object indicates the version of the patch file.",
+    "maxaccess": "read-only",
+    "name": "hwPatchVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSlotId": {
+    "class": "objecttype",
+    "description": "The value of the object identifies the slot number of the patch.",
+    "maxaccess": "read-only",
+    "name": "hwSlotId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.8.5.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSumUpgradeSuccess": {
+    "class": "notificationtype",
+    "description": "The patch package upgrade success notification",
+    "name": "hwSumUpgradeSuccess",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysImageVersion"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.13",
+    "status": "current"
+  },
+  "hwSysAndroidFile": {
+    "class": "objectidentity",
+    "name": "hwSysAndroidFile",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.25"
+  },
+  "hwSysAndroidFileEntry": {
+    "class": "objecttype",
+    "description": "A android file entry. Each entry consists of information of a android file. hwSysAndroidFileIndex exclusively decides a android file.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysAndroidFileIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSysAndroidFileEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.25.2.1",
+    "status": "current"
+  },
+  "hwSysAndroidFileIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the index of the android file.",
+    "maxaccess": "not-accessible",
+    "name": "hwSysAndroidFileIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.25.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysAndroidFileLocation": {
+    "class": "objecttype",
+    "description": "This object indicates the location of the android file, namely, the path.",
+    "maxaccess": "read-only",
+    "name": "hwSysAndroidFileLocation",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.25.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSysAndroidFileName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of the android file. Currently, Huawei products support one format of android files, namely, .BIN. A file name containing path and suffix is a string of 4 to 64 characters. ",
+    "maxaccess": "read-only",
+    "name": "hwSysAndroidFileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.25.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSysAndroidFileNum": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the number of Android files. The object calculates the number of android files given by hwSysAndroidFileTable. The value ranges from 0 to 2147483647. ",
+    "maxaccess": "read-only",
+    "name": "hwSysAndroidFileNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.25.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysAndroidFileReason": {
+    "class": "objecttype",
+    "description": "This object indicates the error cause of the android file.",
+    "maxaccess": "read-only",
+    "name": "hwSysAndroidFileReason",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.25.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwSysAndroidFileSize": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the size of the android file. The value ranges from 0 to 2147483647. ",
+    "maxaccess": "read-only",
+    "name": "hwSysAndroidFileSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.25.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysAndroidFileTable": {
+    "class": "objecttype",
+    "description": "A table of android files in this system.",
+    "maxaccess": "not-accessible",
+    "name": "hwSysAndroidFileTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.25.2",
+    "status": "current"
+  },
+  "hwSysCFGFile": {
+    "class": "objectidentity",
+    "name": "hwSysCFGFile",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.5"
+  },
+  "hwSysCFGFileEntry": {
+    "class": "objecttype",
+    "description": "A configuration file entry. Each entry consists of information of a configuration file. hwSysCFGFileIndex exclusively decides a configuration file.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCFGFileIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSysCFGFileEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.5.2.1",
+    "status": "current"
+  },
+  "hwSysCFGFileIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the index of the configuration file.",
+    "maxaccess": "not-accessible",
+    "name": "hwSysCFGFileIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.5.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysCFGFileLocation": {
+    "class": "objecttype",
+    "description": "This object indicates the location of the configuration file, namely, the path.",
+    "maxaccess": "read-only",
+    "name": "hwSysCFGFileLocation",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.5.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSysCFGFileName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of the configuration file. Currently, Huawei products support two formats of configuration files, namely, .CFG and .ZIP. A file name containing path and suffix is a string of 5 to 64 characters. ",
+    "maxaccess": "read-only",
+    "name": "hwSysCFGFileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.5.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSysCFGFileNum": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the number of configuration files. The object calculates the number of configuration files given by hwSysCFGFileTable. The value ranges from 0 to 2147483647. ",
+    "maxaccess": "read-only",
+    "name": "hwSysCFGFileNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.5.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysCFGFileReason": {
+    "class": "objecttype",
+    "description": "This object indicates the error cause of the configuration file.",
+    "maxaccess": "read-only",
+    "name": "hwSysCFGFileReason",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.5.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwSysCFGFileSize": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the size of the configuration file. The value ranges from 0 to 2147483647. ",
+    "maxaccess": "read-only",
+    "name": "hwSysCFGFileSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.5.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysCFGFileTable": {
+    "class": "objecttype",
+    "description": "A table of configuration files in this system.",
+    "maxaccess": "not-accessible",
+    "name": "hwSysCFGFileTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.5.2",
+    "status": "current"
+  },
+  "hwSysCfgFileErrorNotification": {
+    "class": "notificationtype",
+    "description": "This object notifies that some error occurs when the configuration file is specified as the next startup configuration file.",
+    "name": "hwSysCfgFileErrorNotification",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCFGFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCFGFileReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.14",
+    "status": "current"
+  },
+  "hwSysClock": {
+    "class": "objectidentity",
+    "name": "hwSysClock",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.1"
+  },
+  "hwSysClockChangedNotification": {
+    "class": "notificationtype",
+    "description": "This object indicates the notification sent when the system clock changes. When the system clock changes, this trap is triggered. For example, the system clock is changed through command lines. ",
+    "name": "hwSysClockChangedNotification",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysLocalClock"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.1",
+    "status": "current"
+  },
+  "hwSysCurCFGFileIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the index of the configuration file in the configuration file list. The value is referenced from hwSysCFGFileTable. The value ranges from 1 to 2147483647. ",
+    "maxaccess": "read-only",
+    "name": "hwSysCurCFGFileIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.2.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysCurEntPhysicalIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the system index.",
+    "maxaccess": "not-accessible",
+    "name": "hwSysCurEntPhysicalIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.2.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysCurEntry": {
+    "class": "objecttype",
+    "description": "An entry of hwSysCurTable. It is indexed by hwSysCurEntPhysicalIndex.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCurEntPhysicalIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSysCurEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.2.1.1",
+    "status": "current"
+  },
+  "hwSysCurGroup": {
+    "class": "objectgroup",
+    "description": "A collection of system current status.",
+    "name": "hwSysCurGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCurCFGFileIndex"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCurImageIndex"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCurPafFileIndex"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCurLicenseIndex"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCurPatchFileIndex"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysCurVoiceFileIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.5",
+    "status": "current"
+  },
+  "hwSysCurImageIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the index of the image file in the image file list. The value is referenced from hwSysImageTable. The value ranges from 1 to 2147483647. ",
+    "maxaccess": "read-only",
+    "name": "hwSysCurImageIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.2.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysCurLicenseIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the index of the license file in the license file list. ",
+    "maxaccess": "read-only",
+    "name": "hwSysCurLicenseIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.2.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysCurPafFileIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the index of the PAF file in the PAF file list. ",
+    "maxaccess": "read-only",
+    "name": "hwSysCurPafFileIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.2.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysCurPatchFileIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the index of the patch file in the patch file list. ",
+    "maxaccess": "read-only",
+    "name": "hwSysCurPatchFileIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.2.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysCurTable": {
+    "class": "objecttype",
+    "description": "The current status of system. A configuration file and an image file are used to describe the current status.",
+    "maxaccess": "not-accessible",
+    "name": "hwSysCurTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.2.1",
+    "status": "current"
+  },
+  "hwSysCurVoiceFileIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the index of the configuration file in the configuration file list. The value is referenced from hwSysCFGFileTable. The value ranges from 1 to 2147483647. ",
+    "maxaccess": "read-only",
+    "name": "hwSysCurVoiceFileIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.2.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysCurrent": {
+    "class": "objectidentity",
+    "name": "hwSysCurrent",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.2"
+  },
+  "hwSysDelayReboot": {
+    "class": "objecttype",
+    "description": "Restart the device at a delayed time. The delayed time can be set up to 43200 minutes. The node is used to set the delayed time, cancel the setting, or check the status of the delayed restart. If a value within the range of 0 to 43200 is entered, the delayed time is set. If the value 65535 is entered, the setting is cancelled. During system reboot, a return value 65534 is displayed if the Get or Walk operation is performed. Other values are invalid. ",
+    "maxaccess": "read-write",
+    "name": "hwSysDelayReboot",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysDeviceCheck": {
+    "class": "objectidentity",
+    "name": "hwSysDeviceCheck",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.15"
+  },
+  "hwSysDeviceCheckGroup": {
+    "class": "objectgroup",
+    "description": "A collection of system device checks.",
+    "name": "hwSysDeviceCheckGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysDeviceCheckStart"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysDeviceCheckState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.20",
+    "status": "current"
+  },
+  "hwSysDeviceCheckStart": {
+    "class": "objecttype",
+    "description": "Set system check start.",
+    "maxaccess": "read-write",
+    "name": "hwSysDeviceCheckStart",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.15.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "checkStart": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSysDeviceCheckState": {
+    "class": "objecttype",
+    "description": "Get system check state.",
+    "maxaccess": "read-only",
+    "name": "hwSysDeviceCheckState",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.15.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "checking": 2,
+          "done": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSysEvmDownloadFileName": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the number of Android files. The object calculates the number of android files given by hwSysAndroidFileTable. The value ranges from 0 to 2147483647. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwSysEvmDownloadFileName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.20.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSysEvmInstallFileName": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the number of Android files. The object calculates the number of android files given by hwSysAndroidFileTable. The value ranges from 0 to 2147483647. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwSysEvmInstallFileName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.20.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSysEvmNotifications": {
+    "class": "objectidentity",
+    "name": "hwSysEvmNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.20.2"
+  },
+  "hwSysEvmRoleName": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the number of Android files. The object calculates the number of android files given by hwSysAndroidFileTable. The value ranges from 0 to 2147483647. ",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwSysEvmRoleName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.20.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSysEvmTraps": {
+    "class": "objectidentity",
+    "name": "hwSysEvmTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.20"
+  },
+  "hwSysEvmTrapsObject": {
+    "class": "objectidentity",
+    "name": "hwSysEvmTrapsObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.20.1"
+  },
+  "hwSysFileIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the index of a file in the specified table. If the value is 0, it indicates that this file does not exist in the specified table.",
+    "maxaccess": "read-only",
+    "name": "hwSysFileIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.13.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysFileName": {
+    "class": "objecttype",
+    "description": "This object is an index that indicates the name of a file on the main control board.",
+    "maxaccess": "not-accessible",
+    "name": "hwSysFileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.13.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 110,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSysFileType": {
+    "class": "objecttype",
+    "description": "The value of this object is an index that indicates the type of a file.",
+    "maxaccess": "not-accessible",
+    "name": "hwSysFileType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.13.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "config": 2,
+          "image": 1,
+          "license": 4,
+          "paf": 3,
+          "patch": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSysImage": {
+    "class": "objectidentity",
+    "name": "hwSysImage",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.4"
+  },
+  "hwSysImageEntry": {
+    "class": "objecttype",
+    "description": "A system image entry. Each entry consists of information of a system image. hwSysImageIndex exclusively decides an image file.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysImageIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSysImageEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.4.2.1",
+    "status": "current"
+  },
+  "hwSysImageErrorNotification": {
+    "class": "notificationtype",
+    "description": "The image file upgrade fail notification. The first hwSysImageName indicates the current image file, and the second hwSysImageName indicates the next startup image file.",
+    "name": "hwSysImageErrorNotification",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysImageName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysImageName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysImageReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.15",
+    "status": "current"
+  },
+  "hwSysImageIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the index of the image file.",
+    "maxaccess": "not-accessible",
+    "name": "hwSysImageIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.4.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysImageLocation": {
+    "class": "objecttype",
+    "description": "This object indicates the location of the image file, namely the path. ",
+    "maxaccess": "read-only",
+    "name": "hwSysImageLocation",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.4.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSysImageName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of the image file. A file name containing path and suffix is a string of 4 to 64 characters. ",
+    "maxaccess": "read-only",
+    "name": "hwSysImageName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.4.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSysImageNum": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the number of image files. The object calculates the number of image files given by hwSysImageTable. The value ranges from 0 to 2147483647. ",
+    "maxaccess": "read-only",
+    "name": "hwSysImageNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.4.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysImageReason": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the error cause of the image file.",
+    "maxaccess": "read-only",
+    "name": "hwSysImageReason",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.4.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwSysImageSize": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the size of the image file. The value ranges from 0 to 2147483647, in bytes. The size depends on the actual file and is limited by the physical storage device. ",
+    "maxaccess": "read-only",
+    "name": "hwSysImageSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.4.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysImageTable": {
+    "class": "objecttype",
+    "description": "The system image management table.",
+    "maxaccess": "not-accessible",
+    "name": "hwSysImageTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.4.2",
+    "status": "current"
+  },
+  "hwSysImageVersion": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the version of the image file.",
+    "maxaccess": "read-only",
+    "name": "hwSysImageVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.4.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSysIssuNotification": {
+    "class": "notificationtype",
+    "description": "When the ISSU upgrade over, it will send success or failed message.",
+    "name": "hwSysIssuNotification",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwIssuState"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwIssuConditionCheck"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.10",
+    "status": "current"
+  },
+  "hwSysLatestRebootErrorInfo": {
+    "class": "objecttype",
+    "description": "This object indicates the cause of the last restart.",
+    "maxaccess": "read-only",
+    "name": "hwSysLatestRebootErrorInfo",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSysLicenseChangeNotification": {
+    "class": "notificationtype",
+    "description": "This object indicates the notification sent when the system license file changes.The hwSysLicenseFileName indicates the system license file, and the hwSysReloadEntity indicates the board type(1 means main board,2 means slave main board).",
+    "name": "hwSysLicenseChangeNotification",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadEntity"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysLicenseFileName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.17",
+    "status": "current"
+  },
+  "hwSysLicenseFile": {
+    "class": "objectidentity",
+    "name": "hwSysLicenseFile",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.7"
+  },
+  "hwSysLicenseFileEntry": {
+    "class": "objecttype",
+    "description": "A license file entry. Each entry consists of information of a license file. hwSysLicenseFileIndex exclusively decides a configuration file.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysLicenseFileIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSysLicenseFileEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.7.2.1",
+    "status": "current"
+  },
+  "hwSysLicenseFileIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the index of this table.",
+    "maxaccess": "not-accessible",
+    "name": "hwSysLicenseFileIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.7.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysLicenseFileLocation": {
+    "class": "objecttype",
+    "description": "This object indicates the position of the license file.",
+    "maxaccess": "read-only",
+    "name": "hwSysLicenseFileLocation",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.7.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSysLicenseFileName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of the license file.",
+    "maxaccess": "read-only",
+    "name": "hwSysLicenseFileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.7.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSysLicenseFileNum": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the number of license files in the system.",
+    "maxaccess": "read-only",
+    "name": "hwSysLicenseFileNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.7.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysLicenseFileSize": {
+    "class": "objecttype",
+    "description": "This object indicates the size of the license file.",
+    "maxaccess": "read-only",
+    "name": "hwSysLicenseFileSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.7.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSysLicenseFileTable": {
+    "class": "objecttype",
+    "description": "A table of license files in this system.",
+    "maxaccess": "not-accessible",
+    "name": "hwSysLicenseFileTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.7.2",
+    "status": "current"
+  },
+  "hwSysLocalClock": {
+    "class": "objecttype",
+    "description": "This object indicates the local time of the device.",
+    "maxaccess": "read-only",
+    "name": "hwSysLocalClock",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    }
+  },
+  "hwSysMasterCfcardError": {
+    "class": "notificationtype",
+    "description": "When the cfcard on master board can\u0027t be read and written because of some error, the Cfcard on master board will be unregistered and the notification is sent. ",
+    "name": "hwSysMasterCfcardError",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.6",
+    "status": "current"
+  },
+  "hwSysMasterHDError": {
+    "class": "notificationtype",
+    "description": "When the hard disk on master board cannot be read and written because of a certain error, the hard disk on master board is unregistered and the notification is sent. ",
+    "name": "hwSysMasterHDError",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.3",
+    "status": "current"
+  },
+  "hwSysMultiSwtBoardType": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the type of the board.",
+    "maxaccess": "read-only",
+    "name": "hwSysMultiSwtBoardType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.19.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "issuNewMaster": 6,
+          "issuOldMaster": 5,
+          "master": 1,
+          "slave": 2,
+          "systemMaster": 3,
+          "systemSlave": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSysMultiSwtChassisId": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the chassis id.",
+    "maxaccess": "read-only",
+    "name": "hwSysMultiSwtChassisId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.19.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSysMultiSwtInfo": {
+    "class": "objecttype",
+    "description": "The value of this object descries the real-time information of HA status.",
+    "maxaccess": "read-only",
+    "name": "hwSysMultiSwtInfo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.19.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 190,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSysMultiSwtSlotId": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the slot number of the board.",
+    "maxaccess": "read-only",
+    "name": "hwSysMultiSwtSlotId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.19.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysMultiSwtStateIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the index of the table.",
+    "maxaccess": "not-accessible",
+    "name": "hwSysMultiSwtStateIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.19.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysPafChangeNotification": {
+    "class": "notificationtype",
+    "description": "This object indicates the notification sent when the system PAF file changes.The hwSysPafFileName indicates system PAF file, and the hwSysReloadEntity indicates the board type(1 means main board,2 means slave main board).",
+    "name": "hwSysPafChangeNotification",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadEntity"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysPafFileName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.16",
+    "status": "current"
+  },
+  "hwSysPafFile": {
+    "class": "objectidentity",
+    "name": "hwSysPafFile",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.6"
+  },
+  "hwSysPafFileEntry": {
+    "class": "objecttype",
+    "description": "A paf file entry. Each entry consists of information of a paf file. hwSysPafFileIndex exclusively decides a configuration file.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysPafFileIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSysPafFileEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.6.2.1",
+    "status": "current"
+  },
+  "hwSysPafFileGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwSysPafFileGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysPafFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysPafFileSize"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysPafFileLocation"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysPafFileVersion"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysPafFileNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.13",
+    "status": "current"
+  },
+  "hwSysPafFileIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the index of this table.",
+    "maxaccess": "not-accessible",
+    "name": "hwSysPafFileIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.6.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysPafFileLocation": {
+    "class": "objecttype",
+    "description": "This object indicates the position of the PAF file.",
+    "maxaccess": "read-only",
+    "name": "hwSysPafFileLocation",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.6.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSysPafFileName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of the PAF file.",
+    "maxaccess": "read-only",
+    "name": "hwSysPafFileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.6.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSysPafFileNum": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the number of PAF files in the system.",
+    "maxaccess": "read-only",
+    "name": "hwSysPafFileNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.6.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysPafFileSize": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the size of the PAF file.",
+    "maxaccess": "read-only",
+    "name": "hwSysPafFileSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.6.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSysPafFileTable": {
+    "class": "objecttype",
+    "description": "A table of paf files in this system.",
+    "maxaccess": "not-accessible",
+    "name": "hwSysPafFileTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.6.2",
+    "status": "current"
+  },
+  "hwSysPafFileVersion": {
+    "class": "objecttype",
+    "description": "This object indicates the version of the PAF file.",
+    "maxaccess": "read-only",
+    "name": "hwSysPafFileVersion",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.6.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSysPafLicenseGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwSysPafLicenseGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysLicenseFileNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysLicenseFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysLicenseFileSize"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysLicenseFileLocation"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.14",
+    "status": "current"
+  },
+  "hwSysReboot": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the restart of the master and slave boards. Values are as follows unused(1): indicates that this value is not used. Generally, this value is read. rebootAllRoute(2): indicates that the integrated device is restarted. rebootSlave(3): indicates that the slave board is restarted. slaveSwitch(4): indicates that the switchover between the main and slave boards is performed. ",
+    "maxaccess": "read-write",
+    "name": "hwSysReboot",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rebootSlave": 3,
+          "rebootWholeRoute": 2,
+          "slaveSwitch": 4,
+          "unused": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSysRebootAndSwitchGrop": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwSysRebootAndSwitchGrop",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReboot"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysSlaveSwitchEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.15",
+    "status": "current"
+  },
+  "hwSysRebootInfo": {
+    "class": "objectidentity",
+    "name": "hwSysRebootInfo",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.14"
+  },
+  "hwSysRebootInfoGroup": {
+    "class": "objectgroup",
+    "description": "A collection of system upgrade.",
+    "name": "hwSysRebootInfoGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysRebootTimes"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysRebootReason"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysRebootTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.19",
+    "status": "current"
+  },
+  "hwSysRebootReason": {
+    "class": "objecttype",
+    "description": "The reason of system\u0027s reboot.",
+    "maxaccess": "read-only",
+    "name": "hwSysRebootReason",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.14.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "powerOff": 2,
+          "schedule": 4,
+          "software": 5,
+          "unknown": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSysRebootRecordEntry": {
+    "class": "objecttype",
+    "description": "Entry of hwSysReloadScheduleTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysRebootRecordIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSysRebootRecordEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.14.2.1",
+    "status": "current"
+  },
+  "hwSysRebootRecordIndex": {
+    "class": "objecttype",
+    "description": "The index of hwSysRebootRecordTable.",
+    "maxaccess": "not-accessible",
+    "name": "hwSysRebootRecordIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.14.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysRebootRecordTable": {
+    "class": "objecttype",
+    "description": "A reboot information record table.",
+    "maxaccess": "not-accessible",
+    "name": "hwSysRebootRecordTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.14.2",
+    "status": "current"
+  },
+  "hwSysRebootTime": {
+    "class": "objecttype",
+    "description": "The time at which the reboot action occurred. we will only take octet strings with length 8 for this object which indicates the local time of the switch. The maximum scheduled time is 30 days from the current system clock time. field octets contents range 1 1-2 year 0..65536 2 3 month 1..12 3 4 day 1..31 4 5 hour 0..23 5 6 minutes 0..59 6 7 seconds 0..60 (use 60 for leap-second) 7 8 deci-seconds 0..9 ",
+    "maxaccess": "read-only",
+    "name": "hwSysRebootTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.14.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 8,
+            "min": 8
+          }
+        ]
+      },
+      "type": "DateAndTime"
+    }
+  },
+  "hwSysRebootTimes": {
+    "class": "objecttype",
+    "description": "The value of the device reboot times. ",
+    "maxaccess": "read-only",
+    "name": "hwSysRebootTimes",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.14.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysReload": {
+    "class": "objectidentity",
+    "name": "hwSysReload",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3"
+  },
+  "hwSysReloadAction": {
+    "class": "objecttype",
+    "description": "The value of this object identifies restart types. 1: reloadUnavailable 2: reloadOnSchedule, indicating periodical restart 3: reloadAtOnce, indicating immediate restart without considering hwSysReloadScheduleTime 4: reloadCancel, indicating that all the planned restart activities are cancelled. If hwSysReloadSchedule is invalid or the rows that hwSysReloadScheduleEntry and hwSysReloadSchedule point to are not activated, all the restart activities are ignored and an inconsistent value is returned. When the restart of the system is complete or no restart activities exist, the value of this object is reloadUnavailable(1). ",
+    "maxaccess": "read-write",
+    "name": "hwSysReloadAction",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reloadAtOnce": 3,
+          "reloadCancel": 4,
+          "reloadOnSchedule": 2,
+          "reloadUnavailable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSysReloadAndroidFile": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the android file used after the restart. The value is limited by hwSysAndroidFileTable. The value ranges from 0 to 2147483647. The default value is 0, which means the android file remains unchanged. ",
+    "maxaccess": "read-create",
+    "name": "hwSysReloadAndroidFile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysReloadCfgFile": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the configuration file used after the restart. The value is limited by hwSysCFGFileTable. The value ranges from 0 to 2147483647. The default value is 0, which means the configuration file remains unchanged. ",
+    "maxaccess": "read-create",
+    "name": "hwSysReloadCfgFile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysReloadEntity": {
+    "class": "objecttype",
+    "description": "This object indicates the index of the restarting entity. The value is referred to from entPhysicalTable. 1. When get/get-next, 1 means active main board, 2 means slave main board, 65535 means other board. 2. When set, 2 means slave main board, other values mean active main board. ",
+    "maxaccess": "read-create",
+    "name": "hwSysReloadEntity",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "PhysicalIndex"
+    }
+  },
+  "hwSysReloadImage": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the image file used after the restart. The value is limited by hwSysImageTable. The value ranges from 1 to 2147483647. ",
+    "maxaccess": "read-create",
+    "name": "hwSysReloadImage",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysReloadLicenseFile": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the license file used after the restart.",
+    "maxaccess": "read-create",
+    "name": "hwSysReloadLicenseFile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSysReloadNotification": {
+    "class": "notificationtype",
+    "description": "This object indicates the restart notification.",
+    "name": "hwSysReloadNotification",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadImage"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadCfgFile"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadReason"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadScheduleTime"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadAction"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadPafFile"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadLicenseFile"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadPatchFile"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadAndroidFile"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.2",
+    "status": "current"
+  },
+  "hwSysReloadOperateDestIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the index of the board needs to be restarted. The get/get-next result is \u0027unused\u0027. but, you can\u0027t use \u0027unused\u0027 to set. ",
+    "maxaccess": "read-create",
+    "name": "hwSysReloadOperateDestIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSysReloadOperateDestType": {
+    "class": "objecttype",
+    "description": "This object indicates the object to be restarted.",
+    "maxaccess": "read-create",
+    "name": "hwSysReloadOperateDestType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "chassis": 3,
+          "slave": 2,
+          "unused": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSysReloadPafFile": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the PAF file used after the restart.",
+    "maxaccess": "read-create",
+    "name": "hwSysReloadPafFile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSysReloadPatchFile": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the patch file used after the restart.",
+    "maxaccess": "read-create",
+    "name": "hwSysReloadPatchFile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSysReloadPatchState": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the running status of the patch at the next startup. That is, whether the loaded patch is in the Run state at the next startup. run(1): indicates that the loaded patch is in the Run state at the next startup. unused(255): indicates that the loaded patch is in the original state at the next startup. ",
+    "maxaccess": "read-create",
+    "name": "hwSysReloadPatchState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "run": 1,
+          "unused": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSysReloadReason": {
+    "class": "objecttype",
+    "description": "This object indicates the cause of the restart. The value is a string of 0 to 255 characters. After the system restarts, the character string is deleted. ",
+    "maxaccess": "read-create",
+    "name": "hwSysReloadReason",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwSysReloadRowStatus": {
+    "class": "objecttype",
+    "description": "If one of values of hwSysReloadEntity, hwSysReloadCfgFile and hwSysReloadImage is invalid, the value of hwSysReloadRowStatus cannot be set to \u0027active\u0027. A valid entry means the specified element is available in the current system. Reload an entity indexed by hwSysReloadEntity with the startup configuration file and the image may be not allowed. Herein the entry is invalid. ",
+    "maxaccess": "read-create",
+    "name": "hwSysReloadRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwSysReloadSchedule": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the record number used when the device restarts. The value ranges from 0 to 2147483647. After the system restarts, the value returns to 0. 0: initial value. 65536: main board schedule method. ",
+    "maxaccess": "read-write",
+    "name": "hwSysReloadSchedule",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.1",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysReloadScheduleEntry": {
+    "class": "objecttype",
+    "description": "Entry of hwSysReloadScheduleTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysReloadScheduleIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSysReloadScheduleEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1",
+    "status": "current"
+  },
+  "hwSysReloadScheduleIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the index of the instance. The value ranges from 0 to 2147483647.",
+    "maxaccess": "not-accessible",
+    "name": "hwSysReloadScheduleIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysReloadScheduleTable": {
+    "class": "objecttype",
+    "description": "A reload parameters table.",
+    "maxaccess": "not-accessible",
+    "name": "hwSysReloadScheduleTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3",
+    "status": "current"
+  },
+  "hwSysReloadScheduleTime": {
+    "class": "objecttype",
+    "description": "This object indicates the time of the restart. The only valid value of this object is an 8-byte string which indicates the local time of the switch. The maximum scheduled time is 30 days from the current system clock time. If the value set is earlier than the value of hwSysLocalClock or beyond the maximum scheduled time limit, a bad value error occurred. The value of all-zero octet strings indicates system restart at once if the reload action is reloadOnSchedule(1). ",
+    "maxaccess": "read-create",
+    "name": "hwSysReloadScheduleTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 8,
+            "min": 8
+          }
+        ]
+      },
+      "type": "DateAndTime"
+    }
+  },
+  "hwSysReloadVoiceFile": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the license file used after the restart.",
+    "maxaccess": "read-create",
+    "name": "hwSysReloadVoiceFile",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.3.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwSysSlaveCfcardError": {
+    "class": "notificationtype",
+    "description": "When the cfcard on slave board can\u0027t be read and written because of some error, the Cfcard on slave board will be unregistered and the notification is sent. ",
+    "name": "hwSysSlaveCfcardError",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.7",
+    "status": "current"
+  },
+  "hwSysSlaveHDError": {
+    "class": "notificationtype",
+    "description": "When the hard disk on slave board cannot be read and written because of a certain error, the hard disk on slave board is unregistered and the notification is sent. ",
+    "name": "hwSysSlaveHDError",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.4",
+    "status": "current"
+  },
+  "hwSysSlaveSwitchChassisNum": {
+    "class": "objecttype",
+    "description": "The value of the object identifies the chassis number.",
+    "maxaccess": "read-write",
+    "name": "hwSysSlaveSwitchChassisNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSysSlaveSwitchDst": {
+    "class": "objecttype",
+    "description": "The destination slot for slave switchover.",
+    "maxaccess": "read-write",
+    "name": "hwSysSlaveSwitchDst",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.7.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSysSlaveSwitchEnable": {
+    "class": "objecttype",
+    "description": "The value of this object identifies whether the switchover between the main and the slave boards is enabled. enable(1): indicates that the switchover between the main and slave boards is enabled. disable(2): indicates that the switchover between the main and slave boards is not enabled. ",
+    "maxaccess": "read-write",
+    "name": "hwSysSlaveSwitchEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwSysSlaveSwitchEnableStatus": {
+    "class": "objecttype",
+    "description": "The enable status of switchover for AMB (Active Main Board) and SMB (Standby Main Board). enable(1): enable the force switchover. disable(2): disable the force switchover. ",
+    "maxaccess": "read-write",
+    "name": "hwSysSlaveSwitchEnableStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.7.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwSysSlaveSwitchEntry": {
+    "class": "objecttype",
+    "description": "Entry of hwSysSlaveSwitchTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysSlaveSwitchIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSysSlaveSwitchEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.7.1",
+    "status": "current"
+  },
+  "hwSysSlaveSwitchFailNotification": {
+    "class": "notificationtype",
+    "description": "This object indicates that the hwSysSlaveSwitchChassisNum chassis fails to be switched.",
+    "name": "hwSysSlaveSwitchFailNotification",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysSlaveSwitchChassisNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.9",
+    "status": "current"
+  },
+  "hwSysSlaveSwitchIndex": {
+    "class": "objecttype",
+    "description": "The value of the object identifies the index of the table.",
+    "maxaccess": "not-accessible",
+    "name": "hwSysSlaveSwitchIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 80,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysSlaveSwitchOperType": {
+    "class": "objecttype",
+    "description": "Operation type. The object has the following values: unused(1): means the default value. slaveswitch(2): perform force switchover. slaveswitchlock(3): enable the force switchover, this value should be used with the object of hwSysSlaveSwitchEnableStatus. ",
+    "maxaccess": "read-write",
+    "name": "hwSysSlaveSwitchOperType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "slaveSwitch": 2,
+          "slaveSwitchLock": 3,
+          "unused": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSysSlaveSwitchSrc": {
+    "class": "objecttype",
+    "description": "The source slot for slave switchover.",
+    "maxaccess": "read-write",
+    "name": "hwSysSlaveSwitchSrc",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.7.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSysSlaveSwitchSuccessNotification": {
+    "class": "notificationtype",
+    "description": "This object indicates that the hwSysSlaveSwitchChassisNum chassis is successfully switched.",
+    "name": "hwSysSlaveSwitchSuccessNotification",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysSlaveSwitchChassisNum"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysSlaveSwitchSrc"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysSlaveSwitchDst"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.8",
+    "status": "current"
+  },
+  "hwSysSlaveSwitchTable": {
+    "class": "objecttype",
+    "description": "A slave switchover enable parameters table.",
+    "maxaccess": "not-accessible",
+    "name": "hwSysSlaveSwitchTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.3.7",
+    "status": "current"
+  },
+  "hwSysSourceIndex": {
+    "class": "objectidentity",
+    "name": "hwSysSourceIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.13"
+  },
+  "hwSysSourceIndexEntry": {
+    "class": "objecttype",
+    "description": "Defines an entry in the hwBootRomTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysFileType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysFileName"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSysSourceIndexEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.13.1.1",
+    "status": "current"
+  },
+  "hwSysSourceIndexTable": {
+    "class": "objecttype",
+    "description": "System file Index query table.",
+    "maxaccess": "not-accessible",
+    "name": "hwSysSourceIndexTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.13.1",
+    "status": "current"
+  },
+  "hwSysSwitchoverBoardType": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the type of the board.",
+    "maxaccess": "read-only",
+    "name": "hwSysSwitchoverBoardType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.19.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "issuNewMaster": 6,
+          "issuOldMaster": 5,
+          "master": 1,
+          "slave": 2,
+          "systemMaster": 3,
+          "systemSlave": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSysSwitchoverInfo": {
+    "class": "objecttype",
+    "description": "The value of this object descries the real-time information of HA status.",
+    "maxaccess": "read-only",
+    "name": "hwSysSwitchoverInfo",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.19.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 190,
+            "min": 1
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwSysSwitchoverSlotId": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the slot number of the board.",
+    "maxaccess": "read-only",
+    "name": "hwSysSwitchoverSlotId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.19.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysSwitchoverState": {
+    "class": "objectidentity",
+    "name": "hwSysSwitchoverState",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.19"
+  },
+  "hwSysSwitchoverStateEntry": {
+    "class": "objecttype",
+    "description": "Entry of hwSysSwitchoverStateTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysSwitchoverStateIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSysSwitchoverStateEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.19.1.1",
+    "status": "current"
+  },
+  "hwSysSwitchoverStateIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the index of the table.",
+    "maxaccess": "not-accessible",
+    "name": "hwSysSwitchoverStateIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.19.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysSwitchoverStateMultiEntry": {
+    "class": "objecttype",
+    "description": "Entry of hwSysSwitchoverStateMultiTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysMultiSwtStateIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSysSwitchoverStateMultiEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.19.2.1",
+    "status": "current"
+  },
+  "hwSysSwitchoverStateMultiTable": {
+    "class": "objecttype",
+    "description": "Get switchover state of multi-chassis",
+    "maxaccess": "not-accessible",
+    "name": "hwSysSwitchoverStateMultiTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.19.2",
+    "status": "current"
+  },
+  "hwSysSwitchoverStateTable": {
+    "class": "objecttype",
+    "description": "Get switchover state of single-chassis",
+    "maxaccess": "not-accessible",
+    "name": "hwSysSwitchoverStateTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.19.1",
+    "status": "current"
+  },
+  "hwSysUpgrade": {
+    "class": "objectidentity",
+    "name": "hwSysUpgrade",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.12"
+  },
+  "hwSysUpgradeEntry": {
+    "class": "objecttype",
+    "description": "Defines an entry in the hwSysUpgradeTable.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwIssuIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSysUpgradeEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.12.1.1",
+    "status": "current"
+  },
+  "hwSysUpgradeGroup": {
+    "class": "objectgroup",
+    "description": "A collection of system upgrade.",
+    "name": "hwSysUpgradeGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwIssuMode"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwIssuImageFile"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwIssuPafFile"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwIssuLicenseFile"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwIssuPatchFile"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwIssuState"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwIssuConditionCheck"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.18",
+    "status": "current"
+  },
+  "hwSysUpgradeTable": {
+    "class": "objecttype",
+    "description": "ISSU upgrade table.",
+    "maxaccess": "not-accessible",
+    "name": "hwSysUpgradeTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.12.1",
+    "status": "current"
+  },
+  "hwSysVoiceFile": {
+    "class": "objectidentity",
+    "name": "hwSysVoiceFile",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.20"
+  },
+  "hwSysVoiceFileEntry": {
+    "class": "objecttype",
+    "description": "A configuration file entry. Each entry consists of information of a configuration file. hwSysCFGFileIndex exclusively decides a configuration file.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysVoiceFileIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwSysVoiceFileEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.20.2.1",
+    "status": "current"
+  },
+  "hwSysVoiceFileIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the index of the configuration file.",
+    "maxaccess": "not-accessible",
+    "name": "hwSysVoiceFileIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.20.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysVoiceFileLocation": {
+    "class": "objecttype",
+    "description": "This object indicates the location of the configuration file, namely, the path.",
+    "maxaccess": "read-only",
+    "name": "hwSysVoiceFileLocation",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.20.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSysVoiceFileName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of the configuration file. Currently, Huawei products support two formats of configuration files, namely, .CFG and .ZIP. A file name containing path and suffix is a string of 4 to 64 characters. ",
+    "maxaccess": "read-only",
+    "name": "hwSysVoiceFileName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.20.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwSysVoiceFileNum": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the number of configuration files. The object calculates the number of configuration files given by hwSysCFGFileTable. The value ranges from 0 to 2147483647. ",
+    "maxaccess": "read-only",
+    "name": "hwSysVoiceFileNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.20.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysVoiceFileSize": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the size of the configuration file. The value ranges from 0 to 2147483647. ",
+    "maxaccess": "read-only",
+    "name": "hwSysVoiceFileSize",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.20.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysVoiceFileTable": {
+    "class": "objecttype",
+    "description": "A table of configuration files in this system.",
+    "maxaccess": "not-accessible",
+    "name": "hwSysVoiceFileTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.20.2",
+    "status": "current"
+  },
+  "hwSysWlanApUpgrade": {
+    "class": "objectidentity",
+    "name": "hwSysWlanApUpgrade",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24"
+  },
+  "hwSysWlanApUpgradeAssistantPackageNotMatchNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when ap upgrade-assistant-package not match version.",
+    "name": "hwSysWlanApUpgradeAssistantPackageNotMatchNotify",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.3.4",
+    "status": "current"
+  },
+  "hwSysWlanApUpgradeBeginNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when ap begin to update.",
+    "name": "hwSysWlanApUpgradeBeginNotify",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.3.1",
+    "status": "current"
+  },
+  "hwSysWlanApUpgradeCmd": {
+    "class": "objectidentity",
+    "name": "hwSysWlanApUpgradeCmd",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.1"
+  },
+  "hwSysWlanApUpgradeCmdGroup": {
+    "class": "objectgroup",
+    "description": "A collection of system wlan ap upgrade.",
+    "name": "hwSysWlanApUpgradeCmdGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysWlanApUpgradeMode"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysWlanApUpgradeFileName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysWlanApUpgradeServerIp"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysWlanApUpgradeServerUserName"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysWlanApUpgradeServerPassword"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.22",
+    "status": "current"
+  },
+  "hwSysWlanApUpgradeFileName": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the filename of the ap upgrade file. The value ranges from 1 to 127.",
+    "maxaccess": "read-write",
+    "name": "hwSysWlanApUpgradeFileName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 127,
+            "min": 1
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwSysWlanApUpgradeLoadProgress": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the progress of file downloading. The value ranges from 0 to 100.",
+    "maxaccess": "read-write",
+    "name": "hwSysWlanApUpgradeLoadProgress",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.2.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysWlanApUpgradeMode": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the ap upgrade mode. The value ranges from 1 to 3.",
+    "maxaccess": "read-write",
+    "name": "hwSysWlanApUpgradeMode",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ftp": 1,
+          "sftp": 2,
+          "tftp": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSysWlanApUpgradeNotifications": {
+    "class": "objectidentity",
+    "name": "hwSysWlanApUpgradeNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.3"
+  },
+  "hwSysWlanApUpgradeNotificationsGroup": {
+    "class": "notificationgroup",
+    "description": "A collection of system wlan ap upgrade notifications.",
+    "name": "hwSysWlanApUpgradeNotificationsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysWlanApUpgradeBeginNotify"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysWlanApUpgradeResultNotify"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysWlanApUpgradeUbootNotMatchNotify"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysWlanApUpgradeAssistantPackageNotMatchNotify"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.24",
+    "status": "current"
+  },
+  "hwSysWlanApUpgradeProgressStatus": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the status of the upgrade or the last result of the upgrade. The value ranges from 0 to 10.",
+    "maxaccess": "read-write",
+    "name": "hwSysWlanApUpgradeProgressStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.2.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "efsAndApTypeMismatched": 7,
+          "efsAndVersionMismatched": 5,
+          "failToDownloadFile": 4,
+          "fileContentError": 8,
+          "invalidFileName": 6,
+          "noUpdateResult": 10,
+          "updateFailed": 2,
+          "updateSuccessful": 1,
+          "updating": 0,
+          "writingMemoryError": 9
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwSysWlanApUpgradeResultNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when ap has updated successfully or failed.",
+    "name": "hwSysWlanApUpgradeResultNotify",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysWlanApUpgradeProgressStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.3.2",
+    "status": "current"
+  },
+  "hwSysWlanApUpgradeServerIp": {
+    "class": "objecttype",
+    "description": "The value of this object identifies server ip address in ipv4 format.",
+    "maxaccess": "read-write",
+    "name": "hwSysWlanApUpgradeServerIp",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwSysWlanApUpgradeServerPassword": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the password of server. The value ranges from 0 to 63.",
+    "maxaccess": "read-write",
+    "name": "hwSysWlanApUpgradeServerPassword",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 63,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwSysWlanApUpgradeServerUserName": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the username of server. The value ranges from 0 to 31.",
+    "maxaccess": "read-write",
+    "name": "hwSysWlanApUpgradeServerUserName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "DisplayString"
+    }
+  },
+  "hwSysWlanApUpgradeStatus": {
+    "class": "objectidentity",
+    "name": "hwSysWlanApUpgradeStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.2"
+  },
+  "hwSysWlanApUpgradeStatusGroup": {
+    "class": "objectgroup",
+    "description": "A collection of system wlan ap upgrade status.",
+    "name": "hwSysWlanApUpgradeStatusGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysWlanApUpgradeProgressStatus"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysWlanApUpgradeLoadProgress"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysWlanApUpgradeStorageProgress"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.23",
+    "status": "current"
+  },
+  "hwSysWlanApUpgradeStorageProgress": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the progress of file storaging. The value ranges from 0 to 100.",
+    "maxaccess": "read-write",
+    "name": "hwSysWlanApUpgradeStorageProgress",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.2.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwSysWlanApUpgradeUbootNotMatchNotify": {
+    "class": "notificationtype",
+    "description": "This notification occurs when ap uboot not match version.",
+    "name": "hwSysWlanApUpgradeUbootNotMatchNotify",
+    "oid": "1.3.6.1.4.1.2011.5.25.19.1.24.3.3",
+    "status": "current"
+  },
+  "hwSystemBoardExclude": {
+    "class": "notificationtype",
+    "description": "The board(s) excluded during software upgrading",
+    "name": "hwSystemBoardExclude",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.18",
+    "status": "current"
+  },
+  "hwSystemBoardExcludeClear": {
+    "class": "notificationtype",
+    "description": "The board(s) excluded retrieved during software upgrading",
+    "name": "hwSystemBoardExcludeClear",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.2.19",
+    "status": "current"
+  },
+  "hwSystemCfcardNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "A collection of notification about system cfcard.",
+    "name": "hwSystemCfcardNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysMasterCfcardError"
+      },
+      {
+        "module": "HUAWEI-SYS-MAN-MIB",
+        "object": "hwSysSlaveCfcardError"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.19.3.2.17",
+    "status": "current"
+  },
+  "imports": {
+    "ENTITY-MIB": [
+      "entPhysicalName",
+      "PhysicalIndex",
+      "entPhysicalIndex"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "iso",
+      "Bits",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Counter64",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowPointer",
+      "DateAndTime",
+      "RowStatus",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-SYS-MAN-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:49:05 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-SYS-MAN-MIB"
+  }
+}

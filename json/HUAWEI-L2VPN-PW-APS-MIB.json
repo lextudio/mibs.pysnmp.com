@@ -1,0 +1,676 @@
+{
+  "hwL2Vpn": {
+    "class": "objectidentity",
+    "name": "hwL2Vpn",
+    "oid": "1.3.6.1.4.1.2011.5.25.119"
+  },
+  "hwL2vpnPwAps": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "The HUAWEI-L2VPN-PW-APS-MIB contains objects to manage PW APS.",
+    "lastupdated": "201305131250Z",
+    "name": "hwL2vpnPwAps",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "V2.11, add hwPwApsDegraded for PTN5900",
+        "revision": "2013-05-13 12:50"
+      }
+    ]
+  },
+  "hwL2vpnPwApsScalarsObject": {
+    "class": "objectidentity",
+    "name": "hwL2vpnPwApsScalarsObject",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.3"
+  },
+  "hwL2vpnPwApsTraps": {
+    "class": "objectidentity",
+    "name": "hwL2vpnPwApsTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.2"
+  },
+  "hwPwApsBypassPwMismatch": {
+    "class": "notificationtype",
+    "description": "APS reported a bypass mismatch alarm.",
+    "name": "hwPwApsBypassPwMismatch",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsId"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWInterfaceIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.2.11",
+    "status": "current"
+  },
+  "hwPwApsBypssPwMismatchClear": {
+    "class": "notificationtype",
+    "description": "APS reported the clearing of the bypass mismatch alarm.",
+    "name": "hwPwApsBypssPwMismatchClear",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsId"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWInterfaceIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.2.12",
+    "status": "current"
+  },
+  "hwPwApsDegraded": {
+    "class": "notificationtype",
+    "description": "APS reported a PW degraded alarm.",
+    "name": "hwPwApsDegraded",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsId"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWInterfaceIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.2.16",
+    "status": "current"
+  },
+  "hwPwApsDegradedClear": {
+    "class": "notificationtype",
+    "description": "APS reported the clearing of the PW degraded alarm.",
+    "name": "hwPwApsDegradedClear",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsId"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWInterfaceIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.2.17",
+    "status": "current"
+  },
+  "hwPwApsEntry": {
+    "class": "objecttype",
+    "description": "Provides the information of a PW APS entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPwApsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.1.1.1",
+    "status": "current"
+  },
+  "hwPwApsGroup": {
+    "class": "objectgroup",
+    "description": "The PW APS group.",
+    "name": "hwPwApsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsId"
+      },
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsRole"
+      },
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsRequestResult"
+      },
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsState"
+      },
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsWorkState"
+      },
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsProtectState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.4.2.1",
+    "status": "current"
+  },
+  "hwPwApsId": {
+    "class": "objecttype",
+    "description": "This object indicates the ID of the PW APS.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwPwApsId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwPwApsIdMismatch": {
+    "class": "notificationtype",
+    "description": "APS reported an ID mismatch alarm.",
+    "name": "hwPwApsIdMismatch",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsId"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWInterfaceIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.2.9",
+    "status": "current"
+  },
+  "hwPwApsIdMismatchClear": {
+    "class": "notificationtype",
+    "description": "APS reported the clearing of the ID mismatch alarm.",
+    "name": "hwPwApsIdMismatchClear",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsId"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWInterfaceIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.2.10",
+    "status": "current"
+  },
+  "hwPwApsLost": {
+    "class": "notificationtype",
+    "description": "APS reported a packet lost alarm.",
+    "name": "hwPwApsLost",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsId"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWInterfaceIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.2.7",
+    "status": "current"
+  },
+  "hwPwApsLostClear": {
+    "class": "notificationtype",
+    "description": "APS reported the clearing of the packet loss alarm.",
+    "name": "hwPwApsLostClear",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsId"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWInterfaceIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.2.8",
+    "status": "current"
+  },
+  "hwPwApsMIBCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for systems supporting the HUAWEI-L2VPN-PW-APS-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsGroup"
+      },
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsNotificationGroup"
+      }
+    ],
+    "name": "hwPwApsMIBCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.4.1.1",
+    "status": "current"
+  },
+  "hwPwApsMIBCompliances": {
+    "class": "objectidentity",
+    "name": "hwPwApsMIBCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.4.1"
+  },
+  "hwPwApsMIBConformance": {
+    "class": "objectidentity",
+    "name": "hwPwApsMIBConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.4"
+  },
+  "hwPwApsMIBGroups": {
+    "class": "objectidentity",
+    "name": "hwPwApsMIBGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.4.2"
+  },
+  "hwPwApsNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "The PW APS Notification group.",
+    "name": "hwPwApsNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsTypeMismatch"
+      },
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsTypeMismatchClear"
+      },
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsPathMismatch"
+      },
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsPathMismatchClear"
+      },
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsSwitchFail"
+      },
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsSwitchFailClear"
+      },
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsLost"
+      },
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsLostClear"
+      },
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsIdMismatch"
+      },
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsIdMismatchClear"
+      },
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsBypassPwMismatch"
+      },
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsBypssPwMismatchClear"
+      },
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsSwitchEvent"
+      },
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsOutAge"
+      },
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsOutAgeClear"
+      },
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsDegraded"
+      },
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsDegradedClear"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.4.2.2",
+    "status": "current"
+  },
+  "hwPwApsObjects": {
+    "class": "objectidentity",
+    "name": "hwPwApsObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.1"
+  },
+  "hwPwApsOutAge": {
+    "class": "notificationtype",
+    "description": "APS reported a PW out age alarm.",
+    "name": "hwPwApsOutAge",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsId"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWInterfaceIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.2.14",
+    "status": "current"
+  },
+  "hwPwApsOutAgeClear": {
+    "class": "notificationtype",
+    "description": "APS reported the clearing of the PW out age alarm.",
+    "name": "hwPwApsOutAgeClear",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsId"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWInterfaceIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.2.15",
+    "status": "current"
+  },
+  "hwPwApsPathMismatch": {
+    "class": "notificationtype",
+    "description": "APS reported an alarm about the mismatch of the working and protection paths.",
+    "name": "hwPwApsPathMismatch",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsId"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWInterfaceIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.2.3",
+    "status": "current"
+  },
+  "hwPwApsPathMismatchClear": {
+    "class": "notificationtype",
+    "description": "APS reported an alarm about the rectification of the mismatch of the working and protection paths.",
+    "name": "hwPwApsPathMismatchClear",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsId"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWInterfaceIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.2.4",
+    "status": "current"
+  },
+  "hwPwApsProtectState": {
+    "class": "objecttype",
+    "description": "This object indicates the protect state of the PW APS.",
+    "maxaccess": "read-only",
+    "name": "hwPwApsProtectState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "defect": 2,
+          "defectsd": 3,
+          "nondefect": 1,
+          "unknown": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPwApsRequestResult": {
+    "class": "objecttype",
+    "description": "This object indicates the request result of the PW APS.",
+    "maxaccess": "read-only",
+    "name": "hwPwApsRequestResult",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.1.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "protect": 2,
+          "work": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPwApsRole": {
+    "class": "objecttype",
+    "description": "This object indicates the role of the PW APS.",
+    "maxaccess": "read-only",
+    "name": "hwPwApsRole",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 2,
+          "unknown": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPwApsState": {
+    "class": "objecttype",
+    "description": "This object indicates the state of the PW APS.",
+    "maxaccess": "read-only",
+    "name": "hwPwApsState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dnr": 11,
+          "exer": 9,
+          "fs": 3,
+          "lo": 1,
+          "ms": 7,
+          "nr": 12,
+          "rr": 10,
+          "sd": 6,
+          "sdp": 5,
+          "sf": 4,
+          "sfp": 2,
+          "unknown": 255,
+          "wtr": 8
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPwApsSwitchEvent": {
+    "class": "notificationtype",
+    "description": "APS reported the event of switch.",
+    "name": "hwPwApsSwitchEvent",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsRole"
+      },
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsRequestResult"
+      },
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsState"
+      },
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsWorkState"
+      },
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsProtectState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.2.13",
+    "status": "current"
+  },
+  "hwPwApsSwitchFail": {
+    "class": "notificationtype",
+    "description": "APS reported an alarm about the inconsistent switching results on the local and remote ends.",
+    "name": "hwPwApsSwitchFail",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsId"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWInterfaceIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.2.5",
+    "status": "current"
+  },
+  "hwPwApsSwitchFailClear": {
+    "class": "notificationtype",
+    "description": "APS reported an alarm about the rectification of the inconsistency in switching results on the local and remote ends.",
+    "name": "hwPwApsSwitchFailClear",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsId"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWInterfaceIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.2.6",
+    "status": "current"
+  },
+  "hwPwApsTable": {
+    "class": "objecttype",
+    "description": "This table provides the information of PW APS.",
+    "maxaccess": "not-accessible",
+    "name": "hwPwApsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.1.1",
+    "status": "current"
+  },
+  "hwPwApsTypeMismatch": {
+    "class": "notificationtype",
+    "description": "APS reported an alarm about the mismatch of the protection type.",
+    "name": "hwPwApsTypeMismatch",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsId"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWInterfaceIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.2.1",
+    "status": "current"
+  },
+  "hwPwApsTypeMismatchClear": {
+    "class": "notificationtype",
+    "description": "APS reported an alarm about the rectification of the mismatch of the protection type.",
+    "name": "hwPwApsTypeMismatchClear",
+    "objects": [
+      {
+        "module": "HUAWEI-L2VPN-PW-APS-MIB",
+        "object": "hwPwApsId"
+      },
+      {
+        "module": "HUAWEI-PWE3-MIB",
+        "object": "hwPWInterfaceIndex"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.2.2",
+    "status": "current"
+  },
+  "hwPwApsWorkState": {
+    "class": "objecttype",
+    "description": "This object indicates the work state of the PW APS.",
+    "maxaccess": "read-only",
+    "name": "hwPwApsWorkState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.119.10.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "defect": 2,
+          "defectsd": 3,
+          "nondefect": 1,
+          "unknown": 255
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "HUAWEI-PWE3-MIB": [
+      "hwPWInterfaceIndex"
+    ],
+    "HUAWEI-VPLS-EXT-MIB": [
+      "HWL2VpnVcEncapsType"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Bits",
+      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-L2VPN-PW-APS-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:53 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-L2VPN-PW-APS-MIB"
+  }
+}

@@ -1,0 +1,5715 @@
+{
+  "InetAddress": {
+    "class": "textualconvention",
+    "description": "Denotes a generic Internet address. An InetAddress value is always interpreted within the context of an InetAddressType value. Every usage of the InetAddress textual convention is required to specify the InetAddressType object that provides the context. It is suggested that the InetAddressType object be logically registered before the object(s) that use the InetAddress textual convention, if they appear in the same logical row. The value of an InetAddress object must always be consistent with the value of the associated InetAddressType object. Attempts to set an InetAddress object to a value inconsistent with the associated InetAddressType must fail with an inconsistentValue error. When this textual convention is used as the syntax of an index object, there may be issues with the limit of 128 sub-identifiers specified in SMIv2, STD 58. In this case, the object definition MUST include a \u0027SIZE\u0027 clause to limit the number of potential instance sub-identifiers; otherwise the applicable constraints MUST be stated in the appropriate conceptual row DESCRIPTION clauses, or in the surrounding documentation if there is no single DESCRIPTION clause that is appropriate.",
+    "name": "InetAddress",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "InetAddressPrefixLength": {
+    "class": "textualconvention",
+    "description": "Denotes the length of a generic Internet network address prefix. A value of n corresponds to an IP address mask that has n contiguous 1-bits from the most significant bit (MSB), with all other bits set to 0. An InetAddressPrefixLength value is always interpreted within the context of an InetAddressType value. Every usage of the InetAddressPrefixLength textual convention is required to specify the InetAddressType object that provides the context. It is suggested that the InetAddressType object be logically registered before the object(s) that use the InetAddressPrefixLength textual convention, if they appear in the same logical row. InetAddressPrefixLength values larger than the maximum length of an IP address for a specific InetAddressType are treated as the maximum significant value applicable for the InetAddressType. The maximum significant value is 32 for the InetAddressType \u0027ipv4(1)\u0027 and \u0027ipv4z(3)\u0027 and 128 for the InetAddressType \u0027ipv6(2)\u0027 and \u0027ipv6z(4)\u0027. The maximum significant value for the InetAddressType \u0027dns(16)\u0027 is 0. The value zero is object-specific and must be defined as part of the description of any object that uses this syntax. Examples of the usage of zero might include situations where the Internet network address prefix is unknown or does not apply. The upper bound of the prefix length has been chosen to be consistent with the maximum size of an InetAddress.",
+    "displayhint": "d",
+    "name": "InetAddressPrefixLength",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2040,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "InetAddressType": {
+    "class": "textualconvention",
+    "description": "A value that represents a type of Internet address. unknown(0) An unknown address type. This value MUST be used if the value of the corresponding InetAddress object is a zero-length string. It may also be used to indicate an IP address that is not in one of the formats defined below. ipv4(1) An IPv4 address as defined by the InetAddressIPv4 textual convention. ipv6(2) An IPv6 address as defined by the InetAddressIPv6 textual convention. ipv4z(3) A non-global IPv4 address including a zone index as defined by the InetAddressIPv4z textual convention. ipv6z(4) A non-global IPv6 address including a zone index as defined by the InetAddressIPv6z textual convention. dns(16) A DNS domain name as defined by the InetAddressDNS textual convention. Each definition of a concrete InetAddressType value must be accompanied by a definition of a textual convention for use with that InetAddressType. To support future extensions, the InetAddressType textual convention SHOULD NOT be sub-typed in object type definitions. It MAY be sub-typed in compliance statements in order to require only a subset of these address types for a compliant implementation. Implementations must ensure that InetAddressType objects and any dependent objects (e.g., InetAddress objects) are consistent. An inconsistentValue error must be generated if an attempt to change an InetAddressType object would, for example, lead to an undefined InetAddress value. In -- [Page 6] particular, InetAddressType/InetAddress pairs must be changed together if the address type changes (e.g., from ipv6(2) to ipv4(1)).",
+    "name": "InetAddressType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dns": 16,
+          "ipv4": 1,
+          "ipv4z": 3,
+          "ipv6": 2,
+          "ipv6z": 4,
+          "unknown": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "SystemID": {
+    "class": "textualconvention",
+    "description": "A system ID.",
+    "name": "SystemID",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 6,
+            "min": 6
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwISIS": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": " The HUAWEI PRIVATE MIB contains objects belonging to processes of the IS-IS protocol existing on the system. It defines the model used to represent data that exists elsewhere in the system and on peripheral devices. There are no constraints on this MIB.",
+    "lastupdated": "201510151100Z",
+    "name": "hwISIS",
+    "oid": "1.3.6.1.4.1.2011.5.25.24",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "revision 2.1.8",
+        "revision": "2015-10-15 11:00"
+      },
+      {
+        "description": "revision 2.1.7",
+        "revision": "2015-08-27 19:00"
+      },
+      {
+        "description": "revision 2.1.6",
+        "revision": "2015-04-08 11:47"
+      },
+      {
+        "description": "revision 2.1.5",
+        "revision": "2015-03-13 09:00"
+      },
+      {
+        "description": "revision 2.1.4",
+        "revision": "2014-11-06 15:18"
+      },
+      {
+        "description": "revision 2.1.3",
+        "revision": "2014-01-15 17:10"
+      },
+      {
+        "description": "revision 2.1.2",
+        "revision": "2013-08-08 11:31"
+      },
+      {
+        "description": "revision 2.1.1",
+        "revision": "2013-04-01 11:53"
+      },
+      {
+        "description": "init",
+        "revision": "2003-08-11 12:00"
+      }
+    ]
+  },
+  "hwIsisAdjChangeReason": {
+    "class": "objecttype",
+    "description": "Adj down reason",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIsisAdjChangeReason",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "isNbrBfdSessionDown": 4,
+          "isNbrClear": 100,
+          "isNbrConfigurationChange": 5,
+          "isNbrHoldTimerExpired": 1,
+          "isNbrPeerRouterReason": 6,
+          "isNbrPhysicalInterfaceChange": 2,
+          "isNbrProtocolReason": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisAdjIP": {
+    "class": "objecttype",
+    "description": "Neighbor IP address.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIsisAdjIP",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwIsisAdjSysID": {
+    "class": "objecttype",
+    "description": "The ID for this instance of the Integrated IS-IS protocol. This value is appended to each of the area addresses to form the Network Entity Titles. The derivation of a value for this object is implementation-specific. Some implementations may automatically assign values and not permit an SNMP write, while others may require the value to be set manually.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIsisAdjSysID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SystemID"
+    }
+  },
+  "hwIsisAdjSysName": {
+    "class": "objecttype",
+    "description": "Configures the name of the IS-IS dynamic host. The value is a string of 1 to 64 characters. When the length is 0, the configured IS-IS dynamic host name is deleted.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIsisAdjSysName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIsisAdjacencyChangeClear": {
+    "class": "notificationtype",
+    "description": "The isisAdjacencyChange alarm was cleared.",
+    "name": "hwIsisAdjacencyChangeClear",
+    "objects": [
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysInstance"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysLevelIndex"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisCircIfIndex"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisPduLspId"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisAdjState"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisAdjChangeReason"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.13",
+    "status": "current"
+  },
+  "hwIsisAutoSysId": {
+    "class": "objecttype",
+    "description": "The ID for this instance of the Integrated IS-IS protocol. This value is appended to each of the area addresses to form the Network Entity Titles. The derivation of a value for this object is implementation-specific. Some implementations may automatically assign values and not permit an SNMP write, while others may require the value to be set manually.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIsisAutoSysId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SystemID"
+    }
+  },
+  "hwIsisCircBfdFrrBinding": {
+    "class": "objecttype",
+    "description": "This object indicates that the BFD status is bound to IS-IS Auto FRR. enable(1): indicates that BFD is bound to IS-IS Auto FRR. disable(2): indicates that BFD is not bound to IS-IS Auto FRR. By default, the BFD session status is not bound to IS-IS Auto FRR.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircBfdFrrBinding",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.23.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisCircBfdMinRxInterval": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the minimum interval for sending BFD packets. The value range and default value of this object are determined by the license file.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircBfdMinRxInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.23.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIsisCircBfdMinTxInterval": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the minimum interval for sending BFD packets. The value range and default value of this object are determined by the license file.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircBfdMinTxInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.23.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIsisCircBfdMultiplier": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the local BFD detection multiplier. The value range and default value of this object are determined by the license file.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircBfdMultiplier",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.23.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIsisCircBfdState": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the BFD status: enable(1): enables BFD. disable(2): disables BFD. static(3): configures static BFD. block(4): blocks BFD on an interface. By default, BFD is not enabled.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircBfdState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.23.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "block": 4,
+          "disable": 2,
+          "enable": 1,
+          "static": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisCircDisName": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the DIS name of an interface. The configuration is applicable to only a broadcast interface. The value is a string of 0 to 64 characters. Value 0 indicates that the DIS name is not configured.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircDisName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.35",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIsisCircFrrBackup": {
+    "class": "objecttype",
+    "description": "The value of this object identifies whether an interface is enabled to become a backup interface in Loop Free Alternate (LFA) calculation. Null(0): disables an interface from becoming a backup interface in LFA calculation. level1(1): specifies an interface as a backup interface in Level-1. level2(2): specifies an interface as a backup interface in Level-2. level12(3): specifies an interface as a backup interface in Level-1 and Level-2.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircFrrBackup",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.22.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1": 1,
+          "level12": 3,
+          "level2": 2,
+          "null": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisCircIpIgnore": {
+    "class": "objecttype",
+    "description": "The value of this object identifies whether the segment in an IP address is checked: enable(1): indicates that the segment in an IP address is not checked. disable(2): indicates that the segment in an IP address is checked. By default, the segment in an IP address is checked. This object applies to only P2P interfaces. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircIpIgnore",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisCircL1AuthCode": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "osi"
+      }
+    },
+    "description": "The value of this object identifies the authentication code of Level-1 Hello PDUs: none(0): indicates that no authentication is configured. osi(10): indicates OSI authentication. ip(133): indicates IP authentication.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircL1AuthCode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 133,
+          "none": 0,
+          "osi": 10
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisCircL1AuthKeychainName": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the keychain name of Level-1 Hello packets. The keychain name is a string of characters. The name is a string of 0 to 47 characters. The length 0 indicates that the authentication password of Level-1 Hello packets is not configured. When read, it returns the keychain name.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircL1AuthKeychainName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.39",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 47,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIsisCircL1AuthMode": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the mode of authenticating Level-1 Hello PDUs: null(0): indicates that area-based authentication is not configured. md5(1): indicates that the password is encrypted through MD5 and then sent. simple(2): indicates that the password is sent in plaintext. keychain(3): indicates that the key-chain that varies with the time is encrypted through MD5 and then sent. By default, area-based authentication is not configured. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircL1AuthMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "keychain": 3,
+          "md5": 1,
+          "null": 0,
+          "simple": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisCircL1AuthSendOnly": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the mode of sending the authentication password of Level-1 Hello PDUs: true(1): indicates that the passwords in only the sent PDUs are authenticated but not in the received PDUs. false(2): indicates that the passwords in both sent and received PDUs are authenticated. By default, the passwords in both sent and received PDUs are authenticated.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircL1AuthSendOnly",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisCircL1AuthText": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the authentication password of Level-1 Hello packets. The password is a string of characters. If the packet authentication mode is simple, the password is a string of 0 to 16 characters. If the packet authentication mode is MD5, the password is a string of 0 to 392 characters. If the packet authentication mode is keychain, the name is a string of 0 to 47 characters. The length 0 indicates that the authentication password of Level-1 Hello packets is not configured. When read, it always returns length 0.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircL1AuthText",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 392,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIsisCircL1Cost": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the Level-1 cost of an interface. If the cost style is wide or widecompatible, the range of this value is from 0 to 16777215, else the range of this value is from 0 to 63. The value of 0 means undo this configuration, and the cost of the circuit will become the default value.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircL1Cost",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.22.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16777215,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIsisCircL1DisPriority": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the priority of the Level-1 DIS, which is valid only on a broadcast interface. The value ranges from 0 to 127. By default, it is 64. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircL1DisPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 127,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIsisCircL1HelloInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 10
+      }
+    },
+    "description": "The value of this object identifies the interval for sending Level-1 Hello PDUs. The value ranges from 3 to 255, in seconds. By default, the value is 10s. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircL1HelloInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "seconds"
+  },
+  "hwIsisCircL1HelloMultiplier": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "The value of this object identifies the number of Level-1 Hello PDUs that fail to received from the IS-IS neighbor before the neighbor declared Down. The value ranges from 3 to 1000. By default, the value is 3.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircL1HelloMultiplier",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIsisCircL2AuthCode": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "osi"
+      }
+    },
+    "description": "The value of this object identifies the authentication code of Level-2 Hello PDUs: none(0): indicates that no authentication is configured. osi(10): indicates OSI authentication. ip(133): indicates IP authentication.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircL2AuthCode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 133,
+          "none": 0,
+          "osi": 10
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisCircL2AuthKeychainName": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the keychain name of Level-2 Hello packets. The keychain name is a string of characters. The name is a string of 0 to 47 characters. The length 0 indicates that the authentication password of Level-2 Hello packets is not configured. When read, it returns the keychain name.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircL2AuthKeychainName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.40",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 47,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIsisCircL2AuthMode": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the mode of authenticating Level-2 Hello PDUs: null(0): indicates that area-based authentication is not configured. md5(1): indicates that password is encrypted through MD5 and then sent. simple(2): indicates that the password is sent in plaintext. keychain(3): indicates that the key-chain that varies with the time is encrypted through MD5 and then sent. By default, area-based authentication is not configured. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircL2AuthMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "keychain": 3,
+          "md5": 1,
+          "null": 0,
+          "simple": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisCircL2AuthSendOnly": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the mode of sending the authentication password of Level-2 Hello PDUs: true(1): indicates that the passwords in only the sent PDUs are authenticated but not in the received PDUs. false(2): indicates that the password is authenticated in the PDUs that are both sent and received. By default, the passwords in both sent and received PDUs are authenticated.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircL2AuthSendOnly",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisCircL2AuthText": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the authentication password of Level-2 Hello packets. The password is a string of characters. If the packet authentication mode is simple, the password is a string of 0 to 16 characters. If the packet authentication mode is MD5, the password is a string of 0 to 392 characters. If the packet authentication mode is keychain, the name is a string of 0 to 47 characters. The length 0 indicates that the authentication password of Level-2 Hello packets is not configured. When read, it always returns length 0.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircL2AuthText",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 392,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIsisCircL2Cost": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the Level-2 cost of an interface. If the cost style is wide or widecompatible, the range of this value is from 0 to 16777215, else the range of this value is from 0 to 63. The value of 0 means undo this configuration, and the cost of the circuit will become the default value.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircL2Cost",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.22.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16777215,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIsisCircL2DisPriority": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the priority of the Level-2 DIS, which is valid only on a broadcast interface. The value ranges from 0 to 127. By default, it is 64.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircL2DisPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 127,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIsisCircL2HelloInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 10
+      }
+    },
+    "description": "The value of this object identifies the interval for sending Level-2 Hello PDUs. The value ranges from 3 to 255, in seconds. By default, the value is 10s. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircL2HelloInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "seconds"
+  },
+  "hwIsisCircL2HelloMultiplier": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "The value of this object identifies the number of Level-2 Hello PDUs that fail to received from the IS-IS neighbor before the neighbor declared Down. The value ranges from 3 to 1000. By default, the value is 3.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircL2HelloMultiplier",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 3
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIsisCircLdpHldMaxCost": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the timeout period of the Hold-Max-Cost time for synchronization of IS-IS and LDP. The value ranges from 0 to 65536, in seconds. By default, the value is 10s. The value of 65536 means infinite. 0 means to stop Hold-Max-Cost timer. -1 means no configuration.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircLdpHldMaxCost",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65536,
+            "min": -1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIsisCircLdpSync": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the status of synchronization of IS-IS and LDP: enable(1): enables synchronization of IS-IS and LDP. disable(2): disables synchronization of IS-IS and LDP. By default, synchronization of IS-IS and LDP is disabled.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircLdpSync",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisCircLdpSyncHoldDown": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the timeout period of the Holddown time for synchronization of IS-IS and LDP. The value ranges from 0 to 65535, in seconds. By default, the value is 10s. 0 means to stop Holddown timer. -1 means no configuration.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircLdpSyncHoldDown",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": -1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIsisCircLevel": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the level of an interface: level1(1): indicates Level-1. level2(2): indicates Level-2. level12(3): indicates Level-1-2. By default, the interface is at Level-1-2.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircLevel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1": 1,
+          "level12": 3,
+          "level2": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisCircLspRetransInterval": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the interval for resending LSPs. The value ranges from 1 to 300, in seconds. The default value is 5. This object applies to only P2P interfaces. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircLspRetransInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 300,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "seconds"
+  },
+  "hwIsisCircMTRowStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the row status of this table: createAndGo(4): indicates that a row is created. destroy(6): indicates that a row is deleted.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircMTRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.22.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIsisCircMeshBlock": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the mesh block function. If this function is configured, the set mesh-group ID is deleted. The value of this object can be: enable(1): enables the mesh block function. disable(2): disables the mesh block function. By default, the function is disabled.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircMeshBlock",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.34",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisCircMeshGroup": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the mesh-group ID. The value ranges from 0 to 4294967295. Value 0 indicates that the mesh-group ID is not set.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircMeshGroup",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIsisCircPadHello": {
+    "class": "objecttype",
+    "description": "The value of this object identifies whether IS-IS sends standard Hello PDUs with the padding field: enable(1): indicates that IS-IS sends standard Hello PDUs with the padding field. disable(2): indicates that IS-IS does not send standard Hello PDUs with the padding field. By default, the function is disabled.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircPadHello",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisCircPppNego": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32"
+      }
+    },
+    "description": "The value of this object identifies the mode of negotiating the setup of a neighbor relationship on P2P interfaces: none(0): indicates that the negotiation mode used to establish a neighbor relationship is not specified. twoWay(1): indicates that a neighbor relationship is set up through negotiations in two-way handshake mode. threeWay(2): indicates that a neighbor relationship is set up through negotiations in three-way handshake mode. threeWayOnly(3): indicates that a neighbor relationship is set up through negotiations in three-way handshake mode and the backward compatibility is not supported. By default, a neighbor relationship is set up through negotiations in three-way handshake mode.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircPppNego",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.36",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "threeWay": 2,
+          "threeWayOnly": 3,
+          "twoWay": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisCircPppOsicpCheck": {
+    "class": "objecttype",
+    "description": "The value of this object identifies whether the OSICP check is required: enable(1): enables the OSICP check. disable(2): disables the OSICP check. By default, the function is disabled. This object applies to only P2P interfaces. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircPppOsicpCheck",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.37",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisCircSenseRpr": {
+    "class": "objecttype",
+    "description": "The value of this object identifies whether fast RPR loop detection is enabled: enable(1): enables fast RPR loop detection. disable(2): disables fast RPR loop detection. By default, fast RPR loop detection is disabled.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircSenseRpr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisCircSilent": {
+    "class": "objecttype",
+    "description": "The value of this object identifies whether the status of an IS-IS interface is set to silent. enable(1): indicates that the status of IS-IS interface is set to silent. disable(2): indicates that the status of IS-IS interface is not set to silent. By default, the function is disabled.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircSilent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisCircSimulation": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "The value of this object identifies whether the broadcast interface is simulated as a P2P interface: enable(1): indicates that the broadcast interface is simulated as a P2P interface. disable(2): indicates that the broadcast interface is not simulated as a P2P interface. By default, broadcast interfaces are not simulated as P2P interfaces. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircSimulation",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisCircSmallHello": {
+    "class": "objecttype",
+    "description": "The value of this object identifies whether IS-IS sends small Hello PDUs without the padding field: enable(1): indicates that IS-IS sends small Hello PDUs without the padding field. disable(2): indicates that IS-IS does not send small Hello PDUs without the padding field. By default, the function is disabled.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircSmallHello",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisCircStrictSnpaCheckEnable": {
+    "class": "objecttype",
+    "description": "The value of this object identifies whether the snpa check of lsp and snp is required. enable(1): enables the snpa check. disable(2): disables the snpa check. By default, the function is disabled. This object applies to only simulated P2P interfaces. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircStrictSnpaCheckEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.41",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisCircSuppReachablity": {
+    "class": "objecttype",
+    "description": "The value of this object identifies whether the advertisement of the interface address is suppressed: Null(0): indicates that the interface address can be advertised. level1(1): indicates that the advertisement of the Level-1 interface address is suppressed. level2(2): indicates that the advertisement of the Level-2 interface address is suppressed. level12(3): indicates that the advertisement of the Level-1 and Level-2 interface addresses is suppressed. By default, the interface address can be advertised.",
+    "maxaccess": "read-create",
+    "name": "hwIsisCircSuppReachablity",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.22.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1": 1,
+          "level12": 3,
+          "level2": 2,
+          "null": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisCompliances": {
+    "class": "objectidentity",
+    "name": "hwIsisCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.1"
+  },
+  "hwIsisConf": {
+    "class": "objectidentity",
+    "name": "hwIsisConf",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2"
+  },
+  "hwIsisConfConformance": {
+    "class": "objectidentity",
+    "name": "hwIsisConfConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3"
+  },
+  "hwIsisConfGroups": {
+    "class": "objectidentity",
+    "name": "hwIsisConfGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.2"
+  },
+  "hwIsisConflictSystemID": {
+    "class": "objecttype",
+    "description": "The ID for this instance of the Integrated IS-IS protocol. This value is appended to each of the area addresses to form the Network Entity Titles. The derivation of a value for this object is implementation-specific. Some implementations may automatically assign values and not permit an SNMP write, while others may require the value to be set manually.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIsisConflictSystemID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SystemID"
+    }
+  },
+  "hwIsisEnableIPProtocol": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the status of IPv4 IS-IS on an interface: enable(1): enables IPv4 IS-IS. disable(2): disables IPv4 IS-IS.",
+    "maxaccess": "read-create",
+    "name": "hwIsisEnableIPProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisEnableIPv6Protocol": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the status of IPv6 IS-IS on an interface: enable(1): enables IPv6 IS-IS. disable(2): disables IPv6 IS-IS.",
+    "maxaccess": "read-create",
+    "name": "hwIsisEnableIPv6Protocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisFrrEnabled": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the status of FRR: enable(1): enables FRR. disable(2): disables FRR. By default, FRR is disabled. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisFrrEnabled",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.8.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIsisFrrEntry": {
+    "class": "objecttype",
+    "description": "Entry of frr commands for the specific MT of process.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcIdIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisIpTypeIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisMTIdIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIsisFrrEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.8.1",
+    "status": "current"
+  },
+  "hwIsisFrrGroup": {
+    "class": "objectgroup",
+    "description": "The group of hwIsisFrrGroup.",
+    "name": "hwIsisFrrGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisFrrPolicyName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisFrrLoopFreeAltLevel"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisFrrEnabled"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.2.8",
+    "status": "current"
+  },
+  "hwIsisFrrLoopFreeAltLevel": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "null"
+      }
+    },
+    "description": "The value of this object identifies the level of the FRR LFA algorithm. null(0): cancels the operation of the LFA algorithm. level1(1): indicates Level-1. level2(2): indicates Level-2. level12(3): indicates Level-1-2.",
+    "maxaccess": "read-create",
+    "name": "hwIsisFrrLoopFreeAltLevel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.8.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1": 1,
+          "level12": 3,
+          "level2": 2,
+          "null": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisFrrPolicyName": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the FRR policy name. The value is a string of 1 to 40 characters. Value 0 indicates that the FRR policy is deleted.",
+    "maxaccess": "read-create",
+    "name": "hwIsisFrrPolicyName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.8.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 40,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIsisFrrTable": {
+    "class": "objecttype",
+    "description": "Set of Frr commands.",
+    "maxaccess": "not-accessible",
+    "name": "hwIsisFrrTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.8",
+    "status": "current"
+  },
+  "hwIsisImportCost": {
+    "class": "objecttype",
+    "description": "Cost of the imported routes. If the costStyle of the process is wide or widecompatible, the range of this value is from 0 to 4261412864, else the range of this value is from 0 to 63. 0 means no configuration.",
+    "maxaccess": "read-create",
+    "name": "hwIsisImportCost",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.6.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4261412864,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIsisImportCostType": {
+    "class": "objecttype",
+    "description": "This object indicates the cost type of the imported external route. This object does not apply to IPv6. internal(1): indicates internal. external(2): indicates external. This node is invalid for IPv6. By default, the cost type of the imported external route is external.",
+    "maxaccess": "read-create",
+    "name": "hwIsisImportCostType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.6.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "external": 2,
+          "internal": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisImportInheritCostEnabled": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "This object indicates whether the original cost of the source route is inherited: true(1): indicates that the original cost of the source route is inherited. false(2): indicates that the original cost of the source route is not inherited.",
+    "maxaccess": "read-create",
+    "name": "hwIsisImportInheritCostEnabled",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.6.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIsisImportLevel": {
+    "class": "objecttype",
+    "description": "This object indicates the local IS-IS level of the imported route: level1(1): indicates Level-1. level2(2): indicates Level-2. level12(3): indicates Level-1-2.",
+    "maxaccess": "read-create",
+    "name": "hwIsisImportLevel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.6.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1": 1,
+          "level12": 3,
+          "level2": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisImportPolicyName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of the routing policy used to import routes. The name is a string of 0 to 40 characters. The length 0 indicates that no name is configured for the routing policy used to import routes. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisImportPolicyName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.6.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 40,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIsisImportProcessIdIndex": {
+    "class": "objecttype",
+    "description": "Process ID of the route protocols. The range is from 1 to 65535. If the protocol is direct, static or bgp, this value can only be 1.",
+    "maxaccess": "not-accessible",
+    "name": "hwIsisImportProcessIdIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIsisImportProtocolIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the routing protocol of the imported routes: direct(1): indicates direct. static(2): indicates static. rip(3): indicates RIP. ospf(4): indicates OSPF isis(5): indicates IS-IS. bgp(6): For VPN instance, indicates EBGP and IBGP, otherwise indicates EBGP. ospfv3(7): indicates OSPFv3. ripng(8): indicates RIPng. bgpIbgp(9): For VPN instance, this is unusable, otherwise indicates IBGP and EBGP.",
+    "maxaccess": "not-accessible",
+    "name": "hwIsisImportProtocolIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bgp": 6,
+          "bgpIbgp": 9,
+          "direct": 1,
+          "isis": 5,
+          "ospf": 4,
+          "ospfv3": 7,
+          "rip": 3,
+          "ripng": 8,
+          "static": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisImportRouteEntry": {
+    "class": "objecttype",
+    "description": "Entry of import route command.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcIdIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisIpTypeIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisMTIdIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisImportProtocolIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisImportProcessIdIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIsisImportRouteEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.6.1",
+    "status": "current"
+  },
+  "hwIsisImportRouteGroup": {
+    "class": "objectgroup",
+    "description": "The group of hwIsisImportRouteGroup.",
+    "name": "hwIsisImportRouteGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisImportInheritCostEnabled"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisImportCost"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisImportCostType"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisImportLevel"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisImportTag"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisImportPolicyName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisImportRouteStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.2.6",
+    "status": "current"
+  },
+  "hwIsisImportRouteStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the row status of this table: createAndGo(4): indicates that a row is created. destroy(6): indicates that a row is deleted.",
+    "maxaccess": "read-create",
+    "name": "hwIsisImportRouteStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.6.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIsisImportRouteTable": {
+    "class": "objecttype",
+    "description": "Set of import route command.",
+    "maxaccess": "not-accessible",
+    "name": "hwIsisImportRouteTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.6",
+    "status": "current"
+  },
+  "hwIsisImportTag": {
+    "class": "objecttype",
+    "description": "This object indicates the administrative tag assigned to an imported route. If this object is not configured, the value will be 0.",
+    "maxaccess": "read-create",
+    "name": "hwIsisImportTag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.6.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIsisInterfaceIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the interface index. ",
+    "maxaccess": "not-accessible",
+    "name": "hwIsisInterfaceIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIsisIntfBaseEntry": {
+    "class": "objecttype",
+    "description": "Each row defines some commands to a single interface of the IS-IS protocol existing on the system.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcIdIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisInterfaceIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIsisIntfBaseEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1",
+    "status": "current"
+  },
+  "hwIsisIntfBaseGroup": {
+    "class": "objectgroup",
+    "description": "The group of hwIsisIntfBaseGroup.",
+    "name": "hwIsisIntfBaseGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisEnableIPProtocol"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisEnableIPv6Protocol"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircLevel"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircSimulation"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL1HelloInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL2HelloInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL1HelloMultiplier"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL2HelloMultiplier"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL1AuthMode"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL1AuthText"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL1AuthSendOnly"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL2AuthMode"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL2AuthText"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL2AuthSendOnly"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircLdpSync"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircLdpSyncHoldDown"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircLdpHldMaxCost"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircSmallHello"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircIpIgnore"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircSenseRpr"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircPadHello"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircLspRetransInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisL1CsnpTimerValue"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisL2CsnpTimerValue"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisLspThrottleInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisLspThrottleCount"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL1DisPriority"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL2DisPriority"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircSilent"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircMeshGroup"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircMeshBlock"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircDisName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircPppNego"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircPppOsicpCheck"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisIntfRowStatus"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL1AuthCode"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL2AuthCode"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL1AuthKeychainName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL2AuthKeychainName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircStrictSnpaCheckEnable"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.2.21",
+    "status": "current"
+  },
+  "hwIsisIntfBaseTable": {
+    "class": "objecttype",
+    "description": "Set of commands on interface of the Integrated IS-IS protocol existing on the system.",
+    "maxaccess": "not-accessible",
+    "name": "hwIsisIntfBaseTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21",
+    "status": "current"
+  },
+  "hwIsisIntfBfdEntry": {
+    "class": "objecttype",
+    "description": "Entry of BFD commands on interface of the Integrated IS-IS protocol existing on the system.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcIdIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisInterfaceIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisIpTypeIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIsisIntfBfdEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.23.1",
+    "status": "current"
+  },
+  "hwIsisIntfBfdGroup": {
+    "class": "objectgroup",
+    "description": "The group of hwIsisIntfBfdGroup.",
+    "name": "hwIsisIntfBfdGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircBfdMinTxInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircBfdMinRxInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircBfdMultiplier"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircBfdFrrBinding"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircBfdState"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.2.23",
+    "status": "current"
+  },
+  "hwIsisIntfBfdTable": {
+    "class": "objecttype",
+    "description": "Set of BFD commands on interface of the Integrated IS-IS protocol existing on the system.",
+    "maxaccess": "not-accessible",
+    "name": "hwIsisIntfBfdTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.23",
+    "status": "current"
+  },
+  "hwIsisIntfExtEntry": {
+    "class": "objecttype",
+    "description": "Entry of Some specific commands on interface of the Integrated IS-IS protocol existing on the system, which are different of IP type.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcIdIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisInterfaceIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisIpTypeIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisMTIdIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIsisIntfExtEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.22.1",
+    "status": "current"
+  },
+  "hwIsisIntfExtGroup": {
+    "class": "objectgroup",
+    "description": "The group of hwIsisIntfExtGroup.",
+    "name": "hwIsisIntfExtGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL1Cost"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircL2Cost"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisL1TagValue"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisL2TagValue"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircSuppReachablity"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircFrrBackup"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisCircMTRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.2.22",
+    "status": "current"
+  },
+  "hwIsisIntfExtTable": {
+    "class": "objecttype",
+    "description": "Set of some specific commands on interface of the Integrated IS-IS protocol existing on the system, which are different of IP type.",
+    "maxaccess": "not-accessible",
+    "name": "hwIsisIntfExtTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.22",
+    "status": "current"
+  },
+  "hwIsisIntfRowStatus": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the setting of two values: createAndGo(4): creates one row. destroy(6): deletes one row.",
+    "maxaccess": "read-create",
+    "name": "hwIsisIntfRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.38",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIsisIpTypeIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the IP protocol type: ipv4(1): indicates IPv4. ipv6(2): indicates IPv6.",
+    "maxaccess": "not-accessible",
+    "name": "hwIsisIpTypeIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressType"
+    }
+  },
+  "hwIsisL1CsnpTimerValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 10
+      }
+    },
+    "description": "The value of this object identifies the interval for sending Level-1 CSNP PDUs on an interface. The value ranges from 1 to 65535, in seconds. The default value is 10.",
+    "maxaccess": "read-create",
+    "name": "hwIsisL1CsnpTimerValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "seconds"
+  },
+  "hwIsisL1ImportRouteExceedLimit": {
+    "class": "notificationtype",
+    "description": "ISIS level-1 number of imported routes has exceeded the maximum limit.",
+    "name": "hwIsisL1ImportRouteExceedLimit",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1RedistMaxLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1TotalRedist"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.2",
+    "status": "current"
+  },
+  "hwIsisL1ImportRouteRestoreToLimit": {
+    "class": "notificationtype",
+    "description": "ISIS level-1 number of imported routes is restored to less than or equal to the maximum limit.",
+    "name": "hwIsisL1ImportRouteRestoreToLimit",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1RedistMaxLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1TotalRedist"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.3",
+    "status": "current"
+  },
+  "hwIsisL1ImportRouteThresholdReach": {
+    "class": "notificationtype",
+    "description": "ISIS level-1 number of imported routes has reached the threshold value.",
+    "name": "hwIsisL1ImportRouteThresholdReach",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1RedistMaxLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1UpperRedistThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1LowerRedistThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1TotalRedist"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.6",
+    "status": "current"
+  },
+  "hwIsisL1ImportRouteThresholdReachClear": {
+    "class": "notificationtype",
+    "description": "ISIS level-1 number of imported routes has been less than the threshold value.",
+    "name": "hwIsisL1ImportRouteThresholdReachClear",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1RedistMaxLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1UpperRedistThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1LowerRedistThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1TotalRedist"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.7",
+    "status": "current"
+  },
+  "hwIsisL1TagValue": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the tag value of a Level-1 interface. The value ranges from 0 to 4294967295. By default, it is 0, which indicates that the set tag value is deleted. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisL1TagValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.22.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIsisL2CsnpTimerValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 10
+      }
+    },
+    "description": "The value of this object identifies the interval for sending Level-2 CSNP PDUs on an interface. The value ranges from 1 to 65535, in seconds. The default value is 10.",
+    "maxaccess": "read-create",
+    "name": "hwIsisL2CsnpTimerValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "seconds"
+  },
+  "hwIsisL2ImportRouteExceedLimit": {
+    "class": "notificationtype",
+    "description": "ISIS level-2 number of imported routes has exceeded the maximum limit.",
+    "name": "hwIsisL2ImportRouteExceedLimit",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2RedistMaxLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2TotalRedist"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.4",
+    "status": "current"
+  },
+  "hwIsisL2ImportRouteRestoreToLimit": {
+    "class": "notificationtype",
+    "description": "ISIS level-2 number of imported routes is restored to less than or equal to the maximum limit.",
+    "name": "hwIsisL2ImportRouteRestoreToLimit",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2RedistMaxLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2TotalRedist"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.5",
+    "status": "current"
+  },
+  "hwIsisL2ImportRouteThresholdReach": {
+    "class": "notificationtype",
+    "description": "ISIS level-2 number of imported routes has reached the threshold value.",
+    "name": "hwIsisL2ImportRouteThresholdReach",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2RedistMaxLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2UpperRedistThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2LowerRedistThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2TotalRedist"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.8",
+    "status": "current"
+  },
+  "hwIsisL2ImportRouteThresholdReachClear": {
+    "class": "notificationtype",
+    "description": "ISIS level-2 number of imported routes has been less than the threshold value.",
+    "name": "hwIsisL2ImportRouteThresholdReachClear",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2RedistMaxLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2UpperRedistThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2LowerRedistThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2TotalRedist"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.9",
+    "status": "current"
+  },
+  "hwIsisL2TagValue": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the tag value of a Level-2 interface. The value ranges from 0 to 4294967295. By default, it is 0, which indicates that the set tag value is deleted. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisL2TagValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.22.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIsisLocalIP": {
+    "class": "objecttype",
+    "description": "Local IP address.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIsisLocalIP",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwIsisLsdbThresholdReach": {
+    "class": "notificationtype",
+    "description": "The number of LSP has reached the upper threshold value.",
+    "name": "hwIsisLsdbThresholdReach",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisProcLsdbMaxLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcLsdbUpperThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcLsdbLowerThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcLsdbTotal"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.10",
+    "status": "current"
+  },
+  "hwIsisLsdbThresholdReachClear": {
+    "class": "notificationtype",
+    "description": "The number of LSP has been less than the lower threshold value.",
+    "name": "hwIsisLsdbThresholdReachClear",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisProcLsdbMaxLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcLsdbUpperThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcLsdbLowerThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcLsdbTotal"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.11",
+    "status": "current"
+  },
+  "hwIsisLspThrottleCount": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the number of a bundle of LSPs. The value ranges from 1 to 1000. By default, it is 10.",
+    "maxaccess": "read-create",
+    "name": "hwIsisLspThrottleCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIsisLspThrottleInterval": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the interval for sending batch of LSPs or CSNPs on an interface. The value ranges from 1 to 10000, in milliseconds. By default, the value is 50.",
+    "maxaccess": "read-create",
+    "name": "hwIsisLspThrottleInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.21.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "milliseconds."
+  },
+  "hwIsisMIBObjects": {
+    "class": "objectidentity",
+    "name": "hwIsisMIBObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1"
+  },
+  "hwIsisMTIdIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the MT ID. ",
+    "maxaccess": "not-accessible",
+    "name": "hwIsisMTIdIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4095,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIsisMTName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of the topology to be bound to an IS-IS process. The value is a string of 1 to 31 characters.",
+    "maxaccess": "read-create",
+    "name": "hwIsisMTName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIsisModuleFullCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for entities implementing the Huawei ISIS MIB",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcBaseGroup"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcMTExtGroup"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisPrefixPriorityGroup"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSummaryGroup"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisNETGroup"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisImportRouteGroup"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisRouteLeakGroup"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisFrrGroup"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisIntfBaseGroup"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisIntfExtGroup"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisIntfBfdGroup"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisTrapsObjectsGroup"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisTrapsGroup"
+      }
+    ],
+    "name": "hwIsisModuleFullCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.1.1",
+    "status": "current"
+  },
+  "hwIsisNETEntry": {
+    "class": "objecttype",
+    "description": "Each row means one network entity of the process.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcIdIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisNETIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIsisNETEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.2.1",
+    "status": "current"
+  },
+  "hwIsisNETGroup": {
+    "class": "objectgroup",
+    "description": "The group of hwIsisNETGroup.",
+    "name": "hwIsisNETGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisNETStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.2.5",
+    "status": "current"
+  },
+  "hwIsisNETIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the NET index. It is a string of 8 to 20 bytes.",
+    "maxaccess": "not-accessible",
+    "name": "hwIsisNETIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 20,
+            "min": 8
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIsisNETStatus": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the status of the NET table. createAndGo(4): A row is created. destroy(6): A row is deleted.",
+    "maxaccess": "read-create",
+    "name": "hwIsisNETStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIsisNETTable": {
+    "class": "objecttype",
+    "description": "Set of network entities of process.",
+    "maxaccess": "not-accessible",
+    "name": "hwIsisNETTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.2",
+    "status": "current"
+  },
+  "hwIsisOwnSysID": {
+    "class": "objecttype",
+    "description": "The ID for this instance of the Integrated IS-IS protocol. This value is appended to each of the area addresses to form the Network Entity Titles. The derivation of a value for this object is implementation-specific. Some implementations may automatically assign values and not permit an SNMP write, while others may require the value to be set manually.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIsisOwnSysID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "SystemID"
+    }
+  },
+  "hwIsisPrefixPriorityEntry": {
+    "class": "objecttype",
+    "description": "Entry of priority-based convergence, each entry means one priority-based command for IS-IS process.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcIdIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisIpTypeIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisMTIdIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisPrefixPriorityTypeIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIsisPrefixPriorityEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.4.1",
+    "status": "current"
+  },
+  "hwIsisPrefixPriorityGroup": {
+    "class": "objectgroup",
+    "description": "The group of hwIsisPrefixPriorityGroup.",
+    "name": "hwIsisPrefixPriorityGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisPrefixPriorityL1PolicyType"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisPrefixPriorityL2PolicyType"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisPrefixPriorityL1IpPrefixName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisPrefixPriorityL2IpPrefixName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisPrefixPriorityL1TagValue"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisPrefixPriorityL2TagValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.2.3",
+    "status": "current"
+  },
+  "hwIsisPrefixPriorityL1IpPrefixName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of a Level-1 IP prefix policy. The name is a string of 0 to 169 characters. Zero-length means no configuration.",
+    "maxaccess": "read-create",
+    "name": "hwIsisPrefixPriorityL1IpPrefixName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.4.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 169,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIsisPrefixPriorityL1PolicyType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "none"
+      }
+    },
+    "description": "This object indicates the type of a Level-1 route preference policy: none(0): indicates that no policy type is specified. prefix(1): indicates the IP prefix policy. tag(2): indicates the administrative tag policy.",
+    "maxaccess": "read-create",
+    "name": "hwIsisPrefixPriorityL1PolicyType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.4.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "prefix": 1,
+          "tag": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisPrefixPriorityL1TagValue": {
+    "class": "objecttype",
+    "description": "This object indicates the administrative tag of the Level-1 route preference.",
+    "maxaccess": "read-create",
+    "name": "hwIsisPrefixPriorityL1TagValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.4.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIsisPrefixPriorityL2IpPrefixName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of a Level-2 IP prefix policy. The name is a string of 0 to 169 characters. Zero-length means no configuration.",
+    "maxaccess": "read-create",
+    "name": "hwIsisPrefixPriorityL2IpPrefixName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.4.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 169,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIsisPrefixPriorityL2PolicyType": {
+    "class": "objecttype",
+    "description": "This object indicates the type of a Level-2 route preference policy: none(0): indicates that no policy type is specified. prefix(1): indicates the IP prefix policy. tag(2): indicates the administrative tag policy.",
+    "maxaccess": "read-create",
+    "name": "hwIsisPrefixPriorityL2PolicyType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.4.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "prefix": 1,
+          "tag": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisPrefixPriorityL2TagValue": {
+    "class": "objecttype",
+    "description": "This object indicates the administrative tag of the Level-2 route preference.",
+    "maxaccess": "read-create",
+    "name": "hwIsisPrefixPriorityL2TagValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.4.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIsisPrefixPriorityTable": {
+    "class": "objecttype",
+    "description": "Set of commands of priority-based convergence.",
+    "maxaccess": "not-accessible",
+    "name": "hwIsisPrefixPriorityTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.4",
+    "status": "current"
+  },
+  "hwIsisPrefixPriorityTypeIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the preference of a route: medium(1): indicates medium. high(2): indicates high. critical(3): indicates critical.",
+    "maxaccess": "not-accessible",
+    "name": "hwIsisPrefixPriorityTypeIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.4.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 3,
+          "high": 2,
+          "medium": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisProcAreaAuthCode": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "osi"
+      }
+    },
+    "description": "The value of this object identifies the code of area authentication. none (0): The authentication code is not configured. osi (10): indicates OSI authentication. ip (133): indicates IP authentication.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcAreaAuthCode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 133,
+          "none": 0,
+          "osi": 10
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisProcAreaAuthKeychainName": {
+    "class": "objecttype",
+    "description": "This object indicates the keychain name of IS-IS area authentication. The name is a string of characters. The name is a string of 0 to 47 characters. The length 0 indicates that no IS-IS area authentication keychain name is configured. When read, it returns the keychain name.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcAreaAuthKeychainName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.47",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 47,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIsisProcAreaAuthPacketAuthMode": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "none"
+      }
+    },
+    "description": "The value of this object identifies the packet authentication mode of IS-IS area authentication: none (0): Authentication mode is not configured. authenticateall (1): Encapsulates authentication information for both transmitted and received LSPs and SNPs. allsendonly (2): Encapsulates authentication information for both generated LSPs and SNPs; does not authenticate received LSPs or SNPs. snppacketauthenticationavoid (3): Encapsulates authentication information for only generated LSPs and authenticates received LSPs. snppacketsendonly (4): Encapsulates authentication information for generated LSPs and SNPs; authenticates only received LSPs but does not authenticate received SNPs. By default, authentication is not configured. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcAreaAuthPacketAuthMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allsendonly": 2,
+          "authenticateall": 1,
+          "none": 0,
+          "snppacketauthenticationavoid": 3,
+          "snppacketsendonly": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisProcAreaAuthPasswordName": {
+    "class": "objecttype",
+    "description": "This object indicates the password of IS-IS area authentication. The password is a string of characters. If the IS-IS area authentication mode is simple, the password is a string of 0 to 16 characters. If the IS-IS area authentication mode is MD5, the password is a string of 0 to 392 characters. If the IS-IS area authentication mode is keychain, the name is a string of 0 to 47 characters. The length 0 indicates that no IS-IS area authentication password is configured. When read, it always returns length 0.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcAreaAuthPasswordName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 392,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIsisProcAreaAuthType": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the type of IS-IS area authentication. null (0): Area authentication is not configured. md5 (1): The password is sent after being encrypted through MD5. simple (2): The password is sent in the form of simple text. keychain (3): The key chain table that changes with time is sent after being encrypted through MD5. By default, area authentication is not configured. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcAreaAuthType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "keychain": 3,
+          "md5": 1,
+          "null": 0,
+          "simple": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisProcAutoCostEnabled": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "This object indicates whether automatic interface cost calculation is enabled: true(1): indicates that automatic interface cost calculation is enabled. false(2): indicates that automatic interface cost calculation is disabled. By default, automatic interface cost calculation is disabled. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcAutoCostEnabled",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIsisProcBFDEnabled": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "Whether to enable BFD on each interface. true (1): enables BFD on each interface. false (2): does not enable BFD on each interface. By default, BFD is disabled on each interface. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcBFDEnabled",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.35",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIsisProcBFDFrrBindEnabled": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "Enables BFD-FRR binding on each interface. true (1): enables BFD-FRR binding on each interface. false (2): does not enable BFD-FRR binding on each interface. By default, BFD-FRR binding is disabled on each interface. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcBFDFrrBindEnabled",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.36",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIsisProcBFDMinRecvInteval": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the minimum interval for receiving BFD packets. If isis binding to vpn and ipv4-family not enable, The value is zero.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcBFDMinRecvInteval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.38",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "seconds"
+  },
+  "hwIsisProcBFDMinTxInterval": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the minimum interval for sending BFD packets. If isis binding to vpn and ipv4-family not enable, The value is zero. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcBFDMinTxInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.37",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "seconds"
+  },
+  "hwIsisProcBFDMultiplier": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the local detection multiplier. The value ranges from 1 to 255. If isis binding to vpn and ipv4-family not enable, The value is zero. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcBFDMultiplier",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.39",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIsisProcBandWidthReference": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 100
+      }
+    },
+    "description": "This object is used to set the reference bandwidth.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcBandWidthReference",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483648,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIsisProcBaseEntry": {
+    "class": "objecttype",
+    "description": "Each row defines some commmands to a single process of the IS-IS protocol existing on the system. These commands belong to the IS-IS process.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcIdIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIsisProcBaseEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1",
+    "status": "current"
+  },
+  "hwIsisProcBaseGroup": {
+    "class": "objectgroup",
+    "description": "The group of hwIsisProcBaseGroup.",
+    "name": "hwIsisProcBaseGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcVpnName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcVpn6Name"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcAreaAuthType"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcAreaAuthPasswordName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcAreaAuthPacketAuthMode"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcAreaAuthCode"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcDomainAuthType"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcDomainAuthPasswordName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcDomainAuthPacketAuthMode"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcDomainAuthCode"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcLevel"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1FlashFloodCount"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1FlashFloodInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2FlashFloodCount"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2FlashFloodInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcLogPeerChange"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcTimerRefresh"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcTimerMaxAge"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1TimerLspGenMaxInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1TimerLspGenInitInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1TimerLspGenIncrInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2TimerLspGenMaxInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2TimerLspGenInitInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2TimerLspGenIncrInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcTimerSPFMaxInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcTimerSPFInitInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcTimerSPFIncrInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcCostStyle"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcDynamicName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcGREnabled"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcGRInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcGRSuppresSAEnabled"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcTEEnableLevel"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcBFDEnabled"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcBFDMinTxInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcBFDMinRecvInteval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcBFDMultiplier"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcBFDFrrBindEnabled"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcIPv6EnableTopologyType"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcRowStatus"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcOptionalChecksumEnabled"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisProcLsdbMaxLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcLsdbUpperThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcLsdbLowerThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcLsdbTotal"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcAreaAuthKeychainName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcDomainAuthKeychainName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.2.1",
+    "status": "current"
+  },
+  "hwIsisProcBaseTable": {
+    "class": "objecttype",
+    "description": "The set of commands of the Integrated IS-IS protocol existing on the system.",
+    "maxaccess": "not-accessible",
+    "name": "hwIsisProcBaseTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1",
+    "status": "current"
+  },
+  "hwIsisProcCostStyle": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "narrow"
+      }
+    },
+    "description": "Configures the cost type of the IS-IS process: narrow (1): the narrow type narrowcompatible (2): the narrow-compatible type compatible (3): compatible type wide (4): wide type widecompatible (5): wide-compatible type narrowcompatiblerelax (6): narrow-compatible relax-spf-limit type compatible-relax (7): compatible relax-spf-limit type By default, the cost type of an IS-IS process is narrow. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcCostStyle",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "compatible": 3,
+          "compatiblerelax": 7,
+          "narrow": 1,
+          "narrowcompatible": 2,
+          "narrowcompatiblerelax": 6,
+          "wide": 4,
+          "widecompatible": 5
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisProcDefRoutAdvAvoidLearnEnabled": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "This object indicates whether an IS-IS process is prevented from learning default routes or adding them to the routing table: true(1): indicates that an IS-IS process is prevented from learning default routes or adding them to the routing table. false(2): indicates that an IS-IS process can learn default routes and then add them to the routing table. By default, an IS-IS process can learn default routes and then add them to the routing table. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcDefRoutAdvAvoidLearnEnabled",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIsisProcDefRoutAdvCost": {
+    "class": "objecttype",
+    "description": "This object is used to set the cost of a default route.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcDefRoutAdvCost",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIsisProcDefRoutAdvLevel": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "level2"
+      }
+    },
+    "description": "This object is used to set the level of a default route: level1(1): indicates Level-1. level2(2): indicates Level-2. level12(3): indicates Level-1-2. By default, the level of a default route is Level-2. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcDefRoutAdvLevel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1": 1,
+          "level12": 3,
+          "level2": 2,
+          "null": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisProcDefRoutAdvPolicyName": {
+    "class": "objecttype",
+    "description": "This object indicates the routing policy name. The name is a string of 0 to 40 characters.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcDefRoutAdvPolicyName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 40,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIsisProcDefRoutAdvTag": {
+    "class": "objecttype",
+    "description": "This object is used to set the administrative tag of a default route.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcDefRoutAdvTag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIsisProcDefRoutAdvType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "null"
+      }
+    },
+    "description": "This object is used to set the mode in which default routes are advertised: null(0): indicates that default routes are not advertised. always(1): indicates that default routes are always advertised. matchdefault(2): If there is the default route that is generated by another routing protocol or another IS-IS process in the routing table, this default route is advertised in an LSP. If this default route is deleted from the routing table, this default route is not advertised in the LSP. routepolicy(3): indicates that default routes are advertised according to the routing policy.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcDefRoutAdvType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "always": 1,
+          "matchdefault": 2,
+          "null": 0,
+          "routepolicy": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisProcDomainAuthCode": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "osi"
+      }
+    },
+    "description": "The value of this object identifies the code of domain authentication. none (0): The authentication code is not configured. osi (10): indicates OSI authentication. ip (133): indicates IP authentication.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcDomainAuthCode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 133,
+          "none": 0,
+          "osi": 10
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisProcDomainAuthKeychainName": {
+    "class": "objecttype",
+    "description": "This object indicates the keychain name of IS-IS domain authentication. The name is a string of characters. The name is a string of 0 to 47 characters. The length 0 indicates that no IS-IS domain authentication keychain name is configured. When read, it returns the keychain name.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcDomainAuthKeychainName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.48",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 47,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIsisProcDomainAuthPacketAuthMode": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "none"
+      }
+    },
+    "description": "The value of this object identifies the packet authentication mode of IS-IS route domain authentication. none (0): Authentication mode is not configured. authenticateall (1): Encapsulates authentication information for both transmitted and received LSPs and SNPs. allsendonly (2): Encapsulates authentication information for both generated LSPs and SNPs; does not authenticate received LSPs or SNPs. snppacketauthenticationavoid (3): Encapsulates authentication information for only generated LSPs and authenticates received LSPs. snppacketsendonly (4): Encapsulates authentication information for generated LSPs and SNPs; authenticates only received LSPs but does not authenticate received SNPs. By default, authentication is not configured. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcDomainAuthPacketAuthMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allsendonly": 2,
+          "authenticateall": 1,
+          "none": 0,
+          "snppacketauthenticationavoid": 3,
+          "snppacketsendonly": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisProcDomainAuthPasswordName": {
+    "class": "objecttype",
+    "description": "This object indicates the password of IS-IS routing domain authentication. The password is a string of characters. If the IS-IS routing domain authentication mode is simple, the password is a string of 0 to 16 characters. If the IS-IS routing domain authentication mode is MD5, the password is a string of 0 to 392 characters. If the IS-IS routing domain authentication mode is keychain, the name is a string of 0 to 47 characters. The length 0 indicates that the password of IS-IS routing domain authentication is not configured. When read, it always returns length 0.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcDomainAuthPasswordName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 392,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIsisProcDomainAuthType": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the type of IS-IS router domain authentication. null (0): Domain authentication is not configured. md5 (1): The password is sent after being encrypted through MD5. simple (2): The password is sent in the form of simple text. keychain (3): The key chain table that changes with time is sent after being encrypted through MD5. By default, IS-IS route domain authentication is disabled. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcDomainAuthType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "keychain": 3,
+          "md5": 1,
+          "null": 0,
+          "simple": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisProcDynamicName": {
+    "class": "objecttype",
+    "description": "Configures the name of the IS-IS dynamic host. The value is a string of 1 to 64 characters. When the length is 0, the configured IS-IS dynamic host name is deleted.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcDynamicName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIsisProcGREnabled": {
+    "class": "objecttype",
+    "description": "Whether to enable IS-IS GR. true (1): enables IS-IS GR. false (2): does not enable IS-IS GR. By default, IS-IS GR is disabled.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcGREnabled",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIsisProcGRInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 300
+      }
+    },
+    "description": "The value of this object identifies the maximum intervals for enabling GR. The value ranges from 0 to 1800, in seconds. By default, the value is 300 seconds. The value 0 indicates that GR is not configured. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcGRInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 1800,
+            "min": 30
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "seconds"
+  },
+  "hwIsisProcGRSuppresSAEnabled": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "This object indicates that the SA bit in the sent Hello packet is set to 1 after the GR-enabled device is started: true (1): enables this function. false (2): disables this function. By default, IS-IS does not suppress Hello PDUs from carrying SA bits. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcGRSuppresSAEnabled",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIsisProcIPv6EnableTopologyType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32"
+      }
+    },
+    "description": "This objects indicates whether the IPv6 topology is enabled for the IS-IS process: disable(0): disables the IPv6 topology of the IS-IS process. standard(1): specifies the topology type as the standard mode. ipv6(2): enables IPv6 for the IS-IS process in the IPv6 topology. compatible(3): specifies the topology type as the compatible mode. compatibleenablemtspf(4): indicates that SPF calculation is performed in the IPv6 topology in compatible mode. By default, the IPv6 topology is not enabled for the IS-IS process. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcIPv6EnableTopologyType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.40",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "compatible": 3,
+          "compatibleenablemtspf": 4,
+          "disable": 0,
+          "ipv6": 2,
+          "standard": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisProcIdIndex": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the IS-IS process ID. The value ranges from 1 to 65535.",
+    "maxaccess": "not-accessible",
+    "name": "hwIsisProcIdIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIsisProcL1CircuitCost": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 10
+      }
+    },
+    "description": "Global level-1 cost for all the interfaces. If the costStyle of the process is wide or widecompatible, the range of this value is from 1 to 16777215, else the range of this value is from 1 to 63.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcL1CircuitCost",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16777215,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIsisProcL1CircuitDefaultTag": {
+    "class": "objecttype",
+    "description": "This object is used to set the default administrative tag of an IS-IS Level-1 route.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcL1CircuitDefaultTag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIsisProcL1FlashFloodCount": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": "The value of this object identifies the counter of level-1 LSPs on the interface. The value is an integer ranging from 0 to 15. The value 0 indicates that no counter is configured. The default value is 5. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcL1FlashFloodCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIsisProcL1FlashFloodInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 10
+      }
+    },
+    "description": "The value of this object identifies the intervals for level-1 LSP flooding. The value ranges from 10 to 50000, in milliseconds. The default value is 10 ms. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcL1FlashFloodInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 50000,
+            "min": 10
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "millionseconds"
+  },
+  "hwIsisProcL1LowerRedistThreshold": {
+    "class": "objecttype",
+    "description": "This object is used to set the lower threshold value of level-1 import limit. The value range is from 1 to 100. The default means 70.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcL1LowerRedistThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.30",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIsisProcL1RedistMaxLimit": {
+    "class": "objecttype",
+    "description": "This object is used to set the maximum limit number of IS-IS Level-1 redistribute routes advertised in LSPs. The value range is from 0 to 10000000. The default value 0 means no limit.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcL1RedistMaxLimit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIsisProcL1TimerLspGenIncrInterval": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the delay timer for generating two level-1 LSPs with the same LSP ID. The value ranges from 1 to 60000, in milliseconds. By default, the value is 0. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcL1TimerLspGenIncrInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 60000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "millionseconds"
+  },
+  "hwIsisProcL1TimerLspGenInitInterval": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the delay timer that initially triggers a level-1 LSP. The value ranges from 0 to 60000, in milliseconds. By default, the value is 0. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcL1TimerLspGenInitInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 60000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "millionseconds"
+  },
+  "hwIsisProcL1TimerLspGenMaxInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "The value of this object identifies the timer for the maximum delay of level-1 LSPs with the same LSP ID. The value ranges from 1 to 120, in seconds. By default, the value is 2s. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcL1TimerLspGenMaxInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 120,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "seconds"
+  },
+  "hwIsisProcL1TotalRedist": {
+    "class": "objecttype",
+    "description": "This object is used to get the number of level-1 import routes.",
+    "maxaccess": "read-only",
+    "name": "hwIsisProcL1TotalRedist",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.32",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIsisProcL1UpperRedistThreshold": {
+    "class": "objecttype",
+    "description": "This object is used to set the upper threshold value of level-1 import limit. The value range is from 1 to 100. The default means 80.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcL1UpperRedistThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIsisProcL2CircuitCost": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 10
+      }
+    },
+    "description": "Global level-2 cost for all the interfaces. If the costStyle of the process is wide or widecompatible, the range of this value is from 1 to 16777215, else the range of this value is from 1 to 63.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcL2CircuitCost",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 16777215,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIsisProcL2CircuitDefaultTag": {
+    "class": "objecttype",
+    "description": "This object is used to set the default administrative tag of an IS-IS Level-2 route.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcL2CircuitDefaultTag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIsisProcL2FlashFloodCount": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": "The value of this object identifies the counter of level-2 LSPs on the interface. The value is an integer ranging from 0 to 15. The value 0 indicates that no counter is configured. The default value is 5. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcL2FlashFloodCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 15,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIsisProcL2FlashFloodInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 10
+      }
+    },
+    "description": "The value of this object identifies the intervals for level-2 LSP flooding. The value ranges from 10 to 50000 in milliseconds. The default value is 10ms. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcL2FlashFloodInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.16",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 50000,
+            "min": 10
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "millionseconds"
+  },
+  "hwIsisProcL2LowerRedistThreshold": {
+    "class": "objecttype",
+    "description": "This object is used to set the lower threshold value of level-2 import limit. The value range is from 1 to 100 The default means 70.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcL2LowerRedistThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.31",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIsisProcL2RedistMaxLimit": {
+    "class": "objecttype",
+    "description": "This object is used to set the maximum limit number of IS-IS Level-2 redistribute routes advertised in LSPs. The value range is from 0 to 10000000. The default value 0 means no limit.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcL2RedistMaxLimit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10000000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIsisProcL2TimerLspGenIncrInterval": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the delay timer for generating two Level-2 LSPs with the same LSP ID. The value ranges from 1 to 60000, in milliseconds. By default, the value is 0. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcL2TimerLspGenIncrInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 60000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "millionseconds"
+  },
+  "hwIsisProcL2TimerLspGenInitInterval": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the delay timer that initially triggers a Level-2 LSP. The value ranges from 1 to 60000, in milliseconds. By default, the value is 0. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcL2TimerLspGenInitInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 60000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "millionseconds"
+  },
+  "hwIsisProcL2TimerLspGenMaxInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "The value of this object identifies the timer for the maximum delay of Level-2 LSPs with the same LSP ID. The value ranges from 1 to 120, in seconds. By default, the value is 2s.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcL2TimerLspGenMaxInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 120,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "seconds"
+  },
+  "hwIsisProcL2TotalRedist": {
+    "class": "objecttype",
+    "description": "This object is used to get the number of level-2 import routes.",
+    "maxaccess": "read-only",
+    "name": "hwIsisProcL2TotalRedist",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.33",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIsisProcL2UpperRedistThreshold": {
+    "class": "objecttype",
+    "description": "This object is used to set the upper threshold value of level-2 import limit. The value range is from 1 to 100. The default means 80.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcL2UpperRedistThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.29",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIsisProcLevel": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "level12"
+      }
+    },
+    "description": "The value of this object identifies the level of the IS-IS process. level1 (1): indicates level 1. level2 (2): indicates level 2. level12 (3): indicates level 1-2. By default, the level of an IS-IS process is level-1-2. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcLevel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1": 1,
+          "level12": 3,
+          "level2": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisProcLogPeerChange": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "null"
+      }
+    },
+    "description": "Generates a log when the status of the peer changes. null (0): not configured enabledwithouttopology (1): IPv4 topology enabledwithtopology (2): IPv6 topology",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcLogPeerChange",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.17",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabledwithouttopology": 1,
+          "enabledwithtopology": 2,
+          "null": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisProcLsdbLowerThreshold": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 70
+      }
+    },
+    "description": "This object is used to set the lower threshold value of LSPs limit. The value range is from 1 to 100. The default means 70.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcLsdbLowerThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.45",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIsisProcLsdbTotal": {
+    "class": "objecttype",
+    "description": "This object is used to get the number of IS-IS LSPs.",
+    "maxaccess": "read-only",
+    "name": "hwIsisProcLsdbTotal",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.46",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4294967295,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIsisProcLsdbUpperThreshold": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 80
+      }
+    },
+    "description": "This object is used to set the upper threshold value of LSPs limit. The value range is from 1 to 100. The default means 80.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcLsdbUpperThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.44",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwIsisProcMTExtEntry": {
+    "class": "objecttype",
+    "description": "Each row defines some commands specific to a single process of the IS-IS protocol existing on the system. These commands are different from ProcBaseTable for IP type and MT.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcIdIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisIpTypeIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisMTIdIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIsisProcMTExtEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1",
+    "status": "current"
+  },
+  "hwIsisProcMTExtGroup": {
+    "class": "objectgroup",
+    "description": "The group of hwIsisProcMTExtGroup.",
+    "name": "hwIsisProcMTExtGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcDefRoutAdvType"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcDefRoutAdvPolicyName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcDefRoutAdvCost"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcDefRoutAdvTag"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcDefRoutAdvLevel"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcDefRoutAdvAvoidLearnEnabled"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1CircuitCost"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2CircuitCost"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcPrefValue"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcPrefPolicyName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcMaxLoadBalance"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1CircuitDefaultTag"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2CircuitDefaultTag"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcAutoCostEnabled"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcSetOverLoad"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcSetOverLoadAllowRoute"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcOnStartInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcOnStartStartFromPeer"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcOnStartFromPeerInterval"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisMTName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcMTStatus"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2RedistMaxLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1RedistMaxLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcOnStartWaitForBgpEnabled"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcBandWidthReference"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1UpperRedistThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2UpperRedistThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1LowerRedistThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2LowerRedistThreshold"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL1TotalRedist"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcL2TotalRedist"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.2.2",
+    "status": "current"
+  },
+  "hwIsisProcMTExtTable": {
+    "class": "objecttype",
+    "description": "Set of commands of the integrated IS-IS protocol existing on the system, which are different for IP type and MT. ",
+    "maxaccess": "not-accessible",
+    "name": "hwIsisProcMTExtTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3",
+    "status": "current"
+  },
+  "hwIsisProcMTStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the row status of this table: createAndGo(4): indicates that a row is created. destroy(6): indicates that a row is deleted.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcMTStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.25",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIsisProcMaxLoadBalance": {
+    "class": "objecttype",
+    "description": "This object is used to set the number of equal-cost routes. The range and the default value depend on license. If isis binding to vpn and ip-family not enable, The value is zero.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcMaxLoadBalance",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIsisProcOnStartFromPeerInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1200
+      }
+    },
+    "description": "The value of this object identifies the maximum interval for waiting to clear the overload bit after the system is started and the neighbor relationship is established. The value ranges of set is from 5 to 86400, in seconds. The default value is 1200s. 0 means no configuration. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcOnStartFromPeerInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.23",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 86400,
+            "min": 5
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "seconds"
+  },
+  "hwIsisProcOnStartInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 600
+      }
+    },
+    "description": "The value of this object identifies the interval for waiting to clear the overload bit after the system is started. The value ranges from 5 to 86400, in seconds. The default value is 600s.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcOnStartInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 86400,
+            "min": 5
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "seconds"
+  },
+  "hwIsisProcOnStartStartFromPeer": {
+    "class": "objecttype",
+    "description": "This object indicates the system ID of a neighbor.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcOnStartStartFromPeer",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.22",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 14,
+            "min": 12
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIsisProcOnStartWaitForBgpEnabled": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "This object indicates whether the function of waiting for BGP convergence is enabled: true(1): indicates that the function of waiting for BGP convergence is enabled. false(2): indicates that the function of waiting for BGP convergence is disabled. By default, the function of waiting for BGP convergence is disabled. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcOnStartWaitForBgpEnabled",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.24",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIsisProcOptionalChecksumEnabled": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "Enables BFD-FRR binding on each interface. true (1): enables optional checksum for CSNP,PSNP and IIH PDU. false (2): disables optional checksum for CSNP,PSNP and IIH PDU. By default, optional checksum is disabled. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcOptionalChecksumEnabled",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.42",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIsisProcPrefPolicyName": {
+    "class": "objecttype",
+    "description": "This object indicates the name of the routing policy used for route filtering. The name is a string of 0 to 40 characters. Zero-length means no configuration.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcPrefPolicyName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 40,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIsisProcPrefValue": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 15
+      }
+    },
+    "description": "This object is used to set the preference of an IS-IS route. The value ranges from 1 to 255, and the default value is 15. If isis binding to vpn and ip-family not enable, The value is zero.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcPrefValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIsisProcRowStatus": {
+    "class": "objecttype",
+    "description": "This object supports settings of two values. createAndGo(4): A row is created. destroy(6): A row is deleted.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.41",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIsisProcSetOverLoad": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disable"
+      }
+    },
+    "description": "This object indicates whether a device is enabled to notify its neighbors that its status is Overload: disable (0): indicates that a device is disabled from notifying its neighbors that its status is Overload. enable(1): indicates that a device is enabled to notify its neighbors that its status is Overload. onstartup(2): When a device is restarted or becomes faulty, it notifies its neighbors that its status is Overload.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcSetOverLoad",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1,
+          "onstartup": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisProcSetOverLoadAllowRoute": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "null"
+      }
+    },
+    "description": "This object indicates that the type of routes to be advertised when a device is in the Overload state: null(0): indicates that no route type is specified. external(1): indicates the imported external routes. interlevel(2): indicates the leak routes. externalandinterlevel(3): indicates the imported external and leak routes.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcSetOverLoadAllowRoute",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.3.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "external": 1,
+          "externalandinterlevel": 3,
+          "interlevel": 2,
+          "null": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisProcTEEnableLevel": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "none"
+      }
+    },
+    "description": "Enables IS-IS TE. none (0): does not enable IS-IS TE. level1 (1): enables level-1 TE. level2 (2): enables level-2 TE. level12 (3): enables level-1-2 TE. By default, IS-IS TE is disabled. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcTEEnableLevel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.34",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1": 1,
+          "level12": 3,
+          "level2": 2,
+          "none": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisProcTimerMaxAge": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1200
+      }
+    },
+    "description": "The value of this object identifies the maximum Keepalive time of the LSP. The value ranges from 2 to 65535, in seconds. The default value is 1200s. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcTimerMaxAge",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 2
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "seconds"
+  },
+  "hwIsisProcTimerRefresh": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 900
+      }
+    },
+    "description": "The value of this object identifies the timer of LSP refreshing. The value ranges from 1 to 65534, in seconds. The default value is 900s. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcTimerRefresh",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.18",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65534,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "seconds"
+  },
+  "hwIsisProcTimerSPFIncrInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 200
+      }
+    },
+    "description": "The value of this object identifies the incremental delay timer for two SPF calculations. The value ranges from 1 to 60000, in milliseconds. By default, the interval is 200ms.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcTimerSPFIncrInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.28",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 60000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "millionseconds"
+  },
+  "hwIsisProcTimerSPFInitInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 50
+      }
+    },
+    "description": "The value of this object identifies the delay timer for initial SPF calculation. The value ranges from 1 to 60000, in milliseconds. By default, the interval is 50ms. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcTimerSPFInitInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 60000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "millionseconds"
+  },
+  "hwIsisProcTimerSPFMaxInterval": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 5
+      }
+    },
+    "description": "The value of this object identifies the maximum intervals for SPF calculation. The value ranges from 1 to 120, in seconds. By default, the value is 5s. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcTimerSPFMaxInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.26",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 120,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "seconds"
+  },
+  "hwIsisProcVpn6Name": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the name of the IPv6 VPN instance bound to the IS-IS process. The value ranges from 0 to 31. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcVpn6Name",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.3",
+    "status": "obsolete",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIsisProcVpnName": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the name of the IPv4 VPN instance bound to the IS-IS process. The value ranges from 0 to 31.",
+    "maxaccess": "read-create",
+    "name": "hwIsisProcVpnName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 31,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIsisRemoteIP": {
+    "class": "objecttype",
+    "description": "IP address of the remote end.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwIsisRemoteIP",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddress"
+    }
+  },
+  "hwIsisRouteLeakEntry": {
+    "class": "objecttype",
+    "description": "Entry of route leak commands.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcIdIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisIpTypeIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisMTIdIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisRouteLeakTypeIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIsisRouteLeakEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.7.1",
+    "status": "current"
+  },
+  "hwIsisRouteLeakFilterPolicyBasicAcl": {
+    "class": "objecttype",
+    "description": "The value of this object identifies the number of a basic ACL. The value ranges from 2000 to 2999. 0 means no configuration, The range of this value is from 2000 to 2999. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisRouteLeakFilterPolicyBasicAcl",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.7.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 0,
+            "min": 0
+          },
+          {
+            "max": 2999,
+            "min": 2000
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwIsisRouteLeakFilterPolicyPolicyName": {
+    "class": "objecttype",
+    "description": "The policy name of route leak. If policy type is aclName, the length of this value is from 1 to 32. If policy type is ipPrefix the length of this value is from 1 to 169. If policy type is routePolicy, the length of this value is from 1 to 40. The default length is 0.",
+    "maxaccess": "read-create",
+    "name": "hwIsisRouteLeakFilterPolicyPolicyName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.7.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 169,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwIsisRouteLeakFilterPolicyType": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "none"
+      }
+    },
+    "description": "This object indicates the type of the policy used for route leaking: none(0): indicates that no policy type is specified. basicAcl(1): indicates the number of a basic ACL. aclName(2): indicates the ACL name. ipPrefix(3): indicates the IPv4 prefix. routePolicy(4): indicates the routing policy.",
+    "maxaccess": "read-create",
+    "name": "hwIsisRouteLeakFilterPolicyType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aclName": 2,
+          "basicAcl": 1,
+          "ipPrefix": 3,
+          "none": 0,
+          "routePolicy": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisRouteLeakGroup": {
+    "class": "objectgroup",
+    "description": "The group of hwIsisRouteLeakGroup.",
+    "name": "hwIsisRouteLeakGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisRouteLeakTag"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisRouteLeakFilterPolicyType"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisRouteLeakFilterPolicyBasicAcl"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisRouteLeakFilterPolicyPolicyName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisRouteLeakStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.2.7",
+    "status": "current"
+  },
+  "hwIsisRouteLeakStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the row status of this table: createAndGo(4): indicates that a row is created. destroy(6): indicates that a row is deleted.",
+    "maxaccess": "read-create",
+    "name": "hwIsisRouteLeakStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.7.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIsisRouteLeakTable": {
+    "class": "objecttype",
+    "description": "Set of route leak commands.",
+    "maxaccess": "not-accessible",
+    "name": "hwIsisRouteLeakTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.7",
+    "status": "current"
+  },
+  "hwIsisRouteLeakTag": {
+    "class": "objecttype",
+    "description": "This object indicates the tag of route leaking. If the tag is not configured, the reading value will be 0.",
+    "maxaccess": "read-create",
+    "name": "hwIsisRouteLeakTag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIsisRouteLeakTypeIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the index of the route leaking type: level1intolevel2(1): indicates that Level-1 routes are leaked to Level-2. level2intolevel1(2): indicates that Level-2 routes are leaked to Level-1.",
+    "maxaccess": "not-accessible",
+    "name": "hwIsisRouteLeakTypeIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1intolevel2": 1,
+          "level2intolevel1": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisSeqNumExceedThreshold": {
+    "class": "notificationtype",
+    "description": "The LSP sequence number has exceeded the upper threshold value.",
+    "name": "hwIsisSeqNumExceedThreshold",
+    "objects": [
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysInstance"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisSysLevelIndex"
+      },
+      {
+        "module": "ISIS-MIB",
+        "object": "isisPduLspId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.14",
+    "status": "current"
+  },
+  "hwIsisSummaryAvoidFeedBackEnabled": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "This object indicates whether the function of avoiding learning the summarized routes through SPF calculation is enabled: true(1): indicates that the function is enabled. false(2): indicates that the function is disabled. By default, the summarized routes can be learned through SPF calculation. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisSummaryAvoidFeedBackEnabled",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIsisSummaryEntry": {
+    "class": "objecttype",
+    "description": "Each entry contains one IP summary address.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcIdIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisIpTypeIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisMTIdIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSummaryIPIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSummaryMaskIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwIsisSummaryEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.5.1",
+    "status": "current"
+  },
+  "hwIsisSummaryGenNull0RouteEnabled": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "false"
+      }
+    },
+    "description": "This object indicates whether the function of generating Null0 routes during route summarization is enabled: true(1): indicates that the function is enabled. false(2): indicates that the function is disabled. By default, the function of generating Null0 routes during route summarization is disabled. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisSummaryGenNull0RouteEnabled",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "TruthValue"
+    }
+  },
+  "hwIsisSummaryGroup": {
+    "class": "objectgroup",
+    "description": "The group of hwIsisSummaryGroup.",
+    "name": "hwIsisSummaryGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSummaryAvoidFeedBackEnabled"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSummaryGenNull0RouteEnabled"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSummaryLevel"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSummaryTag"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSummaryStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.2.4",
+    "status": "current"
+  },
+  "hwIsisSummaryIPIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the IP address of the summarized route.",
+    "maxaccess": "not-accessible",
+    "name": "hwIsisSummaryIPIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 4,
+            "min": 4
+          },
+          {
+            "max": 16,
+            "min": 16
+          }
+        ]
+      },
+      "type": "InetAddress"
+    }
+  },
+  "hwIsisSummaryLevel": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "This object indicates the level of the summarized route: level1(1): indicates Level-1. level2(2): indicates Level-2. level12(3): indicates Level-1-2.",
+    "maxaccess": "read-create",
+    "name": "hwIsisSummaryLevel",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.5.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1": 1,
+          "level12": 3,
+          "level2": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwIsisSummaryMaskIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the subnet mask of the summarized route.",
+    "maxaccess": "not-accessible",
+    "name": "hwIsisSummaryMaskIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "InetAddressPrefixLength"
+    }
+  },
+  "hwIsisSummaryStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the row status of this table: createAndGo(4): indicates that a row is created. destroy(6): indicates that a row is deleted.",
+    "maxaccess": "read-create",
+    "name": "hwIsisSummaryStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.5.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwIsisSummaryTable": {
+    "class": "objecttype",
+    "description": "Set of IP summary addresses to use.",
+    "maxaccess": "not-accessible",
+    "name": "hwIsisSummaryTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.5",
+    "status": "current"
+  },
+  "hwIsisSummaryTag": {
+    "class": "objecttype",
+    "description": "This object indicates the administrative tag of the summarized route. ",
+    "maxaccess": "read-create",
+    "name": "hwIsisSummaryTag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.5.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    }
+  },
+  "hwIsisSystemIdAutoRecover": {
+    "class": "notificationtype",
+    "description": "After a system ID conflict was detected within an IS-IS area, IS-IS changed the system ID automatically.",
+    "name": "hwIsisSystemIdAutoRecover",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysInstance"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisConflictSystemID"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisAutoSysId"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisLocalIP"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisRemoteIP"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.12",
+    "status": "current"
+  },
+  "hwIsisSystemIdConflict": {
+    "class": "notificationtype",
+    "description": "ISIS system Id conflict.",
+    "name": "hwIsisSystemIdConflict",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysInstance"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysLevelIndex"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisOwnSysID"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisProcDynamicName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisAdjSysID"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisAdjSysName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisLocalIP"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisAdjIP"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisRemoteIP"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4.1",
+    "status": "current"
+  },
+  "hwIsisTraps": {
+    "class": "objectidentity",
+    "name": "hwIsisTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.4"
+  },
+  "hwIsisTrapsGroup": {
+    "class": "notificationgroup",
+    "description": "The collections of notifications sent by an IS.",
+    "name": "hwIsisTrapsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSystemIdConflict"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisL1ImportRouteExceedLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisL1ImportRouteRestoreToLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisL2ImportRouteExceedLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisL2ImportRouteRestoreToLimit"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisL1ImportRouteThresholdReach"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisL1ImportRouteThresholdReachClear"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisL2ImportRouteThresholdReach"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisL2ImportRouteThresholdReachClear"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisLsdbThresholdReach"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisLsdbThresholdReachClear"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSystemIdAutoRecover"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisAdjacencyChangeClear"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisSeqNumExceedThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.2.25",
+    "status": "current"
+  },
+  "hwIsisTrapsObjects": {
+    "class": "objectidentity",
+    "name": "hwIsisTrapsObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2"
+  },
+  "hwIsisTrapsObjectsGroup": {
+    "class": "objectgroup",
+    "description": "The group of adj change reason.",
+    "name": "hwIsisTrapsObjectsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisAdjChangeReason"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysInstance"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwisisSysLevelIndex"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisOwnSysID"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisAdjSysID"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisAdjSysName"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisConflictSystemID"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisAutoSysId"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisLocalIP"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisAdjIP"
+      },
+      {
+        "module": "HUAWEI-ISIS-CONF-MIB",
+        "object": "hwIsisRemoteIP"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.3.2.24",
+    "status": "current"
+  },
+  "hwisisProcLsdbMaxLimit": {
+    "class": "objecttype",
+    "description": "This object is used to set the maximum limit number of IS-IS LSPs. The value range is from 0 to 500000. The default value 0 means no limit.",
+    "maxaccess": "read-create",
+    "name": "hwisisProcLsdbMaxLimit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.1.1.1.43",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 500000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwisisSysInstance": {
+    "class": "objecttype",
+    "description": "The unique identifier of the Integrated IS-IS instance to which this row corresponds. This object follows the index behavior.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwisisSysInstance",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwisisSysLevelIndex": {
+    "class": "objecttype",
+    "description": "The level that this entry describes.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwisisSysLevelIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.24.2.2.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "level1IS": 1,
+          "level2IS": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "ifName"
+    ],
+    "ISIS-MIB": [
+      "isisSysInstance",
+      "isisAdjState",
+      "isisCircIfIndex",
+      "isisSysLevelIndex",
+      "isisPduLspId"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Counter64",
+      "IpAddress",
+      "Bits",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-ISIS-CONF-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:42 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-ISIS-CONF-MIB"
+  }
+}

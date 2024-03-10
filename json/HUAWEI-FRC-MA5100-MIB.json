@@ -1,0 +1,2662 @@
+{
+  "hwMusaFrcAISDCD": {
+    "class": "objecttype",
+    "description": "The E1/T1 phy port AIS alarm OR V35 phy port DCD alarm.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcAISDCD",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.3.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarmdown": 1,
+          "noalarmup": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcAlarmCount": {
+    "class": "objecttype",
+    "description": "The phy port alarm count.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcAlarmCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.3.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcAlarmSw": {
+    "class": "objecttype",
+    "description": "The phy port alarm switch.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcAlarmSw",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.3.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcAtmCongestState": {
+    "class": "objecttype",
+    "description": "Congest state.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcAtmCongestState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.8.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "serious": 2,
+          "yes": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcAtmDlci": {
+    "class": "objecttype",
+    "description": "atm vcc",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcAtmDlci",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.6.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcAtmInBytes": {
+    "class": "objecttype",
+    "description": "Output loss parkage count.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcAtmInBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.8.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcAtmInDiscards": {
+    "class": "objecttype",
+    "description": "In loss parkage count.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcAtmInDiscards",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.8.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcAtmInFrames": {
+    "class": "objecttype",
+    "description": "In loss parkage count.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcAtmInFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.8.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcAtmOutBytes": {
+    "class": "objecttype",
+    "description": "In loss parkage count.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcAtmOutBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.8.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcAtmOutDiscards": {
+    "class": "objecttype",
+    "description": "Output loss parkage count.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcAtmOutDiscards",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.8.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcAtmOutFrames": {
+    "class": "objecttype",
+    "description": "Output loss parkage count.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcAtmOutFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.8.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcAtmPort": {
+    "class": "objecttype",
+    "description": "Atm port.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcAtmPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.10.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcAtmPortActive": {
+    "class": "objecttype",
+    "description": "Active state.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcAtmPortActive",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.8.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcAtmPortDlci": {
+    "class": "objecttype",
+    "description": "Atm port.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcAtmPortDlci",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.10.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcAtmPortStatisEntry": {
+    "class": "objecttype",
+    "description": "This list contains Atm Port Statistic.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FRC-MA5100-MIB",
+        "object": "hwMusaFrcAtmVcc"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrcAtmPortStatisEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.8.1",
+    "status": "mandatory"
+  },
+  "hwMusaFrcAtmPortStatisTable": {
+    "class": "objecttype",
+    "description": " This table contains Atm PortStatis",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrcAtmPortStatisTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.8",
+    "status": "mandatory"
+  },
+  "hwMusaFrcAtmVcc": {
+    "class": "objecttype",
+    "description": "atm vcc",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcAtmVcc",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.6.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 494,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcBoardClearStatistic": {
+    "class": "objecttype",
+    "description": "Clear the Frc board statisitcs.",
+    "maxaccess": "write-only",
+    "name": "hwMusaFrcBoardClearStatistic",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.1.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcBoardEntry": {
+    "class": "objecttype",
+    "description": "This list contains Musa Frc Board variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaSlotIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrcBoardEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.1.1",
+    "status": "mandatory"
+  },
+  "hwMusaFrcBoardTable": {
+    "class": "objecttype",
+    "description": "Musa Frc board configuration table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrcBoardTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.1",
+    "status": "mandatory"
+  },
+  "hwMusaFrcCir": {
+    "class": "objecttype",
+    "description": "atm cir",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcCir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.6.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2048,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcClockLoopMode": {
+    "class": "objecttype",
+    "description": "The phy port Clock loop mode.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcClockLoopMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.2.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "payloop": 0,
+          "remoteloop": 1,
+          "single-timeslot": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcClockMode": {
+    "class": "objecttype",
+    "description": "The phy port Clock Mode.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcClockMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backplate": 1,
+          "line": 2,
+          "local": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcClp": {
+    "class": "objecttype",
+    "description": "atm clp",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcClp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.6.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clp0": 1,
+          "clp1": 2,
+          "clpDe": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcCongestState": {
+    "class": "objecttype",
+    "description": "Congest state.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcCongestState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.7.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "serious": 2,
+          "yes": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcConnectMode": {
+    "class": "objecttype",
+    "description": "FR connect mode",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcConnectMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.6.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "frIwf": 4,
+          "hdlc": 2,
+          "network11": 0,
+          "networkN1": 3,
+          "service": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcDTR": {
+    "class": "objecttype",
+    "description": "The V35 phy port DTR alarm.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcDTR",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.3.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "up": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcDe": {
+    "class": "objecttype",
+    "description": "atm de",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcDe",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.6.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "netdeClpFrsscs": 0,
+          "netdeFrsscs": 1,
+          "srvde0": 3,
+          "srvde1": 4,
+          "srvdeClp": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcDlci": {
+    "class": "objecttype",
+    "description": "logical port dlci",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcDlci",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.6.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcDlciType": {
+    "class": "objecttype",
+    "description": "The DLCI type.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcDlciType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.4.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 5,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcDownInBytes": {
+    "class": "objecttype",
+    "description": "Atm port.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcDownInBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.10.1.13",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcDownInDiscards": {
+    "class": "objecttype",
+    "description": "Atm port.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcDownInDiscards",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.10.1.14",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcDownInFrames": {
+    "class": "objecttype",
+    "description": "Atm port.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcDownInFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.10.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcDownOutBytes": {
+    "class": "objecttype",
+    "description": "Atm port.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcDownOutBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.10.1.16",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcDownOutDiscards": {
+    "class": "objecttype",
+    "description": "Atm port.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcDownOutDiscards",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.10.1.17",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcDownOutFrames": {
+    "class": "objecttype",
+    "description": "Atm port.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcDownOutFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.10.1.15",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcE1T1TsBitMapV35NValue": {
+    "class": "objecttype",
+    "description": "The E1/T1 TS bit Map or V35 N value.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcE1T1TsBitMapV35NValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.4.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcEfci": {
+    "class": "objecttype",
+    "description": "atm efci",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcEfci",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.6.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "efcn": 0,
+          "valure0": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcEir": {
+    "class": "objecttype",
+    "description": "atm eir",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcEir",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.6.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1984,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcFreeBandwidth": {
+    "class": "objecttype",
+    "description": "The free bandwidth.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcFreeBandwidth",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.4.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcInByteCount": {
+    "class": "objecttype",
+    "description": "In BYTE count.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcInByteCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.7.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcInFrameCount": {
+    "class": "objecttype",
+    "description": "In frame count.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcInFrameCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.7.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcInLossParkageC": {
+    "class": "objecttype",
+    "description": "IN parkage count.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcInLossParkageC",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.7.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcIwfActive": {
+    "class": "objecttype",
+    "description": "Iwf active.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcIwfActive",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.10.1.18",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcIwfCcid": {
+    "class": "objecttype",
+    "description": "IWF CCID",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrcIwfCcid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.6.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 999,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcIwfEntry": {
+    "class": "objecttype",
+    "description": "This list contains Fr Iwf.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FRC-MA5100-MIB",
+        "object": "hwMusaFrcIwfCcid"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrcIwfEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.6.1",
+    "status": "mandatory"
+  },
+  "hwMusaFrcIwfStatisEntry": {
+    "class": "objecttype",
+    "description": "This list contains Iwf Statistic.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FRC-MA5100-MIB",
+        "object": "hwMusaFrcIwfCcid"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrcIwfStatisEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.10.1",
+    "status": "mandatory"
+  },
+  "hwMusaFrcIwfStatisTable": {
+    "class": "objecttype",
+    "description": " This table contains Iwf Statis",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrcIwfStatisTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.10",
+    "status": "mandatory"
+  },
+  "hwMusaFrcIwfTable": {
+    "class": "objecttype",
+    "description": " This table contains Fr Iwf",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrcIwfTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.6",
+    "status": "mandatory"
+  },
+  "hwMusaFrcLFADSR": {
+    "class": "objecttype",
+    "description": "The E1/T1 phy port LFA or V35 phy port DSR alarm.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcLFADSR",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.3.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarmdown": 1,
+          "noalarmup": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcLOSPLL": {
+    "class": "objecttype",
+    "description": "The E1/T1 phy port LOS alarm or V35 phy port PLL alarm.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcLOSPLL",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.3.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarmdown": 1,
+          "noalarmup": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcLogPortSigEntry": {
+    "class": "objecttype",
+    "description": "This list contains FR port information parameters.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FRC-MA5100-MIB",
+        "object": "hwMusaFrcLogPortSigSide"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FRC-MA5100-MIB",
+        "object": "hwMusaFrcLogicPortId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrcLogPortSigEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.5.1",
+    "status": "mandatory"
+  },
+  "hwMusaFrcLogPortSigN391": {
+    "class": "objecttype",
+    "description": "N391",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcLogPortSigN391",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.5.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcLogPortSigNetN392": {
+    "class": "objecttype",
+    "description": "NetN392",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcLogPortSigNetN392",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.5.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcLogPortSigNetN393": {
+    "class": "objecttype",
+    "description": "NetN393",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcLogPortSigNetN393",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.5.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcLogPortSigOper": {
+    "class": "objecttype",
+    "description": "Signalling port operation",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcLogPortSigOper",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.5.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 0,
+          "del": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcLogPortSigPortType": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcLogPortSigPortType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.5.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bid": 3,
+          "net": 2,
+          "user": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcLogPortSigProtocalType": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcLogPortSigProtocalType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.5.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ansit167d": 1,
+          "cisiolmi": 2,
+          "q933a": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcLogPortSigSide": {
+    "class": "objecttype",
+    "description": "Singnalling port side",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrcLogPortSigSide",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.5.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "atmside": 1,
+          "frside": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcLogPortSigT391": {
+    "class": "objecttype",
+    "description": "T391",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcLogPortSigT391",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.5.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 5
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcLogPortSigT392": {
+    "class": "objecttype",
+    "description": "T392",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcLogPortSigT392",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.5.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 6
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcLogPortSigTable": {
+    "class": "objecttype",
+    "description": " This table contains information of system pvc",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrcLogPortSigTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.5",
+    "status": "mandatory"
+  },
+  "hwMusaFrcLogPortSigUserN392": {
+    "class": "objecttype",
+    "description": "UserN392",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcLogPortSigUserN392",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.5.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcLogPortSigUserN393": {
+    "class": "objecttype",
+    "description": "UserN393",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcLogPortSigUserN393",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.5.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcLogicPort": {
+    "class": "objecttype",
+    "description": "logical port",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcLogicPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.6.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 494,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcLogicPortActive": {
+    "class": "objecttype",
+    "description": "Active state.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcLogicPortActive",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.7.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcLogicPortEntry": {
+    "class": "objecttype",
+    "description": "This list contains Musa Fr logic port variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FRC-MA5100-MIB",
+        "object": "hwMusaFrcLogicPortId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrcLogicPortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.4.1",
+    "status": "mandatory"
+  },
+  "hwMusaFrcLogicPortId": {
+    "class": "objecttype",
+    "description": "The Fr Logical Port ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrcLogicPortId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.4.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcLogicPortOperate": {
+    "class": "objecttype",
+    "description": "The operat.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcLogicPortOperate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.4.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 0,
+          "del": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcLogicPortStatisEntry": {
+    "class": "objecttype",
+    "description": "This list contains Logical Port Statistic.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FRC-MA5100-MIB",
+        "object": "hwMusaFrcLogicPortId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrcLogicPortStatisEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.7.1",
+    "status": "mandatory"
+  },
+  "hwMusaFrcLogicPortStatisTable": {
+    "class": "objecttype",
+    "description": " This table contains LogicPortStatis",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrcLogicPortStatisTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.7",
+    "status": "mandatory"
+  },
+  "hwMusaFrcLogicPortTable": {
+    "class": "objecttype",
+    "description": "Musa Frc logic port table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrcLogicPortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.4",
+    "status": "mandatory"
+  },
+  "hwMusaFrcLoopState": {
+    "class": "objecttype",
+    "description": "The phy port Clock loop state.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcLoopState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.2.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loop": 1,
+          "noloop": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcMainClock": {
+    "class": "objecttype",
+    "description": "The main clock. local,backplate,line.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcMainClock",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.2.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backplate": 1,
+          "line": 2,
+          "local": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcMccRxAB": {
+    "class": "objecttype",
+    "description": "MCC\u05757\u06351.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcMccRxAB",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.1.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcMccRxBSY": {
+    "class": "objecttype",
+    "description": "MCC has no idle BD when reveice frame.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcMccRxBSY",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.1.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcMccRxCR": {
+    "class": "objecttype",
+    "description": "MCC\u0575CRC\u0423\u05a1.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcMccRxCR",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.1.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcMccRxIDL": {
+    "class": "objecttype",
+    "description": "The first IDELE-frame head in many frames.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcMccRxIDL",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.1.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcMccRxLG": {
+    "class": "objecttype",
+    "description": "The frames of MCC reveiveed overlength.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcMccRxLG",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.1.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcMccRxLRF": {
+    "class": "objecttype",
+    "description": "The frames of MCC reveiveed underlength.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcMccRxLRF",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.1.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcMccRxMRF": {
+    "class": "objecttype",
+    "description": "The frames MCC reveiveed over the max length.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcMccRxMRF",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.1.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcMccRxNO": {
+    "class": "objecttype",
+    "description": "MCC\u0575\u05bd\u06b6\u05a1.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcMccRxNO",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.1.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcMccRxNoBuff": {
+    "class": "objecttype",
+    "description": "\u077d\u02b1\u4cbbBuffer.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcMccRxNoBuff",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.1.1.19",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcMccRxQOV": {
+    "class": "objecttype",
+    "description": "MCC reveice queue overflow.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcMccRxQOV",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.1.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcMccRxSucc": {
+    "class": "objecttype",
+    "description": "The frames of MCC reveiced successfully.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcMccRxSucc",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.1.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcMccTxGOV": {
+    "class": "objecttype",
+    "description": "MCC\u0573.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcMccTxGOV",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.1.1.16",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcMccTxGUN": {
+    "class": "objecttype",
+    "description": "MCC\u0375\u0378.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcMccTxGUN",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.1.1.15",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcMccTxNoBD": {
+    "class": "objecttype",
+    "description": "\u02b1BD.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcMccTxNoBD",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.1.1.18",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcMccTxQOV": {
+    "class": "objecttype",
+    "description": "MCC\u0436\u03f6.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcMccTxQOV",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.1.1.14",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcMccTxRxNID": {
+    "class": "objecttype",
+    "description": "MCC\u0575\u0137IDLE\u05a1.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcMccTxRxNID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.1.1.13",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcMccTxSucc": {
+    "class": "objecttype",
+    "description": "The frames of MCC send successfully.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcMccTxSucc",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.1.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcMccTxUN": {
+    "class": "objecttype",
+    "description": "CP\u05b8\u02be\u0777.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcMccTxUN",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.1.1.17",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcMib": {
+    "class": "objectidentity",
+    "name": "hwMusaFrcMib",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9"
+  },
+  "hwMusaFrcNetworkDeactC": {
+    "class": "objecttype",
+    "description": "Network port deactive count.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcNetworkDeactC",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.9.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcNetworkLinkC": {
+    "class": "objecttype",
+    "description": "Network link error count.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcNetworkLinkC",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.9.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcNetworkProtocalC": {
+    "class": "objecttype",
+    "description": "Network protocal error count.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcNetworkProtocalC",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.9.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcOperate": {
+    "class": "objecttype",
+    "description": "iwf operate",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcOperate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.6.1.13",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 0,
+          "del": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcOutByteCount": {
+    "class": "objecttype",
+    "description": "Output BYTE count.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcOutByteCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.7.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcOutFrameCount": {
+    "class": "objecttype",
+    "description": "Output frame count.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcOutFrameCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.7.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcOutLossParkageC": {
+    "class": "objecttype",
+    "description": "Output loss parkage count.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcOutLossParkageC",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.7.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcPhyMCCStatisEntry": {
+    "class": "objecttype",
+    "description": "This list contains Phy-MCC Statistic.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FRC-MA5100-MIB",
+        "object": "hwMusaMccType"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrcPhyMCCStatisEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.1.1",
+    "status": "mandatory"
+  },
+  "hwMusaFrcPhyMCCStatisTable": {
+    "class": "objecttype",
+    "description": " This table contains Phy-MCC Statis",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrcPhyMCCStatisTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.1",
+    "status": "mandatory"
+  },
+  "hwMusaFrcPhyPort": {
+    "class": "objecttype",
+    "description": "The Fr phy Port.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcPhyPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.4.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcPhyPortAlarmEntry": {
+    "class": "objecttype",
+    "description": "This list contains Musa Frc phy port Alarm variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FRC-MA5100-MIB",
+        "object": "hwMusaFrcPhyPortId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrcPhyPortAlarmEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.3.1",
+    "status": "mandatory"
+  },
+  "hwMusaFrcPhyPortAlarmTable": {
+    "class": "objecttype",
+    "description": "Musa Frc phy port alarm table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrcPhyPortAlarmTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.3",
+    "status": "mandatory"
+  },
+  "hwMusaFrcPhyPortId": {
+    "class": "objecttype",
+    "description": "the index of the port.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcPhyPortId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.1.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcPhyPortLineIfEntry": {
+    "class": "objecttype",
+    "description": "This list contains Musa Frc phy port line If variables.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FRC-MA5100-MIB",
+        "object": "hwMusaFrcPhyPortId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrcPhyPortLineIfEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.2.1",
+    "status": "mandatory"
+  },
+  "hwMusaFrcPhyPortLineIfTable": {
+    "class": "objecttype",
+    "description": "Musa Frc phy port line Interface table.",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrcPhyPortLineIfTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.2",
+    "status": "mandatory"
+  },
+  "hwMusaFrcPhyPortType": {
+    "class": "objecttype",
+    "description": "physical port type.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcPhyPortType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.1.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "e1": 1,
+          "t1": 2,
+          "v35": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcPhySARStatisEntry": {
+    "class": "objecttype",
+    "description": "This list contains Phy-SAR Statistic.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaSlotIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrcPhySARStatisEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.2.1",
+    "status": "mandatory"
+  },
+  "hwMusaFrcPhySARStatisTable": {
+    "class": "objecttype",
+    "description": " This table contains Phy-SAR Statis",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrcPhySARStatisTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.2",
+    "status": "mandatory"
+  },
+  "hwMusaFrcPhyStatisGroup": {
+    "class": "objectidentity",
+    "name": "hwMusaFrcPhyStatisGroup",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11"
+  },
+  "hwMusaFrcPortActivate": {
+    "class": "objecttype",
+    "description": "The active flag.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcPortActivate",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.4.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "block": 0,
+          "unblock": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcPortDlci": {
+    "class": "objecttype",
+    "description": "Fr Port DLCI.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcPortDlci",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.10.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcPortId": {
+    "class": "objecttype",
+    "description": "Fr Port type.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcPortId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.10.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcPvcAlarmEnable": {
+    "class": "objecttype",
+    "description": "The Frc PVC alarm enable or disable.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcPvcAlarmEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcPvcType": {
+    "class": "objecttype",
+    "description": "pvc type.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcPvcType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.10.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hdlc": 2,
+          "networkiwf": 0,
+          "ppp": 3,
+          "serviceiwf": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcRACTS": {
+    "class": "objecttype",
+    "description": "The E1/T1 phy port remote alarm or V35 phy port CTS alarm.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcRACTS",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.3.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarmdown": 1,
+          "noalarmup": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcRTS": {
+    "class": "objecttype",
+    "description": "The V35 phy port RTS alarm.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcRTS",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.3.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "up": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcRecvFrameC": {
+    "class": "objecttype",
+    "description": "The number of received frames.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcRecvFrameC",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.9.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcSCOL": {
+    "class": "objecttype",
+    "description": "The phy port SCOL alarm.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcSCOL",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.3.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarm": 1,
+          "noalarm": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcSarRecvSucc": {
+    "class": "objecttype",
+    "description": "SAR\u0573\u0279.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcSarRecvSucc",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.2.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcSarRxErrABRT": {
+    "class": "objecttype",
+    "description": "\u0575\u0773\u03aa0\u05a1.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcSarRxErrABRT",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.2.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcSarRxErrBSY": {
+    "class": "objecttype",
+    "description": "SAR\u05a1\u02b1\u07bfBD.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcSarRxErrBSY",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.2.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcSarRxErrCLP": {
+    "class": "objecttype",
+    "description": "\u0575CLP\u03bb\u05a1.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcSarRxErrCLP",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.2.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcSarRxErrCNG": {
+    "class": "objecttype",
+    "description": "\u0575\u04f5\u03bb\u05a1.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcSarRxErrCNG",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.2.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcSarRxErrCPUU": {
+    "class": "objecttype",
+    "description": "\u05750CPCS-UU+CPI.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcSarRxErrCPUU",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.2.1.13",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcSarRxErrCRE": {
+    "class": "objecttype",
+    "description": "\u0575\u05a1CRC\u0423.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcSarRxErrCRE",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.2.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcSarRxErrGBPB": {
+    "class": "objecttype",
+    "description": "\u022bBufferBusy.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcSarRxErrGBPB",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.2.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcSarRxErrGRLI": {
+    "class": "objecttype",
+    "description": "\u022bBuffer\u4d7d\uffaf(\u0436\u03f7\u02bd).",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcSarRxErrGRLI",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.2.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcSarRxErrINTO": {
+    "class": "objecttype",
+    "description": "\u0436\u03f6.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcSarRxErrINTO",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.2.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcSarRxErrLNE": {
+    "class": "objecttype",
+    "description": "\u0575AAL5\u05a1PDU\u0237\u01f7.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcSarRxErrLNE",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.2.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcSarRxErrNoBuff": {
+    "class": "objecttype",
+    "description": "\u05a1\u02b1\u4cbbBuffer.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcSarRxErrNoBuff",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.2.1.15",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcSarRxErrRedLine": {
+    "class": "objecttype",
+    "description": "\u022bBuffer\u4d7d\uffaf(\u0436\u03f7\u02bd).",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcSarRxErrRedLine",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.2.1.14",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcSarRxErrTBNR": {
+    "class": "objecttype",
+    "description": "SAR\u02b1BD Buffer\u03b4\u05fc.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcSarRxErrTBNR",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.2.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcSarSendSucc": {
+    "class": "objecttype",
+    "description": "SAR\u0373\u0279.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcSarSendSucc",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.2.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcSarTxErrNoBD": {
+    "class": "objecttype",
+    "description": "\u05a1\u02b1\u07bfBD.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcSarTxErrNoBD",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.2.1.17",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcSarTxErrTIRU": {
+    "class": "objecttype",
+    "description": "\u06b2\u0123\u02bd\u00a3\u02b5\u0378.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcSarTxErrTIRU",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.2.1.16",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcSendFrameC": {
+    "class": "objecttype",
+    "description": "The number of sended frames.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcSendFrameC",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.9.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcServiceFlag": {
+    "class": "objecttype",
+    "description": "The service FLAG.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcServiceFlag",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.4.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "frIwf": 4,
+          "hdlc": 2,
+          "network11": 0,
+          "networkN1": 3,
+          "service": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcServiceMode": {
+    "class": "objecttype",
+    "description": "atm eir",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcServiceMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.6.1.12",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcSigPortSide": {
+    "class": "objecttype",
+    "description": "signal port side.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcSigPortSide",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.9.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "atm": 1,
+          "fr": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcSigPortStatisEntry": {
+    "class": "objecttype",
+    "description": "This list contains Sig Port Statistic.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaFrameIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-MUSA-MA5100-MIB",
+        "object": "hwMusaSlotIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FRC-MA5100-MIB",
+        "object": "hwMusaFrcLogPortSigSide"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-FRC-MA5100-MIB",
+        "object": "hwMusaFrcLogicPortId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrcSigPortStatisEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.9.1",
+    "status": "mandatory"
+  },
+  "hwMusaFrcSigPortStatisTable": {
+    "class": "objecttype",
+    "description": " This table contains signal Port Statis",
+    "maxaccess": "not-accessible",
+    "name": "hwMusaFrcSigPortStatisTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.9",
+    "status": "mandatory"
+  },
+  "hwMusaFrcSigType": {
+    "class": "objecttype",
+    "description": "signal port type.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcSigType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.9.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bidside": 3,
+          "networkside": 2,
+          "userside": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcSingleTimeSlotId": {
+    "class": "objecttype",
+    "description": "The timeslot id of single timeslot loopback.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcSingleTimeSlotId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.2.1.11",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 31,
+            "min": 1
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcT1E1Crc": {
+    "class": "objecttype",
+    "description": "The T1 crc, when T1 is ESF frame format.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcT1E1Crc",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.2.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcT1E1TsBitMap": {
+    "class": "objecttype",
+    "description": "The TS bit map.",
+    "maxaccess": "read-only",
+    "name": "hwMusaFrcT1E1TsBitMap",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.2.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcT1FrameFormat": {
+    "class": "objecttype",
+    "description": "The T1 frame format.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcT1FrameFormat",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.2.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "t1d412mf": 2,
+          "t1d44mf": 1,
+          "t1esf": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcT1HaulMode": {
+    "class": "objecttype",
+    "description": "The T1 short/long haul mode.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcT1HaulMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.2.1.2",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "long": 1,
+          "short": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcT1LineCode": {
+    "class": "objecttype",
+    "description": "The T1 line code.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcT1LineCode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.2.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ami": 1,
+          "b8zs": 0
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcUpInBytes": {
+    "class": "objecttype",
+    "description": "Fr Port DLCI.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcUpInBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.10.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcUpInDiscards": {
+    "class": "objecttype",
+    "description": "Fr Port DLCI.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcUpInDiscards",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.10.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcUpInFrames": {
+    "class": "objecttype",
+    "description": "Fr in package.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcUpInFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.10.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcUpOutBytes": {
+    "class": "objecttype",
+    "description": "Fr Port DLCI.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcUpOutBytes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.10.1.8",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcUpOutDiscards": {
+    "class": "objecttype",
+    "description": "Fr Port DLCI.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcUpOutDiscards",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.10.1.9",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcUpOutFrames": {
+    "class": "objecttype",
+    "description": "Fr in package.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcUpOutFrames",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.10.1.7",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcUserDeactC": {
+    "class": "objecttype",
+    "description": "User port deactive count.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcUserDeactC",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.9.1.5",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcUserLinkC": {
+    "class": "objecttype",
+    "description": "User link error count.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcUserLinkC",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.9.1.3",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcUserProtocalC": {
+    "class": "objecttype",
+    "description": "User protocal error count.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcUserProtocalC",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.9.1.4",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "type": "Counter"
+    }
+  },
+  "hwMusaFrcV35ClockMode": {
+    "class": "objecttype",
+    "description": "The V35 clock mode.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcV35ClockMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.2.1.6",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dceinner": 0,
+          "dceouter": 2,
+          "dceslave": 1,
+          "dteinner": 3,
+          "dteouter": 5,
+          "dteslave": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaFrcV35InvertTxClock": {
+    "class": "objecttype",
+    "description": "The V35 port Clock invert phase.",
+    "maxaccess": "read-write",
+    "name": "hwMusaFrcV35InvertTxClock",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.2.1.10",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwMusaMccType": {
+    "class": "objecttype",
+    "description": "MCC type.",
+    "maxaccess": "read-only",
+    "name": "hwMusaMccType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.6.5.9.11.1.1.1",
+    "status": "mandatory",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mcc1": 1,
+          "mcc2": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "imports": {
+    "HUAWEI-MUSA-MA5100-MIB": [
+      "hwMusaSlotIndex",
+      "hwMusaFrameIndex",
+      "hwMa5100Mib"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Bits",
+      "iso",
+      "TimeTicks",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-FRC-MA5100-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:25 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-FRC-MA5100-MIB"
+  }
+}

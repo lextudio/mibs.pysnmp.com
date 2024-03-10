@@ -1,0 +1,3080 @@
+{
+  "hwARPArpGratuitousSendInterval": {
+    "class": "objecttype",
+    "description": "This object indicates the interval of the gratuitous-arp send. The value ranges from 1 to 86400, in second, with default value 90.",
+    "maxaccess": "read-only",
+    "name": "hwARPArpGratuitousSendInterval",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.25.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 86400,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwARPGratuitousSendEnable": {
+    "class": "objecttype",
+    "description": "This object indicates the status of the gratuitous-arp send.",
+    "maxaccess": "read-only",
+    "name": "hwARPGratuitousSendEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.25.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwARPGratuitousSendEntry": {
+    "class": "objecttype",
+    "description": "The entry contains the gratuitous arp send information on the vlanif interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwARPGratuitousSendIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwARPGratuitousSendEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.25.1",
+    "status": "current"
+  },
+  "hwARPGratuitousSendIfIndex": {
+    "class": "objecttype",
+    "description": "The ifindex of the ARP gratuitous send configed.",
+    "maxaccess": "not-accessible",
+    "name": "hwARPGratuitousSendIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.25.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwARPGratuitousSendTable": {
+    "class": "objecttype",
+    "description": "The table contains the arp validation information on the interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwARPGratuitousSendTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.25",
+    "status": "current"
+  },
+  "hwArpAntiAttackGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing lockuping ARP anti attack.",
+    "name": "hwArpAntiAttackGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiAttackStatus"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiGateWayConflict"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLogAndTrapTimer"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiAttackIpAddress"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiAttackMacAddress"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiAttackVlanId"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiAttackIfName"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiGatewayConflictIpAddress"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiGatewayConflictMacAddress"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiGatewayConflictVlanId"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiGatewayConflictIfName"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpDynMacAdd"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpDynVlanId"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpDynCeVlanId"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpDynOutIfIndex"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpDynExpireTime"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpCfgVlanId"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpCfgCeVlanId"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpCfgOutIfIndex"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpCfgRowstatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.10",
+    "status": "current"
+  },
+  "hwArpCfgCeVlanId": {
+    "class": "objecttype",
+    "description": "This object indicates the CE VLAN of an ARP items.",
+    "maxaccess": "read-create",
+    "name": "hwArpCfgCeVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.18.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4096,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwArpCfgEntry": {
+    "class": "objecttype",
+    "description": "The value of the object identifies the items of static ARP table, such as IP address of ARP items, VPN instance name of ARP items, MAC address of ARP items, VLAN information of ARP items. hwArpDynEntryIpAdd: indicates the IP address. hwArpDynEntryVrf: indicates the VPN instance name. hwArpDynEntryMacAdd: indicates the MAC address. hwArpDynEntryVlanId: indicates the VLAN of ARP item. hwArpDynEntryCeVlanId: indicates the CE VLAN of ARP item. hwArpDynEntryOutIfIndex: indicates the forwarding interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpCfgIpAdd"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpCfgVrf"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwArpCfgEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.18.1",
+    "status": "current"
+  },
+  "hwArpCfgIpAdd": {
+    "class": "objecttype",
+    "description": "This object indicates the IP address of an ARP items. The value 0 is invalid.",
+    "maxaccess": "not-accessible",
+    "name": "hwArpCfgIpAdd",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.18.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressIPv4"
+    }
+  },
+  "hwArpCfgMacAdd": {
+    "class": "objecttype",
+    "description": "This object indicates the MAC address of an ARP items.",
+    "maxaccess": "read-create",
+    "name": "hwArpCfgMacAdd",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.18.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "MacAddress"
+    }
+  },
+  "hwArpCfgOutIfIndex": {
+    "class": "objecttype",
+    "description": "The physical forwarding interface.",
+    "maxaccess": "read-create",
+    "name": "hwArpCfgOutIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.18.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwArpCfgRowstatus": {
+    "class": "objecttype",
+    "description": "This object indicates the row status of an static ARP item.",
+    "maxaccess": "read-create",
+    "name": "hwArpCfgRowstatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.18.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwArpCfgTable": {
+    "class": "objecttype",
+    "description": "The value of the object identifies the items of static ARP table, such as IP address of ARP items, VPN instance name of ARP items, MAC address of ARP items, VLAN information of ARP items. hwArpDynEntryIpAdd: indicates the IP address. hwArpDynEntryVrf: indicates the VPN instance name. hwArpDynEntryMacAdd: indicates the MAC address. hwArpDynEntryVlanId: indicates the VLAN of ARP item. hwArpDynEntryCeVlanId: indicates the CE VLAN of ARP item. hwArpDynEntryOutIfIndex: indicates the forwarding interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwArpCfgTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.18",
+    "status": "current"
+  },
+  "hwArpCfgVlanId": {
+    "class": "objecttype",
+    "description": "This object indicates the VLAN of an ARP items.",
+    "maxaccess": "read-create",
+    "name": "hwArpCfgVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.18.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4096,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwArpCfgVrf": {
+    "class": "objecttype",
+    "description": "This object indicates the VPN name of an ARP items.",
+    "maxaccess": "not-accessible",
+    "name": "hwArpCfgVrf",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.18.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwArpDynCeVlanId": {
+    "class": "objecttype",
+    "description": "This object indicates the CE VLAN of an ARP items.",
+    "maxaccess": "read-only",
+    "name": "hwArpDynCeVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.17.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4096,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwArpDynEntry": {
+    "class": "objecttype",
+    "description": "The value of the object identifies the items of dynamic ARP table, such as IP address of ARP items, VPN instance name of ARP items, MAC address of ARP items, VLAN information of ARP items, expire time of ARP items. hwArpDynEntryIfIndex: indicates the interface index. hwArpDynEntryIpAdd: indicates the IP address. hwArpDynEntryVrf: indicates the VPN instance name. hwArpDynEntryMacAdd: indicates the MAC address. hwArpDynEntryVlanId: indicates the VLAN of ARP item. hwArpDynEntryCeVlanId: indicates the CE VLAN of ARP item. hwArpDynEntryOutIfIndex: indicates the forwarding interface. hwArpDynEntryExpireTime: indicates the expire time of ARP item.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpDynIfIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpDynIpAdd"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpDynVrf"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwArpDynEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.17.1",
+    "status": "current"
+  },
+  "hwArpDynExpireTime": {
+    "class": "objecttype",
+    "description": "This object indicates the expire time of an ARP items.",
+    "maxaccess": "read-only",
+    "name": "hwArpDynExpireTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.17.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwArpDynIfIndex": {
+    "class": "objecttype",
+    "description": "The logic forwarding interface. The value 0 is invalid.",
+    "maxaccess": "not-accessible",
+    "name": "hwArpDynIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.17.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwArpDynIpAdd": {
+    "class": "objecttype",
+    "description": "This object indicates the IP address of an ARP items. The value 0 is invalid.",
+    "maxaccess": "not-accessible",
+    "name": "hwArpDynIpAdd",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.17.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressIPv4"
+    }
+  },
+  "hwArpDynMacAdd": {
+    "class": "objecttype",
+    "description": "This object indicates the MAC address of an ARP items.",
+    "maxaccess": "read-only",
+    "name": "hwArpDynMacAdd",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.17.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "PhysAddress"
+    }
+  },
+  "hwArpDynOutIfIndex": {
+    "class": "objecttype",
+    "description": "The physical forwarding interface.",
+    "maxaccess": "read-only",
+    "name": "hwArpDynOutIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.17.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwArpDynTable": {
+    "class": "objecttype",
+    "description": "The value of the object identifies the items of ARP table, such as IP address of ARP items, VPN instance name of ARP items, MAC address of ARP items, VLAN information of ARP items, expire time of ARP items. hwArpDynEntryIfIndex: indicates the interface index. hwArpDynEntryIpAdd: indicates the IP address. hwArpDynEntryVrf: indicates the VPN instance name. hwArpDynEntryMacAdd: indicates the MAC address. hwArpDynEntryVlanId: indicates the VLAN of ARP item. hwArpDynEntryCeVlanId: indicates the CE VLAN of ARP item. hwArpDynEntryOutIfIndex: indicates the forwarding interface. hwArpDynEntryExpireTime: indicates the expire time of ARP item.",
+    "maxaccess": "not-accessible",
+    "name": "hwArpDynTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.17",
+    "status": "current"
+  },
+  "hwArpDynVlanId": {
+    "class": "objecttype",
+    "description": "This object indicates the VLAN of an ARP items.",
+    "maxaccess": "read-only",
+    "name": "hwArpDynVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.17.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4096,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwArpDynVrf": {
+    "class": "objecttype",
+    "description": "This object indicates the VPN name of an ARP items.",
+    "maxaccess": "not-accessible",
+    "name": "hwArpDynVrf",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.17.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwArpEntryExpireControlEntry": {
+    "class": "objecttype",
+    "description": "The value of the object identifies the parameters of ARP aging detection, such as ARP detection mode, start time, detection times. At present, only the ARP detection mode and ARP fake-entry expire time can be configured. hwArpEntryExpireIfIndex: indicates the interface index. hwArpEntryExpireDetectMode: indicates the unicast or broadcast ARP aging detection mode. hwArpEntryExpireFakeTime: indicates the expire time of ARP fake entry.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpEntryExpireIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwArpEntryExpireControlEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.16.1",
+    "status": "current"
+  },
+  "hwArpEntryExpireControlGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing configuration of ARP Expire Parameter.",
+    "name": "hwArpEntryExpireControlGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpEntryExpireDetectMode"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpEntryExpireFakeTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.9",
+    "status": "current"
+  },
+  "hwArpEntryExpireControlTable": {
+    "class": "objecttype",
+    "description": "The value of the object identifies the parameters of ARP aging detection, such as ARP detection mode, start time, detection times. At present, only the ARP detection mode and ARP fake-entry expire time can be configured. hwArpEntryExpireIfIndex: indicates the interface index. hwArpEntryExpireDetectMode: indicates the unicast or broadcast ARP aging detection mode. hwArpEntryExpireFakeTime: indicates the expire time of ARP fake entry.",
+    "maxaccess": "not-accessible",
+    "name": "hwArpEntryExpireControlTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.16",
+    "status": "current"
+  },
+  "hwArpEntryExpireDetectMode": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "broadcast"
+      }
+    },
+    "description": "This object indicates the ARP aging detection mode. In unicast ARP detection mode, unicast ARP detection packets are sent before ARP ages. In broadcast ARP detection mode, broadcast ARP detection packets are sent before ARP ages. By default, the system adopts the broadcast ARP detection mode.",
+    "maxaccess": "read-write",
+    "name": "hwArpEntryExpireDetectMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.16.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "broadcast": 1,
+          "unicast": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwArpEntryExpireFakeTime": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "This object indicates the expire time of ARP fake entry. The valid range is from 1 to 36000, and the default value is 1.",
+    "maxaccess": "read-write",
+    "name": "hwArpEntryExpireFakeTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.16.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 36000,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwArpEntryExpireIfIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the index of an interface on which ARP aging detection parameters are set. The value 0 is invalid.",
+    "maxaccess": "not-accessible",
+    "name": "hwArpEntryExpireIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.16.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwArpEntryGatewayConflictEntry": {
+    "class": "objecttype",
+    "description": "The value of the object identifies the information about the source of the attack. It contains IP address, MAC, VLAN ID and interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiGatewayConflictIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwArpEntryGatewayConflictEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.23.1",
+    "status": "current"
+  },
+  "hwArpEntryGatewayConflictTable": {
+    "class": "objecttype",
+    "description": "The value of the object identifies the information about the source of the attack. It contains IP address, MAC, VLAN ID and interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwArpEntryGatewayConflictTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.23",
+    "status": "current"
+  },
+  "hwArpLinkDetectMode": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "strict"
+      }
+    },
+    "description": "The detecting mode for ARP linking interface. If the mode is loose and its status is down, current interface just wait to receive the ARP packet, when received peer\u0027s arp packet, current interface status is up. If mode is strict, current interface sends ARP detecting packet to peer actively, and shutdown itself, if these is no response from peer after the retry times. If status of current interface is up, it will send ARP packet to detect the status of peer actively, whenever the mode is loose or strict.",
+    "maxaccess": "read-create",
+    "name": "hwArpLinkDetectMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.15.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loose": 1,
+          "strict": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwArpLinkDetectTime": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1000
+      }
+    },
+    "description": "The interval time for two ARP packets are sent to detect the peer\u0027s interface status, this time unit is millisecond. The valid range is from 200 to 10000, and the default value is 1000.",
+    "maxaccess": "read-create",
+    "name": "hwArpLinkDetectTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.15.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10000,
+            "min": 200
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwArpLinkDetectTimes": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 3
+      }
+    },
+    "description": "After the max detecting times for ARP packet is sent to, and there is not any response, the sender can judge the peer interface is down. Then, setting the status of current interface down. The valid range is from 1 to 10, and the default value is 3.",
+    "maxaccess": "read-create",
+    "name": "hwArpLinkDetectTimes",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.15.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 10,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwArpLinkIfIndex": {
+    "class": "objecttype",
+    "description": "The index of interface which is configed to be linked by ARP, the zero value is invalid.",
+    "maxaccess": "not-accessible",
+    "name": "hwArpLinkIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.15.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwArpLinkInferaceGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing configuration of ARP linking interface.",
+    "name": "hwArpLinkInferaceGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpLinkPeerIp"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpLinkDetectTime"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpLinkDetectTimes"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpLinkDetectMode"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpLinkStatus"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpLinkRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.8",
+    "status": "current"
+  },
+  "hwArpLinkInterfaceEntry": {
+    "class": "objecttype",
+    "description": "Config ARP link interface: hwArpLinkIfIndex: interface index hwArpLinkPeerIp: peer ip hwArpLinkDetectTime: detection time between two ARP packects hwArpLinkDetectTimes: detection times of ARP packects hwArpLinkDetectMode: detection mode hwArpLinkStatus: interface status hwArpLinkRowStatus: the row status of this row.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpLinkIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwArpLinkInterfaceEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.15.1",
+    "status": "current"
+  },
+  "hwArpLinkInterfaceTable": {
+    "class": "objecttype",
+    "description": "Config ARP link interface: hwArpLinkIfIndex: interface index hwArpLinkPeerIp: peer ip hwArpLinkDetectTime: detection time between two ARP packects hwArpLinkDetectTimes: detection times of ARP packects hwArpLinkDetectMode: detection mode hwArpLinkStatus: interface status hwArpLinkRowStatus: the row status of this row.",
+    "maxaccess": "not-accessible",
+    "name": "hwArpLinkInterfaceTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.15",
+    "status": "current"
+  },
+  "hwArpLinkPeerIp": {
+    "class": "objecttype",
+    "description": "The IP address which ARP detecting packet will send to. When creating a new record or modifying the peer ip address, a check for this ip will be generated. If it is invalid, that operation will be not applicable.",
+    "maxaccess": "read-create",
+    "name": "hwArpLinkPeerIp",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.15.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InetAddressIPv4"
+    }
+  },
+  "hwArpLinkRowStatus": {
+    "class": "objecttype",
+    "description": "The row status of ARP link table. The detail can be found from the rowstatus definition.",
+    "maxaccess": "read-create",
+    "name": "hwArpLinkRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.15.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwArpLinkStatus": {
+    "class": "objecttype",
+    "description": "The status of interface linked by ARP. This value can not be set anytime.",
+    "maxaccess": "read-only",
+    "name": "hwArpLinkStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.15.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 2,
+          "up": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwArpSecValidateDmac": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disabled"
+      }
+    },
+    "description": "indicates check the destination-mac of arp packet head and the ethernet packet head.",
+    "maxaccess": "read-create",
+    "name": "hwArpSecValidateDmac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.24.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwArpSecValidateEntry": {
+    "class": "objecttype",
+    "description": "The entry contains the arp validation information on the interface.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpSecValidateIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwArpSecValidateEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.24.1",
+    "status": "current"
+  },
+  "hwArpSecValidateIfIndex": {
+    "class": "objecttype",
+    "description": "The index of the arp validation entries.",
+    "maxaccess": "not-accessible",
+    "name": "hwArpSecValidateIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.24.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwArpSecValidateRowStatus": {
+    "class": "objecttype",
+    "description": "This object specifies the status of the arp validation table.",
+    "maxaccess": "read-create",
+    "name": "hwArpSecValidateRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.24.1.51",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwArpSecValidateSmac": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disabled"
+      }
+    },
+    "description": "indicates check the source-mac of arp packet head and the ethernet packet head.",
+    "maxaccess": "read-create",
+    "name": "hwArpSecValidateSmac",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.24.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwArpSecValidateTable": {
+    "class": "objecttype",
+    "description": "The table contains the arp validation information on the interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwArpSecValidateTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.24",
+    "status": "current"
+  },
+  "hwArpStatisticsAvailableCount": {
+    "class": "objecttype",
+    "description": "The avaiable number of ARP entries of this type of interfaces.",
+    "maxaccess": "read-only",
+    "name": "hwArpStatisticsAvailableCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.30.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwArpStatisticsEntry": {
+    "class": "objecttype",
+    "description": "The entry contains the arp information of the interfaces.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpStatisticsSlot"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpStatisticsType"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwArpStatisticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.30.1",
+    "status": "current"
+  },
+  "hwArpStatisticsGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects for ARP statistics table.",
+    "name": "hwArpStatisticsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpStatisticsSlot"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpStatisticsType"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpStatisticsLearnedCount"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpStatisticsAvailableCount"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.14",
+    "status": "current"
+  },
+  "hwArpStatisticsLearnedCount": {
+    "class": "objecttype",
+    "description": "Number of ARP entries learned by this type of interfaces.",
+    "maxaccess": "read-only",
+    "name": "hwArpStatisticsLearnedCount",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.30.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwArpStatisticsSlot": {
+    "class": "objecttype",
+    "description": "The slot of ARP Statics Verbose.",
+    "maxaccess": "not-accessible",
+    "name": "hwArpStatisticsSlot",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.30.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwArpStatisticsTable": {
+    "class": "objecttype",
+    "description": "The table contains the arp information of the interfaces.",
+    "maxaccess": "not-accessible",
+    "name": "hwArpStatisticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.30",
+    "status": "current"
+  },
+  "hwArpStatisticsType": {
+    "class": "objecttype",
+    "description": "The Type of Interface Learn ARP.",
+    "maxaccess": "not-accessible",
+    "name": "hwArpStatisticsType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.30.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethTrunk": 3,
+          "ethTrunkQinq": 6,
+          "phy": 1,
+          "phyQinq": 5,
+          "ve": 2,
+          "veQinq": 7,
+          "vlanif": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwETHARPIPConflictGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects for ARP conflict trap.",
+    "name": "hwETHARPIPConflictGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictIPAddress"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictLocalInterfaceName"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictLocalMAC"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictLocalVLAN"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictLocalCEVLAN"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictReceiveInterfaceName"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictReceiveMAC"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictReceiveVLAN"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictReceiveCEVLAN"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictType"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPReceiveDstIPAddr"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPReceiveDstMAC"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPConflictDetect"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.12",
+    "status": "current"
+  },
+  "hwETHARPIPConflictObjects": {
+    "class": "objectidentity",
+    "name": "hwETHARPIPConflictObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.28"
+  },
+  "hwEthARPIpAddr": {
+    "class": "objecttype",
+    "description": "The ip of ARP .",
+    "maxaccess": "not-accessible",
+    "name": "hwEthARPIpAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.12.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwEthARPLimitCfgIfindex": {
+    "class": "objecttype",
+    "description": "The interface on which the limit is configured.",
+    "maxaccess": "not-accessible",
+    "name": "hwEthARPLimitCfgIfindex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.13.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwEthARPLimitEntry": {
+    "class": "objecttype",
+    "description": "Configure the ARP limit based on interfaces or VLANs.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthARPLimitCfgIfindex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthARPVLANFirst"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthARPVLANLast"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEthARPLimitEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.13.1",
+    "status": "current"
+  },
+  "hwEthARPLimitGroup": {
+    "class": "objectgroup",
+    "description": "config the arp limit on the interface with vlanid,limit num.",
+    "name": "hwEthARPLimitGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthARPLimitNum"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthARPLimitRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.4",
+    "status": "current"
+  },
+  "hwEthARPLimitNum": {
+    "class": "objecttype",
+    "description": "The value of the ARP limit.",
+    "maxaccess": "read-create",
+    "name": "hwEthARPLimitNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.13.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEthARPLimitRowStatus": {
+    "class": "objecttype",
+    "description": "The running status of the ARP limit table.",
+    "maxaccess": "read-create",
+    "name": "hwEthARPLimitRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.13.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwEthARPLimitTable": {
+    "class": "objecttype",
+    "description": "Configure the ARP limit based on interfaces or VLANs.",
+    "maxaccess": "not-accessible",
+    "name": "hwEthARPLimitTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.13",
+    "status": "current"
+  },
+  "hwEthARPMacAddr": {
+    "class": "objecttype",
+    "description": "The MAC of ARP .",
+    "maxaccess": "read-only",
+    "name": "hwEthARPMacAddr",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.12.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "PhysAddress"
+    }
+  },
+  "hwEthARPShowIfindex": {
+    "class": "objecttype",
+    "description": "The interface learns ARP packets.",
+    "maxaccess": "not-accessible",
+    "name": "hwEthARPShowIfindex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.12.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwEthARPShowVid": {
+    "class": "objecttype",
+    "description": "The VLAN receives the APR packets.",
+    "maxaccess": "not-accessible",
+    "name": "hwEthARPShowVid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.12.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEthARPShowWithInterAndVidEntry": {
+    "class": "objecttype",
+    "description": "Display the ARP table based on interface number or interface number and VLAN ID.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthARPShowIfindex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthARPShowVid"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthARPIpAddr"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEthARPShowWithInterAndVidEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.12.1",
+    "status": "current"
+  },
+  "hwEthARPShowWithInterAndVidGroup": {
+    "class": "objectgroup",
+    "description": "Display the ARP table based on interface number or interface number and VLAN ID.",
+    "name": "hwEthARPShowWithInterAndVidGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthARPMacAddr"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.3",
+    "status": "current"
+  },
+  "hwEthARPShowWithInterAndVidTable": {
+    "class": "objecttype",
+    "description": "Display the ARP table based on interface number or interface number and VLAN ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwEthARPShowWithInterAndVidTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.12",
+    "status": "current"
+  },
+  "hwEthARPVLANFirst": {
+    "class": "objecttype",
+    "description": "The VLAN to which Layer 2 interfaces belong.",
+    "maxaccess": "not-accessible",
+    "name": "hwEthARPVLANFirst",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.13.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEthARPVLANLast": {
+    "class": "objecttype",
+    "description": "The VLAN to which Layer 2 interfaces belong.",
+    "maxaccess": "not-accessible",
+    "name": "hwEthARPVLANLast",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.13.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEthernetARPAntiAttackAlarm": {
+    "class": "notificationtype",
+    "description": "Trap information about ARP anti-attack: IP address, MAC, VLAN id, interface index.",
+    "name": "hwEthernetARPAntiAttackAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiAttackIpAddress"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiAttackMacAddress"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiAttackVlanId"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiAttackIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.2",
+    "status": "current"
+  },
+  "hwEthernetARPAntiAttackIfName": {
+    "class": "objecttype",
+    "description": "This object indicates the interface name which is attacked.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEthernetARPAntiAttackIfName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.22.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEthernetARPAntiAttackIpAddress": {
+    "class": "objecttype",
+    "description": "This object indicates the IP address which is attacked.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEthernetARPAntiAttackIpAddress",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.22.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwEthernetARPAntiAttackLog": {
+    "class": "objecttype",
+    "description": "To prevent log and trap from being attacked, the function is not enabled by default.",
+    "maxaccess": "read-write",
+    "name": "hwEthernetARPAntiAttackLog",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1200,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEthernetARPAntiAttackMacAddress": {
+    "class": "objecttype",
+    "description": "This object indicates the MAC address which is attacked.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEthernetARPAntiAttackMacAddress",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.22.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEthernetARPAntiAttackObjects": {
+    "class": "objectidentity",
+    "name": "hwEthernetARPAntiAttackObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.22"
+  },
+  "hwEthernetARPAntiAttackStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the status of the ARP anti-attack.",
+    "maxaccess": "read-only",
+    "name": "hwEthernetARPAntiAttackStatus",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.19",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "fixAll": 2,
+          "fixMac": 1,
+          "sendAck": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEthernetARPAntiAttackVlanId": {
+    "class": "objecttype",
+    "description": "This object indicates the VLAN ID which is attacked.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEthernetARPAntiAttackVlanId",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.22.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEthernetARPAntiGateWayConflict": {
+    "class": "objecttype",
+    "description": "This object indicates the status of the ARP anti-gateway-conflict.",
+    "maxaccess": "read-write",
+    "name": "hwEthernetARPAntiGateWayConflict",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.20",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwEthernetARPAntiGatewayConflictAlarm": {
+    "class": "notificationtype",
+    "description": "Trap information about ARP anti-attack: IP address, MAC, VLAN ID, interface index.",
+    "name": "hwEthernetARPAntiGatewayConflictAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiGatewayConflictIpAddress"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiGatewayConflictMacAddress"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiGatewayConflictVlanId"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiGatewayConflictIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.3",
+    "status": "current"
+  },
+  "hwEthernetARPAntiGatewayConflictIfName": {
+    "class": "objecttype",
+    "description": "This object indicates the interface of the attack-source.",
+    "maxaccess": "read-only",
+    "name": "hwEthernetARPAntiGatewayConflictIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.23.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEthernetARPAntiGatewayConflictIndex": {
+    "class": "objecttype",
+    "description": "The index of the gateway conflict entries.",
+    "maxaccess": "not-accessible",
+    "name": "hwEthernetARPAntiGatewayConflictIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.23.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 100,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEthernetARPAntiGatewayConflictIpAddress": {
+    "class": "objecttype",
+    "description": "This object indicates the IP address is attacked.",
+    "maxaccess": "read-only",
+    "name": "hwEthernetARPAntiGatewayConflictIpAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.23.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwEthernetARPAntiGatewayConflictMacAddress": {
+    "class": "objecttype",
+    "description": "This object indicates the MAC of the attack-source.",
+    "maxaccess": "read-only",
+    "name": "hwEthernetARPAntiGatewayConflictMacAddress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.23.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEthernetARPAntiGatewayConflictVlanId": {
+    "class": "objecttype",
+    "description": "This object indicates the VLAN ID of the attack-source.",
+    "maxaccess": "read-only",
+    "name": "hwEthernetARPAntiGatewayConflictVlanId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.23.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEthernetARPBaseGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects providing configuration or display.",
+    "name": "hwEthernetARPBaseGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiAttackLog"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLearningStrict"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitIfIndex"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitConfigured"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitCurrent"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitType"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitSrcIPAddr"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitDstIPAddr"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitVPNinstance"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpSecValidateSmac"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpSecValidateDmac"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpSecValidateRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.5",
+    "status": "current"
+  },
+  "hwEthernetARPCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for arp Speedlimit and arp limit.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPBaseGroup"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLearningStrictInterfaceGroup"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpEntryExpireControlGroup"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwArpAntiAttackGroup"
+      }
+    ],
+    "name": "hwEthernetARPCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.2.1",
+    "status": "current"
+  },
+  "hwEthernetARPCompliances": {
+    "class": "objectidentity",
+    "name": "hwEthernetARPCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.2"
+  },
+  "hwEthernetARPConflictDetect": {
+    "class": "objecttype",
+    "description": "Indicates the ARP conflict detect. In this way, router can detect ARP entries conflict.",
+    "maxaccess": "read-write",
+    "name": "hwEthernetARPConflictDetect",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.27",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEthernetARPConformance": {
+    "class": "objectidentity",
+    "name": "hwEthernetARPConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3"
+  },
+  "hwEthernetARPDropForARPMissSuppress": {
+    "class": "objecttype",
+    "description": "The number of discarded packets caused by the ARP-MISS suppress.",
+    "maxaccess": "read-only",
+    "name": "hwEthernetARPDropForARPMissSuppress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.11.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwEthernetARPDropForARPProxySuppress": {
+    "class": "objecttype",
+    "description": "The number of discarded packets caused by the ARP-PROXY suppress.",
+    "maxaccess": "read-only",
+    "name": "hwEthernetARPDropForARPProxySuppress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.11.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwEthernetARPDropForARPSuppress": {
+    "class": "objecttype",
+    "description": "The number of discarded packets caused by the ARP suppress.",
+    "maxaccess": "read-only",
+    "name": "hwEthernetARPDropForARPSuppress",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.11.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwEthernetARPDropForLimit": {
+    "class": "objecttype",
+    "description": "The number of discarded packets caused by limit.",
+    "maxaccess": "read-only",
+    "name": "hwEthernetARPDropForLimit",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.11.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwEthernetARPDropForOther": {
+    "class": "objecttype",
+    "description": "The number of discarded ARP packets caused by other reasons.",
+    "maxaccess": "read-only",
+    "name": "hwEthernetARPDropForOther",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.11.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwEthernetARPGroups": {
+    "class": "objectidentity",
+    "name": "hwEthernetARPGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1"
+  },
+  "hwEthernetARPIPConflictEvent": {
+    "class": "notificationtype",
+    "description": "Trap information about ARP IP conflict.",
+    "name": "hwEthernetARPIPConflictEvent",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictIPAddress"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictLocalInterfaceName"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictLocalMAC"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictLocalVLAN"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictLocalCEVLAN"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictReceiveInterfaceName"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictReceiveMAC"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictReceiveVLAN"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictReceiveCEVLAN"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictType"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.6",
+    "status": "current"
+  },
+  "hwEthernetARPIPConflictIPAddress": {
+    "class": "objecttype",
+    "description": "This object indicates the conflict IP address.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEthernetARPIPConflictIPAddress",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.28.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwEthernetARPIPConflictLocalCEVLAN": {
+    "class": "objecttype",
+    "description": "This object indicates the CE VLAN before conflict.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEthernetARPIPConflictLocalCEVLAN",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.28.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEthernetARPIPConflictLocalInterfaceName": {
+    "class": "objecttype",
+    "description": "This object indicates the interface before conflict.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEthernetARPIPConflictLocalInterfaceName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.28.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEthernetARPIPConflictLocalMAC": {
+    "class": "objecttype",
+    "description": "This object indicates the MAC before conflict.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEthernetARPIPConflictLocalMAC",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.28.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEthernetARPIPConflictLocalVLAN": {
+    "class": "objecttype",
+    "description": "This object indicates the VLAN before conflict.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEthernetARPIPConflictLocalVLAN",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.28.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEthernetARPIPConflictReceiveCEVLAN": {
+    "class": "objecttype",
+    "description": "This object indicates the CE VLAN of the received packet.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEthernetARPIPConflictReceiveCEVLAN",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.28.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEthernetARPIPConflictReceiveInterfaceName": {
+    "class": "objecttype",
+    "description": "This object indicates the conflict interface.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEthernetARPIPConflictReceiveInterfaceName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.28.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEthernetARPIPConflictReceiveMAC": {
+    "class": "objecttype",
+    "description": "This object indicates the conflict MAC of the received packet.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEthernetARPIPConflictReceiveMAC",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.28.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEthernetARPIPConflictReceiveVLAN": {
+    "class": "objecttype",
+    "description": "This object indicates the VLAN of the received packet.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEthernetARPIPConflictReceiveVLAN",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.28.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 4094,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEthernetARPIPConflictType": {
+    "class": "objecttype",
+    "description": "This object indicates the conflict type.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEthernetARPIPConflictType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.28.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEthernetARPLearnResumeAlarm": {
+    "class": "notificationtype",
+    "description": "Trap information about ARP learning enable: memory usage threshold.",
+    "name": "hwEthernetARPLearnResumeAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLearnStopSlot"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLearnStopThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.10",
+    "status": "current"
+  },
+  "hwEthernetARPLearnStopAlarm": {
+    "class": "notificationtype",
+    "description": "Trap information about ARP learning disable: memory usage threshold.",
+    "name": "hwEthernetARPLearnStopAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLearnStopSlot"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLearnStopThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.9",
+    "status": "current"
+  },
+  "hwEthernetARPLearnStopEntry": {
+    "class": "objecttype",
+    "description": "The value of the object identifies the parameters of of ARP learning disable threshold. hwEthernetARPLearnStopSlot: indicates the slot of the alarm generated. hwEthernetARPLearnStopThreshold: indicates the threshold usage of memory for learning ARP.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLearnStopSlot"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEthernetARPLearnStopEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.29.1",
+    "status": "current"
+  },
+  "hwEthernetARPLearnStopGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects for ARP learning alarm.",
+    "name": "hwEthernetARPLearnStopGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLearnStopSlot"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLearnStopThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.13",
+    "status": "current"
+  },
+  "hwEthernetARPLearnStopSlot": {
+    "class": "objecttype",
+    "description": "This object indicates the the slot of the alarm generated.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEthernetARPLearnStopSlot",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.29.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEthernetARPLearnStopTable": {
+    "class": "objecttype",
+    "description": "The value of the object identifies the parameters of ARP learning disable threshold. hwEthernetARPLearnStopSlot: indicates the slot. hwEthernetARPLearnStopThreshold: indicates the threshold usage of memory for learning ARP.",
+    "maxaccess": "not-accessible",
+    "name": "hwEthernetARPLearnStopTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.29",
+    "status": "current"
+  },
+  "hwEthernetARPLearnStopThreshold": {
+    "class": "objecttype",
+    "description": "This object indicates the threshold usage of memory for learning ARP.",
+    "maxaccess": "read-only",
+    "name": "hwEthernetARPLearnStopThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.29.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwEthernetARPLearningStrict": {
+    "class": "objecttype",
+    "description": "Indicates the ARP strict learning. In this way, routers can learn ARP entries only from the arp reply in response to the arp requrest send by the router.",
+    "maxaccess": "read-write",
+    "name": "hwEthernetARPLearningStrict",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 2,
+          "enable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEthernetARPLearningStrictIfindex": {
+    "class": "objecttype",
+    "description": "The interface on which the ARP Learning Strict be configured.",
+    "maxaccess": "not-accessible",
+    "name": "hwEthernetARPLearningStrictIfindex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.14.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwEthernetARPLearningStrictInterfaceEntry": {
+    "class": "objecttype",
+    "description": "Configure the ARP Learning Strict based on interfaces.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLearningStrictIfindex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEthernetARPLearningStrictInterfaceEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.14.1",
+    "status": "current"
+  },
+  "hwEthernetARPLearningStrictInterfaceGroup": {
+    "class": "objectgroup",
+    "description": "ARP Learning Strict Interface Group.",
+    "name": "hwEthernetARPLearningStrictInterfaceGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLearningStrictState"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLearningStrictRowStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.7",
+    "status": "current"
+  },
+  "hwEthernetARPLearningStrictInterfaceTable": {
+    "class": "objecttype",
+    "description": "Configure the ARP Learning Strict based on interfaces.",
+    "maxaccess": "not-accessible",
+    "name": "hwEthernetARPLearningStrictInterfaceTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.14",
+    "status": "current"
+  },
+  "hwEthernetARPLearningStrictRowStatus": {
+    "class": "objecttype",
+    "description": "The running status of the ARP Learning Strict table.",
+    "maxaccess": "read-create",
+    "name": "hwEthernetARPLearningStrictRowStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.14.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "RowStatus"
+    }
+  },
+  "hwEthernetARPLearningStrictState": {
+    "class": "objecttype",
+    "description": "The ARP Learning Strict State be configured.",
+    "maxaccess": "read-create",
+    "name": "hwEthernetARPLearningStrictState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.14.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forceDisable": 2,
+          "forceEnable": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEthernetARPLimitIPType": {
+    "class": "objecttype",
+    "description": "ARP speed limit is performed on a source or a destination IP address.",
+    "maxaccess": "not-accessible",
+    "name": "hwEthernetARPLimitIPType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "destinationip": 8,
+          "sourceip": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEthernetARPLimitSlot": {
+    "class": "objecttype",
+    "description": "The slot of ARP Speed Limit.",
+    "maxaccess": "not-accessible",
+    "name": "hwEthernetARPLimitSlot",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEthernetARPLimitSpeedValue": {
+    "class": "objecttype",
+    "description": "The Speed Value of ARP Speed Limit.",
+    "maxaccess": "read-write",
+    "name": "hwEthernetARPLimitSpeedValue",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65536,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Unsigned32"
+    }
+  },
+  "hwEthernetARPLimitType": {
+    "class": "objecttype",
+    "description": "The Type of ARP Speed Limit.",
+    "maxaccess": "not-accessible",
+    "name": "hwEthernetARPLimitType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "arp": 1,
+          "arpmiss": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEthernetARPLogAndTrapTimer": {
+    "class": "objecttype",
+    "description": "This object indicates the interval of log and trap. The default value is 0, which means no log and trap.",
+    "maxaccess": "read-write",
+    "name": "hwEthernetARPLogAndTrapTimer",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.21",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1200,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEthernetARPMACIPConflict": {
+    "class": "notificationtype",
+    "description": "Trap information about MAC and IP address conflict: conflict interface name, conflict MAC address, conflict IP address, and the received packet\u0027s destination MAC address, destination IP address, vlan, ce-vlan, receive interface.",
+    "name": "hwEthernetARPMACIPConflict",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictLocalInterfaceName"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictReceiveMAC"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictIPAddress"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPReceiveDstMAC"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPReceiveDstIPAddr"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictReceiveVLAN"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictReceiveCEVLAN"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictReceiveInterfaceName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.7",
+    "status": "current"
+  },
+  "hwEthernetARPMACIPConflictResolved": {
+    "class": "notificationtype",
+    "description": "Trap information about MAC and IP address conflict resolved: conflict interface name, conflict MAC address, conflict IP address.",
+    "name": "hwEthernetARPMACIPConflictResolved",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictLocalInterfaceName"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictReceiveMAC"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictIPAddress"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.8",
+    "status": "current"
+  },
+  "hwEthernetARPMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "Huawei Industrial Base Bantian, Longgang Shenzhen 518129 People\u0027s Republic of China Website: http://www.huawei.com Email: support@huawei.com ",
+    "description": "This MIB describes objects used for managing Ethernet ARP, including ARP Speed-limit,ARP Limit etc. ",
+    "lastupdated": "201404231044Z",
+    "name": "hwEthernetARPMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.123",
+    "organization": "Huawei Technologies Co.,Ltd.",
+    "revisions": [
+      {
+        "description": "Add ARP remote backup fail trap at 2014-04-23.",
+        "revision": "2014-04-23 10:44"
+      },
+      {
+        "description": "Fix the errors checked by a tool.",
+        "revision": "2013-09-07 00:00"
+      },
+      {
+        "description": "The initial revision of this MIB module.",
+        "revision": "2006-06-10 00:00"
+      }
+    ]
+  },
+  "hwEthernetARPMissDropForOther": {
+    "class": "objecttype",
+    "description": "The number of discarded ARP-MISS caused by other reasons.",
+    "maxaccess": "read-only",
+    "name": "hwEthernetARPMissDropForOther",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.11.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwEthernetARPMissRcvNum": {
+    "class": "objecttype",
+    "description": "The number of received ARP-MISS.",
+    "maxaccess": "read-only",
+    "name": "hwEthernetARPMissRcvNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.11.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwEthernetARPNotifications": {
+    "class": "objectidentity",
+    "name": "hwEthernetARPNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2"
+  },
+  "hwEthernetARPNotificationsGroup": {
+    "class": "notificationgroup",
+    "description": "notification Group.",
+    "name": "hwEthernetARPNotificationsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitAlarm"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiAttackAlarm"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPAntiGatewayConflictAlarm"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPThresholdExceedAlarm"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPThresholdResumeAlarm"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPIPConflictEvent"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPMACIPConflict"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPMACIPConflictResolved"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLearnStopAlarm"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLearnResumeAlarm"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPRemoteBackupFailAlarm"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPRemoteBackupFailResumeAlarm"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.6",
+    "status": "current"
+  },
+  "hwEthernetARPObjects": {
+    "class": "objectidentity",
+    "name": "hwEthernetARPObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1"
+  },
+  "hwEthernetARPRcvNum": {
+    "class": "objecttype",
+    "description": "The number of received ARP packets.",
+    "maxaccess": "read-only",
+    "name": "hwEthernetARPRcvNum",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.11.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwEthernetARPReceiveDstIPAddr": {
+    "class": "objecttype",
+    "description": "This object indicates the destination IP address of the received packet.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEthernetARPReceiveDstIPAddr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.28.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwEthernetARPReceiveDstMAC": {
+    "class": "objecttype",
+    "description": "This object indicates the destination MAC of the received packet.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEthernetARPReceiveDstMAC",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.28.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEthernetARPRemoteBackupFaidGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects for the remote ARP entry backup failure alarm.",
+    "name": "hwEthernetARPRemoteBackupFaidGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPRemoteBackupFailMainIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.15",
+    "status": "current"
+  },
+  "hwEthernetARPRemoteBackupFailAlarm": {
+    "class": "notificationtype",
+    "description": "Trap information about the remote ARP entry backup failure.",
+    "name": "hwEthernetARPRemoteBackupFailAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPRemoteBackupFailMainIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.11",
+    "status": "current"
+  },
+  "hwEthernetARPRemoteBackupFailMainIfName": {
+    "class": "objecttype",
+    "description": "This object indicates that the interface name with the remote ARP entry backup failure.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEthernetARPRemoteBackupFailMainIfName",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.31.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwEthernetARPRemoteBackupFailObjects": {
+    "class": "objectidentity",
+    "name": "hwEthernetARPRemoteBackupFailObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.31"
+  },
+  "hwEthernetARPRemoteBackupFailResumeAlarm": {
+    "class": "notificationtype",
+    "description": "Trap clearing information when the backup device detects that ARP entries are successfully backed up within a period.",
+    "name": "hwEthernetARPRemoteBackupFailResumeAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPRemoteBackupFailMainIfName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.12",
+    "status": "current"
+  },
+  "hwEthernetARPSpeedLimitAlarm": {
+    "class": "notificationtype",
+    "description": "Trap information about ARP speed limit: interface index, current configured limit number, current received number, limit type (ARP, ARP-MISS), source IP address, destination IP address, VPN instance.",
+    "name": "hwEthernetARPSpeedLimitAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitIfIndex"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitConfigured"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitCurrent"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitType"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitSrcIPAddr"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitDstIPAddr"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPSpeedLimitVPNinstance"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.1",
+    "status": "current"
+  },
+  "hwEthernetARPSpeedLimitConfigured": {
+    "class": "objecttype",
+    "description": "The Configured Speed Limit Value of ARP Speed Limit.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEthernetARPSpeedLimitConfigured",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwEthernetARPSpeedLimitCurrent": {
+    "class": "objecttype",
+    "description": "The Current Speed Limit Value of ARP Speed Limit.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEthernetARPSpeedLimitCurrent",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwEthernetARPSpeedLimitDstIPAddr": {
+    "class": "objecttype",
+    "description": "The Destination IP address of ARP Speed Limit.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEthernetARPSpeedLimitDstIPAddr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwEthernetARPSpeedLimitEntry": {
+    "class": "objecttype",
+    "description": "The table contains the configuration information of Ethernet ARP Speed limit slot. The information includes type, speedvalue, sourceip and destip.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLimitSlot"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLimitType"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLimitIPType"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEthernetARPSpeedLimitEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.3.1",
+    "status": "current"
+  },
+  "hwEthernetARPSpeedLimitGroup": {
+    "class": "objectgroup",
+    "description": "A Group table ,which contains the configuration information of Ethernet ARP Speed limit slot. The information includes type, speedvalue, sourceip and destip.",
+    "name": "hwEthernetARPSpeedLimitGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPLimitSpeedValue"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.2",
+    "status": "current"
+  },
+  "hwEthernetARPSpeedLimitIfIndex": {
+    "class": "objecttype",
+    "description": "Indicates an interface enabled with ARP-MISS or an interface receiving the ARP packets.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEthernetARPSpeedLimitIfIndex",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwEthernetARPSpeedLimitSrcIPAddr": {
+    "class": "objecttype",
+    "description": "The Source IP address of ARP Speed Limit.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEthernetARPSpeedLimitSrcIPAddr",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "IpAddress"
+    }
+  },
+  "hwEthernetARPSpeedLimitTable": {
+    "class": "objecttype",
+    "description": "The table contains the configuration information of Ethernet ARP Speed limit slot. The information includes type, speedvalue, sourceip and destip.",
+    "maxaccess": "not-accessible",
+    "name": "hwEthernetARPSpeedLimitTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.3",
+    "status": "current"
+  },
+  "hwEthernetARPSpeedLimitType": {
+    "class": "objecttype",
+    "description": "The Type of ARP Speed Limit.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEthernetARPSpeedLimitType",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEthernetARPSpeedLimitVPNinstance": {
+    "class": "objecttype",
+    "description": "The VPN-instance name of ARP Speed Limit.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEthernetARPSpeedLimitVPNinstance",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    }
+  },
+  "hwEthernetARPStaticsEntry": {
+    "class": "objecttype",
+    "description": "A table contains the statistics about Ethernet ARP. The statistics include number of received ARP packets, number of received ARP-MISS packets, number of learned ARP packets, number of discarded ARP packets caused by the ARP limit, the number of discarded ARP-MISS packets caused by the limit and the number of discarded ARP and ARP-MISS packets caused by other reasons.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPStaticsSlot"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwEthernetARPStaticsEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.11.1",
+    "status": "current"
+  },
+  "hwEthernetARPStaticsGroup": {
+    "class": "objectgroup",
+    "description": "A table contains the statistics about Ethernet ARP. The statistics include number of received ARP packets, number of received ARP-MISS packets, number of learned ARP packets, number of discarded ARP packets caused by the ARP limit, the number of discarded ARP-MISS packets caused by the limit and the number of discarded ARP and ARP-MISS packets caused by other reasons.",
+    "name": "hwEthernetARPStaticsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPStaticsLearnTotal"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPDropForLimit"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPDropForARPSuppress"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPDropForARPMissSuppress"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPDropForOther"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPMissDropForOther"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPRcvNum"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPMissRcvNum"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPStaticsOperation"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPDropForARPProxySuppress"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.1",
+    "status": "current"
+  },
+  "hwEthernetARPStaticsLearnTotal": {
+    "class": "objecttype",
+    "description": "The total number of the learned ARP packets.",
+    "maxaccess": "read-only",
+    "name": "hwEthernetARPStaticsLearnTotal",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.11.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwEthernetARPStaticsOperation": {
+    "class": "objecttype",
+    "description": "resets the statistics about Ethernet ARP.",
+    "maxaccess": "read-write",
+    "name": "hwEthernetARPStaticsOperation",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.11.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "unused": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwEthernetARPStaticsSlot": {
+    "class": "objecttype",
+    "description": "The slot about which the ARP statistics are displayed.",
+    "maxaccess": "not-accessible",
+    "name": "hwEthernetARPStaticsSlot",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.11.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 128,
+            "min": 0
+          },
+          {
+            "max": 65535,
+            "min": 65535
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwEthernetARPStaticsTable": {
+    "class": "objecttype",
+    "description": "A table contains the statistics about Ethernet ARP. The statistics include number of received ARP packets, number of received ARP-MISS packets, number of learned ARP packets, number of discarded ARP packets caused by the ARP limit, the number of discarded ARP-MISS packets caused by the limit and the number of discarded ARP and ARP-MISS packets caused by other reasons.",
+    "maxaccess": "not-accessible",
+    "name": "hwEthernetARPStaticsTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.11",
+    "status": "current"
+  },
+  "hwEthernetARPThresholdDynamicNumber": {
+    "class": "objecttype",
+    "description": "This object indicates the number of dynamic ARP entries.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEthernetARPThresholdDynamicNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.26.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwEthernetARPThresholdExceedAlarm": {
+    "class": "notificationtype",
+    "description": "Trap information about ARP exceed threshold: slot, threshold, number of dynamic ARP, number of static ARP.",
+    "name": "hwEthernetARPThresholdExceedAlarm",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPThresholdValue"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPThresholdDynamicNumber"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPThresholdStaticNumber"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.4",
+    "status": "current"
+  },
+  "hwEthernetARPThresholdGroup": {
+    "class": "objectgroup",
+    "description": "A collection of objects for ARP threshold alarm.",
+    "name": "hwEthernetARPThresholdGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPThresholdValue"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPThresholdDynamicNumber"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPThresholdStaticNumber"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.123.3.1.11",
+    "status": "current"
+  },
+  "hwEthernetARPThresholdObjects": {
+    "class": "objectidentity",
+    "name": "hwEthernetARPThresholdObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.26"
+  },
+  "hwEthernetARPThresholdResumeAlarm": {
+    "class": "notificationtype",
+    "description": "Trap information about ARP resume threshold: slot, threshold, number of dynamic ARP, number of static ARP.",
+    "name": "hwEthernetARPThresholdResumeAlarm",
+    "objects": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPThresholdValue"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPThresholdDynamicNumber"
+      },
+      {
+        "module": "HUAWEI-ETHARP-MIB",
+        "object": "hwEthernetARPThresholdStaticNumber"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.123.2.5",
+    "status": "current"
+  },
+  "hwEthernetARPThresholdStaticNumber": {
+    "class": "objecttype",
+    "description": "This object indicates the number of static ARP entries.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEthernetARPThresholdStaticNumber",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.26.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "hwEthernetARPThresholdValue": {
+    "class": "objecttype",
+    "description": "This object indicates the threshold of the alarm generated.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwEthernetARPThresholdValue",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.123.1.26.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    }
+  },
+  "imports": {
+    "ENTITY-MIB": [
+      "PhysicalIndex",
+      "entPhysicalName",
+      "entPhysicalIndex"
+    ],
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressIPv4"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Bits",
+      "Counter32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Integer32",
+      "Gauge32",
+      "Counter64",
+      "Unsigned32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "RowStatus",
+      "PhysAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-ETHARP-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:22 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-ETHARP-MIB"
+  }
+}

@@ -1,0 +1,1376 @@
+{
+  "hwFrameID": {
+    "class": "objecttype",
+    "description": "This object identifies the CSS Frame ID.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwFrameID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.39.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPoeBoardInsertedWrongFrame": {
+    "class": "notificationtype",
+    "description": "This object indicates that the poe board is inserted in the frame does not support poe.",
+    "name": "hwPoeBoardInsertedWrongFrame",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwFrameID"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.19",
+    "status": "current"
+  },
+  "hwPoeConformance": {
+    "class": "objectidentity",
+    "name": "hwPoeConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.100"
+  },
+  "hwPoeConsumPowerThreshold": {
+    "class": "objecttype",
+    "description": "This object identifies the threshold of consuming power.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwPoeConsumPowerThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.39.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPoeCurConsumPower": {
+    "class": "objecttype",
+    "description": "This object identifies the current consuming power.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwPoeCurConsumPower",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.39.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPoeDeviceID": {
+    "class": "objecttype",
+    "description": "This object identifies the device ID.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwPoeDeviceID",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.39.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPoeDimmError": {
+    "class": "notificationtype",
+    "description": "This object indicates the Dimm chip error.",
+    "name": "hwPoeDimmError",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotNum"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeDimmId"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.1",
+    "status": "current"
+  },
+  "hwPoeDimmId": {
+    "class": "objecttype",
+    "description": "This object identifies the DIMM ID.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwPoeDimmId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.2.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPoeGlobalGroup": {
+    "class": "objectgroup",
+    "description": "This object indicates the POE\u0027s global table group.",
+    "name": "hwPoeGlobalGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePowerUtilizationThreshold"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePowerRsvPercent"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePower"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.195.100.1.3",
+    "status": "current"
+  },
+  "hwPoeGlobalObjects": {
+    "class": "objectidentity",
+    "name": "hwPoeGlobalObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.1"
+  },
+  "hwPoeGroups": {
+    "class": "objectidentity",
+    "name": "hwPoeGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.100.1"
+  },
+  "hwPoeMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "R\u0026D BeiJing, Huawei Technologies co.,Ltd. Huawei Bld.,NO.3 Xinxi Rd., Shang-Di Information Industry Base, Hai-Dian District Beijing P.R. China Zip:100085 Http://www.huawei.com E-mail:support@huawei.com",
+    "description": "The HUAWEI-POE-MIB contains objects to manage POE.",
+    "lastupdated": "200908241133Z",
+    "name": "hwPoeMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.195",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwPoeNotification": {
+    "class": "objectidentity",
+    "name": "hwPoeNotification",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40"
+  },
+  "hwPoeNotificationGroup": {
+    "class": "notificationgroup",
+    "description": "This object indicates the POE\u0027s notification table group.",
+    "name": "hwPoeNotificationGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeDimmError"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePowerOff"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePowerOn"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePdPowerOverload"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePdPowerOverloadResume"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePdConnected"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePdDisconnected"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePdClassInvalid"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePdClassOvercurrent"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePdPowerOvercurrent"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePdPowerOvercurrentResume"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePowerOnFail"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePowerOffCurrentLimits"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePowerOverUtilizationThresholdResume"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePowerOverUtilizationThreshold"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePdPriorityDifferent"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotPowerOverload"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotPowerOverloadResume"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeBoardInsertedWrongFrame"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePowerAbsent"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePowerAbsentResume"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeRpsPowerOutputAlarm"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeRpsPowerOutputAlarmResume"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.195.100.1.4",
+    "status": "current"
+  },
+  "hwPoePdClassInvalid": {
+    "class": "notificationtype",
+    "description": "This object indicates that a PD of an invalid class is detected.",
+    "name": "hwPoePdClassInvalid",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.10",
+    "status": "current"
+  },
+  "hwPoePdClassOvercurrent": {
+    "class": "notificationtype",
+    "description": "This object indicates that overcurrent occurs during the classification of a PD.",
+    "name": "hwPoePdClassOvercurrent",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.11",
+    "status": "current"
+  },
+  "hwPoePdConnected": {
+    "class": "notificationtype",
+    "description": "This object indicates that a PD is connected to an interface.",
+    "name": "hwPoePdConnected",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.8",
+    "status": "current"
+  },
+  "hwPoePdDisconnected": {
+    "class": "notificationtype",
+    "description": "This object indicates that a PD is disconnected from an interface.",
+    "name": "hwPoePdDisconnected",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.9",
+    "status": "current"
+  },
+  "hwPoePdPowerOvercurrent": {
+    "class": "notificationtype",
+    "description": "This object indicates that overcurrent occurs during the powering of a PD.",
+    "name": "hwPoePdPowerOvercurrent",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.12",
+    "status": "current"
+  },
+  "hwPoePdPowerOvercurrentResume": {
+    "class": "notificationtype",
+    "description": "This object indicates that overcurrent is rectified.",
+    "name": "hwPoePdPowerOvercurrentResume",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.13",
+    "status": "current"
+  },
+  "hwPoePdPowerOverload": {
+    "class": "notificationtype",
+    "description": "This object indicates the power consumed by a PD connected to an interface exceeds the threshold.",
+    "name": "hwPoePdPowerOverload",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortName"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortConsumingPower"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortMaximumPower"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.6",
+    "status": "current"
+  },
+  "hwPoePdPowerOverloadResume": {
+    "class": "notificationtype",
+    "description": "This object indicates that the power consumed by a PD connected to an interface does not exceed the threshold.",
+    "name": "hwPoePdPowerOverloadResume",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortName"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortConsumingPower"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortMaximumPower"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.7",
+    "status": "current"
+  },
+  "hwPoePdPriority": {
+    "class": "objecttype",
+    "description": "This object identifies the PD priority.(1:critical, 2:high, 3:low(default))",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwPoePdPriority",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.39.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "high": 2,
+          "low": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPoePdPriorityDifferent": {
+    "class": "notificationtype",
+    "description": "This object indicates that the priority of PD is different from the port.",
+    "name": "hwPoePdPriorityDifferent",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortName"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortPriority"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePdPriority"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.16",
+    "status": "current"
+  },
+  "hwPoePortAveragePower": {
+    "class": "objecttype",
+    "description": "This object identifies the average power of an interface. The value is expressed in mW.",
+    "maxaccess": "read-only",
+    "name": "hwPoePortAveragePower",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 30000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPoePortConsumingPower": {
+    "class": "objecttype",
+    "description": "This object identifies the consuming power of an interface. The value is expressed in mW.",
+    "maxaccess": "read-only",
+    "name": "hwPoePortConsumingPower",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.10",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 30000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPoePortCurrent": {
+    "class": "objecttype",
+    "description": "This object indicates the current of an interface. The value is expressed in mA.",
+    "maxaccess": "read-only",
+    "name": "hwPoePortCurrent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.13",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPoePortEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32"
+      }
+    },
+    "description": "This object indicates the enabling status of an interface. (1:enable(default); 2:disable)",
+    "maxaccess": "read-write",
+    "name": "hwPoePortEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwPoePortEntry": {
+    "class": "objecttype",
+    "description": "This object indicates the entry of POE Port Table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPoePortEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1",
+    "status": "current"
+  },
+  "hwPoePortGroup": {
+    "class": "objectgroup",
+    "description": "This object indicates the POE\u0027s port table group.",
+    "name": "hwPoePortGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortEnable"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortPriority"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortMaximumPower"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortPowerOnStatus"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortPowerStatus"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortReferencePower"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortName"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortConsumingPower"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortPeakPower"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortAveragePower"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortCurrent"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortVoltage"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortManualOperation"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortPdClass"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.195.100.1.2",
+    "status": "current"
+  },
+  "hwPoePortIfIndex": {
+    "class": "objecttype",
+    "description": "This object indicates the interface index.",
+    "maxaccess": "not-accessible",
+    "name": "hwPoePortIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwPoePortManualOperation": {
+    "class": "objecttype",
+    "description": "This object indicates that a PD connected to an interface is powered on or powered off manually.",
+    "maxaccess": "read-write",
+    "name": "hwPoePortManualOperation",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.15",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "powerOff": 1,
+          "powerOn": 2
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPoePortMaximumPower": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "hex",
+        "value": "37000"
+      }
+    },
+    "description": "This object identifies the maximum power of an interface.The value is expressed in mW.",
+    "maxaccess": "read-write",
+    "name": "hwPoePortMaximumPower",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 30000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "mW"
+  },
+  "hwPoePortName": {
+    "class": "objecttype",
+    "description": "This object indicates the interface name.",
+    "maxaccess": "read-only",
+    "name": "hwPoePortName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPoePortPdClass": {
+    "class": "objecttype",
+    "description": "This object identifies the class of a PD.",
+    "maxaccess": "read-only",
+    "name": "hwPoePortPdClass",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 7,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPoePortPeakPower": {
+    "class": "objecttype",
+    "description": "This object identifies the peak power of an interface. The value is expressed in mW.",
+    "maxaccess": "read-only",
+    "name": "hwPoePortPeakPower",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 30000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPoePortPowerOnStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the powering status of an interface.",
+    "maxaccess": "read-only",
+    "name": "hwPoePortPowerOnStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPoePortPowerStatus": {
+    "class": "objecttype",
+    "description": "This object indicates the status of an interface.",
+    "maxaccess": "read-only",
+    "name": "hwPoePortPowerStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPoePortPriority": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "low"
+      }
+    },
+    "description": "This object identifies the priority of an interface. (1:critical, 2:high, 3:low(default))",
+    "maxaccess": "read-write",
+    "name": "hwPoePortPriority",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "high": 2,
+          "low": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPoePortReferencePower": {
+    "class": "objecttype",
+    "description": "This object identifies the guaranteed power of an interface. The value is expressed in mW.",
+    "maxaccess": "read-only",
+    "name": "hwPoePortReferencePower",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 30000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPoePortTable": {
+    "class": "objecttype",
+    "description": "This object indicates the table that contains the configuration parameters of a POE interface. One entry corresponds to a POE interface.",
+    "maxaccess": "not-accessible",
+    "name": "hwPoePortTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3",
+    "status": "current"
+  },
+  "hwPoePortVoltage": {
+    "class": "objecttype",
+    "description": "This object indicates the voltage of an interface. The value is expressed in V.",
+    "maxaccess": "read-only",
+    "name": "hwPoePortVoltage",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.14",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPoePower": {
+    "class": "objecttype",
+    "description": "This object identifies the maximum POE power of the system.",
+    "maxaccess": "read-only",
+    "name": "hwPoePower",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPoePowerAbsent": {
+    "class": "notificationtype",
+    "description": "This object indicates that the poe power is absent.",
+    "name": "hwPoePowerAbsent",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwFrameID"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.20",
+    "status": "current"
+  },
+  "hwPoePowerAbsentResume": {
+    "class": "notificationtype",
+    "description": "This object indicates that the poe power is present.",
+    "name": "hwPoePowerAbsentResume",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwFrameID"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.21",
+    "status": "current"
+  },
+  "hwPoePowerOff": {
+    "class": "notificationtype",
+    "description": "This object indicates a PD connected to an interface is powered off.",
+    "name": "hwPoePowerOff",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.2",
+    "status": "current"
+  },
+  "hwPoePowerOffCurrentLimits": {
+    "class": "notificationtype",
+    "description": "This object indicates that a PD is powered off because its current meets or exceeds the limit of current.",
+    "name": "hwPoePowerOffCurrentLimits",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.15",
+    "status": "current"
+  },
+  "hwPoePowerOn": {
+    "class": "notificationtype",
+    "description": "This object indicates that a PD connected to an interface is powered on.",
+    "name": "hwPoePowerOn",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.3",
+    "status": "current"
+  },
+  "hwPoePowerOnFail": {
+    "class": "notificationtype",
+    "description": "This object indicates that a PD fails to be powered on.",
+    "name": "hwPoePowerOnFail",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortName"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.14",
+    "status": "current"
+  },
+  "hwPoePowerOverUtilizationThreshold": {
+    "class": "notificationtype",
+    "description": "This object indicates that the PSE is overdrawing power.",
+    "name": "hwPoePowerOverUtilizationThreshold",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeDeviceID"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeCurConsumPower"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeConsumPowerThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.17",
+    "status": "current"
+  },
+  "hwPoePowerOverUtilizationThresholdResume": {
+    "class": "notificationtype",
+    "description": "This object indicates that the PSE is not overdrawing power.",
+    "name": "hwPoePowerOverUtilizationThresholdResume",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeDeviceID"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeCurConsumPower"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeConsumPowerThreshold"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.18",
+    "status": "current"
+  },
+  "hwPoePowerRsvPercent": {
+    "class": "objecttype",
+    "description": "This object identifies the reserved percent of total POE power.",
+    "maxaccess": "read-write",
+    "name": "hwPoePowerRsvPercent",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPoePowerUtilizationThreshold": {
+    "class": "objecttype",
+    "description": "This object identifies the utilization threshold of total POE power.",
+    "maxaccess": "read-write",
+    "name": "hwPoePowerUtilizationThreshold",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPoeRpsPowerOutputAlarm": {
+    "class": "notificationtype",
+    "description": "This object indicates that the RPS power can not provide POE power for this device.",
+    "name": "hwPoeRpsPowerOutputAlarm",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.22",
+    "status": "current"
+  },
+  "hwPoeRpsPowerOutputAlarmResume": {
+    "class": "notificationtype",
+    "description": "This object indicates that the RPS power can provide POE power for this device.",
+    "name": "hwPoeRpsPowerOutputAlarmResume",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotNum"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.23",
+    "status": "current"
+  },
+  "hwPoeSlotAvailablePower": {
+    "class": "objecttype",
+    "description": "This object idenfies the available Power. The value is expressed in mW.",
+    "maxaccess": "read-only",
+    "name": "hwPoeSlotAvailablePower",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.2.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPoeSlotConsumingPower": {
+    "class": "objecttype",
+    "description": "This object identifies the total consuming power of a slot. The value is expressed in mW.",
+    "maxaccess": "read-only",
+    "name": "hwPoeSlotConsumingPower",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.2.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPoeSlotEntry": {
+    "class": "objecttype",
+    "description": "This object indicates the entry of the slot configuration table of POE.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotId"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPoeSlotEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.2.1",
+    "status": "current"
+  },
+  "hwPoeSlotGroup": {
+    "class": "objectgroup",
+    "description": "This object indicates the POE\u0027s slot table group.",
+    "name": "hwPoeSlotGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotMaximumPower"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotReferencePower"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotConsumingPower"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotPeakPower"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotPowerManagementManner"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotIsPoeDevice"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotLegacyDetect"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotPowerRsvPercent"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotPowerUtilizationThreshold"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeDimmId"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotAvailablePower"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.195.100.1.1",
+    "status": "current"
+  },
+  "hwPoeSlotId": {
+    "class": "objecttype",
+    "description": "This object identifies the slot ID.",
+    "maxaccess": "not-accessible",
+    "name": "hwPoeSlotId",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.2.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 8,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPoeSlotIsPoeDevice": {
+    "class": "objecttype",
+    "description": "This object indicates whether the device supports PoE.",
+    "maxaccess": "read-only",
+    "name": "hwPoeSlotIsPoeDevice",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.2.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPoeSlotLegacyDetect": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "disabled"
+      }
+    },
+    "description": "This object indicates the compatibility detection of a non-standard device. (1:enable; 2:disable(default))",
+    "maxaccess": "read-write",
+    "name": "hwPoeSlotLegacyDetect",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.2.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwPoeSlotMaximumPower": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "hex",
+        "value": "1776000"
+      }
+    },
+    "description": "This object identifies the maximum power set by users. The value is expressed in mW.",
+    "maxaccess": "read-write",
+    "name": "hwPoeSlotMaximumPower",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.2.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 1600000,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    },
+    "units": "mW"
+  },
+  "hwPoeSlotNum": {
+    "class": "objecttype",
+    "description": "This object identifies the slot ID.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwPoeSlotNum",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.39.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPoeSlotPeakPower": {
+    "class": "objecttype",
+    "description": "This object identifies the total peak power of a slot. The value is expressed in mW.",
+    "maxaccess": "read-only",
+    "name": "hwPoeSlotPeakPower",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.2.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPoeSlotPowerManagementManner": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "enum",
+        "value": "auto"
+      }
+    },
+    "description": "This object identifies the power management manner. (1:manual, 2:auto(default)).",
+    "maxaccess": "read-write",
+    "name": "hwPoeSlotPowerManagementManner",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.2.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 2,
+          "manual": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPoeSlotPowerOverload": {
+    "class": "notificationtype",
+    "description": "This object indicates that the power consumed by a slot exceeds the threshold.",
+    "name": "hwPoeSlotPowerOverload",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotNum"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotConsumingPower"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.4",
+    "status": "current"
+  },
+  "hwPoeSlotPowerOverloadResume": {
+    "class": "notificationtype",
+    "description": "This object indicates that the power consumed by a slot does not exceed the threshold.",
+    "name": "hwPoeSlotPowerOverloadResume",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotNum"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotConsumingPower"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.5",
+    "status": "current"
+  },
+  "hwPoeSlotPowerRsvPercent": {
+    "class": "objecttype",
+    "description": "This object identifies the reserved percent of POE power in slot.",
+    "maxaccess": "read-write",
+    "name": "hwPoeSlotPowerRsvPercent",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.2.1.11",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPoeSlotPowerUtilizationThreshold": {
+    "class": "objecttype",
+    "description": "This object identifies the utilization threshold of total POE power in slot.",
+    "maxaccess": "read-write",
+    "name": "hwPoeSlotPowerUtilizationThreshold",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.2.1.12",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPoeSlotReferencePower": {
+    "class": "objecttype",
+    "description": "This object identifies the total reference power of a slot. The value is expressed in mW.",
+    "maxaccess": "read-only",
+    "name": "hwPoeSlotReferencePower",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.2.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "Integer32"
+    }
+  },
+  "hwPoeSlotTable": {
+    "class": "objecttype",
+    "description": "This object indicates the slot configuration table of POE.",
+    "maxaccess": "not-accessible",
+    "name": "hwPoeSlotTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.2",
+    "status": "current"
+  },
+  "hwPoeTrapObjects": {
+    "class": "objectidentity",
+    "name": "hwPoeTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.39"
+  },
+  "hwPoeTrapObjectsGroup": {
+    "class": "objectgroup",
+    "description": "Description.",
+    "name": "hwPoeTrapObjectsGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePdPriority"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotNum"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeCurConsumPower"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeConsumPowerThreshold"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeDeviceID"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwFrameID"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.195.100.1.5",
+    "status": "current"
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "iso",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-POE-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:48:40 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-POE-MIB"
+  }
+}

@@ -1,0 +1,996 @@
+{
+  "hwLPortLoopDetectIfName": {
+    "class": "objecttype",
+    "description": "The interface name.",
+    "maxaccess": "read-only",
+    "name": "hwLPortLoopDetectIfName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.7.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 48,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLdtCompliance": {
+    "class": "modulecompliance",
+    "description": "The compliance statement for SNMP entities which implement the HUAWEI-LDT-MIB.",
+    "modulecompliance": [
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtConfigGroup"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtPortConfigGroup"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtTrapPortGroup"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtTrapGroup"
+      }
+    ],
+    "name": "hwLdtCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.4.1.1",
+    "status": "current"
+  },
+  "hwLdtConfigGroup": {
+    "class": "objectgroup",
+    "description": "The collection of objects which are used to configure the LDT implementation behavior. This group is mandatory for agents which implement the LDT.",
+    "name": "hwLdtConfigGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtEnable"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtIntervalTime"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtVlanListLow"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtVlanListHigh"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLoopDetectInterval"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLoopDetectSendingPacketInterval"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.174.4.2.1",
+    "status": "current"
+  },
+  "hwLdtConfiguration": {
+    "class": "objectidentity",
+    "name": "hwLdtConfiguration",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1"
+  },
+  "hwLdtConformance": {
+    "class": "objectidentity",
+    "name": "hwLdtConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.4"
+  },
+  "hwLdtConformances": {
+    "class": "objectidentity",
+    "name": "hwLdtConformances",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.4.1"
+  },
+  "hwLdtEnable": {
+    "class": "objecttype",
+    "description": "Globally enable or disable the LDT configuration. If the hwLdtEnable is 1, LDT is enabled. If the hwLdtEnable is 2, LDT is disabled. By default, LDT is 2(disabled).",
+    "maxaccess": "read-write",
+    "name": "hwLdtEnable",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLdtGroups": {
+    "class": "objectidentity",
+    "name": "hwLdtGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.4.2"
+  },
+  "hwLdtInterfaceIndex": {
+    "class": "objecttype",
+    "description": "A unique value, greater than zero, for each interface or interface sub-layer in the managed system. The value is consistent with the ifIndex in ifTable of IF-MIB.",
+    "maxaccess": "not-accessible",
+    "name": "hwLdtInterfaceIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.5.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwLdtInterfaceName": {
+    "class": "objecttype",
+    "description": "The interface name.",
+    "maxaccess": "read-only",
+    "name": "hwLdtInterfaceName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.5.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 48,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLdtIntervalTime": {
+    "class": "objecttype",
+    "description": "Packet send interval time. By default, the time is 5s.",
+    "maxaccess": "read-write",
+    "name": "hwLdtIntervalTime",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 300,
+            "min": 5
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLdtMIB": {
+    "class": "moduleidentity",
+    "contactinfo": "R\u0026D NanJing, Huawei Technologies co.,Ltd. High hope mansion, Baixia road, Nanjing city Zip:100085 Http://www.huawei.com E-mail:support@huawei.com Zip:100000 ",
+    "description": "This file is an LDT-MIB. It provides such functions of globally enabling or disabling the LDT function, enabling the global alarm, clearing statistics on ports and configuring work mode and so on.",
+    "lastupdated": "200807171700Z",
+    "name": "hwLdtMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.174",
+    "organization": "Huawei Technologies co.,Ltd."
+  },
+  "hwLdtObjects": {
+    "class": "objectidentity",
+    "name": "hwLdtObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1"
+  },
+  "hwLdtPortConfigEntry": {
+    "class": "objecttype",
+    "description": "Entries of the LDT port congfiguration table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtInterfaceIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwLdtPortConfigEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.5.1",
+    "status": "current"
+  },
+  "hwLdtPortConfigGroup": {
+    "class": "objectgroup",
+    "description": "The collection of objects indicate information of port.",
+    "name": "hwLdtPortConfigGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtPortLdtEnable"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtInterfaceName"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtPortMode"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtPortStatus"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtPortRecoveryTime"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLPortLoopDetectIfName"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwPortLoopDetectEnabled"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwPortLoopDetectRecoveryTime"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwPortLoopDetectAction"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwPortLoopDetectStatus"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwPortLoopDetectProtocol"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwPortLoopDetectVlanLow"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwPortLoopDetectVlanHigh"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.174.4.2.2",
+    "status": "current"
+  },
+  "hwLdtPortConfigTable": {
+    "class": "objecttype",
+    "description": "LDT port congfiguration table.",
+    "maxaccess": "not-accessible",
+    "name": "hwLdtPortConfigTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.5",
+    "status": "current"
+  },
+  "hwLdtPortLdtEnable": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 1
+      }
+    },
+    "description": "Interface enable or disable. If the hwLdtPortLdtEnable is 1, it is enabled. If the hwLdtPortLdtEnable is 2, it is disabled. By default, it is disabled.",
+    "maxaccess": "read-write",
+    "name": "hwLdtPortLdtEnable",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.5.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 2,
+          "enabled": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLdtPortLoop": {
+    "class": "notificationtype",
+    "description": "Notify the NMS that the LDT detected Loop.hwLdtInterfaceName node is interface name, hwLdtPortLoopVlanlistLow node is The lowest possible value of the vlan list, hwLdtPortLoopVlanlistHigh node is The highest possible value of the vlan list.",
+    "name": "hwLdtPortLoop",
+    "objects": [
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtInterfaceName"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtPortLoopVlanListLow"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtPortLoopVlanListHigh"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.174.3.1",
+    "status": "current"
+  },
+  "hwLdtPortLoopDetect": {
+    "class": "notificationtype",
+    "description": "Notify the NMS that Loopback does exist on this port, hwLdtPortLoopDetectVlanList node indicates that which VLAN exits loopback, hwPortLoopDetectStatus node is the status of this port.",
+    "name": "hwLdtPortLoopDetect",
+    "objects": [
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLPortLoopDetectIfName"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtPortLoopDetectVlanList"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwPortLoopDetectStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.174.3.3",
+    "status": "current"
+  },
+  "hwLdtPortLoopDetectRecovery": {
+    "class": "notificationtype",
+    "description": "Notify the NMS that Loopback disappeared on this port.",
+    "name": "hwLdtPortLoopDetectRecovery",
+    "objects": [
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLPortLoopDetectIfName"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwPortLoopDetectStatus"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.174.3.4",
+    "status": "current"
+  },
+  "hwLdtPortLoopDetectVlanList": {
+    "class": "objecttype",
+    "description": "The possible vlan for discovering loop.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwLdtPortLoopDetectVlanList",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.2.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 1024,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLdtPortLoopVlanListHigh": {
+    "class": "objecttype",
+    "description": "The highest possible value of the vlan list for discovering loop.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwLdtPortLoopVlanListHigh",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.2.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 256,
+            "min": 256
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLdtPortLoopVlanListLow": {
+    "class": "objecttype",
+    "description": "The lowest possible value of the vlan list for discovering loop.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwLdtPortLoopVlanListLow",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.2.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 256,
+            "min": 256
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLdtPortMode": {
+    "class": "objecttype",
+    "default": {
+      "default": {
+        "basetype": "Integer32",
+        "format": "decimal",
+        "value": 2
+      }
+    },
+    "description": "Action of Loop detection, including trap, blocking,noLearning,and shutdown. By default the mode is blocking.",
+    "maxaccess": "read-write",
+    "name": "hwLdtPortMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.5.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blocking": 2,
+          "noLearning": 3,
+          "shutdown": 4,
+          "trap": 1
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLdtPortRecoverVlanListHigh": {
+    "class": "objecttype",
+    "description": "The highest possible value of the vlan list for discovering loop.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwLdtPortRecoverVlanListHigh",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.2.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 256,
+            "min": 256
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLdtPortRecoverVlanListLow": {
+    "class": "objecttype",
+    "description": "The lowest possible value of the vlan list for discovering loop.",
+    "maxaccess": "accessible-for-notify",
+    "name": "hwLdtPortRecoverVlanListLow",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.2.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 256,
+            "min": 256
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLdtPortRecoveryTime": {
+    "class": "objecttype",
+    "description": "Port recovery time.By default the time is 1s.",
+    "maxaccess": "read-write",
+    "name": "hwLdtPortRecoveryTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.5.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLdtPortRecovry": {
+    "class": "notificationtype",
+    "description": "Notify the NMS that the LDT detected resuming port.hwLdtInterfaceName node is interface index, hwLdtPortRecoverVlanlistLow node is The lowest possible value of the vlan list, hwLdtPortRecoverVlanlistHigh node is The highest possible value of the vlan list.",
+    "name": "hwLdtPortRecovry",
+    "objects": [
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtInterfaceName"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtPortRecoverVlanListLow"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtPortRecoverVlanListHigh"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.174.3.2",
+    "status": "current"
+  },
+  "hwLdtPortStatus": {
+    "class": "objecttype",
+    "description": "Port status, including normal, blocking, noLearning, and shutdown. By default the status is normal.",
+    "maxaccess": "read-only",
+    "name": "hwLdtPortStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.5.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blocking": 2,
+          "noLearning": 3,
+          "normal": 1,
+          "shutdown": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLdtPortStatusEntry": {
+    "class": "objecttype",
+    "description": "Entries of the LDT port status table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtInterfaceIndex"
+      },
+      {
+        "implied": 0,
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtPortVlanIDIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwLdtPortStatusEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.6.1",
+    "status": "current"
+  },
+  "hwLdtPortStatusTable": {
+    "class": "objecttype",
+    "description": "LDT port status table.",
+    "maxaccess": "not-accessible",
+    "name": "hwLdtPortStatusTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.6",
+    "status": "current"
+  },
+  "hwLdtPortTrapObjects": {
+    "class": "objectidentity",
+    "name": "hwLdtPortTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.2"
+  },
+  "hwLdtPortVlanIDIndex": {
+    "class": "objecttype",
+    "description": "Port enabled vlanId.",
+    "maxaccess": "not-accessible",
+    "name": "hwLdtPortVlanIDIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.6.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "VlanId"
+    }
+  },
+  "hwLdtPortVlanStatus": {
+    "class": "objecttype",
+    "description": "Port status, including normal, blocking, noLearning, and shutdown. By default the status is normal.",
+    "maxaccess": "read-only",
+    "name": "hwLdtPortVlanStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.6.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blocking": 2,
+          "noLearning": 3,
+          "normal": 1,
+          "shutdown": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwLdtTrapGroup": {
+    "class": "notificationgroup",
+    "description": "The collection of notifications used to indicate HUAWEI-LDT-MIB data consistency and general status information.",
+    "name": "hwLdtTrapGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtPortLoop"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtPortRecovry"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtPortLoopDetect"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtPortLoopDetectRecovery"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.174.4.2.4",
+    "status": "current"
+  },
+  "hwLdtTrapPortGroup": {
+    "class": "objectgroup",
+    "description": "The collection of notifications used to indicate HUAWEI-LDT-MIB data consistency and general status information.",
+    "name": "hwLdtTrapPortGroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtPortLoopVlanListLow"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtPortLoopVlanListHigh"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtPortRecoverVlanListLow"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtPortRecoverVlanListHigh"
+      },
+      {
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwLdtPortLoopDetectVlanList"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.5.25.174.4.2.3",
+    "status": "current"
+  },
+  "hwLdtTraps": {
+    "class": "objectidentity",
+    "name": "hwLdtTraps",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.3"
+  },
+  "hwLdtVlanListHigh": {
+    "class": "objecttype",
+    "description": "The highest possible value of the vlan list.",
+    "maxaccess": "read-write",
+    "name": "hwLdtVlanListHigh",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 256,
+            "min": 256
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLdtVlanListLow": {
+    "class": "objecttype",
+    "description": "The lowest possible value of the vlan list.",
+    "maxaccess": "read-write",
+    "name": "hwLdtVlanListLow",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 256,
+            "min": 256
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwLoopDetectInterval": {
+    "class": "objecttype",
+    "description": "The detect period of system external loopback detection, the default value is 5 second.",
+    "maxaccess": "read-write",
+    "name": "hwLoopDetectInterval",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 300,
+            "min": 5
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwLoopDetectSendingPacketInterval": {
+    "class": "objecttype",
+    "description": "The period of sending detecting packet, the default value is 5 second.",
+    "maxaccess": "read-write",
+    "name": "hwLoopDetectSendingPacketInterval",
+    "nodetype": "scalar",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 300,
+            "min": 1
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPortLoopDetectAction": {
+    "class": "objecttype",
+    "description": "The port external loopback detection protect action of this entry.",
+    "maxaccess": "read-write",
+    "name": "hwPortLoopDetectAction",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.7.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blocking": 2,
+          "noLearning": 4,
+          "shutdown": 1,
+          "trap": 3
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPortLoopDetectEnabled": {
+    "class": "objecttype",
+    "description": "When this object is set to \u0027enabled(1)\u0027 Port external loopback detection is enabled on this port else disabled.",
+    "maxaccess": "read-write",
+    "name": "hwPortLoopDetectEnabled",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.7.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "EnabledStatus"
+    }
+  },
+  "hwPortLoopDetectEntry": {
+    "class": "objecttype",
+    "description": "Entries of the port external loopback detection table.",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "HUAWEI-LDT-MIB",
+        "object": "hwPortLoopDetectIfIndex"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "hwPortLoopDetectEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.7.1",
+    "status": "current"
+  },
+  "hwPortLoopDetectIfIndex": {
+    "class": "objecttype",
+    "description": "The port number which will be configured port external loopback detection.",
+    "maxaccess": "not-accessible",
+    "name": "hwPortLoopDetectIfIndex",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.7.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "type": "InterfaceIndex"
+    }
+  },
+  "hwPortLoopDetectProtocol": {
+    "class": "objecttype",
+    "description": "The ethernet type of the detecting packet to port external loopback detection.",
+    "maxaccess": "read-write",
+    "name": "hwPortLoopDetectProtocol",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.7.1.7",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 2,
+            "min": 2
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPortLoopDetectRecoveryTime": {
+    "class": "objecttype",
+    "description": "The detect period of port external loopback detection, the default value is 0.",
+    "maxaccess": "read-write",
+    "name": "hwPortLoopDetectRecoveryTime",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.7.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "Integer32"
+    }
+  },
+  "hwPortLoopDetectStatus": {
+    "class": "objecttype",
+    "description": "The current status of port(normal/blocking/shutdown/trap/noLearning).",
+    "maxaccess": "read-only",
+    "name": "hwPortLoopDetectStatus",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.7.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blocking": 2,
+          "noLearning": 5,
+          "normal": 1,
+          "shutdown": 3,
+          "trap": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "hwPortLoopDetectTable": {
+    "class": "objecttype",
+    "description": "A table containing the port external loopback detection information for device. It can protect the port from external loopback.",
+    "maxaccess": "not-accessible",
+    "name": "hwPortLoopDetectTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.7",
+    "status": "current"
+  },
+  "hwPortLoopDetectVlanHigh": {
+    "class": "objecttype",
+    "description": "The highest value of the vlan list for detecting loop.",
+    "maxaccess": "read-write",
+    "name": "hwPortLoopDetectVlanHigh",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.7.1.9",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 256,
+            "min": 256
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "hwPortLoopDetectVlanLow": {
+    "class": "objecttype",
+    "description": "The lowest value of the vlan list for detecting loop.",
+    "maxaccess": "read-write",
+    "name": "hwPortLoopDetectVlanLow",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.5.25.174.1.1.7.1.8",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 256,
+            "min": 256
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "imports": {
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "Bits",
+      "Counter64",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/HUAWEI-LDT-MIB",
+      "Produced by pysmi-1.3.3 at Sun Mar 10 14:47:57 2024",
+      "On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm",
+      "Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]"
+    ],
+    "module": "HUAWEI-LDT-MIB"
+  }
+}
