@@ -38,7 +38,7 @@ def new_rst_files():
 
     for file in asn1_files:
         # Check if the corresponding .py file exists
-        py_file = os.path.join("../pysnmp", os.path.basename(file))
+        py_file = os.path.join("../pysnmp", os.path.splitext(os.path.basename(file))[0] + ".py")
         if not os.path.exists(py_file):
             continue
 
