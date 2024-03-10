@@ -47,15 +47,15 @@ def new_rst_files():
         with open(f"./mibs/{metadata_module}.rst", 'w') as rst_file:
             rst_file.write(rst_content)
 
-        print(f"Created {metadata_module}.rst")
-
 # Delete all files in the mibs folder
 files = glob.glob('./mibs/*')
 for file in files:
     os.remove(file)
 
-# Call the function
 new_rst_files()
 
-# Usage example:
+print("New .rst files created")
+
 new_toc()
+
+print("index.rst updated")
