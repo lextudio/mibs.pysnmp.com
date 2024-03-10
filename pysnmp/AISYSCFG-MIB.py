@@ -1,4 +1,4 @@
-"""SNMP MIB module (INTERNETSERVER-MIB) expressed in pysnmp data model.
+"""SNMP MIB module (AISYSCFG-MIB) expressed in pysnmp data model.
 
 This Python module is designed to be imported and executed by the
 pysnmp library.
@@ -7,8 +7,8 @@ See https://www.pysnmp.com/pysnmp for further information.
 
 Notes
 -----
-ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/INTERNETSERVER-MIB
-Produced by pysmi-1.3.3 at Sun Mar 10 03:43:53 2024
+ASN.1 source file:///Users/lextm/pysnmp.com/mibs.pysnmp.com/asn1/AISYSCFG-MIB
+Produced by pysmi-1.3.3 at Sun Mar 10 01:53:51 2024
 On host MacBook-Pro.local platform Darwin version 23.4.0 by user lextm
 Using Python version 3.12.0 (main, Nov 14 2023, 23:52:11) [Clang 15.0.0 (clang-1500.0.40.1)]
 """
@@ -45,64 +45,82 @@ if 'mibBuilder' not in globals():
 
 # Import SMI symbols from the MIBs this MIB depends on
 
-(microsoft,
- software) = mibBuilder.importSymbols(
-    "MSFT-MIB",
-    "microsoft",
-    "software")
-
-(NotificationGroup,
- ModuleCompliance) = mibBuilder.importSymbols(
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
     "SNMPv2-CONF",
-    "NotificationGroup",
-    "ModuleCompliance")
+    "ModuleCompliance",
+    "NotificationGroup")
 
-(Unsigned32,
+(enterprises,
+ Unsigned32,
+ Integer32,
+ ModuleIdentity,
+ iso,
+ Gauge32,
  MibScalar,
  MibTable,
  MibTableRow,
  MibTableColumn,
- MibIdentifier,
- Integer32,
- Bits,
- iso,
- NotificationType,
- Gauge32,
- Counter64,
- TimeTicks,
- Counter32,
- ObjectIdentity,
  IpAddress,
- ModuleIdentity,
- enterprises) = mibBuilder.importSymbols(
+ ObjectIdentity,
+ Counter64,
+ MibIdentifier,
+ TimeTicks,
+ Bits,
+ NotificationType,
+ Counter32) = mibBuilder.importSymbols(
     "SNMPv2-SMI",
+    "enterprises",
     "Unsigned32",
+    "Integer32",
+    "ModuleIdentity",
+    "iso",
+    "Gauge32",
     "MibScalar",
     "MibTable",
     "MibTableRow",
     "MibTableColumn",
-    "MibIdentifier",
-    "Integer32",
-    "Bits",
-    "iso",
-    "NotificationType",
-    "Gauge32",
-    "Counter64",
-    "TimeTicks",
-    "Counter32",
-    "ObjectIdentity",
     "IpAddress",
-    "ModuleIdentity",
-    "enterprises")
+    "ObjectIdentity",
+    "Counter64",
+    "MibIdentifier",
+    "TimeTicks",
+    "Bits",
+    "NotificationType",
+    "Counter32")
 
-(TextualConvention,
- DisplayString) = mibBuilder.importSymbols(
+(DisplayString,
+ TextualConvention) = mibBuilder.importSymbols(
     "SNMPv2-TC",
-    "TextualConvention",
-    "DisplayString")
+    "DisplayString",
+    "TextualConvention")
 
 
 # MODULE-IDENTITY
+
+aiSysCfg = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 539, 32)
+)
+
+aiSysCfgSoftware = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 539, 32, 1)
+)
+
+aiSysCfgTime = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 539, 32, 2)
+)
+
+aiSysCfgPower = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 539, 32, 3)
+)
+
+aiSysCfgFan = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 539, 32, 4)
+)
+
+aiSysCfgTemp = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 539, 32, 5)
+)
 
 
 # Types definitions
@@ -114,17 +132,9 @@ if 'mibBuilder' not in globals():
 
 # MIB Managed Objects in the order of their OIDs
 
-_InternetServer_ObjectIdentity = ObjectIdentity
-internetServer = _InternetServer_ObjectIdentity(
-    (1, 3, 6, 1, 4, 1, 311, 1, 7)
-)
-_InetSrvCommon_ObjectIdentity = ObjectIdentity
-inetSrvCommon = _InetSrvCommon_ObjectIdentity(
-    (1, 3, 6, 1, 4, 1, 311, 1, 7, 1)
-)
-_InetSrvStats_ObjectIdentity = ObjectIdentity
-inetSrvStats = _InetSrvStats_ObjectIdentity(
-    (1, 3, 6, 1, 4, 1, 311, 1, 7, 1, 1)
+_Aii_ObjectIdentity = ObjectIdentity
+aii = _Aii_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 539)
 )
 
 # Managed Objects groups
@@ -145,8 +155,12 @@ inetSrvStats = _InetSrvStats_ObjectIdentity(
 # Export all MIB objects to the MIB builder
 
 mibBuilder.exportSymbols(
-    "INTERNETSERVER-MIB",
-    **{"internetServer": internetServer,
-       "inetSrvCommon": inetSrvCommon,
-       "inetSrvStats": inetSrvStats}
+    "AISYSCFG-MIB",
+    **{"aii": aii,
+       "aiSysCfg": aiSysCfg,
+       "aiSysCfgSoftware": aiSysCfgSoftware,
+       "aiSysCfgTime": aiSysCfgTime,
+       "aiSysCfgPower": aiSysCfgPower,
+       "aiSysCfgFan": aiSysCfgFan,
+       "aiSysCfgTemp": aiSysCfgTemp}
 )
