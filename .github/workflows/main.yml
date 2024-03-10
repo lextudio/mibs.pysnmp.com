@@ -13,6 +13,7 @@ jobs:
           python-version: 3.11
       - name: Build
         run: |
+          pip install pipenv
           pipenv install
           cd docs
           pipenv run python prepare.py
