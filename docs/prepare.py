@@ -37,6 +37,11 @@ def new_rst_files():
         os.makedirs('./mibs')
 
     for file in asn1_files:
+        # Check if the corresponding .py file exists
+        py_file = os.path.join("../pysnmp", os.path.basename(file))
+        if not os.path.exists(py_file):
+            continue
+
         # Set the metadata.module variable to the file name (without the directory)
         metadata_module = os.path.splitext(os.path.basename(file))[0]
 
