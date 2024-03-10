@@ -32,6 +32,10 @@ def new_rst_files():
     with open("./page.rst.txt", 'r') as file:
         template_content = file.read()
 
+    # Create the mibs directory if it does not exist
+    if not os.path.exists('./mibs'):
+        os.makedirs('./mibs')
+
     for file in asn1_files:
         # Set the metadata.module variable to the file name (without the directory)
         metadata_module = os.path.splitext(os.path.basename(file))[0]
