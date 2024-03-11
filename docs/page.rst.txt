@@ -1,22 +1,19 @@
 {{ metadata.module }}
-=================================================
+=================================================================================
 
-The original MIB document is,
-
-.. literalinclude:: ../asn1/{{ metadata.module }}
-    :language: asn1
+The original MIB document can be downloaded from `here <https://mibs.pysnmp.com/asn1/{{ metadata.module }}>`_.
 
 Its compiled Python module is,
 
-.. literalinclude:: ../pysnmp/{{ metadata.module }}.py
+.. literalinclude:: ../../pysnmp/{{ metadata.module }}.py
     :language: python
 
 Its compiled Python module with MIB text is,
 
-.. literalinclude:: ../pysnmp-with-text/{{ metadata.module }}.py
+.. literalinclude:: ../../pysnmp-with-texts/{{ metadata.module }}.py
     :language: python
 
 Its compiled JSON file is,
 
-.. literalinclude:: ../json/{{ metadata.module }}.json
+.. literalinclude:: ../../json/{{ metadata.module }}.json
     :language: json

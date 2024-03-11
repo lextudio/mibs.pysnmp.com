@@ -8,7 +8,7 @@ def new_toc(path = "./mibs"):
     rst_files = [file for file in rst_files if 'index.rst' not in file]
 
     # Format the filenames for the toctree
-    rst_file_names = ["   " + os.path.splitext(os.path.basename(file))[0] for file in rst_files]
+    rst_file_names = ["   " + os.path.splitext(os.path.basename(file))[0] + "\n" for file in sorted(rst_files)]
 
     # Read the current contents of index.rst
     with open("index.rst.txt", 'r') as file:
@@ -18,11 +18,11 @@ def new_toc(path = "./mibs"):
     line_number = next(i for i, line in enumerate(index_content) if '.. toctree::' in line)
 
     # Insert the filenames into the index.rst content
-    updated_content = index_content[0:line_number+2] + rst_file_names + index_content[line_number+2:]
+    updated_content = index_content[0:line_number+3] + rst_file_names + index_content[line_number+4:]
 
     # Write the updated content back to index.rst
     with open(os.path.join(path, "index.rst"), 'w') as file:
-        file.write('\n'.join(updated_content))
+        file.write(''.join(updated_content))
 
 def new_rst_files():
     # Get all files in the ..\asn1 directory
